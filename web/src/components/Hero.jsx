@@ -107,7 +107,7 @@ export const Hero = () => {
               <img
                 data-testid="hero-photo"
                 src={ASSETS.profilePortrait}
-                alt="Ikrame I. H. — editorial portrait"
+                alt="Ikrame I. H. — portrait"
                 className="w-full h-full object-cover object-top"
                 loading="eager"
               />
