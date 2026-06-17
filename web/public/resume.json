@@ -1,0 +1,102 @@
+{
+  "$schema": "https://jsonresume.org/schema/",
+  "basics": {
+    "name": "Ikrame I. H.",
+    "label": "Web Developer",
+    "email": "ikihga2223@gmail.com",
+    "phone": "+34 682 02 76 93",
+    "url": "https://ikrame.dev",
+    "location": { "city": "Málaga", "countryCode": "ES" },
+    "summary": "Operations background evolving into software engineering. Combines business process depth with web development skills. Open to frontend or backend roles — not full stack."
+  },
+  "work": [
+    {
+      "name": "DATA CONTROL",
+      "position": "Web Developer Intern",
+      "startDate": "2026-03",
+      "summary": "Web development and client-facing sites."
+    },
+    {
+      "name": "EY Global Delivery Services",
+      "position": "Executive Assistant",
+      "startDate": "2025-02",
+      "endDate": "2026-03",
+      "highlights": [
+        "Executive visit coordination and stakeholder communication.",
+        "Internal Power Apps for event workflow automation.",
+        "Travel logistics and Concur expense reporting."
+      ]
+    },
+    {
+      "name": "EC Azafatas",
+      "position": "Brand Ambassador",
+      "startDate": "2026-02",
+      "endDate": "2026-02",
+      "summary": "Product tastings and booth logistics in high-traffic events."
+    },
+    {
+      "name": "Conciencia Fundraising",
+      "position": "Accounting & Operations Admin",
+      "startDate": "2024-11",
+      "endDate": "2024-12",
+      "highlights": [
+        "Asana, Notion, Slack, Looker, Factorial.",
+        "Donor reporting and cost accounting."
+      ]
+    },
+    {
+      "name": "Sylvis Profesional Cosmetic",
+      "position": "Admin Assistant",
+      "startDate": "2024-03",
+      "endDate": "2024-10",
+      "highlights": ["Bank reconciliation", "Import invoice tracking in Excel"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Postgraduate programme (ESP)",
+      "studyType": "Postgraduate",
+      "area": "AI & Big Data",
+      "startDate": "2026-09"
+    },
+    {
+      "institution": "CESUR Este, Málaga",
+      "studyType": "Higher Diploma",
+      "area": "Web Application Development (DAW)",
+      "startDate": "2024-09",
+      "endDate": "2026-06"
+    },
+    {
+      "institution": "I.E.S. Politécnico Jesús Marín",
+      "studyType": "Vocational Diploma",
+      "area": "Administrative Management — Honours",
+      "endDate": "2024-06"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Frontend",
+      "keywords": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]
+    },
+    {
+      "name": "Backend",
+      "keywords": ["Python", "FastAPI", "PostgreSQL", "REST APIs"]
+    },
+    {
+      "name": "Operations & Data",
+      "keywords": ["Looker", "Notion", "Asana", "Factorial", "Excel"]
+    }
+  ],
+  "languages": [
+    { "language": "Spanish", "fluency": "Native" },
+    { "language": "English", "fluency": "C1" },
+    { "language": "Darija", "fluency": "Native" }
+  ],
+  "projects": [
+    {
+      "name": "Live Event Radar",
+      "url": "https://github.com/ikrame-ih/live-event-radar",
+      "description": "Real-time event telemetry dashboard — Next.js, Zustand, Web Workers."
+    }
+  ]
+}

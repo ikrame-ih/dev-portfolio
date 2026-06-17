@@ -1,0 +1,18 @@
+# Local-only (Obsidian workspace — not pushed to GitHub)
+app/
+docs/
+references/
+
+# Web app
+web/node_modules/
+web/dist/
+web/.env
+web/.env.*
+!web/.env.example
+
+# OS & editor
+.DS_Store
+Thumbs.db
+*.local
+.vscode/
+.idea/
