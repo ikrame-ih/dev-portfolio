@@ -12,7 +12,6 @@ const shots = [
   { name: "cv-projects", selector: "#projects" },
   { name: "interests-vault", selector: "#blog" },
   { name: "guestbook-contact", selector: "#garden" },
-  { name: "full-page", fullPage: true },
 ];
 
 await mkdir(outDir, { recursive: true });
@@ -24,13 +23,6 @@ await page.goto(baseUrl, { waitUntil: "networkidle" });
 await page.waitForTimeout(2500);
 
 for (const shot of shots) {
-  if (shot.fullPage) {
-    await page.evaluate(() => window.scrollTo(0, 0));
-    await page.waitForTimeout(400);
-    await page.screenshot({ path: path.join(outDir, `${shot.name}.png`), fullPage: true });
-    continue;
-  }
-
   const el = page.locator(shot.selector).first();
   await el.scrollIntoViewIfNeeded();
   await page.waitForTimeout(900);
