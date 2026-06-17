@@ -25,7 +25,8 @@ const parseQuoted = (str) => {
   const out = [];
   const re = /"([^"]*)"|(\S+)/g;
   let m;
-  while ((m = re.exec(str)) !== null) out.push(m[1] !== undefined ? m[1] : m[2]);
+  while ((m = re.exec(str)) !== null)
+    out.push(m[1] !== undefined ? m[1] : m[2]);
   return out;
 };
 
@@ -95,12 +96,22 @@ export const CLITerminal = ({ open, onClose }) => {
     }
     if (cmd === "cv") {
       onClose();
-      setTimeout(() => document.getElementById("cv")?.scrollIntoView({ behavior: "smooth" }), 200);
+      setTimeout(
+        () =>
+          document.getElementById("cv")?.scrollIntoView({ behavior: "smooth" }),
+        200,
+      );
       return print("Navigating to /cv…");
     }
     if (cmd === "contact") {
       onClose();
-      setTimeout(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }), 200);
+      setTimeout(
+        () =>
+          document
+            .getElementById("contact")
+            ?.scrollIntoView({ behavior: "smooth" }),
+        200,
+      );
       return print("Navigating to /contact…");
     }
     if (cmd.startsWith("guestbook")) {
@@ -108,7 +119,9 @@ export const CLITerminal = ({ open, onClose }) => {
       if (args[0] === "--list" || args.length === 0) {
         const entries = loadGuestbook();
         if (!entries.length) {
-          return print('(empty) be first: guestbook --sign "your_name" "message"');
+          return print(
+            '(empty) be first: guestbook --sign "your_name" "message"',
+          );
         }
         print("── recent signatures ──");
         entries.slice(0, 12).forEach((e) => {
@@ -120,7 +133,8 @@ export const CLITerminal = ({ open, onClose }) => {
       if (args[0] === "--sign") {
         const name = args[1];
         const message = args[2];
-        if (!name || !message) return print('usage: guestbook --sign "name" "message"');
+        if (!name || !message)
+          return print('usage: guestbook --sign "name" "message"');
         saveGuestbookEntry({
           id: `gb_${Date.now()}`,
           name,
@@ -129,7 +143,9 @@ export const CLITerminal = ({ open, onClose }) => {
         });
         return print(`signed as "${name}". thank you.`);
       }
-      return print('usage: guestbook --list  |  guestbook --sign "name" "message"');
+      return print(
+        'usage: guestbook --list  |  guestbook --sign "name" "message"',
+      );
     }
     return print(`command not found: ${cmd}. type 'help'.`);
   };
@@ -203,9 +219,15 @@ export const CLITerminal = ({ open, onClose }) => {
                 close ✕
               </button>
             </div>
-            <div className="h-[60vh] md:h-[420px] overflow-y-auto p-4 leading-relaxed" role="log">
+            <div
+              className="h-[60vh] md:h-[420px] overflow-y-auto p-4 leading-relaxed"
+              role="log"
+            >
               {lines.map((l, i) => (
-                <pre key={`${i}-${l.slice(0, 12)}`} className="whitespace-pre-wrap text-ink">
+                <pre
+                  key={`${i}-${l.slice(0, 12)}`}
+                  className="whitespace-pre-wrap text-ink"
+                >
                   {l}
                 </pre>
               ))}
@@ -216,7 +238,9 @@ export const CLITerminal = ({ open, onClose }) => {
               onMouseDown={(e) => e.stopPropagation()}
               className="border-t border-bone-400 px-4 py-3 flex items-center gap-2"
             >
-              <span className="text-burgundy shrink-0">ikrame@portfolio:~$</span>
+              <span className="text-burgundy shrink-0">
+                ikrame@portfolio:~$
+              </span>
               <input
                 ref={inputRef}
                 data-testid="cli-input"

@@ -1,0 +1,41 @@
+import { chromium } from "playwright";
+import { mkdir } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const outDir = path.join(__dirname, "..", "screenshots");
+const baseUrl = "http://127.0.0.1:4173";
+
+const shots = [
+  { name: "hero", selector: '[data-testid="hero-section"]' },
+  { name: "cv-projects", selector: "#projects" },
+  { name: "interests-vault", selector: "#blog" },
+  { name: "guestbook-contact", selector: "#garden" },
+  { name: "full-page", fullPage: true },
+];
+
+await mkdir(outDir, { recursive: true });
+
+const browser = await chromium.launch();
+const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+
+await page.goto(baseUrl, { waitUntil: "networkidle" });
+await page.waitForTimeout(2500);
+
+for (const shot of shots) {
+  if (shot.fullPage) {
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.waitForTimeout(400);
+    await page.screenshot({ path: path.join(outDir, `${shot.name}.png`), fullPage: true });
+    continue;
+  }
+
+  const el = page.locator(shot.selector).first();
+  await el.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(900);
+  await page.screenshot({ path: path.join(outDir, `${shot.name}.png`), fullPage: false });
+}
+
+await browser.close();
+console.log(`Saved ${shots.length} screenshots to ${outDir}`);
