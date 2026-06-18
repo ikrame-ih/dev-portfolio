@@ -18,11 +18,29 @@ export const ContactSection = () => {
       return;
     }
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 600));
-    setSent(true);
-    toast.success("Message sent — thank you. I'll be in touch soon.");
-    setForm({ name: "", email: "", message: "" });
-    setSubmitting(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        if (data.error === "email_not_configured") {
+          toast.error("Contact form is not configured yet — email me directly.");
+        } else {
+          toast.error("Could not send your message. Try again or email me directly.");
+        }
+        return;
+      }
+      setSent(true);
+      toast.success("Message sent — thank you. I'll be in touch soon.");
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      toast.error("Could not send your message. Try again or email me directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -53,12 +71,9 @@ export const ContactSection = () => {
             </div>
             <div>
               <p className="text-[10px] uppercase tracking-[0.2em] text-ink-mute">Location</p>
-              <span>{PROFILE.location} · open to remote</span>
+              <span>{PROFILE.workPreference}</span>
             </div>
           </div>
-          <p className="mt-10 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute">
-            form delivery via Resend — mocked for now
-          </p>
         </Reveal>
 
         <Reveal as="form" delay={0.1} className="md:col-span-7 space-y-6" onSubmit={onSubmit} data-testid="contact-form">

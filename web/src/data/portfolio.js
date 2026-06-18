@@ -3,9 +3,12 @@ import { ASSETS } from "./assets.js";
 export const PROFILE = {
   name: "Ikrame I. H.",
   location: "Málaga, ES",
+  workPreference: "Available for remote or hybrid opportunities",
   email: "ikihga2223@gmail.com",
   phone: "+34 682 02 76 93",
   github: "https://github.com/ikrame-ih",
+  portfolioRepo: "https://github.com/ikrame-ih/dev-portfolio",
+  linkedin: "https://www.linkedin.com/in/ikrame-ih/",
   overline: "WEB DEVELOPER · FRONTEND · BACKEND",
   headline: "I build software with care for detail",
   headlineAccent: "and the context behind it.",
@@ -19,8 +22,11 @@ export const PROFILE = {
     { em: "equally comfortable on the backend" },
     ". My experience in executive support gave me a deep understanding of business logic before I ever wrote code professionally. That perspective carries through in everything I build — practical tools shaped by real workflows.",
   ],
-  practiceQuote:
-    "Good tools respect the person using them. I picked that up coordinating visits and reconciling accounts long before I touched React.",
+  practiceAside: {
+    title: "At a glance",
+    text:
+      "Finishing DAW (Jun 2026). AI & Big Data postgraduate from Sep 2026. Before development roles: admin and executive support — reconciliation, reporting, and cross-team coordination.",
+  },
 };
 
 export const LANGUAGES = [
@@ -34,13 +40,26 @@ export const STACK = {
     "React",
     "Next.js",
     "TypeScript",
+    "Vite",
     "Tailwind CSS",
     "Framer Motion",
+    "Zustand",
+    "Leaflet",
     "Semantic HTML",
     "CSS Grid / Flexbox",
     "Vitest / Playwright",
   ],
-  backend: ["Python", "FastAPI", "PostgreSQL", "REST APIs", "SQL", "Node.js"],
+  backend: [
+    "Python",
+    "FastAPI",
+    "PostgreSQL",
+    "REST APIs",
+    "SQL",
+    "Node.js",
+    "Java",
+    "dbt",
+    "Dagster",
+  ],
 };
 
 export const EXPERIENCE = [
@@ -178,8 +197,9 @@ export const PROJECTS = [
 export const BENTO = {
   overline: "03 · interests",
   title: "What I unwind with.",
-  titleAccent: "Alongside the day job.",
-  kicker: "Gaming, music, training, reading — the usual recharge list. No tie-in to my CV required.",
+  titleAccent: "When I'm not at the keyboard.",
+  kicker:
+    "A pinboard of what I do off the clock — varied sizes, same calm pace. No tie-in to my CV required.",
   items: [
     {
       key: "gaming",
@@ -199,6 +219,16 @@ export const BENTO = {
       span: "md:col-span-1 md:row-span-2",
       image: ASSETS.interests.music,
       imageAlt: "Voilà — my favourite group",
+      imagePosition: "object-center",
+    },
+    {
+      key: "aesthetics",
+      title: "Skincare & aesthetics",
+      body:
+        "For years now, I've been researching skincare, haircare, and makeup — building routines that improve how I feel day to day, not just how I look.",
+      span: "md:col-span-2 md:row-span-1",
+      image: ASSETS.interests.aesthetics,
+      imageAlt: "Skincare and makeup — personal routines",
       imagePosition: "object-center",
     },
     {
@@ -225,7 +255,7 @@ export const BENTO = {
       title: "Series & anime",
       body:
         "In my free time I catch up on anime, series, and films — whatever pulls me in. Last finished: Breaking Bad.",
-      span: "md:col-span-1 md:row-span-1",
+      span: "md:col-span-2 md:row-span-1",
       image: ASSETS.interests.series,
       imageAlt: "Anime and series — free time watching",
       imagePosition: "object-center",
@@ -275,8 +305,8 @@ export const BLOG = {
 
 export const BOW_BOARD = {
   overline: "05 · guest book",
-  title: "Sign the page.",
-  titleAccent: "If you made it this far.",
+  title: "Thanks for reading.",
+  titleAccent: "Leave a bow on either page.",
   kicker:
     "Thanks for reading. Click anywhere on either page to leave one bow — your signature on the shared book. Click again to move it.",
   emptyState: "No signatures yet. Click a page to leave your bow.",

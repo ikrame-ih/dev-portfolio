@@ -42,7 +42,7 @@ export const CVSection = () => {
             overline="01 · background & skills"
             title={
               <>
-                Experience that shapes how I <em className="not-italic text-burgundy">write code</em>.
+                Skills, roles, and <em className="not-italic text-burgundy">education</em>.
               </>
             }
             kicker="Stack, languages, and the roles behind my work as a web developer."
@@ -163,10 +163,10 @@ export const CVSection = () => {
 
             <div className="mt-12 border border-ink/20 p-6 bg-bone-200">
               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-burgundy mb-3">
-                In practice
+                {PROFILE.practiceAside.title}
               </p>
-              <p className="font-serif italic text-base md:text-lg text-ink leading-snug">
-                &laquo;{PROFILE.practiceQuote}&raquo;
+              <p className="font-mono text-sm text-ink leading-relaxed">
+                {PROFILE.practiceAside.text}
               </p>
             </div>
 

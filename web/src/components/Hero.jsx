@@ -4,7 +4,7 @@ import { PROFILE } from "@/data/portfolio";
 import { ASSETS } from "@/data/assets";
 
 const EASE = [0.2, 0.7, 0.2, 1];
-const STEP_DELAY = [0, 0.4, 0.85, 1.35];
+const STEP_DELAY = [0, 0.4, 0.85, 1.2, 1.55];
 
 const heroStep = (step, reduce) => {
   if (reduce) {
@@ -25,10 +25,16 @@ export const Hero = () => {
   };
 
   return (
-    <section data-testid="hero-section" className="relative min-h-screen pt-32 md:pt-40 pb-24">
+    <section
+      data-testid="hero-section"
+      className="relative min-h-screen pt-32 md:pt-40 pb-24"
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-12 gap-6 md:gap-12 items-start">
         <div className="col-span-12 md:col-span-7 md:pt-12">
-          <motion.div {...heroStep(0, reduce)} className="flex items-center gap-3 mb-8">
+          <motion.div
+            {...heroStep(0, reduce)}
+            className="flex items-center gap-3 mb-8"
+          >
             <span className="hairline w-16" />
             <span
               data-testid="hero-overline"
@@ -43,11 +49,13 @@ export const Hero = () => {
             className="font-serif font-light text-[2.4rem] leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter text-ink"
           >
             <motion.span {...heroStep(1, reduce)} className="block">
-              I build software with{" "}
+              I build software with
+            </motion.span>
+            <motion.span {...heroStep(2, reduce)} className="block">
               <em className="text-burgundy not-italic font-normal">care for detail</em>
             </motion.span>
             <motion.span
-              {...heroStep(2, reduce)}
+              {...heroStep(3, reduce)}
               className="block font-serif italic font-light text-ink-soft"
             >
               {PROFILE.headlineAccent}
@@ -55,7 +63,7 @@ export const Hero = () => {
           </h1>
 
           <motion.p
-            {...heroStep(3, reduce)}
+            {...heroStep(4, reduce)}
             data-testid="hero-positioning"
             className="mt-10 max-w-xl text-sm md:text-base text-ink-soft leading-relaxed"
           >
@@ -70,7 +78,10 @@ export const Hero = () => {
             )}
           </motion.p>
 
-          <motion.div {...heroStep(3, reduce)} className="mt-12 flex flex-wrap items-center gap-4">
+          <motion.div
+            {...heroStep(4, reduce)}
+            className="mt-12 flex flex-wrap items-center gap-4"
+          >
             <button
               type="button"
               data-testid="hero-cta-projects"
@@ -98,7 +109,10 @@ export const Hero = () => {
           </motion.div>
         </div>
 
-        <motion.div {...heroStep(3, reduce)} className="col-span-12 md:col-span-5 md:translate-y-16">
+        <motion.div
+          {...heroStep(4, reduce)}
+          className="col-span-12 md:col-span-5 md:translate-y-16"
+        >
           <div className="relative">
             <div className="absolute -top-6 -left-6 z-10 hidden md:block">
               <Bow size={32} />
@@ -112,15 +126,17 @@ export const Hero = () => {
                 loading="eager"
               />
             </figure>
-            <figcaption className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute">
-              <span>Fig. 01 — portrait</span>
-              <span>Málaga, ES</span>
+            <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute text-right">
+              Málaga, ES
             </figcaption>
           </div>
         </motion.div>
       </div>
 
-      <motion.div {...heroStep(3, reduce)} className="mt-24 md:mt-32 overflow-hidden border-y border-bone-400 py-4 relative">
+      <motion.div
+        {...heroStep(4, reduce)}
+        className="mt-24 md:mt-32 overflow-hidden border-y border-bone-400 py-4 relative"
+      >
         <div className="marquee-track flex gap-12 whitespace-nowrap font-serif italic text-2xl md:text-4xl text-ink/80">
           {Array.from({ length: 6 }).map((_, i) => (
             <span key={i} className="flex items-center gap-12">

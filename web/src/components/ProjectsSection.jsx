@@ -22,11 +22,11 @@ export const ProjectsSection = () => {
           <h2 className="font-serif font-light text-3xl md:text-5xl tracking-tighter text-ink">
             Projects I have built
             <br />
-            <em className="not-italic text-burgundy">and what I learned.</em>
+            <em className="not-italic text-burgundy">and what I'm learning.</em>
           </h2>
           <p className="mt-4 font-mono text-xs text-ink-mute max-w-xl">
-            Architecture diagrams and a quick read on what each project shows — how I think, not just
-            what I shipped.
+            Architecture diagrams and a short read on each project — what it does and what I'm still
+            figuring out.
           </p>
         </Reveal>
 

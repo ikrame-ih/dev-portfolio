@@ -18,13 +18,13 @@ import { PROFILE } from "@/data/portfolio";
 
 const OrnamentDivider = () => (
   <Reveal y={12}>
-  <div className="max-w-7xl mx-auto px-6 md:px-12">
-    <div className="relative h-px bg-ink/20 my-0">
-      <div className="absolute left-1/2 -translate-x-1/2 -top-3 bg-bone px-3">
-        <Bow size={18} />
+    <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="relative h-px bg-ink/20 my-0">
+        <div className="absolute left-1/2 -translate-x-1/2 -top-3 bg-bone px-3">
+          <Bow size={18} />
+        </div>
       </div>
     </div>
-  </div>
   </Reveal>
 );
 
@@ -50,18 +50,25 @@ export default function App() {
     name: PROFILE.name,
     email: `mailto:${PROFILE.email}`,
     telephone: PROFILE.phone,
-    address: { "@type": "PostalAddress", addressLocality: "Málaga", addressCountry: "ES" },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Málaga",
+      addressCountry: "ES",
+    },
     jobTitle: "Web Developer",
     description: PROFILE.positioning,
     knowsLanguage: ["en", "es", "ar"],
     knowsAbout: ["React", "Next.js", "FastAPI", "Python", "Tailwind CSS"],
     url: "https://ikrame.dev",
-    sameAs: [PROFILE.github],
+    sameAs: [PROFILE.github, PROFILE.linkedin],
   };
 
   return (
     <div className="App grain relative bg-bone min-h-screen">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
 
       <Nav onOpenTerminal={() => setCliOpen(true)} />
       <main>

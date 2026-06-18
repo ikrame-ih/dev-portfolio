@@ -1,6 +1,6 @@
 # dev-portfolio
 
-My personal portfolio — single-page site built with React, Vite, and Tailwind. Cream paper aesthetic, CV & projects up front, interests, writing vault, interactive guest book, and a hidden CLI.
+My personal portfolio — single-page site built with React, Vite, and Tailwind. Cream paper aesthetic, CV & projects up front, interests, **Tizza's vault** teaser, interactive guest book, and a hidden CLI.
 
 [![Live on Vercel](https://img.shields.io/badge/Live-Vercel-black?style=for-the-badge&logo=vercel&logoColor=white)](https://ikrame-ih.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-dev--portfolio-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ikrame-ih/dev-portfolio)
@@ -27,7 +27,7 @@ Background, stack pills, selected work cards with architecture diagrams.
 
 ### Interests & vault
 
-Bento grid with hobby imagery and **Tizza's vault** (blog placeholders).
+Bento grid with hobby imagery and **Tizza's vault** (coming soon overlay).
 
 ![Interests and vault](web/screenshots/interests-vault.png)
 
@@ -45,12 +45,12 @@ Shared signature spread — click anywhere on either page to leave a bow.
 | ------- | ---------- |
 | **Hero** | Staged Framer Motion intro (~2s), portrait, scrolling marquee |
 | **CV** | Experience, education, languages, stack pills with icons |
-| **Projects** | Cards + Mermaid architecture modals |
+| **Projects** | Cards + Mermaid architecture modals (lazy-loaded) |
 | **Interests** | Bento grid with hobby imagery |
-| **Vault** | Personal writing section (placeholders → future Obsidian sync) |
+| **Vault** | Tizza's vault teaser — full blog coming at tizzasvault.blog |
 | **Guest book** | Click-to-sign bow spread, shared via Upstash Redis in production |
 | **CLI** | Hidden terminal (`Terminal` nav · `` Ctrl+` ``) |
-| **Contact** | Form UI (email delivery on roadmap) |
+| **Contact** | Form → Resend API → your inbox |
 
 ---
 
@@ -59,6 +59,7 @@ Shared signature spread — click anywhere on either page to leave a bow.
 ```bash
 cd web
 npm install
+cp .env.example .env   # fill in keys for guest book + contact (optional locally)
 npm run dev
 ```
 
@@ -71,6 +72,22 @@ npm run preview  # serve dist locally
 
 ---
 
+## Production environment (Vercel)
+
+Root directory: **`web/`**
+
+| Variable | Used by |
+| -------- | ------- |
+| `UPSTASH_REDIS_REST_URL` | Guest book (`/api/bows`) |
+| `UPSTASH_REDIS_REST_TOKEN` | Guest book |
+| `RESEND_API_KEY` | Contact form (`/api/contact`) |
+| `CONTACT_TO_EMAIL` | Your inbox for form submissions |
+| `CONTACT_FROM_EMAIL` | Optional verified sender in Resend |
+
+Without Redis, guest book falls back gracefully. Without Resend, the contact form shows a clear error and visitors can still email you directly.
+
+---
+
 ## Content
 
 | What | Where |
@@ -79,6 +96,7 @@ npm run preview  # serve dist locally
 | Images | `web/public/images/` · registry in `web/src/data/assets.js` |
 | Resume (JSON) | `web/public/resume.json` |
 | Guest book API | `web/api/bows.js` |
+| Contact API | `web/api/contact.js` |
 
 ---
 

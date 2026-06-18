@@ -54,6 +54,49 @@
   }
 }
 
+/* --- Interests pinboard (Grid Lanes when supported) --- */
+
+.bento-lanes {
+  grid-auto-flow: dense;
+}
+
+@supports (display: grid-lanes) {
+  .bento-lanes {
+    display: grid-lanes;
+    grid-lanes: waterfall;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    grid-auto-flow: unset;
+    grid-auto-rows: unset;
+  }
+
+  .bento-item--gaming {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .bento-item--music {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+
+  .bento-item--aesthetics {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .bento-item--training,
+  .bento-item--reading {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .bento-item--series {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+}
+
 /* --- Guest book spread --- */
 
 .guestbook-spread {
@@ -268,6 +311,19 @@
 
 .footer-inverse .footer-muted {
   color: #d8d1c7;
+}
+
+.footer-inverse .footer-link {
+  color: #f5f1eb;
+  text-decoration: underline;
+  text-decoration-color: rgba(245, 241, 235, 0.45);
+  text-underline-offset: 3px;
+  transition: color 200ms ease, text-decoration-color 200ms ease;
+}
+
+.footer-inverse .footer-link:hover {
+  color: #ffffff;
+  text-decoration-color: #f5f1eb;
 }
 
 .footer-inverse .lnk::after {
