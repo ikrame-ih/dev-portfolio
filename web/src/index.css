@@ -52,19 +52,10 @@
   textarea {
     cursor: text;
   }
-}
 
-/* --- Tizza's Vault intro — hang lines 2+ at "vault" t --- */
-
-.blog-vault-intro {
-  padding-left: 9.25rem;
-  text-indent: -9.25rem;
-}
-
-@media (min-width: 768px) {
-  .blog-vault-intro {
-    padding-left: 11.125rem;
-    text-indent: -11.125rem;
+  :focus-visible {
+    outline: 2px solid #4a0e0e;
+    outline-offset: 3px;
   }
 }
 
@@ -141,7 +132,9 @@
   position: relative;
   flex: 1;
   background: rgb(var(--bone));
-  cursor: url("/images/cursor-bow.svg") 16 16, crosshair;
+  cursor:
+    url("/images/cursor-bow.svg") 16 16,
+    crosshair;
 }
 
 .guestbook-page-texture {
@@ -221,7 +214,9 @@
 }
 
 .bow-cursor-canvas {
-  cursor: url("/images/cursor-bow.svg") 16 16, crosshair;
+  cursor:
+    url("/images/cursor-bow.svg") 16 16,
+    crosshair;
 }
 
 .grain::before {
@@ -312,6 +307,16 @@
   will-change: transform;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+
+  .caret::after {
+    animation: none;
+  }
+}
+
 .mermaid svg {
   background: transparent !important;
   max-width: 100%;
@@ -332,7 +337,9 @@
   text-decoration: underline;
   text-decoration-color: rgba(245, 241, 235, 0.45);
   text-underline-offset: 3px;
-  transition: color 200ms ease, text-decoration-color 200ms ease;
+  transition:
+    color 200ms ease,
+    text-decoration-color 200ms ease;
 }
 
 .footer-inverse .footer-link:hover {

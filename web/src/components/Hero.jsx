@@ -49,9 +49,10 @@ export const Hero = () => {
             className="font-serif font-light text-[2.4rem] leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter text-ink"
           >
             <motion.span {...heroStep(1, reduce)} className="block">
-              I build software with
+              I build software
             </motion.span>
             <motion.span {...heroStep(2, reduce)} className="block">
+              with{" "}
               <em className="text-burgundy not-italic font-normal">care for detail</em>
             </motion.span>
             <motion.span

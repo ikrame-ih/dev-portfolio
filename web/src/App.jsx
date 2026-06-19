@@ -58,8 +58,16 @@ export default function App() {
     jobTitle: "Web Developer",
     description: PROFILE.positioning,
     knowsLanguage: ["en", "es", "ar"],
-    knowsAbout: ["React", "Next.js", "FastAPI", "Python", "Tailwind CSS"],
-    url: "https://ikrame.dev",
+    knowsAbout: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "FastAPI",
+      "Python",
+      "Tailwind CSS",
+      "PostgreSQL",
+    ],
+    url: PROFILE.siteUrl,
     sameAs: [PROFILE.github, PROFILE.linkedin],
   };
 

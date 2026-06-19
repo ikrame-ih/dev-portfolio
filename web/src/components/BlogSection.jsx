@@ -14,8 +14,8 @@ export const BlogSection = () => {
       className="relative py-24 md:py-32 bg-bone-200"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-          <Reveal className="md:col-span-4">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
+          <Reveal className="md:col-span-5">
             <div className="flex items-center gap-3 mb-8">
               <Bow size={14} />
               <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft">
@@ -23,9 +23,9 @@ export const BlogSection = () => {
               </span>
             </div>
 
-            <div className="flex items-start gap-5 mb-6">
-              <div className="shrink-0">
-                <div className="w-16 h-16 md:w-20 md:h-20 border border-ink/20 bg-bone overflow-hidden">
+            <div className="flex items-start gap-5 mb-8">
+              <div>
+                <div className="shrink-0 w-16 h-16 md:w-20 md:h-20 border border-ink/20 bg-bone overflow-hidden">
                   {avatarOk ? (
                     <img
                       src={BLOG.avatar}
@@ -53,7 +53,7 @@ export const BlogSection = () => {
                   </p>
                 )}
               </div>
-              <div className="pt-1 min-w-0">
+              <div className="pt-1">
                 <p className="font-serif text-2xl md:text-3xl text-ink tracking-tight">
                   Tizza<span className="text-burgundy">&apos;</span>s vault
                 </p>
@@ -63,15 +63,12 @@ export const BlogSection = () => {
               </div>
             </div>
 
-            <p
-              data-testid="blog-intro"
-              className="blog-vault-intro font-mono text-xs text-ink-soft leading-relaxed"
-            >
+            <p className="font-mono text-xs text-ink-soft max-w-md leading-relaxed text-pretty">
               {BLOG.intro}
             </p>
           </Reveal>
 
-          <div className="md:col-span-8 relative space-y-2 md:pt-16 min-h-[440px]">
+          <div className="md:col-span-7 relative space-y-2 md:pt-16 min-h-[420px]">
             {BLOG.posts.map((post, idx) => (
               <motion.div
                 key={post.slug}
@@ -94,20 +91,17 @@ export const BlogSection = () => {
                 <h3 className="font-serif text-xl md:text-2xl text-ink leading-snug">
                   {post.title}
                 </h3>
-                <p className="mt-2 font-mono text-xs md:text-sm text-ink-soft leading-relaxed">
+                <p className="mt-2 font-mono text-xs md:text-sm text-ink-soft leading-relaxed max-w-2xl">
                   {post.excerpt}
                 </p>
               </motion.div>
             ))}
             <div className="border-t border-ink/20" />
-            <p className="pt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute">
-              {BLOG.syncNote}
-            </p>
 
             {BLOG.comingSoon && (
               <div
                 data-testid="blog-coming-soon"
-                className="absolute inset-0 z-10 flex items-center justify-center bg-gradient-to-b from-bone-200/35 via-bone/58 to-bone-200/72 backdrop-blur-[2px] border border-ink/10"
+                className="absolute inset-0 z-10 flex items-center justify-center bg-gradient-to-b from-bone-200/55 via-bone/82 to-bone-200/90 backdrop-blur-[3px] border border-ink/10"
                 aria-hidden="true"
               >
                 <div className="text-center px-8 py-10 max-w-sm">

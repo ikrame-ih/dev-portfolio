@@ -9,6 +9,7 @@ export const PROFILE = {
   github: "https://github.com/ikrame-ih",
   portfolioRepo: "https://github.com/ikrame-ih/dev-portfolio",
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
+  siteUrl: "https://ikrame-ih.vercel.app",
   overline: "WEB DEVELOPER · FRONTEND · BACKEND",
   headline: "I build software with care for detail",
   headlineAccent: "and the context behind it.",
@@ -276,7 +277,6 @@ export const BLOG = {
   intro:
     "A collection of things from my corner of the internet — development, things I'm learning, music, anime, and whatever else catches my interest. More than a technical blog, this is a personal space to explore ideas, share the things I enjoy, and give myself room to create, experiment, and have fun.",
   comingSoon: true,
-  syncNote: "More soon — posts written in my vault, published here",
   posts: [
     {
       slug: "planning-first",

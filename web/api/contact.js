@@ -8,7 +8,8 @@ export default async function handler(req, res) {
 
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL;
-  const from = process.env.CONTACT_FROM_EMAIL || "Portfolio <onboarding@resend.dev>";
+  const from =
+    process.env.CONTACT_FROM_EMAIL || "Portfolio <onboarding@resend.dev>";
 
   if (!apiKey || !to) {
     return res.status(503).json({ error: "email_not_configured" });

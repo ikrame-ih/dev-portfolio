@@ -1,6 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import MermaidDiagram from "./MermaidDiagram";
+
+const MermaidDiagram = lazy(() => import("./MermaidDiagram"));
+
+const DiagramFallback = () => (
+  <p className="font-mono text-xs text-ink-mute py-8 text-center">
+    Loading diagram…
+  </p>
+);
 
 export const ArchitectureModal = ({ project, onClose }) => {
   useEffect(() => {
@@ -51,7 +58,9 @@ export const ArchitectureModal = ({ project, onClose }) => {
               </button>
             </div>
             <div className="border border-bone-400 p-4 bg-bone-100">
-              <MermaidDiagram chart={project.mermaid} id={project.id} />
+              <Suspense fallback={<DiagramFallback />}>
+                <MermaidDiagram chart={project.mermaid} id={project.id} />
+              </Suspense>
             </div>
           </motion.div>
         </motion.div>
