@@ -54,6 +54,20 @@
   }
 }
 
+/* --- Tizza's Vault intro — hang lines 2+ at "vault" t --- */
+
+.blog-vault-intro {
+  padding-left: 9.25rem;
+  text-indent: -9.25rem;
+}
+
+@media (min-width: 768px) {
+  .blog-vault-intro {
+    padding-left: 11.125rem;
+    text-indent: -11.125rem;
+  }
+}
+
 /* --- Interests pinboard (Grid Lanes when supported) --- */
 
 .bento-lanes {

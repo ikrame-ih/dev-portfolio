@@ -8,10 +8,14 @@ export const BlogSection = () => {
   const [avatarOk, setAvatarOk] = useState(true);
 
   return (
-    <section id="blog" data-testid="blog-section" className="relative py-24 md:py-32 bg-bone-200">
+    <section
+      id="blog"
+      data-testid="blog-section"
+      className="relative py-24 md:py-32 bg-bone-200"
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
-          <Reveal className="md:col-span-5">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+          <Reveal className="md:col-span-4">
             <div className="flex items-center gap-3 mb-8">
               <Bow size={14} />
               <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft">
@@ -19,9 +23,9 @@ export const BlogSection = () => {
               </span>
             </div>
 
-            <div className="flex items-start gap-5 mb-8">
-              <div>
-                <div className="shrink-0 w-16 h-16 md:w-20 md:h-20 border border-ink/20 bg-bone overflow-hidden">
+            <div className="flex items-start gap-5 mb-6">
+              <div className="shrink-0">
+                <div className="w-16 h-16 md:w-20 md:h-20 border border-ink/20 bg-bone overflow-hidden">
                   {avatarOk ? (
                     <img
                       src={BLOG.avatar}
@@ -49,7 +53,7 @@ export const BlogSection = () => {
                   </p>
                 )}
               </div>
-              <div className="pt-1">
+              <div className="pt-1 min-w-0">
                 <p className="font-serif text-2xl md:text-3xl text-ink tracking-tight">
                   Tizza<span className="text-burgundy">&apos;</span>s vault
                 </p>
@@ -59,41 +63,66 @@ export const BlogSection = () => {
               </div>
             </div>
 
-            <p className="font-mono text-xs text-ink-soft max-w-md leading-relaxed">{BLOG.intro}</p>
+            <p
+              data-testid="blog-intro"
+              className="blog-vault-intro font-mono text-xs text-ink-soft leading-relaxed"
+            >
+              {BLOG.intro}
+            </p>
           </Reveal>
 
-          <div className="md:col-span-7 space-y-2 md:pt-16">
+          <div className="md:col-span-8 relative space-y-2 md:pt-16 min-h-[440px]">
             {BLOG.posts.map((post, idx) => (
-              <motion.button
+              <motion.div
                 key={post.slug}
-                type="button"
+                role="presentation"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={REVEAL_VIEWPORT}
                 transition={revealTransition(idx * 0.07)}
                 data-testid={`blog-post-${post.slug}`}
-                className="group block w-full text-left border-t border-ink/20 py-6 hover:bg-bone-100 transition-colors"
+                className="block w-full text-left border-t border-ink/20 py-6"
               >
                 <div className="flex items-baseline justify-between gap-4 mb-2">
                   <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-burgundy">
                     {post.kind} · {post.date}
                   </span>
-                  <span className="font-mono text-xs text-ink-mute group-hover:text-burgundy transition-colors">
+                  <span className="font-mono text-xs text-ink-mute">
                     soon →
                   </span>
                 </div>
-                <h3 className="font-serif text-xl md:text-2xl text-ink group-hover:text-burgundy transition-colors leading-snug">
+                <h3 className="font-serif text-xl md:text-2xl text-ink leading-snug">
                   {post.title}
                 </h3>
-                <p className="mt-2 font-mono text-xs md:text-sm text-ink-soft leading-relaxed max-w-2xl">
+                <p className="mt-2 font-mono text-xs md:text-sm text-ink-soft leading-relaxed">
                   {post.excerpt}
                 </p>
-              </motion.button>
+              </motion.div>
             ))}
             <div className="border-t border-ink/20" />
             <p className="pt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute">
               {BLOG.syncNote}
             </p>
+
+            {BLOG.comingSoon && (
+              <div
+                data-testid="blog-coming-soon"
+                className="absolute inset-0 z-10 flex items-center justify-center bg-gradient-to-b from-bone-200/35 via-bone/58 to-bone-200/72 backdrop-blur-[2px] border border-ink/10"
+                aria-hidden="true"
+              >
+                <div className="text-center px-8 py-10 max-w-sm">
+                  <div className="inline-flex items-center gap-3 mb-3">
+                    <Bow size={16} />
+                    <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-ink">
+                      Coming soon
+                    </span>
+                  </div>
+                  <p className="font-mono text-xs text-ink-soft leading-relaxed">
+                    Written in my vault · publishing here next
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

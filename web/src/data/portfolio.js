@@ -12,7 +12,8 @@ export const PROFILE = {
   overline: "WEB DEVELOPER · FRONTEND · BACKEND",
   headline: "I build software with care for detail",
   headlineAccent: "and the context behind it.",
-  tagline: "Web developer · finishing DAW · AI & Big Data postgraduate starting soon",
+  tagline:
+    "Web developer · finishing DAW · AI & Big Data postgraduate starting soon",
   positioning:
     "Hello, I'm Ikrame Ibn Hayoun. I'm a frontend developer based in Málaga, equally comfortable on the backend. My experience in executive support gave me a deep understanding of business logic before I ever wrote code professionally. That perspective carries through in everything I build — practical tools shaped by real workflows.",
   positioningParts: [
@@ -24,8 +25,7 @@ export const PROFILE = {
   ],
   practiceAside: {
     title: "At a glance",
-    text:
-      "Finishing DAW (Jun 2026). AI & Big Data postgraduate from Sep 2026. Before development roles: admin and executive support — reconciliation, reporting, and cross-team coordination.",
+    text: "Finishing DAW (Jun 2026). AI & Big Data postgraduate from Sep 2026. Before development roles: admin and executive support — reconciliation, reporting, and cross-team coordination.",
   },
 };
 
@@ -140,7 +140,14 @@ export const PROJECTS = [
     id: "live-event-radar",
     name: "Live Event Radar",
     subtitle: "Real-time venue telemetry · frontend",
-    stack: ["Next.js", "React 19", "Zustand", "Leaflet", "Web Workers", "TypeScript"],
+    stack: [
+      "Next.js",
+      "React 19",
+      "Zustand",
+      "Leaflet",
+      "Web Workers",
+      "TypeScript",
+    ],
     href: "https://github.com/ikrame-ih/live-event-radar",
     demo: "https://live-event-radar.vercel.app",
     description:
@@ -204,8 +211,7 @@ export const BENTO = {
     {
       key: "gaming",
       title: "Gaming",
-      body:
-        "Mostly story-heavy games — visual novels, mysteries, long JRPGs. Ace Attorney is my comfort pick.",
+      body: "Mostly story-heavy games — visual novels, mysteries, long JRPGs. Ace Attorney is my comfort pick.",
       span: "md:col-span-2 md:row-span-2",
       image: ASSETS.interests.gaming,
       imageAlt: "Phoenix Wright: Ace Attorney — my favourite game",
@@ -214,8 +220,7 @@ export const BENTO = {
     {
       key: "music",
       title: "Music & singing",
-      body:
-        "Voilà on repeat, singing when I need to switch off, playlists for every mood. Music makes everything better — coding, commuting, the whole lot.",
+      body: "Voilà on repeat, singing when I need to switch off, playlists for every mood. Music makes everything better — coding, commuting, the whole lot.",
       span: "md:col-span-1 md:row-span-2",
       image: ASSETS.interests.music,
       imageAlt: "Voilà — my favourite group",
@@ -224,8 +229,7 @@ export const BENTO = {
     {
       key: "aesthetics",
       title: "Skincare & aesthetics",
-      body:
-        "For years now, I've been researching skincare, haircare, and makeup — building routines that improve how I feel day to day, not just how I look.",
+      body: "For years now, I've been researching skincare, haircare, and makeup — building routines improves a lot how I feel everyday.",
       span: "md:col-span-2 md:row-span-1",
       image: ASSETS.interests.aesthetics,
       imageAlt: "Skincare and makeup — personal routines",
@@ -243,8 +247,7 @@ export const BENTO = {
     {
       key: "reading",
       title: "Reading",
-      body:
-        "Last finished: Touch of Death by Alice Wilde. I take my time — one book at a time, usually fiction.",
+      body: "Last finished: Touch of Death by Alice Wilde. I take my time — one book at a time, usually fiction.",
       span: "md:col-span-1 md:row-span-1",
       image: ASSETS.interests.reading,
       imageAlt: "Touch of Death by Alice Wilde — last book I read",
@@ -253,8 +256,7 @@ export const BENTO = {
     {
       key: "series",
       title: "Series & anime",
-      body:
-        "In my free time I catch up on anime, series, and films — whatever pulls me in. Last finished: Breaking Bad.",
+      body: "In my free time I catch up on anime, series, and films — whatever pulls me in. Last finished: Breaking Bad.",
       span: "md:col-span-2 md:row-span-1",
       image: ASSETS.interests.series,
       imageAlt: "Anime and series — free time watching",
@@ -272,9 +274,9 @@ export const BLOG = {
     url: "https://www.instagram.com/heart_puff/",
   },
   intro:
-    "Stuff from my corner of the internet — dev, things I'm learning, music, anime, whatever. Half personal, half hoping you can learn something from me too.",
-  syncNote:
-    "More soon — posts written in my vault, published here",
+    "A collection of things from my corner of the internet — development, things I'm learning, music, anime, and whatever else catches my interest. More than a technical blog, this is a personal space to explore ideas, share the things I enjoy, and give myself room to create, experiment, and have fun.",
+  comingSoon: true,
+  syncNote: "More soon — posts written in my vault, published here",
   posts: [
     {
       slug: "planning-first",
@@ -306,10 +308,10 @@ export const BLOG = {
 export const BOW_BOARD = {
   overline: "05 · guest book",
   title: "Thanks for reading.",
-  titleAccent: "Leave a bow on either page.",
+  titleAccent: "Pin a little bow before you go.",
   kicker:
-    "Thanks for reading. Click anywhere on either page to leave one bow — your signature on the shared book. Click again to move it.",
-  emptyState: "No signatures yet. Click a page to leave your bow.",
-  countLabel: "signatures",
-  marginHint: "one signature each · pick any spot",
+    "Glad you made it here. Click anywhere on either page to leave a bow — your mark in this shared book. Click again to move it.",
+  emptyState: "No bows yet. Click a page to leave yours.",
+  countLabel: "bows",
+  marginHint: "one bow per person · place it anywhere",
 };
