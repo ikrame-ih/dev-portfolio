@@ -78,13 +78,15 @@ Root directory: **`web/`**
 
 | Variable | Used by |
 | -------- | ------- |
-| `UPSTASH_REDIS_REST_URL` | Guest book (`/api/bows`) |
-| `UPSTASH_REDIS_REST_TOKEN` | Guest book |
+| `UPSTASH_REDIS_REST_URL` | Guest book (`/api/bows`) — **both Upstash vars required** |
+| `UPSTASH_REDIS_REST_TOKEN` | Guest book — set in **Production and Preview** |
 | `RESEND_API_KEY` | Contact form (`/api/contact`) |
 | `CONTACT_TO_EMAIL` | Your inbox for form submissions |
 | `CONTACT_FROM_EMAIL` | Optional verified sender in Resend |
 
-Without Redis, guest book falls back gracefully. Without Resend, the contact form shows a clear error and visitors can still email you directly.
+**Guest book:** add both Upstash variables to the same environments in Vercel, then redeploy. Until then, production shows “temporarily unavailable” instead of a fake local book.
+
+**Contact:** honeypot, field length limits, minimum fill time, and rate limiting (5/hour per IP via Upstash when Redis is configured). Without Resend, the form shows a clear error and visitors can still email you directly.
 
 ---
 

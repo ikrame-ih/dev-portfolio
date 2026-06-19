@@ -2,8 +2,12 @@ const API = "/api/bows";
 
 export async function fetchRemoteBows() {
   const res = await fetch(API, { credentials: "include" });
-  if (!res.ok) throw new Error(`bows_fetch_${res.status}`);
-  const data = await res.json();
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    const err = new Error(data.error || `bows_fetch_${res.status}`);
+    err.code = data.error;
+    throw err;
+  }
   return data.bows ?? [];
 }
 

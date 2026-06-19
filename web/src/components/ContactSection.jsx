@@ -1,13 +1,23 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { toast } from "sonner";
 import { Bow } from "./Bow";
 import Reveal from "./Reveal";
 import { PROFILE } from "@/data/portfolio";
 
+const MAX_NAME = 100;
+const MAX_EMAIL = 254;
+const MAX_MESSAGE = 2000;
+
 export const ContactSection = () => {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+    website: "",
+  });
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
+  const formStartedAt = useRef(Date.now());
 
   const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -22,14 +32,32 @@ export const ContactSection = () => {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          website: form.website,
+          startedAt: formStartedAt.current,
+        }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        if (data.error === "email_not_configured") {
+        if (data.error === "rate_limited") {
+          toast.error("Too many messages — try again in an hour or email me directly.");
+        } else if (data.error === "too_fast") {
+          toast.error("Please take a moment before sending.");
+        } else if (data.error === "email_not_configured") {
           toast.error(
             "Contact form is not configured yet — email me directly.",
           );
+        } else if (data.error === "invalid_email") {
+          toast.error("Please enter a valid email address.");
+        } else if (data.error === "resend_testing_limit") {
+          toast.error(
+            "Form misconfigured — inbox must match your Resend account email until you verify a domain.",
+          );
+        } else if (data.error === "resend_auth") {
+          toast.error("Email service auth failed — check RESEND_API_KEY in Vercel.");
         } else {
           toast.error(
             "Could not send your message. Try again or email me directly.",
@@ -39,7 +67,8 @@ export const ContactSection = () => {
       }
       setSent(true);
       toast.success("Message sent — thank you. I'll be in touch soon.");
-      setForm({ name: "", email: "", message: "" });
+      setForm({ name: "", email: "", message: "", website: "" });
+      formStartedAt.current = Date.now();
     } catch {
       toast.error(
         "Could not send your message. Try again or email me directly.",
@@ -100,7 +129,7 @@ export const ContactSection = () => {
         <Reveal
           as="form"
           delay={0.1}
-          className="md:col-span-7 space-y-6"
+          className="md:col-span-7 space-y-6 relative"
           onSubmit={onSubmit}
           data-testid="contact-form"
         >
@@ -115,6 +144,8 @@ export const ContactSection = () => {
                 value={form.name}
                 onChange={onChange}
                 required
+                maxLength={MAX_NAME}
+                autoComplete="name"
                 className="mt-2 w-full bg-transparent border-b border-ink/30 focus:border-burgundy outline-none py-2 font-mono text-sm text-ink"
               />
             </label>
@@ -129,6 +160,8 @@ export const ContactSection = () => {
                 value={form.email}
                 onChange={onChange}
                 required
+                maxLength={MAX_EMAIL}
+                autoComplete="email"
                 className="mt-2 w-full bg-transparent border-b border-ink/30 focus:border-burgundy outline-none py-2 font-mono text-sm text-ink"
               />
             </label>
@@ -144,10 +177,26 @@ export const ContactSection = () => {
               value={form.message}
               onChange={onChange}
               required
+              maxLength={MAX_MESSAGE}
               rows={6}
               className="mt-2 w-full bg-transparent border-b border-ink/30 focus:border-burgundy outline-none py-2 font-mono text-sm text-ink resize-none"
             />
           </label>
+
+          <div
+            className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden"
+            aria-hidden="true"
+          >
+            <label htmlFor="contact-website">Website</label>
+            <input
+              id="contact-website"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              value={form.website}
+              onChange={onChange}
+            />
+          </div>
 
           <div className="flex items-center justify-between pt-4">
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute">

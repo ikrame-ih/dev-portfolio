@@ -10,6 +10,9 @@ import Reveal from "./Reveal";
 const HINTS = {
   tooClose: "Too close to another signature — try a nearby spot.",
   error: "Could not save your bow. Try again.",
+  rateLimited: "Too many attempts — try again later.",
+  unavailable:
+    "Guest book is temporarily unavailable. Signatures will be back soon.",
 };
 
 export const JardinCanvas = () => {
@@ -20,6 +23,7 @@ export const JardinCanvas = () => {
   const [lastDropped, setLastDropped] = useState(null);
   const [hint, setHint] = useState(null);
   const [remote, setRemote] = useState(false);
+  const [unavailable, setUnavailable] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -31,15 +35,23 @@ export const JardinCanvas = () => {
           if (!cancelled) {
             setBows(remoteBows.map(normalizeBow));
             setRemote(true);
+            setUnavailable(false);
           }
           return;
-        } catch {
-          /* fall through to local storage in dev or when API is unavailable */
+        } catch (err) {
+          if (import.meta.env.PROD) {
+            if (!cancelled) {
+              setUnavailable(true);
+              setRemote(false);
+            }
+            return;
+          }
         }
       }
       if (!cancelled) {
         setBows(loadAndMigrateBows());
         setRemote(false);
+        setUnavailable(false);
       }
     };
 
@@ -59,6 +71,11 @@ export const JardinCanvas = () => {
 
   const handlePageClick = useCallback(
     async (page, e) => {
+      if (unavailable) {
+        showHint("unavailable");
+        return;
+      }
+
       const ref = page === "left" ? leftRef : rightRef;
       if (!ref.current) return;
 
@@ -98,6 +115,14 @@ export const JardinCanvas = () => {
           showHint("tooClose");
           return;
         }
+        if (err.code === "rate_limited") {
+          showHint("rateLimited");
+          return;
+        }
+        if (remote && import.meta.env.PROD) {
+          showHint("error");
+          return;
+        }
         if (remote) {
           setBows(saveBow(bow));
           setLastDropped(bow.id);
@@ -106,7 +131,7 @@ export const JardinCanvas = () => {
         showHint("error");
       }
     },
-    [bows, remote, showHint],
+    [bows, remote, unavailable, showHint],
   );
 
   const leftBows = bows.filter((b) => b.page === "left");
@@ -151,6 +176,12 @@ export const JardinCanvas = () => {
 
         <Reveal delay={0.1}>
           <div data-testid="jardin-canvas" className="guestbook-spread">
+            {unavailable && (
+              <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 font-mono text-[10px] uppercase tracking-[0.18em] text-ink bg-bone border border-ink/20 px-3 py-1.5 max-w-[90%] text-center">
+                {HINTS.unavailable}
+              </div>
+            )}
+
             {!loaded && (
               <div className="absolute inset-0 z-20 flex items-center justify-center font-mono text-xs text-ink-mute bg-bone/80">
                 loading signatures…
