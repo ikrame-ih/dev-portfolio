@@ -8,7 +8,10 @@ export async function fetchRemoteBows() {
     err.code = data.error;
     throw err;
   }
-  return data.bows ?? [];
+  return {
+    bows: data.bows ?? [],
+    visitorId: data.visitorId ?? null,
+  };
 }
 
 export async function postRemoteBow(bow) {
@@ -29,7 +32,10 @@ export async function postRemoteBow(bow) {
     err.code = data.error;
     throw err;
   }
-  return data.bows ?? [];
+  return {
+    bows: data.bows ?? [],
+    visitorId: data.visitorId ?? null,
+  };
 }
 
 export function useRemoteBows() {

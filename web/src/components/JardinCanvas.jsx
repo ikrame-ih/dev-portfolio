@@ -7,17 +7,34 @@ import { fetchRemoteBows, postRemoteBow, useRemoteBows } from "@/lib/bowsApi";
 import { normalizeBow, bowTooClose, clampBowPosition } from "@/lib/bowUtils";
 import Reveal from "./Reveal";
 
+const BOW_MOTION = {
+  initial: { opacity: 0, scale: 0.5 },
+  animate: { opacity: 1, scale: 1 },
+  exit: { opacity: 0 },
+  transition: {
+    duration: 0.35,
+    ease: [0.2, 0.7, 0.2, 1],
+    scale: { type: "spring", stiffness: 420, damping: 22 },
+  },
+};
+
 const HINTS = {
   tooClose: "Too close to another signature — try a nearby spot.",
   error: "Could not save your bow. Try again.",
-  rateLimited: "Too many attempts — try again later.",
   unavailable:
     "Guest book is temporarily unavailable. Signatures will be back soon.",
 };
 
+function mergeVisitorBow(bows, bow, visitorId) {
+  const withoutVisitor = bows.filter((b) => b.visitor_id !== visitorId);
+  return [bow, ...withoutVisitor].map(normalizeBow);
+}
+
 export const JardinCanvas = () => {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
+  const visitorIdRef = useRef(null);
+  const syncingRef = useRef(false);
   const [bows, setBows] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [lastDropped, setLastDropped] = useState(null);
@@ -31,14 +48,15 @@ export const JardinCanvas = () => {
     const load = async () => {
       if (useRemoteBows()) {
         try {
-          const remoteBows = await fetchRemoteBows();
+          const { bows: remoteBows, visitorId } = await fetchRemoteBows();
           if (!cancelled) {
+            visitorIdRef.current = visitorId;
             setBows(remoteBows.map(normalizeBow));
             setRemote(true);
             setUnavailable(false);
           }
           return;
-        } catch (err) {
+        } catch {
           if (import.meta.env.PROD) {
             if (!cancelled) {
               setUnavailable(true);
@@ -49,6 +67,7 @@ export const JardinCanvas = () => {
         }
       }
       if (!cancelled) {
+        visitorIdRef.current = getVisitorId();
         setBows(loadAndMigrateBows());
         setRemote(false);
         setUnavailable(false);
@@ -71,10 +90,8 @@ export const JardinCanvas = () => {
 
   const handlePageClick = useCallback(
     async (page, e) => {
-      if (unavailable) {
-        showHint("unavailable");
-        return;
-      }
+      if (unavailable || syncingRef.current) return;
+      if (remote && !visitorIdRef.current) return;
 
       const ref = page === "left" ? leftRef : rightRef;
       if (!ref.current) return;
@@ -83,7 +100,7 @@ export const JardinCanvas = () => {
       const localX = (e.clientX - rect.left) / rect.width;
       const localY = (e.clientY - rect.top) / rect.height;
       const { mx, y } = clampBowPosition(localX, localY);
-      const visitorId = getVisitorId();
+      const visitorId = remote ? visitorIdRef.current : getVisitorId();
 
       if (bowTooClose(page, mx, y, bows, visitorId)) {
         showHint("tooClose");
@@ -91,7 +108,7 @@ export const JardinCanvas = () => {
       }
 
       const existing = bows.find((b) => b.visitor_id === visitorId);
-      const bow = {
+      const bow = normalizeBow({
         id:
           existing?.id ??
           `bow_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`,
@@ -101,34 +118,40 @@ export const JardinCanvas = () => {
         rotation: Math.round((Math.random() - 0.5) * 40),
         visitor_id: visitorId,
         created_at: existing?.created_at ?? new Date().toISOString(),
-      };
+      });
 
-      try {
-        const next = remote
-          ? (await postRemoteBow(bow)).map(normalizeBow)
-          : saveBow(bow);
-        setBows(next);
+      const snapshot = bows;
+
+      if (remote) {
+        setBows(mergeVisitorBow(bows, bow, visitorId));
         setLastDropped(bow.id);
         setHint(null);
+        syncingRef.current = true;
+      }
+
+      try {
+        if (remote) {
+          const { bows: synced, visitorId: vid } = await postRemoteBow(bow);
+          visitorIdRef.current = vid ?? visitorId;
+          setBows(synced.map(normalizeBow));
+        } else {
+          const next = saveBow(bow);
+          setBows(next);
+          setLastDropped(bow.id);
+          setHint(null);
+        }
       } catch (err) {
+        if (remote) {
+          setBows(snapshot);
+          setLastDropped(existing?.id ?? null);
+        }
         if (err.code === "too_close") {
           showHint("tooClose");
           return;
         }
-        if (err.code === "rate_limited") {
-          showHint("rateLimited");
-          return;
-        }
-        if (remote && import.meta.env.PROD) {
-          showHint("error");
-          return;
-        }
-        if (remote) {
-          setBows(saveBow(bow));
-          setLastDropped(bow.id);
-          return;
-        }
         showHint("error");
+      } finally {
+        syncingRef.current = false;
       }
     },
     [bows, remote, unavailable, showHint],
@@ -204,7 +227,7 @@ export const JardinCanvas = () => {
                 onKeyDown={(e) =>
                   e.key === "Enter" && handlePageClick("left", e)
                 }
-                className="guestbook-page guestbook-page-left"
+                className="guestbook-page guestbook-page-left cursor-pointer"
               >
                 <div className="guestbook-page-texture" aria-hidden="true" />
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none px-10 md:px-14 py-10">
@@ -217,18 +240,13 @@ export const JardinCanvas = () => {
                   {leftBows.map((b) => (
                     <motion.div
                       key={b.id}
-                      initial={{ opacity: 0, scale: 0.3, rotate: 0 }}
+                      initial={BOW_MOTION.initial}
                       animate={{
-                        opacity: 1,
-                        scale: 1,
+                        ...BOW_MOTION.animate,
                         rotate: b.rotation || 0,
                       }}
-                      exit={{ opacity: 0 }}
-                      transition={{
-                        duration: 0.7,
-                        ease: [0.2, 0.7, 0.2, 1],
-                        scale: { type: "spring", stiffness: 150, damping: 12 },
-                      }}
+                      exit={BOW_MOTION.exit}
+                      transition={BOW_MOTION.transition}
                       className="absolute pointer-events-none"
                       style={{
                         left: `${b.mx * 100}%`,
@@ -256,7 +274,7 @@ export const JardinCanvas = () => {
                 onKeyDown={(e) =>
                   e.key === "Enter" && handlePageClick("right", e)
                 }
-                className="guestbook-page guestbook-page-right"
+                className="guestbook-page guestbook-page-right cursor-pointer"
               >
                 <div className="guestbook-page-texture" aria-hidden="true" />
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none px-10 md:px-14 py-10">
@@ -268,18 +286,13 @@ export const JardinCanvas = () => {
                   {rightBows.map((b) => (
                     <motion.div
                       key={b.id}
-                      initial={{ opacity: 0, scale: 0.3, rotate: 0 }}
+                      initial={BOW_MOTION.initial}
                       animate={{
-                        opacity: 1,
-                        scale: 1,
+                        ...BOW_MOTION.animate,
                         rotate: b.rotation || 0,
                       }}
-                      exit={{ opacity: 0 }}
-                      transition={{
-                        duration: 0.7,
-                        ease: [0.2, 0.7, 0.2, 1],
-                        scale: { type: "spring", stiffness: 150, damping: 12 },
-                      }}
+                      exit={BOW_MOTION.exit}
+                      transition={BOW_MOTION.transition}
                       className="absolute pointer-events-none"
                       style={{
                         left: `${b.mx * 100}%`,

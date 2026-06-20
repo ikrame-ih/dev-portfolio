@@ -1,6 +1,5 @@
 import { randomUUID } from "node:crypto";
 import { getRedis } from "./_lib/redis.js";
-import { rateLimit } from "./_lib/rateLimit.js";
 import { getClientIp } from "./_lib/security.js";
 
 const BOWS_KEY = "guestbook:bows";
@@ -51,63 +50,54 @@ export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
 
   try {
+    const visitorId = getVisitorFromCookie(req, res);
+
     if (req.method === "GET") {
       const bows = await loadBowsFromStore(redis);
-      return res.status(200).json({ bows });
+      return res.status(200).json({ bows, visitorId });
     }
 
     if (req.method === "POST") {
-    const ip = getClientIp(req);
-    const postLimit = await rateLimit({
-      key: `bows:${ip}`,
-      limit: 20,
-      windowSec: 60 * 60,
-    });
-    if (postLimit.limited) {
-      return res.status(429).json({ error: "rate_limited" });
-    }
+      const { page, mx, y, rotation } = req.body ?? {};
 
-    const visitorId = getVisitorFromCookie(req, res);
-    const { page, mx, y, rotation } = req.body ?? {};
+      if (page !== "left" && page !== "right") {
+        return res.status(400).json({ error: "invalid_page" });
+      }
+      if (typeof mx !== "number" || typeof y !== "number") {
+        return res.status(400).json({ error: "invalid_position" });
+      }
+      if (!Number.isFinite(mx) || !Number.isFinite(y)) {
+        return res.status(400).json({ error: "invalid_position" });
+      }
 
-    if (page !== "left" && page !== "right") {
-      return res.status(400).json({ error: "invalid_page" });
-    }
-    if (typeof mx !== "number" || typeof y !== "number") {
-      return res.status(400).json({ error: "invalid_position" });
-    }
-    if (!Number.isFinite(mx) || !Number.isFinite(y)) {
-      return res.status(400).json({ error: "invalid_position" });
-    }
+      const clampedMx = Math.min(0.88, Math.max(0.12, mx));
+      const clampedY = Math.min(0.92, Math.max(0.08, y));
+      const safeRotation =
+        typeof rotation === "number" && Number.isFinite(rotation)
+          ? Math.min(180, Math.max(-180, rotation))
+          : 0;
 
-    const clampedMx = Math.min(0.88, Math.max(0.12, mx));
-    const clampedY = Math.min(0.92, Math.max(0.08, y));
-    const safeRotation =
-      typeof rotation === "number" && Number.isFinite(rotation)
-        ? Math.min(180, Math.max(-180, rotation))
-        : 0;
+      const existing = await loadBowsFromStore(redis);
+      const withoutVisitor = existing.filter((b) => b.visitor_id !== visitorId);
 
-    const existing = await loadBowsFromStore(redis);
-    const withoutVisitor = existing.filter((b) => b.visitor_id !== visitorId);
+      if (tooClose(page, clampedMx, clampedY, withoutVisitor)) {
+        return res.status(409).json({ error: "too_close" });
+      }
 
-    if (tooClose(page, clampedMx, clampedY, withoutVisitor)) {
-      return res.status(409).json({ error: "too_close" });
-    }
+      const previous = existing.find((b) => b.visitor_id === visitorId);
+      const bow = normalizeStored({
+        id: previous?.id ?? `bow_${Date.now()}_${randomUUID().slice(0, 6)}`,
+        page,
+        mx: clampedMx,
+        y: clampedY,
+        rotation: safeRotation,
+        visitor_id: visitorId,
+        created_at: previous?.created_at ?? new Date().toISOString(),
+      });
 
-    const previous = existing.find((b) => b.visitor_id === visitorId);
-    const bow = normalizeStored({
-      id: previous?.id ?? `bow_${Date.now()}_${randomUUID().slice(0, 6)}`,
-      page,
-      mx: clampedMx,
-      y: clampedY,
-      rotation: safeRotation,
-      visitor_id: visitorId,
-      created_at: previous?.created_at ?? new Date().toISOString(),
-    });
-
-    const next = [bow, ...withoutVisitor].slice(0, MAX_BOWS);
-    await redis.set(BOWS_KEY, next);
-    return res.status(200).json({ bows: next });
+      const next = [bow, ...withoutVisitor].slice(0, MAX_BOWS);
+      await redis.set(BOWS_KEY, next);
+      return res.status(200).json({ bows: next, visitorId });
     }
 
     res.setHeader("Allow", "GET, POST");

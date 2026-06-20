@@ -54,8 +54,8 @@ export const Footer = ({ onOpenTerminal }) => {
               {[
                 ["cv", "CV & skills"],
                 ["projects", "Projects"],
-                ["garden", "Guest book"],
                 ["blog", "Tizza's vault"],
+                ["garden", "Guest book"],
                 ["contact", "Contact"],
               ].map(([id, label]) => (
                 <li key={id}>
