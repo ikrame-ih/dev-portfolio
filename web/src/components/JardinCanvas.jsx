@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Bow } from "./Bow";
+import { TyingBow } from "./TyingBow";
 import { BOW_BOARD } from "@/data/portfolio";
 import { getVisitorId, loadAndMigrateBows, saveBow } from "@/lib/storage";
 import { fetchRemoteBows, postRemoteBow, useRemoteBows } from "@/lib/bowsApi";
@@ -8,14 +8,10 @@ import { normalizeBow, bowTooClose, clampBowPosition } from "@/lib/bowUtils";
 import Reveal from "./Reveal";
 
 const BOW_MOTION = {
-  initial: { opacity: 0, scale: 0.5 },
-  animate: { opacity: 1, scale: 1 },
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
   exit: { opacity: 0 },
-  transition: {
-    duration: 0.35,
-    ease: [0.2, 0.7, 0.2, 1],
-    scale: { type: "spring", stiffness: 420, damping: 22 },
-  },
+  transition: { duration: 0.15 },
 };
 
 const HINTS = {
@@ -170,7 +166,7 @@ export const JardinCanvas = () => {
         <Reveal className="mb-12 flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-6">
-              <Bow size={14} />
+              <TyingBow size={14} tie={false} />
               <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft">
                 {BOW_BOARD.overline}
               </span>
@@ -239,7 +235,7 @@ export const JardinCanvas = () => {
                 <AnimatePresence>
                   {leftBows.map((b) => (
                     <motion.div
-                      key={b.id}
+                      key={`${b.id}-${b.mx}-${b.y}`}
                       initial={BOW_MOTION.initial}
                       animate={{
                         ...BOW_MOTION.animate,
@@ -254,9 +250,10 @@ export const JardinCanvas = () => {
                         transform: "translate(-50%, -50%)",
                       }}
                     >
-                      <Bow
+                      <TyingBow
                         size={b.id === lastDropped ? 32 : 24}
                         strokeWidth={1.2}
+                        tie={b.id === lastDropped}
                       />
                     </motion.div>
                   ))}
@@ -285,7 +282,7 @@ export const JardinCanvas = () => {
                 <AnimatePresence>
                   {rightBows.map((b) => (
                     <motion.div
-                      key={b.id}
+                      key={`${b.id}-${b.mx}-${b.y}`}
                       initial={BOW_MOTION.initial}
                       animate={{
                         ...BOW_MOTION.animate,
@@ -300,9 +297,10 @@ export const JardinCanvas = () => {
                         transform: "translate(-50%, -50%)",
                       }}
                     >
-                      <Bow
+                      <TyingBow
                         size={b.id === lastDropped ? 32 : 24}
                         strokeWidth={1.2}
+                        tie={b.id === lastDropped}
                       />
                     </motion.div>
                   ))}
