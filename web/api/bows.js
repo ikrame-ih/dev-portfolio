@@ -7,8 +7,6 @@ const BOWS_KEY = "guestbook:bows";
 const MIN_DISTANCE = 0.07;
 const MAX_BOWS = 500;
 
-const redis = getRedis();
-
 const normalizeStored = (bow) => ({
   id: bow.id,
   page: bow.page,
@@ -39,24 +37,26 @@ function tooClose(page, mx, y, bows) {
   });
 }
 
-async function loadBowsFromStore() {
+async function loadBowsFromStore(redis) {
   const bows = await redis.get(BOWS_KEY);
   return Array.isArray(bows) ? bows : [];
 }
 
 export default async function handler(req, res) {
+  const redis = getRedis();
   if (!redis) {
     return res.status(503).json({ error: "redis_not_configured" });
   }
 
   res.setHeader("Cache-Control", "no-store");
 
-  if (req.method === "GET") {
-    const bows = await loadBowsFromStore();
-    return res.status(200).json({ bows });
-  }
+  try {
+    if (req.method === "GET") {
+      const bows = await loadBowsFromStore(redis);
+      return res.status(200).json({ bows });
+    }
 
-  if (req.method === "POST") {
+    if (req.method === "POST") {
     const ip = getClientIp(req);
     const postLimit = await rateLimit({
       key: `bows:${ip}`,
@@ -87,7 +87,7 @@ export default async function handler(req, res) {
         ? Math.min(180, Math.max(-180, rotation))
         : 0;
 
-    const existing = await loadBowsFromStore();
+    const existing = await loadBowsFromStore(redis);
     const withoutVisitor = existing.filter((b) => b.visitor_id !== visitorId);
 
     if (tooClose(page, clampedMx, clampedY, withoutVisitor)) {
@@ -108,8 +108,12 @@ export default async function handler(req, res) {
     const next = [bow, ...withoutVisitor].slice(0, MAX_BOWS);
     await redis.set(BOWS_KEY, next);
     return res.status(200).json({ bows: next });
-  }
+    }
 
-  res.setHeader("Allow", "GET, POST");
-  return res.status(405).json({ error: "method_not_allowed" });
+    res.setHeader("Allow", "GET, POST");
+    return res.status(405).json({ error: "method_not_allowed" });
+  } catch (err) {
+    console.error("bows_handler_error", err);
+    return res.status(500).json({ error: "server_error" });
+  }
 }

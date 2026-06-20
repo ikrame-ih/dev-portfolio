@@ -50,7 +50,7 @@ export const CVSection = () => {
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-24">
-          <Reveal delay={0.05} className="md:col-span-5 border-l border-burgundy pl-6">
+          <Reveal delay={0.05} className="md:col-span-6 border-l border-burgundy pl-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-burgundy mb-4">
               Frontend craft
             </p>
@@ -69,7 +69,7 @@ export const CVSection = () => {
               ))}
             </ul>
           </Reveal>
-          <Reveal delay={0.1} className="md:col-span-5 border-l border-ink pl-6">
+          <Reveal delay={0.1} className="md:col-span-6 border-l border-ink pl-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink mb-4">
               Backend &amp; data
             </p>
@@ -88,15 +88,26 @@ export const CVSection = () => {
               ))}
             </ul>
           </Reveal>
-          <Reveal delay={0.15} className="md:col-span-2 border-l border-ink/30 pl-6">
+          <Reveal
+            delay={0.15}
+            className="md:col-span-12 border-t border-bone-400 pt-8 md:pt-10"
+          >
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft mb-4">
               Languages
             </p>
-            <ul className="space-y-3 font-mono text-xs" data-testid="languages-list">
+            <ul
+              className="flex flex-wrap gap-x-3 gap-y-2 font-mono text-sm"
+              data-testid="languages-list"
+            >
               {LANGUAGES.map((l) => (
-                <li key={l.code} className="flex justify-between gap-3">
+                <li
+                  key={l.code}
+                  className="inline-flex items-center gap-2 border border-bone-400 px-3 py-1.5 hover:border-burgundy transition-colors"
+                >
                   <span className="text-ink">{l.lang}</span>
-                  <span className="text-ink-mute">{l.level}</span>
+                  <span className="text-[10px] uppercase tracking-[0.18em] text-ink-mute">
+                    {l.detail ? `${l.level} · ${l.detail}` : l.level}
+                  </span>
                 </li>
               ))}
             </ul>

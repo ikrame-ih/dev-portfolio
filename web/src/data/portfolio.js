@@ -32,7 +32,7 @@ export const PROFILE = {
 
 export const LANGUAGES = [
   { lang: "Spanish", level: "Native", code: "ES" },
-  { lang: "English", level: "C1 · Advanced", code: "EN" },
+  { lang: "English", level: "C1", detail: "Advanced", code: "EN" },
   { lang: "Darija", level: "Native", code: "AR" },
 ];
 
