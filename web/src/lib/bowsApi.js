@@ -33,5 +33,14 @@ export async function postRemoteBow(bow) {
 }
 
 export function useRemoteBows() {
-  return import.meta.env.VITE_USE_REMOTE_BOWS === "true" || import.meta.env.PROD;
+  if (import.meta.env.VITE_USE_REMOTE_BOWS === "true") return true;
+  if (import.meta.env.VITE_USE_REMOTE_BOWS === "false") return false;
+
+  if (typeof window === "undefined") return import.meta.env.PROD;
+
+  const host = window.location.hostname;
+  const isLocal = host === "localhost" || host === "127.0.0.1";
+  if (isLocal) return false;
+
+  return import.meta.env.PROD;
 }
