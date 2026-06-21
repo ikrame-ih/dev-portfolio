@@ -1,7 +1,7 @@
-/** Minimum normalised distance between bow centres (same page). ~6% of page width/height. */
+// ~7% felt ok after testing
 export const MIN_BOW_DISTANCE = 0.07;
 
-/** Stable 0–1 value derived from an id — used once when migrating bows without mx/y. */
+// hash from id — random made bows jump
 export const stableUnit = (id, salt = 0) => {
   let hash = salt;
   for (let i = 0; i < id.length; i += 1) {
@@ -22,13 +22,8 @@ export const normalizeBow = (bow) => {
     ...bow,
     page,
     mx:
-      typeof bow.mx === "number"
-        ? bow.mx
-        : 0.12 + stableUnit(bow.id, 1) * 0.76,
-    y:
-      typeof bow.y === "number"
-        ? bow.y
-        : 0.08 + stableUnit(bow.id, 2) * 0.84,
+      typeof bow.mx === "number" ? bow.mx : 0.12 + stableUnit(bow.id, 1) * 0.76,
+    y: typeof bow.y === "number" ? bow.y : 0.08 + stableUnit(bow.id, 2) * 0.84,
   };
 };
 

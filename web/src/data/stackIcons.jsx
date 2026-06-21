@@ -1,4 +1,18 @@
-import { Atom, Braces, Code2, Database, Globe, LayoutGrid, Layers, Map, Server, Sparkles, TestTube2, Wind, Zap } from "lucide-react";
+import {
+  Atom,
+  Braces,
+  Code2,
+  Database,
+  Globe,
+  LayoutGrid,
+  Layers,
+  Map,
+  Server,
+  Sparkles,
+  TestTube2,
+  Wind,
+  Zap,
+} from "lucide-react";
 
 export const STACK_ICON_MAP = {
   React: Atom,
@@ -23,7 +37,10 @@ export const STACK_ICON_MAP = {
   Dagster: Layers,
 };
 
-export const StackIcon = ({ name, className = "w-3 h-3 shrink-0 text-burgundy" }) => {
+export const StackIcon = ({
+  name,
+  className = "w-3 h-3 shrink-0 text-burgundy",
+}) => {
   const Icon = STACK_ICON_MAP[name] || Monitor;
   return <Icon className={className} strokeWidth={1.25} aria-hidden="true" />;
 };

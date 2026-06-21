@@ -9,9 +9,6 @@ export const revealTransition = (delay = 0) => ({
   delay,
 });
 
-/**
- * Fade + rise when the block enters the viewport. Respects prefers-reduced-motion.
- */
 export const Reveal = ({
   children,
   className,

@@ -16,6 +16,7 @@ import Reveal from "@/components/Reveal";
 import { Bow } from "@/components/Bow";
 import { PROFILE } from "@/data/portfolio";
 
+// bow on the line trick
 const OrnamentDivider = () => (
   <Reveal y={12}>
     <div className="max-w-7xl mx-auto px-6 md:px-12">

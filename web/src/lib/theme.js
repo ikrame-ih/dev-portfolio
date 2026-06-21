@@ -7,7 +7,9 @@ export function getInitialTheme() {
   } catch {
     /* ignore */
   }
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
 }
 
 export function applyTheme(theme) {

@@ -1,8 +1,5 @@
 import { getRedis } from "./redis.js";
 
-/**
- * Sliding window rate limit via Upstash. Fails open if Redis is unavailable.
- */
 export async function rateLimit({ key, limit, windowSec }) {
   const redis = getRedis();
   if (!redis) return { ok: true, limited: false };

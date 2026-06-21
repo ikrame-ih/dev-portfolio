@@ -59,7 +59,7 @@
   }
 }
 
-/* --- Interests pinboard (Grid Lanes when supported) --- */
+/* bento grid — falls back to regular CSS grid; grid-lanes is experimental but nicer when it works */
 
 .bento-lanes {
   grid-auto-flow: dense;
@@ -102,7 +102,7 @@
   }
 }
 
-/* --- Guest book spread --- */
+/* open book guest book — spine gradient + page texture live here, not in JSX */
 
 .guestbook-spread {
   position: relative;
@@ -201,7 +201,7 @@
   }
 }
 
-/* --- CLI terminal --- */
+/* CLI overlay — burgundy caret + mono sizing overrides for the terminal panel */
 
 .cli-terminal-panel {
   cursor: auto;
@@ -322,7 +322,7 @@
   max-width: 100%;
 }
 
-/* Fixed inverse footer strip — same in light and dark */
+/* footer strip — always ink bg / bone text (doesn't follow section alternation) */
 .footer-inverse {
   background-color: #1a1a1a;
   color: #f5f1eb;

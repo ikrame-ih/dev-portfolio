@@ -1,19 +1,29 @@
 import { motion } from "framer-motion";
 import { Bow } from "./Bow";
 import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
-import { EXPERIENCE, EDUCATION, LANGUAGES, PROFILE, STACK } from "@/data/portfolio";
+import {
+  EXPERIENCE,
+  EDUCATION,
+  LANGUAGES,
+  PROFILE,
+  STACK,
+} from "@/data/portfolio";
 import { StackIcon } from "@/data/stackIcons";
 
 const SectionHeader = ({ overline, title, kicker }) => (
   <div className="mb-16">
     <div className="flex items-center gap-3 mb-6">
       <Bow size={14} />
-      <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft">{overline}</span>
+      <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft">
+        {overline}
+      </span>
     </div>
     <h2 className="font-serif font-light text-3xl md:text-5xl tracking-tighter text-ink max-w-3xl">
       {title}
     </h2>
-    {kicker && <p className="mt-4 font-mono text-xs text-ink-mute max-w-xl">{kicker}</p>}
+    {kicker && (
+      <p className="mt-4 font-mono text-xs text-ink-mute max-w-xl">{kicker}</p>
+    )}
   </div>
 );
 
@@ -35,14 +45,19 @@ const TrackBadge = ({ track }) => {
 
 export const CVSection = () => {
   return (
-    <section id="cv" data-testid="cv-section" className="relative py-24 md:py-32">
+    <section
+      id="cv"
+      data-testid="cv-section"
+      className="relative py-24 md:py-32"
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <Reveal>
           <SectionHeader
             overline="01 · background & skills"
             title={
               <>
-                Skills, roles, and <em className="not-italic text-burgundy">education</em>.
+                Skills, roles, and{" "}
+                <em className="not-italic text-burgundy">education</em>.
               </>
             }
             kicker="Stack, languages, and the roles behind my work as a web developer."
@@ -50,7 +65,10 @@ export const CVSection = () => {
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-24">
-          <Reveal delay={0.05} className="md:col-span-6 border-l border-burgundy pl-6">
+          <Reveal
+            delay={0.05}
+            className="md:col-span-6 border-l border-burgundy pl-6"
+          >
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-burgundy mb-4">
               Frontend craft
             </p>
@@ -69,7 +87,10 @@ export const CVSection = () => {
               ))}
             </ul>
           </Reveal>
-          <Reveal delay={0.1} className="md:col-span-6 border-l border-ink pl-6">
+          <Reveal
+            delay={0.1}
+            className="md:col-span-6 border-l border-ink pl-6"
+          >
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink mb-4">
               Backend &amp; data
             </p>
@@ -115,7 +136,11 @@ export const CVSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
-          <Reveal delay={0.05} className="md:col-span-7" data-testid="experience-timeline">
+          <Reveal
+            delay={0.05}
+            className="md:col-span-7"
+            data-testid="experience-timeline"
+          >
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft mb-8">
               Experience
             </p>
@@ -133,7 +158,9 @@ export const CVSection = () => {
                     <Bow size={18} />
                   </div>
                   <div className="flex flex-wrap items-baseline gap-3 mb-2">
-                    <h3 className="font-serif text-xl md:text-2xl text-ink">{exp.role}</h3>
+                    <h3 className="font-serif text-xl md:text-2xl text-ink">
+                      {exp.role}
+                    </h3>
                     <TrackBadge track={exp.track} />
                   </div>
                   <p className="font-mono text-xs uppercase tracking-[0.18em] text-ink-soft mb-4">
@@ -149,7 +176,11 @@ export const CVSection = () => {
             </ol>
           </Reveal>
 
-          <Reveal delay={0.12} className="md:col-span-5" data-testid="education-block">
+          <Reveal
+            delay={0.12}
+            className="md:col-span-5"
+            data-testid="education-block"
+          >
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft mb-8">
               Education
             </p>
@@ -164,7 +195,9 @@ export const CVSection = () => {
                   className="border-t border-bone-400 pt-4"
                 >
                   <h4 className="font-serif text-lg text-ink">{ed.degree}</h4>
-                  <p className="font-mono text-xs text-ink-soft mt-1">{ed.school}</p>
+                  <p className="font-mono text-xs text-ink-soft mt-1">
+                    {ed.school}
+                  </p>
                   <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-burgundy mt-2">
                     {ed.period}
                   </p>

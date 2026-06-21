@@ -1,7 +1,8 @@
-# Local-only (Obsidian workspace — not pushed to GitHub)
+# Local-only (not pushed to GitHub)
 app/
-docs/
 references/
+
+# Engineering notes in docs/ are tracked in git.
 
 # Web app
 web/node_modules/

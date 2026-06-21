@@ -13,6 +13,7 @@ export function getVisitorId() {
     }
     return id;
   } catch {
+    // private mode — id won't survive refresh but clicks still work
     return `v_${Math.random().toString(36).slice(2, 10)}`;
   }
 }
@@ -26,7 +27,7 @@ export function loadBows() {
   }
 }
 
-/** Load bows and persist stable mx/y for any legacy entries (no random re-roll). */
+// old x coords — migrate once
 export function loadAndMigrateBows() {
   const raw = loadBows();
   const normalized = raw.map(normalizeBow);
@@ -40,13 +41,13 @@ export function loadAndMigrateBows() {
     try {
       localStorage.setItem(BOWS_KEY, JSON.stringify(normalized));
     } catch {
-      /* ignore quota errors */
+      /* quota */
     }
   }
   return normalized;
 }
 
-/** One bow per visitor — placing again moves the existing signature. */
+// one bow per visitor
 export function saveBow(bow) {
   const visitorId = bow.visitor_id;
   const withoutVisitor = loadBows().filter((b) => b.visitor_id !== visitorId);

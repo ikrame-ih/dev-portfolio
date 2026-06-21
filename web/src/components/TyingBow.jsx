@@ -2,10 +2,8 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const VIEW = "0 0 64 64";
 
-const LEFT_LOOP =
-  "M32 32 C 22 18, 8 18, 8 28 C 8 38, 22 40, 32 32 Z";
-const RIGHT_LOOP =
-  "M32 32 C 42 18, 56 18, 56 28 C 56 38, 42 40, 32 32 Z";
+const LEFT_LOOP = "M32 32 C 22 18, 8 18, 8 28 C 8 38, 22 40, 32 32 Z";
+const RIGHT_LOOP = "M32 32 C 42 18, 56 18, 56 28 C 56 38, 42 40, 32 32 Z";
 const LEFT_TAIL = "M30 34 L 26 50";
 const RIGHT_TAIL = "M34 34 L 38 50";
 
@@ -18,7 +16,6 @@ const draw = (delay, duration = 0.34) => ({
   opacity: { duration: 0.08, delay },
 });
 
-/** Bow that draws itself loop-by-loop — guest book signatures. */
 export const TyingBow = ({
   size = 24,
   color = "#4A0E0E",
@@ -41,11 +38,37 @@ export const TyingBow = ({
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
       >
-        <path d={LEFT_LOOP} stroke={color} strokeWidth={strokeWidth} strokeLinejoin="round" />
-        <path d={RIGHT_LOOP} stroke={color} strokeWidth={strokeWidth} strokeLinejoin="round" />
-        <circle cx="32" cy="32" r="2.5" stroke={color} strokeWidth={strokeWidth} />
-        <path d={LEFT_TAIL} stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" />
-        <path d={RIGHT_TAIL} stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" />
+        <path
+          d={LEFT_LOOP}
+          stroke={color}
+          strokeWidth={strokeWidth}
+          strokeLinejoin="round"
+        />
+        <path
+          d={RIGHT_LOOP}
+          stroke={color}
+          strokeWidth={strokeWidth}
+          strokeLinejoin="round"
+        />
+        <circle
+          cx="32"
+          cy="32"
+          r="2.5"
+          stroke={color}
+          strokeWidth={strokeWidth}
+        />
+        <path
+          d={LEFT_TAIL}
+          stroke={color}
+          strokeWidth={strokeWidth}
+          strokeLinecap="round"
+        />
+        <path
+          d={RIGHT_TAIL}
+          stroke={color}
+          strokeWidth={strokeWidth}
+          strokeLinecap="round"
+        />
       </svg>
     );
   }

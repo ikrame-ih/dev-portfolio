@@ -44,7 +44,11 @@ export const MermaidDiagram = ({ chart, id }) => {
   }, [chart, id]);
 
   return (
-    <div ref={ref} className="mermaid w-full overflow-x-auto" data-testid={`mermaid-${id}`} />
+    <div
+      ref={ref}
+      className="mermaid w-full overflow-x-auto"
+      data-testid={`mermaid-${id}`}
+    />
   );
 };
 

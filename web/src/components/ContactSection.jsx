@@ -43,7 +43,9 @@ export const ContactSection = () => {
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
         if (data.error === "rate_limited") {
-          toast.error("Too many messages — try again in an hour or email me directly.");
+          toast.error(
+            "Too many messages — try again in an hour or email me directly.",
+          );
         } else if (data.error === "too_fast") {
           toast.error("Please take a moment before sending.");
         } else if (data.error === "email_not_configured") {
@@ -57,7 +59,9 @@ export const ContactSection = () => {
             "Form misconfigured — inbox must match your Resend account email until you verify a domain.",
           );
         } else if (data.error === "resend_auth") {
-          toast.error("Email service auth failed — check RESEND_API_KEY in Vercel.");
+          toast.error(
+            "Email service auth failed — check RESEND_API_KEY in Vercel.",
+          );
         } else {
           toast.error(
             "Could not send your message. Try again or email me directly.",

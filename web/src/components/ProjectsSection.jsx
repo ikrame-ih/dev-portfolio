@@ -10,7 +10,11 @@ export const ProjectsSection = () => {
   const [expanded, setExpanded] = useState({});
 
   return (
-    <section id="projects" data-testid="projects-section" className="relative py-24 md:py-32 bg-bone-200">
+    <section
+      id="projects"
+      data-testid="projects-section"
+      className="relative py-24 md:py-32 bg-bone-200"
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <Reveal className="mb-16 max-w-3xl">
           <div className="flex items-center gap-3 mb-6">
@@ -25,8 +29,8 @@ export const ProjectsSection = () => {
             <em className="not-italic text-burgundy">and what I'm learning.</em>
           </h2>
           <p className="mt-4 font-mono text-xs text-ink-mute max-w-xl">
-            Architecture diagrams and a short read on each project — what it does and what I'm still
-            figuring out.
+            Architecture diagrams and a short read on each project — what it
+            does and what I'm still figuring out.
           </p>
         </Reveal>
 
@@ -49,13 +53,19 @@ export const ProjectsSection = () => {
                       Project · 0{idx + 1}
                       {p.href ? "" : " · in progress"}
                     </p>
-                    <h3 className="font-serif text-2xl md:text-3xl tracking-tight text-ink">{p.name}</h3>
-                    <p className="font-mono text-xs text-ink-soft mt-1">{p.subtitle}</p>
+                    <h3 className="font-serif text-2xl md:text-3xl tracking-tight text-ink">
+                      {p.name}
+                    </h3>
+                    <p className="font-mono text-xs text-ink-soft mt-1">
+                      {p.subtitle}
+                    </p>
                   </div>
                   <Bow size={28} />
                 </div>
 
-                <p className="font-mono text-sm text-ink-soft leading-relaxed mb-6">{p.description}</p>
+                <p className="font-mono text-sm text-ink-soft leading-relaxed mb-6">
+                  {p.description}
+                </p>
 
                 <div className="flex flex-wrap gap-2 mb-8">
                   {p.stack.map((s) => (
@@ -80,7 +90,9 @@ export const ProjectsSection = () => {
                   <button
                     type="button"
                     data-testid={`project-shows-toggle-${p.id}`}
-                    onClick={() => setExpanded((prev) => ({ ...prev, [p.id]: !prev[p.id] }))}
+                    onClick={() =>
+                      setExpanded((prev) => ({ ...prev, [p.id]: !prev[p.id] }))
+                    }
                     className="lnk font-mono text-xs uppercase tracking-[0.18em] text-ink"
                   >
                     {isExpanded ? "Close summary" : "What it shows ↓"}
@@ -118,7 +130,9 @@ export const ProjectsSection = () => {
                       className="overflow-hidden"
                     >
                       <div className="mt-6 border border-burgundy/30 p-5 font-mono text-xs space-y-3">
-                        <p className="text-burgundy uppercase tracking-[0.2em]">{p.shows.title}</p>
+                        <p className="text-burgundy uppercase tracking-[0.2em]">
+                          {p.shows.title}
+                        </p>
                         <ul className="space-y-3 text-ink-soft leading-relaxed list-disc list-outside ml-4">
                           {p.shows.bullets.map((b) => (
                             <li key={b}>{b}</li>
@@ -134,7 +148,10 @@ export const ProjectsSection = () => {
         </div>
       </div>
 
-      <ArchitectureModal project={openProject} onClose={() => setOpenProject(null)} />
+      <ArchitectureModal
+        project={openProject}
+        onClose={() => setOpenProject(null)}
+      />
     </section>
   );
 };

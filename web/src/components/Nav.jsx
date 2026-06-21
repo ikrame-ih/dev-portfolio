@@ -21,7 +21,9 @@ export const Nav = ({ onOpenTerminal }) => {
   }, []);
 
   const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    document
+      .getElementById(id)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
@@ -31,7 +33,9 @@ export const Nav = ({ onOpenTerminal }) => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.2, 0.7, 0.2, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-bone/85 backdrop-blur-md border-b border-bone-400" : "bg-transparent"
+        scrolled
+          ? "bg-bone/85 backdrop-blur-md border-b border-bone-400"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">

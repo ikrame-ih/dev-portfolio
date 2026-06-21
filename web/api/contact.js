@@ -20,7 +20,6 @@ export default async function handler(req, res) {
 
   res.setHeader("Cache-Control", "no-store");
 
-  // Honeypot — pretend success so bots do not adapt
   if (isHoneypotTripped(req.body)) {
     return res.status(200).json({ ok: true });
   }
@@ -91,7 +90,9 @@ export default async function handler(req, res) {
         resendMessage = detail;
       }
 
-      if (resendMessage.includes("only send testing emails to your own email")) {
+      if (
+        resendMessage.includes("only send testing emails to your own email")
+      ) {
         return res.status(502).json({
           error: "resend_testing_limit",
           hint: "CONTACT_TO_EMAIL must match the email on your Resend account while using onboarding@resend.dev.",
@@ -99,10 +100,14 @@ export default async function handler(req, res) {
       }
 
       if (response.status === 401 || response.status === 403) {
-        return res.status(502).json({ error: "resend_auth", hint: resendMessage });
+        return res
+          .status(502)
+          .json({ error: "resend_auth", hint: resendMessage });
       }
 
-      return res.status(502).json({ error: "send_failed", hint: resendMessage });
+      return res
+        .status(502)
+        .json({ error: "send_failed", hint: resendMessage });
     }
 
     return res.status(200).json({ ok: true });

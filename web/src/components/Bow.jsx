@@ -28,8 +28,18 @@ export const Bow = ({
       strokeLinejoin="round"
     />
     <circle cx="32" cy="32" r="2.5" stroke={color} strokeWidth={strokeWidth} />
-    <path d="M30 34 L 26 50" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" />
-    <path d="M34 34 L 38 50" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" />
+    <path
+      d="M30 34 L 26 50"
+      stroke={color}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+    <path
+      d="M34 34 L 38 50"
+      stroke={color}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
   </svg>
 );
 

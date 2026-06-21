@@ -53,7 +53,9 @@ export const Hero = () => {
             </motion.span>
             <motion.span {...heroStep(2, reduce)} className="block">
               with{" "}
-              <em className="text-burgundy not-italic font-normal">care for detail</em>
+              <em className="text-burgundy not-italic font-normal">
+                care for detail
+              </em>
             </motion.span>
             <motion.span
               {...heroStep(3, reduce)}
