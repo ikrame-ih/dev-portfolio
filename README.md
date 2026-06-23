@@ -1,6 +1,6 @@
 # dev-portfolio
 
-My portfolio site — React + Vite + Tailwind. Cream paper look, CV and projects up front, guest book and CLI further down if you scroll.
+My portfolio site — React + Vite + Tailwind. Cream paper look, CV and projects up front, guest book and CLI on the upper corner.
 
 [![Live on Vercel](https://img.shields.io/badge/Live-Vercel-black?style=for-the-badge&logo=vercel&logoColor=white)](https://ikrame-ih.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-dev--portfolio-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ikrame-ih/dev-portfolio)
