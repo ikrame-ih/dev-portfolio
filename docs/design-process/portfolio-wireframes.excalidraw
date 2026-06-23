@@ -1,7 +1,7 @@
 {
   "type": "excalidraw",
   "version": 2,
-  "source": "https://excalidraw.com",
+  "source": "https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor",
   "elements": [
     {
       "id": "frame-desktop",
@@ -22,15 +22,33 @@
       "frameId": null,
       "roundness": null,
       "seed": 1,
-      "version": 1,
-      "versionNonce": 1,
+      "version": 7,
+      "versionNonce": 976887625,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1,
+      "updated": 1782045708514,
       "link": null,
       "locked": false,
-      "name": "Desktop scroll — final shape (Jun 2026)",
-      "children": ["nav-box", "nav-label", "hero-box", "hero-left", "hero-right", "marquee-box", "divider-box", "cv-box", "projects-box", "bento-box", "vault-box", "guestbook-box", "guest-left", "guest-spine", "guest-right", "contact-box", "footer-box"],
+      "name": "Desktop scroll — early shape (Jun 2026)",
+      "children": [
+        "nav-box",
+        "nav-label",
+        "hero-box",
+        "hero-left",
+        "hero-right",
+        "marquee-box",
+        "divider-box",
+        "cv-box",
+        "projects-box",
+        "bento-box",
+        "vault-box",
+        "guestbook-box",
+        "guest-left",
+        "guest-spine",
+        "guest-right",
+        "contact-box",
+        "footer-box"
+      ],
       "index": "a0"
     },
     {
@@ -48,14 +66,23 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-nav"],
+      "groupIds": [
+        "grp-nav"
+      ],
       "frameId": "frame-desktop",
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 101,
       "version": 1,
       "versionNonce": 101,
       "isDeleted": false,
-      "boundElements": [{"type": "text", "id": "nav-label"}],
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "nav-label"
+        }
+      ],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -76,13 +103,15 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-nav"],
+      "groupIds": [
+        "grp-nav"
+      ],
       "frameId": "frame-desktop",
       "seed": 102,
       "version": 1,
       "versionNonce": 102,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -95,7 +124,8 @@
       "originalText": "Nav (fixed) — logo · CV · Projects · Vault · Guest book · Contact · [Terminal]",
       "autoResize": true,
       "lineHeight": 1.25,
-      "index": "a2"
+      "index": "a2",
+      "roundness": null
     },
     {
       "id": "hero-box",
@@ -112,9 +142,13 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-hero"],
+      "groupIds": [
+        "grp-hero"
+      ],
       "frameId": "frame-desktop",
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 201,
       "version": 1,
       "versionNonce": 201,
@@ -140,13 +174,15 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-hero"],
+      "groupIds": [
+        "grp-hero"
+      ],
       "frameId": "frame-desktop",
       "seed": 202,
       "version": 1,
       "versionNonce": 202,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -159,7 +195,8 @@
       "originalText": "Hero (7/12 col)\noverline → headline (staged fade)\npositioning + CTAs\nView projects / CV / contact",
       "autoResize": true,
       "lineHeight": 1.25,
-      "index": "a4"
+      "index": "a4",
+      "roundness": null
     },
     {
       "id": "hero-right",
@@ -176,14 +213,23 @@
       "strokeStyle": "solid",
       "roughness": 2,
       "opacity": 100,
-      "groupIds": ["grp-hero"],
+      "groupIds": [
+        "grp-hero"
+      ],
       "frameId": "frame-desktop",
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 203,
       "version": 1,
       "versionNonce": 203,
       "isDeleted": false,
-      "boundElements": [{"type": "text", "id": "hero-photo-label"}],
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "hero-photo-label"
+        }
+      ],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -204,13 +250,15 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-hero"],
+      "groupIds": [
+        "grp-hero"
+      ],
       "frameId": "frame-desktop",
       "seed": 204,
       "version": 1,
       "versionNonce": 204,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -223,7 +271,8 @@
       "originalText": "portrait\n3:4 frame",
       "autoResize": true,
       "lineHeight": 1.25,
-      "index": "a6"
+      "index": "a6",
+      "roundness": null
     },
     {
       "id": "marquee-box",
@@ -240,14 +289,23 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-hero"],
+      "groupIds": [
+        "grp-hero"
+      ],
       "frameId": "frame-desktop",
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 205,
       "version": 1,
       "versionNonce": 205,
       "isDeleted": false,
-      "boundElements": [{"type": "text", "id": "marquee-label"}],
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "marquee-label"
+        }
+      ],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -268,13 +326,15 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-hero"],
+      "groupIds": [
+        "grp-hero"
+      ],
       "frameId": "frame-desktop",
       "seed": 206,
       "version": 1,
       "versionNonce": 206,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -287,14 +347,15 @@
       "originalText": "marquee band — scrolling keywords + bow icons",
       "autoResize": true,
       "lineHeight": 1.25,
-      "index": "a8"
+      "index": "a8",
+      "roundness": null
     },
     {
       "id": "divider-box",
       "type": "line",
-      "x": 480,
-      "y": 540,
-      "width": 80,
+      "x": 480.25,
+      "y": 540.0125519347908,
+      "width": 80.5,
       "height": 0,
       "angle": 0,
       "strokeColor": "#1a1a1a",
@@ -304,18 +365,29 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-divider"],
+      "groupIds": [
+        "grp-divider"
+      ],
       "frameId": "frame-desktop",
       "roundness": null,
       "seed": 301,
-      "version": 1,
-      "versionNonce": 301,
+      "version": 125,
+      "versionNonce": 1417871241,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1782045599290,
       "link": null,
       "locked": false,
-      "points": [[0, 0], [80, 0]],
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          80.5,
+          0
+        ]
+      ],
       "lastCommittedPoint": null,
       "startBinding": null,
       "endBinding": null,
@@ -326,10 +398,10 @@
     {
       "id": "divider-label",
       "type": "text",
-      "x": 440,
-      "y": 548,
-      "width": 160,
-      "height": 20,
+      "x": 418.9521484375,
+      "y": 548.0625519347908,
+      "width": 205.095703125,
+      "height": 15.093750000000002,
       "angle": 0,
       "strokeColor": "#8a827b",
       "backgroundColor": "transparent",
@@ -338,18 +410,20 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-divider"],
+      "groupIds": [
+        "grp-divider"
+      ],
       "frameId": "frame-desktop",
       "seed": 302,
-      "version": 1,
-      "versionNonce": 302,
+      "version": 215,
+      "versionNonce": 1833323015,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1782045641065,
       "link": null,
       "locked": false,
       "text": "OrnamentDivider (bow on line)",
-      "fontSize": 12,
+      "fontSize": 12.075000000000001,
       "fontFamily": 3,
       "textAlign": "center",
       "verticalAlign": "top",
@@ -357,7 +431,8 @@
       "originalText": "OrnamentDivider (bow on line)",
       "autoResize": true,
       "lineHeight": 1.25,
-      "index": "aA"
+      "index": "aA",
+      "roundness": null
     },
     {
       "id": "cv-box",
@@ -374,14 +449,23 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-cv"],
+      "groupIds": [
+        "grp-cv"
+      ],
       "frameId": "frame-desktop",
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 401,
       "version": 1,
       "versionNonce": 401,
       "isDeleted": false,
-      "boundElements": [{"type": "text", "id": "cv-label"}],
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "cv-label"
+        }
+      ],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -402,13 +486,15 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-cv"],
+      "groupIds": [
+        "grp-cv"
+      ],
       "frameId": "frame-desktop",
       "seed": 402,
       "version": 1,
       "versionNonce": 402,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -421,7 +507,8 @@
       "originalText": "#cv — stack pills w/ Lucide icons\nexperience timeline · education · print CV btn",
       "autoResize": true,
       "lineHeight": 1.25,
-      "index": "aC"
+      "index": "aC",
+      "roundness": null
     },
     {
       "id": "projects-box",
@@ -438,14 +525,23 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 40,
-      "groupIds": ["grp-projects"],
+      "groupIds": [
+        "grp-projects"
+      ],
       "frameId": "frame-desktop",
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 501,
       "version": 1,
       "versionNonce": 501,
       "isDeleted": false,
-      "boundElements": [{"type": "text", "id": "projects-label"}],
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "projects-label"
+        }
+      ],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -466,13 +562,15 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-projects"],
+      "groupIds": [
+        "grp-projects"
+      ],
       "frameId": "frame-desktop",
       "seed": 502,
       "version": 1,
       "versionNonce": 502,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -485,7 +583,8 @@
       "originalText": "#projects — bg bone-200\n[ card: Live Event Radar ] [ card: ReconFlow ]\nexpand details · View architecture → Mermaid modal",
       "autoResize": true,
       "lineHeight": 1.25,
-      "index": "aE"
+      "index": "aE",
+      "roundness": null
     },
     {
       "id": "bento-box",
@@ -502,14 +601,23 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-bento"],
+      "groupIds": [
+        "grp-bento"
+      ],
       "frameId": "frame-desktop",
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 601,
       "version": 1,
       "versionNonce": 601,
       "isDeleted": false,
-      "boundElements": [{"type": "text", "id": "bento-label"}],
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "bento-label"
+        }
+      ],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -530,13 +638,15 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-bento"],
+      "groupIds": [
+        "grp-bento"
+      ],
       "frameId": "frame-desktop",
       "seed": 602,
       "version": 1,
       "versionNonce": 602,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -549,7 +659,8 @@
       "originalText": "#bento — interests pinboard (6 photo tiles)\ngaming · music · gym · reading · anime · skincare",
       "autoResize": true,
       "lineHeight": 1.25,
-      "index": "aG"
+      "index": "aG",
+      "roundness": null
     },
     {
       "id": "vault-box",
@@ -566,14 +677,23 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 40,
-      "groupIds": ["grp-vault"],
+      "groupIds": [
+        "grp-vault"
+      ],
       "frameId": "frame-desktop",
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 701,
       "version": 1,
       "versionNonce": 701,
       "isDeleted": false,
-      "boundElements": [{"type": "text", "id": "vault-label"}],
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "vault-label"
+        }
+      ],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -594,13 +714,15 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-vault"],
+      "groupIds": [
+        "grp-vault"
+      ],
       "frameId": "frame-desktop",
       "seed": 702,
       "version": 1,
       "versionNonce": 702,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -613,7 +735,8 @@
       "originalText": "#blog — Tizza's vault\navatar + placeholder posts + coming soon overlay",
       "autoResize": true,
       "lineHeight": 1.25,
-      "index": "aI"
+      "index": "aI",
+      "roundness": null
     },
     {
       "id": "guestbook-box",
@@ -630,9 +753,13 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-guestbook"],
+      "groupIds": [
+        "grp-guestbook"
+      ],
       "frameId": "frame-desktop",
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 801,
       "version": 1,
       "versionNonce": 801,
@@ -658,14 +785,23 @@
       "strokeStyle": "solid",
       "roughness": 2,
       "opacity": 100,
-      "groupIds": ["grp-guestbook"],
+      "groupIds": [
+        "grp-guestbook"
+      ],
       "frameId": "frame-desktop",
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 802,
       "version": 1,
       "versionNonce": 802,
       "isDeleted": false,
-      "boundElements": [{"type": "text", "id": "guest-left-label"}],
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "guest-left-label"
+        }
+      ],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -686,13 +822,15 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-guestbook"],
+      "groupIds": [
+        "grp-guestbook"
+      ],
       "frameId": "frame-desktop",
       "seed": 803,
       "version": 1,
       "versionNonce": 803,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -705,7 +843,8 @@
       "originalText": "left page\nclick → bow (mx,y)",
       "autoResize": true,
       "lineHeight": 1.25,
-      "index": "aL"
+      "index": "aL",
+      "roundness": null
     },
     {
       "id": "guest-spine",
@@ -722,14 +861,16 @@
       "strokeStyle": "solid",
       "roughness": 2,
       "opacity": 100,
-      "groupIds": ["grp-guestbook"],
+      "groupIds": [
+        "grp-guestbook"
+      ],
       "frameId": "frame-desktop",
       "roundness": null,
       "seed": 804,
       "version": 1,
       "versionNonce": 804,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -750,14 +891,23 @@
       "strokeStyle": "solid",
       "roughness": 2,
       "opacity": 100,
-      "groupIds": ["grp-guestbook"],
+      "groupIds": [
+        "grp-guestbook"
+      ],
       "frameId": "frame-desktop",
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 805,
       "version": 1,
       "versionNonce": 805,
       "isDeleted": false,
-      "boundElements": [{"type": "text", "id": "guest-right-label"}],
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "guest-right-label"
+        }
+      ],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -778,13 +928,15 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-guestbook"],
+      "groupIds": [
+        "grp-guestbook"
+      ],
       "frameId": "frame-desktop",
       "seed": 806,
       "version": 1,
       "versionNonce": 806,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -797,15 +949,16 @@
       "originalText": "right page\n1 bow / visitor · Redis prod",
       "autoResize": true,
       "lineHeight": 1.25,
-      "index": "aO"
+      "index": "aO",
+      "roundness": null
     },
     {
       "id": "guestbook-note",
       "type": "text",
-      "x": 760,
-      "y": 1188,
-      "width": 200,
-      "height": 40,
+      "x": 785,
+      "y": 1165,
+      "width": 51.5625,
+      "height": 13.75,
       "angle": 0,
       "strokeColor": "#8a827b",
       "backgroundColor": "transparent",
@@ -814,26 +967,29 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-guestbook"],
+      "groupIds": [
+        "grp-guestbook"
+      ],
       "frameId": "frame-desktop",
       "seed": 807,
-      "version": 1,
-      "versionNonce": 807,
+      "version": 149,
+      "versionNonce": 339951657,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1,
+      "boundElements": [],
+      "updated": 1782045675312,
       "link": null,
       "locked": false,
-      "text": "#garden — evolved from\nflat canvas sketch ↓",
+      "text": "garden ↓",
       "fontSize": 11,
       "fontFamily": 3,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "#garden — evolved from\nflat canvas sketch ↓",
+      "originalText": "garden ↓",
       "autoResize": true,
       "lineHeight": 1.25,
-      "index": "aP"
+      "index": "aP",
+      "roundness": null
     },
     {
       "id": "contact-box",
@@ -850,14 +1006,23 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 40,
-      "groupIds": ["grp-contact"],
+      "groupIds": [
+        "grp-contact"
+      ],
       "frameId": "frame-desktop",
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 901,
       "version": 1,
       "versionNonce": 901,
       "isDeleted": false,
-      "boundElements": [{"type": "text", "id": "contact-label"}],
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "contact-label"
+        }
+      ],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -878,13 +1043,15 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-contact"],
+      "groupIds": [
+        "grp-contact"
+      ],
       "frameId": "frame-desktop",
       "seed": 902,
       "version": 1,
       "versionNonce": 902,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -897,7 +1064,8 @@
       "originalText": "#contact — form + email/phone\nPOST /api/contact → Resend",
       "autoResize": true,
       "lineHeight": 1.25,
-      "index": "aR"
+      "index": "aR",
+      "roundness": null
     },
     {
       "id": "footer-box",
@@ -914,14 +1082,21 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-footer"],
+      "groupIds": [
+        "grp-footer"
+      ],
       "frameId": "frame-desktop",
       "roundness": null,
       "seed": 1001,
       "version": 1,
       "versionNonce": 1001,
       "isDeleted": false,
-      "boundElements": [{"type": "text", "id": "footer-label"}],
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "footer-label"
+        }
+      ],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -942,13 +1117,15 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-footer"],
+      "groupIds": [
+        "grp-footer"
+      ],
       "frameId": "frame-desktop",
       "seed": 1002,
       "version": 1,
       "versionNonce": 1002,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -961,14 +1138,15 @@
       "originalText": "Footer (inverse ink) — links · GitHub · Terminal CTA",
       "autoResize": true,
       "lineHeight": 1.25,
-      "index": "aT"
+      "index": "aT",
+      "roundness": null
     },
     {
       "id": "arrow-scroll",
       "type": "arrow",
       "x": 980,
       "y": 200,
-      "width": 40,
+      "width": 0,
       "height": 1200,
       "angle": 0,
       "strokeColor": "#8a827b",
@@ -980,16 +1158,27 @@
       "opacity": 100,
       "groupIds": [],
       "frameId": null,
-      "roundness": { "type": 2 },
+      "roundness": {
+        "type": 2
+      },
       "seed": 1101,
       "version": 1,
       "versionNonce": 1101,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
-      "points": [[0, 0], [0, 1200]],
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1200
+        ]
+      ],
       "lastCommittedPoint": null,
       "startBinding": null,
       "endBinding": null,
@@ -1018,7 +1207,7 @@
       "version": 1,
       "versionNonce": 1102,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -1031,7 +1220,8 @@
       "originalText": "scroll\nflow",
       "autoResize": true,
       "lineHeight": 1.25,
-      "index": "aV"
+      "index": "aV",
+      "roundness": null
     },
     {
       "id": "frame-cli",
@@ -1060,7 +1250,11 @@
       "link": null,
       "locked": false,
       "name": "Overlay — not in scroll",
-      "children": ["cli-box", "cli-label", "cli-arrow"],
+      "children": [
+        "cli-box",
+        "cli-label",
+        "cli-arrow"
+      ],
       "index": "aW"
     },
     {
@@ -1078,14 +1272,23 @@
       "strokeStyle": "solid",
       "roughness": 2,
       "opacity": 100,
-      "groupIds": ["grp-cli"],
+      "groupIds": [
+        "grp-cli"
+      ],
       "frameId": "frame-cli",
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 1202,
       "version": 1,
       "versionNonce": 1202,
       "isDeleted": false,
-      "boundElements": [{"type": "text", "id": "cli-label"}],
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "cli-label"
+        }
+      ],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -1106,13 +1309,15 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-cli"],
+      "groupIds": [
+        "grp-cli"
+      ],
       "frameId": "frame-cli",
       "seed": 1203,
       "version": 1,
       "versionNonce": 1203,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -1125,7 +1330,8 @@
       "originalText": "CLI Terminal\nCtrl+` or Nav btn\n\nhelp · about · guestbook\ncv · contact · exit\n\n(separate from visual bows)",
       "autoResize": true,
       "lineHeight": 1.25,
-      "index": "aY"
+      "index": "aY",
+      "roundness": null
     },
     {
       "id": "cli-arrow",
@@ -1142,18 +1348,31 @@
       "strokeStyle": "dashed",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-cli"],
+      "groupIds": [
+        "grp-cli"
+      ],
       "frameId": "frame-cli",
-      "roundness": { "type": 2 },
+      "roundness": {
+        "type": 2
+      },
       "seed": 1204,
       "version": 1,
       "versionNonce": 1204,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
-      "points": [[0, 0], [50, 0]],
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          0
+        ]
+      ],
       "lastCommittedPoint": null,
       "startBinding": null,
       "endBinding": null,
@@ -1182,20 +1401,21 @@
       "version": 1,
       "versionNonce": 1301,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
-      "text": "notes:\n- sections alternate bone / bone-200\n- guest book used to be margin clicks only\n- dropped dark mode\n- rough boxes on purpose",
+      "text": "Notes (early sketch → shipped):\n• bone / bone-200 alternates between sections\n• guest book was margin-only at first — now full page click\n• dark mode cut — light-only is intentional\n• still rough on purpose — this is the starting map, not a mockup",
       "fontSize": 12,
       "fontFamily": 3,
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "notes:\n- sections alternate bone / bone-200\n- guest book used to be margin clicks only\n- dropped dark mode\n- rough boxes on purpose",
+      "originalText": "Notes (early sketch → shipped):\n• bone / bone-200 alternates between sections\n• guest book was margin-only at first — now full page click\n• dark mode cut — light-only is intentional\n• still rough on purpose — this is the starting map, not a mockup",
       "autoResize": true,
       "lineHeight": 1.25,
-      "index": "b0"
+      "index": "b0",
+      "roundness": null
     },
     {
       "id": "frame-mobile",
@@ -1224,7 +1444,10 @@
       "link": null,
       "locked": false,
       "name": "Mobile ~375px (stack)",
-      "children": ["mobile-box", "mobile-label"],
+      "children": [
+        "mobile-box",
+        "mobile-label"
+      ],
       "index": "b1"
     },
     {
@@ -1242,14 +1465,23 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-mobile"],
+      "groupIds": [
+        "grp-mobile"
+      ],
       "frameId": "frame-mobile",
-      "roundness": { "type": 3 },
+      "roundness": {
+        "type": 3
+      },
       "seed": 1402,
       "version": 1,
       "versionNonce": 1402,
       "isDeleted": false,
-      "boundElements": [{"type": "text", "id": "mobile-label"}],
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "mobile-label"
+        }
+      ],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -1270,13 +1502,15 @@
       "strokeStyle": "solid",
       "roughness": 1,
       "opacity": 100,
-      "groupIds": ["grp-mobile"],
+      "groupIds": [
+        "grp-mobile"
+      ],
       "frameId": "frame-mobile",
       "seed": 1403,
       "version": 1,
       "versionNonce": 1403,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1,
       "link": null,
       "locked": false,
@@ -1289,11 +1523,14 @@
       "originalText": "nav (logo + terminal)\nhero stack\nCV\nprojects\nbento\nvault\nguest book\ncontact\nfooter",
       "autoResize": true,
       "lineHeight": 1.25,
-      "index": "b3"
+      "index": "b3",
+      "roundness": null
     }
   ],
   "appState": {
     "gridSize": 20,
+    "gridStep": 5,
+    "gridModeEnabled": false,
     "viewBackgroundColor": "#f5f1eb"
   },
   "files": {}

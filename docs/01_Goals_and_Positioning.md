@@ -8,30 +8,16 @@ aliases:
 
 # 01 — Goals & Positioning
 
-Scratch pad from rewriting hero copy too many times.
+Scratch pad from rewriting hero copy.
 
-Portfolio for web dev roles. Frontend first in how I describe myself, but I do backend stuff too.
+Portfolio for web dev roles — frontend first in how I describe myself, backend work included.
 
----
+Top of page: hero, CV, projects, contact. Lower down if someone scrolls: interests, vault, guest book. English only for now.
 
-Top: hero, CV, projects, contact. Bottom if you scroll: interests, vault teaser, guest book. Not everyone needs the bottom half.
+Overline: WEB DEVELOPER · FRONTEND · BACKEND. I avoid leading with "full-stack" or "software engineer" in Spain.
 
-Overline says WEB DEVELOPER · FRONTEND · BACKEND. I avoid "software engineer" here (Spain) and don't headline "full-stack" even though the work spans both.
+I try to keep professional sections straightforward and personal sections casual. Cut ninja bragging and hobbies-as-skills.
 
-Admin job shows up in the positioning text as context — not as "I didn't start in tech."
-
----
-
-English only for now. Spanish = duplicate all of portfolio.js. Later maybe.
-
-CLI hidden. Terminal button if you want it.
-
----
-
-I try to keep hero/CV/projects fairly straight. Interests and guest book can be more me. Cut anything that sounds like "passionate ninja full-stack" or hobbies-as-skill-building.
-
-Order: hero → cv → projects → bento → vault → guest book → contact.
-
----
+Scroll order: hero → cv → projects → bento → vault → guest book → contact. CLI is outside that.
 
 [[04_Content_and_Voice]] · [[12_Current_Project_State]]

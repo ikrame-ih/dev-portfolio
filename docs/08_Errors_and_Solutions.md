@@ -32,6 +32,8 @@ Things that wasted my time. Search here first.
 
 **Resend testing limit** — CONTACT_TO_EMAIL must match Resend account until domain verified.
 
+**Vercel build failed (assets.js)** — file got truncated to an empty `ASSETS = {` during an edit. `npm run build` locally before push catches this.
+
 ---
 
 When stuck: console first, React devtools, check portfolio.js value, git stash to bisect.

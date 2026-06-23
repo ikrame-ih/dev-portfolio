@@ -1,5 +1,6 @@
 import { ASSETS } from "./assets.js";
 
+// site copy — edit here, not scattered in components
 export const PROFILE = {
   name: "Ikrame I. H.",
   location: "Málaga, ES",

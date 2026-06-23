@@ -10,6 +10,7 @@ import {
   Server,
   Sparkles,
   TestTube2,
+  Monitor,
   Wind,
   Zap,
 } from "lucide-react";

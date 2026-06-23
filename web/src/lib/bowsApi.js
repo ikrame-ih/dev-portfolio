@@ -1,7 +1,7 @@
 const API = "/api/bows";
 
 export async function fetchRemoteBows() {
-  const res = await fetch(API, { credentials: "include" });
+  const res = await fetch(API, { credentials: "include" }); // ik_visitor cookie
   const data = await res.json().catch(() => ({}));
   if (!res.ok) {
     const err = new Error(data.error || `bows_fetch_${res.status}`);

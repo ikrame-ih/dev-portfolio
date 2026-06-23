@@ -10,7 +10,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_NAME = 100;
 const MAX_EMAIL = 254;
 const MAX_MESSAGE = 2000;
-const MIN_FILL_MS = 2500;
+const MIN_FILL_MS = 2500; // reject instant submits
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -21,7 +21,7 @@ export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
 
   if (isHoneypotTripped(req.body)) {
-    return res.status(200).json({ ok: true });
+    return res.status(200).json({ ok: true }); // bots get a fake ok
   }
 
   const ip = getClientIp(req);

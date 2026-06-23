@@ -116,13 +116,13 @@ export const JardinCanvas = () => {
         created_at: existing?.created_at ?? new Date().toISOString(),
       });
 
-      const snapshot = bows;
+      const snapshot = bows; // rollback if POST fails
 
       if (remote) {
         setBows(mergeVisitorBow(bows, bow, visitorId));
         setLastDropped(bow.id);
         setHint(null);
-        syncingRef.current = true;
+        syncingRef.current = true; // block double-click while posting
       }
 
       try {

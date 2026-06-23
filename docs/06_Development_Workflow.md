@@ -53,7 +53,7 @@ Blog posts aren't real yet — placeholders in the same file until I build the v
 3. Add path to `assets.js` if it's new
 4. Component imports `ASSETS`, never a raw string path
 
-Broken thumbnails usually mean filename mismatch or forgot step 3.
+Broken thumbnails usually mean filename mismatch or forgot step 3. Run `npm run build` after touching `assets.js` — a half-finished export will fail on Vercel.
 
 ---
 

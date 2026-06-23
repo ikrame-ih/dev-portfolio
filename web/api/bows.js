@@ -78,7 +78,7 @@ export default async function handler(req, res) {
           : 0;
 
       const existing = await loadBowsFromStore(redis);
-      const withoutVisitor = existing.filter((b) => b.visitor_id !== visitorId);
+      const withoutVisitor = existing.filter((b) => b.visitor_id !== visitorId); // move, don't stack
 
       if (tooClose(page, clampedMx, clampedY, withoutVisitor)) {
         return res.status(409).json({ error: "too_close" });

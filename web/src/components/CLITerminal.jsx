@@ -47,7 +47,7 @@ export const CLITerminal = ({ open, onClose }) => {
 
     const raf = requestAnimationFrame(() => {
       focusInput();
-      setTimeout(focusInput, 50);
+      setTimeout(focusInput, 50); // input mount timing is flaky
       setTimeout(focusInput, 150);
     });
 

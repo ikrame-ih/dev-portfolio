@@ -34,7 +34,7 @@ CLI focus was a nightmare — global backtick listener, rAF retries, window Esca
 
 Jun 2026: Upstash for shared bows, Resend for contact, optimistic UI on bow click, TyingBow animation, nav order tweak (vault before guest book).
 
-Wireframe in excalidraw updated to match what actually shipped.
+Wireframe in excalidraw updated to match what actually shipped. Also learned to run build before push after truncating assets.js broke deploy.
 
 ---
 
