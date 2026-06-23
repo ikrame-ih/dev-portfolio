@@ -49,7 +49,7 @@ Guest book uses localStorage on localhost — the API routes only exist on Verce
 
 ---
 
-## Where things live
+## Quick reference
 
 - Copy: `web/src/data/portfolio.js`
 - Images: `web/public/images/` (paths in `assets.js`)
