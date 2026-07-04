@@ -1,13 +1,29 @@
 # dev-portfolio
 
-My portfolio site — React + Vite + Tailwind. Cream paper look, CV and projects up front, guest book and CLI on the upper corner.
+[![Live Site](https://img.shields.io/badge/Live_Site-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://ikrame-ih.vercel.app/)
 
-[![Live on Vercel](https://img.shields.io/badge/Live-Vercel-black?style=for-the-badge&logo=vercel&logoColor=white)](https://ikrame-ih.vercel.app/)
-[![GitHub](https://img.shields.io/badge/GitHub-dev--portfolio-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ikrame-ih/dev-portfolio)
+**Personal portfolio site** — CV and projects up front, cream paper aesthetic, guest book, contact form, and a CLI easter egg in the corner.
 
-Stack: React 19, Vite 6, Tailwind, Framer Motion. Guest book syncs via Upstash on Vercel. Contact form uses Resend.
+Portfolio project (v0.1.0): React SPA deployed on Vercel. Guest book syncs via Upstash; contact form uses Resend.
 
----
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-v3-06B6D4?logo=tailwindcss&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-0055FF?logo=framer&logoColor=white)
+
+| | |
+| --- | --- |
+| **Live site** | [ikrame-ih.vercel.app](https://ikrame-ih.vercel.app/) |
+| **Source** | [github.com/ikrame-ih/dev-portfolio](https://github.com/ikrame-ih/dev-portfolio) |
+
+## Highlights
+
+- **Hero + CV** — role, stack, and experience above the fold
+- **Projects bento** — featured work with architecture modals and live links
+- **Guest book** — shared bows via Upstash Redis on Vercel; localStorage fallback on localhost
+- **Contact** — Resend-powered form with rate limiting
+- **CLI terminal** — hidden command palette for navigation and easter eggs
+- **Design system** — cream paper palette, Framer Motion reveals, Mermaid diagrams
 
 ## Preview
 
@@ -19,49 +35,69 @@ Stack: React 19, Vite 6, Tailwind, Framer Motion. Guest book syncs via Upstash o
 
 ![Guest book](web/screenshots/guestbook-contact.png)
 
----
+## Quick start
 
-## Run locally
+**Prerequisites:** Node.js 20+, npm.
 
 ```bash
-cd web
+git clone https://github.com/ikrame-ih/dev-portfolio.git
+cd dev-portfolio/web
 npm install
-cp .env.example .env   # optional for contact/guest book locally
+cp .env.example .env   # optional — contact & guest book locally
 npm run dev
 ```
 
-[http://localhost:5173](http://localhost:5173)
+Open [http://localhost:5173](http://localhost:5173). Guest book API routes only exist on Vercel (or `vercel dev`).
 
-```bash
-npm run build
-npm run preview
+## Scripts
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Dev server (port 5173) |
+| `npm run build` | Production build |
+| `npm run preview` | Preview production build |
+| `npm run capture:readme` | Regenerate README screenshots (Playwright) |
+
+**Vercel deploy:** set root directory to **`web/`**.
+
+## Stack
+
+React 19 · Vite 6 · Tailwind CSS 3 · Framer Motion · Lucide · Mermaid · Upstash Redis · Resend
+
+## Environment
+
+Copy `web/.env.example` → `web/.env` for local API routes (or configure in Vercel).
+
+| Variable | Purpose |
+| --- | --- |
+| `UPSTASH_REDIS_REST_URL` | Guest book persistence |
+| `UPSTASH_REDIS_REST_TOKEN` | Guest book auth |
+| `RESEND_API_KEY` | Contact form delivery |
+| `CONTACT_TO_EMAIL` | Inbox for contact submissions |
+
+Never commit `.env` files or API keys.
+
+## Project layout
+
+```
+web/
+├── src/
+│   ├── components/     # UI sections (Hero, CV, Projects, CLI…)
+│   ├── data/           # portfolio copy, assets, stack icons
+│   └── lib/            # guest book API, theme, storage
+├── api/                # Vercel serverless (bows, contact)
+├── public/images/      # Project & profile assets
+└── scripts/            # README screenshot capture
+docs/                   # Design notes (not deployed)
 ```
 
----
+`references/` and `app/` are local-only (gitignored).
 
-## Vercel env vars
+## Documentation
 
-Root directory: **`web/`**
+Internal build notes live in [`docs/`](docs/) — design system, component map, workflow.
 
-You'll need Upstash (`UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`) for the shared guest book, and Resend (`RESEND_API_KEY`, `CONTACT_TO_EMAIL`) for contact. See `web/.env.example`.
-
-Guest book uses localStorage on localhost — the API routes only exist on Vercel (or `vercel dev`).
-
----
-
-## Quick reference
-
-- Copy: `web/src/data/portfolio.js`
-- Images: `web/public/images/` (paths in `assets.js`)
-- Guest book API: `web/api/bows.js`
-- Contact API: `web/api/contact.js`
-- Build notes: `docs/` (not deployed)
-
-`references/` and `app/` are local only (gitignored).
-
----
-
-## Screenshots
+## Regenerate screenshots
 
 ```bash
 cd web
@@ -70,6 +106,10 @@ npx playwright@1.49.1 install chromium
 npm run capture:readme
 ```
 
----
+## License
 
-Private project — all rights reserved.
+Private project — © Ikrame Ibn Hayoun. All rights reserved.
+
+## Author
+
+**Ikrame Ibn Hayoun** — [Portfolio](https://ikrame-ih.vercel.app/) · [GitHub](https://github.com/ikrame-ih) · [LinkedIn](https://www.linkedin.com/in/ikrame-ih/)

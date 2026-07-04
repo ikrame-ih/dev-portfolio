@@ -2,7 +2,7 @@
 
 Vite + React app — the deployable portfolio.
 
-**Full documentation, previews, and deploy guide:** [README at repo root](../README.md)
+**Full README, previews, and deploy guide:** [repository root](../README.md)
 
 ```bash
 npm install
