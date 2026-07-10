@@ -27,7 +27,10 @@
       "position": "Web Developer Intern",
       "startDate": "2026-03",
       "endDate": "2026-06",
-      "summary": "Client websites with reusable components, responsive layouts, and semantic markup."
+      "highlights": [
+        "Developed client websites with reusable components and responsive layouts.",
+        "Included accessibility and semantic markup from the start."
+      ]
     },
     {
       "name": "EY Global Delivery Services",
