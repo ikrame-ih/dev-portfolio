@@ -68,11 +68,11 @@ export const EXPERIENCE = [
   {
     company: "DATA CONTROL",
     role: "Web Developer Intern",
-    period: "Mar 2026 — Present",
+    period: "Mar 2026 — Jun 2026",
     track: "tech",
     bullets: [
-      "Develop client websites with reusable components and responsive layouts.",
-      "Include accessibility and semantic markup from the start.",
+      "Developed client websites with reusable components and responsive layouts.",
+      "Included accessibility and semantic markup from the start.",
     ],
   },
   {
