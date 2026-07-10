@@ -15,7 +15,7 @@ export const PROFILE = {
   headline: "I build software with attention to detail",
   headlineAccent: "and the context behind it.",
   tagline:
-    "Web developer · finishing DAW · AI & Big Data postgraduate starting soon",
+    "Web developer · DAW graduate · AI & Big Data postgraduate starting Sep 2026",
   positioning:
     "Hello, I'm Ikrame Ibn Hayoun. I'm a frontend developer based in Málaga, equally comfortable on the backend. Before I wrote code professionally, I worked in admin and executive support (reconciliation, reporting, and coordination across teams). That background helps me understand why software exists, not just how to write it.",
   positioningParts: [
@@ -27,7 +27,7 @@ export const PROFILE = {
   ],
   practiceAside: {
     title: "At a glance",
-    text: "Finishing DAW (Jun 2026). AI & Big Data postgraduate from Sep 2026. Before development: admin and executive support, focused on reconciliation, reporting, and cross-team coordination.",
+    text: "DAW graduate (Jun 2026). AI & Big Data Postgraduate Programme (Sep 2026). Side projects on GitHub use component-based layouts, tests, and CI; intern work focused on reusable components and semantic markup.",
   },
 };
 
@@ -48,7 +48,7 @@ export const STACK = {
     "Zustand",
     "Leaflet",
     "Semantic HTML",
-    "CSS Grid / Flexbox",
+    "Git",
     "Vitest / Playwright",
   ],
   backend: [
@@ -122,7 +122,7 @@ export const EXPERIENCE = [
 export const EDUCATION = [
   {
     school: "Postgraduate programme (ESP)",
-    degree: "AI & Big Data",
+    degree: "AI & Big Data Postgraduate Programme",
     period: "Starting Sep 2026",
   },
   {
@@ -154,7 +154,7 @@ export const PROJECTS = [
     href: "https://github.com/ikrame-ih/live-event-radar",
     demo: "https://live-event-radar.vercel.app",
     description:
-      "A dashboard for brand activations where stock events follow one validated path into shared state, then feed two synchronized views: a command center and a telemetry map. I built it after working events where stock updates arrived too late to act on.",
+      "A dashboard for brand activations, built with reusable components and shared Zustand state. Stock events follow one validated path into two synchronized views—a command center and a telemetry map—after I saw updates arrive too late on event floors.",
     mermaid: `flowchart LR
   Sim[Mock Event Stream] --> Store[Zustand telemetry-store]
   Store --> Derive[Pure derivations]
@@ -167,9 +167,9 @@ export const PROJECTS = [
     shows: {
       title: "What it shows",
       bullets: [
-        "One parser and capped buffer feed the UI; incidents and zone stock come from tested pure functions, not duplicated view state.",
-        "Two routes share one shell and store: SVG zones on the command center, Leaflet on the dashboard, with the map loaded client-side only.",
-        "24 unit tests on parsing and business logic, Playwright smoke tests, and CI on every push.",
+        "Feature-sliced layout with reusable map and UI components; zone stock and incidents derived in tested pure functions, not duplicated state.",
+        "Responsive across viewports; keyboard-accessible SVG zones on the command center, Leaflet on the dashboard (loaded client-side only).",
+        "Architecture documented in VitePress, 24 Vitest tests, Playwright smoke tests, and GitHub Actions CI on every push.",
       ],
     },
   },
@@ -181,7 +181,7 @@ export const PROJECTS = [
     href: null,
     demo: null,
     description:
-      "Headless pipeline with separate ingest, transform, and match stages: bank CSVs and invoice data into a reconciliation mart and an exceptions queue. Based on import reconciliation I did in admin roles.",
+      "Headless FastAPI pipeline with separate ingest, transform, and match stages: bank CSVs and invoice data into a reconciliation mart and an exceptions queue. Based on import reconciliation I did in admin roles.",
     mermaid: `flowchart TD
   CSV[Bank CSV extracts] --> Raw[(Raw zone)]
   WH[Invoice webhooks JSON] --> Stream[Stream enricher]
@@ -195,8 +195,8 @@ export const PROJECTS = [
     shows: {
       title: "What it shows",
       bullets: [
-        "Distinct pipeline stages: raw ingest, dbt transforms, fuzzy matching, and a queue for unmatched rows.",
-        "Headless by design (API and CLI only), with scope held to one metric before expanding.",
+        "REST API and CLI only; pipeline stages kept distinct (raw ingest, dbt transforms, fuzzy matching, exceptions queue).",
+        "Scope held to one metric (auto-match rate) before expanding.",
         "Drawn from real admin reconciliation work, not a tutorial dataset.",
       ],
     },

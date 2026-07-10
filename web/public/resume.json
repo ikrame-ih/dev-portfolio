@@ -2,11 +2,11 @@
   "$schema": "https://jsonresume.org/schema/",
   "basics": {
     "name": "Ikrame I. H.",
-    "label": "Web Developer",
+    "label": "Junior Web Developer · Frontend & Backend",
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
     "url": "https://ikrame-ih.vercel.app",
-    "summary": "Frontend developer based in Málaga, equally comfortable on the backend. Admin and executive support background before development (reconciliation, reporting, and cross-team coordination). Available for remote or hybrid opportunities.",
+    "summary": "Junior web developer based in Málaga, focused on frontend with backend capability. I organize work around reusable components, shared state, and tested business logic—shown in a real-time dashboard with Zustand, Vitest, Playwright, and GitHub Actions CI. Admin and executive support background before development (reconciliation, reporting, cross-team coordination). Open to remote or hybrid roles.",
     "location": { "city": "Málaga", "countryCode": "ES" },
     "profiles": [
       {
@@ -74,7 +74,7 @@
   "education": [
     {
       "institution": "Postgraduate programme (ESP)",
-      "studyType": "Postgraduate",
+      "studyType": "AI & Big Data Postgraduate Programme",
       "area": "AI & Big Data",
       "startDate": "2026-09"
     },
@@ -99,28 +99,18 @@
         "React",
         "Next.js",
         "TypeScript",
-        "Vite",
-        "Tailwind CSS",
-        "Framer Motion",
         "Zustand",
-        "Leaflet",
-        "Vitest",
-        "Playwright"
+        "Tailwind CSS",
+        "Leaflet"
       ]
     },
     {
-      "name": "Backend & Data",
-      "keywords": [
-        "Python",
-        "FastAPI",
-        "PostgreSQL",
-        "REST APIs",
-        "SQL",
-        "Node.js",
-        "Java",
-        "dbt",
-        "Dagster"
-      ]
+      "name": "Backend",
+      "keywords": ["Python", "FastAPI", "PostgreSQL", "SQL", "REST APIs"]
+    },
+    {
+      "name": "Tools",
+      "keywords": ["Git", "GitHub Actions", "Vitest", "Playwright", "dbt", "Dagster"]
     }
   ],
   "languages": [
@@ -132,11 +122,11 @@
     {
       "name": "Live Event Radar",
       "url": "https://github.com/ikrame-ih/live-event-radar",
-      "description": "Real-time venue dashboard for brand activations — Next.js, Zustand, Leaflet, Web Workers."
+      "description": "Real-time venue dashboard for brand activations. Reusable components and shared Zustand state; stock events follow one validated path into synchronized command center and telemetry map views. Responsive layout, keyboard-accessible SVG zones, Leaflet map (client-side). Feature-sliced architecture, VitePress docs, 24 Vitest tests, Playwright smoke tests, GitHub Actions CI."
     },
     {
       "name": "ReconFlow",
-      "description": "Import reconciliation pipeline — Python, FastAPI, dbt, PostgreSQL, Dagster (in progress)."
+      "description": "Headless FastAPI reconciliation pipeline with separate ingest, transform, and match stages. Bank CSVs and invoice data flow through dbt into a reconciliation mart and exceptions queue. REST API and CLI only. Python, FastAPI, dbt, PostgreSQL, Dagster (in progress)."
     }
   ]
 }

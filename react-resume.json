@@ -14,7 +14,7 @@
   },
   "basics": {
     "name": "Ikrame I. H.",
-    "headline": "Web Developer · Frontend & Backend · Málaga, ES",
+    "headline": "Junior Web Developer · Frontend & Backend · Málaga, ES",
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
     "location": "Málaga, ES",
@@ -28,7 +28,7 @@
     "title": "Summary",
     "columns": 1,
     "hidden": false,
-    "content": "<p>Web developer based in Málaga, focused on frontend with solid backend capability. I work mainly with React, TypeScript, and Python, with projects that include real-time dashboards and data pipelines.</p><p>Before development, I spent several years in admin and executive support (reconciliation, reporting, cross-team coordination). That background helps me understand business context before writing code.</p><p>Open to remote or hybrid frontend or backend roles.</p>"
+    "content": "<p>Junior web developer based in Málaga, focused on frontend with backend capability. I organize work around reusable components, shared state, and tested business logic—shown in a real-time dashboard with Zustand, Vitest, Playwright, and GitHub Actions CI.</p><p>Before development, I worked in admin and executive support (reconciliation, reporting, cross-team coordination). That background helps me understand business context before writing code.</p><p>Open to remote or hybrid frontend or backend roles.</p>"
   },
   "sections": {
     "profiles": {
@@ -77,7 +77,7 @@
           "location": "Málaga, ES",
           "period": "Mar 2026 - Jun 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<ul><li>Developed client websites with reusable components and responsive layouts.</li><li>Included accessibility and semantic markup from the start of each project.</li></ul>",
+          "description": "<ul><li>Developed client websites with reusable components and responsive layouts.</li><li>Included accessibility and semantic HTML from the start of each project.</li></ul>",
           "roles": []
         },
         {
@@ -135,8 +135,8 @@
           "id": "c3000001-0001-4000-8000-000000000001",
           "hidden": false,
           "school": "Postgraduate programme (ESP)",
-          "degree": "Postgraduate",
-          "area": "AI & Big Data",
+          "degree": "AI & Big Data Postgraduate Programme",
+          "area": "",
           "grade": "",
           "location": "",
           "period": "Sep 2026 -",
@@ -184,7 +184,7 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>Real-time venue dashboard for brand activations: stock levels by zone, venue map, and live activity feed. Built after working events where stock updates arrived too late to respond.</p><p>React, Next.js, TypeScript, Zustand, Leaflet, Web Workers. Demo: live-event-radar.vercel.app</p>"
+          "description": "<p>Real-time venue dashboard for brand activations. Built with reusable components and shared Zustand state; stock events follow one validated path into two synchronized views (command center + telemetry map). Responsive layout, keyboard-accessible SVG zones, Leaflet map loaded client-side.</p><p>Feature-sliced architecture, VitePress docs, 24 Vitest tests, Playwright smoke tests, GitHub Actions CI. Demo: live-event-radar.vercel.app</p>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000002",
@@ -192,7 +192,7 @@
           "name": "ReconFlow",
           "period": "In progress",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Headless pipeline to match import invoices against bank extracts, based on reconciliation work from admin roles. API and CLI only.</p><p>Python, FastAPI, dbt, PostgreSQL, Dagster.</p>"
+          "description": "<p>Headless FastAPI reconciliation pipeline with separate ingest, transform, and match stages. Bank CSVs and invoice data flow through dbt into a reconciliation mart and an exceptions queue. REST API and CLI only.</p><p>Python, FastAPI, dbt, PostgreSQL, Dagster. Based on admin reconciliation work.</p>"
         }
       ]
     },
@@ -213,13 +213,9 @@
             "React",
             "Next.js",
             "TypeScript",
-            "Vite",
-            "Tailwind CSS",
             "Zustand",
-            "Leaflet",
-            "Framer Motion",
-            "Semantic HTML",
-            "CSS Grid / Flexbox"
+            "Tailwind CSS",
+            "Leaflet"
           ]
         },
         {
@@ -230,37 +226,17 @@
           "name": "Backend",
           "proficiency": "",
           "level": 0,
-          "keywords": ["Python", "FastAPI", "Node.js", "Java", "REST APIs"]
+          "keywords": ["Python", "FastAPI", "PostgreSQL", "SQL", "REST APIs"]
         },
         {
           "id": "e5000001-0001-4000-8000-000000000003",
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "Databases",
+          "name": "Tools",
           "proficiency": "",
           "level": 0,
-          "keywords": ["PostgreSQL", "SQL"]
-        },
-        {
-          "id": "e5000001-0001-4000-8000-000000000004",
-          "hidden": false,
-          "icon": "",
-          "iconColor": "",
-          "name": "Testing",
-          "proficiency": "",
-          "level": 0,
-          "keywords": ["Vitest", "Playwright"]
-        },
-        {
-          "id": "e5000001-0001-4000-8000-000000000005",
-          "hidden": false,
-          "icon": "",
-          "iconColor": "",
-          "name": "Data",
-          "proficiency": "",
-          "level": 0,
-          "keywords": ["dbt", "Dagster"]
+          "keywords": ["Git", "GitHub Actions", "Vitest", "Playwright", "dbt", "Dagster"]
         }
       ]
     },
@@ -342,22 +318,51 @@
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "Core stack",
+          "name": "Technologies",
           "proficiency": "",
           "level": 0,
           "keywords": [
             "React",
             "Next.js",
             "TypeScript",
+            "Zustand",
+            "Leaflet",
             "Python",
             "FastAPI",
             "PostgreSQL",
-            "Zustand",
-            "Tailwind CSS",
-            "Vite",
-            "Leaflet",
-            "dbt",
-            "SQL"
+            "Vitest",
+            "Playwright",
+            "Git"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "h8000001-0001-4000-8000-000000000001",
+      "title": "Development Practices",
+      "columns": 1,
+      "hidden": false,
+      "type": "skills",
+      "items": [
+        {
+          "id": "h8000001-0001-4000-8000-000000000002",
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "name": "How I build",
+          "proficiency": "",
+          "level": 0,
+          "keywords": [
+            "Component-based UI",
+            "Shared state management",
+            "Semantic HTML",
+            "Accessible UI patterns",
+            "Responsive layouts",
+            "REST API integration",
+            "Git workflow",
+            "CI (GitHub Actions)",
+            "Unit and E2E testing",
+            "Technical documentation"
           ]
         }
       ]
@@ -373,6 +378,7 @@
           "main": [
             "summary",
             "g7000001-0001-4000-8000-000000000001",
+            "h8000001-0001-4000-8000-000000000001",
             "experience",
             "projects",
             "education"

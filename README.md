@@ -19,7 +19,8 @@ Portfolio project (v0.1.0): React SPA deployed on Vercel. Guest book syncs via U
 ## Highlights
 
 - **Hero + CV** — role, stack, and experience above the fold
-- **Projects bento** — featured work with architecture modals and live links
+- **Projects** — featured work with Mermaid architecture diagrams, live demos, and GitHub links
+- **Engineering** — component-based sections, semantic HTML, accessible patterns, and documented project structure
 - **Guest book** — shared bows via Upstash Redis on Vercel; localStorage fallback on localhost
 - **Contact** — Resend-powered form with rate limiting
 - **CLI terminal** — hidden command palette for navigation and easter eggs
