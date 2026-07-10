@@ -213,7 +213,7 @@ export const BENTO = {
     {
       key: "gaming",
       title: "Gaming",
-      body: "I enjoy story-heavy games, visual novels, mysteries, long JRPGs. Ace Attorney is my comfort series.",
+      body: "Story-heavy games mostly: visual novels, mysteries, long JRPGs. Ace Attorney has been my comfort series for years.",
       span: "md:col-span-2 md:row-span-2",
       image: ASSETS.interests.gaming,
       imageAlt: "Phoenix Wright: Ace Attorney — my favourite game",
@@ -222,7 +222,7 @@ export const BENTO = {
     {
       key: "music",
       title: "Music",
-      body: "I enjoy singing to switch off and putting together playlists for different moods. Voilà is usually on repeat.",
+      body: "Voilà is usually on repeat. I sing to switch off and keep playlists for different moods.",
       span: "md:col-span-1 md:row-span-2",
       image: ASSETS.interests.music,
       imageAlt: "Voilà — my favourite group",
@@ -231,7 +231,7 @@ export const BENTO = {
     {
       key: "aesthetics",
       title: "Skincare",
-      body: "I enjoy researching skincare, haircare, and makeup. I've kept the same routines for years now.",
+      body: "I've kept the same skincare, haircare, and makeup routines for years. I like knowing what works and sticking with it.",
       span: "md:col-span-2 md:row-span-1",
       image: ASSETS.interests.aesthetics,
       imageAlt: "Skincare and makeup — personal routines",
@@ -240,7 +240,7 @@ export const BENTO = {
     {
       key: "training",
       title: "Training",
-      body: "I enjoy weight sessions three or four times a week when I can. Always with headphones on.",
+      body: "Three or four weight sessions a week when I can. Always with headphones on.",
       span: "md:col-span-1 md:row-span-1",
       image: ASSETS.interests.training,
       imageAlt: "Training — gym essentials",
@@ -249,7 +249,7 @@ export const BENTO = {
     {
       key: "reading",
       title: "Reading",
-      body: "I enjoy fiction, usually one book at a time. Last finished: Touch of Death by Alice Wilde.",
+      body: "I usually read one book at a time, mostly fiction. Last finished: Touch of Death by Alice Wilde.",
       span: "md:col-span-1 md:row-span-1",
       image: ASSETS.interests.reading,
       imageAlt: "Touch of Death by Alice Wilde — last book I read",
@@ -257,8 +257,8 @@ export const BENTO = {
     },
     {
       key: "series",
-      title: "Series",
-      body: "I enjoy anime, series, and films in my downtime. Last finished: Breaking Bad.",
+      title: "Series & anime",
+      body: "Anime, series, and films on slow evenings. Last finished: Breaking Bad.",
       span: "md:col-span-2 md:row-span-1",
       image: ASSETS.interests.series,
       imageAlt: "Anime and series — free time watching",

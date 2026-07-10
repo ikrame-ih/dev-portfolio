@@ -14,7 +14,7 @@
   },
   "basics": {
     "name": "Ikrame I. H.",
-    "headline": "Web Developer · Frontend · Backend",
+    "headline": "Web Developer · Frontend & Backend · Málaga, ES",
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
     "location": "Málaga, ES",
@@ -28,7 +28,7 @@
     "title": "Summary",
     "columns": 1,
     "hidden": false,
-    "content": "<p>Frontend developer based in Málaga, equally comfortable on the backend. Before development, I worked in admin and executive support (reconciliation, reporting, and cross-team coordination). That background helps me understand why software exists, not just how to write it. Available for remote or hybrid opportunities.</p>"
+    "content": "<p>Web developer based in Málaga, focused on frontend with solid backend capability. I work mainly with React, TypeScript, and Python, with projects that include real-time dashboards and data pipelines.</p><p>Before development, I spent several years in admin and executive support (reconciliation, reporting, cross-team coordination). That background helps me understand business context before writing code.</p><p>Open to remote or hybrid frontend or backend roles.</p>"
   },
   "sections": {
     "profiles": {
@@ -74,10 +74,10 @@
           "hidden": false,
           "company": "DATA CONTROL",
           "position": "Web Developer Intern",
-          "location": "",
+          "location": "Málaga, ES",
           "period": "Mar 2026 - Jun 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<ul><li>Developed client websites with reusable components and responsive layouts.</li><li>Included accessibility and semantic markup from the start.</li></ul>",
+          "description": "<ul><li>Developed client websites with reusable components and responsive layouts.</li><li>Included accessibility and semantic markup from the start of each project.</li></ul>",
           "roles": []
         },
         {
@@ -88,7 +88,7 @@
           "location": "",
           "period": "Feb 2025 - Mar 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<ul><li>Coordinated executive visits: logistics, agendas, materials, and stakeholder updates.</li><li>Created internal Power Apps to streamline event coordination.</li><li>Managed travel, expense reports (Concur), Outlook, Teams, and SharePoint.</li></ul>",
+          "description": "<ul><li>Coordinated executive visits (logistics, agendas, materials) and kept stakeholders updated.</li><li>Created internal Power Apps to simplify event coordination workflows.</li><li>Managed travel, Concur expense reports, Outlook, Teams, and SharePoint.</li></ul>",
           "roles": []
         },
         {
@@ -147,8 +147,8 @@
           "id": "c3000001-0001-4000-8000-000000000002",
           "hidden": false,
           "school": "CESUR Este, Málaga",
-          "degree": "Higher Diploma in Web Application Development (DAW)",
-          "area": "Web Application Development",
+          "degree": "Higher Diploma (DAW)",
+          "area": "",
           "grade": "",
           "location": "Málaga, ES",
           "period": "Sep 2024 - Jun 2026",
@@ -160,7 +160,7 @@
           "hidden": false,
           "school": "I.E.S. Politécnico Jesús Marín",
           "degree": "Vocational Diploma",
-          "area": "Administrative Management (Honours)",
+          "area": "Administrative Management",
           "grade": "Honours",
           "location": "",
           "period": "2022 - 2024",
@@ -182,9 +182,9 @@
           "website": {
             "url": "https://github.com/ikrame-ih/live-event-radar",
             "label": "GitHub",
-            "inlineLink": false
+            "inlineLink": true
           },
-          "description": "<p>Real-time venue dashboard for brand activations: zone stock levels, a venue map, and a live activity feed. Started after working events where stock updates arrived too late to act on.</p><p><strong>Stack:</strong> Next.js, React 19, Zustand, Leaflet, Web Workers, TypeScript</p><p><strong>Demo:</strong> <a href=\"https://live-event-radar.vercel.app\">live-event-radar.vercel.app</a></p>"
+          "description": "<p>Real-time venue dashboard for brand activations: stock levels by zone, venue map, and live activity feed. Built after working events where stock updates arrived too late to respond.</p><p>React, Next.js, TypeScript, Zustand, Leaflet, Web Workers. Demo: live-event-radar.vercel.app</p>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000002",
@@ -192,7 +192,7 @@
           "name": "ReconFlow",
           "period": "In progress",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Headless pipeline to match import invoices against bank extracts, based on reconciliation work from admin roles. API and CLI only, no UI.</p><p><strong>Stack:</strong> Python, FastAPI, dbt, PostgreSQL, Dagster</p>"
+          "description": "<p>Headless pipeline to match import invoices against bank extracts, based on reconciliation work from admin roles. API and CLI only.</p><p>Python, FastAPI, dbt, PostgreSQL, Dagster.</p>"
         }
       ]
     },
@@ -215,12 +215,11 @@
             "TypeScript",
             "Vite",
             "Tailwind CSS",
-            "Framer Motion",
             "Zustand",
             "Leaflet",
+            "Framer Motion",
             "Semantic HTML",
-            "CSS Grid / Flexbox",
-            "Vitest / Playwright"
+            "CSS Grid / Flexbox"
           ]
         },
         {
@@ -228,20 +227,40 @@
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "Backend & Data",
+          "name": "Backend",
           "proficiency": "",
           "level": 0,
-          "keywords": [
-            "Python",
-            "FastAPI",
-            "PostgreSQL",
-            "REST APIs",
-            "SQL",
-            "Node.js",
-            "Java",
-            "dbt",
-            "Dagster"
-          ]
+          "keywords": ["Python", "FastAPI", "Node.js", "Java", "REST APIs"]
+        },
+        {
+          "id": "e5000001-0001-4000-8000-000000000003",
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "name": "Databases",
+          "proficiency": "",
+          "level": 0,
+          "keywords": ["PostgreSQL", "SQL"]
+        },
+        {
+          "id": "e5000001-0001-4000-8000-000000000004",
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "name": "Testing",
+          "proficiency": "",
+          "level": 0,
+          "keywords": ["Vitest", "Playwright"]
+        },
+        {
+          "id": "e5000001-0001-4000-8000-000000000005",
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "name": "Data",
+          "proficiency": "",
+          "level": 0,
+          "keywords": ["dbt", "Dagster"]
         }
       ]
     },
@@ -261,7 +280,7 @@
           "id": "f6000001-0001-4000-8000-000000000002",
           "hidden": false,
           "language": "English",
-          "fluency": "C1 (Advanced)",
+          "fluency": "C1",
           "level": 0
         },
         {
@@ -310,7 +329,40 @@
       "items": []
     }
   },
-  "customSections": [],
+  "customSections": [
+    {
+      "id": "g7000001-0001-4000-8000-000000000001",
+      "title": "Core Technologies",
+      "columns": 1,
+      "hidden": false,
+      "type": "skills",
+      "items": [
+        {
+          "id": "g7000001-0001-4000-8000-000000000002",
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "name": "Core stack",
+          "proficiency": "",
+          "level": 0,
+          "keywords": [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Python",
+            "FastAPI",
+            "PostgreSQL",
+            "Zustand",
+            "Tailwind CSS",
+            "Vite",
+            "Leaflet",
+            "dbt",
+            "SQL"
+          ]
+        }
+      ]
+    }
+  ],
   "metadata": {
     "template": "onyx",
     "layout": {
@@ -318,7 +370,13 @@
       "pages": [
         {
           "fullWidth": false,
-          "main": ["summary", "experience", "education", "projects"],
+          "main": [
+            "summary",
+            "g7000001-0001-4000-8000-000000000001",
+            "experience",
+            "projects",
+            "education"
+          ],
           "sidebar": ["profiles", "skills", "languages"]
         }
       ]
