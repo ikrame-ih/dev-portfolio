@@ -208,12 +208,12 @@ export const BENTO = {
   title: "What I unwind with.",
   titleAccent: "When I'm not at the keyboard.",
   kicker:
-    "Off-the-clock interests in different sizes, same calm pace. No tie-in to my CV required.",
+    "Off-the-clock interests in different sizes, same calm pace. Nothing here needs to match my CV.",
   items: [
     {
       key: "gaming",
       title: "Gaming",
-      body: "Mostly story-heavy games: visual novels, mysteries, long JRPGs. Ace Attorney is my comfort pick.",
+      body: "I enjoy story-heavy games, visual novels, mysteries, long JRPGs. Ace Attorney is my comfort series.",
       span: "md:col-span-2 md:row-span-2",
       image: ASSETS.interests.gaming,
       imageAlt: "Phoenix Wright: Ace Attorney — my favourite game",
@@ -221,8 +221,8 @@ export const BENTO = {
     },
     {
       key: "music",
-      title: "Music & singing",
-      body: "Voilà on repeat, singing when I need to switch off, playlists for every mood. Music helps with coding, commuting, everything.",
+      title: "Music",
+      body: "I enjoy singing to switch off and putting together playlists for different moods. Voilà is usually on repeat.",
       span: "md:col-span-1 md:row-span-2",
       image: ASSETS.interests.music,
       imageAlt: "Voilà — my favourite group",
@@ -230,8 +230,8 @@ export const BENTO = {
     },
     {
       key: "aesthetics",
-      title: "Skincare & aesthetics",
-      body: "For years I've researched skincare, haircare, and makeup. Routines that actually make a difference to how I feel day to day.",
+      title: "Skincare",
+      body: "I enjoy researching skincare, haircare, and makeup. I've kept the same routines for years now.",
       span: "md:col-span-2 md:row-span-1",
       image: ASSETS.interests.aesthetics,
       imageAlt: "Skincare and makeup — personal routines",
@@ -240,7 +240,7 @@ export const BENTO = {
     {
       key: "training",
       title: "Training",
-      body: "Three or four sessions a week when I can, mostly weights, always with headphones on.",
+      body: "I enjoy weight sessions three or four times a week when I can. Always with headphones on.",
       span: "md:col-span-1 md:row-span-1",
       image: ASSETS.interests.training,
       imageAlt: "Training — gym essentials",
@@ -249,7 +249,7 @@ export const BENTO = {
     {
       key: "reading",
       title: "Reading",
-      body: "Last finished: Touch of Death by Alice Wilde. I take my time, one book at a time, usually fiction.",
+      body: "I enjoy fiction, usually one book at a time. Last finished: Touch of Death by Alice Wilde.",
       span: "md:col-span-1 md:row-span-1",
       image: ASSETS.interests.reading,
       imageAlt: "Touch of Death by Alice Wilde — last book I read",
@@ -257,8 +257,8 @@ export const BENTO = {
     },
     {
       key: "series",
-      title: "Series & anime",
-      body: "In my free time I catch up on anime, series, and films, whatever pulls me in. Last finished: Breaking Bad.",
+      title: "Series",
+      body: "I enjoy anime, series, and films in my downtime. Last finished: Breaking Bad.",
       span: "md:col-span-2 md:row-span-1",
       image: ASSETS.interests.series,
       imageAlt: "Anime and series — free time watching",
