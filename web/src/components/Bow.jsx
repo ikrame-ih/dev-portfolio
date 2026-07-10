@@ -1,3 +1,4 @@
+// Static bow SVG used as a decorative motif across the site (nav, dividers, cards).
 export const Bow = ({
   size = 24,
   color = "#4A0E0E",

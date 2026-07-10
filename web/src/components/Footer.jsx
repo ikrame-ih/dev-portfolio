@@ -4,6 +4,7 @@ import { PROFILE } from "@/data/portfolio";
 
 export const Footer = ({ onOpenTerminal }) => {
   const year = new Date().getFullYear();
+  // Footer nav uses fuller section names than the top nav — same ids, different labels.
   return (
     <footer data-testid="footer" className="relative footer-inverse py-16">
       <Reveal y={20}>
@@ -17,17 +18,16 @@ export const Footer = ({ onOpenTerminal }) => {
             </div>
             <div className="max-w-sm space-y-3">
               <p className="font-mono text-xs footer-muted leading-relaxed">
-                This portfolio was designed and built by me.
+                Designed and built by me.
               </p>
               <p className="font-mono text-xs footer-muted leading-relaxed">
-                You can see how I built it in{" "}
                 <a
                   href={PROFILE.portfolioRepo}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer-link"
                 >
-                  here
+                  View the source on GitHub
                 </a>
                 .
               </p>

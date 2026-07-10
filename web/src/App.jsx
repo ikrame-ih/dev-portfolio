@@ -16,7 +16,7 @@ import Reveal from "@/components/Reveal";
 import { Bow } from "@/components/Bow";
 import { PROFILE } from "@/data/portfolio";
 
-// bow on the line trick
+// Decorative divider between hero and the rest of the page.
 const OrnamentDivider = () => (
   <Reveal y={12}>
     <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -33,6 +33,7 @@ export default function App() {
   const [cliOpen, setCliOpen] = useState(false);
 
   useEffect(() => {
+    // Ctrl/Cmd + ` opens the CLI easter egg — skip when typing in a form field.
     const onKey = (e) => {
       if (cliOpen) return;
       if (["INPUT", "TEXTAREA"].includes(e.target?.tagName)) return;
@@ -46,6 +47,7 @@ export default function App() {
   }, [cliOpen]);
 
   const schema = {
+    // Structured data for search engines — description mirrors PROFILE.positioning.
     "@context": "https://schema.org",
     "@type": "Person",
     name: PROFILE.name,

@@ -21,6 +21,7 @@ const HINTS = {
     "Guest book is temporarily unavailable. Signatures will be back soon.",
 };
 
+// Replace any existing bow from the same visitor — one bow per person.
 function mergeVisitorBow(bows, bow, visitorId) {
   const withoutVisitor = bows.filter((b) => b.visitor_id !== visitorId);
   return [bow, ...withoutVisitor].map(normalizeBow);
@@ -30,7 +31,7 @@ export const JardinCanvas = () => {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
   const visitorIdRef = useRef(null);
-  const syncingRef = useRef(false);
+  const syncingRef = useRef(false); // blocks double-clicks while a remote POST is in flight
   const [bows, setBows] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [lastDropped, setLastDropped] = useState(null);
@@ -42,6 +43,7 @@ export const JardinCanvas = () => {
     let cancelled = false;
 
     const load = async () => {
+      // Production uses the shared API; localhost falls back to localStorage.
       if (useRemoteBows()) {
         try {
           const { bows: remoteBows, visitorId } = await fetchRemoteBows();
@@ -116,13 +118,13 @@ export const JardinCanvas = () => {
         created_at: existing?.created_at ?? new Date().toISOString(),
       });
 
-      const snapshot = bows; // rollback if POST fails
+      const snapshot = bows; // keep a copy to roll back if the POST fails
 
       if (remote) {
         setBows(mergeVisitorBow(bows, bow, visitorId));
         setLastDropped(bow.id);
         setHint(null);
-        syncingRef.current = true; // block double-click while posting
+        syncingRef.current = true;
       }
 
       try {
@@ -276,7 +278,7 @@ export const JardinCanvas = () => {
                 <div className="guestbook-page-texture" aria-hidden="true" />
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none px-10 md:px-14 py-10">
                   <p className="font-serif italic text-sm md:text-base text-ink/15 text-center max-w-[16rem] leading-relaxed select-none">
-                    A small thank-you — your bow here means you were here.
+                    A small thank-you. Your bow here means you were here.
                   </p>
                 </div>
                 <AnimatePresence>

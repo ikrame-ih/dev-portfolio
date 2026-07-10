@@ -1,6 +1,6 @@
 import { ASSETS } from "./assets.js";
 
-// site copy — edit here, not scattered in components
+// Site copy lives here — edit text in this file, not scattered across components.
 export const PROFILE = {
   name: "Ikrame I. H.",
   location: "Málaga, ES",
@@ -12,22 +12,22 @@ export const PROFILE = {
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
   siteUrl: "https://ikrame-ih.vercel.app",
   overline: "WEB DEVELOPER · FRONTEND · BACKEND",
-  headline: "I build software with care for detail",
+  headline: "I build software with attention to detail",
   headlineAccent: "and the context behind it.",
   tagline:
     "Web developer · finishing DAW · AI & Big Data postgraduate starting soon",
   positioning:
-    "Hello, I'm Ikrame Ibn Hayoun. I'm a frontend developer based in Málaga, equally comfortable on the backend. My experience in executive support gave me a deep understanding of business logic before I ever wrote code professionally. That perspective carries through in everything I build — practical tools shaped by real workflows.",
+    "Hello, I'm Ikrame Ibn Hayoun. I'm a frontend developer based in Málaga, equally comfortable on the backend. Before I wrote code professionally, I worked in admin and executive support (reconciliation, reporting, and coordination across teams). That background helps me understand why software exists, not just how to write it.",
   positioningParts: [
     "Hello, I'm Ikrame Ibn Hayoun. I'm a ",
     { em: "frontend developer" },
     " based in Málaga, ",
     { em: "equally comfortable on the backend" },
-    ". My experience in executive support gave me a deep understanding of business logic before I ever wrote code professionally. That perspective carries through in everything I build — practical tools shaped by real workflows.",
+    ". Before I wrote code professionally, I worked in admin and executive support (reconciliation, reporting, and coordination across teams). That background helps me understand why software exists, not just how to write it.",
   ],
   practiceAside: {
     title: "At a glance",
-    text: "Finishing DAW (Jun 2026). AI & Big Data postgraduate from Sep 2026. Before development roles: admin and executive support — reconciliation, reporting, and cross-team coordination.",
+    text: "Finishing DAW (Jun 2026). AI & Big Data postgraduate from Sep 2026. Before development: admin and executive support, focused on reconciliation, reporting, and cross-team coordination.",
   },
 };
 
@@ -71,8 +71,8 @@ export const EXPERIENCE = [
     period: "Mar 2026 — Present",
     track: "tech",
     bullets: [
-      "Building client websites: layout, reusable components, and responsive pages.",
-      "Keeping accessibility and semantic markup in scope from the start.",
+      "Develop client websites with reusable components and responsive layouts.",
+      "Include accessibility and semantic markup from the start.",
     ],
   },
   {
@@ -82,8 +82,8 @@ export const EXPERIENCE = [
     track: "hybrid",
     bullets: [
       "Coordinated executive visits: logistics, agendas, materials, and stakeholder updates.",
-      "Built internal Power Apps to streamline event workflows.",
-      "Travel planning, expense reports (Concur), Outlook, Teams, SharePoint.",
+      "Created internal Power Apps to streamline event coordination.",
+      "Managed travel, expense reports (Concur), Outlook, Teams, and SharePoint.",
     ],
   },
   {
@@ -92,8 +92,8 @@ export const EXPERIENCE = [
     period: "Feb 2026",
     track: "biz",
     bullets: [
-      "Product tastings and short presentations in busy retail environments.",
-      "Handled day-to-day booth logistics and end-of-day inventory updates.",
+      "Ran product tastings and short presentations in busy retail settings.",
+      "Handled booth logistics and end-of-day inventory updates.",
     ],
   },
   {
@@ -102,9 +102,9 @@ export const EXPERIENCE = [
     period: "Nov — Dec 2024",
     track: "biz",
     bullets: [
-      "Donor reporting and follow-up via Drive, Outlook, and Evergiving.",
-      "HR tasks in Factorial; cost tracking for travel and expenses.",
-      "Team workflows in Asana, Notion, and Slack; reporting views in Looker.",
+      "Prepared donor reports and follow-up via Drive, Outlook, and Evergiving.",
+      "Managed HR tasks in Factorial and tracked travel and expense costs.",
+      "Kept team coordination in Asana, Notion, and Slack; created reporting views in Looker.",
     ],
   },
   {
@@ -113,7 +113,7 @@ export const EXPERIENCE = [
     period: "Mar — Oct 2024",
     track: "biz",
     bullets: [
-      "Bank reconciliation and invoice posting, including import purchases.",
+      "Reconciled bank accounts and posted invoices, including import purchases.",
       "Tracked vehicle and import costs in Excel; managed incoming documentation.",
     ],
   },
@@ -167,9 +167,9 @@ export const PROJECTS = [
     shows: {
       title: "What it shows",
       bullets: [
-        "Frontend craft: real-time UI, maps, and a bounded activity feed that stays responsive.",
-        "Product sense: built from a floor-level problem (late stock updates), not from a framework choice.",
-        "Stack depth: React 19, TypeScript, Web Workers, Zustand, Leaflet — live demo available.",
+        "Real-time UI with maps and an activity feed that stays responsive under load.",
+        "Started from a floor-level problem: stock updates that arrived too late to act on.",
+        "React 19, TypeScript, Web Workers, Zustand, Leaflet. Live demo available.",
       ],
     },
   },
@@ -181,7 +181,7 @@ export const PROJECTS = [
     href: null,
     demo: null,
     description:
-      "A headless pipeline to match import invoices against bank extracts — based on reconciliation work I did in admin roles. API and CLI only, no UI.",
+      "A headless pipeline to match import invoices against bank extracts, based on reconciliation work I did in admin roles. API and CLI only, no UI.",
     mermaid: `flowchart TD
   CSV[Bank CSV extracts] --> Raw[(Raw zone)]
   WH[Invoice webhooks JSON] --> Stream[Stream enricher]
@@ -195,9 +195,9 @@ export const PROJECTS = [
     shows: {
       title: "What it shows",
       bullets: [
-        "Backend focus: ingest, transforms, fuzzy matching, and an exceptions queue — no UI layer.",
-        "Business logic: import reconciliation inspired by real admin work, not a tutorial dataset.",
-        "In progress: scope kept to one clear metric (auto-match rate) before adding features.",
+        "Headless pipeline: ingest, transforms, fuzzy matching, and an exceptions queue.",
+        "Based on import reconciliation I did in admin roles, not a tutorial dataset.",
+        "Still in progress: one clear metric (auto-match rate) before adding more.",
       ],
     },
   },
@@ -208,12 +208,12 @@ export const BENTO = {
   title: "What I unwind with.",
   titleAccent: "When I'm not at the keyboard.",
   kicker:
-    "A pinboard of what I do off the clock — varied sizes, same calm pace. No tie-in to my CV required.",
+    "Off-the-clock interests in different sizes, same calm pace. No tie-in to my CV required.",
   items: [
     {
       key: "gaming",
       title: "Gaming",
-      body: "Mostly story-heavy games — visual novels, mysteries, long JRPGs. Ace Attorney is my comfort pick.",
+      body: "Mostly story-heavy games: visual novels, mysteries, long JRPGs. Ace Attorney is my comfort pick.",
       span: "md:col-span-2 md:row-span-2",
       image: ASSETS.interests.gaming,
       imageAlt: "Phoenix Wright: Ace Attorney — my favourite game",
@@ -222,7 +222,7 @@ export const BENTO = {
     {
       key: "music",
       title: "Music & singing",
-      body: "Voilà on repeat, singing when I need to switch off, playlists for every mood. Music makes everything better — coding, commuting, the whole lot.",
+      body: "Voilà on repeat, singing when I need to switch off, playlists for every mood. Music helps with coding, commuting, everything.",
       span: "md:col-span-1 md:row-span-2",
       image: ASSETS.interests.music,
       imageAlt: "Voilà — my favourite group",
@@ -231,7 +231,7 @@ export const BENTO = {
     {
       key: "aesthetics",
       title: "Skincare & aesthetics",
-      body: "For years now, I've been researching skincare, haircare, and makeup — building routines improves a lot how I feel everyday.",
+      body: "For years I've researched skincare, haircare, and makeup. Routines that actually make a difference to how I feel day to day.",
       span: "md:col-span-2 md:row-span-1",
       image: ASSETS.interests.aesthetics,
       imageAlt: "Skincare and makeup — personal routines",
@@ -240,7 +240,7 @@ export const BENTO = {
     {
       key: "training",
       title: "Training",
-      body: "Three or four sessions a week when I can — mostly weights, always with headphones on.",
+      body: "Three or four sessions a week when I can, mostly weights, always with headphones on.",
       span: "md:col-span-1 md:row-span-1",
       image: ASSETS.interests.training,
       imageAlt: "Training — gym essentials",
@@ -249,7 +249,7 @@ export const BENTO = {
     {
       key: "reading",
       title: "Reading",
-      body: "Last finished: Touch of Death by Alice Wilde. I take my time — one book at a time, usually fiction.",
+      body: "Last finished: Touch of Death by Alice Wilde. I take my time, one book at a time, usually fiction.",
       span: "md:col-span-1 md:row-span-1",
       image: ASSETS.interests.reading,
       imageAlt: "Touch of Death by Alice Wilde — last book I read",
@@ -258,7 +258,7 @@ export const BENTO = {
     {
       key: "series",
       title: "Series & anime",
-      body: "In my free time I catch up on anime, series, and films — whatever pulls me in. Last finished: Breaking Bad.",
+      body: "In my free time I catch up on anime, series, and films, whatever pulls me in. Last finished: Breaking Bad.",
       span: "md:col-span-2 md:row-span-1",
       image: ASSETS.interests.series,
       imageAlt: "Anime and series — free time watching",
@@ -276,14 +276,14 @@ export const BLOG = {
     url: "https://www.instagram.com/heart_puff/",
   },
   intro:
-    "A collection of things from my corner of the internet — development, things I'm learning, music, anime, and whatever else catches my interest. More than a technical blog, this is a personal space to explore ideas, share the things I enjoy, and give myself room to create, experiment, and have fun.",
+    "Notes from my corner of the internet about development, what I'm learning, music, anime, and whatever else catches my interest. It's not really a technical blog, more a place to think aloud, share what I enjoy, and leave room to experiment.",
   comingSoon: true,
   posts: [
     {
       slug: "planning-first",
       title: "Planning first. Yes, I'm one of those people.",
       excerpt:
-        "Colour-coded notes, neat folders — moving from markers to a computer felt like a revelation. Obsidian as a developer felt like the tool I'd been missing.",
+        "Colour-coded notes, neat folders. Moving from markers to a computer felt like a revelation. Obsidian as a developer felt like the tool I'd been missing.",
       date: "2026-04-02",
       kind: "personal",
     },
@@ -297,9 +297,9 @@ export const BLOG = {
     },
     {
       slug: "the-fun-part-building-things",
-      title: "The fun part: building things",
+      title: "The fun part: making something real",
       excerpt:
-        "Turning an idea into something real. Building from scratch, hitting problems, figuring them out — messy sometimes, but that's where the good stuff happens.",
+        "Turning an idea into something you can use. Starting from scratch, hitting problems, figuring them out. Messy sometimes, but that's where the good stuff happens.",
       date: "2026-02-10",
       kind: "didactic",
     },
@@ -311,7 +311,7 @@ export const BOW_BOARD = {
   title: "Thanks for reading.",
   titleAccent: "Pin a little bow before you go.",
   kicker:
-    "Glad you made it here. Click anywhere on either page to leave a bow — your mark in this shared book. Click again to move it.",
+    "Click anywhere on either page to leave your bow. One per person, and you can move it anytime.",
   emptyState: "No bows yet. Click a page to leave yours.",
   countLabel: "bows",
   marginHint: "one bow per person · place it anywhere",

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Bow } from "./Bow";
 import { PROFILE } from "@/data/portfolio";
 
+// Section links — labels stay short in the nav, fuller names live in the footer.
 const LINKS = [
   { id: "cv", label: "CV" },
   { id: "projects", label: "Projects" },
@@ -15,6 +16,7 @@ export const Nav = ({ onOpenTerminal }) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    // Add a subtle background once the user scrolls past the hero.
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);

@@ -5,6 +5,7 @@ import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
 import { BLOG } from "@/data/portfolio";
 
 export const BlogSection = () => {
+  // Fallback to the bow icon if the avatar image fails to load.
   const [avatarOk, setAvatarOk] = useState(true);
 
   return (
@@ -99,6 +100,7 @@ export const BlogSection = () => {
             <div className="border-t border-ink/20" />
 
             {BLOG.comingSoon && (
+              // Frosted overlay — posts are visible underneath as a preview.
               <div
                 data-testid="blog-coming-soon"
                 className="absolute inset-0 z-10 flex items-center justify-center bg-gradient-to-b from-bone-200/55 via-bone/82 to-bone-200/90 backdrop-blur-[3px] border border-ink/10"
@@ -112,7 +114,7 @@ export const BlogSection = () => {
                     </span>
                   </div>
                   <p className="font-mono text-xs text-ink-soft leading-relaxed">
-                    Written in my vault · publishing here next
+                    Written in my vault · publishing here soon
                   </p>
                 </div>
               </div>

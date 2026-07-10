@@ -13,10 +13,11 @@ export const ContactSection = () => {
     name: "",
     email: "",
     message: "",
-    website: "",
+    website: "", // honeypot — bots fill this, humans never see it
   });
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
+  // Timestamp sent with the form so the API can reject submissions that arrive too fast.
   const formStartedAt = useRef(Date.now());
 
   const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });

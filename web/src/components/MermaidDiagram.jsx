@@ -3,10 +3,12 @@ import mermaid from "mermaid";
 
 let initialized = false;
 
+// Renders a Mermaid flowchart from the string defined in portfolio.js per project.
 export const MermaidDiagram = ({ chart, id }) => {
   const ref = useRef(null);
 
   useEffect(() => {
+    // Mermaid only needs to be configured once — theme colours match the site palette.
     if (!initialized) {
       mermaid.initialize({
         startOnLoad: false,

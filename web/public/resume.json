@@ -6,7 +6,7 @@
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
     "url": "https://ikrame-ih.vercel.app",
-    "summary": "Frontend developer based in Málaga, equally comfortable on the backend. Operations background before development — business logic, reconciliation, and cross-team coordination. Available for remote or hybrid opportunities.",
+    "summary": "Frontend developer based in Málaga, equally comfortable on the backend. Admin and executive support background before development (reconciliation, reporting, and cross-team coordination). Available for remote or hybrid opportunities.",
     "location": { "city": "Málaga", "countryCode": "ES" },
     "profiles": [
       {
@@ -26,7 +26,7 @@
       "name": "DATA CONTROL",
       "position": "Web Developer Intern",
       "startDate": "2026-03",
-      "summary": "Client websites — layout, reusable components, responsive pages, semantic markup."
+      "summary": "Client websites with reusable components, responsive layouts, and semantic markup."
     },
     {
       "name": "EY Global Delivery Services",
@@ -34,9 +34,9 @@
       "startDate": "2025-02",
       "endDate": "2026-03",
       "highlights": [
-        "Executive visit coordination and stakeholder communication.",
-        "Internal Power Apps for event workflow automation.",
-        "Travel logistics and Concur expense reporting."
+        "Coordinated executive visits: logistics, agendas, materials, and stakeholder updates.",
+        "Created internal Power Apps to streamline event coordination.",
+        "Managed travel, expense reports (Concur), Outlook, Teams, and SharePoint."
       ]
     },
     {
@@ -44,7 +44,7 @@
       "position": "Brand Ambassador",
       "startDate": "2026-02",
       "endDate": "2026-02",
-      "summary": "Product tastings and booth logistics in high-traffic retail events."
+      "summary": "Ran product tastings and handled booth logistics in high-traffic retail events."
     },
     {
       "name": "Conciencia Fundraising",
@@ -52,8 +52,8 @@
       "startDate": "2024-11",
       "endDate": "2024-12",
       "highlights": [
-        "Donor reporting via Drive and Outlook; HR in Factorial.",
-        "Team workflows in Asana, Notion, Slack; reporting in Looker."
+        "Prepared donor reports via Drive and Outlook; managed HR in Factorial.",
+        "Kept team coordination in Asana, Notion, and Slack; created reporting views in Looker."
       ]
     },
     {
@@ -62,8 +62,8 @@
       "startDate": "2024-03",
       "endDate": "2024-10",
       "highlights": [
-        "Bank reconciliation and invoice posting, including imports.",
-        "Import cost tracking in Excel; incoming documentation."
+        "Reconciled bank accounts and posted invoices, including imports.",
+        "Tracked import costs in Excel; managed incoming documentation."
       ]
     }
   ],
@@ -128,7 +128,7 @@
     {
       "name": "Live Event Radar",
       "url": "https://github.com/ikrame-ih/live-event-radar",
-      "description": "Real-time venue telemetry dashboard — Next.js, Zustand, Leaflet, Web Workers."
+      "description": "Real-time venue dashboard for brand activations — Next.js, Zustand, Leaflet, Web Workers."
     },
     {
       "name": "ReconFlow",

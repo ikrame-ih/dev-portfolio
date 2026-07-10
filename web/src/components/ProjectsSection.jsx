@@ -7,6 +7,7 @@ import { PROJECTS } from "@/data/portfolio";
 
 export const ProjectsSection = () => {
   const [openProject, setOpenProject] = useState(null);
+  // Per-card expand state — keyed by project id so cards toggle independently.
   const [expanded, setExpanded] = useState({});
 
   return (
@@ -24,13 +25,13 @@ export const ProjectsSection = () => {
             </span>
           </div>
           <h2 className="font-serif font-light text-3xl md:text-5xl tracking-tighter text-ink">
-            Projects I have built
+            Selected projects
             <br />
             <em className="not-italic text-burgundy">and what I'm learning.</em>
           </h2>
           <p className="mt-4 font-mono text-xs text-ink-mute max-w-xl">
-            Architecture diagrams and a short read on each project — what it
-            does and what I'm still figuring out.
+            Each with an architecture diagram and a note on what it does and
+            what I'm still learning.
           </p>
         </Reveal>
 

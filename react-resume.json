@@ -1,0 +1,362 @@
+{
+  "$schema": "https://rxresu.me/schema.json",
+  "picture": {
+    "hidden": false,
+    "url": "https://ikrame-ih.vercel.app/images/profile-ikrame.png",
+    "size": 80,
+    "rotation": 0,
+    "aspectRatio": 1,
+    "borderRadius": 0,
+    "borderColor": "rgba(0, 0, 0, 0)",
+    "borderWidth": 0,
+    "shadowColor": "rgba(0, 0, 0, 0)",
+    "shadowWidth": 0
+  },
+  "basics": {
+    "name": "Ikrame I. H.",
+    "headline": "Web Developer · Frontend · Backend",
+    "email": "ikihga2223@gmail.com",
+    "phone": "+34 682 02 76 93",
+    "location": "Málaga, ES",
+    "website": {
+      "url": "https://ikrame-ih.vercel.app",
+      "label": "Portfolio"
+    },
+    "customFields": []
+  },
+  "summary": {
+    "title": "Summary",
+    "columns": 1,
+    "hidden": false,
+    "content": "<p>Frontend developer based in Málaga, equally comfortable on the backend. Before development, I worked in admin and executive support (reconciliation, reporting, and cross-team coordination). That background helps me understand why software exists, not just how to write it. Available for remote or hybrid opportunities.</p>"
+  },
+  "sections": {
+    "profiles": {
+      "title": "Profiles",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "a1000001-0001-4000-8000-000000000001",
+          "hidden": false,
+          "icon": "github-logo",
+          "iconColor": "",
+          "network": "GitHub",
+          "username": "ikrame-ih",
+          "website": {
+            "url": "https://github.com/ikrame-ih",
+            "label": "github.com/ikrame-ih",
+            "inlineLink": false
+          }
+        },
+        {
+          "id": "a1000001-0001-4000-8000-000000000002",
+          "hidden": false,
+          "icon": "linkedin-logo",
+          "iconColor": "",
+          "network": "LinkedIn",
+          "username": "ikrame-ih",
+          "website": {
+            "url": "https://www.linkedin.com/in/ikrame-ih/",
+            "label": "linkedin.com/in/ikrame-ih",
+            "inlineLink": false
+          }
+        }
+      ]
+    },
+    "experience": {
+      "title": "Experience",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "b2000001-0001-4000-8000-000000000001",
+          "hidden": false,
+          "company": "DATA CONTROL",
+          "position": "Web Developer Intern",
+          "location": "",
+          "period": "Mar 2026 - Present",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": "<ul><li>Develop client websites with reusable components and responsive layouts.</li><li>Include accessibility and semantic markup from the start.</li></ul>",
+          "roles": []
+        },
+        {
+          "id": "b2000001-0001-4000-8000-000000000002",
+          "hidden": false,
+          "company": "EY Global Delivery Services",
+          "position": "Executive Assistant",
+          "location": "",
+          "period": "Feb 2025 - Mar 2026",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": "<ul><li>Coordinated executive visits: logistics, agendas, materials, and stakeholder updates.</li><li>Created internal Power Apps to streamline event coordination.</li><li>Managed travel, expense reports (Concur), Outlook, Teams, and SharePoint.</li></ul>",
+          "roles": []
+        },
+        {
+          "id": "b2000001-0001-4000-8000-000000000003",
+          "hidden": false,
+          "company": "EC Azafatas",
+          "position": "Brand Ambassador",
+          "location": "",
+          "period": "Feb 2026",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": "<ul><li>Ran product tastings and short presentations in busy retail settings.</li><li>Handled booth logistics and end-of-day inventory updates.</li></ul>",
+          "roles": []
+        },
+        {
+          "id": "b2000001-0001-4000-8000-000000000004",
+          "hidden": false,
+          "company": "Conciencia Fundraising",
+          "position": "Accounting & Operations Admin",
+          "location": "",
+          "period": "Nov 2024 - Dec 2024",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": "<ul><li>Prepared donor reports and follow-up via Drive, Outlook, and Evergiving.</li><li>Managed HR tasks in Factorial and tracked travel and expense costs.</li><li>Kept team coordination in Asana, Notion, and Slack; created reporting views in Looker.</li></ul>",
+          "roles": []
+        },
+        {
+          "id": "b2000001-0001-4000-8000-000000000005",
+          "hidden": false,
+          "company": "Sylvis Profesional Cosmetic",
+          "position": "Admin Assistant",
+          "location": "",
+          "period": "Mar 2024 - Oct 2024",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": "<ul><li>Reconciled bank accounts and posted invoices, including import purchases.</li><li>Tracked vehicle and import costs in Excel; managed incoming documentation.</li></ul>",
+          "roles": []
+        }
+      ]
+    },
+    "education": {
+      "title": "Education",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "c3000001-0001-4000-8000-000000000001",
+          "hidden": false,
+          "school": "Postgraduate programme (ESP)",
+          "degree": "Postgraduate",
+          "area": "AI & Big Data",
+          "grade": "",
+          "location": "",
+          "period": "Sep 2026 -",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": ""
+        },
+        {
+          "id": "c3000001-0001-4000-8000-000000000002",
+          "hidden": false,
+          "school": "CESUR Este, Málaga",
+          "degree": "Higher Diploma in Web Application Development (DAW)",
+          "area": "Web Application Development",
+          "grade": "",
+          "location": "Málaga, ES",
+          "period": "Sep 2024 - Jun 2026",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": ""
+        },
+        {
+          "id": "c3000001-0001-4000-8000-000000000003",
+          "hidden": false,
+          "school": "I.E.S. Politécnico Jesús Marín",
+          "degree": "Vocational Diploma",
+          "area": "Administrative Management (Honours)",
+          "grade": "Honours",
+          "location": "",
+          "period": "2022 - 2024",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": ""
+        }
+      ]
+    },
+    "projects": {
+      "title": "Projects",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "d4000001-0001-4000-8000-000000000001",
+          "hidden": false,
+          "name": "Live Event Radar",
+          "period": "",
+          "website": {
+            "url": "https://github.com/ikrame-ih/live-event-radar",
+            "label": "GitHub",
+            "inlineLink": false
+          },
+          "description": "<p>Real-time venue dashboard for brand activations: zone stock levels, a venue map, and a live activity feed. Started after working events where stock updates arrived too late to act on.</p><p><strong>Stack:</strong> Next.js, React 19, Zustand, Leaflet, Web Workers, TypeScript</p><p><strong>Demo:</strong> <a href=\"https://live-event-radar.vercel.app\">live-event-radar.vercel.app</a></p>"
+        },
+        {
+          "id": "d4000001-0001-4000-8000-000000000002",
+          "hidden": false,
+          "name": "ReconFlow",
+          "period": "In progress",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": "<p>Headless pipeline to match import invoices against bank extracts, based on reconciliation work from admin roles. API and CLI only, no UI.</p><p><strong>Stack:</strong> Python, FastAPI, dbt, PostgreSQL, Dagster</p>"
+        }
+      ]
+    },
+    "skills": {
+      "title": "Skills",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "e5000001-0001-4000-8000-000000000001",
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "name": "Frontend",
+          "proficiency": "",
+          "level": 0,
+          "keywords": [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Vite",
+            "Tailwind CSS",
+            "Framer Motion",
+            "Zustand",
+            "Leaflet",
+            "Semantic HTML",
+            "CSS Grid / Flexbox",
+            "Vitest / Playwright"
+          ]
+        },
+        {
+          "id": "e5000001-0001-4000-8000-000000000002",
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "name": "Backend & Data",
+          "proficiency": "",
+          "level": 0,
+          "keywords": [
+            "Python",
+            "FastAPI",
+            "PostgreSQL",
+            "REST APIs",
+            "SQL",
+            "Node.js",
+            "Java",
+            "dbt",
+            "Dagster"
+          ]
+        }
+      ]
+    },
+    "languages": {
+      "title": "Languages",
+      "columns": 1,
+      "hidden": false,
+      "items": [
+        {
+          "id": "f6000001-0001-4000-8000-000000000001",
+          "hidden": false,
+          "language": "Spanish",
+          "fluency": "Native",
+          "level": 0
+        },
+        {
+          "id": "f6000001-0001-4000-8000-000000000002",
+          "hidden": false,
+          "language": "English",
+          "fluency": "C1 (Advanced)",
+          "level": 0
+        },
+        {
+          "id": "f6000001-0001-4000-8000-000000000003",
+          "hidden": false,
+          "language": "Darija",
+          "fluency": "Native",
+          "level": 0
+        }
+      ]
+    },
+    "interests": {
+      "title": "Interests",
+      "columns": 1,
+      "hidden": true,
+      "items": []
+    },
+    "awards": {
+      "title": "Awards",
+      "columns": 1,
+      "hidden": true,
+      "items": []
+    },
+    "certifications": {
+      "title": "Certifications",
+      "columns": 1,
+      "hidden": true,
+      "items": []
+    },
+    "publications": {
+      "title": "Publications",
+      "columns": 1,
+      "hidden": true,
+      "items": []
+    },
+    "volunteer": {
+      "title": "Volunteering",
+      "columns": 1,
+      "hidden": true,
+      "items": []
+    },
+    "references": {
+      "title": "References",
+      "columns": 1,
+      "hidden": true,
+      "items": []
+    }
+  },
+  "customSections": [],
+  "metadata": {
+    "template": "onyx",
+    "layout": {
+      "sidebarWidth": 35,
+      "pages": [
+        {
+          "fullWidth": false,
+          "main": ["summary", "experience", "education", "projects"],
+          "sidebar": ["profiles", "skills", "languages"]
+        }
+      ]
+    },
+    "page": {
+      "gapX": 4,
+      "gapY": 6,
+      "marginX": 18,
+      "marginY": 18,
+      "format": "a4",
+      "locale": "en-US",
+      "hideIcons": false
+    },
+    "design": {
+      "level": {
+        "icon": "",
+        "type": "hidden"
+      },
+      "colors": {
+        "primary": "rgba(74, 14, 14, 1)",
+        "text": "rgba(26, 26, 26, 1)",
+        "background": "rgba(245, 241, 235, 1)"
+      }
+    },
+    "typography": {
+      "body": {
+        "fontFamily": "IBM Plex Sans",
+        "fontWeights": ["400", "500"],
+        "fontSize": 11,
+        "lineHeight": 1.5
+      },
+      "heading": {
+        "fontFamily": "IBM Plex Serif",
+        "fontWeights": ["600"],
+        "fontSize": 14,
+        "lineHeight": 1.5
+      }
+    },
+    "notes": ""
+  }
+}

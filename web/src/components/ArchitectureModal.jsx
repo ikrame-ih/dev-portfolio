@@ -1,6 +1,7 @@
 import { useEffect, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Mermaid is heavy — only load it when someone opens the architecture modal.
 const MermaidDiagram = lazy(() => import("./MermaidDiagram"));
 
 const DiagramFallback = () => (

@@ -3,6 +3,7 @@ import { Bow } from "./Bow";
 import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
 import { BENTO } from "@/data/portfolio";
 
+// Interests grid — card sizes come from each item's `span` class in portfolio.js.
 export const BentoSection = () => {
   return (
     <section

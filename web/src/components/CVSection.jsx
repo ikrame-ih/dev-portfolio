@@ -10,6 +10,7 @@ import {
 } from "@/data/portfolio";
 import { StackIcon } from "@/data/stackIcons";
 
+// Shared header pattern used across CV subsections.
 const SectionHeader = ({ overline, title, kicker }) => (
   <div className="mb-16">
     <div className="flex items-center gap-3 mb-6">
@@ -27,6 +28,7 @@ const SectionHeader = ({ overline, title, kicker }) => (
   </div>
 );
 
+// Colour-coded badge so visitors can spot tech vs ops roles at a glance.
 const TrackBadge = ({ track }) => {
   const map = {
     tech: { label: "tech", cls: "border-burgundy text-burgundy" },
@@ -60,7 +62,7 @@ export const CVSection = () => {
                 <em className="not-italic text-burgundy">education</em>.
               </>
             }
-            kicker="Stack, languages, and the roles behind my work as a web developer."
+            kicker="Skills, languages, and the work behind them."
           />
         </Reveal>
 
@@ -70,7 +72,7 @@ export const CVSection = () => {
             className="md:col-span-6 border-l border-burgundy pl-6"
           >
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-burgundy mb-4">
-              Frontend craft
+              Frontend
             </p>
             <ul
               className="flex flex-wrap gap-x-3 gap-y-2 font-mono text-sm text-ink"

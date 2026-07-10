@@ -38,7 +38,7 @@ export async function postRemoteBow(bow) {
   };
 }
 
-// localhost vs prod api — preview on localhost confused me
+// localhost uses localStorage; production uses the shared Vercel API.
 export function useRemoteBows() {
   if (import.meta.env.VITE_USE_REMOTE_BOWS === "true") return true;
   if (import.meta.env.VITE_USE_REMOTE_BOWS === "false") return false;

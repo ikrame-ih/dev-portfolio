@@ -4,8 +4,10 @@ import { PROFILE } from "@/data/portfolio";
 import { ASSETS } from "@/data/assets";
 
 const EASE = [0.2, 0.7, 0.2, 1];
+// Stagger hero elements so the page loads in a calm sequence, not all at once.
 const STEP_DELAY = [0, 0.4, 0.85, 1.2, 1.55];
 
+// Respects prefers-reduced-motion — skip animation entirely when the user asks for it.
 const heroStep = (step, reduce) => {
   if (reduce) {
     return { initial: false, animate: { opacity: 1, y: 0 } };
@@ -54,7 +56,7 @@ export const Hero = () => {
             <motion.span {...heroStep(2, reduce)} className="block">
               with{" "}
               <em className="text-burgundy not-italic font-normal">
-                care for detail
+                attention to detail
               </em>
             </motion.span>
             <motion.span
@@ -140,16 +142,17 @@ export const Hero = () => {
         {...heroStep(4, reduce)}
         className="mt-24 md:mt-32 overflow-hidden border-y border-bone-400 py-4 relative"
       >
+        {/* Duplicated spans create a seamless infinite marquee */}
         <div className="marquee-track flex gap-12 whitespace-nowrap font-serif italic text-2xl md:text-4xl text-ink/80">
           {Array.from({ length: 6 }).map((_, i) => (
             <span key={i} className="flex items-center gap-12">
-              <span>frontend craft</span>
+              <span>frontend</span>
               <Bow size={18} />
-              <span>backend logic</span>
+              <span>backend</span>
               <Bow size={18} />
-              <span>business sense</span>
+              <span>business context</span>
               <Bow size={18} />
-              <span>pixel-perfect</span>
+              <span>attention to detail</span>
               <Bow size={18} />
             </span>
           ))}

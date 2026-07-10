@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 export const REVEAL_EASE = [0.2, 0.7, 0.2, 1];
+// Fire once per section — margin pulls the trigger point up so elements animate before they're fully on screen.
 export const REVEAL_VIEWPORT = { once: true, margin: "-72px 0px -48px 0px" };
 
 export const revealTransition = (delay = 0) => ({
@@ -19,6 +20,7 @@ export const Reveal = ({
 }) => {
   const reduce = useReducedMotion();
 
+  // Skip motion entirely when the user prefers reduced motion — render plain HTML instead.
   if (reduce) {
     const Tag = as;
     return (

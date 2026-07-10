@@ -1,7 +1,7 @@
-// ~7% felt ok after testing
+// ~7% of page width felt right after testing on different screen sizes.
 export const MIN_BOW_DISTANCE = 0.07;
 
-// hash from id — random made bows jump
+// Deterministic hash from id — random placement made bows jump on every re-render.
 export const stableUnit = (id, salt = 0) => {
   let hash = salt;
   for (let i = 0; i < id.length; i += 1) {
@@ -10,6 +10,7 @@ export const stableUnit = (id, salt = 0) => {
   return (hash % 10000) / 10000;
 };
 
+// Older bows stored a single `x` coordinate — map that to left/right page + margin position.
 export const normalizeBow = (bow) => {
   const page =
     bow.page === "left" || bow.page === "right"
@@ -37,6 +38,7 @@ export const bowTooClose = (page, mx, y, bows, excludeVisitorId = null) => {
   });
 };
 
+// Keep bows away from the page edges so they don't clip under the book spine.
 export const clampBowPosition = (mx, y) => ({
   mx: Math.min(0.88, Math.max(0.12, mx)),
   y: Math.min(0.92, Math.max(0.08, y)),

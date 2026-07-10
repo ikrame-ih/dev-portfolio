@@ -1,5 +1,6 @@
 import { normalizeBow } from "./bowUtils";
 
+// localStorage keys — bows (guest book) and CLI guestbook are separate features.
 const BOWS_KEY = "ik_bows";
 const GUESTBOOK_KEY = "ik_guestbook";
 const VISITOR_KEY = "ik_visitor_id";

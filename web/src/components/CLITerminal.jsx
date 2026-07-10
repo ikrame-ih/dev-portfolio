@@ -21,6 +21,7 @@ const BANNER = [
   "Type help to start · Esc to close.",
 ];
 
+// Parses quoted strings from terminal input — guestbook --sign "name" "msg"
 const parseQuoted = (str) => {
   const out = [];
   const re = /"([^"]*)"|(\S+)/g;
@@ -45,9 +46,10 @@ export const CLITerminal = ({ open, onClose }) => {
   useEffect(() => {
     if (!open) return;
 
+    // Focus is unreliable on first mount — retry a few times after the panel opens.
     const raf = requestAnimationFrame(() => {
       focusInput();
-      setTimeout(focusInput, 50); // input mount timing is flaky
+      setTimeout(focusInput, 50);
       setTimeout(focusInput, 150);
     });
 
@@ -56,6 +58,7 @@ export const CLITerminal = ({ open, onClose }) => {
 
   useEffect(() => {
     if (!open) return;
+    // Capture phase so Esc closes the terminal before other handlers see it.
     const handleEsc = (e) => {
       if (e.key === "Escape") {
         e.preventDefault();
@@ -85,7 +88,7 @@ export const CLITerminal = ({ open, onClose }) => {
       return print(
         `${PROFILE.name} — ${PROFILE.location}`,
         PROFILE.tagline,
-        "Web developer · open to frontend or backend roles.",
+        PROFILE.workPreference,
       );
     }
     if (cmd === "whoami") {
@@ -161,6 +164,7 @@ export const CLITerminal = ({ open, onClose }) => {
 
   const onInputKeyDown = (e) => {
     e.stopPropagation();
+    // Up/down arrows walk through previous commands, like a real shell.
     if (e.key === "ArrowUp") {
       e.preventDefault();
       const next = Math.min(historyIdx + 1, history.length - 1);
