@@ -141,35 +141,35 @@ export const PROJECTS = [
   {
     id: "live-event-radar",
     name: "Live Event Radar",
-    subtitle: "Real-time venue telemetry · frontend",
+    subtitle: "Real-time venue ops dashboard · frontend",
     stack: [
       "Next.js",
       "React 19",
+      "TypeScript",
       "Zustand",
       "Leaflet",
-      "Web Workers",
-      "TypeScript",
+      "Vitest",
+      "Playwright",
     ],
     href: "https://github.com/ikrame-ih/live-event-radar",
     demo: "https://live-event-radar.vercel.app",
     description:
-      "A dashboard for brand activations: zone stock levels, a venue map, and a live activity feed. I started it after working events where stock updates arrived too late to act on.",
+      "A dashboard for brand activations where stock events follow one validated path into shared state, then feed two synchronized views: a command center and a telemetry map. I built it after working events where stock updates arrived too late to act on.",
     mermaid: `flowchart LR
   Sim[Mock Event Stream] --> Store[Zustand telemetry-store]
-  Store --> CC[Command Center /]
-  Store --> Dash[Telemetry /dashboard]
-  Store --> Worker[analytics.worker]
-  Worker --> Dash
+  Store --> Derive[Pure derivations]
+  Derive --> CC[Command Center /]
+  Derive --> Dash[Telemetry /dashboard]
   CC --> SVG[SVG Venue Map]
   Dash --> Map[Leaflet Map]
   classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
-  class Store,Worker accent`,
+  class Store,Derive accent`,
     shows: {
       title: "What it shows",
       bullets: [
-        "Real-time UI with maps and an activity feed that stays responsive under load.",
-        "Started from a floor-level problem: stock updates that arrived too late to act on.",
-        "React 19, TypeScript, Web Workers, Zustand, Leaflet. Live demo available.",
+        "One parser and capped buffer feed the UI; incidents and zone stock come from tested pure functions, not duplicated view state.",
+        "Two routes share one shell and store: SVG zones on the command center, Leaflet on the dashboard, with the map loaded client-side only.",
+        "24 unit tests on parsing and business logic, Playwright smoke tests, and CI on every push.",
       ],
     },
   },
@@ -181,7 +181,7 @@ export const PROJECTS = [
     href: null,
     demo: null,
     description:
-      "A headless pipeline to match import invoices against bank extracts, based on reconciliation work I did in admin roles. API and CLI only, no UI.",
+      "Headless pipeline with separate ingest, transform, and match stages: bank CSVs and invoice data into a reconciliation mart and an exceptions queue. Based on import reconciliation I did in admin roles.",
     mermaid: `flowchart TD
   CSV[Bank CSV extracts] --> Raw[(Raw zone)]
   WH[Invoice webhooks JSON] --> Stream[Stream enricher]
@@ -195,9 +195,9 @@ export const PROJECTS = [
     shows: {
       title: "What it shows",
       bullets: [
-        "Headless pipeline: ingest, transforms, fuzzy matching, and an exceptions queue.",
-        "Based on import reconciliation I did in admin roles, not a tutorial dataset.",
-        "Still in progress: one clear metric (auto-match rate) before adding more.",
+        "Distinct pipeline stages: raw ingest, dbt transforms, fuzzy matching, and a queue for unmatched rows.",
+        "Headless by design (API and CLI only), with scope held to one metric before expanding.",
+        "Drawn from real admin reconciliation work, not a tutorial dataset.",
       ],
     },
   },
