@@ -20,7 +20,7 @@ export const PROFILE = {
     { text: "and the context behind\u00A0it.", italic: true },
   ],
   heroSubtext:
-    "Hello, I'm Ikrame Ibn Hayoun. I'm a frontend developer based in Málaga, equally comfortable on the backend. Before I wrote code professionally, I worked in admin and executive support (reconciliation, reporting, and coordination across teams). That background helps me understand why software exists, not just how to write it.",
+    "Hi, I'm Ikrame Ibn Hayoun, a software developer based in Málaga, specializing in frontend development while actively building backend solutions. I enjoy turning ideas into intuitive, reliable, and scalable applications.",
   heroCredentials: [
     "React · TypeScript · Python · PostgreSQL",
     "Tests & CI on side projects",
@@ -29,13 +29,13 @@ export const PROFILE = {
   tagline:
     "Software developer · DAW graduate · AI & Big Data postgraduate starting Sep 2026",
   positioning:
-    "Hello, I'm Ikrame Ibn Hayoun. I'm a frontend developer based in Málaga, equally comfortable on the backend. Before I wrote code professionally, I worked in admin and executive support (reconciliation, reporting, and coordination across teams). That background helps me understand why software exists, not just how to write it.",
+    "Hi, I'm Ikrame Ibn Hayoun, a software developer based in Málaga, specializing in frontend development while actively building backend solutions. I enjoy turning ideas into intuitive, reliable, and scalable applications.",
   positioningParts: [
-    "Hello, I'm Ikrame Ibn Hayoun. I'm a ",
-    { em: "frontend developer" },
-    " based in Málaga, ",
-    { em: "equally comfortable on the backend" },
-    ". Before I wrote code professionally, I worked in admin and executive support (reconciliation, reporting, and coordination across teams). That background helps me understand why software exists, not just how to write it.",
+    "Hi, I'm Ikrame Ibn Hayoun, a ",
+    { em: "software developer" },
+    " based in Málaga, specializing in ",
+    { em: "frontend development" },
+    " while actively building backend solutions. I enjoy turning ideas into intuitive, reliable, and scalable applications.",
   ],
   practiceAside: {
     title: "At a glance",

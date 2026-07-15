@@ -1,24 +1,32 @@
 {
   "$schema": "https://jsonresume.org/schema/",
+  "meta": {
+    "version": "v1.0.0",
+    "canonical": "https://ikrame-ih.vercel.app/resume.json"
+  },
   "basics": {
-    "name": "Ikrame I. H.",
-    "label": "Software Developer · Frontend & Backend",
+    "name": "Ikrame Ibn Hayoun",
+    "label": "Software Developer",
     "image": "https://ikrame-ih.vercel.app/images/profile-ikrame.png",
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
     "url": "https://ikrame-ih.vercel.app",
-    "summary": "Software developer based in Málaga, focused on frontend with backend capability. I organize work around reusable components, shared state, and tested business logic—shown in a real-time dashboard with Zustand, Vitest, Playwright, and GitHub Actions CI. DAW final project MyPlaythrough (maximum grade): full-stack PERN app with JWT auth and Docker. Admin and executive support background before development (reconciliation, reporting, cross-team coordination). Open to remote or hybrid roles.",
-    "location": { "city": "Málaga", "countryCode": "ES" },
+    "summary": "Software developer based in Málaga, Spain, specializing in frontend development while actively building backend solutions. Experienced with React, TypeScript, Python, PostgreSQL, REST APIs, automated testing, and CI/CD. DAW graduate (Jun 2026); capstone project MyPlaythrough awarded maximum grade. AI and Big Data postgraduate programme starting Sep 2026. Open to remote or hybrid software developer roles.",
+    "location": {
+      "city": "Málaga",
+      "region": "Andalusia",
+      "countryCode": "ES"
+    },
     "profiles": [
       {
         "network": "GitHub",
-        "url": "https://github.com/ikrame-ih",
-        "username": "ikrame-ih"
+        "username": "ikrame-ih",
+        "url": "https://github.com/ikrame-ih"
       },
       {
         "network": "LinkedIn",
-        "url": "https://www.linkedin.com/in/ikrame-ih/",
-        "username": "ikrame-ih"
+        "username": "ikrame-ih",
+        "url": "https://www.linkedin.com/in/ikrame-ih/"
       }
     ]
   },
@@ -26,129 +34,179 @@
     {
       "name": "DATA CONTROL",
       "position": "Software Developer Intern",
+      "location": "Málaga, Spain",
       "startDate": "2026-03",
       "endDate": "2026-06",
+      "summary": "Frontend-focused internship building client websites with reusable components and accessible markup.",
       "highlights": [
-        "Developed client websites with reusable components and responsive layouts.",
-        "Included accessibility and semantic markup from the start."
+        "Developed responsive client websites with reusable React components and semantic HTML.",
+        "Implemented accessible UI patterns and responsive layouts from project start.",
+        "Collaborated on component-based architecture for maintainable frontends."
       ]
     },
     {
       "name": "EY Global Delivery Services",
       "position": "Executive Assistant",
+      "location": "Málaga, Spain",
       "startDate": "2025-02",
       "endDate": "2026-03",
+      "summary": "Executive support and internal tooling in a global professional services environment.",
       "highlights": [
-        "Coordinated executive visits: logistics, agendas, materials, and stakeholder updates.",
-        "Created internal Power Apps to streamline event coordination.",
+        "Coordinated executive visits including logistics, agendas, materials, and stakeholder updates.",
+        "Built internal Power Apps to streamline event coordination workflows.",
         "Managed travel, expense reports (Concur), Outlook, Teams, and SharePoint."
       ]
     },
     {
       "name": "EC Azafatas",
       "position": "Brand Ambassador",
+      "location": "Málaga, Spain",
       "startDate": "2026-02",
       "endDate": "2026-02",
-      "summary": "Ran product tastings and handled booth logistics in high-traffic retail events."
+      "summary": "Short-term brand activation role in high-traffic retail environments.",
+      "highlights": [
+        "Delivered product tastings and presentations in busy retail settings.",
+        "Managed booth logistics and end-of-day inventory updates."
+      ]
     },
     {
       "name": "Conciencia Fundraising",
-      "position": "Accounting & Operations Admin",
+      "position": "Accounting and Operations Administrator",
+      "location": "Remote, Spain",
       "startDate": "2024-11",
       "endDate": "2024-12",
+      "summary": "Operations and reporting support for a fundraising organisation.",
       "highlights": [
-        "Prepared donor reports via Drive and Outlook; managed HR in Factorial.",
-        "Kept team coordination in Asana, Notion, and Slack; created reporting views in Looker."
+        "Prepared donor reports and follow-up using Google Drive and Outlook.",
+        "Managed HR tasks in Factorial and tracked travel and expense costs.",
+        "Maintained team coordination in Asana, Notion, and Slack; built reporting views in Looker."
       ]
     },
     {
       "name": "Sylvis Profesional Cosmetic",
-      "position": "Admin Assistant",
+      "position": "Administrative Assistant",
+      "location": "Málaga, Spain",
       "startDate": "2024-03",
       "endDate": "2024-10",
+      "summary": "Accounting and import documentation support for a cosmetics importer.",
       "highlights": [
-        "Reconciled bank accounts and posted invoices, including imports.",
-        "Tracked import costs in Excel; managed incoming documentation."
+        "Reconciled bank accounts and posted invoices, including import purchases.",
+        "Tracked vehicle and import costs in Excel and managed incoming documentation."
       ]
     }
   ],
   "education": [
     {
-      "institution": "Postgraduate programme (ESP)",
-      "studyType": "AI & Big Data Postgraduate Programme",
-      "area": "AI & Big Data",
-      "startDate": "2026-09"
+      "institution": "Postgraduate Programme (ESP)",
+      "area": "Artificial Intelligence and Big Data",
+      "studyType": "Postgraduate Programme",
+      "startDate": "2026-09",
+      "summary": "AI and Big Data postgraduate programme."
     },
     {
       "institution": "CESUR Este, Málaga",
-      "studyType": "Higher Diploma (DAW)",
       "area": "Web Application Development",
+      "studyType": "Higher Diploma (DAW)",
       "startDate": "2024-09",
       "endDate": "2026-06",
-      "courses": ["Final project: MyPlaythrough — awarded maximum grade"]
+      "score": "Final project: maximum grade",
+      "courses": [
+        "Capstone: MyPlaythrough — full-stack PERN application"
+      ]
     },
     {
       "institution": "I.E.S. Politécnico Jesús Marín",
+      "area": "Administrative Management",
       "studyType": "Vocational Diploma",
-      "area": "Administrative Management — Honours",
-      "endDate": "2024-06"
+      "startDate": "2022-09",
+      "endDate": "2024-06",
+      "score": "Honours"
     }
   ],
   "skills": [
     {
-      "name": "Frontend",
+      "name": "Frontend Development",
+      "level": "Advanced",
       "keywords": [
         "React",
         "Next.js",
         "TypeScript",
-        "Zustand",
+        "JavaScript",
+        "Vite",
         "Tailwind CSS",
-        "Leaflet"
+        "Framer Motion",
+        "Zustand",
+        "Semantic HTML",
+        "Responsive Design",
+        "Accessibility"
       ]
     },
     {
-      "name": "Backend",
+      "name": "Backend Development",
+      "level": "Intermediate",
       "keywords": [
         "Python",
         "FastAPI",
         "Node.js",
         "Express",
         "PostgreSQL",
-        "REST APIs"
+        "SQL",
+        "REST APIs",
+        "JWT"
       ]
     },
     {
-      "name": "Tools",
+      "name": "Testing and DevOps",
+      "level": "Intermediate",
       "keywords": [
         "Git",
         "GitHub Actions",
         "Vitest",
         "Playwright",
         "Docker",
+        "CI/CD",
         "dbt",
         "Dagster"
       ]
     }
   ],
   "languages": [
-    { "language": "Spanish", "fluency": "Native" },
-    { "language": "English", "fluency": "C1" },
-    { "language": "Darija", "fluency": "Native" }
+    { "language": "Spanish", "fluency": "Native speaker" },
+    { "language": "English", "fluency": "Professional working proficiency (C1)" },
+    { "language": "Moroccan Arabic (Darija)", "fluency": "Native speaker" }
   ],
   "projects": [
     {
-      "name": "Live Event Radar",
-      "url": "https://github.com/ikrame-ih/live-event-radar",
-      "description": "Real-time venue dashboard for brand activations. Reusable components and shared Zustand state; stock events follow one validated path into synchronized command center and telemetry map views. Responsive layout, keyboard-accessible SVG zones, Leaflet map (client-side). Feature-sliced architecture, VitePress docs, 24 Vitest tests, Playwright smoke tests, GitHub Actions CI."
-    },
-    {
       "name": "MyPlaythrough",
       "url": "https://github.com/ikrame-ih/my-playthrough",
-      "description": "DAW final project (maximum grade). Full-stack PERN game library manager: backlog, active play, completions, community features, recommendations, discussions, and admin moderation. React, Vite, Express, PostgreSQL, JWT, Docker Compose, Vitest, GitHub Actions CI."
+      "startDate": "2025-09",
+      "endDate": "2026-06",
+      "description": "DAW capstone project awarded maximum grade. Full-stack game library manager with backlog tracking, community features, recommendations, discussions, and admin moderation.",
+      "highlights": [
+        "Built with React, Vite, Node.js, Express, PostgreSQL, JWT, and Docker Compose.",
+        "Added Vitest unit tests and GitHub Actions CI for reliable releases.",
+        "Live demo: https://ikrame-ih.github.io/my-playthrough/"
+      ]
+    },
+    {
+      "name": "Live Event Radar",
+      "url": "https://github.com/ikrame-ih/live-event-radar",
+      "startDate": "2025-06",
+      "description": "Real-time venue operations dashboard for brand activations with synchronized command center and telemetry map views.",
+      "highlights": [
+        "Developed with Next.js, React, TypeScript, Zustand, and Leaflet.",
+        "Implemented feature-sliced architecture, 24 Vitest tests, Playwright smoke tests, and GitHub Actions CI.",
+        "Live demo: https://live-event-radar.vercel.app"
+      ]
     },
     {
       "name": "ReconFlow",
-      "description": "Headless FastAPI reconciliation pipeline with separate ingest, transform, and match stages. Bank CSVs and invoice data flow through dbt into a reconciliation mart and exceptions queue. REST API and CLI only. Python, FastAPI, dbt, PostgreSQL, Dagster (in progress)."
+      "description": "Headless reconciliation pipeline for bank CSVs and invoice data with REST API and CLI interfaces.",
+      "highlights": [
+        "Designed ingest, transform, and match stages with Python, FastAPI, dbt, and PostgreSQL.",
+        "Outputs reconciliation mart and exceptions queue for finance operations review.",
+        "Orchestration with Dagster (in progress)."
+      ]
     }
   ]
 }

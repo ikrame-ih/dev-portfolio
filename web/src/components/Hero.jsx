@@ -67,7 +67,7 @@ export const Hero = () => {
 
           <motion.p
             {...heroStep(4, reduce)}
-            className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute"
+            className="mt-6 md:mt-7 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute"
           >
             {PROFILE.tagline}
           </motion.p>
