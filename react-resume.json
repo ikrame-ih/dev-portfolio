@@ -13,8 +13,8 @@
     "shadowWidth": 0
   },
   "basics": {
-    "name": "Ikrame I. H.",
-    "headline": "Junior Web Developer · Frontend & Backend · Málaga, ES",
+    "name": "Ikrame Ibn Hayoun",
+    "headline": "Software Developer · Frontend & Backend · Málaga, ES",
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
     "location": "Málaga, ES",
@@ -28,7 +28,7 @@
     "title": "Summary",
     "columns": 1,
     "hidden": false,
-    "content": "<p>Junior web developer based in Málaga, focused on frontend with backend capability. I organize work around reusable components, shared state, and tested business logic—shown in a real-time dashboard with Zustand, Vitest, Playwright, and GitHub Actions CI.</p><p>Before development, I worked in admin and executive support (reconciliation, reporting, cross-team coordination). That background helps me understand business context before writing code.</p><p>Open to remote or hybrid frontend or backend roles.</p>"
+    "content": "<p>Software developer based in Málaga, Spain, specializing in frontend development while actively building backend solutions.</p><p>Experienced with React, TypeScript, Python, PostgreSQL, REST APIs, automated testing, and CI/CD.</p><p>DAW graduate (Jun 2026); capstone project MyPlaythrough awarded maximum grade.</p><p>AI and Big Data postgraduate programme starting Sep 2026.</p><p>Open to remote or hybrid software developer roles.</p>"
   },
   "sections": {
     "profiles": {
@@ -73,11 +73,15 @@
           "id": "b2000001-0001-4000-8000-000000000001",
           "hidden": false,
           "company": "DATA CONTROL",
-          "position": "Web Developer Intern",
-          "location": "Málaga, ES",
+          "position": "Software Developer Intern",
+          "location": "Málaga, Spain",
           "period": "Mar 2026 - Jun 2026",
-          "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<ul><li>Developed client websites with reusable components and responsive layouts.</li><li>Included accessibility and semantic HTML from the start of each project.</li></ul>",
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
+          "description": "<p>Frontend-focused internship building client websites with reusable components and accessible markup.</p><ul><li>Developed responsive client websites with reusable React components and semantic HTML.</li><li>Implemented accessible UI patterns and responsive layouts from project start.</li><li>Collaborated on component-based architecture for maintainable frontends.</li></ul>",
           "roles": []
         },
         {
@@ -85,10 +89,14 @@
           "hidden": false,
           "company": "EY Global Delivery Services",
           "position": "Executive Assistant",
-          "location": "",
+          "location": "Málaga, Spain",
           "period": "Feb 2025 - Mar 2026",
-          "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<ul><li>Coordinated executive visits (logistics, agendas, materials) and kept stakeholders updated.</li><li>Created internal Power Apps to simplify event coordination workflows.</li><li>Managed travel, Concur expense reports, Outlook, Teams, and SharePoint.</li></ul>",
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
+          "description": "<p>Executive support and internal tooling in a global professional services environment.</p><ul><li>Coordinated executive visits including logistics, agendas, materials, and stakeholder updates.</li><li>Built internal Power Apps to streamline event coordination workflows.</li><li>Managed travel, expense reports (Concur), Outlook, Teams, and SharePoint.</li></ul>",
           "roles": []
         },
         {
@@ -96,32 +104,44 @@
           "hidden": false,
           "company": "EC Azafatas",
           "position": "Brand Ambassador",
-          "location": "",
+          "location": "Málaga, Spain",
           "period": "Feb 2026",
-          "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<ul><li>Ran product tastings and short presentations in busy retail settings.</li><li>Handled booth logistics and end-of-day inventory updates.</li></ul>",
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
+          "description": "<p>Short-term brand activation role in high-traffic retail environments.</p><ul><li>Delivered product tastings and presentations in busy retail settings.</li><li>Managed booth logistics and end-of-day inventory updates.</li></ul>",
           "roles": []
         },
         {
           "id": "b2000001-0001-4000-8000-000000000004",
           "hidden": false,
           "company": "Conciencia Fundraising",
-          "position": "Accounting & Operations Admin",
-          "location": "",
+          "position": "Accounting and Operations Administrator",
+          "location": "Remote, Spain",
           "period": "Nov 2024 - Dec 2024",
-          "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<ul><li>Prepared donor reports and follow-up via Drive, Outlook, and Evergiving.</li><li>Managed HR tasks in Factorial and tracked travel and expense costs.</li><li>Kept team coordination in Asana, Notion, and Slack; created reporting views in Looker.</li></ul>",
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
+          "description": "<p>Operations and reporting support for a fundraising organisation.</p><ul><li>Prepared donor reports and follow-up using Google Drive and Outlook.</li><li>Managed HR tasks in Factorial and tracked travel and expense costs.</li><li>Maintained team coordination in Asana, Notion, and Slack; built reporting views in Looker.</li></ul>",
           "roles": []
         },
         {
           "id": "b2000001-0001-4000-8000-000000000005",
           "hidden": false,
           "company": "Sylvis Profesional Cosmetic",
-          "position": "Admin Assistant",
-          "location": "",
+          "position": "Administrative Assistant",
+          "location": "Málaga, Spain",
           "period": "Mar 2024 - Oct 2024",
-          "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<ul><li>Reconciled bank accounts and posted invoices, including import purchases.</li><li>Tracked vehicle and import costs in Excel; managed incoming documentation.</li></ul>",
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
+          "description": "<p>Accounting and import documentation support for a cosmetics importer.</p><ul><li>Reconciled bank accounts and posted invoices, including import purchases.</li><li>Tracked vehicle and import costs in Excel and managed incoming documentation.</li></ul>",
           "roles": []
         }
       ]
@@ -134,26 +154,34 @@
         {
           "id": "c3000001-0001-4000-8000-000000000001",
           "hidden": false,
-          "school": "Postgraduate programme (ESP)",
-          "degree": "AI & Big Data Postgraduate Programme",
-          "area": "",
+          "school": "Postgraduate Programme (ESP)",
+          "degree": "Postgraduate Programme",
+          "area": "Artificial Intelligence and Big Data",
           "grade": "",
           "location": "",
           "period": "Sep 2026 -",
-          "website": { "url": "", "label": "", "inlineLink": false },
-          "description": ""
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
+          "description": "AI and Big Data postgraduate programme."
         },
         {
           "id": "c3000001-0001-4000-8000-000000000002",
           "hidden": false,
           "school": "CESUR Este, Málaga",
           "degree": "Higher Diploma (DAW)",
-          "area": "",
-          "grade": "",
+          "area": "Web Application Development",
+          "grade": "Final project: maximum grade",
           "location": "Málaga, ES",
           "period": "Sep 2024 - Jun 2026",
-          "website": { "url": "", "label": "", "inlineLink": false },
-          "description": ""
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
+          "description": "Capstone: MyPlaythrough — full-stack PERN application"
         },
         {
           "id": "c3000001-0001-4000-8000-000000000003",
@@ -163,8 +191,12 @@
           "area": "Administrative Management",
           "grade": "Honours",
           "location": "",
-          "period": "2022 - 2024",
-          "website": { "url": "", "label": "", "inlineLink": false },
+          "period": "Sep 2022 - Jun 2024",
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
           "description": ""
         }
       ]
@@ -177,22 +209,38 @@
         {
           "id": "d4000001-0001-4000-8000-000000000001",
           "hidden": false,
+          "name": "MyPlaythrough",
+          "period": "Sep 2025 - Jun 2026",
+          "website": {
+            "url": "https://github.com/ikrame-ih/my-playthrough",
+            "label": "GitHub",
+            "inlineLink": true
+          },
+          "description": "<p>DAW capstone project awarded maximum grade. Full-stack game library manager with backlog tracking, community features, recommendations, discussions, and admin moderation.</p><ul><li>Built with React, Vite, Node.js, Express, PostgreSQL, JWT, and Docker Compose.</li><li>Added Vitest unit tests and GitHub Actions CI for reliable releases.</li><li>Live demo: https://ikrame-ih.github.io/my-playthrough/</li></ul>"
+        },
+        {
+          "id": "d4000001-0001-4000-8000-000000000002",
+          "hidden": false,
           "name": "Live Event Radar",
-          "period": "",
+          "period": "Jun 2025 -",
           "website": {
             "url": "https://github.com/ikrame-ih/live-event-radar",
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>Real-time venue dashboard for brand activations. Built with reusable components and shared Zustand state; stock events follow one validated path into two synchronized views (command center + telemetry map). Responsive layout, keyboard-accessible SVG zones, Leaflet map loaded client-side.</p><p>Feature-sliced architecture, VitePress docs, 24 Vitest tests, Playwright smoke tests, GitHub Actions CI. Demo: live-event-radar.vercel.app</p>"
+          "description": "<p>Real-time venue operations dashboard for brand activations with synchronized command center and telemetry map views.</p><ul><li>Developed with Next.js, React, TypeScript, Zustand, and Leaflet.</li><li>Implemented feature-sliced architecture, 24 Vitest tests, Playwright smoke tests, and GitHub Actions CI.</li><li>Live demo: https://live-event-radar.vercel.app</li></ul>"
         },
         {
-          "id": "d4000001-0001-4000-8000-000000000002",
+          "id": "d4000001-0001-4000-8000-000000000003",
           "hidden": false,
           "name": "ReconFlow",
-          "period": "In progress",
-          "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Headless FastAPI reconciliation pipeline with separate ingest, transform, and match stages. Bank CSVs and invoice data flow through dbt into a reconciliation mart and an exceptions queue. REST API and CLI only.</p><p>Python, FastAPI, dbt, PostgreSQL, Dagster. Based on admin reconciliation work.</p>"
+          "period": " -",
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
+          "description": "<p>Headless reconciliation pipeline for bank CSVs and invoice data with REST API and CLI interfaces.</p><ul><li>Designed ingest, transform, and match stages with Python, FastAPI, dbt, and PostgreSQL.</li><li>Outputs reconciliation mart and exceptions queue for finance operations review.</li><li>Orchestration with Dagster (in progress).</li></ul>"
         }
       ]
     },
@@ -206,16 +254,21 @@
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "Frontend",
-          "proficiency": "",
+          "name": "Frontend Development",
+          "proficiency": "Advanced",
           "level": 0,
           "keywords": [
             "React",
             "Next.js",
             "TypeScript",
-            "Zustand",
+            "JavaScript",
+            "Vite",
             "Tailwind CSS",
-            "Leaflet"
+            "Framer Motion",
+            "Zustand",
+            "Semantic HTML",
+            "Responsive Design",
+            "Accessibility"
           ]
         },
         {
@@ -223,20 +276,38 @@
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "Backend",
-          "proficiency": "",
+          "name": "Backend Development",
+          "proficiency": "Intermediate",
           "level": 0,
-          "keywords": ["Python", "FastAPI", "PostgreSQL", "SQL", "REST APIs"]
+          "keywords": [
+            "Python",
+            "FastAPI",
+            "Node.js",
+            "Express",
+            "PostgreSQL",
+            "SQL",
+            "REST APIs",
+            "JWT"
+          ]
         },
         {
           "id": "e5000001-0001-4000-8000-000000000003",
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "Tools",
-          "proficiency": "",
+          "name": "Testing and DevOps",
+          "proficiency": "Intermediate",
           "level": 0,
-          "keywords": ["Git", "GitHub Actions", "Vitest", "Playwright", "dbt", "Dagster"]
+          "keywords": [
+            "Git",
+            "GitHub Actions",
+            "Vitest",
+            "Playwright",
+            "Docker",
+            "CI/CD",
+            "dbt",
+            "Dagster"
+          ]
         }
       ]
     },
@@ -249,21 +320,21 @@
           "id": "f6000001-0001-4000-8000-000000000001",
           "hidden": false,
           "language": "Spanish",
-          "fluency": "Native",
+          "fluency": "Native speaker",
           "level": 0
         },
         {
           "id": "f6000001-0001-4000-8000-000000000002",
           "hidden": false,
           "language": "English",
-          "fluency": "C1",
+          "fluency": "Professional working proficiency (C1)",
           "level": 0
         },
         {
           "id": "f6000001-0001-4000-8000-000000000003",
           "hidden": false,
-          "language": "Darija",
-          "fluency": "Native",
+          "language": "Moroccan Arabic (Darija)",
+          "fluency": "Native speaker",
           "level": 0
         }
       ]
@@ -325,14 +396,30 @@
             "React",
             "Next.js",
             "TypeScript",
+            "JavaScript",
+            "Vite",
+            "Tailwind CSS",
+            "Framer Motion",
             "Zustand",
-            "Leaflet",
+            "Semantic HTML",
+            "Responsive Design",
+            "Accessibility",
             "Python",
             "FastAPI",
+            "Node.js",
+            "Express",
             "PostgreSQL",
+            "SQL",
+            "REST APIs",
+            "JWT",
+            "Git",
+            "GitHub Actions",
             "Vitest",
             "Playwright",
-            "Git"
+            "Docker",
+            "CI/CD",
+            "dbt",
+            "Dagster"
           ]
         }
       ]
@@ -383,7 +470,11 @@
             "projects",
             "education"
           ],
-          "sidebar": ["profiles", "skills", "languages"]
+          "sidebar": [
+            "profiles",
+            "skills",
+            "languages"
+          ]
         }
       ]
     },
@@ -410,13 +501,18 @@
     "typography": {
       "body": {
         "fontFamily": "IBM Plex Sans",
-        "fontWeights": ["400", "500"],
+        "fontWeights": [
+          "400",
+          "500"
+        ],
         "fontSize": 11,
         "lineHeight": 1.5
       },
       "heading": {
         "fontFamily": "IBM Plex Serif",
-        "fontWeights": ["600"],
+        "fontWeights": [
+          "600"
+        ],
         "fontSize": 14,
         "lineHeight": 1.5
       }

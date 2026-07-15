@@ -2,7 +2,8 @@
   "$schema": "https://jsonresume.org/schema/",
   "meta": {
     "version": "v1.0.0",
-    "canonical": "https://ikrame-ih.vercel.app/resume.json"
+    "canonical": "https://ikrame-ih.vercel.app/resume.json",
+    "sync": "Run npm run sync:resume in web/ to update react-resume.json"
   },
   "basics": {
     "name": "Ikrame Ibn Hayoun",
