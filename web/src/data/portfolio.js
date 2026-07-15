@@ -21,11 +21,6 @@ export const PROFILE = {
   ],
   heroSubtext:
     "Hi, I'm Ikrame Ibn Hayoun, a software developer based in Málaga, specializing in frontend development while actively building backend solutions. I enjoy turning ideas into intuitive, reliable, and scalable applications.",
-  heroCredentials: [
-    "React · TypeScript · Python · PostgreSQL",
-    "Tests & CI on side projects",
-    "Málaga · Remote or hybrid",
-  ],
   tagline:
     "Software developer · DAW graduate · AI & Big Data postgraduate starting Sep 2026",
   positioning:

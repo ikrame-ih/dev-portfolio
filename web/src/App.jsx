@@ -12,22 +12,7 @@ import JardinCanvas from "@/components/JardinCanvas";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import CLITerminal from "@/components/CLITerminal";
-import Reveal from "@/components/Reveal";
-import { Bow } from "@/components/Bow";
 import { PROFILE } from "@/data/portfolio";
-
-// Decorative divider between hero and the rest of the page.
-const OrnamentDivider = () => (
-  <Reveal y={12}>
-    <div className="max-w-7xl mx-auto px-6 md:px-12">
-      <div className="relative h-px bg-ink/20 my-0">
-        <div className="absolute left-1/2 -translate-x-1/2 -top-3 bg-bone px-3">
-          <Bow size={18} />
-        </div>
-      </div>
-    </div>
-  </Reveal>
-);
 
 export default function App() {
   const [cliOpen, setCliOpen] = useState(false);
@@ -84,7 +69,6 @@ export default function App() {
       <Nav onOpenTerminal={() => setCliOpen(true)} />
       <main>
         <Hero />
-        <OrnamentDivider />
         <CVSection />
         <ProjectsSection />
         <BentoSection />
