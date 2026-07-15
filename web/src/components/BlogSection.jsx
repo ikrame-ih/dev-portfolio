@@ -117,9 +117,6 @@ export const BlogSection = () => {
                       Coming soon
                     </span>
                   </div>
-                  <p className="font-mono text-xs text-ink-soft leading-relaxed">
-                    {BLOG.comingSoonNote}
-                  </p>
                 </div>
               </div>
             )}

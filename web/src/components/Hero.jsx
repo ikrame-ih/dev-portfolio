@@ -5,7 +5,7 @@ import { ASSETS } from "@/data/assets";
 import { fadeUp } from "@/lib/motion";
 import { scrollToElement } from "@/lib/scroll";
 
-const STEP_DELAY = [0, 0.4, 0.85, 1.2, 1.55];
+const STEP_DELAY = [0, 0.4, 0.85, 1.2, 1.55, 1.7];
 
 const heroStep = (step, reduce) => fadeUp(reduce, STEP_DELAY[step], 10);
 
@@ -34,7 +34,7 @@ export const Hero = () => {
 
           <h1
             data-testid="hero-headline"
-            className="font-serif font-light text-[2.4rem] leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter text-ink"
+            className="font-serif font-light text-[2.4rem] leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter text-ink text-balance"
           >
             {PROFILE.headlineParts.map((part, i) => (
               <motion.span
@@ -128,22 +128,24 @@ export const Hero = () => {
       </div>
 
       <motion.div
-        {...heroStep(4, reduce)}
-        className="mt-24 md:mt-32 border-y border-bone-400 py-6 md:py-8 overflow-hidden"
+        {...heroStep(5, reduce)}
+        className="mt-24 md:mt-32 border-y border-bone-400 py-5 md:py-6"
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <p className="font-serif italic text-lg md:text-2xl text-ink/80 leading-relaxed max-w-4xl">
-            {PROFILE.heroTransition}
-          </p>
-          <div className="mt-5 md:mt-6 overflow-hidden" aria-hidden="true">
-            <div className="marquee-track gap-10 font-mono text-[10px] md:text-xs uppercase tracking-[0.28em] text-ink-mute">
-              {[...PROFILE.heroTicker, ...PROFILE.heroTicker].map((item, i) => (
-                <span key={`${item}-${i}`} className="inline-flex items-center gap-10 shrink-0">
-                  <span>{item}</span>
-                  <span className="text-burgundy/70">·</span>
-                </span>
-              ))}
-            </div>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-8">
+            {PROFILE.heroCredentials.map((line, i) => (
+              <div
+                key={line}
+                className={`flex items-center gap-3 min-w-0 ${
+                  i > 0 ? "md:border-l md:border-bone-400 md:pl-8" : ""
+                }`}
+              >
+                <Bow size={12} className="shrink-0 hidden sm:block" />
+                <p className="font-mono text-[10px] md:text-xs uppercase tracking-[0.22em] text-ink-soft leading-relaxed">
+                  {line}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </motion.div>

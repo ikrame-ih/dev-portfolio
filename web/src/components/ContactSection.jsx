@@ -217,7 +217,7 @@ export const ContactSection = () => {
                   <span>sent · thank you</span>
                 </>
               ) : (
-                "I read everything — usually within a day or two."
+                "I'll reply as soon as I can."
               )}
             </p>
             <button

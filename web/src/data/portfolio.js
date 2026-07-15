@@ -15,20 +15,16 @@ export const PROFILE = {
   headline: "I build software with attention to detail",
   headlineAccent: "and the context behind it.",
   headlineParts: [
-    { text: "I build software with attention to detail" },
-    { text: "and the context behind it.", italic: true, accent: true },
+    { text: "I build software" },
+    { text: "with attention to detail", accent: true },
+    { text: "and the context behind\u00A0it.", italic: true },
   ],
   heroSubtext:
     "Hello, I'm Ikrame Ibn Hayoun. I'm a frontend developer based in Málaga, equally comfortable on the backend. Before I wrote code professionally, I worked in admin and executive support (reconciliation, reporting, and coordination across teams). That background helps me understand why software exists, not just how to write it.",
-  heroTransition:
-    "Most of my projects start somewhere else — a spreadsheet, an event floor, an inbox.",
-  heroTicker: [
-    "spreadsheet",
-    "event floor",
-    "inbox",
-    "reconciliation sheet",
-    "coordination thread",
-    "admin folder",
+  heroCredentials: [
+    "React · TypeScript · Python · PostgreSQL",
+    "Tests & CI on side projects",
+    "Málaga · Remote or hybrid",
   ],
   tagline:
     "Software developer · DAW graduate · AI & Big Data postgraduate starting Sep 2026",
@@ -310,8 +306,6 @@ export const BLOG = {
   intro:
     "Notes from my corner of the internet about development, what I'm learning, music, anime, and whatever else catches my interest. It's not really a technical blog, more a place to think aloud, share what I enjoy, and leave room to experiment.",
   comingSoon: true,
-  comingSoonNote:
-    "First up: Planning first — colour-coded notes, neat folders, and why Obsidian finally clicked.",
   posts: [
     {
       slug: "planning-first",
