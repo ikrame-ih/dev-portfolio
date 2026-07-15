@@ -11,11 +11,27 @@ export const PROFILE = {
   portfolioRepo: "https://github.com/ikrame-ih/dev-portfolio",
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
   siteUrl: "https://ikrame-ih.vercel.app",
-  overline: "WEB DEVELOPER · FRONTEND · BACKEND",
+  overline: "SOFTWARE DEVELOPER · FRONTEND · BACKEND",
   headline: "I build software with attention to detail",
   headlineAccent: "and the context behind it.",
+  headlineParts: [
+    { text: "I build software with attention to detail" },
+    { text: "and the context behind it.", italic: true, accent: true },
+  ],
+  heroSubtext:
+    "Hello, I'm Ikrame Ibn Hayoun. I'm a frontend developer based in Málaga, equally comfortable on the backend. Before I wrote code professionally, I worked in admin and executive support (reconciliation, reporting, and coordination across teams). That background helps me understand why software exists, not just how to write it.",
+  heroTransition:
+    "Most of my projects start somewhere else — a spreadsheet, an event floor, an inbox.",
+  heroTicker: [
+    "spreadsheet",
+    "event floor",
+    "inbox",
+    "reconciliation sheet",
+    "coordination thread",
+    "admin folder",
+  ],
   tagline:
-    "Web developer · DAW graduate · AI & Big Data postgraduate starting Sep 2026",
+    "Software developer · DAW graduate · AI & Big Data postgraduate starting Sep 2026",
   positioning:
     "Hello, I'm Ikrame Ibn Hayoun. I'm a frontend developer based in Málaga, equally comfortable on the backend. Before I wrote code professionally, I worked in admin and executive support (reconciliation, reporting, and coordination across teams). That background helps me understand why software exists, not just how to write it.",
   positioningParts: [
@@ -27,14 +43,14 @@ export const PROFILE = {
   ],
   practiceAside: {
     title: "At a glance",
-    text: "DAW graduate (Jun 2026). AI & Big Data Postgraduate Programme (Sep 2026). Side projects on GitHub use component-based layouts, tests, and CI; intern work focused on reusable components and semantic markup.",
+    text: "DAW graduate (Jun 2026) — final project MyPlaythrough awarded maximum grade. AI & Big Data Postgraduate Programme (Sep 2026). Side projects on GitHub use component-based layouts, tests, and CI; intern work focused on reusable components and semantic markup.",
   },
 };
 
 export const LANGUAGES = [
   { lang: "Spanish", level: "Native", code: "ES" },
   { lang: "English", level: "C1", detail: "Advanced", code: "EN" },
-  { lang: "Darija", level: "Native", code: "AR" },
+  { lang: "Darija", level: "Native", detail: "Moroccan Arabic", code: "AR" },
 ];
 
 export const STACK = {
@@ -67,7 +83,7 @@ export const STACK = {
 export const EXPERIENCE = [
   {
     company: "DATA CONTROL",
-    role: "Web Developer Intern",
+    role: "Software Developer Intern",
     period: "Mar 2026 — Jun 2026",
     track: "tech",
     bullets: [
@@ -164,14 +180,33 @@ export const PROJECTS = [
   Dash --> Map[Leaflet Map]
   classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
   class Store,Derive accent`,
-    shows: {
-      title: "What it shows",
-      bullets: [
-        "Feature-sliced layout with reusable map and UI components; zone stock and incidents derived in tested pure functions, not duplicated state.",
-        "Responsive across viewports; keyboard-accessible SVG zones on the command center, Leaflet on the dashboard (loaded client-side only).",
-        "Architecture documented in VitePress, 24 Vitest tests, Playwright smoke tests, and GitHub Actions CI on every push.",
-      ],
-    },
+  },
+  {
+    id: "my-playthrough",
+    name: "MyPlaythrough",
+    badge: "DAW final project",
+    subtitle: "Personal game library manager · full-stack",
+    stack: [
+      "React",
+      "Vite",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "JWT",
+      "Docker",
+      "Vitest",
+    ],
+    href: "https://github.com/ikrame-ih/my-playthrough",
+    demo: "https://ikrame-ih.github.io/my-playthrough/",
+    description:
+      "DAW capstone (maximum grade): a full-stack PERN app to track backlog, active play, and completions—with community features, recommendations, threaded discussions, and admin moderation. Built with JWT auth, Docker Compose, and CI.",
+    mermaid: `flowchart LR
+  SPA[React SPA] --> API[Express REST API]
+  API --> Auth[JWT + bcrypt]
+  API --> DB[(PostgreSQL)]
+  API --> Covers[Steam / RAWG proxy]
+  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
+  class API,Auth,DB accent`,
   },
   {
     id: "reconflow",
@@ -192,14 +227,6 @@ export const PROJECTS = [
   Match --> Quar[Exceptions queue]
   classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
   class Stream,dbt,Match accent`,
-    shows: {
-      title: "What it shows",
-      bullets: [
-        "REST API and CLI only; pipeline stages kept distinct (raw ingest, dbt transforms, fuzzy matching, exceptions queue).",
-        "Scope held to one metric (auto-match rate) before expanding.",
-        "Drawn from real admin reconciliation work, not a tutorial dataset.",
-      ],
-    },
   },
 ];
 
@@ -207,11 +234,11 @@ export const BENTO = {
   overline: "03 · interests",
   title: "Things I enjoy",
   titleAccent: "outside of development.",
-  kicker:
-    "Just a few hobbies — nothing here has to do with my CV.",
+  kicker: "The part of me that doesn't show up in a linter.",
   items: [
     {
       key: "gaming",
+      label: "case file",
       title: "Gaming",
       body: "Ace Attorney is the series I always go back to; I've been playing those games for years. Otherwise it's mostly story-heavy stuff — visual novels, mysteries, long JRPGs.",
       span: "md:col-span-2 md:row-span-2",
@@ -221,6 +248,7 @@ export const BENTO = {
     },
     {
       key: "music",
+      label: "now playing",
       title: "Music",
       body: "I sing when I need to switch my head off. Voilà is usually on repeat, and I keep different playlists depending on the mood.",
       span: "md:col-span-1 md:row-span-2",
@@ -230,6 +258,7 @@ export const BENTO = {
     },
     {
       key: "aesthetics",
+      label: "on the shelf",
       title: "Skincare",
       body: "I use the same skincare, haircare, and makeup products for years. Once something works, I don't really change it.",
       span: "md:col-span-2 md:row-span-1",
@@ -239,6 +268,7 @@ export const BENTO = {
     },
     {
       key: "training",
+      label: "weekly",
       title: "Training",
       body: "Three or four gym sessions a week when I can fit them in. I always train with headphones on — I can't really focus without music.",
       span: "md:col-span-1 md:row-span-1",
@@ -248,6 +278,7 @@ export const BENTO = {
     },
     {
       key: "reading",
+      label: "on the shelf",
       title: "Reading",
       body: "I only read one book at a time, and it's almost always fiction. The last one I finished was Touch of Death by Alice Wilde.",
       span: "md:col-span-1 md:row-span-1",
@@ -257,6 +288,7 @@ export const BENTO = {
     },
     {
       key: "series",
+      label: "evening watch",
       title: "Series & anime",
       body: "Anime, a series, or a film on a quiet evening — that's usually how I watch things. Breaking Bad is the last series I finished.",
       span: "md:col-span-2 md:row-span-1",
@@ -278,6 +310,8 @@ export const BLOG = {
   intro:
     "Notes from my corner of the internet about development, what I'm learning, music, anime, and whatever else catches my interest. It's not really a technical blog, more a place to think aloud, share what I enjoy, and leave room to experiment.",
   comingSoon: true,
+  comingSoonNote:
+    "First up: Planning first — colour-coded notes, neat folders, and why Obsidian finally clicked.",
   posts: [
     {
       slug: "planning-first",
@@ -312,7 +346,10 @@ export const BOW_BOARD = {
   titleAccent: "Pin a little bow before you go.",
   kicker:
     "Click anywhere on either page to leave your bow. One per person, and you can move it anytime.",
-  emptyState: "No bows yet. Click a page to leave yours.",
+  emptyState: "Be the first bow on the page — click anywhere.",
+  leftWatermark:
+    "For everyone who scrolled past the projects and stayed for the details.",
+  rightWatermark: "A small thank-you. Your bow here means you were here.",
   countLabel: "bows",
   marginHint: "one bow per person · place it anywhere",
 };

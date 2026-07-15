@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { toast } from "sonner";
 import { Bow } from "./Bow";
+import { TyingBow } from "./TyingBow";
 import Reveal from "./Reveal";
 import { PROFILE } from "@/data/portfolio";
 
@@ -13,11 +14,10 @@ export const ContactSection = () => {
     name: "",
     email: "",
     message: "",
-    website: "", // honeypot — bots fill this, humans never see it
+    website: "",
   });
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
-  // Timestamp sent with the form so the API can reject submissions that arrive too fast.
   const formStartedAt = useRef(Date.now());
 
   const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
@@ -126,6 +126,12 @@ export const ContactSection = () => {
               <p className="text-[10px] uppercase tracking-[0.2em] text-ink-mute">
                 Location
               </p>
+              <span>{PROFILE.location}</span>
+            </div>
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-ink-mute">
+                Availability
+              </p>
               <span>{PROFILE.workPreference}</span>
             </div>
           </div>
@@ -139,7 +145,7 @@ export const ContactSection = () => {
           data-testid="contact-form"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <label className="block">
+            <label className="block field-line">
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-soft">
                 Name
               </span>
@@ -154,7 +160,7 @@ export const ContactSection = () => {
                 className="mt-2 w-full bg-transparent border-b border-ink/30 focus:border-burgundy outline-none py-2 font-mono text-sm text-ink"
               />
             </label>
-            <label className="block">
+            <label className="block field-line">
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-soft">
                 Email
               </span>
@@ -172,7 +178,7 @@ export const ContactSection = () => {
             </label>
           </div>
 
-          <label className="block">
+          <label className="block field-line">
             <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-soft">
               Message
             </span>
@@ -203,15 +209,22 @@ export const ContactSection = () => {
             />
           </div>
 
-          <div className="flex items-center justify-between pt-4">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute">
-              {sent ? "✓ sent · thank you" : "I'll reply as soon as I can"}
+          <div className="flex items-center justify-between pt-4 gap-4">
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute flex items-center gap-2">
+              {sent ? (
+                <>
+                  <TyingBow size={14} tie />
+                  <span>sent · thank you</span>
+                </>
+              ) : (
+                "I read everything — usually within a day or two."
+              )}
             </p>
             <button
               type="submit"
               data-testid="contact-submit"
               disabled={submitting}
-              className="font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-6 py-3 hover:bg-ink transition-colors disabled:opacity-50"
+              className="btn-tactile font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-6 py-3 hover:bg-ink transition-colors disabled:opacity-50"
             >
               {submitting ? "Sending…" : "Send →"}
             </button>

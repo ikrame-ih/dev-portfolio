@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Bow } from "./Bow";
 import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
 import {
@@ -46,6 +46,8 @@ const TrackBadge = ({ track }) => {
 };
 
 export const CVSection = () => {
+  const reduce = useReducedMotion();
+
   return (
     <section
       id="cv"
@@ -81,7 +83,7 @@ export const CVSection = () => {
               {STACK.frontend.map((s) => (
                 <li
                   key={s}
-                  className="inline-flex items-center gap-1.5 border border-bone-400 px-2 py-1 hover:border-burgundy transition-colors"
+                  className="stack-chip inline-flex items-center gap-1.5 border border-bone-400 px-2 py-1 hover:border-burgundy transition-colors"
                 >
                   <StackIcon name={s} />
                   {s}
@@ -103,7 +105,7 @@ export const CVSection = () => {
               {STACK.backend.map((s) => (
                 <li
                   key={s}
-                  className="inline-flex items-center gap-1.5 border border-bone-400 px-2 py-1 hover:border-burgundy transition-colors"
+                  className="stack-chip inline-flex items-center gap-1.5 border border-bone-400 px-2 py-1 hover:border-burgundy transition-colors"
                 >
                   <StackIcon name={s} />
                   {s}
@@ -150,15 +152,21 @@ export const CVSection = () => {
               {EXPERIENCE.map((exp, idx) => (
                 <motion.li
                   key={`${exp.company}-${exp.period}`}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={reduce ? false : { opacity: 1, y: 24 }}
+                  whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                   viewport={REVEAL_VIEWPORT}
                   transition={revealTransition(idx * 0.08)}
                   className="relative pl-10 pb-12 border-l border-bone-400 last:border-transparent"
                 >
-                  <div className="absolute -left-[9px] top-1.5">
+                  <motion.div
+                    className="absolute -left-[9px] top-1.5"
+                    initial={reduce ? false : { opacity: 1, scale: 0.92 }}
+                    whileInView={reduce ? undefined : { opacity: 1, scale: 1 }}
+                    viewport={REVEAL_VIEWPORT}
+                    transition={revealTransition(idx * 0.08 + 0.05)}
+                  >
                     <Bow size={18} />
-                  </div>
+                  </motion.div>
                   <div className="flex flex-wrap items-baseline gap-3 mb-2">
                     <h3 className="font-serif text-xl md:text-2xl text-ink">
                       {exp.role}
@@ -190,8 +198,8 @@ export const CVSection = () => {
               {EDUCATION.map((ed, idx) => (
                 <motion.li
                   key={`${ed.school}-${ed.degree}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={reduce ? false : { opacity: 1, y: 20 }}
+                  whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                   viewport={REVEAL_VIEWPORT}
                   transition={revealTransition(idx * 0.06)}
                   className="border-t border-bone-400 pt-4"
@@ -222,7 +230,7 @@ export const CVSection = () => {
               onClick={() => window.print()}
               className="mt-10 inline-block font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-6 py-3 hover:bg-ink transition-colors"
             >
-              Export CV (print) ↓
+              Export CV ↓
             </button>
           </Reveal>
         </div>

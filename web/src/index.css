@@ -284,6 +284,96 @@
   transform: scaleX(1);
 }
 
+.nav-link-active::after {
+  transform: scaleX(1);
+}
+
+.bow-hover-tilt {
+  display: inline-block;
+  transition: transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.group:hover .bow-hover-tilt,
+.bow-hover-tilt:hover {
+  transform: rotate(-10deg) scale(1.04);
+}
+
+.btn-tactile:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.btn-tactile {
+  transition:
+    color 200ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease,
+    transform 120ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.field-line {
+  position: relative;
+}
+
+.field-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: #4a0e0e;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 400ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.field-line:focus-within::after {
+  transform: scaleX(1);
+}
+
+.guestbook-page--pressed {
+  box-shadow: inset 0 2px 10px rgba(26, 26, 26, 0.09);
+}
+
+.bow-stamp {
+  animation: bowStamp 4.5s cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+}
+
+@keyframes bowStamp {
+  0%,
+  88%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  92% {
+    transform: rotate(-6deg) scale(1.06);
+  }
+  96% {
+    transform: rotate(2deg) scale(1.02);
+  }
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.stack-chip {
+  transition:
+    border-color 500ms ease,
+    transform 300ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 300ms ease;
+}
+
+.stack-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 0 rgba(74, 14, 14, 0.08);
+}
+
 .caret::after {
   content: "▌";
   margin-left: 2px;
@@ -314,6 +404,50 @@
 
   .caret::after {
     animation: none;
+  }
+
+  .bow-stamp {
+    animation: none;
+  }
+
+  .photo-frame img {
+    transition: none;
+    transform: scale(1.01);
+  }
+
+  .photo-frame:hover img {
+    transform: scale(1.01);
+  }
+
+  .bow-hover-tilt,
+  .group:hover .bow-hover-tilt,
+  .bow-hover-tilt:hover {
+    transform: none;
+  }
+
+  .btn-tactile:active {
+    transform: none;
+  }
+
+  .stack-chip:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --grain-opacity: 0.045;
+  }
+
+  .grain::before {
+    mix-blend-mode: soft-light;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grain::before {
+    opacity: 0.04;
   }
 }
 

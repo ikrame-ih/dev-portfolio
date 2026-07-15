@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { loadGuestbook, saveGuestbookEntry } from "@/lib/storage";
 import { PROFILE } from "@/data/portfolio";
+import { MOTION_EASE, MOTION_DURATION } from "@/lib/motion";
+import { scrollToElement } from "@/lib/scroll";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
 const HELP = [
   "Available commands:",
@@ -14,6 +17,8 @@ const HELP = [
   "  contact                           scroll to contact",
   "  clear                             clear terminal",
   "  exit                              close terminal (Esc)",
+  "",
+  "Visual guest book: scroll to Guest book and click a page.",
 ];
 
 const BANNER = [
@@ -21,7 +26,6 @@ const BANNER = [
   "Type help to start · Esc to close.",
 ];
 
-// Parses quoted strings from terminal input — guestbook --sign "name" "msg"
 const parseQuoted = (str) => {
   const out = [];
   const re = /"([^"]*)"|(\S+)/g;
@@ -37,7 +41,11 @@ export const CLITerminal = ({ open, onClose }) => {
   const [history, setHistory] = useState([]);
   const [historyIdx, setHistoryIdx] = useState(-1);
   const inputRef = useRef(null);
+  const panelRef = useRef(null);
   const endRef = useRef(null);
+  const reduce = useReducedMotion();
+
+  useFocusTrap(open, panelRef, onClose);
 
   const focusInput = useCallback(() => {
     inputRef.current?.focus();
@@ -46,7 +54,6 @@ export const CLITerminal = ({ open, onClose }) => {
   useEffect(() => {
     if (!open) return;
 
-    // Focus is unreliable on first mount — retry a few times after the panel opens.
     const raf = requestAnimationFrame(() => {
       focusInput();
       setTimeout(focusInput, 50);
@@ -58,21 +65,10 @@ export const CLITerminal = ({ open, onClose }) => {
 
   useEffect(() => {
     if (!open) return;
-    // Capture phase so Esc closes the terminal before other handlers see it.
-    const handleEsc = (e) => {
-      if (e.key === "Escape") {
-        e.preventDefault();
-        e.stopPropagation();
-        onClose();
-      }
-    };
-    window.addEventListener("keydown", handleEsc, true);
-    return () => window.removeEventListener("keydown", handleEsc, true);
-  }, [open, onClose]);
-
-  useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [lines]);
+    endRef.current?.scrollIntoView({
+      behavior: reduce ? "auto" : "smooth",
+    });
+  }, [lines, reduce]);
 
   const print = (...newLines) => setLines((prev) => [...prev, ...newLines]);
 
@@ -88,6 +84,7 @@ export const CLITerminal = ({ open, onClose }) => {
       return print(
         `${PROFILE.name} — ${PROFILE.location}`,
         PROFILE.tagline,
+        PROFILE.heroSubtext,
         PROFILE.workPreference,
       );
     }
@@ -99,22 +96,12 @@ export const CLITerminal = ({ open, onClose }) => {
     }
     if (cmd === "cv") {
       onClose();
-      setTimeout(
-        () =>
-          document.getElementById("cv")?.scrollIntoView({ behavior: "smooth" }),
-        200,
-      );
+      setTimeout(() => scrollToElement("cv"), 200);
       return print("Navigating to /cv…");
     }
     if (cmd === "contact") {
       onClose();
-      setTimeout(
-        () =>
-          document
-            .getElementById("contact")
-            ?.scrollIntoView({ behavior: "smooth" }),
-        200,
-      );
+      setTimeout(() => scrollToElement("contact"), 200);
       return print("Navigating to /contact…");
     }
     if (cmd.startsWith("guestbook")) {
@@ -164,7 +151,6 @@ export const CLITerminal = ({ open, onClose }) => {
 
   const onInputKeyDown = (e) => {
     e.stopPropagation();
-    // Up/down arrows walk through previous commands, like a real shell.
     if (e.key === "ArrowUp") {
       e.preventDefault();
       const next = Math.min(historyIdx + 1, history.length - 1);
@@ -180,23 +166,30 @@ export const CLITerminal = ({ open, onClose }) => {
     }
   };
 
+  const panelMotion = reduce
+    ? { initial: false, animate: { opacity: 1, y: 0 } }
+    : {
+        initial: { y: 40, opacity: 0 },
+        animate: { y: 0, opacity: 1 },
+        exit: { y: 40, opacity: 0 },
+        transition: { duration: MOTION_DURATION.normal, ease: MOTION_EASE },
+      };
+
   return (
     <AnimatePresence>
       {open && (
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
+          exit={reduce ? undefined : { opacity: 0 }}
+          transition={{ duration: MOTION_DURATION.fast }}
           data-testid="cli-overlay"
           className="fixed inset-0 z-[200] bg-ink/85 backdrop-blur-sm flex items-end md:items-center justify-center p-4 md:p-12 cli-terminal-panel"
           onClick={onClose}
         >
           <motion.div
-            initial={{ y: 40, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 40, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.2, 0.7, 0.2, 1] }}
+            ref={panelRef}
+            {...panelMotion}
             onClick={(e) => {
               e.stopPropagation();
               focusInput();
@@ -204,12 +197,13 @@ export const CLITerminal = ({ open, onClose }) => {
             data-testid="cli-terminal"
             className="w-full max-w-3xl bg-bone border border-burgundy font-mono text-sm text-ink shadow-2xl"
             role="dialog"
+            aria-modal="true"
             aria-label="CLI guestbook"
           >
             <div className="flex items-center justify-between border-b border-bone-400 px-4 py-2 bg-bone-200">
               <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-ink-soft">
-                <span className="w-2 h-2 rounded-full bg-burgundy" />
-                ikrame@portfolio · zsh
+                <span className="w-2 h-2 rounded-full bg-burgundy shrink-0" />
+                <span className="caret">ikrame@portfolio · zsh</span>
               </div>
               <button
                 type="button"

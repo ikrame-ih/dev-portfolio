@@ -19,31 +19,39 @@ const HINTS = {
   error: "Could not save your bow. Try again.",
   unavailable:
     "Guest book is temporarily unavailable. Signatures will be back soon.",
+  placed: "Bow placed — thank you for signing.",
 };
 
-// Replace any existing bow from the same visitor — one bow per person.
 function mergeVisitorBow(bows, bow, visitorId) {
   const withoutVisitor = bows.filter((b) => b.visitor_id !== visitorId);
   return [bow, ...withoutVisitor].map(normalizeBow);
+}
+
+function pressPage(ref) {
+  if (!ref.current) return;
+  ref.current.classList.add("guestbook-page--pressed");
+  window.setTimeout(() => {
+    ref.current?.classList.remove("guestbook-page--pressed");
+  }, 180);
 }
 
 export const JardinCanvas = () => {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
   const visitorIdRef = useRef(null);
-  const syncingRef = useRef(false); // blocks double-clicks while a remote POST is in flight
+  const syncingRef = useRef(false);
   const [bows, setBows] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [lastDropped, setLastDropped] = useState(null);
   const [hint, setHint] = useState(null);
   const [remote, setRemote] = useState(false);
   const [unavailable, setUnavailable] = useState(false);
+  const [hasSigned, setHasSigned] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
 
     const load = async () => {
-      // Production uses the shared API; localhost falls back to localStorage.
       if (useRemoteBows()) {
         try {
           const { bows: remoteBows, visitorId } = await fetchRemoteBows();
@@ -52,6 +60,9 @@ export const JardinCanvas = () => {
             setBows(remoteBows.map(normalizeBow));
             setRemote(true);
             setUnavailable(false);
+            setHasSigned(
+              remoteBows.some((b) => b.visitor_id === visitorId),
+            );
           }
           return;
         } catch {
@@ -65,10 +76,13 @@ export const JardinCanvas = () => {
         }
       }
       if (!cancelled) {
-        visitorIdRef.current = getVisitorId();
-        setBows(loadAndMigrateBows());
+        const visitorId = getVisitorId();
+        visitorIdRef.current = visitorId;
+        const local = loadAndMigrateBows();
+        setBows(local);
         setRemote(false);
         setUnavailable(false);
+        setHasSigned(local.some((b) => b.visitor_id === visitorId));
       }
     };
 
@@ -83,7 +97,7 @@ export const JardinCanvas = () => {
 
   const showHint = useCallback((key) => {
     setHint(key);
-    setTimeout(() => setHint(null), 2400);
+    window.setTimeout(() => setHint(null), 2400);
   }, []);
 
   const handlePageClick = useCallback(
@@ -93,6 +107,8 @@ export const JardinCanvas = () => {
 
       const ref = page === "left" ? leftRef : rightRef;
       if (!ref.current) return;
+
+      pressPage(ref);
 
       const rect = ref.current.getBoundingClientRect();
       const localX = (e.clientX - rect.left) / rect.width;
@@ -118,7 +134,7 @@ export const JardinCanvas = () => {
         created_at: existing?.created_at ?? new Date().toISOString(),
       });
 
-      const snapshot = bows; // keep a copy to roll back if the POST fails
+      const snapshot = bows;
 
       if (remote) {
         setBows(mergeVisitorBow(bows, bow, visitorId));
@@ -138,6 +154,8 @@ export const JardinCanvas = () => {
           setLastDropped(bow.id);
           setHint(null);
         }
+        setHasSigned(true);
+        if (!existing) showHint("placed");
       } catch (err) {
         if (remote) {
           setBows(snapshot);
@@ -155,8 +173,21 @@ export const JardinCanvas = () => {
     [bows, remote, unavailable, showHint],
   );
 
+  const handlePageKeyDown = (page, e) => {
+    if (e.key !== "Enter" && e.key !== " ") return;
+    e.preventDefault();
+    const ref = page === "left" ? leftRef : rightRef;
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    handlePageClick(page, {
+      clientX: rect.left + rect.width * 0.5,
+      clientY: rect.top + rect.height * 0.42,
+    });
+  };
+
   const leftBows = bows.filter((b) => b.page === "left");
   const rightBows = bows.filter((b) => b.page === "right");
+  const showWatermarks = bows.length === 0;
 
   return (
     <section
@@ -180,9 +211,11 @@ export const JardinCanvas = () => {
                 {BOW_BOARD.titleAccent}
               </em>
             </h2>
-            <p className="mt-4 font-mono text-xs text-ink-mute max-w-xl leading-relaxed">
-              {BOW_BOARD.kicker}
-            </p>
+            {!hasSigned && (
+              <p className="mt-4 font-mono text-xs text-ink-mute max-w-xl leading-relaxed">
+                {BOW_BOARD.kicker}
+              </p>
+            )}
           </div>
           <div className="font-mono text-xs text-ink-soft text-right">
             <p data-testid="bow-count" className="text-burgundy text-base">
@@ -210,7 +243,11 @@ export const JardinCanvas = () => {
             )}
 
             {hint && (
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 font-mono text-[10px] uppercase tracking-[0.18em] text-burgundy bg-bone border border-burgundy/30 px-3 py-1.5 max-w-[90%] text-center">
+              <div
+                role="status"
+                aria-live="polite"
+                className="absolute top-4 left-1/2 -translate-x-1/2 z-20 font-mono text-[10px] uppercase tracking-[0.18em] text-burgundy bg-bone border border-burgundy/30 px-3 py-1.5 max-w-[90%] text-center"
+              >
                 {HINTS[hint]}
               </div>
             )}
@@ -222,18 +259,17 @@ export const JardinCanvas = () => {
                 tabIndex={0}
                 aria-label="Left page — click to sign"
                 onClick={(e) => handlePageClick("left", e)}
-                onKeyDown={(e) =>
-                  e.key === "Enter" && handlePageClick("left", e)
-                }
+                onKeyDown={(e) => handlePageKeyDown("left", e)}
                 className="guestbook-page guestbook-page-left cursor-pointer"
               >
                 <div className="guestbook-page-texture" aria-hidden="true" />
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none px-10 md:px-14 py-10">
-                  <p className="font-serif italic text-sm md:text-base text-ink/15 text-center max-w-[16rem] leading-relaxed select-none">
-                    For everyone who scrolled past the projects and stayed for
-                    the details.
-                  </p>
-                </div>
+                {showWatermarks && (
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none px-10 md:px-14 py-10">
+                    <p className="font-serif italic text-sm md:text-base text-ink/15 text-center max-w-[16rem] leading-relaxed select-none">
+                      {BOW_BOARD.leftWatermark}
+                    </p>
+                  </div>
+                )}
                 <AnimatePresence>
                   {leftBows.map((b) => (
                     <motion.div
@@ -270,17 +306,17 @@ export const JardinCanvas = () => {
                 tabIndex={0}
                 aria-label="Right page — click to sign"
                 onClick={(e) => handlePageClick("right", e)}
-                onKeyDown={(e) =>
-                  e.key === "Enter" && handlePageClick("right", e)
-                }
+                onKeyDown={(e) => handlePageKeyDown("right", e)}
                 className="guestbook-page guestbook-page-right cursor-pointer"
               >
                 <div className="guestbook-page-texture" aria-hidden="true" />
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none px-10 md:px-14 py-10">
-                  <p className="font-serif italic text-sm md:text-base text-ink/15 text-center max-w-[16rem] leading-relaxed select-none">
-                    A small thank-you. Your bow here means you were here.
-                  </p>
-                </div>
+                {showWatermarks && (
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none px-10 md:px-14 py-10">
+                    <p className="font-serif italic text-sm md:text-base text-ink/15 text-center max-w-[16rem] leading-relaxed select-none">
+                      {BOW_BOARD.rightWatermark}
+                    </p>
+                  </div>
+                )}
                 <AnimatePresence>
                   {rightBows.map((b) => (
                     <motion.div

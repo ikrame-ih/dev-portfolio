@@ -4,8 +4,9 @@ import { Bow } from "./Bow";
 import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
 import { BLOG } from "@/data/portfolio";
 
+const vaultTitleParts = BLOG.name.split("'");
+
 export const BlogSection = () => {
-  // Fallback to the bow icon if the avatar image fails to load.
   const [avatarOk, setAvatarOk] = useState(true);
 
   return (
@@ -56,7 +57,9 @@ export const BlogSection = () => {
               </div>
               <div className="pt-1">
                 <p className="font-serif text-2xl md:text-3xl text-ink tracking-tight">
-                  Tizza<span className="text-burgundy">&apos;</span>s vault
+                  {vaultTitleParts[0]}
+                  <span className="text-burgundy">&apos;</span>
+                  {vaultTitleParts[1] ?? "s vault"}
                 </p>
                 <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute mt-1">
                   personal · didactic
@@ -74,7 +77,7 @@ export const BlogSection = () => {
               <motion.div
                 key={post.slug}
                 role="presentation"
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 1, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={REVEAL_VIEWPORT}
                 transition={revealTransition(idx * 0.07)}
@@ -100,7 +103,6 @@ export const BlogSection = () => {
             <div className="border-t border-ink/20" />
 
             {BLOG.comingSoon && (
-              // Frosted overlay — posts are visible underneath as a preview.
               <div
                 data-testid="blog-coming-soon"
                 className="absolute inset-0 z-10 flex items-center justify-center bg-gradient-to-b from-bone-200/55 via-bone/82 to-bone-200/90 backdrop-blur-[3px] border border-ink/10"
@@ -108,13 +110,15 @@ export const BlogSection = () => {
               >
                 <div className="text-center px-8 py-10 max-w-sm">
                   <div className="inline-flex items-center gap-3 mb-3">
-                    <Bow size={16} />
-                    <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-ink">
+                    <span className="bow-stamp inline-block">
+                      <Bow size={16} />
+                    </span>
+                    <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-ink caret">
                       Coming soon
                     </span>
                   </div>
                   <p className="font-mono text-xs text-ink-soft leading-relaxed">
-                    Written in my vault · publishing here soon
+                    {BLOG.comingSoonNote}
                   </p>
                 </div>
               </div>

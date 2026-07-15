@@ -54,6 +54,7 @@ export const Footer = ({ onOpenTerminal }) => {
               {[
                 ["cv", "CV & skills"],
                 ["projects", "Projects"],
+                ["bento", "Interests"],
                 ["blog", "Tizza's vault"],
                 ["garden", "Guest book"],
                 ["contact", "Contact"],
@@ -76,7 +77,8 @@ export const Footer = ({ onOpenTerminal }) => {
             </p>
             <p className="font-mono text-sm leading-relaxed footer-muted">
               Open it from the nav to leave a short note, or jump straight to CV
-              or contact.
+              or contact. Personal notes live in Tizza&apos;s vault — publishing
+              soon.
             </p>
             <button
               type="button"

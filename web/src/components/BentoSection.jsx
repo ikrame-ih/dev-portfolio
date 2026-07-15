@@ -3,7 +3,6 @@ import { Bow } from "./Bow";
 import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
 import { BENTO } from "@/data/portfolio";
 
-// Interests grid — card sizes come from each item's `span` class in portfolio.js.
 export const BentoSection = () => {
   return (
     <section
@@ -33,7 +32,7 @@ export const BentoSection = () => {
           {BENTO.items.map((item, idx) => (
             <motion.div
               key={item.key}
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 1, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={REVEAL_VIEWPORT}
               transition={revealTransition(idx * 0.06)}
@@ -44,7 +43,7 @@ export const BentoSection = () => {
                 <img
                   src={item.image}
                   alt={item.imageAlt || item.title}
-                  className={`absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-60 transition-opacity duration-700 scale-[1.02] group-hover:scale-105 ${item.imagePosition || "object-center"}`}
+                  className={`absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-[0.62] transition-all duration-700 group-hover:scale-[1.04] ${item.imagePosition || "object-center"}`}
                   loading="lazy"
                 />
               ) : (
@@ -59,6 +58,11 @@ export const BentoSection = () => {
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-bone via-bone/80 to-bone/55 group-hover:via-bone/75 transition-colors duration-500" />
               <div className="relative h-full min-h-[200px] p-6 md:p-8 flex flex-col justify-end gap-4">
+                {item.label && (
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-burgundy/80">
+                    {item.label}
+                  </span>
+                )}
                 <h3 className="font-serif font-light text-2xl md:text-3xl text-ink tracking-tight">
                   {item.title}
                 </h3>

@@ -58,8 +58,8 @@ export default function App() {
       addressLocality: "Málaga",
       addressCountry: "ES",
     },
-    jobTitle: "Web Developer",
-    description: PROFILE.positioning,
+    jobTitle: "Software Developer",
+    description: PROFILE.heroSubtext,
     knowsLanguage: ["en", "es", "ar"],
     knowsAbout: [
       "React",

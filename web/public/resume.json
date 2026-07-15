@@ -2,11 +2,12 @@
   "$schema": "https://jsonresume.org/schema/",
   "basics": {
     "name": "Ikrame I. H.",
-    "label": "Junior Web Developer · Frontend & Backend",
+    "label": "Software Developer · Frontend & Backend",
+    "image": "https://ikrame-ih.vercel.app/images/profile-ikrame.png",
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
     "url": "https://ikrame-ih.vercel.app",
-    "summary": "Junior web developer based in Málaga, focused on frontend with backend capability. I organize work around reusable components, shared state, and tested business logic—shown in a real-time dashboard with Zustand, Vitest, Playwright, and GitHub Actions CI. Admin and executive support background before development (reconciliation, reporting, cross-team coordination). Open to remote or hybrid roles.",
+    "summary": "Software developer based in Málaga, focused on frontend with backend capability. I organize work around reusable components, shared state, and tested business logic—shown in a real-time dashboard with Zustand, Vitest, Playwright, and GitHub Actions CI. DAW final project MyPlaythrough (maximum grade): full-stack PERN app with JWT auth and Docker. Admin and executive support background before development (reconciliation, reporting, cross-team coordination). Open to remote or hybrid roles.",
     "location": { "city": "Málaga", "countryCode": "ES" },
     "profiles": [
       {
@@ -24,7 +25,7 @@
   "work": [
     {
       "name": "DATA CONTROL",
-      "position": "Web Developer Intern",
+      "position": "Software Developer Intern",
       "startDate": "2026-03",
       "endDate": "2026-06",
       "highlights": [
@@ -83,7 +84,8 @@
       "studyType": "Higher Diploma (DAW)",
       "area": "Web Application Development",
       "startDate": "2024-09",
-      "endDate": "2026-06"
+      "endDate": "2026-06",
+      "courses": ["Final project: MyPlaythrough — awarded maximum grade"]
     },
     {
       "institution": "I.E.S. Politécnico Jesús Marín",
@@ -106,11 +108,26 @@
     },
     {
       "name": "Backend",
-      "keywords": ["Python", "FastAPI", "PostgreSQL", "SQL", "REST APIs"]
+      "keywords": [
+        "Python",
+        "FastAPI",
+        "Node.js",
+        "Express",
+        "PostgreSQL",
+        "REST APIs"
+      ]
     },
     {
       "name": "Tools",
-      "keywords": ["Git", "GitHub Actions", "Vitest", "Playwright", "dbt", "Dagster"]
+      "keywords": [
+        "Git",
+        "GitHub Actions",
+        "Vitest",
+        "Playwright",
+        "Docker",
+        "dbt",
+        "Dagster"
+      ]
     }
   ],
   "languages": [
@@ -123,6 +140,11 @@
       "name": "Live Event Radar",
       "url": "https://github.com/ikrame-ih/live-event-radar",
       "description": "Real-time venue dashboard for brand activations. Reusable components and shared Zustand state; stock events follow one validated path into synchronized command center and telemetry map views. Responsive layout, keyboard-accessible SVG zones, Leaflet map (client-side). Feature-sliced architecture, VitePress docs, 24 Vitest tests, Playwright smoke tests, GitHub Actions CI."
+    },
+    {
+      "name": "MyPlaythrough",
+      "url": "https://github.com/ikrame-ih/my-playthrough",
+      "description": "DAW final project (maximum grade). Full-stack PERN game library manager: backlog, active play, completions, community features, recommendations, discussions, and admin moderation. React, Vite, Express, PostgreSQL, JWT, Docker Compose, Vitest, GitHub Actions CI."
     },
     {
       "name": "ReconFlow",
