@@ -20,12 +20,13 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 
 await page.goto(baseUrl, { waitUntil: "networkidle" });
-await page.waitForTimeout(2500);
+// Hero cascade + Text Animate finishes around ~5.4s; wait past that.
+await page.waitForTimeout(6000);
 
 for (const shot of shots) {
   const el = page.locator(shot.selector).first();
   await el.scrollIntoViewIfNeeded();
-  await page.waitForTimeout(900);
+  await page.waitForTimeout(1100);
   await page.screenshot({ path: path.join(outDir, `${shot.name}.png`), fullPage: false });
 }
 
