@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Toaster } from "sonner";
-import "./App.css";
 
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
@@ -13,6 +12,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import CLITerminal from "@/components/CLITerminal";
 import { PROFILE } from "@/data/portfolio";
+import { scrollToElement } from "@/lib/scroll";
 
 export default function App() {
   const [cliOpen, setCliOpen] = useState(false);
@@ -31,8 +31,21 @@ export default function App() {
     return () => window.removeEventListener("keydown", onKey);
   }, [cliOpen]);
 
+  useEffect(() => {
+    const goHash = () => {
+      const id = window.location.hash.slice(1);
+      if (id && id !== "main-content") scrollToElement(id);
+    };
+    // Deep links / refresh with hash — wait a tick for layout.
+    if (window.location.hash) {
+      window.requestAnimationFrame(goHash);
+    }
+    window.addEventListener("hashchange", goHash);
+    return () => window.removeEventListener("hashchange", goHash);
+  }, []);
+
   const schema = {
-    // Structured data for search engines — description mirrors PROFILE.positioning.
+    // Structured data for search engines — description mirrors PROFILE.heroSubtext.
     "@context": "https://schema.org",
     "@type": "Person",
     name: PROFILE.name,
@@ -66,17 +79,24 @@ export default function App() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <Nav onOpenTerminal={() => setCliOpen(true)} />
-      <main>
-        <Hero />
-        <CVSection />
-        <ProjectsSection />
-        <BentoSection />
-        <BlogSection />
-        <JardinCanvas />
-        <ContactSection />
-      </main>
-      <Footer onOpenTerminal={() => setCliOpen(true)} />
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
+
+      <div id="app-shell">
+        <Nav onOpenTerminal={() => setCliOpen(true)} />
+        <main id="main-content" tabIndex={-1}>
+          <Hero />
+          <CVSection />
+          <ProjectsSection />
+          <BentoSection />
+          <BlogSection />
+          <JardinCanvas />
+          <ContactSection />
+        </main>
+        <Footer onOpenTerminal={() => setCliOpen(true)} />
+      </div>
+
       <CLITerminal open={cliOpen} onClose={() => setCliOpen(false)} />
       <Toaster
         theme="light"

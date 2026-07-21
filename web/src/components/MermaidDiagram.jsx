@@ -4,7 +4,7 @@ import mermaid from "mermaid";
 let initialized = false;
 
 // Renders a Mermaid flowchart from the string defined in portfolio.js per project.
-export const MermaidDiagram = ({ chart, id }) => {
+export const MermaidDiagram = ({ chart, id, label }) => {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -50,6 +50,8 @@ export const MermaidDiagram = ({ chart, id }) => {
       ref={ref}
       className="mermaid w-full overflow-x-auto"
       data-testid={`mermaid-${id}`}
+      role="img"
+      aria-label={label || "Architecture diagram"}
     />
   );
 };

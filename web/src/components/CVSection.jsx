@@ -9,6 +9,7 @@ import {
   STACK,
 } from "@/data/portfolio";
 import { StackIcon } from "@/data/stackIcons";
+import { ASSETS } from "@/data/assets";
 import { scrollEnter } from "@/lib/motion";
 
 // Shared header pattern used across CV subsections.
@@ -89,8 +90,9 @@ export const CVSection = () => {
   return (
     <section
       id="cv"
+      tabIndex={-1}
       data-testid="cv-section"
-      className="relative py-24 md:py-32"
+      className="relative py-24 md:py-32 outline-none"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <Reveal>
@@ -173,9 +175,9 @@ export const CVSection = () => {
             className="md:col-span-7"
             data-testid="experience-timeline"
           >
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft mb-8">
+            <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft mb-8">
               Experience
-            </p>
+            </h3>
             <ol className="relative">
               {EXPERIENCE.map((exp, idx) => (
                 <motion.li
@@ -196,9 +198,9 @@ export const CVSection = () => {
                     <Bow size={18} />
                   </motion.div>
                   <div className="flex flex-wrap items-baseline gap-3 mb-2">
-                    <h3 className="font-serif text-xl md:text-2xl text-ink">
+                    <h4 className="font-serif text-xl md:text-2xl text-ink">
                       {exp.role}
-                    </h3>
+                    </h4>
                     <TrackBadge track={exp.track} />
                   </div>
                   <p className="font-mono text-xs uppercase tracking-[0.18em] text-ink-soft mb-4">
@@ -220,9 +222,9 @@ export const CVSection = () => {
             data-testid="education-block"
           >
             <div className="border border-ink/15 bg-bone-200 p-6 md:p-8 h-full">
-              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft mb-8">
+              <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft mb-8">
                 Education
-              </p>
+              </h3>
               <ul className="space-y-8">
                 {EDUCATION.map((ed, idx) => (
                   <motion.li
@@ -256,14 +258,19 @@ export const CVSection = () => {
                 </p>
               </div>
 
-              <button
-                type="button"
+              <a
+                href={ASSETS.cvPdf}
+                target="_blank"
+                rel="noopener noreferrer"
                 data-testid="cv-download-link"
-                onClick={() => window.print()}
                 className="mt-10 inline-block font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-6 py-3 hover:bg-ink transition-colors"
               >
                 Export CV ↓
-              </button>
+                <span className="sr-only">
+                  {" "}
+                  — opens PDF in a new tab (print or save from there)
+                </span>
+              </a>
             </div>
           </Reveal>
         </div>

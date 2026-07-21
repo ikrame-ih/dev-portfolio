@@ -12,8 +12,6 @@ export const PROFILE = {
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
   siteUrl: "https://ikrame-ih.vercel.app",
   overline: "SOFTWARE DEVELOPER · FRONTEND · BACKEND",
-  headline: "I build software with attention to detail",
-  headlineAccent: "and the context behind it.",
   headlineParts: [
     { text: "I build software" },
     { text: "with attention to detail", accent: true },
@@ -23,15 +21,6 @@ export const PROFILE = {
     "Hi, I'm Ikrame Ibn Hayoun, a software developer based in Málaga, specializing in frontend development while actively building backend solutions. I enjoy turning ideas into intuitive, reliable, and scalable applications.",
   tagline:
     "Software developer · DAW graduate · AI & Big Data specialisation from Sep 2026",
-  positioning:
-    "Hi, I'm Ikrame Ibn Hayoun, a software developer based in Málaga, specializing in frontend development while actively building backend solutions. I enjoy turning ideas into intuitive, reliable, and scalable applications.",
-  positioningParts: [
-    "Hi, I'm Ikrame Ibn Hayoun, a ",
-    { em: "software developer" },
-    " based in Málaga, specializing in ",
-    { em: "frontend development" },
-    " while actively building backend solutions. I enjoy turning ideas into intuitive, reliable, and scalable applications.",
-  ],
   practiceAside: {
     title: "At a glance",
     text: "Higher Vocational Diploma (DAW, Jun 2026) — final project MyPlaythrough awarded maximum grade. AI & Big Data Specialisation Course from Sep 2026. Side projects on GitHub use component-based layouts, tests, and CI; intern work focused on reusable components and semantic markup.",
@@ -184,6 +173,8 @@ export const PROJECTS = [
     demo: "https://live-event-radar.vercel.app",
     description:
       "A dashboard for brand activations, built with reusable components and shared Zustand state. Stock events follow one validated path into two synchronized views—a command center and a telemetry map—after I saw updates arrive too late on event floors.",
+    architectureSummary:
+      "A mock event stream writes into a Zustand telemetry store. Pure derivations from that store feed two synchronized views: the Command Center (SVG venue map) and the Telemetry dashboard (Leaflet map).",
     mermaid: `flowchart LR
   Sim[Mock Event Stream] --> Store[Zustand telemetry-store]
   Store --> Derive[Pure derivations]
@@ -213,6 +204,8 @@ export const PROJECTS = [
     demo: "https://my-playthrough.vercel.app/",
     description:
       "DAW capstone (maximum grade): a full-stack PERN app to track backlog, active play, and completions—with community features, recommendations, threaded discussions, and admin moderation. Built with JWT auth, Docker Compose, and CI.",
+    architectureSummary:
+      "A React SPA talks to an Express REST API. The API handles JWT and bcrypt auth, persists data in PostgreSQL, and proxies Steam/RAWG cover requests.",
     mermaid: `flowchart LR
   SPA[React SPA] --> API[Express REST API]
   API --> Auth[JWT + bcrypt]
@@ -230,6 +223,8 @@ export const PROJECTS = [
     demo: null,
     description:
       "Local-first Windows widget to plan the day, protect a focus block, and unwind with a clear next step. Compact timer plus expanded studio shell, session history, focus guard, and offline Ask Aiba help—no account, no cloud.",
+    architectureSummary:
+      "The React UI talks through an IPC preload bridge to the Electron main process. Main stores local JSON and runs the focus-guard overlay—no cloud dependency.",
     mermaid: `flowchart LR
   UI[React UI] --> Bridge[IPC preload]
   Bridge --> Main[Electron main]
@@ -247,6 +242,8 @@ export const PROJECTS = [
     demo: null,
     description:
       "Headless FastAPI pipeline with separate ingest, transform, and match stages: bank CSVs and invoice data into a reconciliation mart and an exceptions queue. Based on import reconciliation I did in admin roles.",
+    architectureSummary:
+      "Bank CSV extracts and invoice webhook JSON land in a raw zone. dbt transforms feed a fuzzy-match and FX stage, which writes a reconciliation mart and an exceptions queue.",
     mermaid: `flowchart TD
   CSV[Bank CSV extracts] --> Raw[(Raw zone)]
   WH[Invoice webhooks JSON] --> Stream[Stream enricher]
@@ -373,15 +370,15 @@ export const BOW_BOARD = {
   title: "Thanks for reading.",
   titleAccent: "Pin a little bow before you go.",
   kicker:
-    "Click anywhere on either page to leave your bow. One per person, and you can move it anytime.",
+    "Click either page to leave your bow — or focus a page and use arrow keys, then Enter. One per person; you can move it anytime.",
   signedKicker:
-    "That's your bow on the page — click again anywhere to move it.",
-  emptyState: "Be the first bow on the page — click anywhere.",
+    "That's your bow on the page — click again, or use arrow keys and Enter, to move it.",
+  emptyState: "Be the first bow on the page — click or use the keyboard.",
   leftWatermark:
     "For everyone who scrolled past the projects and stayed for the details.",
   rightWatermark: "A small thank-you. Your bow here means you were here.",
   countLabel: "people were here",
   countLabelSingular: "person was here",
-  marginHint: "one bow per person · place it anywhere",
-  marginHintSigned: "your bow · click to move",
+  marginHint: "one bow per person · click or arrows + Enter",
+  marginHintSigned: "your bow · click or arrows to move",
 };

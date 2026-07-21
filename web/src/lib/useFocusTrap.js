@@ -3,19 +3,25 @@ import { useEffect } from "react";
 const FOCUSABLE =
   'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
+function getFocusable(container) {
+  return [...container.querySelectorAll(FOCUSABLE)].filter(
+    (node) => !node.hasAttribute("disabled") && node.tabIndex !== -1,
+  );
+}
+
 export function useFocusTrap(active, containerRef, onClose) {
   useEffect(() => {
     if (!active || !containerRef.current) return;
 
     const el = containerRef.current;
-    const focusable = [...el.querySelectorAll(FOCUSABLE)].filter(
-      (node) => !node.hasAttribute("disabled") && node.tabIndex !== -1,
-    );
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
     const previous = document.activeElement;
 
-    requestAnimationFrame(() => first?.focus());
+    const focusFirst = () => {
+      const focusable = getFocusable(el);
+      focusable[0]?.focus();
+    };
+
+    requestAnimationFrame(focusFirst);
 
     const onKeyDown = (e) => {
       if (e.key === "Escape") {
@@ -23,16 +29,25 @@ export function useFocusTrap(active, containerRef, onClose) {
         onClose?.();
         return;
       }
-      if (e.key !== "Tab" || !focusable.length) return;
+      if (e.key !== "Tab") return;
+
+      const focusable = getFocusable(el);
+      if (!focusable.length) {
+        e.preventDefault();
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
 
       if (e.shiftKey) {
-        if (document.activeElement === first) {
+        if (document.activeElement === first || !el.contains(document.activeElement)) {
           e.preventDefault();
-          last?.focus();
+          last.focus();
         }
-      } else if (document.activeElement === last) {
+      } else if (document.activeElement === last || !el.contains(document.activeElement)) {
         e.preventDefault();
-        first?.focus();
+        first.focus();
       }
     };
 

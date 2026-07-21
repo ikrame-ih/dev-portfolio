@@ -25,11 +25,14 @@ const HINTS = {
   unavailable:
     "Guest book is temporarily unavailable. Signatures will be back soon.",
   placedLeft:
-    "Your bow is on the left page — click again to move it.",
+    "Your bow is on the left page — click again or use arrows + Enter to move it.",
   placedRight:
-    "Your bow is on the right page — click again to move it.",
+    "Your bow is on the right page — click again or use arrows + Enter to move it.",
   moved: "Bow moved — still yours alone.",
 };
+
+const KEYBOARD_STEP = 0.05;
+const DEFAULT_KEYBOARD_POS = { mx: 0.5, y: 0.42 };
 
 function mergeVisitorBow(bows, bow, visitorId) {
   const withoutVisitor = bows.filter((b) => b.visitor_id !== visitorId);
@@ -93,6 +96,7 @@ const PageBows = ({
             top: `${b.y * 100}%`,
             zIndex: isMine ? 4 : 2,
           }}
+          aria-hidden="true"
         >
           <TyingBow
             size={justPlaced ? 32 : isMine ? 29 : 24}
@@ -194,8 +198,8 @@ export const JardinCanvas = () => {
 
   const clearGhost = useCallback(() => setGhost(null), []);
 
-  const handlePageClick = useCallback(
-    async (page, e) => {
+  const placeBowAt = useCallback(
+    async (page, localX, localY) => {
       if (unavailable || syncingRef.current) return;
       if (remote && !visitorIdRef.current) return;
 
@@ -205,9 +209,6 @@ export const JardinCanvas = () => {
       pressPage(ref);
       setGhost(null);
 
-      const rect = ref.current.getBoundingClientRect();
-      const localX = (e.clientX - rect.left) / rect.width;
-      const localY = (e.clientY - rect.top) / rect.height;
       const { mx, y } = clampBowPosition(localX, localY);
       const vid = remote ? visitorIdRef.current : getVisitorId();
 
@@ -274,16 +275,54 @@ export const JardinCanvas = () => {
     [bows, remote, unavailable, showHint],
   );
 
+  const handlePageClick = useCallback(
+    (page, e) => {
+      const ref = page === "left" ? leftRef : rightRef;
+      if (!ref.current) return;
+      const rect = ref.current.getBoundingClientRect();
+      const localX = (e.clientX - rect.left) / rect.width;
+      const localY = (e.clientY - rect.top) / rect.height;
+      placeBowAt(page, localX, localY);
+    },
+    [placeBowAt],
+  );
+
+  const handlePageFocus = useCallback(
+    (page) => {
+      if (unavailable) return;
+      setGhost((prev) =>
+        prev?.page === page
+          ? prev
+          : { page, ...DEFAULT_KEYBOARD_POS },
+      );
+    },
+    [unavailable],
+  );
+
   const handlePageKeyDown = (page, e) => {
+    if (unavailable) return;
+
+    const moveKeys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
+    if (moveKeys.includes(e.key)) {
+      e.preventDefault();
+      setGhost((prev) => {
+        const base =
+          prev?.page === page ? prev : { page, ...DEFAULT_KEYBOARD_POS };
+        let { mx, y } = base;
+        if (e.key === "ArrowLeft") mx -= KEYBOARD_STEP;
+        if (e.key === "ArrowRight") mx += KEYBOARD_STEP;
+        if (e.key === "ArrowUp") y -= KEYBOARD_STEP;
+        if (e.key === "ArrowDown") y += KEYBOARD_STEP;
+        return { page, ...clampBowPosition(mx, y) };
+      });
+      return;
+    }
+
     if (e.key !== "Enter" && e.key !== " ") return;
     e.preventDefault();
-    const ref = page === "left" ? leftRef : rightRef;
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    handlePageClick(page, {
-      clientX: rect.left + rect.width * 0.5,
-      clientY: rect.top + rect.height * 0.42,
-    });
+    const pos =
+      ghost?.page === page ? ghost : { page, ...DEFAULT_KEYBOARD_POS };
+    placeBowAt(page, pos.mx, pos.y);
   };
 
   const leftBows = bows.filter((b) => b.page === "left");
@@ -293,8 +332,10 @@ export const JardinCanvas = () => {
   return (
     <section
       id="garden"
+      tabIndex={-1}
+      aria-labelledby="guestbook-heading"
       data-testid="jardin-section"
-      className="relative py-24 md:py-32"
+      className="relative py-24 md:py-32 outline-none"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <Reveal className="mb-12 flex flex-wrap items-end justify-between gap-6">
@@ -305,7 +346,10 @@ export const JardinCanvas = () => {
                 {BOW_BOARD.overline}
               </span>
             </div>
-            <h2 className="font-serif font-light text-3xl md:text-5xl tracking-tighter text-ink">
+            <h2
+              id="guestbook-heading"
+              className="font-serif font-light text-3xl md:text-5xl tracking-tighter text-ink"
+            >
               {BOW_BOARD.title}
               <br />
               <em className="not-italic text-burgundy">
@@ -315,9 +359,19 @@ export const JardinCanvas = () => {
             <p className="mt-4 font-mono text-xs text-ink-mute max-w-xl leading-relaxed">
               {hasSigned ? BOW_BOARD.signedKicker : BOW_BOARD.kicker}
             </p>
+            <p id="guestbook-keyboard-help" className="sr-only">
+              Guest book: focus the left or right page. Use arrow keys to move
+              the preview bow, then press Enter or Space to place or move your
+              signature. One bow per visitor.
+            </p>
           </div>
           <div className="font-mono text-xs text-ink-soft text-right">
-            <p data-testid="bow-count" className="text-burgundy text-base">
+            <p
+              data-testid="bow-count"
+              className="text-burgundy text-base"
+              aria-live="polite"
+              aria-atomic="true"
+            >
               {bows.length}{" "}
               <span className="text-ink-mute">
                 {bows.length === 1
@@ -336,13 +390,21 @@ export const JardinCanvas = () => {
         <Reveal delay={0.1}>
           <div data-testid="jardin-canvas" className="guestbook-spread">
             {unavailable && (
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 font-mono text-[10px] uppercase tracking-[0.18em] text-ink bg-bone border border-ink/20 px-3 py-1.5 max-w-[90%] text-center">
+              <div
+                role="status"
+                aria-live="polite"
+                className="absolute top-4 left-1/2 -translate-x-1/2 z-20 font-mono text-[10px] uppercase tracking-[0.18em] text-ink bg-bone border border-ink/20 px-3 py-1.5 max-w-[90%] text-center"
+              >
                 {HINTS.unavailable}
               </div>
             )}
 
             {!loaded && (
-              <div className="absolute inset-0 z-20 flex items-center justify-center font-mono text-xs text-ink-mute bg-bone/80">
+              <div
+                role="status"
+                aria-live="polite"
+                className="absolute inset-0 z-20 flex items-center justify-center font-mono text-xs text-ink-mute bg-bone/80"
+              >
                 loading signatures…
               </div>
             )}
@@ -357,16 +419,28 @@ export const JardinCanvas = () => {
               </div>
             )}
 
-            <div className="guestbook-inner">
+            <div
+              className="guestbook-inner"
+              role="group"
+              aria-label="Guest book pages"
+            >
               <div
                 ref={leftRef}
                 role="button"
-                tabIndex={0}
-                aria-label="Left page — click to sign or move your bow"
+                tabIndex={unavailable ? -1 : 0}
+                aria-disabled={unavailable || undefined}
+                aria-describedby="guestbook-keyboard-help"
+                aria-label={`Left page, ${leftBows.length} ${
+                  leftBows.length === 1 ? "signature" : "signatures"
+                }. Place or move your bow with arrow keys, then Enter.`}
                 onClick={(e) => handlePageClick("left", e)}
+                onFocus={() => handlePageFocus("left")}
+                onBlur={clearGhost}
                 onKeyDown={(e) => handlePageKeyDown("left", e)}
                 onPointerMove={(e) => updateGhost("left", e)}
-                onPointerLeave={clearGhost}
+                onPointerLeave={() => {
+                  if (document.activeElement !== leftRef.current) clearGhost();
+                }}
                 className="guestbook-page guestbook-page-left cursor-pointer"
               >
                 <div className="guestbook-page-texture" aria-hidden="true" />
@@ -391,12 +465,20 @@ export const JardinCanvas = () => {
               <div
                 ref={rightRef}
                 role="button"
-                tabIndex={0}
-                aria-label="Right page — click to sign or move your bow"
+                tabIndex={unavailable ? -1 : 0}
+                aria-disabled={unavailable || undefined}
+                aria-describedby="guestbook-keyboard-help"
+                aria-label={`Right page, ${rightBows.length} ${
+                  rightBows.length === 1 ? "signature" : "signatures"
+                }. Place or move your bow with arrow keys, then Enter.`}
                 onClick={(e) => handlePageClick("right", e)}
+                onFocus={() => handlePageFocus("right")}
+                onBlur={clearGhost}
                 onKeyDown={(e) => handlePageKeyDown("right", e)}
                 onPointerMove={(e) => updateGhost("right", e)}
-                onPointerLeave={clearGhost}
+                onPointerLeave={() => {
+                  if (document.activeElement !== rightRef.current) clearGhost();
+                }}
                 className="guestbook-page guestbook-page-right cursor-pointer"
               >
                 <div className="guestbook-page-texture" aria-hidden="true" />
@@ -418,8 +500,11 @@ export const JardinCanvas = () => {
             </div>
 
             {bows.length === 0 && loaded && (
-              <div className="absolute inset-x-0 top-[32%] md:top-[34%] flex justify-center pointer-events-none z-10">
-                <p className="font-serif italic text-base md:text-lg text-ink-mute/80 bg-bone/40 px-4 py-2">
+              <div
+                role="status"
+                className="absolute inset-x-0 top-[32%] md:top-[34%] flex justify-center pointer-events-none z-10"
+              >
+                <p className="font-serif italic text-base md:text-lg text-ink-mute bg-bone/40 px-4 py-2">
                   {BOW_BOARD.emptyState}
                 </p>
               </div>

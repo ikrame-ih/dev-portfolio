@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Bow } from "./Bow";
-import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
+import Reveal from "./Reveal";
 import { BLOG } from "@/data/portfolio";
 
 const vaultTitleParts = BLOG.name.split("'");
@@ -12,8 +11,10 @@ export const BlogSection = () => {
   return (
     <section
       id="blog"
+      tabIndex={-1}
+      aria-labelledby="vault-heading"
       data-testid="blog-section"
-      className="relative py-24 md:py-32 bg-bone-200"
+      className="relative py-24 md:py-32 bg-bone-200 outline-none"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
@@ -31,12 +32,15 @@ export const BlogSection = () => {
                   {avatarOk ? (
                     <img
                       src={BLOG.avatar}
-                      alt={`${BLOG.name} avatar`}
+                      alt=""
                       className="w-full h-full object-cover object-top"
                       onError={() => setAvatarOk(false)}
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-bone-300">
+                    <div
+                      className="w-full h-full flex items-center justify-center bg-bone-300"
+                      aria-hidden="true"
+                    >
                       <Bow size={24} />
                     </div>
                   )}
@@ -51,16 +55,20 @@ export const BlogSection = () => {
                       className="lnk text-ink-soft hover:text-burgundy"
                     >
                       {BLOG.avatarCredit.artist}
+                      <span className="sr-only"> (opens in new tab)</span>
                     </a>
                   </p>
                 )}
               </div>
               <div className="pt-1">
-                <p className="font-serif text-2xl md:text-3xl text-ink tracking-tight">
+                <h2
+                  id="vault-heading"
+                  className="font-serif text-2xl md:text-3xl text-ink tracking-tight"
+                >
                   {vaultTitleParts[0]}
                   <span className="text-burgundy">&apos;</span>
                   {vaultTitleParts[1] ?? "s vault"}
-                </p>
+                </h2>
                 <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute mt-1">
                   personal · didactic
                 </p>
@@ -73,52 +81,77 @@ export const BlogSection = () => {
           </Reveal>
 
           <div className="md:col-span-7 relative space-y-2 md:pt-16 min-h-[420px]">
-            {BLOG.posts.map((post, idx) => (
-              <motion.div
-                key={post.slug}
-                role="presentation"
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={REVEAL_VIEWPORT}
-                transition={revealTransition(idx * 0.07)}
-                data-testid={`blog-post-${post.slug}`}
-                className="block w-full text-left border-t border-ink/20 py-6"
-              >
-                <div className="flex items-baseline justify-between gap-4 mb-2">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-burgundy">
-                    {post.kind} · {post.date}
-                  </span>
-                  <span className="font-mono text-xs text-ink-mute">
-                    soon →
-                  </span>
+            {BLOG.comingSoon ? (
+              <>
+                {/* Decorative preview only — hidden from AT while unpublished. */}
+                <div aria-hidden="true" inert={true}>
+                  {BLOG.posts.map((post) => (
+                    <div
+                      key={post.slug}
+                      data-testid={`blog-post-${post.slug}`}
+                      className="block w-full text-left border-t border-ink/20 py-6"
+                    >
+                      <div className="flex items-baseline justify-between gap-4 mb-2">
+                        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-burgundy">
+                          {post.kind} · {post.date}
+                        </span>
+                        <span className="font-mono text-xs text-ink-mute">
+                          soon →
+                        </span>
+                      </div>
+                      <p className="font-serif text-xl md:text-2xl text-ink leading-snug">
+                        {post.title}
+                      </p>
+                      <p className="mt-2 font-mono text-xs md:text-sm text-ink-soft leading-relaxed max-w-2xl">
+                        {post.excerpt}
+                      </p>
+                    </div>
+                  ))}
+                  <div className="border-t border-ink/20" />
                 </div>
-                <h3 className="font-serif text-xl md:text-2xl text-ink leading-snug">
-                  {post.title}
-                </h3>
-                <p className="mt-2 font-mono text-xs md:text-sm text-ink-soft leading-relaxed max-w-2xl">
-                  {post.excerpt}
-                </p>
-              </motion.div>
-            ))}
-            <div className="border-t border-ink/20" />
 
-            {BLOG.comingSoon && (
-              <div
-                data-testid="blog-coming-soon"
-                className="absolute inset-0 z-10 flex items-center justify-center bg-gradient-to-b from-bone-200/55 via-bone/82 to-bone-200/90 backdrop-blur-[3px] border border-ink/10"
-                aria-hidden="true"
-              >
-                <div className="text-center px-8 py-10 max-w-sm">
-                  <div className="inline-flex items-center gap-3 mb-3">
-                    <span className="bow-stamp inline-block">
-                      <Bow size={16} />
-                    </span>
-                    <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-ink caret">
-                      Coming soon
-                    </span>
+                <div
+                  data-testid="blog-coming-soon"
+                  role="status"
+                  aria-live="polite"
+                  className="absolute inset-0 z-10 flex items-center justify-center bg-gradient-to-b from-bone-200/55 via-bone/82 to-bone-200/90 backdrop-blur-[3px] border border-ink/10"
+                >
+                  <div className="text-center px-8 py-10 max-w-sm">
+                    <div className="inline-flex items-center gap-3 mb-3">
+                      <span className="bow-stamp inline-block" aria-hidden="true">
+                        <Bow size={16} />
+                      </span>
+                      <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-ink caret">
+                        Coming soon
+                      </span>
+                    </div>
+                    <p className="sr-only">
+                      {BLOG.name} is coming soon. Draft notes are not published
+                      yet.
+                    </p>
                   </div>
                 </div>
-              </div>
+              </>
+            ) : (
+              BLOG.posts.map((post) => (
+                <article
+                  key={post.slug}
+                  data-testid={`blog-post-${post.slug}`}
+                  className="block w-full text-left border-t border-ink/20 py-6"
+                >
+                  <div className="flex items-baseline justify-between gap-4 mb-2">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-burgundy">
+                      {post.kind} · {post.date}
+                    </span>
+                  </div>
+                  <h3 className="font-serif text-xl md:text-2xl text-ink leading-snug">
+                    {post.title}
+                  </h3>
+                  <p className="mt-2 font-mono text-xs md:text-sm text-ink-soft leading-relaxed max-w-2xl">
+                    {post.excerpt}
+                  </p>
+                </article>
+              ))
             )}
           </div>
         </div>

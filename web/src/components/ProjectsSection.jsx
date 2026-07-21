@@ -12,8 +12,9 @@ export const ProjectsSection = () => {
   return (
     <section
       id="projects"
+      tabIndex={-1}
       data-testid="projects-section"
-      className="relative py-24 md:py-32 bg-bone-200"
+      className="relative py-24 md:py-32 bg-bone-200 outline-none"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <Reveal className="mb-16 max-w-3xl">
@@ -95,6 +96,7 @@ export const ProjectsSection = () => {
                     className="lnk font-mono text-xs uppercase tracking-[0.18em] text-ink-soft"
                   >
                     GitHub ↗
+                    <span className="sr-only"> (opens in new tab)</span>
                   </a>
                 )}
                 {p.demo && (
@@ -105,6 +107,7 @@ export const ProjectsSection = () => {
                     className="lnk font-mono text-xs uppercase tracking-[0.18em] text-ink-soft"
                   >
                     Demo ↗
+                    <span className="sr-only"> (opens in new tab)</span>
                   </a>
                 )}
               </div>

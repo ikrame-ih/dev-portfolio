@@ -5,6 +5,7 @@ import { PROFILE } from "@/data/portfolio";
 import { MOTION_EASE, MOTION_DURATION } from "@/lib/motion";
 import { scrollToElement } from "@/lib/scroll";
 import { useFocusTrap } from "@/lib/useFocusTrap";
+import { useModalIsolation } from "@/lib/useModalIsolation";
 
 const HELP = [
   "Available commands:",
@@ -46,6 +47,7 @@ export const CLITerminal = ({ open, onClose }) => {
   const reduce = useReducedMotion();
 
   useFocusTrap(open, panelRef, onClose);
+  useModalIsolation(open);
 
   const focusInput = useCallback(() => {
     inputRef.current?.focus();
@@ -212,6 +214,7 @@ export const CLITerminal = ({ open, onClose }) => {
                   e.stopPropagation();
                   onClose();
                 }}
+                aria-label="Close terminal"
                 className="text-[10px] uppercase tracking-[0.2em] text-ink-soft hover:text-burgundy"
               >
                 close ✕
@@ -220,6 +223,8 @@ export const CLITerminal = ({ open, onClose }) => {
             <div
               className="h-[60vh] md:h-[420px] overflow-y-auto p-4 leading-relaxed"
               role="log"
+              aria-live="polite"
+              aria-relevant="additions"
             >
               {lines.map((l, i) => (
                 <pre

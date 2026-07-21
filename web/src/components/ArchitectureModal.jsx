@@ -1,7 +1,9 @@
-import { useEffect, useRef, lazy, Suspense } from "react";
+import { useRef, lazy, Suspense } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { MOTION_EASE, MOTION_DURATION } from "@/lib/motion";
 import { useFocusTrap } from "@/lib/useFocusTrap";
+import { useModalIsolation } from "@/lib/useModalIsolation";
 
 const MermaidDiagram = lazy(() => import("./MermaidDiagram"));
 
@@ -14,17 +16,10 @@ const DiagramFallback = () => (
 export const ArchitectureModal = ({ project, onClose }) => {
   const panelRef = useRef(null);
   const reduce = useReducedMotion();
+  const summaryId = project ? `arch-summary-${project.id}` : undefined;
 
   useFocusTrap(!!project, panelRef, onClose);
-
-  useEffect(() => {
-    if (!project) return;
-    const onKey = (e) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [project, onClose]);
+  useModalIsolation(!!project);
 
   const panelMotion = reduce
     ? { initial: false, animate: { opacity: 1, y: 0 } }
@@ -35,7 +30,7 @@ export const ArchitectureModal = ({ project, onClose }) => {
         transition: { duration: MOTION_DURATION.normal, ease: MOTION_EASE },
       };
 
-  return (
+  return createPortal(
     <AnimatePresence>
       {project && (
         <motion.div
@@ -56,15 +51,16 @@ export const ArchitectureModal = ({ project, onClose }) => {
             role="dialog"
             aria-modal="true"
             aria-labelledby="arch-modal-title"
+            aria-describedby={summaryId}
           >
             <div className="flex items-start justify-between gap-4 mb-6">
               <div>
-                <h3
+                <h2
                   id="arch-modal-title"
                   className="font-serif font-light text-2xl text-ink"
                 >
                   {project.name} · Architecture
-                </h3>
+                </h2>
                 <p className="font-mono text-xs text-ink-soft mt-1">
                   Live diagram · rendered with Mermaid.js
                 </p>
@@ -73,23 +69,44 @@ export const ArchitectureModal = ({ project, onClose }) => {
                 type="button"
                 data-testid="arch-modal-close"
                 onClick={onClose}
+                aria-label="Close architecture dialog"
                 className="btn-tactile font-mono text-xs uppercase tracking-[0.18em] text-ink-soft hover:text-burgundy"
               >
                 close ✕
               </button>
             </div>
-            <div className="border border-bone-400 p-4 bg-bone-100">
+
+            {project.architectureSummary && (
+              <p
+                id={summaryId}
+                className="mb-5 font-mono text-sm text-ink leading-relaxed"
+              >
+                {project.architectureSummary}
+              </p>
+            )}
+
+            <figure className="border border-bone-400 p-4 bg-bone-100">
               <Suspense fallback={<DiagramFallback />}>
-                <MermaidDiagram chart={project.mermaid} id={project.id} />
+                <MermaidDiagram
+                  chart={project.mermaid}
+                  id={project.id}
+                  label={`${project.name} architecture diagram. ${project.architectureSummary || ""}`.trim()}
+                />
               </Suspense>
-            </div>
+              <figcaption className="sr-only">
+                Visual flowchart for {project.name}. Text alternative:{" "}
+                {project.architectureSummary || project.description}
+              </figcaption>
+            </figure>
+
             <p className="mt-5 font-mono text-xs text-ink-soft leading-relaxed border-t border-bone-400 pt-4">
               {project.description}
             </p>
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 };
 

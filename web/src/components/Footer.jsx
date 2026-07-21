@@ -1,6 +1,7 @@
 import { Bow } from "./Bow";
 import Reveal from "./Reveal";
 import { PROFILE } from "@/data/portfolio";
+import { onHashLinkClick } from "@/lib/scroll";
 
 export const Footer = ({ onOpenTerminal }) => {
   const year = new Date().getFullYear();
@@ -62,6 +63,7 @@ export const Footer = ({ onOpenTerminal }) => {
                 <li key={id}>
                   <a
                     href={`#${id}`}
+                    onClick={onHashLinkClick}
                     className="lnk text-[#F5F1EB] hover:opacity-80"
                   >
                     {label}
@@ -107,7 +109,12 @@ export const Footer = ({ onOpenTerminal }) => {
                 {PROFILE.email}
               </a>
               <span className="mx-2">·</span>
-              {PROFILE.phone}
+              <a
+                href={`tel:${PROFILE.phone.replace(/\s/g, "")}`}
+                className="lnk hover:text-[#F5F1EB]"
+              >
+                {PROFILE.phone}
+              </a>
             </p>
           </div>
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] footer-muted flex items-center gap-2">

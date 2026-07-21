@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Bow } from "./Bow";
 import { PROFILE } from "@/data/portfolio";
 import { MOTION_EASE, MOTION_DURATION } from "@/lib/motion";
-import { scrollToElement, scrollToTop } from "@/lib/scroll";
+import { onHashLinkClick, scrollToTop } from "@/lib/scroll";
 import { useActiveSection } from "@/lib/useActiveSection";
 
 const LINKS = [
@@ -45,6 +45,7 @@ export const Nav = ({ onOpenTerminal }) => {
   return (
     <motion.nav
       data-testid="main-nav"
+      aria-label="Primary"
       {...navMotion}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
@@ -53,41 +54,50 @@ export const Nav = ({ onOpenTerminal }) => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between gap-3">
-        <button
-          type="button"
+        <a
+          href="#main-content"
           data-testid="nav-logo"
-          onClick={scrollToTop}
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToTop();
+            history.pushState(
+              null,
+              "",
+              window.location.pathname + window.location.search,
+            );
+          }}
           className="flex items-center gap-3 group shrink-0"
         >
-          <span className="bow-hover-tilt inline-block">
+          <span className="bow-hover-tilt inline-block" aria-hidden="true">
             <Bow size={20} />
           </span>
           <span className="font-serif text-lg tracking-tight text-ink group-hover:text-burgundy transition-colors">
             {PROFILE.name.split(" ")[0]}
             <span className="text-burgundy">.</span>
           </span>
-        </button>
+        </a>
 
         <div className="flex items-center gap-2 md:gap-8 min-w-0">
           <div className="flex items-center gap-4 md:gap-8 overflow-x-auto max-w-[52vw] sm:max-w-none md:overflow-visible scrollbar-none py-1 -my-1">
             {LINKS.map((l) => (
-              <button
+              <a
                 key={l.id}
-                type="button"
+                href={`#${l.id}`}
                 data-testid={`nav-link-${l.id}`}
-                onClick={() => scrollToElement(l.id)}
+                onClick={onHashLinkClick}
                 className={linkClass(l.id)}
-                aria-current={active === l.id ? "true" : undefined}
+                aria-current={active === l.id ? "location" : undefined}
               >
                 {l.label}
-              </button>
+              </a>
             ))}
           </div>
           <button
             type="button"
             data-testid="nav-terminal-toggle"
             onClick={onOpenTerminal}
-            title="Open terminal guestbook"
+            title="Open terminal guestbook (Ctrl or ⌘ + `)"
+            aria-label="Open terminal guestbook. Shortcut: Control or Command + backtick"
             className="btn-tactile font-mono text-xs uppercase tracking-[0.18em] border border-ink/30 px-3 py-1.5 hover:border-burgundy hover:text-burgundy transition-colors shrink-0"
           >
             Terminal

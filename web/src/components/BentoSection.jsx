@@ -1,14 +1,17 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Bow } from "./Bow";
 import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
 import { BENTO } from "@/data/portfolio";
 
 export const BentoSection = () => {
+  const reduce = useReducedMotion();
+
   return (
     <section
       id="bento"
+      tabIndex={-1}
       data-testid="bento-section"
-      className="relative py-24 md:py-32"
+      className="relative py-24 md:py-32 outline-none"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <Reveal className="mb-16 max-w-3xl">
@@ -32,8 +35,8 @@ export const BentoSection = () => {
           {BENTO.items.map((item, idx) => (
             <motion.div
               key={item.key}
-              initial={{ opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={reduce ? false : { opacity: 0, y: 14 }}
+              whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
               viewport={REVEAL_VIEWPORT}
               transition={revealTransition(idx * 0.06)}
               data-testid={`bento-${item.key}`}

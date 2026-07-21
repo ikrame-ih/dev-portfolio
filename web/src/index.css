@@ -12,7 +12,7 @@
   --bone-400: 216 209 199;
   --ink: 26 26 26;
   --ink-soft: 74 74 74;
-  --ink-mute: 122 122 122;
+  --ink-mute: 92 92 92;
   --hairline-rgb: 26 26 26;
   --grain-opacity: 0.07;
   --grain-blend: multiply;
@@ -21,6 +21,10 @@
 }
 
 @layer base {
+  html {
+    scroll-padding-top: 5rem;
+  }
+
   html,
   body,
   #root {
@@ -60,6 +64,29 @@
     outline: 2px solid #4a0e0e;
     outline-offset: 3px;
   }
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  padding: 0.65rem 1rem;
+  background: #4a0e0e;
+  color: #f5f1eb;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid #4a0e0e;
+  outline-offset: 3px;
 }
 
 /* bento grid — falls back to regular CSS grid; grid-lanes is experimental but nicer when it works */

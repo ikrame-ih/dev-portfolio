@@ -5,7 +5,7 @@ import TextAnimate from "./ui/TextAnimate";
 import { PROFILE } from "@/data/portfolio";
 import { ASSETS } from "@/data/assets";
 import { heroEnter } from "@/lib/motion";
-import { scrollToElement } from "@/lib/scroll";
+import { onHashLinkClick } from "@/lib/scroll";
 
 // After the headline word cascade finishes (~3.1s), ease the rest in one by one.
 const STEP_DELAY = {
@@ -94,30 +94,30 @@ export const Hero = () => {
             {...heroStep("ctas", reduce)}
             className="mt-12 flex flex-wrap items-center gap-4"
           >
-            <button
-              type="button"
+            <a
+              href="#projects"
               data-testid="hero-cta-projects"
-              onClick={() => scrollToElement("projects")}
+              onClick={onHashLinkClick}
               className="btn-tactile font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-6 py-3 hover:bg-ink transition-colors"
             >
               View projects →
-            </button>
-            <button
-              type="button"
+            </a>
+            <a
+              href="#cv"
               data-testid="hero-cta-cv"
-              onClick={() => scrollToElement("cv")}
+              onClick={onHashLinkClick}
               className="btn-tactile font-mono text-xs uppercase tracking-[0.18em] border border-ink px-6 py-3 hover:bg-burgundy hover:text-[#F5F1EB] hover:border-burgundy transition-colors"
             >
               View CV ↓
-            </button>
-            <button
-              type="button"
+            </a>
+            <a
+              href="#contact"
               data-testid="hero-cta-contact"
-              onClick={() => scrollToElement("contact")}
+              onClick={onHashLinkClick}
               className="lnk font-mono text-xs uppercase tracking-[0.18em] text-ink-soft hover:text-burgundy"
             >
               Get in touch
-            </button>
+            </a>
           </motion.div>
         </div>
 
@@ -129,18 +129,20 @@ export const Hero = () => {
             <div className="absolute -top-6 -left-6 z-10 hidden md:block bow-hover-tilt">
               <Bow size={32} />
             </div>
-            <figure className="photo-frame aspect-[3/4] bg-bone-300 border border-ink/15">
-              <img
-                data-testid="hero-photo"
-                src={ASSETS.profilePortrait}
-                alt="Ikrame I. H. — portrait"
-                className="w-full h-full object-cover object-top"
-                loading="eager"
-              />
+            <figure>
+              <div className="photo-frame aspect-[3/4] bg-bone-300 border border-ink/15">
+                <img
+                  data-testid="hero-photo"
+                  src={ASSETS.profilePortrait}
+                  alt="Ikrame I. H. — portrait"
+                  className="w-full h-full object-cover object-top"
+                  loading="eager"
+                />
+              </div>
+              <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute text-right">
+                {PROFILE.location}
+              </figcaption>
             </figure>
-            <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute text-right">
-              {PROFILE.location}
-            </figcaption>
           </div>
         </motion.div>
       </div>

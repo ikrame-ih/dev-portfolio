@@ -16,18 +16,39 @@ export const ContactSection = () => {
     message: "",
     website: "",
   });
+  const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
   const formStartedAt = useRef(Date.now());
 
-  const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const onChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+    if (errors[e.target.name]) {
+      setErrors((prev) => {
+        const next = { ...prev };
+        delete next[e.target.name];
+        return next;
+      });
+    }
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.message) {
+    const nextErrors = {};
+    if (!form.name.trim()) nextErrors.name = "Name is required.";
+    if (!form.email.trim()) nextErrors.email = "Email is required.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+      nextErrors.email = "Enter a valid email address.";
+    }
+    if (!form.message.trim()) nextErrors.message = "Message is required.";
+
+    if (Object.keys(nextErrors).length) {
+      setErrors(nextErrors);
       toast.error("Please fill in all fields.");
       return;
     }
+
+    setErrors({});
     setSubmitting(true);
     try {
       const res = await fetch("/api/contact", {
@@ -86,8 +107,9 @@ export const ContactSection = () => {
   return (
     <section
       id="contact"
+      tabIndex={-1}
       data-testid="contact-section"
-      className="relative py-24 md:py-32 bg-bone-200"
+      className="relative py-24 md:py-32 bg-bone-200 outline-none"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12">
         <Reveal className="md:col-span-5">
@@ -120,7 +142,9 @@ export const ContactSection = () => {
               <p className="text-[10px] uppercase tracking-[0.2em] text-ink-mute">
                 Phone
               </p>
-              <span>{PROFILE.phone}</span>
+              <a href={`tel:${PROFILE.phone.replace(/\s/g, "")}`} className="lnk text-ink hover:text-burgundy">
+                {PROFILE.phone}
+              </a>
             </div>
             <div>
               <p className="text-[10px] uppercase tracking-[0.2em] text-ink-mute">
@@ -157,8 +181,19 @@ export const ContactSection = () => {
                 required
                 maxLength={MAX_NAME}
                 autoComplete="name"
+                aria-invalid={errors.name ? "true" : undefined}
+                aria-describedby={errors.name ? "contact-name-error" : undefined}
                 className="mt-2 w-full bg-transparent border-b border-ink/30 focus:border-burgundy outline-none py-2 font-mono text-sm text-ink"
               />
+              {errors.name && (
+                <span
+                  id="contact-name-error"
+                  role="alert"
+                  className="mt-1 block font-mono text-[10px] text-burgundy"
+                >
+                  {errors.name}
+                </span>
+              )}
             </label>
             <label className="block field-line">
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-soft">
@@ -173,8 +208,21 @@ export const ContactSection = () => {
                 required
                 maxLength={MAX_EMAIL}
                 autoComplete="email"
+                aria-invalid={errors.email ? "true" : undefined}
+                aria-describedby={
+                  errors.email ? "contact-email-error" : undefined
+                }
                 className="mt-2 w-full bg-transparent border-b border-ink/30 focus:border-burgundy outline-none py-2 font-mono text-sm text-ink"
               />
+              {errors.email && (
+                <span
+                  id="contact-email-error"
+                  role="alert"
+                  className="mt-1 block font-mono text-[10px] text-burgundy"
+                >
+                  {errors.email}
+                </span>
+              )}
             </label>
           </div>
 
@@ -190,8 +238,21 @@ export const ContactSection = () => {
               required
               maxLength={MAX_MESSAGE}
               rows={6}
+              aria-invalid={errors.message ? "true" : undefined}
+              aria-describedby={
+                errors.message ? "contact-message-error" : undefined
+              }
               className="mt-2 w-full bg-transparent border-b border-ink/30 focus:border-burgundy outline-none py-2 font-mono text-sm text-ink resize-none"
             />
+            {errors.message && (
+              <span
+                id="contact-message-error"
+                role="alert"
+                className="mt-1 block font-mono text-[10px] text-burgundy"
+              >
+                {errors.message}
+              </span>
+            )}
           </label>
 
           <div

@@ -1,7 +1,7 @@
 // paths under /public/images
 export const ASSETS = {
   profilePortrait: "/images/profile-ikrame.png",
-  cursorBow: "/images/cursor-bow.svg",
+  cvPdf: "/Ikrame_Ibn_Hayoun_CV.pdf",
   tizzasVaultAvatar: "/images/tizzas-vault-avatar.jpg",
   interests: {
     gaming: "/images/interests/gaming-ace-attorney.jpg",

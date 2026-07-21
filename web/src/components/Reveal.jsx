@@ -1,12 +1,10 @@
 import { motion, useReducedMotion } from "framer-motion";
 import {
-  MOTION_EASE,
   MOTION_DURATION,
   motionTransition,
   scrollEnter,
 } from "@/lib/motion";
 
-export const REVEAL_EASE = MOTION_EASE;
 export const REVEAL_VIEWPORT = { once: true, margin: "-72px 0px -48px 0px" };
 
 export const revealTransition = (delay = 0) =>

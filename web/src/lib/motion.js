@@ -19,18 +19,6 @@ export const prefersReducedMotion = () =>
   typeof window !== "undefined" &&
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/** Scroll reveal preset — subtle y settle; content stays visible (opacity never 0). */
-export const fadeUp = (reduce, delay = 0, y = 10) => {
-  if (reduce) {
-    return { initial: false, animate: { opacity: 1, y: 0 } };
-  }
-  return {
-    initial: { opacity: 1, y },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: MOTION_DURATION.normal, ease: MOTION_EASE, delay },
-  };
-};
-
 /**
  * Hero cascade entrance — real fade-up so items appear in sequence.
  * Keep y small (6–8px) to avoid the old float/settle feel.
@@ -78,7 +66,3 @@ export const scrollEnter = (
     transition: { duration, ease: MOTION_EASE, delay },
   };
 };
-
-/** Accordion expand — height animation, or instant when reduced motion. */
-export const accordionTransition = (reduce) =>
-  reduce ? { duration: 0 } : { duration: 0.5, ease: MOTION_EASE };
