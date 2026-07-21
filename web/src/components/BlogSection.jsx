@@ -77,7 +77,7 @@ export const BlogSection = () => {
               <motion.div
                 key={post.slug}
                 role="presentation"
-                initial={{ opacity: 1, y: 24 }}
+                initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={REVEAL_VIEWPORT}
                 transition={revealTransition(idx * 0.07)}

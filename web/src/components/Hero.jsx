@@ -1,14 +1,30 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Bow } from "./Bow";
 import Reveal from "./Reveal";
+import TextAnimate from "./ui/TextAnimate";
 import { PROFILE } from "@/data/portfolio";
 import { ASSETS } from "@/data/assets";
-import { fadeUp } from "@/lib/motion";
+import { heroEnter } from "@/lib/motion";
 import { scrollToElement } from "@/lib/scroll";
 
-const STEP_DELAY = [0, 0.4, 0.85, 1.2, 1.55, 1.7];
+// After the headline word cascade finishes (~3.1s), ease the rest in one by one.
+const STEP_DELAY = {
+  overline: 0,
+  subtext: 3.2,
+  tagline: 3.65,
+  ctas: 4.1,
+  photo: 4.55,
+};
 
-const heroStep = (step, reduce) => fadeUp(reduce, STEP_DELAY[step], 10);
+// Line starts spaced so each word cascade can be read before the next line.
+const HEADLINE_LINE_DELAY = [0.2, 0.95, 1.8];
+const HEADLINE_WORD_STAGGER = 0.18;
+
+const heroStep = (key, reduce, opts) =>
+  heroEnter(reduce, STEP_DELAY[key], {
+    duration: 0.85,
+    ...opts,
+  });
 
 export const Hero = () => {
   const reduce = useReducedMotion();
@@ -21,7 +37,7 @@ export const Hero = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-12 gap-6 md:gap-12 items-start md:items-center">
         <div className="col-span-12 md:col-span-7 md:pt-4">
           <motion.div
-            {...heroStep(0, reduce)}
+            {...heroStep("overline", reduce)}
             className="flex items-center gap-3 mb-8"
           >
             <span className="hairline w-16" />
@@ -38,28 +54,29 @@ export const Hero = () => {
             className="font-serif font-light text-[2.4rem] leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter text-ink text-balance"
           >
             {PROFILE.headlineParts.map((part, i) => (
-              <motion.span
+              <TextAnimate
                 key={part.text}
-                {...heroStep(i + 1, reduce)}
+                as="span"
+                by="word"
+                animation="blurInUp"
+                delay={HEADLINE_LINE_DELAY[i]}
+                stagger={HEADLINE_WORD_STAGGER}
+                startOnView={false}
                 className={`block ${
                   part.italic
                     ? "font-serif italic font-light text-ink-soft"
-                    : ""
+                    : part.accent
+                      ? "text-burgundy font-normal"
+                      : ""
                 }`}
               >
-                {part.accent ? (
-                  <em className="text-burgundy not-italic font-normal">
-                    {part.text}
-                  </em>
-                ) : (
-                  part.text
-                )}
-              </motion.span>
+                {part.text}
+              </TextAnimate>
             ))}
           </h1>
 
           <motion.p
-            {...heroStep(4, reduce)}
+            {...heroStep("subtext", reduce)}
             data-testid="hero-positioning"
             className="mt-10 max-w-xl text-sm md:text-base text-ink-soft leading-relaxed"
           >
@@ -67,14 +84,14 @@ export const Hero = () => {
           </motion.p>
 
           <motion.p
-            {...heroStep(4, reduce)}
+            {...heroStep("tagline", reduce)}
             className="mt-6 md:mt-7 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute"
           >
             {PROFILE.tagline}
           </motion.p>
 
           <motion.div
-            {...heroStep(4, reduce)}
+            {...heroStep("ctas", reduce)}
             className="mt-12 flex flex-wrap items-center gap-4"
           >
             <button
@@ -105,7 +122,7 @@ export const Hero = () => {
         </div>
 
         <motion.div
-          {...heroStep(4, reduce)}
+          {...heroStep("photo", reduce, { y: 12, scale: 0.98 })}
           className="col-span-12 md:col-span-5 md:pt-4"
         >
           <div className="relative">

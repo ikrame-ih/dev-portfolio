@@ -9,6 +9,7 @@ import {
   STACK,
 } from "@/data/portfolio";
 import { StackIcon } from "@/data/stackIcons";
+import { scrollEnter } from "@/lib/motion";
 
 // Shared header pattern used across CV subsections.
 const SectionHeader = ({ overline, title, kicker }) => (
@@ -45,6 +46,43 @@ const TrackBadge = ({ track }) => {
   );
 };
 
+const StackChip = ({ name }) => (
+  <li className="stack-chip inline-flex items-center gap-1.5 border border-bone-400 px-2 py-1 hover:border-burgundy transition-colors">
+    <StackIcon name={name} />
+    {name}
+  </li>
+);
+
+const StackGroupColumn = ({
+  title,
+  groups,
+  titleClass,
+  borderClass,
+  testId,
+}) => (
+  <div className={`border-l pl-6 ${borderClass}`}>
+    <p
+      className={`font-mono text-[10px] uppercase tracking-[0.28em] mb-5 ${titleClass}`}
+    >
+      {title}
+    </p>
+    <div className="space-y-5" data-testid={testId}>
+      {groups.map((group) => (
+        <div key={group.label}>
+          <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-ink-mute mb-2">
+            {group.label}
+          </p>
+          <ul className="flex flex-wrap gap-x-3 gap-y-2 font-mono text-sm text-ink">
+            {group.items.map((s) => (
+              <StackChip key={s} name={s} />
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
 export const CVSection = () => {
   const reduce = useReducedMotion();
 
@@ -69,47 +107,37 @@ export const CVSection = () => {
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-24">
-          <Reveal
-            delay={0.05}
-            className="md:col-span-6 border-l border-burgundy pl-6"
-          >
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-burgundy mb-4">
-              Frontend
-            </p>
-            <ul
-              className="flex flex-wrap gap-x-3 gap-y-2 font-mono text-sm text-ink"
-              data-testid="stack-frontend"
-            >
-              {STACK.frontend.map((s) => (
-                <li
-                  key={s}
-                  className="stack-chip inline-flex items-center gap-1.5 border border-bone-400 px-2 py-1 hover:border-burgundy transition-colors"
-                >
-                  <StackIcon name={s} />
-                  {s}
-                </li>
-              ))}
-            </ul>
+          <Reveal delay={0.05} className="md:col-span-6">
+            <StackGroupColumn
+              title="Frontend"
+              groups={STACK.frontend}
+              titleClass="text-burgundy"
+              borderClass="border-burgundy"
+              testId="stack-frontend"
+            />
+          </Reveal>
+          <Reveal delay={0.1} className="md:col-span-6">
+            <StackGroupColumn
+              title="Backend & data"
+              groups={STACK.backend}
+              titleClass="text-ink"
+              borderClass="border-ink"
+              testId="stack-backend"
+            />
           </Reveal>
           <Reveal
-            delay={0.1}
-            className="md:col-span-6 border-l border-ink pl-6"
+            delay={0.12}
+            className="md:col-span-12 border-t border-bone-400 pt-8 md:pt-10"
           >
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink mb-4">
-              Backend &amp; data
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft mb-4">
+              Tooling &amp; delivery
             </p>
             <ul
               className="flex flex-wrap gap-x-3 gap-y-2 font-mono text-sm text-ink"
-              data-testid="stack-backend"
+              data-testid="stack-tooling"
             >
-              {STACK.backend.map((s) => (
-                <li
-                  key={s}
-                  className="stack-chip inline-flex items-center gap-1.5 border border-bone-400 px-2 py-1 hover:border-burgundy transition-colors"
-                >
-                  <StackIcon name={s} />
-                  {s}
-                </li>
+              {STACK.tooling.map((s) => (
+                <StackChip key={s} name={s} />
               ))}
             </ul>
           </Reveal>
@@ -152,16 +180,16 @@ export const CVSection = () => {
               {EXPERIENCE.map((exp, idx) => (
                 <motion.li
                   key={`${exp.company}-${exp.period}`}
-                  initial={reduce ? false : { opacity: 1, y: 24 }}
-                  whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                  {...scrollEnter(reduce, idx * 0.08)}
                   viewport={REVEAL_VIEWPORT}
-                  transition={revealTransition(idx * 0.08)}
                   className="relative pl-10 pb-12 border-l border-bone-400 last:border-transparent"
                 >
                   <motion.div
                     className="absolute -left-[9px] top-1.5"
-                    initial={reduce ? false : { opacity: 1, scale: 0.92 }}
-                    whileInView={reduce ? undefined : { opacity: 1, scale: 1 }}
+                    initial={reduce ? false : { opacity: 0, scale: 0.92 }}
+                    whileInView={
+                      reduce ? undefined : { opacity: 1, scale: 1 }
+                    }
                     viewport={REVEAL_VIEWPORT}
                     transition={revealTransition(idx * 0.08 + 0.05)}
                   >
@@ -191,47 +219,52 @@ export const CVSection = () => {
             className="md:col-span-5"
             data-testid="education-block"
           >
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft mb-8">
-              Education
-            </p>
-            <ul className="space-y-8">
-              {EDUCATION.map((ed, idx) => (
-                <motion.li
-                  key={`${ed.school}-${ed.degree}`}
-                  initial={reduce ? false : { opacity: 1, y: 20 }}
-                  whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-                  viewport={REVEAL_VIEWPORT}
-                  transition={revealTransition(idx * 0.06)}
-                  className="border-t border-bone-400 pt-4"
-                >
-                  <h4 className="font-serif text-lg text-ink">{ed.degree}</h4>
-                  <p className="font-mono text-xs text-ink-soft mt-1">
-                    {ed.school}
-                  </p>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-burgundy mt-2">
-                    {ed.period}
-                  </p>
-                </motion.li>
-              ))}
-            </ul>
+            <div className="border border-ink/15 bg-bone-200 p-6 md:p-8 h-full">
+              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft mb-8">
+                Education
+              </p>
+              <ul className="space-y-8">
+                {EDUCATION.map((ed, idx) => (
+                  <motion.li
+                    key={`${ed.school}-${ed.degree}`}
+                    {...scrollEnter(reduce, idx * 0.06)}
+                    viewport={REVEAL_VIEWPORT}
+                    className="border-t border-ink/15 pt-4"
+                  >
+                    <h4 className="font-serif text-lg text-ink">{ed.degree}</h4>
+                    <p className="font-mono text-xs text-ink-soft mt-1">
+                      {ed.school}
+                    </p>
+                    {ed.detail && (
+                      <p className="font-mono text-[10px] text-ink-mute mt-2 leading-relaxed">
+                        {ed.detail}
+                      </p>
+                    )}
+                    <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-burgundy mt-2">
+                      {ed.period}
+                    </p>
+                  </motion.li>
+                ))}
+              </ul>
 
-            <div className="mt-12 border border-ink/20 p-6 bg-bone-200">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-burgundy mb-3">
-                {PROFILE.practiceAside.title}
-              </p>
-              <p className="font-mono text-sm text-ink leading-relaxed">
-                {PROFILE.practiceAside.text}
-              </p>
+              <div className="mt-12 border border-ink/20 p-6 bg-bone">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-burgundy mb-3">
+                  {PROFILE.practiceAside.title}
+                </p>
+                <p className="font-mono text-sm text-ink leading-relaxed">
+                  {PROFILE.practiceAside.text}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                data-testid="cv-download-link"
+                onClick={() => window.print()}
+                className="mt-10 inline-block font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-6 py-3 hover:bg-ink transition-colors"
+              >
+                Export CV ↓
+              </button>
             </div>
-
-            <button
-              type="button"
-              data-testid="cv-download-link"
-              onClick={() => window.print()}
-              className="mt-10 inline-block font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-6 py-3 hover:bg-ink transition-colors"
-            >
-              Export CV ↓
-            </button>
           </Reveal>
         </div>
       </div>

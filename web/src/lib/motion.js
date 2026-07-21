@@ -31,6 +31,54 @@ export const fadeUp = (reduce, delay = 0, y = 10) => {
   };
 };
 
+/**
+ * Hero cascade entrance — real fade-up so items appear in sequence.
+ * Keep y small (6–8px) to avoid the old float/settle feel.
+ */
+export const heroEnter = (
+  reduce,
+  delay = 0,
+  { y = 8, scale, duration = MOTION_DURATION.reveal } = {},
+) => {
+  if (reduce) {
+    return { initial: false, animate: { opacity: 1, y: 0, scale: 1 } };
+  }
+  return {
+    initial: {
+      opacity: 0,
+      y,
+      ...(scale != null ? { scale } : {}),
+    },
+    animate: { opacity: 1, y: 0, scale: 1 },
+    transition: {
+      duration,
+      ease: MOTION_EASE,
+      delay,
+    },
+  };
+};
+
+/**
+ * Scroll-into-view entrance — soft fade + short rise (not the old float-only settle).
+ */
+export const scrollEnter = (
+  reduce,
+  delay = 0,
+  { y = 14, duration = MOTION_DURATION.reveal } = {},
+) => {
+  if (reduce) {
+    return {
+      initial: false,
+      whileInView: { opacity: 1, y: 0 },
+    };
+  }
+  return {
+    initial: { opacity: 0, y },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration, ease: MOTION_EASE, delay },
+  };
+};
+
 /** Accordion expand — height animation, or instant when reduced motion. */
 export const accordionTransition = (reduce) =>
   reduce ? { duration: 0 } : { duration: 0.5, ease: MOTION_EASE };

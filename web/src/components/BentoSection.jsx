@@ -32,7 +32,7 @@ export const BentoSection = () => {
           {BENTO.items.map((item, idx) => (
             <motion.div
               key={item.key}
-              initial={{ opacity: 1, y: 28 }}
+              initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={REVEAL_VIEWPORT}
               transition={revealTransition(idx * 0.06)}

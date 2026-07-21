@@ -38,7 +38,7 @@ export const ProjectsSection = () => {
           {PROJECTS.map((p, idx) => (
             <motion.article
               key={p.id}
-              initial={reduce ? false : { opacity: 1, y: 28 }}
+              initial={reduce ? false : { opacity: 0, y: 16 }}
               whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
               viewport={REVEAL_VIEWPORT}
               transition={revealTransition(idx * 0.1)}

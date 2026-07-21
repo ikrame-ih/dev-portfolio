@@ -22,7 +22,7 @@ export const PROFILE = {
   heroSubtext:
     "Hi, I'm Ikrame Ibn Hayoun, a software developer based in Málaga, specializing in frontend development while actively building backend solutions. I enjoy turning ideas into intuitive, reliable, and scalable applications.",
   tagline:
-    "Software developer · DAW graduate · AI & Big Data postgraduate starting Sep 2026",
+    "Software developer · DAW graduate · AI & Big Data specialisation from Sep 2026",
   positioning:
     "Hi, I'm Ikrame Ibn Hayoun, a software developer based in Málaga, specializing in frontend development while actively building backend solutions. I enjoy turning ideas into intuitive, reliable, and scalable applications.",
   positioningParts: [
@@ -34,7 +34,7 @@ export const PROFILE = {
   ],
   practiceAside: {
     title: "At a glance",
-    text: "DAW graduate (Jun 2026) — final project MyPlaythrough awarded maximum grade. AI & Big Data Postgraduate Programme (Sep 2026). Side projects on GitHub use component-based layouts, tests, and CI; intern work focused on reusable components and semantic markup.",
+    text: "Higher Vocational Diploma (DAW, Jun 2026) — final project MyPlaythrough awarded maximum grade. AI & Big Data Specialisation Course from Sep 2026. Side projects on GitHub use component-based layouts, tests, and CI; intern work focused on reusable components and semantic markup.",
   },
 };
 
@@ -44,30 +44,46 @@ export const LANGUAGES = [
   { lang: "Darija", level: "Native", detail: "Moroccan Arabic", code: "AR" },
 ];
 
+// Grouped by craft layer — UI vs APIs/data vs delivery tooling.
 export const STACK = {
   frontend: [
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Vite",
-    "Tailwind CSS",
-    "Framer Motion",
-    "Zustand",
-    "Leaflet",
-    "Semantic HTML",
-    "Git",
-    "Vitest / Playwright",
+    {
+      label: "UI & frameworks",
+      items: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS",
+        "Framer Motion",
+      ],
+    },
+    {
+      label: "State & maps",
+      items: ["Zustand", "Leaflet"],
+    },
+    {
+      label: "Craft",
+      items: ["Semantic HTML", "Accessibility"],
+    },
   ],
   backend: [
-    "Python",
-    "FastAPI",
-    "PostgreSQL",
-    "REST APIs",
-    "SQL",
-    "Node.js",
-    "Java",
-    "dbt",
-    "Dagster",
+    {
+      label: "APIs & runtime",
+      items: ["Node.js", "Express", "Python", "FastAPI", "REST APIs", "JWT"],
+    },
+    {
+      label: "Data",
+      items: ["PostgreSQL", "SQL", "dbt", "Dagster"],
+    },
+  ],
+  tooling: [
+    "Git",
+    "GitHub Actions",
+    "Vitest",
+    "Playwright",
+    "Docker",
+    "Vercel",
   ],
 };
 
@@ -126,20 +142,26 @@ export const EXPERIENCE = [
   },
 ];
 
+// Titles use English + Spanish pathway names + EQF so EU / UK / ES readers align.
 export const EDUCATION = [
   {
-    school: "Postgraduate programme (ESP)",
-    degree: "AI & Big Data Postgraduate Programme",
+    school: "IES Zaidín Vergeles",
+    degree: "AI & Big Data Specialisation Course",
+    detail:
+      "Spanish Curso de Especialización · EQF Level 5 · after Higher Vocational Diploma",
     period: "Starting Sep 2026",
   },
   {
     school: "CESUR Este, Málaga",
-    degree: "Higher Diploma in Web Application Development (DAW)",
+    degree: "Higher Vocational Diploma in Web Application Development (DAW)",
+    detail:
+      "Spanish Ciclo Formativo de Grado Superior · EQF Level 5 · HND-equivalent",
     period: "Sep 2024 — Jun 2026",
   },
   {
     school: "I.E.S. Politécnico Jesús Marín",
-    degree: "Administrative Management — Honours",
+    degree: "Intermediate Vocational Diploma in Administrative Management",
+    detail: "Spanish Ciclo Formativo de Grado Medio · EQF Level 4 · Honours",
     period: "2022 — 2024",
   },
 ];
@@ -188,7 +210,7 @@ export const PROJECTS = [
       "Vitest",
     ],
     href: "https://github.com/ikrame-ih/my-playthrough",
-    demo: "https://ikrame-ih.github.io/my-playthrough/",
+    demo: "https://my-playthrough.vercel.app/",
     description:
       "DAW capstone (maximum grade): a full-stack PERN app to track backlog, active play, and completions—with community features, recommendations, threaded discussions, and admin moderation. Built with JWT auth, Docker Compose, and CI.",
     mermaid: `flowchart LR
@@ -198,6 +220,23 @@ export const PROJECTS = [
   API --> Covers[Steam / RAWG proxy]
   classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
   class API,Auth,DB accent`,
+  },
+  {
+    id: "aiba-widget",
+    name: "Aiba",
+    subtitle: "Desktop productivity companion · Electron",
+    stack: ["Electron", "React 19", "TypeScript", "Vite", "Vitest"],
+    href: "https://github.com/ikrame-ih/aiba-widget",
+    demo: null,
+    description:
+      "Local-first Windows widget to plan the day, protect a focus block, and unwind with a clear next step. Compact timer plus expanded studio shell, session history, focus guard, and offline Ask Aiba help—no account, no cloud.",
+    mermaid: `flowchart LR
+  UI[React UI] --> Bridge[IPC preload]
+  Bridge --> Main[Electron main]
+  Main --> Store[Local JSON]
+  Main --> Guard[Focus guard / overlay]
+  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
+  class Main,Store accent`,
   },
   {
     id: "reconflow",
@@ -335,10 +374,14 @@ export const BOW_BOARD = {
   titleAccent: "Pin a little bow before you go.",
   kicker:
     "Click anywhere on either page to leave your bow. One per person, and you can move it anytime.",
+  signedKicker:
+    "That's your bow on the page — click again anywhere to move it.",
   emptyState: "Be the first bow on the page — click anywhere.",
   leftWatermark:
     "For everyone who scrolled past the projects and stayed for the details.",
   rightWatermark: "A small thank-you. Your bow here means you were here.",
-  countLabel: "bows",
+  countLabel: "people were here",
+  countLabelSingular: "person was here",
   marginHint: "one bow per person · place it anywhere",
+  marginHintSigned: "your bow · click to move",
 };

@@ -1,17 +1,22 @@
 import { useEffect, useRef, useState, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useReducedMotion,
+} from "framer-motion";
 import { TyingBow } from "./TyingBow";
 import { BOW_BOARD } from "@/data/portfolio";
 import { getVisitorId, loadAndMigrateBows, saveBow } from "@/lib/storage";
 import { fetchRemoteBows, postRemoteBow, useRemoteBows } from "@/lib/bowsApi";
 import { normalizeBow, bowTooClose, clampBowPosition } from "@/lib/bowUtils";
+import { MOTION_EASE } from "@/lib/motion";
 import Reveal from "./Reveal";
 
 const BOW_MOTION = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
-  transition: { duration: 0.15 },
+  initial: { opacity: 0, scale: 0.92 },
+  animate: { opacity: 1, scale: 1 },
+  exit: { opacity: 0, scale: 0.96 },
+  transition: { duration: 0.35, ease: MOTION_EASE },
 };
 
 const HINTS = {
@@ -19,7 +24,11 @@ const HINTS = {
   error: "Could not save your bow. Try again.",
   unavailable:
     "Guest book is temporarily unavailable. Signatures will be back soon.",
-  placed: "Bow placed — thank you for signing.",
+  placedLeft:
+    "Your bow is on the left page — click again to move it.",
+  placedRight:
+    "Your bow is on the right page — click again to move it.",
+  moved: "Bow moved — still yours alone.",
 };
 
 function mergeVisitorBow(bows, bow, visitorId) {
@@ -35,11 +44,75 @@ function pressPage(ref) {
   }, 180);
 }
 
+function canHoverPreview() {
+  return (
+    typeof window !== "undefined" &&
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches
+  );
+}
+
+const GhostBow = ({ ghost }) => {
+  if (!ghost) return null;
+  return (
+    <div
+      aria-hidden="true"
+      className="absolute pointer-events-none z-[5] -translate-x-1/2 -translate-y-1/2 opacity-[0.28]"
+      style={{
+        left: `${ghost.mx * 100}%`,
+        top: `${ghost.y * 100}%`,
+      }}
+    >
+      <TyingBow size={26} strokeWidth={1.15} tie={false} />
+    </div>
+  );
+};
+
+const PageBows = ({
+  bows,
+  visitorId,
+  lastDropped,
+  reduce,
+}) => (
+  <AnimatePresence>
+    {bows.map((b) => {
+      const isMine = visitorId && b.visitor_id === visitorId;
+      const justPlaced = b.id === lastDropped;
+      return (
+        <motion.div
+          key={`${b.id}-${b.mx}-${b.y}`}
+          initial={reduce ? false : BOW_MOTION.initial}
+          animate={{
+            ...BOW_MOTION.animate,
+            rotate: b.rotation || 0,
+          }}
+          exit={BOW_MOTION.exit}
+          transition={BOW_MOTION.transition}
+          className="absolute pointer-events-none -translate-x-1/2 -translate-y-1/2"
+          style={{
+            left: `${b.mx * 100}%`,
+            top: `${b.y * 100}%`,
+            zIndex: isMine ? 4 : 2,
+          }}
+        >
+          <TyingBow
+            size={justPlaced ? 32 : isMine ? 29 : 24}
+            strokeWidth={isMine ? 1.45 : 1.15}
+            color={isMine ? "#4A0E0E" : "#6B1D1D"}
+            className={isMine ? "" : "opacity-75"}
+            tie={justPlaced}
+          />
+        </motion.div>
+      );
+    })}
+  </AnimatePresence>
+);
+
 export const JardinCanvas = () => {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
   const visitorIdRef = useRef(null);
   const syncingRef = useRef(false);
+  const hintTimerRef = useRef(null);
   const [bows, setBows] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [lastDropped, setLastDropped] = useState(null);
@@ -47,6 +120,9 @@ export const JardinCanvas = () => {
   const [remote, setRemote] = useState(false);
   const [unavailable, setUnavailable] = useState(false);
   const [hasSigned, setHasSigned] = useState(false);
+  const [ghost, setGhost] = useState(null);
+  const [visitorId, setVisitorId] = useState(null);
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     let cancelled = false;
@@ -54,15 +130,14 @@ export const JardinCanvas = () => {
     const load = async () => {
       if (useRemoteBows()) {
         try {
-          const { bows: remoteBows, visitorId } = await fetchRemoteBows();
+          const { bows: remoteBows, visitorId: vid } = await fetchRemoteBows();
           if (!cancelled) {
-            visitorIdRef.current = visitorId;
+            visitorIdRef.current = vid;
+            setVisitorId(vid);
             setBows(remoteBows.map(normalizeBow));
             setRemote(true);
             setUnavailable(false);
-            setHasSigned(
-              remoteBows.some((b) => b.visitor_id === visitorId),
-            );
+            setHasSigned(remoteBows.some((b) => b.visitor_id === vid));
           }
           return;
         } catch {
@@ -76,13 +151,14 @@ export const JardinCanvas = () => {
         }
       }
       if (!cancelled) {
-        const visitorId = getVisitorId();
-        visitorIdRef.current = visitorId;
+        const vid = getVisitorId();
+        visitorIdRef.current = vid;
+        setVisitorId(vid);
         const local = loadAndMigrateBows();
         setBows(local);
         setRemote(false);
         setUnavailable(false);
-        setHasSigned(local.some((b) => b.visitor_id === visitorId));
+        setHasSigned(local.some((b) => b.visitor_id === vid));
       }
     };
 
@@ -92,13 +168,31 @@ export const JardinCanvas = () => {
 
     return () => {
       cancelled = true;
+      if (hintTimerRef.current) window.clearTimeout(hintTimerRef.current);
     };
   }, []);
 
   const showHint = useCallback((key) => {
     setHint(key);
-    window.setTimeout(() => setHint(null), 2400);
+    if (hintTimerRef.current) window.clearTimeout(hintTimerRef.current);
+    hintTimerRef.current = window.setTimeout(() => setHint(null), 3200);
   }, []);
+
+  const updateGhost = useCallback((page, e) => {
+    if (!canHoverPreview() || unavailable) {
+      setGhost(null);
+      return;
+    }
+    const ref = page === "left" ? leftRef : rightRef;
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const localX = (e.clientX - rect.left) / rect.width;
+    const localY = (e.clientY - rect.top) / rect.height;
+    const { mx, y } = clampBowPosition(localX, localY);
+    setGhost({ page, mx, y });
+  }, [unavailable]);
+
+  const clearGhost = useCallback(() => setGhost(null), []);
 
   const handlePageClick = useCallback(
     async (page, e) => {
@@ -109,19 +203,20 @@ export const JardinCanvas = () => {
       if (!ref.current) return;
 
       pressPage(ref);
+      setGhost(null);
 
       const rect = ref.current.getBoundingClientRect();
       const localX = (e.clientX - rect.left) / rect.width;
       const localY = (e.clientY - rect.top) / rect.height;
       const { mx, y } = clampBowPosition(localX, localY);
-      const visitorId = remote ? visitorIdRef.current : getVisitorId();
+      const vid = remote ? visitorIdRef.current : getVisitorId();
 
-      if (bowTooClose(page, mx, y, bows, visitorId)) {
+      if (bowTooClose(page, mx, y, bows, vid)) {
         showHint("tooClose");
         return;
       }
 
-      const existing = bows.find((b) => b.visitor_id === visitorId);
+      const existing = bows.find((b) => b.visitor_id === vid);
       const bow = normalizeBow({
         id:
           existing?.id ??
@@ -130,14 +225,14 @@ export const JardinCanvas = () => {
         mx,
         y,
         rotation: Math.round((Math.random() - 0.5) * 40),
-        visitor_id: visitorId,
+        visitor_id: vid,
         created_at: existing?.created_at ?? new Date().toISOString(),
       });
 
       const snapshot = bows;
 
       if (remote) {
-        setBows(mergeVisitorBow(bows, bow, visitorId));
+        setBows(mergeVisitorBow(bows, bow, vid));
         setLastDropped(bow.id);
         setHint(null);
         syncingRef.current = true;
@@ -145,8 +240,10 @@ export const JardinCanvas = () => {
 
       try {
         if (remote) {
-          const { bows: synced, visitorId: vid } = await postRemoteBow(bow);
-          visitorIdRef.current = vid ?? visitorId;
+          const { bows: synced, visitorId: nextVid } = await postRemoteBow(bow);
+          const resolved = nextVid ?? vid;
+          visitorIdRef.current = resolved;
+          setVisitorId(resolved);
           setBows(synced.map(normalizeBow));
         } else {
           const next = saveBow(bow);
@@ -155,7 +252,11 @@ export const JardinCanvas = () => {
           setHint(null);
         }
         setHasSigned(true);
-        if (!existing) showHint("placed");
+        if (!existing) {
+          showHint(page === "left" ? "placedLeft" : "placedRight");
+        } else {
+          showHint("moved");
+        }
       } catch (err) {
         if (remote) {
           setBows(snapshot);
@@ -211,19 +312,23 @@ export const JardinCanvas = () => {
                 {BOW_BOARD.titleAccent}
               </em>
             </h2>
-            {!hasSigned && (
-              <p className="mt-4 font-mono text-xs text-ink-mute max-w-xl leading-relaxed">
-                {BOW_BOARD.kicker}
-              </p>
-            )}
+            <p className="mt-4 font-mono text-xs text-ink-mute max-w-xl leading-relaxed">
+              {hasSigned ? BOW_BOARD.signedKicker : BOW_BOARD.kicker}
+            </p>
           </div>
           <div className="font-mono text-xs text-ink-soft text-right">
             <p data-testid="bow-count" className="text-burgundy text-base">
               {bows.length}{" "}
-              <span className="text-ink-mute">{BOW_BOARD.countLabel}</span>
+              <span className="text-ink-mute">
+                {bows.length === 1
+                  ? BOW_BOARD.countLabelSingular
+                  : BOW_BOARD.countLabel}
+              </span>
             </p>
             <p className="text-[10px] uppercase tracking-[0.2em] text-ink-mute mt-1">
-              {BOW_BOARD.marginHint}
+              {hasSigned
+                ? BOW_BOARD.marginHintSigned
+                : BOW_BOARD.marginHint}
             </p>
           </div>
         </Reveal>
@@ -257,9 +362,11 @@ export const JardinCanvas = () => {
                 ref={leftRef}
                 role="button"
                 tabIndex={0}
-                aria-label="Left page — click to sign"
+                aria-label="Left page — click to sign or move your bow"
                 onClick={(e) => handlePageClick("left", e)}
                 onKeyDown={(e) => handlePageKeyDown("left", e)}
+                onPointerMove={(e) => updateGhost("left", e)}
+                onPointerLeave={clearGhost}
                 className="guestbook-page guestbook-page-left cursor-pointer"
               >
                 <div className="guestbook-page-texture" aria-hidden="true" />
@@ -270,32 +377,13 @@ export const JardinCanvas = () => {
                     </p>
                   </div>
                 )}
-                <AnimatePresence>
-                  {leftBows.map((b) => (
-                    <motion.div
-                      key={`${b.id}-${b.mx}-${b.y}`}
-                      initial={BOW_MOTION.initial}
-                      animate={{
-                        ...BOW_MOTION.animate,
-                        rotate: b.rotation || 0,
-                      }}
-                      exit={BOW_MOTION.exit}
-                      transition={BOW_MOTION.transition}
-                      className="absolute pointer-events-none"
-                      style={{
-                        left: `${b.mx * 100}%`,
-                        top: `${b.y * 100}%`,
-                        transform: "translate(-50%, -50%)",
-                      }}
-                    >
-                      <TyingBow
-                        size={b.id === lastDropped ? 32 : 24}
-                        strokeWidth={1.2}
-                        tie={b.id === lastDropped}
-                      />
-                    </motion.div>
-                  ))}
-                </AnimatePresence>
+                {ghost?.page === "left" && <GhostBow ghost={ghost} />}
+                <PageBows
+                  bows={leftBows}
+                  visitorId={visitorId}
+                  lastDropped={lastDropped}
+                  reduce={reduce}
+                />
               </div>
 
               <div className="guestbook-spine" aria-hidden="true" />
@@ -304,9 +392,11 @@ export const JardinCanvas = () => {
                 ref={rightRef}
                 role="button"
                 tabIndex={0}
-                aria-label="Right page — click to sign"
+                aria-label="Right page — click to sign or move your bow"
                 onClick={(e) => handlePageClick("right", e)}
                 onKeyDown={(e) => handlePageKeyDown("right", e)}
+                onPointerMove={(e) => updateGhost("right", e)}
+                onPointerLeave={clearGhost}
                 className="guestbook-page guestbook-page-right cursor-pointer"
               >
                 <div className="guestbook-page-texture" aria-hidden="true" />
@@ -317,38 +407,19 @@ export const JardinCanvas = () => {
                     </p>
                   </div>
                 )}
-                <AnimatePresence>
-                  {rightBows.map((b) => (
-                    <motion.div
-                      key={`${b.id}-${b.mx}-${b.y}`}
-                      initial={BOW_MOTION.initial}
-                      animate={{
-                        ...BOW_MOTION.animate,
-                        rotate: b.rotation || 0,
-                      }}
-                      exit={BOW_MOTION.exit}
-                      transition={BOW_MOTION.transition}
-                      className="absolute pointer-events-none"
-                      style={{
-                        left: `${b.mx * 100}%`,
-                        top: `${b.y * 100}%`,
-                        transform: "translate(-50%, -50%)",
-                      }}
-                    >
-                      <TyingBow
-                        size={b.id === lastDropped ? 32 : 24}
-                        strokeWidth={1.2}
-                        tie={b.id === lastDropped}
-                      />
-                    </motion.div>
-                  ))}
-                </AnimatePresence>
+                {ghost?.page === "right" && <GhostBow ghost={ghost} />}
+                <PageBows
+                  bows={rightBows}
+                  visitorId={visitorId}
+                  lastDropped={lastDropped}
+                  reduce={reduce}
+                />
               </div>
             </div>
 
             {bows.length === 0 && loaded && (
               <div className="absolute inset-x-0 top-[32%] md:top-[34%] flex justify-center pointer-events-none z-10">
-                <p className="font-serif italic text-lg md:text-xl text-ink-mute bg-bone/60 px-4 py-2">
+                <p className="font-serif italic text-base md:text-lg text-ink-mute/80 bg-bone/40 px-4 py-2">
                   {BOW_BOARD.emptyState}
                 </p>
               </div>

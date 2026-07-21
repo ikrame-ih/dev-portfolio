@@ -3,6 +3,7 @@ import {
   MOTION_EASE,
   MOTION_DURATION,
   motionTransition,
+  scrollEnter,
 } from "@/lib/motion";
 
 export const REVEAL_EASE = MOTION_EASE;
@@ -15,7 +16,7 @@ export const Reveal = ({
   children,
   className,
   delay = 0,
-  y = 28,
+  y = 14,
   as = "div",
   ...rest
 }) => {
@@ -35,10 +36,8 @@ export const Reveal = ({
   return (
     <MotionTag
       className={className}
-      initial={reduce ? false : { opacity: 1, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      {...scrollEnter(reduce, delay, { y })}
       viewport={REVEAL_VIEWPORT}
-      transition={revealTransition(delay)}
       {...rest}
     >
       {children}
