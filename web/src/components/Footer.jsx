@@ -48,7 +48,7 @@ export const Footer = ({ onOpenTerminal }) => {
           </div>
 
           <div className="md:col-span-3">
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] footer-muted mb-3">
+            <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-3">
               Navigate
             </p>
             <ul className="space-y-2 font-mono text-sm">
@@ -74,7 +74,7 @@ export const Footer = ({ onOpenTerminal }) => {
           </div>
 
           <div className="md:col-span-4">
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] footer-muted mb-3">
+            <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-3">
               Terminal
             </p>
             <p className="font-mono text-sm leading-relaxed footer-muted">
@@ -90,14 +90,14 @@ export const Footer = ({ onOpenTerminal }) => {
             >
               Open terminal →
             </button>
-            <p className="mt-6 font-mono text-[10px] footer-muted opacity-70">
+            <p className="mt-6 font-mono text-xs footer-muted">
               or use the Terminal button above
             </p>
           </div>
         </div>
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 mt-12 pt-6 border-t border-[#F5F1EB]/15 flex flex-wrap items-center justify-between gap-4">
-          <div className="font-mono text-[10px] uppercase tracking-[0.2em] footer-muted space-y-1">
+          <div className="font-mono text-xs uppercase tracking-[0.2em] footer-muted space-y-1">
             <p>
               © {year} {PROFILE.name} · Málaga, ES
             </p>
@@ -117,7 +117,7 @@ export const Footer = ({ onOpenTerminal }) => {
               </a>
             </p>
           </div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] footer-muted flex items-center gap-2">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] footer-muted flex items-center gap-2">
             built with care
             <Bow size={12} color="#F5F1EB" />
           </p>

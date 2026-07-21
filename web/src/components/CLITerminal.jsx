@@ -203,7 +203,7 @@ export const CLITerminal = ({ open, onClose }) => {
             aria-label="CLI guestbook"
           >
             <div className="flex items-center justify-between border-b border-bone-400 px-4 py-2 bg-bone-200">
-              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-ink-soft">
+              <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-ink-soft">
                 <span className="w-2 h-2 rounded-full bg-burgundy shrink-0" />
                 <span className="caret">ikrame@portfolio · zsh</span>
               </div>
@@ -215,7 +215,7 @@ export const CLITerminal = ({ open, onClose }) => {
                   onClose();
                 }}
                 aria-label="Close terminal"
-                className="text-[10px] uppercase tracking-[0.2em] text-ink-soft hover:text-burgundy"
+                className="text-xs uppercase tracking-[0.2em] text-ink-soft hover:text-burgundy"
               >
                 close ✕
               </button>

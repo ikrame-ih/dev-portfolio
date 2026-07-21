@@ -17,7 +17,7 @@ export const BentoSection = () => {
         <Reveal className="mb-16 max-w-3xl">
           <div className="flex items-center gap-3 mb-6">
             <Bow size={14} />
-            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft">
+            <span className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft">
               {BENTO.overline}
             </span>
           </div>
@@ -62,7 +62,7 @@ export const BentoSection = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-bone via-bone/80 to-bone/55 group-hover:via-bone/75 transition-colors duration-500" />
               <div className="relative h-full min-h-[200px] p-6 md:p-8 flex flex-col justify-end gap-4">
                 {item.label && (
-                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-burgundy/80">
+                  <span className="font-mono text-xs uppercase tracking-[0.22em] text-burgundy">
                     {item.label}
                   </span>
                 )}

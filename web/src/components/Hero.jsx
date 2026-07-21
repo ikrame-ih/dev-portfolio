@@ -85,7 +85,7 @@ export const Hero = () => {
 
           <motion.p
             {...heroStep("tagline", reduce)}
-            className="mt-6 md:mt-7 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute"
+            className="mt-6 md:mt-7 font-mono text-xs uppercase tracking-[0.2em] text-ink-mute"
           >
             {PROFILE.tagline}
           </motion.p>
@@ -135,11 +135,15 @@ export const Hero = () => {
                   data-testid="hero-photo"
                   src={ASSETS.profilePortrait}
                   alt="Ikrame I. H. — portrait"
+                  width={640}
+                  height={735}
                   className="w-full h-full object-cover object-top"
                   loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
                 />
               </div>
-              <figcaption className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute text-right">
+              <figcaption className="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-ink-mute text-right">
                 {PROFILE.location}
               </figcaption>
             </figure>

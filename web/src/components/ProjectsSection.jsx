@@ -20,7 +20,7 @@ export const ProjectsSection = () => {
         <Reveal className="mb-16 max-w-3xl">
           <div className="flex items-center gap-3 mb-6">
             <Bow size={14} />
-            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft">
+            <span className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft">
               02 · selected work
             </span>
           </div>
@@ -48,7 +48,7 @@ export const ProjectsSection = () => {
             >
               <div className="flex items-start justify-between gap-4 mb-6">
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-burgundy mb-2">
+                  <p className="font-mono text-xs uppercase tracking-[0.2em] text-burgundy mb-2">
                     Project · 0{idx + 1}
                     {p.badge ? ` · ${p.badge}` : p.href ? "" : " · in progress"}
                   </p>
@@ -72,7 +72,7 @@ export const ProjectsSection = () => {
                 {p.stack.map((s) => (
                   <span
                     key={s}
-                    className="font-mono text-[10px] uppercase tracking-[0.15em] border border-bone-400 px-2 py-1 text-ink-soft"
+                    className="font-mono text-xs uppercase tracking-[0.15em] border border-bone-400 px-2 py-1 text-ink-soft"
                   >
                     {s}
                   </span>

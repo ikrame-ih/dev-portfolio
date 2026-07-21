@@ -115,7 +115,7 @@ export const ContactSection = () => {
         <Reveal className="md:col-span-5">
           <div className="flex items-center gap-3 mb-6">
             <Bow size={14} />
-            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft">
+            <span className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft">
               06 · contact
             </span>
           </div>
@@ -128,7 +128,7 @@ export const ContactSection = () => {
           </h2>
           <div className="mt-10 space-y-4 font-mono text-sm text-ink">
             <div>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-ink-mute">
+              <p className="text-xs uppercase tracking-[0.2em] text-ink-mute">
                 Email
               </p>
               <a
@@ -139,7 +139,7 @@ export const ContactSection = () => {
               </a>
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-ink-mute">
+              <p className="text-xs uppercase tracking-[0.2em] text-ink-mute">
                 Phone
               </p>
               <a href={`tel:${PROFILE.phone.replace(/\s/g, "")}`} className="lnk text-ink hover:text-burgundy">
@@ -147,13 +147,13 @@ export const ContactSection = () => {
               </a>
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-ink-mute">
+              <p className="text-xs uppercase tracking-[0.2em] text-ink-mute">
                 Location
               </p>
               <span>{PROFILE.location}</span>
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-ink-mute">
+              <p className="text-xs uppercase tracking-[0.2em] text-ink-mute">
                 Availability
               </p>
               <span>{PROFILE.workPreference}</span>
@@ -170,7 +170,7 @@ export const ContactSection = () => {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <label className="block field-line">
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-soft">
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
                 Name
               </span>
               <input
@@ -189,14 +189,14 @@ export const ContactSection = () => {
                 <span
                   id="contact-name-error"
                   role="alert"
-                  className="mt-1 block font-mono text-[10px] text-burgundy"
+                  className="mt-1 block font-mono text-xs text-burgundy"
                 >
                   {errors.name}
                 </span>
               )}
             </label>
             <label className="block field-line">
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-soft">
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
                 Email
               </span>
               <input
@@ -218,7 +218,7 @@ export const ContactSection = () => {
                 <span
                   id="contact-email-error"
                   role="alert"
-                  className="mt-1 block font-mono text-[10px] text-burgundy"
+                  className="mt-1 block font-mono text-xs text-burgundy"
                 >
                   {errors.email}
                 </span>
@@ -227,7 +227,7 @@ export const ContactSection = () => {
           </div>
 
           <label className="block field-line">
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-soft">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
               Message
             </span>
             <textarea
@@ -248,21 +248,18 @@ export const ContactSection = () => {
               <span
                 id="contact-message-error"
                 role="alert"
-                className="mt-1 block font-mono text-[10px] text-burgundy"
+                className="mt-1 block font-mono text-xs text-burgundy"
               >
                 {errors.message}
               </span>
             )}
           </label>
 
-          <div
-            className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden"
-            aria-hidden="true"
-          >
-            <label htmlFor="contact-website">Website</label>
+          <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
             <input
               id="contact-website"
               name="website"
+              type="text"
               tabIndex={-1}
               autoComplete="off"
               value={form.website}
@@ -271,7 +268,7 @@ export const ContactSection = () => {
           </div>
 
           <div className="flex items-center justify-between pt-4 gap-4">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute flex items-center gap-2">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-mute flex items-center gap-2">
               {sent ? (
                 <>
                   <TyingBow size={14} tie />

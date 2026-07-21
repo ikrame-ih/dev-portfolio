@@ -17,7 +17,7 @@ const SectionHeader = ({ overline, title, kicker }) => (
   <div className="mb-16">
     <div className="flex items-center gap-3 mb-6">
       <Bow size={14} />
-      <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft">
+      <span className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft">
         {overline}
       </span>
     </div>
@@ -35,12 +35,12 @@ const TrackBadge = ({ track }) => {
   const map = {
     tech: { label: "tech", cls: "border-burgundy text-burgundy" },
     hybrid: { label: "tech × biz", cls: "border-ink text-ink" },
-    biz: { label: "biz / ops", cls: "border-ink/40 text-ink-soft" },
+    biz: { label: "biz / ops", cls: "border-ink/50 text-ink" },
   };
   const m = map[track] || map.tech;
   return (
     <span
-      className={`inline-block font-mono text-[9px] uppercase tracking-[0.2em] border ${m.cls} px-2 py-0.5`}
+      className={`inline-block font-mono text-xs uppercase tracking-[0.2em] border ${m.cls} px-2 py-0.5`}
     >
       {m.label}
     </span>
@@ -63,14 +63,14 @@ const StackGroupColumn = ({
 }) => (
   <div className={`border-l pl-6 ${borderClass}`}>
     <p
-      className={`font-mono text-[10px] uppercase tracking-[0.28em] mb-5 ${titleClass}`}
+      className={`font-mono text-xs uppercase tracking-[0.28em] mb-5 ${titleClass}`}
     >
       {title}
     </p>
     <div className="space-y-5" data-testid={testId}>
       {groups.map((group) => (
         <div key={group.label}>
-          <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-ink-mute mb-2">
+          <p className="font-mono text-xs uppercase tracking-[0.22em] text-ink-mute mb-2">
             {group.label}
           </p>
           <ul className="flex flex-wrap gap-x-3 gap-y-2 font-mono text-sm text-ink">
@@ -131,7 +131,7 @@ export const CVSection = () => {
             delay={0.12}
             className="md:col-span-12 border-t border-bone-400 pt-8 md:pt-10"
           >
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft mb-4">
+            <p className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft mb-4">
               Tooling &amp; delivery
             </p>
             <ul
@@ -147,7 +147,7 @@ export const CVSection = () => {
             delay={0.15}
             className="md:col-span-12 border-t border-bone-400 pt-8 md:pt-10"
           >
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft mb-4">
+            <p className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft mb-4">
               Languages
             </p>
             <ul
@@ -160,7 +160,7 @@ export const CVSection = () => {
                   className="inline-flex items-center gap-2 border border-bone-400 px-3 py-1.5 hover:border-burgundy transition-colors"
                 >
                   <span className="text-ink">{l.lang}</span>
-                  <span className="text-[10px] uppercase tracking-[0.18em] text-ink-mute">
+                  <span className="text-xs uppercase tracking-[0.18em] text-ink-mute">
                     {l.detail ? `${l.level} · ${l.detail}` : l.level}
                   </span>
                 </li>
@@ -175,7 +175,7 @@ export const CVSection = () => {
             className="md:col-span-7"
             data-testid="experience-timeline"
           >
-            <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft mb-8">
+            <h3 className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft mb-8">
               Experience
             </h3>
             <ol className="relative">
@@ -222,7 +222,7 @@ export const CVSection = () => {
             data-testid="education-block"
           >
             <div className="border border-ink/15 bg-bone-200 p-6 md:p-8 h-full">
-              <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft mb-8">
+              <h3 className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft mb-8">
                 Education
               </h3>
               <ul className="space-y-8">
@@ -238,11 +238,11 @@ export const CVSection = () => {
                       {ed.school}
                     </p>
                     {ed.detail && (
-                      <p className="font-mono text-[10px] text-ink-mute mt-2 leading-relaxed">
+                      <p className="font-mono text-xs text-ink-mute mt-2 leading-relaxed">
                         {ed.detail}
                       </p>
                     )}
-                    <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-burgundy mt-2">
+                    <p className="font-mono text-xs uppercase tracking-[0.2em] text-burgundy mt-2">
                       {ed.period}
                     </p>
                   </motion.li>
@@ -250,7 +250,7 @@ export const CVSection = () => {
               </ul>
 
               <div className="mt-12 border border-ink/20 p-6 bg-bone">
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-burgundy mb-3">
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-burgundy mb-3">
                   {PROFILE.practiceAside.title}
                 </p>
                 <p className="font-mono text-sm text-ink leading-relaxed">

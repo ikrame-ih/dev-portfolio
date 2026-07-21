@@ -342,7 +342,7 @@ export const JardinCanvas = () => {
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-6">
               <TyingBow size={14} tie={false} />
-              <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft">
+              <span className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft">
                 {BOW_BOARD.overline}
               </span>
             </div>
@@ -379,7 +379,7 @@ export const JardinCanvas = () => {
                   : BOW_BOARD.countLabel}
               </span>
             </p>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-ink-mute mt-1">
+            <p className="text-xs uppercase tracking-[0.2em] text-ink-mute mt-1">
               {hasSigned
                 ? BOW_BOARD.marginHintSigned
                 : BOW_BOARD.marginHint}
@@ -393,7 +393,7 @@ export const JardinCanvas = () => {
               <div
                 role="status"
                 aria-live="polite"
-                className="absolute top-4 left-1/2 -translate-x-1/2 z-20 font-mono text-[10px] uppercase tracking-[0.18em] text-ink bg-bone border border-ink/20 px-3 py-1.5 max-w-[90%] text-center"
+                className="absolute top-4 left-1/2 -translate-x-1/2 z-20 font-mono text-xs uppercase tracking-[0.18em] text-ink bg-bone border border-ink/20 px-3 py-1.5 max-w-[90%] text-center"
               >
                 {HINTS.unavailable}
               </div>
@@ -413,7 +413,7 @@ export const JardinCanvas = () => {
               <div
                 role="status"
                 aria-live="polite"
-                className="absolute top-4 left-1/2 -translate-x-1/2 z-20 font-mono text-[10px] uppercase tracking-[0.18em] text-burgundy bg-bone border border-burgundy/30 px-3 py-1.5 max-w-[90%] text-center"
+                className="absolute top-4 left-1/2 -translate-x-1/2 z-20 font-mono text-xs uppercase tracking-[0.18em] text-burgundy bg-bone border border-burgundy/30 px-3 py-1.5 max-w-[90%] text-center"
               >
                 {HINTS[hint]}
               </div>
@@ -445,8 +445,11 @@ export const JardinCanvas = () => {
               >
                 <div className="guestbook-page-texture" aria-hidden="true" />
                 {showWatermarks && (
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none px-10 md:px-14 py-10">
-                    <p className="font-serif italic text-sm md:text-base text-ink/15 text-center max-w-[16rem] leading-relaxed select-none">
+                  <div
+                    className="absolute inset-0 flex items-center justify-center pointer-events-none px-10 md:px-14 py-10"
+                    aria-hidden="true"
+                  >
+                    <p className="font-serif italic text-sm md:text-base text-ink/25 text-center max-w-[16rem] leading-relaxed select-none">
                       {BOW_BOARD.leftWatermark}
                     </p>
                   </div>
@@ -483,8 +486,11 @@ export const JardinCanvas = () => {
               >
                 <div className="guestbook-page-texture" aria-hidden="true" />
                 {showWatermarks && (
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none px-10 md:px-14 py-10">
-                    <p className="font-serif italic text-sm md:text-base text-ink/15 text-center max-w-[16rem] leading-relaxed select-none">
+                  <div
+                    className="absolute inset-0 flex items-center justify-center pointer-events-none px-10 md:px-14 py-10"
+                    aria-hidden="true"
+                  >
+                    <p className="font-serif italic text-sm md:text-base text-ink/25 text-center max-w-[16rem] leading-relaxed select-none">
                       {BOW_BOARD.rightWatermark}
                     </p>
                   </div>
@@ -504,7 +510,7 @@ export const JardinCanvas = () => {
                 role="status"
                 className="absolute inset-x-0 top-[32%] md:top-[34%] flex justify-center pointer-events-none z-10"
               >
-                <p className="font-serif italic text-base md:text-lg text-ink-mute bg-bone/40 px-4 py-2">
+                <p className="font-serif italic text-base md:text-lg text-ink-soft bg-bone/70 px-4 py-2">
                   {BOW_BOARD.emptyState}
                 </p>
               </div>

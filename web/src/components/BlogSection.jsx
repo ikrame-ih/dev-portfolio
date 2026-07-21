@@ -21,7 +21,7 @@ export const BlogSection = () => {
           <Reveal className="md:col-span-5">
             <div className="flex items-center gap-3 mb-8">
               <Bow size={14} />
-              <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft">
+              <span className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft">
                 04 · {BLOG.name.toLowerCase()}
               </span>
             </div>
@@ -46,7 +46,7 @@ export const BlogSection = () => {
                   )}
                 </div>
                 {BLOG.avatarCredit && (
-                  <p className="font-mono text-[9px] text-ink-mute mt-1.5 max-w-[5.5rem] leading-snug">
+                  <p className="font-mono text-xs text-ink-mute mt-1.5 max-w-[5.5rem] leading-snug">
                     art by{" "}
                     <a
                       href={BLOG.avatarCredit.url}
@@ -69,7 +69,7 @@ export const BlogSection = () => {
                   <span className="text-burgundy">&apos;</span>
                   {vaultTitleParts[1] ?? "s vault"}
                 </h2>
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-mute mt-1">
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-mute mt-1">
                   personal · didactic
                 </p>
               </div>
@@ -92,7 +92,7 @@ export const BlogSection = () => {
                       className="block w-full text-left border-t border-ink/20 py-6"
                     >
                       <div className="flex items-baseline justify-between gap-4 mb-2">
-                        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-burgundy">
+                        <span className="font-mono text-xs uppercase tracking-[0.2em] text-burgundy">
                           {post.kind} · {post.date}
                         </span>
                         <span className="font-mono text-xs text-ink-mute">
@@ -140,7 +140,7 @@ export const BlogSection = () => {
                   className="block w-full text-left border-t border-ink/20 py-6"
                 >
                   <div className="flex items-baseline justify-between gap-4 mb-2">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-burgundy">
+                    <span className="font-mono text-xs uppercase tracking-[0.2em] text-burgundy">
                       {post.kind} · {post.date}
                     </span>
                   </div>
