@@ -7,8 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "capture:readme": "node scripts/capture-readme-shots.mjs",
-    "sync:resume": "node scripts/sync-react-resume.mjs"
+    "capture:readme": "node scripts/capture-readme-shots.mjs"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.0",

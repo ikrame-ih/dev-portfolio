@@ -1,7 +1,7 @@
 {
-  "$schema": "https://rxresu.me/schema.json",
+  "$schema": "https://raw.githubusercontent.com/amruthpillai/reactive-resume/main/packages/schema/schema.json",
   "picture": {
-    "hidden": false,
+    "hidden": true,
     "url": "https://ikrame-ih.vercel.app/images/profile-ikrame.png",
     "size": 80,
     "rotation": 0,
@@ -14,10 +14,10 @@
   },
   "basics": {
     "name": "Ikrame Ibn Hayoun",
-    "headline": "Software Developer · Frontend & Backend · Málaga, ES",
+    "headline": "Software Developer - Frontend and Backend - Malaga, Spain",
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
-    "location": "Málaga, ES",
+    "location": "Malaga, Spain",
     "website": {
       "url": "https://ikrame-ih.vercel.app",
       "label": "Portfolio"
@@ -26,15 +26,21 @@
   },
   "summary": {
     "title": "Summary",
+    "icon": "",
     "columns": 1,
     "hidden": false,
-    "content": "<p>Software developer based in Málaga, Spain, specializing in frontend development while actively building backend solutions.</p><p>Experienced with React, TypeScript, Python, PostgreSQL, REST APIs, automated testing, and CI/CD.</p><p>DAW graduate (Jun 2026); capstone project MyPlaythrough awarded maximum grade.</p><p>AI and Big Data postgraduate programme starting Sep 2026.</p><p>Open to remote or hybrid software developer roles.</p>"
+    "keepTogether": false,
+    "startOnNewPage": false,
+    "content": "<p>Software developer based in Malaga, comfortable across frontend and backend: interfaces and component systems, APIs, authentication, and databases.</p><p>DAW graduate (Jun 2026). Capstone project MyPlaythrough awarded maximum grade. AI and Big Data Specialisation Course starting Sep 2026.</p><p>Open to remote or hybrid software developer roles.</p>"
   },
   "sections": {
     "profiles": {
       "title": "Profiles",
+      "icon": "",
       "columns": 1,
       "hidden": false,
+      "keepTogether": false,
+      "startOnNewPage": false,
       "items": [
         {
           "id": "a1000001-0001-4000-8000-000000000001",
@@ -66,8 +72,11 @@
     },
     "experience": {
       "title": "Experience",
+      "icon": "",
       "columns": 1,
       "hidden": false,
+      "keepTogether": false,
+      "startOnNewPage": false,
       "items": [
         {
           "id": "b2000001-0001-4000-8000-000000000001",
@@ -76,12 +85,8 @@
           "position": "Software Developer Intern",
           "location": "Málaga, Spain",
           "period": "Mar 2026 - Jun 2026",
-          "website": {
-            "url": "",
-            "label": "",
-            "inlineLink": false
-          },
-          "description": "<p>Frontend-focused internship building client websites with reusable components and accessible markup.</p><ul><li>Developed responsive client websites with reusable React components and semantic HTML.</li><li>Implemented accessible UI patterns and responsive layouts from project start.</li><li>Collaborated on component-based architecture for maintainable frontends.</li></ul>",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": "<p>Internship spanning frontend, backend, and databases on client web projects.</p><ul><li>Built responsive UIs with reusable React components, semantic HTML, and accessibility in mind.</li><li>Worked on backend features and API integration alongside the frontend.</li><li>Used databases in day-to-day delivery: querying, structuring, and connecting data to the application.</li></ul>",
           "roles": []
         },
         {
@@ -91,11 +96,7 @@
           "position": "Executive Assistant",
           "location": "Málaga, Spain",
           "period": "Feb 2025 - Mar 2026",
-          "website": {
-            "url": "",
-            "label": "",
-            "inlineLink": false
-          },
+          "website": { "url": "", "label": "", "inlineLink": false },
           "description": "<p>Executive support and internal tooling in a global professional services environment.</p><ul><li>Coordinated executive visits including logistics, agendas, materials, and stakeholder updates.</li><li>Built internal Power Apps to streamline event coordination workflows.</li><li>Managed travel, expense reports (Concur), Outlook, Teams, and SharePoint.</li></ul>",
           "roles": []
         },
@@ -106,11 +107,7 @@
           "position": "Brand Ambassador",
           "location": "Málaga, Spain",
           "period": "Feb 2026",
-          "website": {
-            "url": "",
-            "label": "",
-            "inlineLink": false
-          },
+          "website": { "url": "", "label": "", "inlineLink": false },
           "description": "<p>Short-term brand activation role in high-traffic retail environments.</p><ul><li>Delivered product tastings and presentations in busy retail settings.</li><li>Managed booth logistics and end-of-day inventory updates.</li></ul>",
           "roles": []
         },
@@ -121,11 +118,7 @@
           "position": "Accounting and Operations Administrator",
           "location": "Remote, Spain",
           "period": "Nov 2024 - Dec 2024",
-          "website": {
-            "url": "",
-            "label": "",
-            "inlineLink": false
-          },
+          "website": { "url": "", "label": "", "inlineLink": false },
           "description": "<p>Operations and reporting support for a fundraising organisation.</p><ul><li>Prepared donor reports and follow-up using Google Drive and Outlook.</li><li>Managed HR tasks in Factorial and tracked travel and expense costs.</li><li>Maintained team coordination in Asana, Notion, and Slack; built reporting views in Looker.</li></ul>",
           "roles": []
         },
@@ -136,11 +129,7 @@
           "position": "Administrative Assistant",
           "location": "Málaga, Spain",
           "period": "Mar 2024 - Oct 2024",
-          "website": {
-            "url": "",
-            "label": "",
-            "inlineLink": false
-          },
+          "website": { "url": "", "label": "", "inlineLink": false },
           "description": "<p>Accounting and import documentation support for a cosmetics importer.</p><ul><li>Reconciled bank accounts and posted invoices, including import purchases.</li><li>Tracked vehicle and import costs in Excel and managed incoming documentation.</li></ul>",
           "roles": []
         }
@@ -148,63 +137,57 @@
     },
     "education": {
       "title": "Education",
+      "icon": "",
       "columns": 1,
       "hidden": false,
+      "keepTogether": false,
+      "startOnNewPage": false,
       "items": [
         {
           "id": "c3000001-0001-4000-8000-000000000001",
           "hidden": false,
-          "school": "Postgraduate Programme (ESP)",
-          "degree": "Postgraduate Programme",
+          "school": "IES Zaidin Vergeles",
+          "degree": "Specialisation Course",
           "area": "Artificial Intelligence and Big Data",
-          "grade": "",
+          "grade": "EQF Level 5",
           "location": "",
-          "period": "Sep 2026 -",
-          "website": {
-            "url": "",
-            "label": "",
-            "inlineLink": false
-          },
-          "description": "AI and Big Data postgraduate programme."
+          "period": "Starting Sep 2026",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": "Spanish Curso de Especializacion after Higher Vocational Diploma."
         },
         {
           "id": "c3000001-0001-4000-8000-000000000002",
           "hidden": false,
-          "school": "CESUR Este, Málaga",
-          "degree": "Higher Diploma (DAW)",
+          "school": "CESUR Este, Malaga",
+          "degree": "Higher Vocational Diploma (DAW)",
           "area": "Web Application Development",
-          "grade": "Final project: maximum grade",
-          "location": "Málaga, ES",
+          "grade": "Final project: maximum grade. EQF Level 5 (HND-equivalent)",
+          "location": "Malaga, Spain",
           "period": "Sep 2024 - Jun 2026",
-          "website": {
-            "url": "",
-            "label": "",
-            "inlineLink": false
-          },
-          "description": "Capstone: MyPlaythrough — full-stack PERN application"
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": "Capstone: MyPlaythrough - web application with React frontend and Node.js/Express API on PostgreSQL."
         },
         {
           "id": "c3000001-0001-4000-8000-000000000003",
           "hidden": false,
-          "school": "I.E.S. Politécnico Jesús Marín",
-          "degree": "Vocational Diploma",
+          "school": "I.E.S. Politecnico Jesus Marin",
+          "degree": "Intermediate Vocational Diploma",
           "area": "Administrative Management",
-          "grade": "Honours",
-          "location": "",
+          "grade": "Honours. EQF Level 4",
+          "location": "Malaga, Spain",
           "period": "Sep 2022 - Jun 2024",
-          "website": {
-            "url": "",
-            "label": "",
-            "inlineLink": false
-          },
+          "website": { "url": "", "label": "", "inlineLink": false },
           "description": ""
         }
       ]
     },
     "projects": {
       "title": "Projects",
+      "icon": "",
       "columns": 1,
       "hidden": false,
+      "keepTogether": false,
+      "startOnNewPage": false,
       "items": [
         {
           "id": "d4000001-0001-4000-8000-000000000001",
@@ -216,58 +199,68 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>DAW capstone project awarded maximum grade. Full-stack game library manager with backlog tracking, community features, recommendations, discussions, and admin moderation.</p><ul><li>Built with React, Vite, Node.js, Express, PostgreSQL, JWT, and Docker Compose.</li><li>Added Vitest unit tests and GitHub Actions CI for reliable releases.</li><li>Live demo: https://ikrame-ih.github.io/my-playthrough/</li></ul>"
+          "description": "<p>DAW capstone awarded maximum grade. Personal game library manager with backlog tracking, community features, recommendations, discussions, and admin moderation.</p><ul><li>Built with React, Vite, Node.js, Express, PostgreSQL, JWT, and Docker Compose.</li><li>Added Vitest unit tests and CI for reliable releases.</li><li>Live demo: https://my-playthrough.vercel.app/</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000002",
           "hidden": false,
           "name": "Live Event Radar",
-          "period": "Jun 2025 -",
+          "period": "Jun 2025 - Present",
           "website": {
             "url": "https://github.com/ikrame-ih/live-event-radar",
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>Real-time venue operations dashboard for brand activations with synchronized command center and telemetry map views.</p><ul><li>Developed with Next.js, React, TypeScript, Zustand, and Leaflet.</li><li>Implemented feature-sliced architecture, 24 Vitest tests, Playwright smoke tests, and GitHub Actions CI.</li><li>Live demo: https://live-event-radar.vercel.app</li></ul>"
+          "description": "<p>Real-time venue operations dashboard for brand activations with synchronized command center and telemetry map views.</p><ul><li>Developed with Next.js, React, TypeScript, Zustand, and Leaflet.</li><li>Feature-sliced architecture, Vitest tests, Playwright smoke tests, and GitHub Actions CI.</li><li>Live demo: https://live-event-radar.vercel.app</li></ul>"
+        },
+        {
+          "id": "d4000001-0001-4000-8000-000000000004",
+          "hidden": false,
+          "name": "Aiba",
+          "period": "Jun 2026 - Present",
+          "website": {
+            "url": "https://github.com/ikrame-ih/aiba-widget",
+            "label": "GitHub",
+            "inlineLink": true
+          },
+          "description": "<p>Local-first Windows productivity companion for planning, focus sessions, and wrap-up, with session history and offline help. No account, no cloud.</p><ul><li>Built with Electron, React 19, TypeScript, and Vite.</li><li>Compact timer plus expanded studio shell, focus guard, and preferences.</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000003",
           "hidden": false,
           "name": "ReconFlow",
-          "period": " -",
-          "website": {
-            "url": "",
-            "label": "",
-            "inlineLink": false
-          },
-          "description": "<p>Headless reconciliation pipeline for bank CSVs and invoice data with REST API and CLI interfaces.</p><ul><li>Designed ingest, transform, and match stages with Python, FastAPI, dbt, and PostgreSQL.</li><li>Outputs reconciliation mart and exceptions queue for finance operations review.</li><li>Orchestration with Dagster (in progress).</li></ul>"
+          "period": "Jun 2026 - Present",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": "<p>Headless reconciliation pipeline for bank CSVs and invoice data (in progress).</p><ul><li>Ingest, transform, and match stages with Python, FastAPI, dbt, and PostgreSQL.</li><li>Outputs a reconciliation mart and exceptions queue.</li><li>Orchestration with Dagster (in progress).</li></ul>"
         }
       ]
     },
     "skills": {
       "title": "Skills",
+      "icon": "",
       "columns": 1,
       "hidden": false,
+      "keepTogether": false,
+      "startOnNewPage": false,
       "items": [
         {
           "id": "e5000001-0001-4000-8000-000000000001",
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "Frontend Development",
-          "proficiency": "Advanced",
+          "name": "Frontend",
+          "proficiency": "",
           "level": 0,
           "keywords": [
             "React",
             "Next.js",
             "TypeScript",
-            "JavaScript",
             "Vite",
             "Tailwind CSS",
             "Framer Motion",
             "Zustand",
+            "Leaflet",
             "Semantic HTML",
-            "Responsive Design",
             "Accessibility"
           ]
         },
@@ -276,18 +269,20 @@
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "Backend Development",
-          "proficiency": "Intermediate",
+          "name": "Backend and data",
+          "proficiency": "",
           "level": 0,
           "keywords": [
-            "Python",
-            "FastAPI",
             "Node.js",
             "Express",
+            "Python",
+            "FastAPI",
             "PostgreSQL",
             "SQL",
             "REST APIs",
-            "JWT"
+            "JWT",
+            "dbt",
+            "Dagster"
           ]
         },
         {
@@ -295,8 +290,8 @@
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "Testing and DevOps",
-          "proficiency": "Intermediate",
+          "name": "Tooling and delivery",
+          "proficiency": "",
           "level": 0,
           "keywords": [
             "Git",
@@ -304,17 +299,19 @@
             "Vitest",
             "Playwright",
             "Docker",
-            "CI/CD",
-            "dbt",
-            "Dagster"
+            "Vercel",
+            "Electron"
           ]
         }
       ]
     },
     "languages": {
       "title": "Languages",
+      "icon": "",
       "columns": 1,
       "hidden": false,
+      "keepTogether": false,
+      "startOnNewPage": false,
       "items": [
         {
           "id": "f6000001-0001-4000-8000-000000000001",
@@ -341,99 +338,73 @@
     },
     "interests": {
       "title": "Interests",
+      "icon": "",
       "columns": 1,
       "hidden": true,
+      "keepTogether": false,
+      "startOnNewPage": false,
       "items": []
     },
     "awards": {
       "title": "Awards",
+      "icon": "",
       "columns": 1,
       "hidden": true,
+      "keepTogether": false,
+      "startOnNewPage": false,
       "items": []
     },
     "certifications": {
       "title": "Certifications",
+      "icon": "",
       "columns": 1,
       "hidden": true,
+      "keepTogether": false,
+      "startOnNewPage": false,
       "items": []
     },
     "publications": {
       "title": "Publications",
+      "icon": "",
       "columns": 1,
       "hidden": true,
+      "keepTogether": false,
+      "startOnNewPage": false,
       "items": []
     },
     "volunteer": {
       "title": "Volunteering",
+      "icon": "",
       "columns": 1,
       "hidden": true,
+      "keepTogether": false,
+      "startOnNewPage": false,
       "items": []
     },
     "references": {
       "title": "References",
+      "icon": "",
       "columns": 1,
       "hidden": true,
+      "keepTogether": false,
+      "startOnNewPage": false,
       "items": []
     }
   },
   "customSections": [
     {
-      "id": "g7000001-0001-4000-8000-000000000001",
-      "title": "Core Technologies",
-      "columns": 1,
-      "hidden": false,
-      "type": "skills",
-      "items": [
-        {
-          "id": "g7000001-0001-4000-8000-000000000002",
-          "hidden": false,
-          "icon": "",
-          "iconColor": "",
-          "name": "Technologies",
-          "proficiency": "",
-          "level": 0,
-          "keywords": [
-            "React",
-            "Next.js",
-            "TypeScript",
-            "JavaScript",
-            "Vite",
-            "Tailwind CSS",
-            "Framer Motion",
-            "Zustand",
-            "Semantic HTML",
-            "Responsive Design",
-            "Accessibility",
-            "Python",
-            "FastAPI",
-            "Node.js",
-            "Express",
-            "PostgreSQL",
-            "SQL",
-            "REST APIs",
-            "JWT",
-            "Git",
-            "GitHub Actions",
-            "Vitest",
-            "Playwright",
-            "Docker",
-            "CI/CD",
-            "dbt",
-            "Dagster"
-          ]
-        }
-      ]
-    },
-    {
       "id": "h8000001-0001-4000-8000-000000000001",
       "title": "Development Practices",
+      "icon": "",
       "columns": 1,
-      "hidden": false,
+      "hidden": true,
+      "keepTogether": false,
+      "startOnNewPage": false,
       "type": "skills",
       "items": [
         {
           "id": "h8000001-0001-4000-8000-000000000002",
-          "hidden": false,
+          "hidden": true,
           "icon": "",
           "iconColor": "",
           "name": "How I build",
@@ -458,34 +429,33 @@
   "metadata": {
     "template": "onyx",
     "layout": {
-      "sidebarWidth": 35,
+      "sidebarWidth": 30,
       "pages": [
         {
-          "fullWidth": false,
+          "fullWidth": true,
           "main": [
             "summary",
-            "g7000001-0001-4000-8000-000000000001",
-            "h8000001-0001-4000-8000-000000000001",
+            "skills",
             "experience",
             "projects",
-            "education"
+            "education",
+            "languages",
+            "profiles"
           ],
-          "sidebar": [
-            "profiles",
-            "skills",
-            "languages"
-          ]
+          "sidebar": []
         }
       ]
     },
     "page": {
       "gapX": 4,
-      "gapY": 6,
+      "gapY": 7,
       "marginX": 18,
       "marginY": 18,
       "format": "a4",
       "locale": "en-US",
-      "hideIcons": false
+      "hideLinkUnderline": true,
+      "hideIcons": true,
+      "hideSectionIcons": true
     },
     "design": {
       "level": {
@@ -495,28 +465,24 @@
       "colors": {
         "primary": "rgba(74, 14, 14, 1)",
         "text": "rgba(26, 26, 26, 1)",
-        "background": "rgba(245, 241, 235, 1)"
+        "background": "rgba(255, 255, 255, 1)"
       }
     },
     "typography": {
       "body": {
         "fontFamily": "IBM Plex Sans",
-        "fontWeights": [
-          "400",
-          "500"
-        ],
-        "fontSize": 11,
+        "fontWeights": ["400", "500"],
+        "fontSize": 10.5,
         "lineHeight": 1.5
       },
       "heading": {
-        "fontFamily": "IBM Plex Serif",
-        "fontWeights": [
-          "600"
-        ],
-        "fontSize": 14,
-        "lineHeight": 1.5
+        "fontFamily": "IBM Plex Sans",
+        "fontWeights": ["600"],
+        "fontSize": 12.5,
+        "lineHeight": 1.3
       }
     },
-    "notes": ""
+    "notes": "Single-column ATS-oriented layout. Photo hidden. Custom practices section hidden (keywords live under Skills).",
+    "styleRules": []
   }
 }
