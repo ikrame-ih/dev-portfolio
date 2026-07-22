@@ -18,7 +18,10 @@ export function useFocusTrap(active, containerRef, onClose) {
 
     const focusFirst = () => {
       const focusable = getFocusable(el);
-      focusable[0]?.focus();
+      const field = focusable.find(
+        (node) => node.tagName === "INPUT" || node.tagName === "TEXTAREA",
+      );
+      (field || focusable[0])?.focus();
     };
 
     requestAnimationFrame(focusFirst);
@@ -30,6 +33,15 @@ export function useFocusTrap(active, containerRef, onClose) {
         return;
       }
       if (e.key !== "Tab") return;
+
+      // Forward-Tab in fields is reserved (e.g. CLI autocomplete) — don't steal focus.
+      const tag = e.target?.tagName;
+      if (
+        !e.shiftKey &&
+        (tag === "INPUT" || tag === "TEXTAREA")
+      ) {
+        return;
+      }
 
       const focusable = getFocusable(el);
       if (!focusable.length) {

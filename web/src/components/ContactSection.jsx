@@ -1,9 +1,15 @@
 import { useRef, useState } from "react";
+import {
+  motion,
+  AnimatePresence,
+  useReducedMotion,
+} from "framer-motion";
 import { toast } from "sonner";
-import { Bow } from "./Bow";
 import { TyingBow } from "./TyingBow";
 import Reveal from "./Reveal";
+import SectionOverline from "./SectionOverline";
 import { PROFILE } from "@/data/portfolio";
+import { CTA_SPRING, MOTION_DURATION, MOTION_EASE } from "@/lib/motion";
 
 const MAX_NAME = 100;
 const MAX_EMAIL = 254;
@@ -20,6 +26,7 @@ export const ContactSection = () => {
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
   const formStartedAt = useRef(Date.now());
+  const reduce = useReducedMotion();
 
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -113,12 +120,7 @@ export const ContactSection = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12">
         <Reveal className="md:col-span-5">
-          <div className="flex items-center gap-3 mb-6">
-            <Bow size={14} />
-            <span className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft">
-              06 · contact
-            </span>
-          </div>
+          <SectionOverline>06 · contact</SectionOverline>
           <h2 className="font-serif font-light text-3xl md:text-5xl tracking-tighter text-ink">
             Get in touch.
             <br />
@@ -142,7 +144,10 @@ export const ContactSection = () => {
               <p className="text-xs uppercase tracking-[0.2em] text-ink-mute">
                 Phone
               </p>
-              <a href={`tel:${PROFILE.phone.replace(/\s/g, "")}`} className="lnk text-ink hover:text-burgundy">
+              <a
+                href={`tel:${PROFILE.phone.replace(/\s/g, "")}`}
+                className="lnk text-ink hover:text-burgundy"
+              >
                 {PROFILE.phone}
               </a>
             </div>
@@ -255,7 +260,10 @@ export const ContactSection = () => {
             )}
           </label>
 
-          <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+          <div
+            className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden"
+            aria-hidden="true"
+          >
             <input
               id="contact-website"
               name="website"
@@ -268,24 +276,52 @@ export const ContactSection = () => {
           </div>
 
           <div className="flex items-center justify-between pt-4 gap-4">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-mute flex items-center gap-2">
-              {sent ? (
-                <>
-                  <TyingBow size={14} tie />
-                  <span>sent · thank you</span>
-                </>
-              ) : (
-                "I'll reply as soon as I can."
-              )}
-            </p>
-            <button
+            <div className="relative min-h-[1.25rem] font-mono text-xs uppercase tracking-[0.2em] text-ink-mute">
+              <AnimatePresence mode="wait" initial={false}>
+                {sent ? (
+                  <motion.p
+                    key="sent"
+                    initial={reduce ? false : { opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={reduce ? undefined : { opacity: 0, y: -4 }}
+                    transition={{
+                      duration: MOTION_DURATION.fast,
+                      ease: MOTION_EASE,
+                    }}
+                    className="flex items-center gap-2"
+                  >
+                    <TyingBow size={14} tie />
+                    <span>sent · thank you</span>
+                  </motion.p>
+                ) : (
+                  <motion.p
+                    key="idle"
+                    initial={reduce ? false : { opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={reduce ? undefined : { opacity: 0, y: -4 }}
+                    transition={{
+                      duration: MOTION_DURATION.fast,
+                      ease: MOTION_EASE,
+                    }}
+                  >
+                    I&apos;ll reply as soon as I can.
+                  </motion.p>
+                )}
+              </AnimatePresence>
+            </div>
+            <motion.button
               type="submit"
               data-testid="contact-submit"
               disabled={submitting}
               className="btn-tactile font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-6 py-3 hover:bg-ink transition-colors disabled:opacity-50"
+              whileHover={
+                reduce || submitting ? undefined : { y: -2, scale: 1.02 }
+              }
+              whileTap={reduce || submitting ? undefined : { scale: 0.98 }}
+              transition={CTA_SPRING}
             >
               {submitting ? "Sending…" : "Send →"}
-            </button>
+            </motion.button>
           </div>
         </Reveal>
       </div>

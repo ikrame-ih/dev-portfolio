@@ -342,6 +342,14 @@ export const JardinCanvas = () => {
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-6">
               <TyingBow size={14} tie={false} />
+              <motion.span
+                aria-hidden="true"
+                className="hairline w-10 md:w-14 origin-left"
+                initial={reduce ? false : { scaleX: 0 }}
+                whileInView={reduce ? undefined : { scaleX: 1 }}
+                viewport={{ once: true, margin: "-48px 0px" }}
+                transition={{ duration: 0.7, ease: MOTION_EASE, delay: 0.05 }}
+              />
               <span className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft">
                 {BOW_BOARD.overline}
               </span>
@@ -505,16 +513,29 @@ export const JardinCanvas = () => {
               </div>
             </div>
 
-            {bows.length === 0 && loaded && (
-              <div
-                role="status"
-                className="absolute inset-x-0 top-[32%] md:top-[34%] flex justify-center pointer-events-none z-10"
-              >
-                <p className="font-serif italic text-base md:text-lg text-ink-soft bg-bone/70 px-4 py-2">
-                  {BOW_BOARD.emptyState}
-                </p>
-              </div>
-            )}
+            <AnimatePresence>
+              {bows.length === 0 && loaded && (
+                <motion.div
+                  key="guestbook-empty"
+                  role="status"
+                  className="absolute inset-x-0 top-[32%] md:top-[34%] flex justify-center pointer-events-none z-10"
+                  initial={reduce ? false : { opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={
+                    reduce
+                      ? { opacity: 0 }
+                      : {
+                          opacity: 0,
+                          transition: { duration: 0.45, ease: MOTION_EASE },
+                        }
+                  }
+                >
+                  <p className="font-serif italic text-base md:text-lg text-ink-soft bg-bone/70 px-4 py-2">
+                    {BOW_BOARD.emptyState}
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </Reveal>
       </div>

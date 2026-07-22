@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Bow } from "./Bow";
 import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
+import SectionOverline from "./SectionOverline";
 import {
   EXPERIENCE,
   EDUCATION,
@@ -11,17 +12,12 @@ import {
 } from "@/data/portfolio";
 import { StackIcon } from "@/data/stackIcons";
 import { ASSETS } from "@/data/assets";
-import { scrollEnter } from "@/lib/motion";
+import { CTA_SPRING, MOTION_EASE, scrollEnter } from "@/lib/motion";
 
 // Shared header pattern used across CV subsections.
 const SectionHeader = ({ overline, title, kicker }) => (
   <div className="mb-16">
-    <div className="flex items-center gap-3 mb-6">
-      <Bow size={14} />
-      <span className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft">
-        {overline}
-      </span>
-    </div>
+    <SectionOverline>{overline}</SectionOverline>
     <h2 className="font-serif font-light text-3xl md:text-5xl tracking-tighter text-ink max-w-3xl">
       {title}
     </h2>
@@ -97,66 +93,93 @@ const DomainGlyph = ({ id, className = "w-5 h-5 text-burgundy" }) => {
   );
 };
 
-const BrandMark = ({ name }) => (
-  <li className="stack-mark flex flex-col items-center gap-2.5 text-center min-w-0">
-    <StackIcon name={name} className="w-7 h-7 shrink-0 text-burgundy" />
-    <span className="font-mono text-[11px] leading-tight tracking-[0.06em] text-ink">
+const BrandMark = ({ name, index = 0, reduce }) => (
+  <motion.li
+    className="stack-mark flex flex-col items-center gap-3 text-center min-w-0"
+    initial={reduce ? false : { opacity: 0, y: 10 }}
+    whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+    viewport={REVEAL_VIEWPORT}
+    transition={revealTransition(Math.min(index * 0.04, 0.35))}
+    whileHover={reduce ? undefined : { y: -4 }}
+  >
+    <motion.span
+      className="inline-flex"
+      whileHover={reduce ? undefined : { scale: 1.08 }}
+      transition={{ duration: 0.28, ease: [0.2, 0.7, 0.2, 1] }}
+    >
+      <StackIcon
+        name={name}
+        className="w-9 h-9 md:w-10 md:h-10 shrink-0 text-burgundy"
+      />
+    </motion.span>
+    <span className="font-mono text-sm leading-snug tracking-[0.04em] text-ink">
       {name}
     </span>
-  </li>
+  </motion.li>
 );
 
-const BrandGrid = ({ items, cols = "grid-cols-3", testId }) => (
-  <ul className={`grid ${cols} gap-x-3 gap-y-6`} data-testid={testId}>
-    {items.map((s) => (
-      <BrandMark key={s} name={s} />
+const BrandGrid = ({ items, cols = "grid-cols-3", testId, reduce }) => (
+  <ul className={`grid ${cols} gap-x-4 gap-y-7 md:gap-y-8`} data-testid={testId}>
+    {items.map((s, i) => (
+      <BrandMark key={s} name={s} index={i} reduce={reduce} />
     ))}
   </ul>
 );
 
-const DomainPanel = ({ domain, children, testId }) => (
-  <div data-testid={testId} className="relative min-h-[260px]">
-    <span
-      aria-hidden="true"
-      className="pointer-events-none absolute -top-2 right-0 font-serif font-light text-[5.5rem] md:text-[7rem] leading-none text-ink/[0.05] select-none"
-    >
-      {domain.index}
-    </span>
+const DomainPanel = ({ domain, children, testId }) => {
+  const reduce = useReducedMotion();
 
-    {/* Open catalog — top rule only, no filled card (unlike projects / bento). */}
-    <div className="relative border-t border-ink/25 pt-5 md:pt-6">
-      <div className="flex items-start gap-3 mb-1">
-        <DomainGlyph
-          id={domain.id}
-          className="w-5 h-5 mt-1.5 shrink-0 text-burgundy"
-        />
-        <div className="min-w-0 flex-1">
-          <div className="flex items-baseline justify-between gap-3">
-            <h3 className="font-serif text-2xl md:text-3xl tracking-tight text-ink">
-              {domain.title}
-            </h3>
-            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-burgundy shrink-0">
-              {domain.index}
-            </span>
+  return (
+    <div data-testid={testId} className="relative min-h-[260px]">
+      <motion.span
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-2 right-0 font-serif font-light text-[5.5rem] md:text-[7rem] leading-none text-ink/[0.05] select-none"
+        initial={reduce ? false : { opacity: 0, x: 12 }}
+        whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
+        viewport={REVEAL_VIEWPORT}
+        transition={revealTransition(0.08)}
+      >
+        {domain.index}
+      </motion.span>
+
+      {/* Open catalog — top rule only, no filled card (unlike projects / bento). */}
+      <div className="relative border-t border-ink/25 pt-5 md:pt-6">
+        <div className="flex items-start gap-3 mb-1">
+          <DomainGlyph
+            id={domain.id}
+            className="w-6 h-6 mt-1.5 shrink-0 text-burgundy"
+          />
+          <div className="min-w-0 flex-1">
+            <div className="flex items-baseline justify-between gap-3">
+              <h3 className="font-serif text-2xl md:text-3xl tracking-tight text-ink">
+                {domain.title}
+              </h3>
+              <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-burgundy shrink-0">
+                {domain.index}
+              </span>
+            </div>
+            <p className="mt-1.5 font-mono text-xs leading-relaxed text-ink-mute max-w-sm">
+              {domain.kicker}
+            </p>
           </div>
-          <p className="mt-1.5 font-mono text-[11px] leading-relaxed text-ink-mute max-w-sm">
-            {domain.kicker}
-          </p>
         </div>
-      </div>
 
-      <div className="mt-5 mb-6 flex items-center gap-3" aria-hidden="true">
-        <span className="h-px flex-1 bg-bone-400" />
-        <span className="h-1 w-1 rotate-45 bg-burgundy/50" />
-        <span className="h-px w-8 bg-bone-400" />
-      </div>
+        <div className="mt-5 mb-6 flex items-center gap-3" aria-hidden="true">
+          <span className="h-px flex-1 bg-bone-400" />
+          <span className="h-1 w-1 rotate-45 bg-burgundy/50" />
+          <span className="h-px w-8 bg-bone-400" />
+        </div>
 
-      {children}
+        {children}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
-const SkillsBlock = () => (
+const SkillsBlock = () => {
+  const reduce = useReducedMotion();
+
+  return (
   <div className="mb-24">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-x-14 md:gap-y-16">
       {STACK.domains.map((domain, idx) => (
@@ -165,11 +188,12 @@ const SkillsBlock = () => (
             <div className="space-y-7">
               {domain.groups.map((group) => (
                 <div key={group.label}>
-                  <p className="font-mono text-xs uppercase tracking-[0.22em] text-ink-mute mb-4">
+                  <p className="font-mono text-xs uppercase tracking-[0.22em] text-ink-mute mb-5">
                     {group.label}
                   </p>
                   <BrandGrid
                     items={group.items}
+                    reduce={reduce}
                     cols={
                       domain.id === "tooling"
                         ? "grid-cols-3 sm:grid-cols-3"
@@ -199,7 +223,7 @@ const SkillsBlock = () => (
                 key={l.code}
                 className="flex flex-wrap items-baseline justify-between gap-2 border-t border-bone-400 pt-4 first:border-0 first:pt-0"
               >
-                <span className="font-serif text-xl md:text-2xl text-ink tracking-tight">
+                <span className="font-serif text-2xl md:text-[1.75rem] text-ink tracking-tight">
                   {l.lang}
                 </span>
                 <span className="font-mono text-xs uppercase tracking-[0.18em] text-ink-mute">
@@ -216,7 +240,8 @@ const SkillsBlock = () => (
       4 domains · {STACK_SKILL_COUNT} skills catalogued
     </p>
   </div>
-);
+  );
+};
 
 export const CVSection = () => {
   const reduce = useReducedMotion();
@@ -226,7 +251,7 @@ export const CVSection = () => {
       id="cv"
       tabIndex={-1}
       data-testid="cv-section"
-      className="relative py-24 md:py-32 outline-none"
+      className="relative pt-16 md:pt-20 pb-24 md:pb-32 outline-none"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <Reveal>
@@ -253,22 +278,30 @@ export const CVSection = () => {
             <h3 className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft mb-8">
               Experience
             </h3>
-            <ol className="relative">
+            <ol className="relative pl-10">
+              <motion.span
+                aria-hidden="true"
+                className="absolute left-0 top-1.5 bottom-3 w-px origin-top bg-bone-400"
+                initial={reduce ? false : { scaleY: 0 }}
+                whileInView={reduce ? undefined : { scaleY: 1 }}
+                viewport={REVEAL_VIEWPORT}
+                transition={{ duration: 1.05, ease: MOTION_EASE, delay: 0.08 }}
+              />
               {EXPERIENCE.map((exp, idx) => (
                 <motion.li
                   key={`${exp.company}-${exp.period}`}
                   {...scrollEnter(reduce, idx * 0.08)}
                   viewport={REVEAL_VIEWPORT}
-                  className="relative pl-10 pb-12 border-l border-bone-400 last:border-transparent"
+                  className="relative pb-12 last:pb-0"
                 >
                   <motion.div
-                    className="absolute -left-[9px] top-1.5"
+                    className="absolute -left-10 top-1.5 -translate-x-1/2"
                     initial={reduce ? false : { opacity: 0, scale: 0.92 }}
                     whileInView={
                       reduce ? undefined : { opacity: 1, scale: 1 }
                     }
                     viewport={REVEAL_VIEWPORT}
-                    transition={revealTransition(idx * 0.08 + 0.05)}
+                    transition={revealTransition(idx * 0.08 + 0.12)}
                   >
                     <Bow size={18} />
                   </motion.div>
@@ -296,19 +329,21 @@ export const CVSection = () => {
             className="md:col-span-5"
             data-testid="education-block"
           >
-            <div className="border border-ink/15 bg-bone-200 p-6 md:p-8 h-full">
+            <div className="h-full border-t border-ink/25 pt-5 md:pt-6">
               <h3 className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft mb-8">
                 Education
               </h3>
-              <ul className="space-y-8">
+              <ul className="space-y-0">
                 {EDUCATION.map((ed, idx) => (
                   <motion.li
                     key={`${ed.school}-${ed.degree}`}
-                    {...scrollEnter(reduce, idx * 0.06)}
+                    {...scrollEnter(reduce, idx * 0.07)}
                     viewport={REVEAL_VIEWPORT}
-                    className="border-t border-ink/15 pt-4"
+                    className="border-t border-bone-400 py-5 first:border-0 first:pt-0"
                   >
-                    <h4 className="font-serif text-lg text-ink">{ed.degree}</h4>
+                    <h4 className="font-serif text-lg md:text-xl text-ink tracking-tight">
+                      {ed.degree}
+                    </h4>
                     <p className="font-mono text-xs text-ink-soft mt-1">
                       {ed.school}
                     </p>
@@ -324,7 +359,7 @@ export const CVSection = () => {
                 ))}
               </ul>
 
-              <div className="mt-12 border border-ink/20 p-6 bg-bone">
+              <div className="mt-10 border-t border-ink/20 pt-6">
                 <p className="font-mono text-xs uppercase tracking-[0.2em] text-burgundy mb-3">
                   {PROFILE.practiceAside.title}
                 </p>
@@ -333,19 +368,22 @@ export const CVSection = () => {
                 </p>
               </div>
 
-              <a
+              <motion.a
                 href={ASSETS.cvPdf}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="cv-download-link"
-                className="mt-10 inline-block font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-6 py-3 hover:bg-ink transition-colors"
+                className="btn-tactile mt-10 inline-block font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-6 py-3 hover:bg-ink transition-colors"
+                whileHover={reduce ? undefined : { y: -2, scale: 1.02 }}
+                whileTap={reduce ? undefined : { scale: 0.98 }}
+                transition={CTA_SPRING}
               >
                 Export CV ↓
                 <span className="sr-only">
                   {" "}
                   — opens PDF in a new tab (print or save from there)
                 </span>
-              </a>
+              </motion.a>
             </div>
           </Reveal>
         </div>

@@ -1,12 +1,41 @@
 import { useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { Bow } from "./Bow";
-import Reveal from "./Reveal";
+import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
+import SectionOverline from "./SectionOverline";
 import { BLOG } from "@/data/portfolio";
 
 const vaultTitleParts = BLOG.name.split("'");
 
+const PostRow = ({ post, index, reduce, soon }) => (
+  <motion.div
+    data-testid={`blog-post-${post.slug}`}
+    initial={reduce ? false : { opacity: 0, y: 12 }}
+    whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+    viewport={REVEAL_VIEWPORT}
+    transition={revealTransition(index * 0.08)}
+    className="group block w-full text-left border-t border-ink/20 py-6"
+  >
+    <div className="flex items-baseline justify-between gap-4 mb-2">
+      <span className="font-mono text-xs uppercase tracking-[0.2em] text-burgundy">
+        {post.kind} · {post.date}
+      </span>
+      {soon && (
+        <span className="font-mono text-xs text-ink-mute">soon →</span>
+      )}
+    </div>
+    <p className="font-serif text-xl md:text-2xl text-ink leading-snug transition-colors duration-500 group-hover:text-burgundy">
+      {post.title}
+    </p>
+    <p className="mt-2 font-mono text-xs md:text-sm text-ink-soft leading-relaxed max-w-2xl">
+      {post.excerpt}
+    </p>
+  </motion.div>
+);
+
 export const BlogSection = () => {
   const [avatarOk, setAvatarOk] = useState(true);
+  const reduce = useReducedMotion();
 
   return (
     <section
@@ -19,12 +48,9 @@ export const BlogSection = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
           <Reveal className="md:col-span-5">
-            <div className="flex items-center gap-3 mb-8">
-              <Bow size={14} />
-              <span className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft">
-                04 · {BLOG.name.toLowerCase()}
-              </span>
-            </div>
+            <SectionOverline className="mb-8">
+              04 · {BLOG.name.toLowerCase()}
+            </SectionOverline>
 
             <div className="flex items-start gap-5 mb-8">
               <div>
@@ -83,29 +109,15 @@ export const BlogSection = () => {
           <div className="md:col-span-7 relative space-y-2 md:pt-16 min-h-[420px]">
             {BLOG.comingSoon ? (
               <>
-                {/* Decorative preview only — hidden from AT while unpublished. */}
                 <div aria-hidden="true" inert={true}>
-                  {BLOG.posts.map((post) => (
-                    <div
+                  {BLOG.posts.map((post, i) => (
+                    <PostRow
                       key={post.slug}
-                      data-testid={`blog-post-${post.slug}`}
-                      className="block w-full text-left border-t border-ink/20 py-6"
-                    >
-                      <div className="flex items-baseline justify-between gap-4 mb-2">
-                        <span className="font-mono text-xs uppercase tracking-[0.2em] text-burgundy">
-                          {post.kind} · {post.date}
-                        </span>
-                        <span className="font-mono text-xs text-ink-mute">
-                          soon →
-                        </span>
-                      </div>
-                      <p className="font-serif text-xl md:text-2xl text-ink leading-snug">
-                        {post.title}
-                      </p>
-                      <p className="mt-2 font-mono text-xs md:text-sm text-ink-soft leading-relaxed max-w-2xl">
-                        {post.excerpt}
-                      </p>
-                    </div>
+                      post={post}
+                      index={i}
+                      reduce={reduce}
+                      soon
+                    />
                   ))}
                   <div className="border-t border-ink/20" />
                 </div>
@@ -133,23 +145,9 @@ export const BlogSection = () => {
                 </div>
               </>
             ) : (
-              BLOG.posts.map((post) => (
-                <article
-                  key={post.slug}
-                  data-testid={`blog-post-${post.slug}`}
-                  className="block w-full text-left border-t border-ink/20 py-6"
-                >
-                  <div className="flex items-baseline justify-between gap-4 mb-2">
-                    <span className="font-mono text-xs uppercase tracking-[0.2em] text-burgundy">
-                      {post.kind} · {post.date}
-                    </span>
-                  </div>
-                  <h3 className="font-serif text-xl md:text-2xl text-ink leading-snug">
-                    {post.title}
-                  </h3>
-                  <p className="mt-2 font-mono text-xs md:text-sm text-ink-soft leading-relaxed max-w-2xl">
-                    {post.excerpt}
-                  </p>
+              BLOG.posts.map((post, i) => (
+                <article key={post.slug}>
+                  <PostRow post={post} index={i} reduce={reduce} />
                 </article>
               ))
             )}

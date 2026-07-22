@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { Bow } from "./Bow";
 import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
+import SectionOverline from "./SectionOverline";
 import { BENTO } from "@/data/portfolio";
 
 export const BentoSection = () => {
@@ -15,12 +15,7 @@ export const BentoSection = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <Reveal className="mb-16 max-w-3xl">
-          <div className="flex items-center gap-3 mb-6">
-            <Bow size={14} />
-            <span className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft">
-              {BENTO.overline}
-            </span>
-          </div>
+          <SectionOverline>{BENTO.overline}</SectionOverline>
           <h2 className="font-serif font-light text-3xl md:text-5xl tracking-tighter text-ink">
             {BENTO.title}
             <br />
@@ -69,7 +64,7 @@ export const BentoSection = () => {
                 <h3 className="font-serif font-light text-2xl md:text-3xl text-ink tracking-tight">
                   {item.title}
                 </h3>
-                <p className="font-mono text-xs md:text-sm text-ink leading-relaxed max-w-md">
+                <p className="font-mono text-xs md:text-sm text-ink leading-relaxed max-w-md transition-[opacity,letter-spacing] duration-500 opacity-90 tracking-normal group-hover:opacity-100 group-hover:tracking-[0.02em]">
                   {item.body}
                 </p>
               </div>

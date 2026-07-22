@@ -9,6 +9,9 @@ export const MOTION_DURATION = {
   settle: 1.2,
 };
 
+/** Micro-interaction spring for CTAs and tactile controls. */
+export const CTA_SPRING = { type: "spring", stiffness: 420, damping: 28 };
+
 export const motionTransition = (delay = 0, duration = MOTION_DURATION.reveal) => ({
   duration,
   ease: MOTION_EASE,

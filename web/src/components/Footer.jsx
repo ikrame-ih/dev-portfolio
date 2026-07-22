@@ -1,16 +1,29 @@
+import { motion, useReducedMotion } from "framer-motion";
 import { Bow } from "./Bow";
-import Reveal from "./Reveal";
+import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
 import { PROFILE } from "@/data/portfolio";
 import { onHashLinkClick } from "@/lib/scroll";
+import { CTA_SPRING } from "@/lib/motion";
+
+const COL_ENTER = (reduce, delay) =>
+  reduce
+    ? {}
+    : {
+        initial: { opacity: 0, y: 12 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: REVEAL_VIEWPORT,
+        transition: revealTransition(delay),
+      };
 
 export const Footer = ({ onOpenTerminal }) => {
   const year = new Date().getFullYear();
-  // Footer nav uses fuller section names than the top nav — same ids, different labels.
+  const reduce = useReducedMotion();
+
   return (
     <footer data-testid="footer" className="relative footer-inverse py-16">
       <Reveal y={20}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-10">
-          <div className="md:col-span-5">
+          <motion.div className="md:col-span-5" {...COL_ENTER(reduce, 0)}>
             <div className="flex items-center gap-3 mb-4">
               <Bow size={22} color="#F5F1EB" />
               <span className="font-serif text-2xl tracking-tight">
@@ -45,9 +58,9 @@ export const Footer = ({ onOpenTerminal }) => {
                 .
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="md:col-span-3">
+          <motion.div className="md:col-span-3" {...COL_ENTER(reduce, 0.08)}>
             <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-3">
               Navigate
             </p>
@@ -71,29 +84,32 @@ export const Footer = ({ onOpenTerminal }) => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
-          <div className="md:col-span-4">
+          <motion.div className="md:col-span-4" {...COL_ENTER(reduce, 0.14)}>
             <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-3">
               Terminal
             </p>
             <p className="font-mono text-sm leading-relaxed footer-muted">
-              Open it from the nav to leave a short note, or jump straight to CV
-              or contact. Personal notes live in Tizza&apos;s vault — publishing
+              Open it from the nav for a quick look (type a number), or leave a
+              short note. Personal notes live in Tizza&apos;s vault — publishing
               soon.
             </p>
-            <button
+            <motion.button
               type="button"
               data-testid="footer-terminal-open"
               onClick={onOpenTerminal}
-              className="mt-4 inline-block font-mono text-xs uppercase tracking-[0.18em] border border-[#F5F1EB]/40 px-4 py-2 hover:bg-[#F5F1EB] hover:text-[#1A1A1A] transition-colors"
+              className="btn-tactile mt-4 inline-block font-mono text-xs uppercase tracking-[0.18em] border border-[#F5F1EB]/40 px-4 py-2 hover:bg-[#F5F1EB] hover:text-[#1A1A1A] transition-colors"
+              whileHover={reduce ? undefined : { y: -2, scale: 1.02 }}
+              whileTap={reduce ? undefined : { scale: 0.98 }}
+              transition={CTA_SPRING}
             >
               Open terminal →
-            </button>
+            </motion.button>
             <p className="mt-6 font-mono text-xs footer-muted">
               or use the Terminal button above
             </p>
-          </div>
+          </motion.div>
         </div>
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 mt-12 pt-6 border-t border-[#F5F1EB]/15 flex flex-wrap items-center justify-between gap-4">

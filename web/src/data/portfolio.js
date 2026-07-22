@@ -19,8 +19,34 @@ export const PROFILE = {
   ],
   heroSubtext:
     "Hi, I'm Ikrame Ibn Hayoun, a software developer based in Málaga, specializing in frontend development while actively building backend solutions. I enjoy turning ideas into intuitive, reliable, and scalable applications.",
-  tagline:
-    "Software developer · DAW graduate · AI & Big Data specialisation from Sep 2026",
+  // Compact hero facts — avoid repeating overline role or Málaga (already in copy + photo).
+  heroFacts: [
+    { eyebrow: "Open to", text: "Remote · hybrid" },
+    { eyebrow: "Path", text: "DAW · Jun 2026" },
+    { eyebrow: "Next", text: "AI & Big Data · Sep 2026", accent: true },
+  ],
+  // Flat string for terminal / plain contexts.
+  tagline: "DAW graduate · AI & Big Data specialisation from Sep 2026 · open to remote or hybrid",
+  // Friendly blurb for CLI `about` — warm, specific, not a CV tagline dump.
+  cliAbout: [
+    "Hi — I'm Ikrame. I build software in Málaga, with a soft spot for interfaces that feel calm and considered.",
+    "I'm at ease on both sides of a product: the UI people touch, and the APIs and data that hold it up.",
+    "Away from the editor I'm usually deep in a story-heavy game, singing to reset my head, or fussing over little aesthetic details.",
+    "Just wrapped DAW (Jun 2026). Next chapter: AI & Big Data from Sep 2026. Remote or hybrid suits me well.",
+  ],
+  // Ultra-short pitch for CLI `tldr`.
+  cliTldr: [
+    "Software developer in Málaga — equally at home in frontend and backend.",
+    "Looking for remote or hybrid roles where craft and clarity matter.",
+  ],
+  cliAvail:
+    "Open to remote or hybrid. Based in Málaga (CET). Happy to chat anytime.",
+  cliNow:
+    "Just finished DAW (Jun 2026) and internship work at DATA CONTROL. AI & Big Data starts Sep 2026 — actively open to the next role.",
+  portraitLink: {
+    label: "Say hi on LinkedIn →",
+    hrefKey: "linkedin",
+  },
   practiceAside: {
     title: "At a glance",
     text: "Higher Vocational Diploma (DAW, Jun 2026) — final project MyPlaythrough awarded maximum grade. AI & Big Data Specialisation Course from Sep 2026. Side projects on GitHub use component-based layouts, tests, and CI; intern work focused on reusable components and semantic markup.",
@@ -76,6 +102,7 @@ export const STACK = {
           items: [
             "Node.js",
             "Express",
+            "Java",
             "Python",
             "FastAPI",
             "REST APIs",
@@ -125,6 +152,7 @@ export const EXPERIENCE = [
     track: "tech",
     bullets: [
       "Developed client websites with reusable components and responsive layouts.",
+      "Built a custom Moodle-based learning platform for the company.",
       "Included accessibility and semantic markup from the start.",
     ],
   },

@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { Bow } from "./Bow";
 import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
+import SectionOverline from "./SectionOverline";
 import ArchitectureModal from "./ArchitectureModal";
 import { PROJECTS } from "@/data/portfolio";
+import { CTA_SPRING } from "@/lib/motion";
+import { Bow } from "./Bow";
 
 export const ProjectsSection = () => {
   const [openProject, setOpenProject] = useState(null);
@@ -18,12 +20,7 @@ export const ProjectsSection = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <Reveal className="mb-16 max-w-3xl">
-          <div className="flex items-center gap-3 mb-6">
-            <Bow size={14} />
-            <span className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft">
-              02 · selected work
-            </span>
-          </div>
+          <SectionOverline>02 · selected work</SectionOverline>
           <h2 className="font-serif font-light text-3xl md:text-5xl tracking-tighter text-ink">
             Selected projects
             <br />
@@ -80,14 +77,17 @@ export const ProjectsSection = () => {
               </div>
 
               <div className="mt-auto flex flex-wrap items-center gap-4 pt-4 border-t border-bone-400">
-                <button
+                <motion.button
                   type="button"
                   data-testid={`project-arch-${p.id}`}
                   onClick={() => setOpenProject(p)}
                   className="btn-tactile font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-4 py-2 hover:bg-ink transition-colors"
+                  whileHover={reduce ? undefined : { y: -2, scale: 1.02 }}
+                  whileTap={reduce ? undefined : { scale: 0.98 }}
+                  transition={CTA_SPRING}
                 >
                   Architecture →
-                </button>
+                </motion.button>
                 {p.href && (
                   <a
                     href={p.href}
