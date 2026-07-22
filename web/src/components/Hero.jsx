@@ -7,22 +7,21 @@ import { ASSETS } from "@/data/assets";
 import { heroEnter } from "@/lib/motion";
 import { onHashLinkClick } from "@/lib/scroll";
 
-// After the headline word cascade finishes (~3.1s), ease the rest in one by one.
+// After the headline word cascade finishes (~1.3s), ease the rest in quickly.
 const STEP_DELAY = {
   overline: 0,
-  subtext: 3.2,
-  tagline: 3.65,
-  ctas: 4.1,
-  photo: 4.55,
+  subtext: 1.35,
+  tagline: 1.55,
+  ctas: 1.75,
+  photo: 1.4,
 };
 
-// Line starts spaced so each word cascade can be read before the next line.
-const HEADLINE_LINE_DELAY = [0.2, 0.95, 1.8];
-const HEADLINE_WORD_STAGGER = 0.18;
+const HEADLINE_LINE_DELAY = [0.06, 0.38, 0.7];
+const HEADLINE_WORD_STAGGER = 0.07;
 
 const heroStep = (key, reduce, opts) =>
   heroEnter(reduce, STEP_DELAY[key], {
-    duration: 0.85,
+    duration: 0.45,
     ...opts,
   });
 
@@ -61,6 +60,7 @@ export const Hero = () => {
                 animation="blurInUp"
                 delay={HEADLINE_LINE_DELAY[i]}
                 stagger={HEADLINE_WORD_STAGGER}
+                duration={0.32}
                 startOnView={false}
                 className={`block ${
                   part.italic

@@ -5,32 +5,32 @@ import { MOTION_EASE } from "@/lib/motion";
 const ANIMATIONS = {
   fadeIn: {
     hidden: { opacity: 0, y: 8 },
-    show: {
+    show: (duration) => ({
       opacity: 1,
       y: 0,
-      transition: { duration: 0.55, ease: MOTION_EASE },
-    },
+      transition: { duration, ease: MOTION_EASE },
+    }),
   },
   blurInUp: {
     hidden: { opacity: 0, filter: "blur(6px)", y: 10 },
-    show: {
+    show: (duration) => ({
       opacity: 1,
       filter: "blur(0px)",
       y: 0,
       transition: {
-        y: { duration: 0.55, ease: MOTION_EASE },
-        opacity: { duration: 0.6, ease: MOTION_EASE },
-        filter: { duration: 0.55, ease: MOTION_EASE },
+        y: { duration, ease: MOTION_EASE },
+        opacity: { duration: duration * 1.05, ease: MOTION_EASE },
+        filter: { duration, ease: MOTION_EASE },
       },
-    },
+    }),
   },
   slideUp: {
     hidden: { y: 10, opacity: 0 },
-    show: {
-      y: 0,
+    show: (duration) => ({
       opacity: 1,
-      transition: { duration: 0.55, ease: MOTION_EASE },
-    },
+      y: 0,
+      transition: { duration, ease: MOTION_EASE },
+    }),
   },
 };
 
@@ -59,6 +59,8 @@ function TextAnimateBase({
   delay = 0,
   /** Gap between animated segments (seconds). Prefer this over duration/length. */
   stagger = 0.16,
+  /** Per-segment animation length (seconds). */
+  duration = 0.55,
   as: Component = "p",
   by = "word",
   animation = "blurInUp",
@@ -70,7 +72,11 @@ function TextAnimateBase({
   const reduce = useReducedMotion();
   const MotionTag = motion[Component] || motion.p;
   const segments = splitSegments(children, by);
-  const itemVariants = ANIMATIONS[animation] || ANIMATIONS.fadeIn;
+  const base = ANIMATIONS[animation] || ANIMATIONS.fadeIn;
+  const itemVariants = {
+    hidden: base.hidden,
+    show: base.show(duration),
+  };
 
   if (reduce) {
     const Tag = Component;

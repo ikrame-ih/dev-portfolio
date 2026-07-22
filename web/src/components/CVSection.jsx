@@ -7,6 +7,7 @@ import {
   LANGUAGES,
   PROFILE,
   STACK,
+  STACK_SKILL_COUNT,
 } from "@/data/portfolio";
 import { StackIcon } from "@/data/stackIcons";
 import { ASSETS } from "@/data/assets";
@@ -47,40 +48,173 @@ const TrackBadge = ({ track }) => {
   );
 };
 
-const StackChip = ({ name }) => (
-  <li className="stack-chip inline-flex items-center gap-1.5 border border-bone-400 px-2 py-1 hover:border-burgundy transition-colors">
-    <StackIcon name={name} />
-    {name}
+const DomainGlyph = ({ id, className = "w-5 h-5 text-burgundy" }) => {
+  const common = {
+    viewBox: "0 0 24 24",
+    className,
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.4",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": true,
+    focusable: false,
+  };
+
+  if (id === "frontend") {
+    return (
+      <svg {...common}>
+        <rect x="3.5" y="5" width="17" height="14" rx="1.5" />
+        <path d="M3.5 9h17" />
+        <circle cx="6.2" cy="7" r="0.7" fill="currentColor" stroke="none" />
+        <circle cx="8.4" cy="7" r="0.7" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  }
+  if (id === "backend") {
+    return (
+      <svg {...common}>
+        <rect x="4" y="4" width="16" height="6" rx="1" />
+        <rect x="4" y="14" width="16" height="6" rx="1" />
+        <circle cx="7.5" cy="7" r="0.8" fill="currentColor" stroke="none" />
+        <circle cx="7.5" cy="17" r="0.8" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  }
+  if (id === "tooling") {
+    return (
+      <svg {...common}>
+        <circle cx="12" cy="12" r="3" />
+        <path d="M12 3.5v2.2M12 18.3v2.2M3.5 12h2.2M18.3 12h2.2M6 6l1.55 1.55M16.45 16.45 18 18M18 6l-1.55 1.55M7.55 16.45 6 18" />
+      </svg>
+    );
+  }
+  return (
+    <svg {...common}>
+      <circle cx="12" cy="12" r="8.2" />
+      <path d="M3.8 12h16.4M12 3.8c2.4 2.4 3.6 5.1 3.6 8.2s-1.2 5.8-3.6 8.2c-2.4-2.4-3.6-5.1-3.6-8.2s1.2-5.8 3.6-8.2Z" />
+    </svg>
+  );
+};
+
+const BrandMark = ({ name }) => (
+  <li className="stack-mark flex flex-col items-center gap-2.5 text-center min-w-0">
+    <StackIcon name={name} className="w-7 h-7 shrink-0 text-burgundy" />
+    <span className="font-mono text-[11px] leading-tight tracking-[0.06em] text-ink">
+      {name}
+    </span>
   </li>
 );
 
-const StackGroupColumn = ({
-  title,
-  groups,
-  titleClass,
-  borderClass,
-  testId,
-}) => (
-  <div className={`border-l pl-6 ${borderClass}`}>
-    <p
-      className={`font-mono text-xs uppercase tracking-[0.28em] mb-5 ${titleClass}`}
+const BrandGrid = ({ items, cols = "grid-cols-3", testId }) => (
+  <ul className={`grid ${cols} gap-x-3 gap-y-6`} data-testid={testId}>
+    {items.map((s) => (
+      <BrandMark key={s} name={s} />
+    ))}
+  </ul>
+);
+
+const DomainPanel = ({ domain, children, testId }) => (
+  <div data-testid={testId} className="relative min-h-[260px]">
+    <span
+      aria-hidden="true"
+      className="pointer-events-none absolute -top-2 right-0 font-serif font-light text-[5.5rem] md:text-[7rem] leading-none text-ink/[0.05] select-none"
     >
-      {title}
-    </p>
-    <div className="space-y-5" data-testid={testId}>
-      {groups.map((group) => (
-        <div key={group.label}>
-          <p className="font-mono text-xs uppercase tracking-[0.22em] text-ink-mute mb-2">
-            {group.label}
+      {domain.index}
+    </span>
+
+    {/* Open catalog — top rule only, no filled card (unlike projects / bento). */}
+    <div className="relative border-t border-ink/25 pt-5 md:pt-6">
+      <div className="flex items-start gap-3 mb-1">
+        <DomainGlyph
+          id={domain.id}
+          className="w-5 h-5 mt-1.5 shrink-0 text-burgundy"
+        />
+        <div className="min-w-0 flex-1">
+          <div className="flex items-baseline justify-between gap-3">
+            <h3 className="font-serif text-2xl md:text-3xl tracking-tight text-ink">
+              {domain.title}
+            </h3>
+            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-burgundy shrink-0">
+              {domain.index}
+            </span>
+          </div>
+          <p className="mt-1.5 font-mono text-[11px] leading-relaxed text-ink-mute max-w-sm">
+            {domain.kicker}
           </p>
-          <ul className="flex flex-wrap gap-x-3 gap-y-2 font-mono text-sm text-ink">
-            {group.items.map((s) => (
-              <StackChip key={s} name={s} />
+        </div>
+      </div>
+
+      <div className="mt-5 mb-6 flex items-center gap-3" aria-hidden="true">
+        <span className="h-px flex-1 bg-bone-400" />
+        <span className="h-1 w-1 rotate-45 bg-burgundy/50" />
+        <span className="h-px w-8 bg-bone-400" />
+      </div>
+
+      {children}
+    </div>
+  </div>
+);
+
+const SkillsBlock = () => (
+  <div className="mb-24">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-x-14 md:gap-y-16">
+      {STACK.domains.map((domain, idx) => (
+        <Reveal key={domain.id} delay={0.04 + idx * 0.05}>
+          <DomainPanel domain={domain} testId={`stack-${domain.id}`}>
+            <div className="space-y-7">
+              {domain.groups.map((group) => (
+                <div key={group.label}>
+                  <p className="font-mono text-xs uppercase tracking-[0.22em] text-ink-mute mb-4">
+                    {group.label}
+                  </p>
+                  <BrandGrid
+                    items={group.items}
+                    cols={
+                      domain.id === "tooling"
+                        ? "grid-cols-3 sm:grid-cols-3"
+                        : "grid-cols-3"
+                    }
+                  />
+                </div>
+              ))}
+            </div>
+          </DomainPanel>
+        </Reveal>
+      ))}
+
+      <Reveal delay={0.2}>
+        <DomainPanel
+          domain={{
+            id: "languages",
+            index: "04",
+            title: "Languages",
+            kicker: "How I speak with people — and across contexts.",
+          }}
+          testId="languages-list"
+        >
+          <ul className="space-y-5">
+            {LANGUAGES.map((l) => (
+              <li
+                key={l.code}
+                className="flex flex-wrap items-baseline justify-between gap-2 border-t border-bone-400 pt-4 first:border-0 first:pt-0"
+              >
+                <span className="font-serif text-xl md:text-2xl text-ink tracking-tight">
+                  {l.lang}
+                </span>
+                <span className="font-mono text-xs uppercase tracking-[0.18em] text-ink-mute">
+                  {l.detail ? `${l.level} · ${l.detail}` : l.level}
+                </span>
+              </li>
             ))}
           </ul>
-        </div>
-      ))}
+        </DomainPanel>
+      </Reveal>
     </div>
+
+    <p className="mt-8 md:mt-10 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-mute">
+      4 domains · {STACK_SKILL_COUNT} skills catalogued
+    </p>
   </div>
 );
 
@@ -108,66 +242,7 @@ export const CVSection = () => {
           />
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-24">
-          <Reveal delay={0.05} className="md:col-span-6">
-            <StackGroupColumn
-              title="Frontend"
-              groups={STACK.frontend}
-              titleClass="text-burgundy"
-              borderClass="border-burgundy"
-              testId="stack-frontend"
-            />
-          </Reveal>
-          <Reveal delay={0.1} className="md:col-span-6">
-            <StackGroupColumn
-              title="Backend & data"
-              groups={STACK.backend}
-              titleClass="text-ink"
-              borderClass="border-ink"
-              testId="stack-backend"
-            />
-          </Reveal>
-          <Reveal
-            delay={0.12}
-            className="md:col-span-12 border-t border-bone-400 pt-8 md:pt-10"
-          >
-            <p className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft mb-4">
-              Tooling &amp; delivery
-            </p>
-            <ul
-              className="flex flex-wrap gap-x-3 gap-y-2 font-mono text-sm text-ink"
-              data-testid="stack-tooling"
-            >
-              {STACK.tooling.map((s) => (
-                <StackChip key={s} name={s} />
-              ))}
-            </ul>
-          </Reveal>
-          <Reveal
-            delay={0.15}
-            className="md:col-span-12 border-t border-bone-400 pt-8 md:pt-10"
-          >
-            <p className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft mb-4">
-              Languages
-            </p>
-            <ul
-              className="flex flex-wrap gap-x-3 gap-y-2 font-mono text-sm"
-              data-testid="languages-list"
-            >
-              {LANGUAGES.map((l) => (
-                <li
-                  key={l.code}
-                  className="inline-flex items-center gap-2 border border-bone-400 px-3 py-1.5 hover:border-burgundy transition-colors"
-                >
-                  <span className="text-ink">{l.lang}</span>
-                  <span className="text-xs uppercase tracking-[0.18em] text-ink-mute">
-                    {l.detail ? `${l.level} · ${l.detail}` : l.level}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-        </div>
+        <SkillsBlock />
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
           <Reveal

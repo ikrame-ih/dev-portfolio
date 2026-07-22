@@ -33,48 +33,89 @@ export const LANGUAGES = [
   { lang: "Darija", level: "Native", detail: "Moroccan Arabic", code: "AR" },
 ];
 
-// Grouped by craft layer — UI vs APIs/data vs delivery tooling.
+// Four skill domains — rendered as a 2×2 panel grid in CVSection.
 export const STACK = {
-  frontend: [
+  domains: [
     {
-      label: "UI & frameworks",
-      items: [
-        "React",
-        "Next.js",
-        "TypeScript",
-        "Vite",
-        "Tailwind CSS",
-        "Framer Motion",
+      id: "frontend",
+      index: "01",
+      title: "Frontend",
+      kicker: "Interfaces, motion, and everything the eye touches.",
+      tone: "burgundy",
+      groups: [
+        {
+          label: "UI & frameworks",
+          items: [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Vite",
+            "Tailwind CSS",
+            "Framer Motion",
+          ],
+        },
+        {
+          label: "State & maps",
+          items: ["Zustand", "Leaflet"],
+        },
+        {
+          label: "Craft",
+          items: ["Semantic HTML", "Accessibility"],
+        },
       ],
     },
     {
-      label: "State & maps",
-      items: ["Zustand", "Leaflet"],
+      id: "backend",
+      index: "02",
+      title: "Backend & data",
+      kicker: "APIs, persistence, and the pipelines between them.",
+      tone: "ink",
+      groups: [
+        {
+          label: "APIs & runtime",
+          items: [
+            "Node.js",
+            "Express",
+            "Python",
+            "FastAPI",
+            "REST APIs",
+            "JWT",
+          ],
+        },
+        {
+          label: "Data",
+          items: ["PostgreSQL", "SQL", "dbt", "Dagster"],
+        },
+      ],
     },
     {
-      label: "Craft",
-      items: ["Semantic HTML", "Accessibility"],
+      id: "tooling",
+      index: "03",
+      title: "Tooling & delivery",
+      kicker: "Ship, test, and keep the loop honest.",
+      tone: "ink",
+      groups: [
+        {
+          label: "Toolchain",
+          items: [
+            "Git",
+            "GitHub Actions",
+            "Vitest",
+            "Playwright",
+            "Docker",
+            "Vercel",
+          ],
+        },
+      ],
     },
-  ],
-  backend: [
-    {
-      label: "APIs & runtime",
-      items: ["Node.js", "Express", "Python", "FastAPI", "REST APIs", "JWT"],
-    },
-    {
-      label: "Data",
-      items: ["PostgreSQL", "SQL", "dbt", "Dagster"],
-    },
-  ],
-  tooling: [
-    "Git",
-    "GitHub Actions",
-    "Vitest",
-    "Playwright",
-    "Docker",
-    "Vercel",
   ],
 };
+
+export const STACK_SKILL_COUNT =
+  STACK.domains.reduce(
+    (n, d) => n + d.groups.reduce((m, g) => m + g.items.length, 0),
+    0,
+  ) + LANGUAGES.length;
 
 export const EXPERIENCE = [
   {
