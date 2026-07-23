@@ -93,43 +93,55 @@ const ProjectStrip = ({
           className={`md:col-span-7 ${imageLeft ? "md:order-1" : "md:order-2"}`}
         >
           {p.image ? (
-            <motion.button
-              type="button"
-              data-testid={`project-shot-${p.id}`}
-              aria-label={`View ${p.name} preview larger`}
-              onClick={() => onOpenShot(p)}
-              className="photo-frame project-shot aspect-video w-full bg-bone border border-ink/10 transition-[border-color] duration-500 group-hover:border-ink/25 cursor-[var(--cursor-bow)] text-left"
-              initial="rest"
-              whileHover={reduce ? undefined : "hover"}
-            >
-              <motion.img
-                layoutId={reduce ? undefined : `project-shot-${p.id}`}
-                src={p.image}
-                alt={p.imageAlt}
-                width={PROJECT_SHOT_SIZE.width}
-                height={PROJECT_SHOT_SIZE.height}
-                loading="lazy"
-                decoding="async"
-                className="h-full w-full object-cover will-change-transform pointer-events-none"
-                style={reduce ? undefined : { y: parallaxY }}
-                variants={reduce ? undefined : shotImageVariants}
-                transition={LIGHTBOX_SPRING}
-              />
-            </motion.button>
+            <div className="project-shot-frame">
+              <span className="project-shot-frame__corner project-shot-frame__corner--tl" aria-hidden />
+              <span className="project-shot-frame__corner project-shot-frame__corner--tr" aria-hidden />
+              <span className="project-shot-frame__corner project-shot-frame__corner--bl" aria-hidden />
+              <span className="project-shot-frame__corner project-shot-frame__corner--br" aria-hidden />
+              <motion.button
+                type="button"
+                data-testid={`project-shot-${p.id}`}
+                aria-label={`View ${p.name} preview larger`}
+                onClick={() => onOpenShot(p)}
+                className="photo-frame project-shot aspect-video w-full bg-bone cursor-[var(--cursor-bow)] text-left"
+                initial="rest"
+                whileHover={reduce ? undefined : "hover"}
+              >
+                <motion.img
+                  layoutId={reduce ? undefined : `project-shot-${p.id}`}
+                  src={p.image}
+                  alt={p.imageAlt}
+                  width={PROJECT_SHOT_SIZE.width}
+                  height={PROJECT_SHOT_SIZE.height}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover will-change-transform pointer-events-none"
+                  style={reduce ? undefined : { y: parallaxY }}
+                  variants={reduce ? undefined : shotImageVariants}
+                  transition={LIGHTBOX_SPRING}
+                />
+              </motion.button>
+            </div>
           ) : (
             <div
               data-testid={`project-shot-pending-${p.id}`}
-              className="aspect-video w-full border border-dashed border-ink/25 bg-bone-200/60 flex flex-col items-center justify-center gap-4 px-6 text-center"
+              className="project-shot-frame project-shot-frame--pending"
               aria-label={`${p.name} preview coming soon`}
             >
-              <Bow size={28} />
-              <div>
-                <p className="font-serif text-2xl md:text-3xl tracking-tight text-ink">
-                  In progress
-                </p>
-                <p className="mt-2 font-mono text-xs uppercase tracking-[0.22em] text-ink-mute">
-                  Coming soon
-                </p>
+              <span className="project-shot-frame__corner project-shot-frame__corner--tl" aria-hidden />
+              <span className="project-shot-frame__corner project-shot-frame__corner--tr" aria-hidden />
+              <span className="project-shot-frame__corner project-shot-frame__corner--bl" aria-hidden />
+              <span className="project-shot-frame__corner project-shot-frame__corner--br" aria-hidden />
+              <div className="aspect-video w-full bg-bone-200/60 flex flex-col items-center justify-center gap-4 px-6 text-center">
+                <Bow size={28} />
+                <div>
+                  <p className="font-serif text-2xl md:text-3xl tracking-tight text-ink">
+                    In progress
+                  </p>
+                  <p className="mt-2 font-mono text-xs uppercase tracking-[0.22em] text-ink-mute">
+                    Coming soon
+                  </p>
+                </div>
               </div>
             </div>
           )}
