@@ -26,7 +26,7 @@ export const BentoSection = () => {
           </p>
         </Reveal>
 
-        <div className="bento-lanes grid grid-cols-1 md:grid-cols-3 md:grid-rows-4 gap-4 md:gap-6 md:auto-rows-[minmax(180px,1fr)]">
+        <div className="bento-lanes grid grid-cols-1 md:grid-cols-3 md:grid-rows-5 gap-4 md:gap-6 md:auto-rows-[minmax(180px,1fr)]">
           {BENTO.items.map((item, idx) => (
             <motion.div
               key={item.key}
@@ -41,7 +41,7 @@ export const BentoSection = () => {
                 <img
                   src={item.image}
                   alt={item.imageAlt || item.title}
-                  className={`absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-[0.62] transition-all duration-700 group-hover:scale-[1.04] ${item.imagePosition || "object-center"}`}
+                  className={`absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-[0.62] transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.2,0.7,0.2,1)] motion-safe:group-hover:scale-[1.04] ${item.imagePosition || "object-center"}`}
                   loading="lazy"
                 />
               ) : (
@@ -57,14 +57,20 @@ export const BentoSection = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-bone via-bone/80 to-bone/55 group-hover:via-bone/75 transition-colors duration-500" />
               <div className="relative h-full min-h-[200px] p-6 md:p-8 flex flex-col justify-end gap-4">
                 {item.label && (
-                  <span className="font-mono text-xs uppercase tracking-[0.22em] text-burgundy">
-                    {item.label}
-                  </span>
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-xs uppercase tracking-[0.22em] text-burgundy">
+                      {item.label}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="bento-label-hairline hairline w-8 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-[cubic-bezier(0.2,0.7,0.2,1)] motion-reduce:transition-none motion-reduce:scale-x-0"
+                    />
+                  </div>
                 )}
                 <h3 className="font-serif font-light text-2xl md:text-3xl text-ink tracking-tight">
                   {item.title}
                 </h3>
-                <p className="font-mono text-xs md:text-sm text-ink leading-relaxed max-w-md transition-[opacity,letter-spacing] duration-500 opacity-90 tracking-normal group-hover:opacity-100 group-hover:tracking-[0.02em]">
+                <p className="font-mono text-xs md:text-sm text-ink leading-relaxed max-w-md transition-opacity duration-500 opacity-90 group-hover:opacity-100">
                   {item.body}
                 </p>
               </div>

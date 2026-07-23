@@ -10,11 +10,11 @@ export const ASSETS = {
     reading: "/images/interests/reading-touch-of-death.jpg",
     series: "/images/interests/series-anime.jpg",
     aesthetics: "/images/interests/aesthetics-skincare.jpg",
+    travelling: "/images/interests/travelling.jpg",
   },
   projects: {
-    liveEventRadar: "/images/projects/live-event-radar.svg",
-    myPlaythrough: "/images/projects/my-playthrough.svg",
-    aibaWidget: "/images/projects/aiba-widget.svg",
-    reconflow: "/images/projects/reconflow.svg",
+    liveEventRadar: "/images/projects/live-event-radar.png",
+    myPlaythrough: "/images/projects/my-playthrough.png",
+    aibaWidget: "/images/projects/aiba-widget.png",
   },
 };

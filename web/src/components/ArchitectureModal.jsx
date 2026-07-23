@@ -1,7 +1,7 @@
 import { useRef, lazy, Suspense } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { MOTION_EASE, MOTION_DURATION } from "@/lib/motion";
+import { MOTION_EASE } from "@/lib/motion";
 import { useFocusTrap } from "@/lib/useFocusTrap";
 import { useModalIsolation } from "@/lib/useModalIsolation";
 
@@ -13,6 +13,21 @@ const DiagramFallback = () => (
   </p>
 );
 
+/** Soft spring — slow settle, no snappy pop. */
+const PANEL_SPRING = {
+  type: "spring",
+  stiffness: 220,
+  damping: 30,
+  mass: 0.95,
+};
+
+const TITLE_SPRING = {
+  type: "spring",
+  stiffness: 260,
+  damping: 34,
+  mass: 0.9,
+};
+
 export const ArchitectureModal = ({ project, onClose }) => {
   const panelRef = useRef(null);
   const reduce = useReducedMotion();
@@ -21,14 +36,13 @@ export const ArchitectureModal = ({ project, onClose }) => {
   useFocusTrap(!!project, panelRef, onClose);
   useModalIsolation(!!project);
 
-  // Panel: fade only — no y-slide (that made body copy feel tosco).
   const panelMotion = reduce
-    ? { initial: false, animate: { opacity: 1 } }
+    ? { initial: false, animate: { opacity: 1, scale: 1 } }
     : {
-        initial: { opacity: 0 },
-        animate: { opacity: 1 },
-        exit: { opacity: 0 },
-        transition: { duration: 0.28, ease: MOTION_EASE },
+        initial: { opacity: 0, scale: 0.96 },
+        animate: { opacity: 1, scale: 1 },
+        exit: { opacity: 0, scale: 0.98 },
+        transition: PANEL_SPRING,
       };
 
   const bodyMotion = reduce
@@ -36,7 +50,7 @@ export const ArchitectureModal = ({ project, onClose }) => {
     : {
         initial: { opacity: 0 },
         animate: { opacity: 1 },
-        transition: { duration: 0.4, ease: MOTION_EASE, delay: 0.12 },
+        transition: { duration: 0.55, ease: MOTION_EASE, delay: 0.2 },
       };
 
   return createPortal(
@@ -46,9 +60,9 @@ export const ArchitectureModal = ({ project, onClose }) => {
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={reduce ? undefined : { opacity: 0 }}
-          transition={{ duration: MOTION_DURATION.fast, ease: MOTION_EASE }}
+          transition={{ duration: 0.45, ease: MOTION_EASE }}
           data-testid="arch-modal-backdrop"
-          className="fixed inset-0 z-[90] bg-ink/70 backdrop-blur-sm flex items-center justify-center p-4 md:p-10"
+          className="fixed inset-0 z-[90] bg-ink/60 backdrop-blur-[6px] flex items-center justify-center p-4 md:p-10"
           onClick={onClose}
         >
           <motion.div
@@ -56,7 +70,7 @@ export const ArchitectureModal = ({ project, onClose }) => {
             {...panelMotion}
             onClick={(e) => e.stopPropagation()}
             data-testid="arch-modal"
-            className="w-full max-w-5xl bg-bone border border-ink p-6 md:p-8 max-h-[90vh] overflow-y-auto"
+            className="w-full max-w-5xl bg-bone border border-ink p-6 md:p-8 max-h-[90vh] overflow-y-auto origin-center"
             role="dialog"
             aria-modal="true"
             aria-labelledby="arch-modal-title"
@@ -73,11 +87,7 @@ export const ArchitectureModal = ({ project, onClose }) => {
                       reduce ? undefined : `project-title-${project.id}`
                     }
                     className="inline-block"
-                    transition={{
-                      type: "spring",
-                      stiffness: 380,
-                      damping: 34,
-                    }}
+                    transition={TITLE_SPRING}
                   >
                     {project.name}
                   </motion.span>

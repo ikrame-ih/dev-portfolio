@@ -9,6 +9,7 @@ import {
 import Reveal, { REVEAL_VIEWPORT } from "./Reveal";
 import SectionOverline from "./SectionOverline";
 import ArchitectureModal from "./ArchitectureModal";
+import ProjectLightbox from "./ProjectLightbox";
 import { PROJECTS } from "@/data/portfolio";
 import { CTA_SPRING, MOTION_EASE, MOTION_DURATION } from "@/lib/motion";
 import { Bow } from "./Bow";
@@ -17,6 +18,13 @@ import { Bow } from "./Bow";
 export const PROJECT_SHOT_SIZE = { width: 1920, height: 1080, ratio: "16:9" };
 
 const STACK_PREVIEW = 4;
+
+const LIGHTBOX_SPRING = {
+  type: "spring",
+  stiffness: 260,
+  damping: 32,
+  mass: 0.85,
+};
 
 const stripVariants = {
   hidden: {},
@@ -44,19 +52,18 @@ const copyVariants = {
 };
 
 const shotImageVariants = {
-  rest: {
-    scale: 1.07,
-    clipPath: "inset(3.5% 3.5% 3.5% 3.5%)",
-  },
-  hover: {
-    scale: 1.02,
-    clipPath: "inset(0% 0% 0% 0%)",
-  },
+  rest: { scale: 1 },
+  hover: { scale: 1.03 },
 };
 
-const ProjectStrip = ({ project: p, index: idx, reduce, onOpenArch }) => {
+const ProjectStrip = ({
+  project: p,
+  index: idx,
+  reduce,
+  onOpenArch,
+  onOpenShot,
+}) => {
   const stripRef = useRef(null);
-  const [hovered, setHovered] = useState(false);
   const imageLeft = idx % 2 === 0;
   const stackPreview = p.stack.slice(0, STACK_PREVIEW);
 
@@ -67,7 +74,7 @@ const ProjectStrip = ({ project: p, index: idx, reduce, onOpenArch }) => {
   const parallaxY = useTransform(
     scrollYProgress,
     [0, 1],
-    reduce ? [0, 0] : [24, -24],
+    reduce ? [0, 0] : [10, -10],
   );
 
   return (
@@ -79,41 +86,57 @@ const ProjectStrip = ({ project: p, index: idx, reduce, onOpenArch }) => {
       viewport={REVEAL_VIEWPORT}
       data-testid={`project-card-${p.id}`}
       className="group border-t border-ink/15 pt-10 md:pt-14 first:border-t-0 first:pt-0"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
     >
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 lg:gap-14 items-center">
         <motion.div
           variants={reduce ? undefined : mediaVariants}
           className={`md:col-span-7 ${imageLeft ? "md:order-1" : "md:order-2"}`}
         >
-          <motion.div
-            className="photo-frame project-shot aspect-video bg-bone border border-ink/10"
-            initial="rest"
-            animate={reduce ? "rest" : hovered ? "hover" : "rest"}
-          >
-            <motion.img
-              src={p.image}
-              alt={p.imageAlt}
-              width={PROJECT_SHOT_SIZE.width}
-              height={PROJECT_SHOT_SIZE.height}
-              loading="lazy"
-              decoding="async"
-              className="h-full w-full object-cover will-change-transform"
-              style={reduce ? undefined : { y: parallaxY }}
-              variants={reduce ? undefined : shotImageVariants}
-              transition={{ duration: 0.55, ease: MOTION_EASE }}
-            />
-          </motion.div>
+          {p.image ? (
+            <motion.button
+              type="button"
+              data-testid={`project-shot-${p.id}`}
+              aria-label={`View ${p.name} preview larger`}
+              onClick={() => onOpenShot(p)}
+              className="photo-frame project-shot aspect-video w-full bg-bone border border-ink/10 transition-[border-color] duration-500 group-hover:border-ink/25 cursor-[var(--cursor-bow)] text-left"
+              initial="rest"
+              whileHover={reduce ? undefined : "hover"}
+            >
+              <motion.img
+                layoutId={reduce ? undefined : `project-shot-${p.id}`}
+                src={p.image}
+                alt={p.imageAlt}
+                width={PROJECT_SHOT_SIZE.width}
+                height={PROJECT_SHOT_SIZE.height}
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover will-change-transform pointer-events-none"
+                style={reduce ? undefined : { y: parallaxY }}
+                variants={reduce ? undefined : shotImageVariants}
+                transition={LIGHTBOX_SPRING}
+              />
+            </motion.button>
+          ) : (
+            <div
+              data-testid={`project-shot-pending-${p.id}`}
+              className="aspect-video w-full border border-dashed border-ink/25 bg-bone-200/60 flex flex-col items-center justify-center gap-4 px-6 text-center"
+              aria-label={`${p.name} preview coming soon`}
+            >
+              <Bow size={28} />
+              <div>
+                <p className="font-serif text-2xl md:text-3xl tracking-tight text-ink">
+                  In progress
+                </p>
+                <p className="mt-2 font-mono text-xs uppercase tracking-[0.22em] text-ink-mute">
+                  Coming soon
+                </p>
+              </div>
+            </div>
+          )}
         </motion.div>
 
         <motion.div
           variants={reduce ? undefined : copyVariants}
-          animate={
-            reduce
-              ? undefined
-              : { y: hovered ? -3 : 0, transition: { duration: 0.35, ease: MOTION_EASE } }
-          }
           className={`md:col-span-5 flex flex-col min-w-0 ${
             imageLeft ? "md:order-2" : "md:order-1"
           }`}
@@ -130,8 +153,9 @@ const ProjectStrip = ({ project: p, index: idx, reduce, onOpenArch }) => {
                   className="inline-block"
                   transition={{
                     type: "spring",
-                    stiffness: 380,
+                    stiffness: 260,
                     damping: 34,
+                    mass: 0.9,
                   }}
                 >
                   {p.name}
@@ -202,6 +226,7 @@ const ProjectStrip = ({ project: p, index: idx, reduce, onOpenArch }) => {
 
 export const ProjectsSection = () => {
   const [openProject, setOpenProject] = useState(null);
+  const [lightboxProject, setLightboxProject] = useState(null);
   const reduce = useReducedMotion();
 
   return (
@@ -221,7 +246,7 @@ export const ProjectsSection = () => {
           </h2>
           <p className="mt-4 font-mono text-xs text-ink-mute max-w-xl">
             Each project links to its repo, live demo when available, and an
-            architecture diagram.
+            architecture diagram. Click a capture to enlarge it.
           </p>
         </Reveal>
 
@@ -234,6 +259,7 @@ export const ProjectsSection = () => {
                 index={idx}
                 reduce={reduce}
                 onOpenArch={setOpenProject}
+                onOpenShot={setLightboxProject}
               />
             ))}
           </div>
@@ -241,6 +267,10 @@ export const ProjectsSection = () => {
           <ArchitectureModal
             project={openProject}
             onClose={() => setOpenProject(null)}
+          />
+          <ProjectLightbox
+            project={lightboxProject}
+            onClose={() => setLightboxProject(null)}
           />
         </LayoutGroup>
       </div>

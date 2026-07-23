@@ -305,13 +305,13 @@ export const PROJECTS = [
     stack: ["Python", "FastAPI", "dbt", "PostgreSQL", "Dagster"],
     href: null,
     demo: null,
-    image: ASSETS.projects.reconflow,
-    imageAlt: "ReconFlow — import reconciliation pipeline overview",
+    image: null,
+    imageAlt: null,
     description:
       "Headless FastAPI pipeline: bank CSVs and invoices through ingest, transform, and match into a reconciliation mart.",
     architectureSummary:
       "Bank CSV extracts and invoice webhook JSON land in a raw zone. dbt transforms feed a fuzzy-match and FX stage, which writes a reconciliation mart and an exceptions queue.",
-    mermaid: `flowchart TD
+    mermaid: `flowchart LR
   CSV[Bank CSV extracts] --> Raw[(Raw zone)]
   WH[Invoice webhooks JSON] --> Stream[Stream enricher]
   Stream --> Raw
@@ -388,6 +388,16 @@ export const BENTO = {
       span: "md:col-span-2 md:row-span-1",
       image: ASSETS.interests.series,
       imageAlt: "Anime and series — free time watching",
+      imagePosition: "object-center",
+    },
+    {
+      key: "travelling",
+      label: "boarding soon",
+      title: "Travelling",
+      body: "I've developed a taste for travelling — and soon I'll be seeing more of the world.",
+      span: "md:col-span-3 md:row-span-1",
+      image: ASSETS.interests.travelling,
+      imageAlt: "City street corner from a recent trip",
       imagePosition: "object-center",
     },
   ],

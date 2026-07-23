@@ -158,6 +158,11 @@
     grid-column: span 2;
     grid-row: span 1;
   }
+
+  .bento-item--travelling {
+    grid-column: span 3;
+    grid-row: span 1;
+  }
 }
 
 /* open book guest book — spine gradient + page texture live here, not in JSX */
@@ -686,27 +691,6 @@
 .mermaid svg {
   background: transparent !important;
   display: block;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-}
-
-/* Keep node/edge labels readable after SVG scales to the modal width */
-.mermaid .nodeLabel,
-.mermaid .edgeLabel,
-.mermaid foreignObject div,
-.mermaid foreignObject span {
-  font-size: 1rem !important;
-  line-height: 1.35 !important;
-}
-
-@media (min-width: 768px) {
-  .mermaid .nodeLabel,
-  .mermaid .edgeLabel,
-  .mermaid foreignObject div,
-  .mermaid foreignObject span {
-    font-size: 1.0625rem !important;
-  }
 }
 
 /* footer strip — always ink bg / bone text (doesn't follow section alternation) */

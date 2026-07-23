@@ -15,18 +15,54 @@ const MERMAID_THEME = {
     lineColor: "#1A1A1A",
     tertiaryColor: "#EFEAE2",
     fontFamily: "JetBrains Mono, monospace",
-    // Larger base type — SVG was rendering at 13px then shrinking with the modal.
-    fontSize: "18px",
+    fontSize: "16px",
   },
   flowchart: {
     htmlLabels: true,
     curve: "basis",
-    padding: 18,
-    nodeSpacing: 55,
-    rankSpacing: 70,
-    useMaxWidth: true,
+    padding: 14,
+    nodeSpacing: 40,
+    rankSpacing: 50,
+    useMaxWidth: false,
   },
 };
+
+/** Fit wide vs tall diagrams to a similar readable size in the modal. */
+function sizeSvg(svgEl, containerWidth) {
+  const vb = svgEl.viewBox?.baseVal;
+  if (!vb?.width || !vb?.height) {
+    svgEl.style.width = "100%";
+    svgEl.style.height = "auto";
+    svgEl.style.maxWidth = "100%";
+    return;
+  }
+
+  const aspect = vb.width / vb.height;
+  svgEl.removeAttribute("width");
+  svgEl.removeAttribute("height");
+  svgEl.setAttribute("preserveAspectRatio", "xMidYMid meet");
+
+  // Wide LR charts: lock a readable height; scroll horizontally if needed.
+  if (aspect >= 1.55) {
+    const height = 260;
+    svgEl.style.height = `${height}px`;
+    svgEl.style.width = `${Math.round(height * aspect)}px`;
+    svgEl.style.maxWidth = "none";
+    return;
+  }
+
+  // Tall / balanced: fit to container, cap height so TD charts don't dominate.
+  const maxHeight = 340;
+  let width = Math.min(containerWidth, vb.width);
+  let height = width / aspect;
+  if (height > maxHeight) {
+    height = maxHeight;
+    width = height * aspect;
+  }
+  svgEl.style.width = `${Math.round(width)}px`;
+  svgEl.style.height = `${Math.round(height)}px`;
+  svgEl.style.maxWidth = "100%";
+}
 
 // Renders a Mermaid flowchart from the string defined in portfolio.js per project.
 export const MermaidDiagram = ({ chart, id, label }) => {
@@ -47,10 +83,7 @@ export const MermaidDiagram = ({ chart, id, label }) => {
         ref.current.innerHTML = svg;
         const svgEl = ref.current.querySelector("svg");
         if (svgEl) {
-          svgEl.removeAttribute("height");
-          svgEl.style.width = "100%";
-          svgEl.style.height = "auto";
-          svgEl.style.maxWidth = "100%";
+          sizeSvg(svgEl, ref.current.clientWidth || 720);
         }
       } catch (e) {
         if (ref.current) {
@@ -67,7 +100,7 @@ export const MermaidDiagram = ({ chart, id, label }) => {
   return (
     <div
       ref={ref}
-      className="mermaid w-full overflow-x-auto"
+      className="mermaid w-full overflow-x-auto flex justify-center"
       data-testid={`mermaid-${id}`}
       role="img"
       aria-label={label || "Architecture diagram"}
