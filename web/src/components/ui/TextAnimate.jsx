@@ -24,14 +24,6 @@ const ANIMATIONS = {
       },
     }),
   },
-  slideUp: {
-    hidden: { y: 10, opacity: 0 },
-    show: (duration) => ({
-      opacity: 1,
-      y: 0,
-      transition: { duration, ease: MOTION_EASE },
-    }),
-  },
 };
 
 function splitSegments(text, by) {

@@ -16,10 +16,10 @@ export const ProjectsSection = () => {
       id="projects"
       tabIndex={-1}
       data-testid="projects-section"
-      className="relative py-24 md:py-32 bg-bone-200 outline-none"
+      className="relative py-16 sm:py-20 md:py-32 bg-bone-200 outline-none"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <Reveal className="mb-16 max-w-3xl">
+        <Reveal className="mb-10 md:mb-16 max-w-3xl">
           <SectionOverline>02 · selected work</SectionOverline>
           <h2 className="font-serif font-light text-3xl md:text-5xl tracking-tighter text-ink">
             Selected projects
@@ -76,24 +76,24 @@ export const ProjectsSection = () => {
                 ))}
               </div>
 
-              <div className="mt-auto flex flex-wrap items-center gap-4 pt-4 border-t border-bone-400">
+              <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-3 pt-4 border-t border-bone-400">
                 <motion.button
                   type="button"
                   data-testid={`project-arch-${p.id}`}
                   onClick={() => setOpenProject(p)}
-                  className="btn-tactile font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-4 py-2 hover:bg-ink transition-colors"
+                  className="btn-tactile w-full sm:w-auto min-h-11 font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-4 py-2 hover:bg-ink transition-colors"
                   whileHover={reduce ? undefined : { y: -2, scale: 1.02 }}
                   whileTap={reduce ? undefined : { scale: 0.98 }}
                   transition={CTA_SPRING}
                 >
-                  Architecture →
+                  How it works →
                 </motion.button>
                 {p.href && (
                   <a
                     href={p.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="lnk font-mono text-xs uppercase tracking-[0.18em] text-ink-soft"
+                    className="lnk min-h-11 inline-flex items-center font-mono text-xs uppercase tracking-[0.18em] text-ink-soft"
                   >
                     GitHub ↗
                     <span className="sr-only"> (opens in new tab)</span>
@@ -104,7 +104,7 @@ export const ProjectsSection = () => {
                     href={p.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="lnk font-mono text-xs uppercase tracking-[0.18em] text-ink-soft"
+                    className="lnk min-h-11 inline-flex items-center font-mono text-xs uppercase tracking-[0.18em] text-ink-soft"
                   >
                     Demo ↗
                     <span className="sr-only"> (opens in new tab)</span>

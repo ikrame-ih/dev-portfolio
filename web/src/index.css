@@ -34,7 +34,7 @@
     cursor: var(--cursor-bow);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
+    overflow-x: clip;
     /* Hide insertion caret on static text; keep it only in form fields. */
     caret-color: transparent;
   }
@@ -192,6 +192,10 @@
   }
   .guestbook-page-right {
     border-radius: 0 0 6px 6px;
+  }
+
+  .guestbook-page {
+    min-height: 260px;
   }
 }
 
@@ -361,12 +365,6 @@
   background: rgba(26, 26, 26, 0.12);
 }
 
-.bow-cursor-canvas {
-  cursor:
-    url("/images/cursor-bow.svg") 16 16,
-    crosshair;
-}
-
 .grain::before {
   content: "";
   position: fixed;
@@ -429,10 +427,6 @@
 }
 
 .lnk:hover::after {
-  transform: scaleX(1);
-}
-
-.nav-link-active::after {
   transform: scaleX(1);
 }
 
@@ -594,18 +588,31 @@
 }
 
 @media (max-width: 767px) {
-  :root {
-    --grain-opacity: 0.045;
-  }
-
   .grain::before {
-    mix-blend-mode: soft-light;
+    background-image: none;
+    opacity: 0;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .grain::before {
     opacity: 0.04;
+  }
+}
+
+/* Touch / coarse pointers — bow cursor is decorative desktop chrome only. */
+@media (hover: none), (pointer: coarse) {
+  body,
+  a,
+  button,
+  [role="button"],
+  summary,
+  label[for] {
+    cursor: auto;
+  }
+
+  .guestbook-page {
+    cursor: pointer;
   }
 }
 

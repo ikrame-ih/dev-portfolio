@@ -66,11 +66,6 @@ export function saveBow(bow) {
   return next.map(normalizeBow);
 }
 
-export function setBows(bows) {
-  localStorage.setItem(BOWS_KEY, JSON.stringify(bows));
-  return bows.map(normalizeBow);
-}
-
 export function loadGuestbook() {
   try {
     const raw = localStorage.getItem(GUESTBOOK_KEY);

@@ -11,10 +11,10 @@ export const BentoSection = () => {
       id="bento"
       tabIndex={-1}
       data-testid="bento-section"
-      className="relative py-24 md:py-32 outline-none"
+      className="relative py-16 sm:py-20 md:py-32 outline-none"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <Reveal className="mb-16 max-w-3xl">
+        <Reveal className="mb-10 md:mb-16 max-w-3xl">
           <SectionOverline>{BENTO.overline}</SectionOverline>
           <h2 className="font-serif font-light text-3xl md:text-5xl tracking-tighter text-ink">
             {BENTO.title}

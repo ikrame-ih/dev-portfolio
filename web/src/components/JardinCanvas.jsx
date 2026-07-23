@@ -335,10 +335,10 @@ export const JardinCanvas = () => {
       tabIndex={-1}
       aria-labelledby="guestbook-heading"
       data-testid="jardin-section"
-      className="relative py-24 md:py-32 outline-none"
+      className="relative py-16 sm:py-20 md:py-32 outline-none"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <Reveal className="mb-12 flex flex-wrap items-end justify-between gap-6">
+        <Reveal className="mb-10 md:mb-12 flex flex-col items-start gap-5 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-6">
               <TyingBow size={14} tie={false} />
@@ -373,7 +373,7 @@ export const JardinCanvas = () => {
               signature. One bow per visitor.
             </p>
           </div>
-          <div className="font-mono text-xs text-ink-soft text-right">
+          <div className="font-mono text-xs text-ink-soft text-left md:text-right">
             <p
               data-testid="bow-count"
               className="text-burgundy text-base"

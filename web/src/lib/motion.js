@@ -2,11 +2,9 @@
 export const MOTION_EASE = [0.2, 0.7, 0.2, 1];
 
 export const MOTION_DURATION = {
-  instant: 0.15,
   fast: 0.25,
   normal: 0.55,
   reveal: 0.85,
-  settle: 1.2,
 };
 
 /** Micro-interaction spring for CTAs and tactile controls. */

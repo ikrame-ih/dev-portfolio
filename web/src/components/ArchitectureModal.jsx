@@ -59,17 +59,17 @@ export const ArchitectureModal = ({ project, onClose }) => {
                   id="arch-modal-title"
                   className="font-serif font-light text-2xl text-ink"
                 >
-                  {project.name} · Architecture
+                  {project.name} · How it works
                 </h2>
                 <p className="font-mono text-xs text-ink-soft mt-1">
-                  Live diagram · rendered with Mermaid.js
+                  Live architecture diagram
                 </p>
               </div>
               <button
                 type="button"
                 data-testid="arch-modal-close"
                 onClick={onClose}
-                aria-label="Close architecture dialog"
+                aria-label="Close dialog"
                 className="btn-tactile font-mono text-xs uppercase tracking-[0.18em] text-ink-soft hover:text-burgundy"
               >
                 close ✕

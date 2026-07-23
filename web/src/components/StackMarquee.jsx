@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import { STACK } from "@/data/portfolio";
 import { Bow } from "./Bow";
@@ -45,9 +46,20 @@ const Separator = ({ index }) => {
   );
 };
 
-/** Quiet mono ticker — pauses on hover; static when reduced motion. */
+/** Quiet mono ticker — pauses on hover; static on mobile / reduced motion. */
 export const StackMarquee = ({ className = "" }) => {
   const reduce = useReducedMotion();
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const sync = () => setAnimate(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+
+  const shouldAnimate = animate && !reduce;
   const loop = [...TICKER_ITEMS, ...TICKER_ITEMS];
 
   return (
@@ -58,10 +70,10 @@ export const StackMarquee = ({ className = "" }) => {
     >
       <div
         className={`flex w-max gap-0 py-3 font-mono text-[11px] uppercase tracking-[0.22em] ${
-          reduce ? "" : "marquee-track"
+          shouldAnimate ? "marquee-track" : ""
         }`}
       >
-        {(reduce ? TICKER_ITEMS : loop).map((item, i) => (
+        {(shouldAnimate ? loop : TICKER_ITEMS).map((item, i) => (
           <span
             key={`${item.label}-${i}`}
             className={`inline-flex items-center shrink-0 px-5 ${

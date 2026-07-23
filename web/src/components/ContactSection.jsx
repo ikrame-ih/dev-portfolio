@@ -15,6 +15,27 @@ const MAX_NAME = 100;
 const MAX_EMAIL = 254;
 const MAX_MESSAGE = 2000;
 
+const CONTACT_EMAIL = PROFILE.email;
+const RATE_LIMIT_MESSAGE =
+  "Too many messages have been sent. Please try again later or email me directly.";
+
+const SendFailedToast = () => (
+  <span>
+    I couldn&apos;t send your message right now. Please email me directly at{" "}
+    <a
+      href={`mailto:${CONTACT_EMAIL}`}
+      className="underline underline-offset-2 hover:opacity-80"
+    >
+      {CONTACT_EMAIL}
+    </a>
+    .
+  </span>
+);
+
+const showSendFailedToast = () => {
+  toast.error(<SendFailedToast />);
+};
+
 export const ContactSection = () => {
   const [form, setForm] = useState({
     name: "",
@@ -71,30 +92,19 @@ export const ContactSection = () => {
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        if (data.error === "rate_limited") {
-          toast.error(
-            "Too many messages — try again in an hour or email me directly.",
-          );
-        } else if (data.error === "too_fast") {
+        const code = typeof data.error === "string" ? data.error : "";
+
+        if (code === "rate_limited") {
+          toast.error(RATE_LIMIT_MESSAGE);
+        } else if (code === "too_fast") {
           toast.error("Please take a moment before sending.");
-        } else if (data.error === "email_not_configured") {
-          toast.error(
-            "Contact form is not configured yet — email me directly.",
-          );
-        } else if (data.error === "invalid_email") {
+        } else if (code === "invalid_email") {
           toast.error("Please enter a valid email address.");
-        } else if (data.error === "resend_testing_limit") {
-          toast.error(
-            "Form misconfigured — inbox must match your Resend account email until you verify a domain.",
-          );
-        } else if (data.error === "resend_auth") {
-          toast.error(
-            "Email service auth failed — check RESEND_API_KEY in Vercel.",
-          );
+        } else if (code === "missing_fields") {
+          toast.error("Please fill in all fields.");
         } else {
-          toast.error(
-            "Could not send your message. Try again or email me directly.",
-          );
+          // Unknown / provider / config failures — never surface API text.
+          showSendFailedToast();
         }
         return;
       }
@@ -103,9 +113,7 @@ export const ContactSection = () => {
       setForm({ name: "", email: "", message: "", website: "" });
       formStartedAt.current = Date.now();
     } catch {
-      toast.error(
-        "Could not send your message. Try again or email me directly.",
-      );
+      showSendFailedToast();
     } finally {
       setSubmitting(false);
     }
@@ -116,7 +124,7 @@ export const ContactSection = () => {
       id="contact"
       tabIndex={-1}
       data-testid="contact-section"
-      className="relative py-24 md:py-32 bg-bone-200 outline-none"
+      className="relative py-16 sm:py-20 md:py-32 bg-bone-200 outline-none"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12">
         <Reveal className="md:col-span-5">
@@ -275,7 +283,7 @@ export const ContactSection = () => {
             />
           </div>
 
-          <div className="flex items-center justify-between pt-4 gap-4">
+          <div className="flex flex-col items-start gap-4 pt-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="relative min-h-[1.25rem] font-mono text-xs uppercase tracking-[0.2em] text-ink-mute">
               <AnimatePresence mode="wait" initial={false}>
                 {sent ? (
@@ -313,7 +321,7 @@ export const ContactSection = () => {
               type="submit"
               data-testid="contact-submit"
               disabled={submitting}
-              className="btn-tactile font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-6 py-3 hover:bg-ink transition-colors disabled:opacity-50"
+              className="btn-tactile min-h-11 font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-6 py-3 hover:bg-ink transition-colors disabled:opacity-50"
               whileHover={
                 reduce || submitting ? undefined : { y: -2, scale: 1.02 }
               }

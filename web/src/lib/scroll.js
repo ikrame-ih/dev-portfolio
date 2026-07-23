@@ -14,21 +14,18 @@ const focusTarget = (el) => {
 export const scrollToElement = (id, block = "start") => {
   const el = document.getElementById(id);
   if (!el) return;
+  // Focus first so SR/keyboard land correctly even if smooth scroll is long.
+  focusTarget(el);
   el.scrollIntoView({
     behavior: scrollBehavior(),
     block,
   });
-  // Move keyboard focus with the viewport so SR users land in the section.
-  window.setTimeout(() => focusTarget(el), prefersReducedMotion() ? 0 : 320);
 };
 
 export const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: scrollBehavior() });
   const main = document.getElementById("main-content");
-  window.setTimeout(
-    () => focusTarget(main),
-    prefersReducedMotion() ? 0 : 320,
-  );
+  focusTarget(main);
+  window.scrollTo({ top: 0, behavior: scrollBehavior() });
 };
 
 /** In-page hash nav — smooth scroll + focus, then sync the URL. */
@@ -56,10 +53,7 @@ export const onHashLinkClick = (e) => {
     navigateToHash("", { updateHistory: true });
     if (id === "main-content") {
       const main = document.getElementById("main-content");
-      window.setTimeout(
-        () => focusTarget(main),
-        prefersReducedMotion() ? 0 : 320,
-      );
+      focusTarget(main);
     }
     return;
   }

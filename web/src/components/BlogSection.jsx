@@ -43,7 +43,7 @@ export const BlogSection = () => {
       tabIndex={-1}
       aria-labelledby="vault-heading"
       data-testid="blog-section"
-      className="relative py-24 md:py-32 bg-bone-200 outline-none"
+      className="relative py-16 sm:py-20 md:py-32 bg-bone-200 outline-none"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
@@ -106,10 +106,15 @@ export const BlogSection = () => {
             </p>
           </Reveal>
 
-          <div className="md:col-span-7 relative space-y-2 md:pt-16 min-h-[420px]">
+          <div className="md:col-span-7 relative space-y-2 md:pt-16 min-h-[240px] md:min-h-[420px]">
             {BLOG.comingSoon ? (
               <>
-                <div aria-hidden="true" inert={true}>
+                {/* Draft previews only from md — mobile keeps a short coming-soon notice. */}
+                <div
+                  className="hidden md:block"
+                  aria-hidden="true"
+                  inert={true}
+                >
                   {BLOG.posts.map((post, i) => (
                     <PostRow
                       key={post.slug}
@@ -126,7 +131,7 @@ export const BlogSection = () => {
                   data-testid="blog-coming-soon"
                   role="status"
                   aria-live="polite"
-                  className="absolute inset-0 z-10 flex items-center justify-center bg-gradient-to-b from-bone-200/55 via-bone/82 to-bone-200/90 backdrop-blur-[3px] border border-ink/10"
+                  className="relative md:absolute md:inset-0 z-10 flex items-center justify-center min-h-[240px] md:min-h-0 bg-bone-200/90 md:bg-gradient-to-b md:from-bone-200/55 md:via-bone/82 md:to-bone-200/90 md:backdrop-blur-[3px] border border-ink/10"
                 >
                   <div className="text-center px-8 py-10 max-w-sm">
                     <div className="inline-flex items-center gap-3 mb-3">
@@ -137,6 +142,9 @@ export const BlogSection = () => {
                         Coming soon
                       </span>
                     </div>
+                    <p className="font-mono text-xs text-ink-soft leading-relaxed md:sr-only">
+                      Notes are not published yet — check back soon.
+                    </p>
                     <p className="sr-only">
                       {BLOG.name} is coming soon. Draft notes are not published
                       yet.

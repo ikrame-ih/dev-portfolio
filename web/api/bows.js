@@ -1,6 +1,5 @@
 import { randomUUID } from "node:crypto";
 import { getRedis } from "./_lib/redis.js";
-import { getClientIp } from "./_lib/security.js";
 
 const BOWS_KEY = "guestbook:bows";
 const MIN_DISTANCE = 0.07;

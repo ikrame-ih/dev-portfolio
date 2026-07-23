@@ -77,7 +77,7 @@ export const Footer = ({ onOpenTerminal }) => {
                   <a
                     href={`#${id}`}
                     onClick={onHashLinkClick}
-                    className="lnk text-[#F5F1EB] hover:opacity-80"
+                    className="lnk min-h-11 inline-flex items-center text-[#F5F1EB] hover:opacity-80"
                   >
                     {label}
                   </a>
@@ -99,7 +99,7 @@ export const Footer = ({ onOpenTerminal }) => {
               type="button"
               data-testid="footer-terminal-open"
               onClick={onOpenTerminal}
-              className="btn-tactile mt-4 inline-block font-mono text-xs uppercase tracking-[0.18em] border border-[#F5F1EB]/40 px-4 py-2 hover:bg-[#F5F1EB] hover:text-[#1A1A1A] transition-colors"
+              className="btn-tactile mt-4 inline-flex items-center min-h-11 font-mono text-xs uppercase tracking-[0.18em] border border-[#F5F1EB]/40 px-4 py-2 hover:bg-[#F5F1EB] hover:text-[#1A1A1A] transition-colors"
               whileHover={reduce ? undefined : { y: -2, scale: 1.02 }}
               whileTap={reduce ? undefined : { scale: 0.98 }}
               transition={CTA_SPRING}
@@ -107,7 +107,7 @@ export const Footer = ({ onOpenTerminal }) => {
               Open terminal →
             </motion.button>
             <p className="mt-6 font-mono text-xs footer-muted">
-              or use the Terminal button above
+              or open it from the navigation
             </p>
           </motion.div>
         </div>

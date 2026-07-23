@@ -45,7 +45,6 @@ export const PROFILE = {
     "Just finished DAW (Jun 2026) and internship work at DATA CONTROL. AI & Big Data starts Sep 2026 — actively open to the next role.",
   portraitLink: {
     label: "Say hi on LinkedIn →",
-    hrefKey: "linkedin",
   },
   practiceAside: {
     title: "At a glance",
@@ -67,7 +66,6 @@ export const STACK = {
       index: "01",
       title: "Frontend",
       kicker: "Interfaces, motion, and everything the eye touches.",
-      tone: "burgundy",
       groups: [
         {
           label: "UI & frameworks",
@@ -95,7 +93,6 @@ export const STACK = {
       index: "02",
       title: "Backend & data",
       kicker: "APIs, persistence, and the pipelines between them.",
-      tone: "ink",
       groups: [
         {
           label: "APIs & runtime",
@@ -120,7 +117,6 @@ export const STACK = {
       index: "03",
       title: "Tooling & delivery",
       kicker: "Ship, test, and keep the loop honest.",
-      tone: "ink",
       groups: [
         {
           label: "Toolchain",
@@ -137,12 +133,6 @@ export const STACK = {
     },
   ],
 };
-
-export const STACK_SKILL_COUNT =
-  STACK.domains.reduce(
-    (n, d) => n + d.groups.reduce((m, g) => m + g.items.length, 0),
-    0,
-  ) + LANGUAGES.length;
 
 export const EXPERIENCE = [
   {
@@ -397,7 +387,6 @@ export const BENTO = {
 
 export const BLOG = {
   name: "Tizza's vault",
-  slug: "tizzas-vault",
   avatar: ASSETS.tizzasVaultAvatar,
   avatarCredit: {
     artist: "heartpuff",

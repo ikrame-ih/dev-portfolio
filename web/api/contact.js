@@ -40,7 +40,11 @@ export default async function handler(req, res) {
     process.env.CONTACT_FROM_EMAIL || "Portfolio <onboarding@resend.dev>";
 
   if (!apiKey || !to) {
-    return res.status(503).json({ error: "email_not_configured" });
+    console.error("contact_misconfigured", {
+      hasApiKey: Boolean(apiKey),
+      hasTo: Boolean(to),
+    });
+    return res.status(503).json({ error: "service_unavailable" });
   }
 
   const { name, email, message, startedAt } = req.body ?? {};
@@ -80,34 +84,8 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       const detail = await response.text();
-      console.error("resend_error", response.status, detail);
-
-      let resendMessage = "";
-      try {
-        const parsed = JSON.parse(detail);
-        resendMessage = parsed.message || parsed.error || "";
-      } catch {
-        resendMessage = detail;
-      }
-
-      if (
-        resendMessage.includes("only send testing emails to your own email")
-      ) {
-        return res.status(502).json({
-          error: "resend_testing_limit",
-          hint: "CONTACT_TO_EMAIL must match the email on your Resend account while using onboarding@resend.dev.",
-        });
-      }
-
-      if (response.status === 401 || response.status === 403) {
-        return res
-          .status(502)
-          .json({ error: "resend_auth", hint: resendMessage });
-      }
-
-      return res
-        .status(502)
-        .json({ error: "send_failed", hint: resendMessage });
+      console.error("contact_provider_error", response.status, detail);
+      return res.status(502).json({ error: "send_failed" });
     }
 
     return res.status(200).json({ ok: true });

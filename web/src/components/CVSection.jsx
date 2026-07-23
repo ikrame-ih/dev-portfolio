@@ -8,7 +8,6 @@ import {
   LANGUAGES,
   PROFILE,
   STACK,
-  STACK_SKILL_COUNT,
 } from "@/data/portfolio";
 import { StackIcon } from "@/data/stackIcons";
 import { ASSETS } from "@/data/assets";
@@ -16,7 +15,7 @@ import { CTA_SPRING, MOTION_EASE, scrollEnter } from "@/lib/motion";
 
 // Shared header pattern used across CV subsections.
 const SectionHeader = ({ overline, title, kicker }) => (
-  <div className="mb-16">
+  <div className="mb-10 md:mb-16">
     <SectionOverline>{overline}</SectionOverline>
     <h2 className="font-serif font-light text-3xl md:text-5xl tracking-tighter text-ink max-w-3xl">
       {title}
@@ -118,7 +117,7 @@ const BrandMark = ({ name, index = 0, reduce }) => (
   </motion.li>
 );
 
-const BrandGrid = ({ items, cols = "grid-cols-3", testId, reduce }) => (
+const BrandGrid = ({ items, cols = "grid-cols-2 sm:grid-cols-3", testId, reduce }) => (
   <ul className={`grid ${cols} gap-x-4 gap-y-7 md:gap-y-8`} data-testid={testId}>
     {items.map((s, i) => (
       <BrandMark key={s} name={s} index={i} reduce={reduce} />
@@ -130,7 +129,7 @@ const DomainPanel = ({ domain, children, testId }) => {
   const reduce = useReducedMotion();
 
   return (
-    <div data-testid={testId} className="relative min-h-[260px]">
+    <div data-testid={testId} className="relative min-h-0 md:min-h-[260px]">
       <motion.span
         aria-hidden="true"
         className="pointer-events-none absolute -top-2 right-0 font-serif font-light text-[5.5rem] md:text-[7rem] leading-none text-ink/[0.05] select-none"
@@ -194,11 +193,7 @@ const SkillsBlock = () => {
                   <BrandGrid
                     items={group.items}
                     reduce={reduce}
-                    cols={
-                      domain.id === "tooling"
-                        ? "grid-cols-3 sm:grid-cols-3"
-                        : "grid-cols-3"
-                    }
+                    cols="grid-cols-2 sm:grid-cols-3"
                   />
                 </div>
               ))}
@@ -237,7 +232,7 @@ const SkillsBlock = () => {
     </div>
 
     <p className="mt-8 md:mt-10 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-mute">
-      4 domains · {STACK_SKILL_COUNT} skills catalogued
+      Frontend, backend, tooling, and languages.
     </p>
   </div>
   );

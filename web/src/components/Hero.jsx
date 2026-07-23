@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { Bow } from "./Bow";
 import TextAnimate from "./ui/TextAnimate";
@@ -52,12 +53,21 @@ const factItem = (reduce) =>
 
 export const Hero = () => {
   const reduce = useReducedMotion();
+  const [parallaxOn, setParallaxOn] = useState(false);
   const { scrollY } = useScroll();
   const photoParallax = useTransform(
     scrollY,
     [0, 420],
-    [0, reduce ? 0 : 18],
+    [0, reduce || !parallaxOn ? 0 : 18],
   );
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const sync = () => setParallaxOn(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
 
   return (
     <section
@@ -115,10 +125,10 @@ export const Hero = () => {
               {PROFILE.heroSubtext}
             </motion.p>
 
-            {/* Editorial fact row — vertical rules, not floating diamonds */}
+            {/* Editorial fact row — vertical rules from md only */}
             <motion.ul
               data-testid="hero-facts"
-              className="mt-6 md:mt-7 flex flex-wrap"
+              className="mt-6 grid grid-cols-2 gap-y-5 md:mt-7 md:flex md:flex-wrap"
               variants={factsContainer(reduce)}
               initial={reduce ? false : "hidden"}
               animate={reduce ? undefined : "show"}
@@ -128,7 +138,9 @@ export const Hero = () => {
                   key={fact.eyebrow}
                   variants={factItem(reduce)}
                   className={`flex flex-col gap-1 pr-6 md:pr-8 ${
-                    i > 0 ? "pl-6 md:pl-8 border-l border-ink/15" : ""
+                    i === 2 ? "col-span-2 md:col-auto" : ""
+                  } ${
+                    i > 0 ? "md:pl-8 md:border-l md:border-ink/15" : ""
                   }`}
                 >
                   <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink-mute">
@@ -149,13 +161,13 @@ export const Hero = () => {
 
             <motion.div
               {...heroStep("ctas", reduce)}
-              className="mt-9 md:mt-10 flex flex-wrap items-center gap-4"
+              className="mt-9 grid grid-cols-2 gap-3 sm:mt-10 sm:flex sm:flex-wrap sm:items-center sm:gap-4"
             >
               <motion.a
                 href="#projects"
                 data-testid="hero-cta-projects"
                 onClick={onHashLinkClick}
-                className="btn-tactile font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-6 py-3 hover:bg-ink transition-colors inline-block"
+                className="btn-tactile min-h-11 inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-6 py-3 hover:bg-ink transition-colors"
                 whileHover={reduce ? undefined : { y: -2, scale: 1.02 }}
                 whileTap={reduce ? undefined : { scale: 0.98 }}
                 transition={CTA_SPRING}
@@ -166,7 +178,7 @@ export const Hero = () => {
                 href="#cv"
                 data-testid="hero-cta-cv"
                 onClick={onHashLinkClick}
-                className="btn-tactile font-mono text-xs uppercase tracking-[0.18em] border border-ink px-6 py-3 hover:bg-burgundy hover:text-[#F5F1EB] hover:border-burgundy transition-colors inline-block"
+                className="btn-tactile min-h-11 inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.18em] border border-ink px-6 py-3 hover:bg-burgundy hover:text-[#F5F1EB] hover:border-burgundy transition-colors"
                 whileHover={reduce ? undefined : { y: -2, scale: 1.02 }}
                 whileTap={reduce ? undefined : { scale: 0.98 }}
                 transition={CTA_SPRING}
@@ -177,7 +189,7 @@ export const Hero = () => {
                 href="#contact"
                 data-testid="hero-cta-contact"
                 onClick={onHashLinkClick}
-                className="lnk font-mono text-xs uppercase tracking-[0.18em] text-ink-soft hover:text-burgundy inline-block"
+                className="col-span-2 sm:col-auto lnk min-h-11 inline-flex items-center justify-center sm:justify-start font-mono text-xs uppercase tracking-[0.18em] text-ink-soft hover:text-burgundy"
                 whileHover={reduce ? undefined : { y: -1 }}
                 transition={CTA_SPRING}
               >
@@ -196,8 +208,10 @@ export const Hero = () => {
               </div>
               <figure>
                 <motion.div
-                  style={reduce ? undefined : { y: photoParallax }}
-                  className="photo-frame aspect-[3/4] bg-bone-300 border border-ink/15 will-change-transform"
+                  style={
+                    reduce || !parallaxOn ? undefined : { y: photoParallax }
+                  }
+                  className="photo-frame aspect-[3/4] bg-bone-300 border border-ink/15 md:will-change-transform"
                 >
                   <img
                     data-testid="hero-photo"
