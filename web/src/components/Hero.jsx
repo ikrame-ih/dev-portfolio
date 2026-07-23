@@ -143,7 +143,7 @@ export const Hero = () => {
                     i > 0 ? "md:pl-8 md:border-l md:border-ink/15" : ""
                   }`}
                 >
-                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink-mute">
+                  <span className="font-mono text-xs uppercase tracking-[0.22em] text-ink-mute">
                     {fact.eyebrow}
                   </span>
                   <span

@@ -1,0 +1,25 @@
+# Ikrame I. H.
+
+> Software developer based in Málaga — frontend and backend. Available for remote or hybrid roles.
+
+- Site: https://ikrame-ih.vercel.app/
+- Email: ikihga2223@gmail.com
+- GitHub: https://github.com/ikrame-ih
+- LinkedIn: https://www.linkedin.com/in/ikrame-ih/
+- CV (EN): https://ikrame-ih.vercel.app/Ikrame_Ibn_Hayoun_CV.pdf
+- CV (ES): https://ikrame-ih.vercel.app/Ikrame_Ibn_Hayoun_CV_ES.pdf
+
+## Summary
+
+DAW graduate (Jun 2026). Capstone MyPlaythrough awarded maximum grade. AI & Big Data Specialisation Course starting Sep 2026. Comfortable across interfaces, APIs, authentication, and databases.
+
+## Selected projects
+
+- Live Event Radar — real-time venue ops dashboard (Next.js, React, TypeScript)
+- MyPlaythrough — personal game library manager, DAW capstone (React, Node, PostgreSQL)
+- Aiba — local-first Windows productivity companion (Electron)
+- ReconFlow — bank/invoice reconciliation pipeline (in progress; Python, FastAPI, dbt)
+
+## Optional
+
+- Portfolio source: https://github.com/ikrame-ih/dev-portfolio

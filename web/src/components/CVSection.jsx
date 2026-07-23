@@ -130,7 +130,7 @@ const DomainPanel = ({ domain, children, testId }) => {
     <div data-testid={testId} className="relative min-h-0 md:min-h-[260px]">
       <motion.span
         aria-hidden="true"
-        className="pointer-events-none absolute -top-2 right-0 font-serif font-light text-[5.5rem] md:text-[7rem] leading-none text-ink/25 select-none"
+        className="pointer-events-none absolute -top-2 right-0 font-serif font-light text-[5.5rem] md:text-[7rem] leading-none text-ink/[0.07] select-none"
         initial={reduce ? false : { opacity: 0, x: 12 }}
         whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
         viewport={REVEAL_VIEWPORT}
@@ -151,7 +151,7 @@ const DomainPanel = ({ domain, children, testId }) => {
               <h3 className="font-serif text-2xl md:text-3xl tracking-tight text-ink">
                 {domain.title}
               </h3>
-              <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-burgundy shrink-0">
+              <span className="font-mono text-xs uppercase tracking-[0.28em] text-burgundy shrink-0">
                 {domain.index}
               </span>
             </div>
@@ -229,7 +229,7 @@ const SkillsBlock = () => {
       </Reveal>
     </div>
 
-    <p className="mt-8 md:mt-10 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-mute">
+    <p className="mt-8 md:mt-10 font-mono text-xs uppercase tracking-[0.2em] text-ink-mute">
       Frontend, backend, tooling, and languages.
     </p>
   </div>

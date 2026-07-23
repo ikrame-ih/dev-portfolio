@@ -59,7 +59,7 @@ const GhostBow = ({ ghost }) => {
   return (
     <div
       aria-hidden="true"
-      className="absolute pointer-events-none z-[5] -translate-x-1/2 -translate-y-1/2 text-ink-mute opacity-40"
+      className="absolute pointer-events-none z-[5] -translate-x-1/2 -translate-y-1/2 text-bone-400"
       style={{
         left: `${ghost.mx * 100}%`,
         top: `${ghost.y * 100}%`,

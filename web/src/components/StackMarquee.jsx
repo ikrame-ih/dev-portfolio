@@ -58,7 +58,7 @@ export const StackMarquee = ({ className = "" }) => {
       aria-hidden="true"
     >
       <div
-        className={`flex w-max gap-0 py-3 font-mono text-[11px] uppercase tracking-[0.22em] ${
+        className={`flex w-max gap-0 py-3 font-mono text-xs uppercase tracking-[0.22em] ${
           shouldAnimate ? "marquee-track" : ""
         }`}
       >

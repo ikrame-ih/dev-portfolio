@@ -268,18 +268,16 @@ export const ContactSection = () => {
             )}
           </label>
 
-          <div
-            className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden"
-            aria-hidden="true"
-          >
-            {/* Label keeps WAVE/axe happy; honeypot stays off-screen for bots. */}
-            <label htmlFor="contact-website">Website</label>
+          {/* Honeypot — off-screen; aria-label avoids WAVE orphaned-label + missing-label. */}
+          <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
             <input
               id="contact-website"
               name="website"
               type="text"
               tabIndex={-1}
               autoComplete="off"
+              aria-label="Website"
+              aria-hidden="true"
               value={form.website}
               onChange={onChange}
             />

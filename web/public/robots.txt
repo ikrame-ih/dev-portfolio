@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ikrame-ih.vercel.app/sitemap.xml

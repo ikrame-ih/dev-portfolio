@@ -70,7 +70,7 @@ export const BentoSection = () => {
                 <h3 className="font-serif font-light text-2xl md:text-3xl text-ink tracking-tight">
                   {item.title}
                 </h3>
-                <p className="font-mono text-xs md:text-sm text-ink leading-relaxed max-w-md transition-opacity duration-500 opacity-90 group-hover:opacity-100">
+                <p className="font-mono text-xs md:text-sm text-ink leading-relaxed max-w-md">
                   {item.body}
                 </p>
               </div>
