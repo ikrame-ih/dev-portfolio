@@ -31,7 +31,7 @@ const Separator = ({ index }) => {
   if (index % 4 === 3) {
     return (
       <span
-        className="ml-5 inline-flex items-center text-burgundy/55"
+        className="ml-5 inline-flex items-center text-burgundy"
         aria-hidden="true"
       >
         <Bow size={10} strokeWidth={1.3} />
@@ -39,7 +39,7 @@ const Separator = ({ index }) => {
     );
   }
   return (
-    <span className="ml-5 text-burgundy/40" aria-hidden="true">
+    <span className="ml-5 text-ink-mute" aria-hidden="true">
       ·
     </span>
   );

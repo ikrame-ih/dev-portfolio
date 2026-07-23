@@ -62,6 +62,7 @@ export const ArchitectureModal = ({ project, onClose }) => {
           exit={reduce ? undefined : { opacity: 0 }}
           transition={{ duration: 0.45, ease: MOTION_EASE }}
           data-testid="arch-modal-backdrop"
+          data-cursor-on-dark=""
           className="fixed inset-0 z-[90] bg-ink/60 backdrop-blur-[6px] flex items-center justify-center p-4 md:p-10"
           onClick={onClose}
         >
@@ -70,6 +71,7 @@ export const ArchitectureModal = ({ project, onClose }) => {
             {...panelMotion}
             onClick={(e) => e.stopPropagation()}
             data-testid="arch-modal"
+            data-cursor-on-light=""
             className="w-full max-w-5xl bg-bone border border-ink p-6 md:p-8 max-h-[90vh] overflow-y-auto origin-center"
             role="dialog"
             aria-modal="true"

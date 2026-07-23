@@ -79,7 +79,7 @@ export const COMMAND_CATALOG = [
   { cmd: "demo <n>", label: "open live demo for project n" },
   { cmd: "repo <n>", label: "open GitHub repo for project n" },
   { cmd: "cv", label: "jump to CV section" },
-  { cmd: "pdf", label: "open CV PDF" },
+  { cmd: "pdf", label: "open CV PDF (pdf es → Spanish)" },
   { cmd: "links", label: "GitHub · LinkedIn · email · site" },
   { cmd: "gh", label: "open GitHub" },
   { cmd: "li", label: "open LinkedIn" },
@@ -373,9 +373,14 @@ export const linkLines = () => [
   L("meta", "tip: gh · li · copy"),
 ];
 
-export const openCvPdf = () => {
-  window.open(ASSETS.cvPdf, "_blank", "noopener,noreferrer");
-  return [L("ok", "Opening CV PDF…"), L("meta", ASSETS.cvPdf)];
+export const openCvPdf = (lang = "en") => {
+  const es = String(lang).toLowerCase().startsWith("es");
+  const href = es ? ASSETS.cvPdfEs : ASSETS.cvPdf;
+  window.open(href, "_blank", "noopener,noreferrer");
+  return [
+    L("ok", es ? "Opening CV PDF (ES)…" : "Opening CV PDF…"),
+    L("meta", href),
+  ];
 };
 
 export const openExternal = (label, href) => {

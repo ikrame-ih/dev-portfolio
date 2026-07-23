@@ -272,6 +272,8 @@ export const ContactSection = () => {
             className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden"
             aria-hidden="true"
           >
+            {/* Label keeps WAVE/axe happy; honeypot stays off-screen for bots. */}
+            <label htmlFor="contact-website">Website</label>
             <input
               id="contact-website"
               name="website"

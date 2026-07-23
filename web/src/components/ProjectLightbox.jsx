@@ -33,6 +33,7 @@ export const ProjectLightbox = ({ project, onClose }) => {
           exit={reduce ? undefined : { opacity: 0 }}
           transition={{ duration: 0.4, ease: MOTION_EASE }}
           data-testid="project-lightbox"
+          data-cursor-on-dark=""
           className="fixed inset-0 z-[95] flex items-center justify-center p-4 md:p-10 bg-ink/75 backdrop-blur-md"
           onClick={onClose}
         >
@@ -49,7 +50,7 @@ export const ProjectLightbox = ({ project, onClose }) => {
               data-testid="project-lightbox-close"
               onClick={onClose}
               aria-label="Close preview"
-              className="btn-tactile absolute -top-1 right-0 z-10 min-h-11 px-3 font-mono text-xs uppercase tracking-[0.18em] text-[#F5F1EB]/80 hover:text-[#F5F1EB] md:-top-12 md:right-0"
+              className="btn-tactile absolute -top-1 right-0 z-10 min-h-11 px-3 font-mono text-xs uppercase tracking-[0.18em] text-[#F5F1EB] hover:text-white md:-top-12 md:right-0"
             >
               close ✕
             </button>
@@ -58,10 +59,11 @@ export const ProjectLightbox = ({ project, onClose }) => {
               layoutId={reduce ? undefined : `project-shot-${project.id}`}
               src={project.image}
               alt={project.imageAlt}
+              data-cursor-on-light=""
               className="w-full h-auto max-h-[82vh] object-contain bg-bone border border-[#F5F1EB]/20"
               transition={LIGHTBOX_SPRING}
             />
-            <p className="mt-4 font-mono text-xs uppercase tracking-[0.2em] text-[#F5F1EB]/75 text-center">
+            <p className="mt-4 font-mono text-xs uppercase tracking-[0.2em] text-[#F5F1EB] text-center">
               {project.name}
             </p>
           </div>

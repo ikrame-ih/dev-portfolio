@@ -295,7 +295,7 @@ export const CLITerminal = ({ open, onClose }) => {
     if (headLower === "stack") return print(...stackLines());
     if (headLower === "proj") return print(...projectLines());
     if (headLower === "links") return print(...linkLines());
-    if (headLower === "pdf") return print(...openCvPdf());
+    if (headLower === "pdf") return print(...openCvPdf(arg0 || rest || "en"));
     if (headLower === "gh")
       return print(...openExternal("GitHub", PROFILE.github));
     if (headLower === "li")
@@ -309,7 +309,10 @@ export const CLITerminal = ({ open, onClose }) => {
     if (headLower === "go") return runGo(rest);
 
     if (headLower === "cv") {
-      if (rest.toLowerCase().includes("pdf")) return print(...openCvPdf());
+      if (rest.toLowerCase().includes("pdf")) {
+        const es = /\bes\b/i.test(rest);
+        return print(...openCvPdf(es ? "es" : "en"));
+      }
       return goSection("cv", "Opening CV…");
     }
 

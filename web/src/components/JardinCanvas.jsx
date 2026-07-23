@@ -59,7 +59,7 @@ const GhostBow = ({ ghost }) => {
   return (
     <div
       aria-hidden="true"
-      className="absolute pointer-events-none z-[5] -translate-x-1/2 -translate-y-1/2 opacity-[0.28]"
+      className="absolute pointer-events-none z-[5] -translate-x-1/2 -translate-y-1/2 text-ink-mute opacity-40"
       style={{
         left: `${ghost.mx * 100}%`,
         top: `${ghost.y * 100}%`,
@@ -457,7 +457,7 @@ export const JardinCanvas = () => {
                     className="absolute inset-0 flex items-center justify-center pointer-events-none px-10 md:px-14 py-10"
                     aria-hidden="true"
                   >
-                    <p className="font-serif italic text-sm md:text-base text-ink/25 text-center max-w-[16rem] leading-relaxed select-none">
+                    <p className="font-serif italic text-sm md:text-base text-ink-mute text-center max-w-[16rem] leading-relaxed select-none">
                       {BOW_BOARD.leftWatermark}
                     </p>
                   </div>
@@ -498,7 +498,7 @@ export const JardinCanvas = () => {
                     className="absolute inset-0 flex items-center justify-center pointer-events-none px-10 md:px-14 py-10"
                     aria-hidden="true"
                   >
-                    <p className="font-serif italic text-sm md:text-base text-ink/25 text-center max-w-[16rem] leading-relaxed select-none">
+                    <p className="font-serif italic text-sm md:text-base text-ink-mute text-center max-w-[16rem] leading-relaxed select-none">
                       {BOW_BOARD.rightWatermark}
                     </p>
                   </div>

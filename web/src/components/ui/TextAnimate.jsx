@@ -104,7 +104,7 @@ function TextAnimateBase({
       >
         {accessible && (
           <span
-            className="absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0"
+            className="absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0 text-ink bg-bone"
             style={{ clip: "rect(0, 0, 0, 0)" }}
           >
             {children}

@@ -130,7 +130,7 @@ const DomainPanel = ({ domain, children, testId }) => {
     <div data-testid={testId} className="relative min-h-0 md:min-h-[260px]">
       <motion.span
         aria-hidden="true"
-        className="pointer-events-none absolute -top-2 right-0 font-serif font-light text-[5.5rem] md:text-[7rem] leading-none text-ink/[0.05] select-none"
+        className="pointer-events-none absolute -top-2 right-0 font-serif font-light text-[5.5rem] md:text-[7rem] leading-none text-ink/25 select-none"
         initial={reduce ? false : { opacity: 0, x: 12 }}
         whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
         viewport={REVEAL_VIEWPORT}
@@ -361,22 +361,40 @@ export const CVSection = () => {
                 </p>
               </div>
 
-              <motion.a
-                href={ASSETS.cvPdf}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid="cv-download-link"
-                className="btn-tactile mt-10 inline-block font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-6 py-3 hover:bg-ink transition-colors"
-                whileHover={reduce ? undefined : { y: -2, scale: 1.02 }}
-                whileTap={reduce ? undefined : { scale: 0.98 }}
-                transition={CTA_SPRING}
-              >
-                Export CV ↓
-                <span className="sr-only">
-                  {" "}
-                  — opens PDF in a new tab (print or save from there)
-                </span>
-              </motion.a>
+              <div className="mt-10 flex flex-wrap items-center gap-3">
+                <motion.a
+                  href={ASSETS.cvPdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="cv-download-link"
+                  className="btn-tactile inline-block font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-6 py-3 hover:bg-ink transition-colors"
+                  whileHover={reduce ? undefined : { y: -2, scale: 1.02 }}
+                  whileTap={reduce ? undefined : { scale: 0.98 }}
+                  transition={CTA_SPRING}
+                >
+                  Export CV · EN ↓
+                  <span className="sr-only">
+                    {" "}
+                    — opens English PDF in a new tab
+                  </span>
+                </motion.a>
+                <motion.a
+                  href={ASSETS.cvPdfEs}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="cv-download-link-es"
+                  className="btn-tactile inline-block font-mono text-xs uppercase tracking-[0.18em] border border-ink px-6 py-3 hover:bg-burgundy hover:text-[#F5F1EB] hover:border-burgundy transition-colors"
+                  whileHover={reduce ? undefined : { y: -2, scale: 1.02 }}
+                  whileTap={reduce ? undefined : { scale: 0.98 }}
+                  transition={CTA_SPRING}
+                >
+                  CV · ES ↓
+                  <span className="sr-only">
+                    {" "}
+                    — opens Spanish PDF in a new tab
+                  </span>
+                </motion.a>
+              </div>
             </div>
           </Reveal>
         </div>

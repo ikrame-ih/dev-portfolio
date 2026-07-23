@@ -1,0 +1,488 @@
+{
+  "$schema": "https://raw.githubusercontent.com/amruthpillai/reactive-resume/main/packages/schema/schema.json",
+  "picture": {
+    "hidden": true,
+    "url": "https://ikrame-ih.vercel.app/images/profile-ikrame.png",
+    "size": 80,
+    "rotation": 0,
+    "aspectRatio": 1,
+    "borderRadius": 0,
+    "borderColor": "rgba(0, 0, 0, 0)",
+    "borderWidth": 0,
+    "shadowColor": "rgba(0, 0, 0, 0)",
+    "shadowWidth": 0
+  },
+  "basics": {
+    "name": "Ikrame Ibn Hayoun",
+    "headline": "Desarrolladora de software - Frontend y Backend - Málaga, España",
+    "email": "ikihga2223@gmail.com",
+    "phone": "+34 682 02 76 93",
+    "location": "Málaga, España",
+    "website": {
+      "url": "https://ikrame-ih.vercel.app",
+      "label": "Portfolio"
+    },
+    "customFields": []
+  },
+  "summary": {
+    "title": "Resumen",
+    "icon": "",
+    "columns": 1,
+    "hidden": false,
+    "keepTogether": false,
+    "startOnNewPage": false,
+    "content": "<p>Desarrolladora de software en Málaga, cómoda en frontend y backend: interfaces y sistemas de componentes, APIs, autenticación y bases de datos.</p><p>Graduada en DAW (jun. 2026). Proyecto final MyPlaythrough con calificación máxima. Curso de Especialización en IA y Big Data a partir de sep. 2026.</p><p>Abierta a roles de desarrolladora de software en remoto o híbrido.</p>"
+  },
+  "sections": {
+    "profiles": {
+      "title": "Perfiles",
+      "icon": "",
+      "columns": 1,
+      "hidden": false,
+      "keepTogether": false,
+      "startOnNewPage": false,
+      "items": [
+        {
+          "id": "a1000001-0001-4000-8000-000000000001",
+          "hidden": false,
+          "icon": "github-logo",
+          "iconColor": "",
+          "network": "GitHub",
+          "username": "ikrame-ih",
+          "website": {
+            "url": "https://github.com/ikrame-ih",
+            "label": "github.com/ikrame-ih",
+            "inlineLink": false
+          }
+        },
+        {
+          "id": "a1000001-0001-4000-8000-000000000002",
+          "hidden": false,
+          "icon": "linkedin-logo",
+          "iconColor": "",
+          "network": "LinkedIn",
+          "username": "ikrame-ih",
+          "website": {
+            "url": "https://www.linkedin.com/in/ikrame-ih/",
+            "label": "linkedin.com/in/ikrame-ih",
+            "inlineLink": false
+          }
+        }
+      ]
+    },
+    "experience": {
+      "title": "Experiencia",
+      "icon": "",
+      "columns": 1,
+      "hidden": false,
+      "keepTogether": false,
+      "startOnNewPage": false,
+      "items": [
+        {
+          "id": "b2000001-0001-4000-8000-000000000001",
+          "hidden": false,
+          "company": "DATA CONTROL",
+          "position": "Desarrolladora de software en prácticas",
+          "location": "Málaga, España",
+          "period": "mar. 2026 - jun. 2026",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": "<p>Prácticas cubriendo frontend, backend y bases de datos en proyectos web de clientes.</p><ul><li>Desarrollé UIs responsive con componentes React reutilizables, HTML semántico y accesibilidad.</li><li>Trabajé en funcionalidades de backend e integración de APIs junto al frontend.</li><li>Usé bases de datos en el día a día: consultas, estructuración y conexión de datos a la aplicación.</li></ul>",
+          "roles": []
+        },
+        {
+          "id": "b2000001-0001-4000-8000-000000000002",
+          "hidden": false,
+          "company": "EY Global Delivery Services",
+          "position": "Asistente ejecutiva",
+          "location": "Málaga, España",
+          "period": "feb. 2025 - mar. 2026",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": "<p>Soporte ejecutivo y herramientas internas en un entorno global de servicios profesionales.</p><ul><li>Coordiné visitas de ejecutivos: logística, agendas, materiales y actualizaciones a stakeholders.</li><li>Creé Power Apps internas para agilizar la coordinación de eventos.</li><li>Gestioné viajes, informes de gastos (Concur), Outlook, Teams y SharePoint.</li></ul>",
+          "roles": []
+        },
+        {
+          "id": "b2000001-0001-4000-8000-000000000003",
+          "hidden": false,
+          "company": "EC Azafatas",
+          "position": "Embajadora de marca",
+          "location": "Málaga, España",
+          "period": "feb. 2026",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": "<p>Activación de marca a corto plazo en entornos retail de alto tráfico.</p><ul><li>Realicé degustaciones y presentaciones de producto en entornos retail concurridos.</li><li>Gestioné la logística del stand y las actualizaciones de inventario al cierre del día.</li></ul>",
+          "roles": []
+        },
+        {
+          "id": "b2000001-0001-4000-8000-000000000004",
+          "hidden": false,
+          "company": "Conciencia Fundraising",
+          "position": "Administrativa de contabilidad y operaciones",
+          "location": "Remoto, España",
+          "period": "nov. 2024 - dic. 2024",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": "<p>Soporte de operaciones e informes para una organización de captación de fondos.</p><ul><li>Preparé informes de donantes y seguimiento con Google Drive y Outlook.</li><li>Gestioné tareas de RR. HH. en Factorial y controlé costes de viajes y gastos.</li><li>Mantuve la coordinación del equipo en Asana, Notion y Slack; creé vistas de reporting en Looker.</li></ul>",
+          "roles": []
+        },
+        {
+          "id": "b2000001-0001-4000-8000-000000000005",
+          "hidden": false,
+          "company": "Sylvis Profesional Cosmetic",
+          "position": "Auxiliar administrativa",
+          "location": "Málaga, España",
+          "period": "mar. 2024 - oct. 2024",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": "<p>Soporte de contabilidad y documentación de importación para un importador de cosmética.</p><ul><li>Concilié cuentas bancarias y contabilicé facturas, incluidas compras de importación.</li><li>Seguí costes de vehículos e importación en Excel y gestioné la documentación entrante.</li></ul>",
+          "roles": []
+        }
+      ]
+    },
+    "education": {
+      "title": "Formación",
+      "icon": "",
+      "columns": 1,
+      "hidden": false,
+      "keepTogether": false,
+      "startOnNewPage": false,
+      "items": [
+        {
+          "id": "c3000001-0001-4000-8000-000000000001",
+          "hidden": false,
+          "school": "IES Zaidín Vergeles",
+          "degree": "Curso de Especialización",
+          "area": "Inteligencia Artificial y Big Data",
+          "grade": "Nivel MECES / EQF 5",
+          "location": "",
+          "period": "Inicio sep. 2026",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": "Curso de Especialización tras el ciclo formativo de grado superior."
+        },
+        {
+          "id": "c3000001-0001-4000-8000-000000000002",
+          "hidden": false,
+          "school": "CESUR Este, Málaga",
+          "degree": "Ciclo Formativo de Grado Superior (DAW)",
+          "area": "Desarrollo de Aplicaciones Web",
+          "grade": "Proyecto final: calificación máxima. Nivel EQF 5 (equivalente HND)",
+          "location": "Málaga, España",
+          "period": "sep. 2024 - jun. 2026",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": "Proyecto final: MyPlaythrough - aplicación web con frontend React y API Node.js/Express sobre PostgreSQL."
+        },
+        {
+          "id": "c3000001-0001-4000-8000-000000000003",
+          "hidden": false,
+          "school": "I.E.S. Politécnico Jesús Marín",
+          "degree": "Ciclo Formativo de Grado Medio",
+          "area": "Gestión Administrativa",
+          "grade": "Matrícula de honor. Nivel EQF 4",
+          "location": "Málaga, España",
+          "period": "sep. 2022 - jun. 2024",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": ""
+        }
+      ]
+    },
+    "projects": {
+      "title": "Proyectos",
+      "icon": "",
+      "columns": 1,
+      "hidden": false,
+      "keepTogether": false,
+      "startOnNewPage": false,
+      "items": [
+        {
+          "id": "d4000001-0001-4000-8000-000000000001",
+          "hidden": false,
+          "name": "MyPlaythrough",
+          "period": "sep. 2025 - jun. 2026",
+          "website": {
+            "url": "https://github.com/ikrame-ih/my-playthrough",
+            "label": "GitHub",
+            "inlineLink": true
+          },
+          "description": "<p>Proyecto final de DAW con calificación máxima. Gestor personal de biblioteca de juegos con seguimiento de backlog, comunidad, recomendaciones, discusiones y moderación de administración.</p><ul><li>Construido con React, Vite, Node.js, Express, PostgreSQL, JWT y Docker Compose.</li><li>Añadí tests unitarios con Vitest y CI para releases fiables.</li><li>Demo en vivo: https://my-playthrough.vercel.app/</li></ul>"
+        },
+        {
+          "id": "d4000001-0001-4000-8000-000000000002",
+          "hidden": false,
+          "name": "Live Event Radar",
+          "period": "jun. 2025 - Actualidad",
+          "website": {
+            "url": "https://github.com/ikrame-ih/live-event-radar",
+            "label": "GitHub",
+            "inlineLink": true
+          },
+          "description": "<p>Dashboard de operaciones en tiempo real para activaciones de marca, con centro de mando sincronizado y vistas de mapa de telemetría.</p><ul><li>Desarrollado con Next.js, React, TypeScript, Zustand y Leaflet.</li><li>Arquitectura feature-sliced, tests Vitest, smoke tests Playwright y CI con GitHub Actions.</li><li>Demo en vivo: https://live-event-radar.vercel.app</li></ul>"
+        },
+        {
+          "id": "d4000001-0001-4000-8000-000000000004",
+          "hidden": false,
+          "name": "Aiba",
+          "period": "jun. 2026 - Actualidad",
+          "website": {
+            "url": "https://github.com/ikrame-ih/aiba-widget",
+            "label": "GitHub",
+            "inlineLink": true
+          },
+          "description": "<p>Compañero de productividad local-first para Windows: planificación, sesiones de foco y cierre, con historial de sesiones y ayuda offline. Sin cuenta, sin nube.</p><ul><li>Construido con Electron, React 19, TypeScript y Vite.</li><li>Timer compacto más shell de estudio ampliado, guardia de foco y preferencias.</li></ul>"
+        },
+        {
+          "id": "d4000001-0001-4000-8000-000000000003",
+          "hidden": false,
+          "name": "ReconFlow",
+          "period": "jun. 2026 - Actualidad",
+          "website": { "url": "", "label": "", "inlineLink": false },
+          "description": "<p>Pipeline headless de conciliación para CSVs bancarios y datos de facturas (en progreso).</p><ul><li>Etapas de ingestión, transformación y matching con Python, FastAPI, dbt y PostgreSQL.</li><li>Genera un mart de conciliación y una cola de excepciones.</li><li>Orquestación con Dagster (en progreso).</li></ul>"
+        }
+      ]
+    },
+    "skills": {
+      "title": "Habilidades",
+      "icon": "",
+      "columns": 1,
+      "hidden": false,
+      "keepTogether": false,
+      "startOnNewPage": false,
+      "items": [
+        {
+          "id": "e5000001-0001-4000-8000-000000000001",
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "name": "Frontend",
+          "proficiency": "",
+          "level": 0,
+          "keywords": [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Vite",
+            "Tailwind CSS",
+            "Framer Motion",
+            "Zustand",
+            "Leaflet",
+            "HTML semántico",
+            "Accesibilidad"
+          ]
+        },
+        {
+          "id": "e5000001-0001-4000-8000-000000000002",
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "name": "Backend y datos",
+          "proficiency": "",
+          "level": 0,
+          "keywords": [
+            "Node.js",
+            "Express",
+            "Python",
+            "FastAPI",
+            "PostgreSQL",
+            "SQL",
+            "APIs REST",
+            "JWT",
+            "dbt",
+            "Dagster"
+          ]
+        },
+        {
+          "id": "e5000001-0001-4000-8000-000000000003",
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "name": "Herramientas y entrega",
+          "proficiency": "",
+          "level": 0,
+          "keywords": [
+            "Git",
+            "GitHub Actions",
+            "Vitest",
+            "Playwright",
+            "Docker",
+            "Vercel",
+            "Electron"
+          ]
+        }
+      ]
+    },
+    "languages": {
+      "title": "Idiomas",
+      "icon": "",
+      "columns": 1,
+      "hidden": false,
+      "keepTogether": false,
+      "startOnNewPage": false,
+      "items": [
+        {
+          "id": "f6000001-0001-4000-8000-000000000001",
+          "hidden": false,
+          "language": "Español",
+          "fluency": "Lengua nativa",
+          "level": 0
+        },
+        {
+          "id": "f6000001-0001-4000-8000-000000000002",
+          "hidden": false,
+          "language": "Inglés",
+          "fluency": "Competencia profesional (C1)",
+          "level": 0
+        },
+        {
+          "id": "f6000001-0001-4000-8000-000000000003",
+          "hidden": false,
+          "language": "Árabe marroquí (Darija)",
+          "fluency": "Lengua nativa",
+          "level": 0
+        }
+      ]
+    },
+    "interests": {
+      "title": "Intereses",
+      "icon": "",
+      "columns": 1,
+      "hidden": true,
+      "keepTogether": false,
+      "startOnNewPage": false,
+      "items": []
+    },
+    "awards": {
+      "title": "Premios",
+      "icon": "",
+      "columns": 1,
+      "hidden": true,
+      "keepTogether": false,
+      "startOnNewPage": false,
+      "items": []
+    },
+    "certifications": {
+      "title": "Certificaciones",
+      "icon": "",
+      "columns": 1,
+      "hidden": true,
+      "keepTogether": false,
+      "startOnNewPage": false,
+      "items": []
+    },
+    "publications": {
+      "title": "Publicaciones",
+      "icon": "",
+      "columns": 1,
+      "hidden": true,
+      "keepTogether": false,
+      "startOnNewPage": false,
+      "items": []
+    },
+    "volunteer": {
+      "title": "Voluntariado",
+      "icon": "",
+      "columns": 1,
+      "hidden": true,
+      "keepTogether": false,
+      "startOnNewPage": false,
+      "items": []
+    },
+    "references": {
+      "title": "Referencias",
+      "icon": "",
+      "columns": 1,
+      "hidden": true,
+      "keepTogether": false,
+      "startOnNewPage": false,
+      "items": []
+    }
+  },
+  "customSections": [
+    {
+      "id": "h8000001-0001-4000-8000-000000000001",
+      "title": "Prácticas de desarrollo",
+      "icon": "",
+      "columns": 1,
+      "hidden": true,
+      "keepTogether": false,
+      "startOnNewPage": false,
+      "type": "skills",
+      "items": [
+        {
+          "id": "h8000001-0001-4000-8000-000000000002",
+          "hidden": true,
+          "icon": "",
+          "iconColor": "",
+          "name": "Cómo construyo",
+          "proficiency": "",
+          "level": 0,
+          "keywords": [
+            "UI basada en componentes",
+            "Gestión de estado compartido",
+            "HTML semántico",
+            "Patrones de UI accesible",
+            "Layouts responsive",
+            "Integración de APIs REST",
+            "Flujo de trabajo con Git",
+            "CI (GitHub Actions)",
+            "Tests unitarios y E2E",
+            "Documentación técnica"
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "template": "onyx",
+    "layout": {
+      "sidebarWidth": 30,
+      "pages": [
+        {
+          "fullWidth": true,
+          "main": [
+            "summary",
+            "skills",
+            "experience",
+            "projects",
+            "education",
+            "languages",
+            "profiles"
+          ],
+          "sidebar": []
+        }
+      ]
+    },
+    "page": {
+      "gapX": 4,
+      "gapY": 7,
+      "marginX": 18,
+      "marginY": 18,
+      "format": "a4",
+      "locale": "es-ES",
+      "hideLinkUnderline": true,
+      "hideIcons": true,
+      "hideSectionIcons": true
+    },
+    "design": {
+      "level": {
+        "icon": "",
+        "type": "hidden"
+      },
+      "colors": {
+        "primary": "rgba(74, 14, 14, 1)",
+        "text": "rgba(26, 26, 26, 1)",
+        "background": "rgba(255, 255, 255, 1)"
+      }
+    },
+    "typography": {
+      "body": {
+        "fontFamily": "IBM Plex Sans",
+        "fontWeights": ["400", "500"],
+        "fontSize": 10.5,
+        "lineHeight": 1.5
+      },
+      "heading": {
+        "fontFamily": "IBM Plex Sans",
+        "fontWeights": ["600"],
+        "fontSize": 12.5,
+        "lineHeight": 1.3
+      }
+    },
+    "notes": "Spanish clone of react-resume.json. Same onyx / ATS layout, colors, typography. Export PDF as web/public/Ikrame_Ibn_Hayoun_CV_ES.pdf",
+    "styleRules": []
+  }
+}
