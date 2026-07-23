@@ -1,5 +1,8 @@
 import { prefersReducedMotion } from "./motion";
 
+/** Matches fixed nav `h-16` — keep in sync with `scroll-padding-top`. */
+export const NAV_SCROLL_OFFSET = 64;
+
 export const scrollBehavior = () =>
   prefersReducedMotion() ? "auto" : "smooth";
 
@@ -16,6 +19,13 @@ export const scrollToElement = (id, block = "start") => {
   if (!el) return;
   // Focus first so SR/keyboard land correctly even if smooth scroll is long.
   focusTarget(el);
+  if (block === "start") {
+    // Explicit offset so the section flush-aligns under the nav (no previous-section peek).
+    const top =
+      el.getBoundingClientRect().top + window.scrollY - NAV_SCROLL_OFFSET;
+    window.scrollTo({ top: Math.max(0, top), behavior: scrollBehavior() });
+    return;
+  }
   el.scrollIntoView({
     behavior: scrollBehavior(),
     block,

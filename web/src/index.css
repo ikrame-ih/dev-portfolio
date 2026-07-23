@@ -20,7 +20,8 @@
 
 @layer base {
   html {
-    scroll-padding-top: 5rem;
+    /* Match fixed nav h-16 (4rem) — larger values leave a strip of the previous section. */
+    scroll-padding-top: 4rem;
   }
 
   html,
@@ -61,6 +62,35 @@
   :focus-visible {
     outline: 2px solid #4a0e0e;
     outline-offset: 3px;
+  }
+
+  /* Custom BowCursor — hide native cursor while the lacito follows the pointer. */
+  html.has-bow-cursor,
+  html.has-bow-cursor body,
+  html.has-bow-cursor a,
+  html.has-bow-cursor button,
+  html.has-bow-cursor [role="button"],
+  html.has-bow-cursor summary,
+  html.has-bow-cursor label[for],
+  html.has-bow-cursor .guestbook-page {
+    cursor: none !important;
+  }
+
+  html.has-bow-cursor input,
+  html.has-bow-cursor textarea,
+  html.has-bow-cursor select,
+  html.has-bow-cursor [contenteditable="true"] {
+    cursor: text !important;
+  }
+
+  html.has-bow-cursor .cli-terminal-panel,
+  html.has-bow-cursor .cli-terminal-panel * {
+    cursor: auto !important;
+  }
+
+  html.has-bow-cursor .cli-terminal-panel input,
+  html.has-bow-cursor .cli-terminal-panel textarea {
+    cursor: text !important;
   }
 }
 
@@ -397,6 +427,11 @@
   transform: scale(1.03);
 }
 
+/* Project strips — Framer owns image transform/clip; disable CSS hover fight */
+.photo-frame.project-shot:hover img {
+  transform: none;
+}
+
 .photo-frame::after {
   content: "";
   position: absolute;
@@ -506,15 +541,29 @@
 }
 
 .stack-mark {
-  transition: color 150ms ease;
+  transition: color 120ms ease;
   cursor: default;
+}
+
+.stack-mark-lift,
+.stack-mark-icon {
+  transition: transform 140ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
 .stack-mark:hover {
   color: #4a0e0e;
 }
 
-.stack-mark:hover span:last-child {
+.stack-mark:hover .stack-mark-lift {
+  transform: translateY(-3px);
+}
+
+.stack-mark:hover .stack-mark-icon {
+  transform: scale(1.1);
+}
+
+.stack-mark:hover .stack-mark-lift > span:last-child {
   color: #4a0e0e;
 }
 
@@ -567,6 +616,10 @@
     transform: scale(1.01);
   }
 
+  .photo-frame.project-shot:hover img {
+    transform: none;
+  }
+
   .bow-hover-tilt,
   .group:hover .bow-hover-tilt,
   .bow-hover-tilt:hover {
@@ -581,14 +634,18 @@
     transition: none;
   }
 
+  .stack-mark-lift,
+  .stack-mark-icon {
+    transition: none;
+  }
+
   .stack-mark:hover {
     transform: none;
   }
 
-  .stack-mark .inline-flex,
-  .stack-mark:hover .inline-flex {
+  .stack-mark:hover .stack-mark-lift,
+  .stack-mark:hover .stack-mark-icon {
     transform: none !important;
-    transition: none;
   }
 }
 
@@ -621,9 +678,35 @@
   }
 }
 
+.mermaid {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .mermaid svg {
   background: transparent !important;
+  display: block;
+  width: 100%;
+  height: auto;
   max-width: 100%;
+}
+
+/* Keep node/edge labels readable after SVG scales to the modal width */
+.mermaid .nodeLabel,
+.mermaid .edgeLabel,
+.mermaid foreignObject div,
+.mermaid foreignObject span {
+  font-size: 1rem !important;
+  line-height: 1.35 !important;
+}
+
+@media (min-width: 768px) {
+  .mermaid .nodeLabel,
+  .mermaid .edgeLabel,
+  .mermaid foreignObject div,
+  .mermaid foreignObject span {
+    font-size: 1.0625rem !important;
+  }
 }
 
 /* footer strip — always ink bg / bone text (doesn't follow section alternation) */
@@ -653,4 +736,71 @@
 
 .footer-inverse .lnk::after {
   background: #f5f1eb;
+}
+
+/* Editorial navigate index — bow + numeral, lacito reveals on hover */
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.footer-nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  gap: 0.65rem;
+  color: #f5f1eb;
+  text-decoration: none;
+}
+
+/* Out of flow so indices flush-align with the NAVIGATE title */
+.footer-nav-bow {
+  position: absolute;
+  left: -1rem;
+  top: 50%;
+  display: inline-flex;
+  opacity: 0;
+  transform: translate(-4px, -50%);
+  transition:
+    opacity 160ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 160ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.footer-nav-index {
+  flex-shrink: 0;
+  width: 1.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: rgba(232, 226, 216, 0.45);
+  transition: color 160ms ease;
+}
+
+.footer-nav-label {
+  color: #f5f1eb;
+}
+
+.footer-nav-link:hover .footer-nav-bow,
+.footer-nav-link:focus-visible .footer-nav-bow {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+.footer-nav-link:hover .footer-nav-index,
+.footer-nav-link:focus-visible .footer-nav-index {
+  color: #f5f1eb;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-nav-bow {
+    transform: translateY(-50%);
+    transition: opacity 120ms ease;
+  }
+
+  .footer-nav-link:hover .footer-nav-bow,
+  .footer-nav-link:focus-visible .footer-nav-bow {
+    transform: translateY(-50%);
+  }
 }

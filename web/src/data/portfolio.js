@@ -230,8 +230,10 @@ export const PROJECTS = [
     ],
     href: "https://github.com/ikrame-ih/live-event-radar",
     demo: "https://live-event-radar.vercel.app",
+    image: ASSETS.projects.liveEventRadar,
+    imageAlt: "Live Event Radar — command center and telemetry dashboard",
     description:
-      "A dashboard for brand activations, built with reusable components and shared Zustand state. Stock events follow one validated path into two synchronized views—a command center and a telemetry map—after I saw updates arrive too late on event floors.",
+      "A venue ops dashboard where one event stream feeds a command center and a live map—built after watching floor updates arrive too late.",
     architectureSummary:
       "A mock event stream writes into a Zustand telemetry store. Pure derivations from that store feed two synchronized views: the Command Center (SVG venue map) and the Telemetry dashboard (Leaflet map).",
     mermaid: `flowchart LR
@@ -261,8 +263,10 @@ export const PROJECTS = [
     ],
     href: "https://github.com/ikrame-ih/my-playthrough",
     demo: "https://my-playthrough.vercel.app/",
+    image: ASSETS.projects.myPlaythrough,
+    imageAlt: "MyPlaythrough — personal game library and community UI",
     description:
-      "DAW capstone (maximum grade): a full-stack PERN app to track backlog, active play, and completions—with community features, recommendations, threaded discussions, and admin moderation. Built with JWT auth, Docker Compose, and CI.",
+      "DAW capstone (max grade): a PERN app for backlog, play, and completions—with community, recommendations, and admin moderation.",
     architectureSummary:
       "A React SPA talks to an Express REST API. The API handles JWT and bcrypt auth, persists data in PostgreSQL, and proxies Steam/RAWG cover requests.",
     mermaid: `flowchart LR
@@ -280,8 +284,10 @@ export const PROJECTS = [
     stack: ["Electron", "React 19", "TypeScript", "Vite", "Vitest"],
     href: "https://github.com/ikrame-ih/aiba-widget",
     demo: null,
+    image: ASSETS.projects.aibaWidget,
+    imageAlt: "Aiba — desktop focus timer and planning widget",
     description:
-      "Local-first Windows widget to plan the day, protect a focus block, and unwind with a clear next step. Compact timer plus expanded studio shell, session history, focus guard, and offline Ask Aiba help—no account, no cloud.",
+      "Local-first Windows widget to plan the day, protect a focus block, and unwind—no account, no cloud.",
     architectureSummary:
       "The React UI talks through an IPC preload bridge to the Electron main process. Main stores local JSON and runs the focus-guard overlay—no cloud dependency.",
     mermaid: `flowchart LR
@@ -299,8 +305,10 @@ export const PROJECTS = [
     stack: ["Python", "FastAPI", "dbt", "PostgreSQL", "Dagster"],
     href: null,
     demo: null,
+    image: ASSETS.projects.reconflow,
+    imageAlt: "ReconFlow — import reconciliation pipeline overview",
     description:
-      "Headless FastAPI pipeline with separate ingest, transform, and match stages: bank CSVs and invoice data into a reconciliation mart and an exceptions queue. Based on import reconciliation I did in admin roles.",
+      "Headless FastAPI pipeline: bank CSVs and invoices through ingest, transform, and match into a reconciliation mart.",
     architectureSummary:
       "Bank CSV extracts and invoice webhook JSON land in a raw zone. dbt transforms feed a fuzzy-match and FX stage, which writes a reconciliation mart and an exceptions queue.",
     mermaid: `flowchart TD

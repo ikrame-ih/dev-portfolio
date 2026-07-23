@@ -94,21 +94,23 @@ const DomainGlyph = ({ id, className = "w-5 h-5 text-burgundy" }) => {
 
 const BrandMark = ({ name, index = 0, reduce }) => (
   <motion.li
-    className="stack-mark group/mark flex flex-col items-center gap-3 text-center min-w-0"
+    className="stack-mark text-center min-w-0"
     initial={reduce ? false : { opacity: 0, y: 10 }}
     whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
     viewport={REVEAL_VIEWPORT}
     transition={revealTransition(Math.min(index * 0.04, 0.35))}
-    whileHover={reduce ? undefined : { y: -3, transition: CTA_SPRING }}
   >
-    <span className="inline-flex transition-transform duration-150 ease-[cubic-bezier(0.2,0.7,0.2,1)] group-hover/mark:scale-110">
-      <StackIcon
-        name={name}
-        className="w-9 h-9 md:w-10 md:h-10 shrink-0 text-burgundy"
-      />
-    </span>
-    <span className="font-mono text-sm leading-snug tracking-[0.04em] text-ink">
-      {name}
+    {/* Hover lift lives in CSS so it never inherits the slow reveal transition. */}
+    <span className="stack-mark-lift flex flex-col items-center gap-3">
+      <span className="stack-mark-icon inline-flex">
+        <StackIcon
+          name={name}
+          className="w-9 h-9 md:w-10 md:h-10 shrink-0 text-burgundy"
+        />
+      </span>
+      <span className="font-mono text-sm leading-snug tracking-[0.04em] text-ink">
+        {name}
+      </span>
     </span>
   </motion.li>
 );

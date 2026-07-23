@@ -15,6 +15,15 @@ const COL_ENTER = (reduce, delay) =>
         transition: revealTransition(delay),
       };
 
+const NAV_LINKS = [
+  { id: "cv", label: "CV & skills", index: "01" },
+  { id: "projects", label: "Projects", index: "02" },
+  { id: "bento", label: "Interests", index: "03" },
+  { id: "blog", label: "Tizza's vault", index: "04" },
+  { id: "garden", label: "Guest book", index: "05" },
+  { id: "contact", label: "Contact", index: "06" },
+];
+
 export const Footer = ({ onOpenTerminal }) => {
   const year = new Date().getFullYear();
   const reduce = useReducedMotion();
@@ -61,25 +70,22 @@ export const Footer = ({ onOpenTerminal }) => {
           </motion.div>
 
           <motion.div className="md:col-span-3" {...COL_ENTER(reduce, 0.08)}>
-            <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-3">
+            <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-4">
               Navigate
             </p>
-            <ul className="space-y-2 font-mono text-sm">
-              {[
-                ["cv", "CV & skills"],
-                ["projects", "Projects"],
-                ["bento", "Interests"],
-                ["blog", "Tizza's vault"],
-                ["garden", "Guest book"],
-                ["contact", "Contact"],
-              ].map(([id, label]) => (
+            <ul className="footer-nav font-mono text-sm">
+              {NAV_LINKS.map(({ id, label, index }) => (
                 <li key={id}>
                   <a
                     href={`#${id}`}
                     onClick={onHashLinkClick}
-                    className="lnk min-h-11 inline-flex items-center text-[#F5F1EB] hover:opacity-80"
+                    className="footer-nav-link"
                   >
-                    {label}
+                    <span className="footer-nav-bow" aria-hidden="true">
+                      <Bow size={10} color="#F5F1EB" strokeWidth={1.6} />
+                    </span>
+                    <span className="footer-nav-index">{index}</span>
+                    <span className="lnk footer-nav-label">{label}</span>
                   </a>
                 </li>
               ))}

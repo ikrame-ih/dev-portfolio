@@ -21,13 +21,22 @@ export const ArchitectureModal = ({ project, onClose }) => {
   useFocusTrap(!!project, panelRef, onClose);
   useModalIsolation(!!project);
 
+  // Panel: fade only — no y-slide (that made body copy feel tosco).
   const panelMotion = reduce
-    ? { initial: false, animate: { opacity: 1, y: 0 } }
+    ? { initial: false, animate: { opacity: 1 } }
     : {
-        initial: { y: 24, opacity: 0 },
-        animate: { y: 0, opacity: 1 },
-        exit: { y: 24, opacity: 0 },
-        transition: { duration: MOTION_DURATION.normal, ease: MOTION_EASE },
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        exit: { opacity: 0 },
+        transition: { duration: 0.28, ease: MOTION_EASE },
+      };
+
+  const bodyMotion = reduce
+    ? { initial: false, animate: { opacity: 1 } }
+    : {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        transition: { duration: 0.4, ease: MOTION_EASE, delay: 0.12 },
       };
 
   return createPortal(
@@ -37,9 +46,9 @@ export const ArchitectureModal = ({ project, onClose }) => {
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={reduce ? undefined : { opacity: 0 }}
-          transition={{ duration: MOTION_DURATION.fast }}
+          transition={{ duration: MOTION_DURATION.fast, ease: MOTION_EASE }}
           data-testid="arch-modal-backdrop"
-          className="fixed inset-0 z-[90] bg-ink/70 backdrop-blur-sm flex items-center justify-center p-4 md:p-12"
+          className="fixed inset-0 z-[90] bg-ink/70 backdrop-blur-sm flex items-center justify-center p-4 md:p-10"
           onClick={onClose}
         >
           <motion.div
@@ -47,19 +56,32 @@ export const ArchitectureModal = ({ project, onClose }) => {
             {...panelMotion}
             onClick={(e) => e.stopPropagation()}
             data-testid="arch-modal"
-            className="w-full max-w-3xl bg-bone border border-ink p-6 md:p-8 max-h-[90vh] overflow-y-auto"
+            className="w-full max-w-5xl bg-bone border border-ink p-6 md:p-8 max-h-[90vh] overflow-y-auto"
             role="dialog"
             aria-modal="true"
             aria-labelledby="arch-modal-title"
             aria-describedby={summaryId}
           >
             <div className="flex items-start justify-between gap-4 mb-6">
-              <div>
+              <div className="min-w-0">
                 <h2
                   id="arch-modal-title"
-                  className="font-serif font-light text-2xl text-ink"
+                  className="font-serif font-light text-2xl text-ink flex flex-wrap items-baseline gap-x-2"
                 >
-                  {project.name} · How it works
+                  <motion.span
+                    layoutId={
+                      reduce ? undefined : `project-title-${project.id}`
+                    }
+                    className="inline-block"
+                    transition={{
+                      type: "spring",
+                      stiffness: 380,
+                      damping: 34,
+                    }}
+                  >
+                    {project.name}
+                  </motion.span>
+                  <span className="text-ink-soft">· How it works</span>
                 </h2>
                 <p className="font-mono text-xs text-ink-soft mt-1">
                   Live architecture diagram
@@ -70,38 +92,40 @@ export const ArchitectureModal = ({ project, onClose }) => {
                 data-testid="arch-modal-close"
                 onClick={onClose}
                 aria-label="Close dialog"
-                className="btn-tactile font-mono text-xs uppercase tracking-[0.18em] text-ink-soft hover:text-burgundy"
+                className="btn-tactile font-mono text-xs uppercase tracking-[0.18em] text-ink-soft hover:text-burgundy shrink-0"
               >
                 close ✕
               </button>
             </div>
 
-            {project.architectureSummary && (
-              <p
-                id={summaryId}
-                className="mb-5 font-mono text-sm text-ink leading-relaxed"
-              >
-                {project.architectureSummary}
+            <motion.div {...bodyMotion}>
+              {project.architectureSummary && (
+                <p
+                  id={summaryId}
+                  className="mb-5 font-mono text-sm text-ink leading-relaxed"
+                >
+                  {project.architectureSummary}
+                </p>
+              )}
+
+              <figure className="border border-bone-400 p-4 md:p-6 bg-bone-100">
+                <Suspense fallback={<DiagramFallback />}>
+                  <MermaidDiagram
+                    chart={project.mermaid}
+                    id={project.id}
+                    label={`${project.name} architecture diagram. ${project.architectureSummary || ""}`.trim()}
+                  />
+                </Suspense>
+                <figcaption className="sr-only">
+                  Visual flowchart for {project.name}. Text alternative:{" "}
+                  {project.architectureSummary || project.description}
+                </figcaption>
+              </figure>
+
+              <p className="mt-5 font-mono text-xs text-ink-soft leading-relaxed border-t border-bone-400 pt-4">
+                {project.description}
               </p>
-            )}
-
-            <figure className="border border-bone-400 p-4 bg-bone-100">
-              <Suspense fallback={<DiagramFallback />}>
-                <MermaidDiagram
-                  chart={project.mermaid}
-                  id={project.id}
-                  label={`${project.name} architecture diagram. ${project.architectureSummary || ""}`.trim()}
-                />
-              </Suspense>
-              <figcaption className="sr-only">
-                Visual flowchart for {project.name}. Text alternative:{" "}
-                {project.architectureSummary || project.description}
-              </figcaption>
-            </figure>
-
-            <p className="mt-5 font-mono text-xs text-ink-soft leading-relaxed border-t border-bone-400 pt-4">
-              {project.description}
-            </p>
+            </motion.div>
           </motion.div>
         </motion.div>
       )}

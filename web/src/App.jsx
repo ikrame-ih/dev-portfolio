@@ -11,6 +11,7 @@ import JardinCanvas from "@/components/JardinCanvas";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import CLITerminal from "@/components/CLITerminal";
+import BowCursor from "@/components/BowCursor";
 import { PROFILE } from "@/data/portfolio";
 import { scrollToElement } from "@/lib/scroll";
 
@@ -98,6 +99,7 @@ export default function App() {
       </div>
 
       <CLITerminal open={cliOpen} onClose={() => setCliOpen(false)} />
+      <BowCursor />
       <Toaster
         theme="light"
         toastOptions={{

@@ -11,4 +11,10 @@ export const ASSETS = {
     series: "/images/interests/series-anime.jpg",
     aesthetics: "/images/interests/aesthetics-skincare.jpg",
   },
+  projects: {
+    liveEventRadar: "/images/projects/live-event-radar.svg",
+    myPlaythrough: "/images/projects/my-playthrough.svg",
+    aibaWidget: "/images/projects/aiba-widget.svg",
+    reconflow: "/images/projects/reconflow.svg",
+  },
 };
