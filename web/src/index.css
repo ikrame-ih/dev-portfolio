@@ -506,9 +506,7 @@
 }
 
 .stack-mark {
-  transition:
-    color 320ms ease,
-    transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition: color 150ms ease;
   cursor: default;
 }
 
@@ -585,6 +583,12 @@
 
   .stack-mark:hover {
     transform: none;
+  }
+
+  .stack-mark .inline-flex,
+  .stack-mark:hover .inline-flex {
+    transform: none !important;
+    transition: none;
   }
 }
 
