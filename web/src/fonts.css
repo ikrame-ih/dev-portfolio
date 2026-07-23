@@ -1,26 +1,23 @@
-/* Self-hosted fonts — latin + latin-ext only (Spanish accents). */
+/* Self-hosted fonts — single-token family names (survives CSS minify). */
 
-/* Metric-matched fallbacks reduce CLS when webfonts swap in */
 @font-face {
-  font-family: "Fraunces Fallback";
-  src: local("Times New Roman"), local("Times"), local("serif");
-  size-adjust: 106%;
-  ascent-override: 92%;
-  descent-override: 22%;
-  line-gap-override: 0%;
+  font-family: FrauncesFallback;
+  src: local("Times New Roman"), local("Times");
+  size-adjust: 105%;
+  ascent-override: 90%;
+  descent-override: 20%;
 }
 
 @font-face {
-  font-family: "JetBrains Mono Fallback";
-  src: local("Courier New"), local("Courier"), local("monospace");
-  size-adjust: 99%;
-  ascent-override: 95%;
-  descent-override: 25%;
-  line-gap-override: 0%;
+  font-family: JetBrainsMonoFallback;
+  src: local("Courier New"), local("Consolas");
+  size-adjust: 100%;
+  ascent-override: 90%;
+  descent-override: 20%;
 }
 
 @font-face {
-  font-family: "Fraunces Variable";
+  font-family: FrauncesVar;
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
@@ -31,7 +28,7 @@
 }
 
 @font-face {
-  font-family: "Fraunces Variable";
+  font-family: FrauncesVar;
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
@@ -42,7 +39,7 @@
 }
 
 @font-face {
-  font-family: "Fraunces Variable";
+  font-family: FrauncesVar;
   font-style: italic;
   font-weight: 100 900;
   font-display: swap;
@@ -53,7 +50,7 @@
 }
 
 @font-face {
-  font-family: "Fraunces Variable";
+  font-family: FrauncesVar;
   font-style: italic;
   font-weight: 100 900;
   font-display: swap;
@@ -64,7 +61,7 @@
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
+  font-family: JetBrainsMono;
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -75,7 +72,7 @@
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
+  font-family: JetBrainsMono;
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -86,7 +83,7 @@
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
+  font-family: JetBrainsMono;
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -97,7 +94,7 @@
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
+  font-family: JetBrainsMono;
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -108,7 +105,7 @@
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
+  font-family: JetBrainsMono;
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -119,7 +116,7 @@
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
+  font-family: JetBrainsMono;
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -130,7 +127,7 @@
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
+  font-family: JetBrainsMono;
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -141,7 +138,7 @@
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
+  font-family: JetBrainsMono;
   font-style: normal;
   font-weight: 600;
   font-display: swap;

@@ -14,7 +14,7 @@ const MERMAID_THEME = {
     primaryBorderColor: "#1A1A1A",
     lineColor: "#1A1A1A",
     tertiaryColor: "#EFEAE2",
-    fontFamily: "JetBrains Mono, monospace",
+    fontFamily: "JetBrainsMono, ui-monospace, monospace",
     fontSize: "16px",
   },
   flowchart: {

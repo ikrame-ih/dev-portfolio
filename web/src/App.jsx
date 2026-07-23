@@ -108,7 +108,7 @@ export default function App() {
             color: "#1A1A1A",
             border: "1px solid #4A0E0E",
             borderRadius: 0,
-            fontFamily: "JetBrains Mono, monospace",
+            fontFamily: "JetBrainsMono, ui-monospace, monospace",
             fontSize: 12,
           },
         }}

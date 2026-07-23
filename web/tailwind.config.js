@@ -4,18 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        serif: [
-          "\"Fraunces Variable\"",
-          "\"Fraunces Fallback\"",
-          "Georgia",
-          "serif",
-        ],
-        mono: [
-          "\"JetBrains Mono\"",
-          "\"JetBrains Mono Fallback\"",
-          "ui-monospace",
-          "monospace",
-        ],
+        serif: ["FrauncesVar", "FrauncesFallback", "Georgia", "serif"],
+        mono: ["JetBrainsMono", "JetBrainsMonoFallback", "ui-monospace", "monospace"],
       },
       colors: {
         bone: {
