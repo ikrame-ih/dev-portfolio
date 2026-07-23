@@ -130,6 +130,7 @@ export const JardinCanvas = () => {
 
   useEffect(() => {
     let cancelled = false;
+    const section = document.getElementById("garden");
 
     const load = async () => {
       if (useRemoteBows()) {
@@ -166,9 +167,32 @@ export const JardinCanvas = () => {
       }
     };
 
-    load().finally(() => {
-      if (!cancelled) setLoaded(true);
-    });
+    const start = () => {
+      load().finally(() => {
+        if (!cancelled) setLoaded(true);
+      });
+    };
+
+    // Defer network until the guest book is near the viewport (keeps /api/bows off LCP path).
+    if (typeof IntersectionObserver === "undefined" || !section) {
+      start();
+    } else {
+      const io = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            io.disconnect();
+            start();
+          }
+        },
+        { rootMargin: "240px 0px" },
+      );
+      io.observe(section);
+      return () => {
+        cancelled = true;
+        io.disconnect();
+        if (hintTimerRef.current) window.clearTimeout(hintTimerRef.current);
+      };
+    }
 
     return () => {
       cancelled = true;

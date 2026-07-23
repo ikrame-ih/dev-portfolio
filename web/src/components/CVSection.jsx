@@ -49,7 +49,7 @@ const DomainGlyph = ({ id, className = "w-5 h-5 text-burgundy" }) => {
     className,
     fill: "none",
     stroke: "currentColor",
-    strokeWidth: "1.4",
+    strokeWidth: "1.75",
     strokeLinecap: "round",
     strokeLinejoin: "round",
     "aria-hidden": true,
@@ -130,7 +130,7 @@ const DomainPanel = ({ domain, children, testId }) => {
     <div data-testid={testId} className="relative min-h-0 md:min-h-[260px]">
       <motion.span
         aria-hidden="true"
-        className="pointer-events-none absolute -top-2 right-0 font-serif font-light text-[5.5rem] md:text-[7rem] leading-none text-ink/[0.07] select-none"
+        className="pointer-events-none absolute -top-2 right-0 font-serif font-light text-[5.5rem] md:text-[7rem] leading-none select-none text-[#8F877C]"
         initial={reduce ? false : { opacity: 0, x: 12 }}
         whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
         viewport={REVEAL_VIEWPORT}
@@ -163,7 +163,7 @@ const DomainPanel = ({ domain, children, testId }) => {
 
         <div className="mt-5 mb-6 flex items-center gap-3" aria-hidden="true">
           <span className="h-px flex-1 bg-bone-400" />
-          <span className="h-1 w-1 rotate-45 bg-burgundy/50" />
+          <span className="h-1 w-1 rotate-45 bg-burgundy" />
           <span className="h-px w-8 bg-bone-400" />
         </div>
 

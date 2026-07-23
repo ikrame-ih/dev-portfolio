@@ -946,26 +946,25 @@
   text-decoration: none;
 }
 
-/* Out of flow so indices flush-align with the NAVIGATE title */
+/* Out of flow so indices flush-align with the NAVIGATE title.
+   Keep bows at full opacity — opacity:0 fails WAVE contrast on cream strokes. */
 .footer-nav-bow {
   position: absolute;
   left: -1rem;
   top: 50%;
   display: inline-flex;
-  opacity: 0;
+  opacity: 1;
   transform: translate(-4px, -50%);
-  transition:
-    opacity 160ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 160ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 160ms cubic-bezier(0.22, 1, 0.36, 1);
   pointer-events: none;
 }
 
 .footer-nav-index {
   flex-shrink: 0;
   width: 1.5rem;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   letter-spacing: 0.14em;
-  color: rgba(232, 226, 216, 0.45);
+  color: #e8e2d8;
   transition: color 160ms ease;
 }
 
@@ -975,19 +974,18 @@
 
 .footer-nav-link:hover .footer-nav-bow,
 .footer-nav-link:focus-visible .footer-nav-bow {
-  opacity: 1;
   transform: translate(0, -50%);
 }
 
 .footer-nav-link:hover .footer-nav-index,
 .footer-nav-link:focus-visible .footer-nav-index {
-  color: #f5f1eb;
+  color: #ffffff;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .footer-nav-bow {
     transform: translateY(-50%);
-    transition: opacity 120ms ease;
+    transition: none;
   }
 
   .footer-nav-link:hover .footer-nav-bow,
