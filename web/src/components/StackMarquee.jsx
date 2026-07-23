@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import { STACK } from "@/data/portfolio";
 import { Bow } from "./Bow";
@@ -46,20 +45,10 @@ const Separator = ({ index }) => {
   );
 };
 
-/** Quiet mono ticker — pauses on hover; static on mobile / reduced motion. */
+/** Quiet mono ticker — pauses on hover; static when reduced motion is preferred. */
 export const StackMarquee = ({ className = "" }) => {
   const reduce = useReducedMotion();
-  const [animate, setAnimate] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 768px)");
-    const sync = () => setAnimate(mq.matches);
-    sync();
-    mq.addEventListener("change", sync);
-    return () => mq.removeEventListener("change", sync);
-  }, []);
-
-  const shouldAnimate = animate && !reduce;
+  const shouldAnimate = !reduce;
   const loop = [...TICKER_ITEMS, ...TICKER_ITEMS];
 
   return (

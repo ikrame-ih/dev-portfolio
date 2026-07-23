@@ -81,7 +81,7 @@ export const ProjectsSection = () => {
                   type="button"
                   data-testid={`project-arch-${p.id}`}
                   onClick={() => setOpenProject(p)}
-                  className="btn-tactile w-full sm:w-auto min-h-11 font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-4 py-2 hover:bg-ink transition-colors"
+                  className="btn-tactile w-full sm:w-auto min-h-11 inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-4 py-2 hover:bg-ink transition-colors"
                   whileHover={reduce ? undefined : { y: -2, scale: 1.02 }}
                   whileTap={reduce ? undefined : { scale: 0.98 }}
                   transition={CTA_SPRING}
