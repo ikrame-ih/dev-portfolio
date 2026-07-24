@@ -1,7 +1,9 @@
 import { motion, useReducedMotion } from "framer-motion";
+import { useState } from "react";
 import { Bow } from "./Bow";
 import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
 import SectionOverline from "./SectionOverline";
+import ProjectLightbox from "./ProjectLightbox";
 import {
   EXPERIENCE,
   EDUCATION,
@@ -238,6 +240,7 @@ const SkillsBlock = () => {
 
 export const CVSection = () => {
   const reduce = useReducedMotion();
+  const [proofShot, setProofShot] = useState(null);
 
   return (
     <section
@@ -308,9 +311,37 @@ export const CVSection = () => {
                     {exp.company} · {exp.period}
                   </p>
                   <ul className="space-y-2 font-mono text-sm text-ink-soft list-disc list-outside ml-4">
-                    {exp.bullets.map((b) => (
-                      <li key={b}>{b}</li>
-                    ))}
+                    {exp.bullets.map((b) => {
+                      const text = typeof b === "string" ? b : b.text;
+                      const proof = typeof b === "object" ? b.proof : null;
+                      if (!proof?.image) {
+                        return <li key={text}>{text}</li>;
+                      }
+                      return (
+                        <li key={text} className="marker:align-middle">
+                          <div className="flex items-start gap-3 sm:gap-4">
+                            <span className="min-w-0 flex-1 leading-relaxed">
+                              {text}
+                            </span>
+                            <button
+                              type="button"
+                              onClick={() => setProofShot(proof)}
+                              aria-label={`View ${proof.name}`}
+                              data-testid={`experience-proof-${proof.id}`}
+                              className="group -mt-0.5 shrink-0 w-[5.75rem] sm:w-[6.75rem] outline-none focus-visible:ring-2 focus-visible:ring-burgundy/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
+                            >
+                              <span className="block overflow-hidden border border-ink/15 bg-bone-200 transition-[border-color,opacity] duration-300 group-hover:border-ink/35 group-hover:opacity-100 opacity-[0.92]">
+                                <img
+                                  src={proof.image}
+                                  alt=""
+                                  className="aspect-[16/10] w-full object-cover object-left"
+                                />
+                              </span>
+                            </button>
+                          </div>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </motion.li>
               ))}
@@ -399,6 +430,10 @@ export const CVSection = () => {
           </Reveal>
         </div>
       </div>
+      <ProjectLightbox
+        project={proofShot}
+        onClose={() => setProofShot(null)}
+      />
     </section>
   );
 };

@@ -86,7 +86,7 @@
           "location": "Málaga, España",
           "period": "mar. 2026 - jun. 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Prácticas cubriendo frontend, backend y bases de datos en proyectos web de clientes.</p><ul><li>Desarrollé UIs responsive con componentes React reutilizables, HTML semántico y accesibilidad.</li><li>Trabajé en funcionalidades de backend e integración de APIs junto al frontend.</li><li>Usé bases de datos en el día a día: consultas, estructuración y conexión de datos a la aplicación.</li></ul>",
+          "description": "<p>Prácticas centradas en una plataforma Moodle, bases de datos y personalización de la UI.</p><ul><li>Entregué una plataforma de aprendizaje basada en Moodle como proyecto central de las prácticas: puesta en marcha, estructura de contenidos y personalización continua.</li><li>Me ocupé del trabajo diario con bases de datos que sostenían la plataforma (consultas, estructura y conexión de datos a la app).</li><li>Llevé el pase de look-and-feel — CSS y ajustes de UI — para que la experiencia se sintiera coherente y no como Moodle de serie.</li></ul>",
           "roles": []
         },
         {
@@ -97,7 +97,7 @@
           "location": "Málaga, España",
           "period": "feb. 2025 - mar. 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Soporte ejecutivo y herramientas internas en un entorno global de servicios profesionales.</p><ul><li>Coordiné visitas de ejecutivos: logística, agendas, materiales y actualizaciones a stakeholders.</li><li>Creé Power Apps internas para agilizar la coordinación de eventos.</li><li>Gestioné viajes, informes de gastos (Concur), Outlook, Teams y SharePoint.</li></ul>",
+          "description": "<p>Soporte ejecutivo y herramientas internas en un entorno global de servicios profesionales.</p><ul><li>Creé una Power App que gestionó de punta a punta el sorteo de Navidad de CNS — registro y asignación de números en un solo sitio, en lugar de coordinarlo por email/Teams.</li><li>Gestioné de punta a punta visitas de clientes de alto impacto en Málaga — agendas, logística y experiencias locales — en las que el día a menudo condicionaba si un acuerdo avanzaba.</li><li>Llevé el día a día operativo — viajes, Concur, Outlook, Teams, SharePoint y las herramientas internas propias de la firma — en un entorno global de servicios profesionales.</li></ul>",
           "roles": []
         },
         {
@@ -108,7 +108,7 @@
           "location": "Málaga, España",
           "period": "feb. 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Activación de marca a corto plazo en entornos retail de alto tráfico.</p><ul><li>Realicé degustaciones y presentaciones de producto en entornos retail concurridos.</li><li>Gestioné la logística del stand y las actualizaciones de inventario al cierre del día.</li></ul>",
+          "description": "<p>Activación de marca a corto plazo en entornos retail de alto tráfico.</p><ul><li>Realicé degustaciones y presentaciones breves de producto en entornos retail concurridos.</li><li>Gestioné la logística del stand y las actualizaciones de inventario al cierre del día.</li><li>Ver de cerca la operativa en retail en vivo inspiró Live Event Radar, mi dashboard de operaciones de venue en tiempo real.</li></ul>",
           "roles": []
         },
         {

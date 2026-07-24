@@ -86,7 +86,7 @@
           "location": "Málaga, Spain",
           "period": "Mar 2026 - Jun 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Internship spanning frontend, backend, and databases on client web projects.</p><ul><li>Built responsive UIs with reusable React components, semantic HTML, and accessibility in mind.</li><li>Worked on backend features and API integration alongside the frontend.</li><li>Used databases in day-to-day delivery: querying, structuring, and connecting data to the application.</li></ul>",
+          "description": "<p>Internship focused on a Moodle learning platform, databases, and UI customization.</p><ul><li>Delivered a Moodle-based learning platform as the core internship project — setup, content structure, and ongoing customization.</li><li>Handled day-to-day database work supporting the platform (queries, structure, and keeping data wired to the app).</li><li>Owned the look-and-feel pass — CSS and UI tweaks — so the experience felt coherent rather than stock Moodle.</li></ul>",
           "roles": []
         },
         {
@@ -97,7 +97,7 @@
           "location": "Málaga, Spain",
           "period": "Feb 2025 - Mar 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Executive support and internal tooling in a global professional services environment.</p><ul><li>Coordinated executive visits including logistics, agendas, materials, and stakeholder updates.</li><li>Built internal Power Apps to streamline event coordination workflows.</li><li>Managed travel, expense reports (Concur), Outlook, Teams, and SharePoint.</li></ul>",
+          "description": "<p>Executive support and internal tooling in a global professional services environment.</p><ul><li>Built a Power App that ran the CNS Christmas raffle end-to-end — registration and number assignment in one place, instead of chasing it over email/Teams.</li><li>Owned high-stakes client visits in Málaga end-to-end — agendas, logistics, and local experiences — where the day often shaped whether a deal moved forward.</li><li>Ran the day-to-day ops stack — travel, Concur, Outlook, Teams, SharePoint, plus the firm's own internal tools — in a global professional-services setting.</li></ul>",
           "roles": []
         },
         {
@@ -108,7 +108,7 @@
           "location": "Málaga, Spain",
           "period": "Feb 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Short-term brand activation role in high-traffic retail environments.</p><ul><li>Delivered product tastings and presentations in busy retail settings.</li><li>Managed booth logistics and end-of-day inventory updates.</li></ul>",
+          "description": "<p>Short-term brand activation role in high-traffic retail environments.</p><ul><li>Ran product tastings and short presentations in busy retail settings.</li><li>Handled booth logistics and end-of-day inventory updates.</li><li>Seeing live retail ops up close inspired Live Event Radar, my real-time venue ops dashboard.</li></ul>",
           "roles": []
         },
         {

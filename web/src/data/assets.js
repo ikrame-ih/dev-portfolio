@@ -19,4 +19,7 @@ export const ASSETS = {
     myPlaythrough: "/images/projects/my-playthrough.png",
     aibaWidget: "/images/projects/aiba-widget.png",
   },
+  experience: {
+    eyHolidayRaffle: "/images/experience/ey-holiday-raffle.png",
+  },
 };

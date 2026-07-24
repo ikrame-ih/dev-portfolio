@@ -141,9 +141,9 @@ export const EXPERIENCE = [
     period: "Mar 2026 — Jun 2026",
     track: "tech",
     bullets: [
-      "Developed client websites with reusable components and responsive layouts.",
-      "Built a custom Moodle-based learning platform for the company.",
-      "Included accessibility and semantic markup from the start.",
+      "Delivered a Moodle-based learning platform as the core internship project — setup, content structure, and ongoing customization.",
+      "Handled day-to-day database work supporting the platform (queries, structure, and keeping data wired to the app).",
+      "Owned the look-and-feel pass — CSS and UI tweaks — so the experience felt coherent rather than stock Moodle.",
     ],
   },
   {
@@ -152,9 +152,18 @@ export const EXPERIENCE = [
     period: "Feb 2025 — Mar 2026",
     track: "hybrid",
     bullets: [
-      "Coordinated executive visits: logistics, agendas, materials, and stakeholder updates.",
-      "Created internal Power Apps to streamline event coordination.",
-      "Managed travel, expense reports (Concur), Outlook, Teams, and SharePoint.",
+      {
+        text: "Built a Power App that ran the CNS Christmas raffle end-to-end — registration and number assignment in one place, instead of chasing it over email/Teams.",
+        proof: {
+          id: "ey-holiday-raffle",
+          name: "CNS Christmas raffle — Power App",
+          image: ASSETS.experience.eyHolidayRaffle,
+          imageAlt:
+            "EY Power App for the CNS Christmas hamper raffle — claim a number and store name, email, and assignment",
+        },
+      },
+      "Owned high-stakes client visits in Málaga end-to-end — agendas, logistics, and local experiences — where the day often shaped whether a deal moved forward.",
+      "Ran the day-to-day ops stack — travel, Concur, Outlook, Teams, SharePoint, plus the firm's own internal tools — in a global professional-services setting.",
     ],
   },
   {
@@ -165,6 +174,7 @@ export const EXPERIENCE = [
     bullets: [
       "Ran product tastings and short presentations in busy retail settings.",
       "Handled booth logistics and end-of-day inventory updates.",
+      "Seeing live retail ops up close inspired Live Event Radar, my real-time venue ops dashboard.",
     ],
   },
   {
