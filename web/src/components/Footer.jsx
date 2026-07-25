@@ -150,18 +150,6 @@ export const Footer = ({ onOpenTerminal }) => {
               built with care
               <Bow size={12} color="#F5F1EB" />
             </p>
-            <p>
-              Privacy-friendly stats via{" "}
-              <a
-                href="https://www.goatcounter.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-link"
-              >
-                GoatCounter
-              </a>{" "}
-              (no cookies).
-            </p>
           </div>
         </div>
       </Reveal>

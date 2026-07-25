@@ -3,7 +3,7 @@ import { motion, useReducedMotion, LayoutGroup, AnimatePresence } from "framer-m
 import { Bow } from "./Bow";
 import { PROFILE, BLOG } from "@/data/portfolio";
 import { MOTION_EASE, MOTION_DURATION, CTA_SPRING } from "@/lib/motion";
-import { onHashLinkClick, scrollToTop } from "@/lib/scroll";
+import { onHashLinkClick, scrollToTop, navigateToHash } from "@/lib/scroll";
 import { useActiveSection } from "@/lib/useActiveSection";
 
 const ALL_LINKS = [
@@ -91,8 +91,23 @@ export const Nav = ({ onOpenTerminal }) => {
     ].join(" ");
 
   const closeAndNavigate = (e) => {
+    const href = e.currentTarget.getAttribute("href");
+    if (!href?.startsWith("#")) return;
+    e.preventDefault();
+
+    const id = href.slice(1);
     setMenuOpen(false);
-    onHashLinkClick(e);
+    // Unlock immediately — body overflow:hidden blocks/resets scrollTo on many mobile browsers.
+    document.body.style.overflow = "";
+
+    // Defer until after menu close + layout so the target position is correct.
+    window.requestAnimationFrame(() => {
+      if (!id || id === "main-content" || id === "top") {
+        navigateToHash("");
+        return;
+      }
+      navigateToHash(id);
+    });
   };
 
   return (
