@@ -19,18 +19,27 @@ export default function App() {
   const [cliOpen, setCliOpen] = useState(false);
 
   useEffect(() => {
-    // Ctrl/Cmd + ` opens the CLI easter egg — skip when typing in a form field.
-    const onKey = (e) => {
-      if (cliOpen) return;
-      if (["INPUT", "TEXTAREA"].includes(e.target?.tagName)) return;
-      if ((e.ctrlKey || e.metaKey) && e.key === "`") {
-        e.preventDefault();
-        setCliOpen(true);
-      }
+    const typingTarget = (el) => {
+      if (!(el instanceof Element)) return false;
+      return Boolean(
+        el.closest(
+          'input, textarea, select, [contenteditable="true"], [role="textbox"]',
+        ),
+      );
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [cliOpen]);
+
+    const onKey = (e) => {
+      if (e.repeat || e.ctrlKey || e.metaKey) return;
+      if (typingTarget(e.target)) return;
+      // Physical T key — reliable across ES/EN layouts (e.key alone can be flaky).
+      if (e.code !== "KeyT") return;
+      e.preventDefault();
+      setCliOpen((open) => !open);
+    };
+
+    document.addEventListener("keydown", onKey, true);
+    return () => document.removeEventListener("keydown", onKey, true);
+  }, []);
 
   useEffect(() => {
     const goHash = () => {

@@ -97,9 +97,8 @@ export const Footer = ({ onOpenTerminal }) => {
               Terminal
             </p>
             <p className="font-mono text-sm leading-relaxed footer-muted">
-              Open it from the nav for a quick look (type a number), or leave a
-              short note. Personal notes live in Tizza&apos;s vault — publishing
-              soon.
+              Another way through the site — type a number, jump sections, leave
+              a short note.
             </p>
             <motion.button
               type="button"
@@ -112,8 +111,8 @@ export const Footer = ({ onOpenTerminal }) => {
             >
               Open terminal →
             </motion.button>
-            <p className="mt-6 font-mono text-xs footer-muted">
-              or open it from the navigation
+            <p className="mt-3 font-mono text-xs footer-muted">
+              Press <kbd className="footer-muted">T</kbd>
             </p>
           </motion.div>
         </div>

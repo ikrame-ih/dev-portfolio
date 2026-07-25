@@ -350,7 +350,7 @@ export const BENTO = {
       key: "gaming",
       label: "case file",
       title: "Gaming",
-      body: "Ace Attorney is still my #1 series, no matter what else I play. Otherwise it's mostly story-heavy stuff — visual novels, mysteries, long JRPGs, plus a soft spot for Pokémon ever since I was a kid.",
+      body: "Ace Attorney is still my #1 series, no matter what else I play. Beyond that my taste is wide and mood-driven — story-heavy games, visual novels, mysteries, long JRPGs and ARPGs, even shooters, plus a soft spot for Pokémon ever since I was a kid.",
       span: "md:col-span-2 md:row-span-2",
       image: ASSETS.interests.gaming,
       imageAlt: "Phoenix Wright: Ace Attorney — my favourite game",

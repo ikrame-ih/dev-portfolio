@@ -199,8 +199,8 @@ export const Nav = ({ onOpenTerminal }) => {
             type="button"
             data-testid="nav-terminal-toggle"
             onClick={onOpenTerminal}
-            title="Open terminal guestbook (Ctrl or ⌘ + `)"
-            aria-label="Open terminal guestbook. Shortcut: Control or Command + backtick"
+            title="Open terminal (press T)"
+            aria-label="Open terminal guestbook. Shortcut: T"
             className="btn-tactile min-h-11 font-mono text-xs uppercase tracking-[0.18em] border border-ink/30 px-3 py-1.5 hover:border-burgundy hover:text-burgundy transition-colors shrink-0"
             whileHover={reduce ? undefined : { y: -1, scale: 1.02 }}
             whileTap={reduce ? undefined : { scale: 0.98 }}
