@@ -186,7 +186,7 @@ export const Hero = () => {
               <span className="hairline w-16" />
               <span
                 data-testid="hero-overline"
-                className="font-mono text-xs md:text-sm uppercase tracking-[0.22em] text-ink leading-relaxed"
+                className="font-mono text-xs md:text-sm uppercase tracking-[0.14em] md:tracking-[0.22em] text-ink leading-relaxed"
               >
                 {PROFILE.overline}
               </span>
@@ -194,7 +194,7 @@ export const Hero = () => {
 
             <h1
               data-testid="hero-headline"
-              className="font-serif font-light text-[2.4rem] leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter text-ink text-balance"
+              className="font-serif font-light text-[2.05rem] leading-[1.12] sm:text-5xl md:text-6xl lg:text-7xl sm:leading-[1.05] tracking-tighter text-ink text-pretty md:text-balance"
             >
               {PROFILE.headlineParts.map((part, i) => (
                 <TextAnimate

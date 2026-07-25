@@ -173,51 +173,54 @@
   outline-offset: 3px;
 }
 
-/* bento grid — falls back to regular CSS grid; grid-lanes is experimental but nicer when it works */
+/* bento grid — falls back to regular CSS grid; grid-lanes is experimental but nicer when it works.
+   Only enable lanes from md up — on small screens the 3-col lane layout crushes cards (e.g. iPhone). */
 
 .bento-lanes {
   grid-auto-flow: dense;
 }
 
 @supports (display: grid-lanes) {
-  .bento-lanes {
-    display: grid-lanes;
-    grid-lanes: waterfall;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    grid-auto-flow: unset;
-    grid-auto-rows: unset;
-  }
+  @media (min-width: 768px) {
+    .bento-lanes {
+      display: grid-lanes;
+      grid-lanes: waterfall;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      grid-auto-flow: unset;
+      grid-auto-rows: unset;
+    }
 
-  .bento-item--gaming {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
+    .bento-item--gaming {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
 
-  .bento-item--music {
-    grid-column: span 1;
-    grid-row: span 2;
-  }
+    .bento-item--music {
+      grid-column: span 1;
+      grid-row: span 2;
+    }
 
-  .bento-item--aesthetics {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
+    .bento-item--aesthetics {
+      grid-column: span 2;
+      grid-row: span 1;
+    }
 
-  .bento-item--training,
-  .bento-item--reading {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
+    .bento-item--training,
+    .bento-item--reading {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
 
-  .bento-item--series {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
+    .bento-item--series {
+      grid-column: span 2;
+      grid-row: span 1;
+    }
 
-  .bento-item--travelling {
-    grid-column: span 3;
-    grid-row: span 1;
+    .bento-item--travelling {
+      grid-column: span 3;
+      grid-row: span 1;
+    }
   }
 }
 

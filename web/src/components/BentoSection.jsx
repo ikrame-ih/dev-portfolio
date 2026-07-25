@@ -35,13 +35,13 @@ export const BentoSection = () => {
               viewport={REVEAL_VIEWPORT}
               transition={revealTransition(idx * 0.06)}
               data-testid={`bento-${item.key}`}
-              className={`bento-item bento-item--${item.key} group relative overflow-hidden border border-ink/15 hover:border-burgundy transition-colors duration-500 min-h-[200px] ${item.span}`}
+              className={`bento-item bento-item--${item.key} group relative overflow-hidden border border-ink/15 hover:border-burgundy transition-colors duration-500 min-h-[240px] md:min-h-[200px] ${item.span}`}
             >
               {item.image ? (
                 <img
                   src={item.image}
                   alt={item.imageAlt || item.title}
-                  className={`absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-[0.62] transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.2,0.7,0.2,1)] motion-safe:group-hover:scale-[1.04] ${item.imagePosition || "object-center"}`}
+                  className={`absolute inset-0 w-full h-full object-cover opacity-40 md:opacity-50 group-hover:opacity-[0.62] transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.2,0.7,0.2,1)] motion-safe:group-hover:scale-[1.04] ${item.imagePosition || "object-center"}`}
                   loading="lazy"
                 />
               ) : (
@@ -54,8 +54,8 @@ export const BentoSection = () => {
                   aria-hidden="true"
                 />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-bone via-bone/80 to-bone/55 group-hover:via-bone/75 transition-colors duration-500" />
-              <div className="relative h-full min-h-[200px] p-6 md:p-8 flex flex-col justify-end gap-4">
+              <div className="absolute inset-0 bg-gradient-to-t from-bone from-25% via-bone/90 to-bone/45 md:from-bone md:via-bone/80 md:to-bone/55 group-hover:via-bone/75 transition-colors duration-500" />
+              <div className="relative h-full min-h-[240px] md:min-h-[200px] p-5 sm:p-6 md:p-8 flex flex-col justify-end gap-3 md:gap-4">
                 {item.label && (
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-xs uppercase tracking-[0.22em] text-burgundy">
