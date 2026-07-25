@@ -12,8 +12,7 @@ import {
   STACK,
 } from "@/data/portfolio";
 import { StackIcon } from "@/data/stackIcons";
-import { ASSETS } from "@/data/assets";
-import { CTA_SPRING, MOTION_EASE, scrollEnter } from "@/lib/motion";
+import { MOTION_EASE, scrollEnter } from "@/lib/motion";
 
 // Shared header pattern used across CV subsections.
 const SectionHeader = ({ overline, title, kicker }) => (
@@ -230,10 +229,6 @@ const SkillsBlock = () => {
         </DomainPanel>
       </Reveal>
     </div>
-
-    <p className="mt-8 md:mt-10 font-mono text-xs uppercase tracking-[0.2em] text-ink-mute">
-      Frontend, backend, tooling, and languages.
-    </p>
   </div>
   );
 };
@@ -265,7 +260,7 @@ export const CVSection = () => {
 
         <SkillsBlock />
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 md:items-start">
           <Reveal
             delay={0.05}
             className="md:col-span-7"
@@ -277,21 +272,27 @@ export const CVSection = () => {
             <ol className="relative pl-10">
               <motion.span
                 aria-hidden="true"
-                className="absolute left-0 top-1.5 bottom-3 w-px origin-top bg-bone-400"
+                className="absolute left-0 top-[0.875rem] bottom-3 w-px origin-top bg-bone-400"
                 initial={reduce ? false : { scaleY: 0 }}
                 whileInView={reduce ? undefined : { scaleY: 1 }}
                 viewport={REVEAL_VIEWPORT}
                 transition={{ duration: 1.05, ease: MOTION_EASE, delay: 0.08 }}
               />
-              {EXPERIENCE.map((exp, idx) => (
+              {EXPERIENCE.map((exp, idx) => {
+                const hasProof = exp.bullets.some(
+                  (b) => typeof b === "object" && b.proof?.image,
+                );
+                return (
                 <motion.li
                   key={`${exp.company}-${exp.period}`}
                   {...scrollEnter(reduce, idx * 0.08)}
                   viewport={REVEAL_VIEWPORT}
-                  className="relative pb-12 last:pb-0"
+                  className={`relative last:pb-0 ${hasProof ? "pb-9" : "pb-12"}`}
                 >
+                  {/* Center on the rail without translateX — Framer scale owns transform */}
                   <motion.div
-                    className="absolute -left-10 top-1.5 -translate-x-1/2"
+                    aria-hidden="true"
+                    className="absolute top-1.5 -left-10 -ml-[9px] h-[18px] w-[18px]"
                     initial={reduce ? false : { opacity: 0, scale: 0.92 }}
                     whileInView={
                       reduce ? undefined : { opacity: 1, scale: 1 }
@@ -313,38 +314,36 @@ export const CVSection = () => {
                   <ul className="space-y-2 font-mono text-sm text-ink-soft list-disc list-outside ml-4">
                     {exp.bullets.map((b) => {
                       const text = typeof b === "string" ? b : b.text;
-                      const proof = typeof b === "object" ? b.proof : null;
-                      if (!proof?.image) {
-                        return <li key={text}>{text}</li>;
-                      }
-                      return (
-                        <li key={text} className="marker:align-middle">
-                          <div className="flex items-start gap-3 sm:gap-4">
-                            <span className="min-w-0 flex-1 leading-relaxed">
-                              {text}
-                            </span>
-                            <button
-                              type="button"
-                              onClick={() => setProofShot(proof)}
-                              aria-label={`View ${proof.name}`}
-                              data-testid={`experience-proof-${proof.id}`}
-                              className="group -mt-0.5 shrink-0 w-[5.75rem] sm:w-[6.75rem] outline-none focus-visible:ring-2 focus-visible:ring-burgundy/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
-                            >
-                              <span className="block overflow-hidden border border-ink/15 bg-bone-200 transition-[border-color,opacity] duration-300 group-hover:border-ink/35 group-hover:opacity-100 opacity-[0.92]">
-                                <img
-                                  src={proof.image}
-                                  alt=""
-                                  className="aspect-[16/10] w-full object-cover object-left"
-                                />
-                              </span>
-                            </button>
-                          </div>
-                        </li>
-                      );
+                      return <li key={text}>{text}</li>;
                     })}
                   </ul>
+                  {exp.bullets
+                    .filter((b) => typeof b === "object" && b.proof?.image)
+                    .map((b) => {
+                      const proof = b.proof;
+                      return (
+                        <figure key={proof.id} className="mt-3 ml-4">
+                          <button
+                            type="button"
+                            onClick={() => setProofShot(proof)}
+                            aria-label={`View ${proof.name}`}
+                            data-testid={`experience-proof-${proof.id}`}
+                            className="group inline-flex max-w-[13.5rem] text-left outline-none focus-visible:ring-2 focus-visible:ring-burgundy/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
+                          >
+                            <span className="block overflow-hidden border border-ink/15 bg-bone-200">
+                              <img
+                                src={proof.image}
+                                alt=""
+                                className="aspect-[16/10] w-full object-cover object-left opacity-60 grayscale transition-[filter,opacity] duration-500 group-hover:opacity-100 group-hover:grayscale-0 group-focus-visible:opacity-100 group-focus-visible:grayscale-0"
+                              />
+                            </span>
+                          </button>
+                        </figure>
+                      );
+                    })}
                 </motion.li>
-              ))}
+                );
+              })}
             </ol>
           </Reveal>
 
@@ -353,78 +352,49 @@ export const CVSection = () => {
             className="md:col-span-5"
             data-testid="education-block"
           >
-            <div className="h-full border-t border-ink/25 pt-5 md:pt-6">
-              <h3 className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft mb-8">
-                Education
-              </h3>
-              <ul className="space-y-0">
+            <h3 className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft mb-8">
+              Education
+            </h3>
+            <div className="bg-bone-200/60 px-5 py-6 md:px-6 md:py-7">
+              <ol className="space-y-10 list-none">
                 {EDUCATION.map((ed, idx) => (
                   <motion.li
                     key={`${ed.school}-${ed.degree}`}
                     {...scrollEnter(reduce, idx * 0.07)}
                     viewport={REVEAL_VIEWPORT}
-                    className="border-t border-bone-400 py-5 first:border-0 first:pt-0"
                   >
-                    <h4 className="font-serif text-lg md:text-xl text-ink tracking-tight">
+                    <h4 className="font-serif text-xl md:text-2xl text-ink tracking-tight leading-snug">
                       {ed.degree}
                     </h4>
-                    <p className="font-mono text-xs text-ink-soft mt-1">
+                    <p className="font-mono text-sm text-ink mt-2">
                       {ed.school}
                     </p>
-                    {ed.detail && (
-                      <p className="font-mono text-xs text-ink-mute mt-2 leading-relaxed">
-                        {ed.detail}
-                      </p>
+                    {ed.tags?.length > 0 && (
+                      <ul className="mt-3 flex flex-wrap gap-2">
+                        {ed.tags.map((tag) => (
+                          <li
+                            key={tag}
+                            className="font-mono text-xs tracking-[0.04em] text-ink border border-ink/20 bg-bone px-2.5 py-1"
+                          >
+                            {tag}
+                          </li>
+                        ))}
+                      </ul>
                     )}
-                    <p className="font-mono text-xs uppercase tracking-[0.2em] text-burgundy mt-2">
+                    <p className="font-mono text-xs uppercase tracking-[0.18em] text-ink-soft mt-3">
                       {ed.period}
                     </p>
                   </motion.li>
                 ))}
-              </ul>
+              </ol>
 
-              <div className="mt-10 border-t border-ink/20 pt-6">
-                <p className="font-mono text-xs uppercase tracking-[0.2em] text-burgundy mb-3">
+              <div className="mt-10 pt-6 border-t border-ink/10">
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-mute mb-3">
                   {PROFILE.practiceAside.title}
                 </p>
-                <p className="font-mono text-sm text-ink leading-relaxed">
+                <p className="font-mono text-sm text-ink-soft leading-relaxed">
                   {PROFILE.practiceAside.text}
                 </p>
-              </div>
-
-              <div className="mt-10 flex flex-wrap items-center gap-3">
-                <motion.a
-                  href={ASSETS.cvPdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-testid="cv-download-link"
-                  className="btn-tactile inline-block font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-6 py-3 hover:bg-ink transition-colors"
-                  whileHover={reduce ? undefined : { y: -2, scale: 1.02 }}
-                  whileTap={reduce ? undefined : { scale: 0.98 }}
-                  transition={CTA_SPRING}
-                >
-                  Export CV · EN ↓
-                  <span className="sr-only">
-                    {" "}
-                    — opens English PDF in a new tab
-                  </span>
-                </motion.a>
-                <motion.a
-                  href={ASSETS.cvPdfEs}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-testid="cv-download-link-es"
-                  className="btn-tactile inline-block font-mono text-xs uppercase tracking-[0.18em] border border-ink px-6 py-3 hover:bg-burgundy hover:text-[#F5F1EB] hover:border-burgundy transition-colors"
-                  whileHover={reduce ? undefined : { y: -2, scale: 1.02 }}
-                  whileTap={reduce ? undefined : { scale: 0.98 }}
-                  transition={CTA_SPRING}
-                >
-                  CV · ES ↓
-                  <span className="sr-only">
-                    {" "}
-                    — opens Spanish PDF in a new tab
-                  </span>
-                </motion.a>
               </div>
             </div>
           </Reveal>

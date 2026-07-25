@@ -155,10 +155,11 @@ const ProjectStrip = ({
         >
           <div className="flex items-start justify-between gap-4 mb-4">
             <div className="min-w-0">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-burgundy mb-2">
-                0{idx + 1}
-                {p.badge ? ` · ${p.badge}` : p.href ? "" : " · in progress"}
-              </p>
+              {(p.badge || !p.href) && (
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-burgundy mb-2">
+                  {p.badge || "in progress"}
+                </p>
+              )}
               <h3 className="font-serif text-2xl md:text-3xl tracking-tight text-ink group-hover:text-burgundy transition-colors duration-500">
                 <motion.span
                   layoutId={reduce ? undefined : `project-title-${p.id}`}

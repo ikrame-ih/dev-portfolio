@@ -118,31 +118,51 @@ export const Footer = ({ onOpenTerminal }) => {
           </motion.div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 md:px-12 mt-12 pt-6 border-t border-[#F5F1EB]/15 flex flex-wrap items-center justify-between gap-4">
-          <div className="font-mono text-xs uppercase tracking-[0.2em] footer-muted space-y-1">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mt-12 pt-6 border-t border-[#F5F1EB]/15 flex flex-wrap items-end justify-between gap-8">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-3">
+              Contact
+            </p>
+            <ul className="space-y-2 font-mono text-sm">
+              <li>
+                <a
+                  href={`mailto:${PROFILE.email}`}
+                  className="footer-link"
+                >
+                  {PROFILE.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${PROFILE.phone.replace(/\s/g, "")}`}
+                  className="footer-link"
+                >
+                  {PROFILE.phone}
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="font-mono text-xs footer-muted space-y-2 text-left sm:text-right">
             <p>
               © {year} {PROFILE.name} · Málaga, ES
             </p>
+            <p className="flex items-center gap-2 sm:justify-end">
+              built with care
+              <Bow size={12} color="#F5F1EB" />
+            </p>
             <p>
+              Privacy-friendly stats via{" "}
               <a
-                href={`mailto:${PROFILE.email}`}
-                className="lnk hover:text-[#F5F1EB]"
+                href="https://www.goatcounter.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-link"
               >
-                {PROFILE.email}
-              </a>
-              <span className="mx-2">·</span>
-              <a
-                href={`tel:${PROFILE.phone.replace(/\s/g, "")}`}
-                className="lnk hover:text-[#F5F1EB]"
-              >
-                {PROFILE.phone}
-              </a>
+                GoatCounter
+              </a>{" "}
+              (no cookies).
             </p>
           </div>
-          <p className="font-mono text-xs uppercase tracking-[0.2em] footer-muted flex items-center gap-2">
-            built with care
-            <Bow size={12} color="#F5F1EB" />
-          </p>
         </div>
       </Reveal>
     </footer>

@@ -2,7 +2,6 @@
 export const ASSETS = {
   profilePortrait: "/images/profile-ikrame-640.jpg",
   cvPdf: "/Ikrame_Ibn_Hayoun_CV.pdf",
-  /** Spanish Reactive Resume export — place file at web/public/Ikrame_Ibn_Hayoun_CV_ES.pdf */
   cvPdfEs: "/Ikrame_Ibn_Hayoun_CV_ES.pdf",
   tizzasVaultAvatar: "/images/tizzas-vault-avatar.jpg",
   interests: {

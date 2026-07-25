@@ -23,6 +23,7 @@ Portfolio project (v0.1.0): React SPA deployed on Vercel. Guest book syncs via U
 - **Engineering** — component-based sections, semantic HTML, accessible patterns, and documented project structure
 - **Guest book** — shared bows via Upstash Redis on Vercel; localStorage fallback on localhost
 - **Contact** — Resend-powered form with rate limiting
+- **Analytics** — optional GoatCounter (privacy-friendly, no cookies); set `VITE_GOATCOUNTER_CODE`
 - **CLI terminal** — hidden command palette for navigation and easter eggs
 - **Design system** — cream paper palette, Framer Motion reveals, Mermaid diagrams
 
