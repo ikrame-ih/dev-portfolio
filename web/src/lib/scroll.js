@@ -14,40 +14,53 @@ const focusTarget = (el) => {
   el.focus({ preventScroll: true });
 };
 
-export const scrollToElement = (id, block = "start") => {
+export const scrollToElement = (id, block = "start", behavior) => {
   const el = document.getElementById(id);
   if (!el) return;
-  // Focus first so SR/keyboard land correctly even if smooth scroll is long.
-  focusTarget(el);
+  const scrollOpts = {
+    behavior: behavior ?? scrollBehavior(),
+  };
   if (block === "start") {
-    // Explicit offset so the section flush-aligns under the nav (no previous-section peek).
+    // Scroll first — focusing before scrollTo is cancelled on some mobile WebKits.
     const top =
       el.getBoundingClientRect().top + window.scrollY - NAV_SCROLL_OFFSET;
-    window.scrollTo({ top: Math.max(0, top), behavior: scrollBehavior() });
+    window.scrollTo({ top: Math.max(0, top), ...scrollOpts });
+    focusTarget(el);
     return;
   }
   el.scrollIntoView({
-    behavior: scrollBehavior(),
+    ...scrollOpts,
     block,
   });
+  focusTarget(el);
 };
 
-export const scrollToTop = () => {
+export const scrollToTop = (behavior) => {
   const main = document.getElementById("main-content");
+  window.scrollTo({
+    top: 0,
+    behavior: behavior ?? scrollBehavior(),
+  });
   focusTarget(main);
-  window.scrollTo({ top: 0, behavior: scrollBehavior() });
 };
 
 /** In-page hash nav — smooth scroll + focus, then sync the URL. */
-export const navigateToHash = (id, { updateHistory = true } = {}) => {
+export const navigateToHash = (
+  id,
+  { updateHistory = true, behavior } = {},
+) => {
   if (!id) {
-    scrollToTop();
+    scrollToTop(behavior);
     if (updateHistory) {
-      history.pushState(null, "", window.location.pathname + window.location.search);
+      history.pushState(
+        null,
+        "",
+        window.location.pathname + window.location.search,
+      );
     }
     return;
   }
-  scrollToElement(id);
+  scrollToElement(id, "start", behavior);
   if (updateHistory) {
     history.pushState(null, "", `#${id}`);
   }

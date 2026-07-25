@@ -39,11 +39,14 @@ export const Nav = ({ onOpenTerminal }) => {
     const onKey = (e) => {
       if (e.key === "Escape") setMenuOpen(false);
     };
-    const prevOverflow = document.body.style.overflow;
+    const prevBody = document.body.style.overflow;
+    const prevHtml = document.documentElement.style.overflow;
     document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);
     return () => {
-      document.body.style.overflow = prevOverflow;
+      document.body.style.overflow = prevBody;
+      document.documentElement.style.overflow = prevHtml;
       window.removeEventListener("keydown", onKey);
     };
   }, [menuOpen]);
@@ -96,18 +99,17 @@ export const Nav = ({ onOpenTerminal }) => {
     e.preventDefault();
 
     const id = href.slice(1);
-    setMenuOpen(false);
-    // Unlock immediately — body overflow:hidden blocks/resets scrollTo on many mobile browsers.
-    document.body.style.overflow = "";
 
-    // Defer until after menu close + layout so the target position is correct.
-    window.requestAnimationFrame(() => {
-      if (!id || id === "main-content" || id === "top") {
-        navigateToHash("");
-        return;
-      }
-      navigateToHash(id);
-    });
+    // Unlock + scroll in the same tap turn. Deferred scrollTo is ignored on many
+    // mobile browsers once the user-activation window closes.
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+    setMenuOpen(false);
+
+    const target =
+      !id || id === "main-content" || id === "top" ? "" : id;
+    // auto: smooth + drawer teardown fights on iOS/Android WebViews.
+    navigateToHash(target, { behavior: "auto" });
   };
 
   return (
