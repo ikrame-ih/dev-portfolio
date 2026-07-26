@@ -451,6 +451,19 @@ export const GuestbookCanvas = () => {
               </div>
             )}
 
+            {/* Under-pages split at the spine so the stack folds with the book */}
+            <div className="guestbook-stack" aria-hidden="true">
+              <div className="guestbook-stack-half guestbook-stack-left">
+                <span className="guestbook-stack-sheet guestbook-stack-sheet--deep" />
+                <span className="guestbook-stack-sheet guestbook-stack-sheet--near" />
+              </div>
+              <div className="guestbook-stack-gutter" />
+              <div className="guestbook-stack-half guestbook-stack-right">
+                <span className="guestbook-stack-sheet guestbook-stack-sheet--deep" />
+                <span className="guestbook-stack-sheet guestbook-stack-sheet--near" />
+              </div>
+            </div>
+
             <div
               className="guestbook-inner"
               role="group"
