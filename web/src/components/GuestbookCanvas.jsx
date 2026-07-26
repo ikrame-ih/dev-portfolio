@@ -111,7 +111,7 @@ const PageBows = ({
   </AnimatePresence>
 );
 
-export const JardinCanvas = () => {
+export const GuestbookCanvas = () => {
   const leftRef = useRef(null);
   const rightRef = useRef(null);
   const visitorIdRef = useRef(null);
@@ -130,7 +130,7 @@ export const JardinCanvas = () => {
 
   useEffect(() => {
     let cancelled = false;
-    const section = document.getElementById("garden");
+    const section = document.getElementById("guestbook");
 
     const load = async () => {
       if (useRemoteBows()) {
@@ -216,7 +216,7 @@ export const JardinCanvas = () => {
     const rect = ref.current.getBoundingClientRect();
     const localX = (e.clientX - rect.left) / rect.width;
     const localY = (e.clientY - rect.top) / rect.height;
-    const { mx, y } = clampBowPosition(localX, localY);
+    const { mx, y } = clampBowPosition(localX, localY, page);
     setGhost({ page, mx, y });
   }, [unavailable]);
 
@@ -233,7 +233,7 @@ export const JardinCanvas = () => {
       pressPage(ref);
       setGhost(null);
 
-      const { mx, y } = clampBowPosition(localX, localY);
+      const { mx, y } = clampBowPosition(localX, localY, page);
       const vid = remote ? visitorIdRef.current : getVisitorId();
 
       if (bowTooClose(page, mx, y, bows, vid)) {
@@ -337,7 +337,7 @@ export const JardinCanvas = () => {
         if (e.key === "ArrowRight") mx += KEYBOARD_STEP;
         if (e.key === "ArrowUp") y -= KEYBOARD_STEP;
         if (e.key === "ArrowDown") y += KEYBOARD_STEP;
-        return { page, ...clampBowPosition(mx, y) };
+        return { page, ...clampBowPosition(mx, y, page) };
       });
       return;
     }
@@ -355,10 +355,10 @@ export const JardinCanvas = () => {
 
   return (
     <section
-      id="garden"
+      id="guestbook"
       tabIndex={-1}
       aria-labelledby="guestbook-heading"
-      data-testid="jardin-section"
+      data-testid="guestbook-section"
       className="relative py-16 sm:py-20 md:py-32 outline-none"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -420,7 +420,7 @@ export const JardinCanvas = () => {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div data-testid="jardin-canvas" className="guestbook-spread">
+          <div data-testid="guestbook-canvas" className="guestbook-spread">
             {unavailable && (
               <div
                 role="status"
@@ -567,4 +567,4 @@ export const JardinCanvas = () => {
   );
 };
 
-export default JardinCanvas;
+export default GuestbookCanvas;

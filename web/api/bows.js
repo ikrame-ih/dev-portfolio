@@ -2,8 +2,8 @@ import { randomUUID } from "node:crypto";
 import { getRedis } from "./_lib/redis.js";
 
 const BOWS_KEY = "guestbook:bows";
-const MIN_DISTANCE = 0.07;
-const MAX_BOWS = 500;
+const MIN_DISTANCE = 0.05;
+const MAX_BOWS = 1000;
 
 const normalizeStored = (bow) => ({
   id: bow.id,
@@ -69,7 +69,9 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: "invalid_position" });
       }
 
-      const clampedMx = Math.min(0.88, Math.max(0.12, mx));
+      const minMx = page === "right" ? 0.16 : 0.1;
+      const maxMx = page === "left" ? 0.84 : 0.9;
+      const clampedMx = Math.min(maxMx, Math.max(minMx, mx));
       const clampedY = Math.min(0.92, Math.max(0.08, y));
       const safeRotation =
         typeof rotation === "number" && Number.isFinite(rotation)

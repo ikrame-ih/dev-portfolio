@@ -11,7 +11,7 @@ const ALL_LINKS = [
   { id: "projects", label: "Projects" },
   { id: "bento", label: "Interests" },
   { id: "blog", label: "Vault" },
-  { id: "garden", label: "Guest book" },
+  { id: "guestbook", label: "Guest book" },
   { id: "contact", label: "Contact" },
 ];
 

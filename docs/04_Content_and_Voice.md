@@ -18,7 +18,7 @@ Interests bento — real hobby photos and copy. The kicker literally says hobbie
 
 Vault section is placeholder blog cards. `docs/` is not the blog — future posts would come from a separate `vault-posts/` folder ([[09_Future_Roadmap]]).
 
-Guest book strings in `BOW_BOARD`. The faint watermark lines on each page stayed in `JardinCanvas.jsx` when I was styling the spread.
+Guest book strings in `BOW_BOARD`. The faint watermark lines on each page stayed in `GuestbookCanvas.jsx` when I was styling the spread.
 
 CLI is a fake shell — `guestbook --sign` writes to localStorage, separate from visual bows.
 

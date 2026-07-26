@@ -11,13 +11,13 @@ Jun 2026. Live at ikrame-ih.vercel.app. Contact + guest book work on Vercel. Blo
 
 ---
 
-Single page, no router. Nav scrolls to `#cv` `#projects` `#bento` `#blog` `#garden` `#contact`. Labels: CV, Projects, Vault, Guest book, Contact + Terminal button.
+Single page, no router. Nav scrolls to `#cv` `#projects` `#bento` `#blog` `#guestbook` `#contact`. Labels: CV, Projects, Vault, Guest book, Contact + Terminal button.
 
 App order: Hero → CV → Projects → Bento → Vault → Guest book → Contact.
 
 ---
 
-Guest book (`JardinCanvas.jsx`): two pages, click to place bow, one per visitor, ~7% min distance. `TyingBow` animates latest placement. Prod: `/api/bows` + Upstash key `guestbook:bows`, cookie `ik_visitor`. Local: localStorage.
+Guest book (`GuestbookCanvas.jsx`): two pages, click to place bow, one per visitor, ~7% min distance. `TyingBow` animates latest placement. Prod: `/api/bows` + Upstash key `guestbook:bows`, cookie `ik_visitor`. Local: localStorage.
 
 Wipe test bows: delete Redis key `guestbook:bows`.
 

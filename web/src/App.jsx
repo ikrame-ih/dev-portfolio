@@ -7,7 +7,7 @@ import CVSection from "@/components/CVSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import BentoSection from "@/components/BentoSection";
 import BlogSection from "@/components/BlogSection";
-import JardinCanvas from "@/components/JardinCanvas";
+import GuestbookCanvas from "@/components/GuestbookCanvas";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import CLITerminal from "@/components/CLITerminal";
@@ -101,7 +101,7 @@ export default function App() {
           <ProjectsSection />
           <BentoSection />
           <BlogSection />
-          <JardinCanvas />
+          <GuestbookCanvas />
           <ContactSection />
         </main>
         <Footer onOpenTerminal={() => setCliOpen(true)} />

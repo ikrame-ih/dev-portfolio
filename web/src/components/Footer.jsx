@@ -20,7 +20,7 @@ const NAV_LINKS = [
   { id: "projects", label: "Projects", index: "02" },
   { id: "bento", label: "Interests", index: "03" },
   { id: "blog", label: "Tizza's vault", index: "04" },
-  { id: "garden", label: "Guest book", index: "05" },
+  { id: "guestbook", label: "Guest book", index: "05" },
   { id: "contact", label: "Contact", index: "06" },
 ];
 

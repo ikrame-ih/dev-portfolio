@@ -10,7 +10,7 @@ grep helper. incomplete.
 
 `normalizeBow` — bowUtils.js. old x/y → page/mx/y. stableUnit not random (bows jumped otherwise)
 
-`handlePageClick` — JardinCanvas. optimistic on prod, saveBow local
+`handlePageClick` — GuestbookCanvas. optimistic on prod, saveBow local
 
 `useRemoteBows` — bowsApi. localhost = storage, vercel = api
 

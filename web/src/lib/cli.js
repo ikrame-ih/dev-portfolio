@@ -58,7 +58,7 @@ export const GO_TARGETS = [
   { id: "projects", aliases: ["projects", "proj", "work"] },
   { id: "bento", aliases: ["bento", "interests"] },
   { id: "blog", aliases: ["blog", "vault"] },
-  { id: "garden", aliases: ["garden", "guestbook", "guest"] },
+  { id: "guestbook", aliases: ["guestbook", "guest"] },
   { id: "contact", aliases: ["contact", "hi"] },
 ];
 
@@ -88,7 +88,7 @@ export const COMMAND_CATALOG = [
   { cmd: "avail", label: "availability" },
   { cmd: "edu", label: "education" },
   { cmd: "now", label: "what I'm up to" },
-  { cmd: "go …", label: "cv · projects · bento · blog · garden · contact" },
+  { cmd: "go …", label: "cv · projects · bento · blog · guestbook · contact" },
   { cmd: "sign", label: 'guestbook: sign "name" "msg"' },
   { cmd: "clear", label: "wipe the screen (alias: reset · cls)" },
   { cmd: "exit", label: "close terminal (Esc)" },

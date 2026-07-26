@@ -56,7 +56,7 @@ Hairline dividers (half px, low opacity). Bow svg as ornament between hero and C
 
 Links use `.lnk` with underline animating in from the left.
 
-Guest book is an open spread — two pages, spine in the middle, `guestbook-*` classes in `index.css`. Click anywhere on a page to place a bow. Watermark text is hardcoded in `JardinCanvas.jsx` at low opacity.
+Guest book is an open spread — two pages, spine in the middle, `guestbook-*` classes in `index.css`. Click anywhere on a page to place a bow. Watermark text is hardcoded in `GuestbookCanvas.jsx` at low opacity.
 
 ---
 

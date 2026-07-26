@@ -1,5 +1,5 @@
-// ~7% of page width felt right after testing on different screen sizes.
-export const MIN_BOW_DISTANCE = 0.07;
+// ~5% of page — denser than the old 7%, without bows looking cramped.
+export const MIN_BOW_DISTANCE = 0.05;
 
 // Deterministic hash from id — random placement made bows jump on every re-render.
 export const stableUnit = (id, salt = 0) => {
@@ -38,8 +38,12 @@ export const bowTooClose = (page, mx, y, bows, excludeVisitorId = null) => {
   });
 };
 
-// Keep bows away from the page edges so they don't clip under the book spine.
-export const clampBowPosition = (mx, y) => ({
-  mx: Math.min(0.88, Math.max(0.12, mx)),
-  y: Math.min(0.92, Math.max(0.08, y)),
-});
+// Keep bows off the outer edge and out of the spine gutter (fold shade).
+export const clampBowPosition = (mx, y, page) => {
+  const minMx = page === "right" ? 0.16 : 0.1;
+  const maxMx = page === "left" ? 0.84 : 0.9;
+  return {
+    mx: Math.min(maxMx, Math.max(minMx, mx)),
+    y: Math.min(0.92, Math.max(0.08, y)),
+  };
+};

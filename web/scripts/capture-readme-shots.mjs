@@ -11,7 +11,7 @@ const shots = [
   { name: "hero", selector: '[data-testid="hero-section"]' },
   { name: "cv-projects", selector: "#projects" },
   { name: "interests-vault", selector: "#blog" },
-  { name: "guestbook-contact", selector: "#garden" },
+  { name: "guestbook-contact", selector: "#guestbook" },
 ];
 
 await mkdir(outDir, { recursive: true });
