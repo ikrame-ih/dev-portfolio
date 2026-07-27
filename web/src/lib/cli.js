@@ -116,13 +116,13 @@ export const buildBanner = () => [
     id: "banner-0",
     type: "sys",
     text: "welcome — press 1–6, or type help for every command.",
-    delay: 0,
+    delay: 0.08,
   },
   {
     id: "banner-rule",
     type: "rule",
     text: "",
-    delay: 0.04,
+    delay: 0.18,
   },
   ...MENU.map((m, i) => ({
     id: `banner-m-${m.key}`,
@@ -130,19 +130,19 @@ export const buildBanner = () => [
     key: m.key,
     cmd: m.cmd,
     label: m.label,
-    delay: 0.06 + 0.02 * i,
+    delay: 0.28 + 0.07 * i,
   })),
   {
     id: "banner-tip",
     type: "meta",
     text: "type help (or cmds) to list every command",
-    delay: 0.24,
+    delay: 0.28 + 0.07 * MENU.length + 0.1,
   },
   {
     id: "banner-tip-2",
     type: "meta",
     text: "Tab autocompletes · ↑↓ history · Esc closes",
-    delay: 0.26,
+    delay: 0.28 + 0.07 * MENU.length + 0.2,
   },
 ];
 

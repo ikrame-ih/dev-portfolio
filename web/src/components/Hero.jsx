@@ -14,7 +14,7 @@ const STEP_DELAY = {
   subtext: 1.35,
   tagline: 1.55,
   ctas: 1.75,
-  photo: 1.4,
+  photo: 1.4, // unused for entrance — portrait uses CSS unveil; kept for reference
 };
 
 const HEADLINE_LINE_DELAY = [0.06, 0.38, 0.7];
@@ -183,7 +183,13 @@ export const Hero = () => {
               {...heroStep("overline", reduce)}
               className="flex items-center gap-3 mb-6"
             >
-              <span className="hairline w-16" />
+              <motion.span
+                aria-hidden="true"
+                className="hairline hairline--draw w-16 md:w-24 origin-left"
+                initial={reduce ? false : { scaleX: 0, opacity: 0.15 }}
+                animate={reduce ? undefined : { scaleX: 1, opacity: 0.55 }}
+                transition={{ duration: 0.9, ease: MOTION_EASE, delay: 0.12 }}
+              />
               <span
                 data-testid="hero-overline"
                 className="font-mono text-xs md:text-sm uppercase tracking-[0.14em] md:tracking-[0.22em] text-ink leading-relaxed"
@@ -291,7 +297,14 @@ export const Hero = () => {
           </div>
 
           <motion.div
-            {...heroStep("photo", reduce, { y: 12, scale: 0.98 })}
+            // Opacity stays on — CSS clip-path owns the portrait reveal (Framer fade was hiding it).
+            initial={reduce ? false : { opacity: 1, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={
+              reduce
+                ? undefined
+                : { duration: 0.7, ease: MOTION_EASE, delay: 0.2 }
+            }
             className="col-span-12 md:col-span-5 md:pt-2"
           >
             <div className="relative">
@@ -303,19 +316,50 @@ export const Hero = () => {
                   style={
                     reduce || !parallaxOn ? undefined : { y: photoParallax }
                   }
-                  className="photo-frame aspect-[3/4] bg-bone-300 border border-ink/15 md:will-change-transform"
+                  className="md:will-change-transform"
                 >
-                  <img
-                    data-testid="hero-photo"
-                    src={ASSETS.profilePortrait}
-                    alt="Ikrame I. H. — portrait"
-                    width={640}
-                    height={735}
-                    className="w-full h-full object-cover object-top"
-                    loading="eager"
-                    decoding="async"
-                    fetchPriority="high"
-                  />
+                  <motion.div
+                    className="photo-frame aspect-[3/4] bg-bone-300 border border-ink/15 overflow-hidden"
+                    initial={
+                      reduce
+                        ? false
+                        : {
+                            clipPath:
+                              "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+                          }
+                    }
+                    animate={{
+                      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                    }}
+                    transition={{
+                      duration: 1.35,
+                      delay: 0.4,
+                      ease: MOTION_EASE,
+                    }}
+                  >
+                    <motion.img
+                      data-testid="hero-photo"
+                      src={ASSETS.profilePortrait}
+                      alt="Ikrame I. H. — portrait"
+                      width={640}
+                      height={735}
+                      className="w-full h-full object-cover object-top"
+                      loading="eager"
+                      decoding="async"
+                      fetchPriority="high"
+                      initial={
+                        reduce
+                          ? false
+                          : { scale: 1.08, y: 12 }
+                      }
+                      animate={{ scale: 1.01, y: 0 }}
+                      transition={{
+                        duration: 1.35,
+                        delay: 0.4,
+                        ease: MOTION_EASE,
+                      }}
+                    />
+                  </motion.div>
                 </motion.div>
                 <figcaption className="mt-3 text-right">
                   <a

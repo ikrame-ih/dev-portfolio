@@ -103,12 +103,26 @@ const BrandMark = ({ name, index = 0, reduce }) => (
   >
     {/* Hover lift lives in CSS so it never inherits the slow reveal transition. */}
     <span className="stack-mark-lift flex flex-col items-center gap-3">
-      <span className="stack-mark-icon inline-flex">
+      <motion.span
+        className="stack-mark-icon inline-flex"
+        initial={reduce ? false : { scale: 0.88, rotate: -5 }}
+        whileInView={
+          reduce
+            ? undefined
+            : { scale: [0.88, 1.1, 1], rotate: [-5, 3, 0] }
+        }
+        viewport={REVEAL_VIEWPORT}
+        transition={{
+          duration: 0.55,
+          ease: MOTION_EASE,
+          delay: Math.min(index * 0.04, 0.35) + 0.05,
+        }}
+      >
         <StackIcon
           name={name}
           className="w-9 h-9 md:w-10 md:h-10 shrink-0 text-burgundy"
         />
-      </span>
+      </motion.span>
       <span className="font-mono text-sm leading-snug tracking-[0.04em] text-ink">
         {name}
       </span>

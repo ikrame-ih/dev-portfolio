@@ -755,6 +755,18 @@
   opacity: 0.5;
 }
 
+/* Drawn L→R — slightly warmer so the ink stroke reads */
+.hairline--draw {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgb(var(--hairline-rgb) / 0.35),
+    #4a0e0e 55%,
+    rgb(var(--hairline-rgb) / 0.45)
+  );
+  opacity: 0.55;
+}
+
 .photo-frame {
   position: relative;
   overflow: hidden;
@@ -970,7 +982,7 @@
 }
 
 .btn-tactile:active {
-  transform: translateY(1px) scale(0.98);
+  transform: translateY(1px) scale(0.97);
 }
 
 .btn-tactile {
@@ -978,7 +990,33 @@
     color 200ms ease,
     background-color 200ms ease,
     border-color 200ms ease,
-    transform 120ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    transform 160ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-tactile:hover {
+    transform: translateY(-1px) scale(1.02);
+  }
+}
+
+/* Skill chip “stamp” on first view */
+@keyframes chipStamp {
+  0% {
+    transform: scale(0.88) rotate(-4deg);
+    opacity: 0.55;
+  }
+  55% {
+    transform: scale(1.08) rotate(2deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.stack-mark--stamp .stack-mark-icon {
+  animation: chipStamp 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
 .field-line {
@@ -1003,24 +1041,239 @@
 }
 
 .guestbook-page--pressed {
-  box-shadow: inset 0 3px 14px rgba(26, 26, 26, 0.07);
+  box-shadow: inset 0 3px 14px rgba(74, 14, 14, 0.1);
+}
+
+.guestbook-ink-ripple {
+  position: absolute;
+  z-index: 3;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 999px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(74, 14, 14, 0.22) 0%,
+    rgba(74, 14, 14, 0.08) 42%,
+    transparent 70%
+  );
+  animation: guestbookInkRipple 0.62s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+@keyframes guestbookInkRipple {
+  0% {
+    transform: scale(0.4);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(14);
+    opacity: 0;
+  }
+}
+
+/* —— yui540-inspired micro motions (guestbook / bow / terminal / hero) —— */
+
+.guestbook-stack {
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
+  filter: blur(1px);
+}
+
+.guestbook-spread--alive .guestbook-stack {
+  animation: guestbookStackSettle 1.15s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+@keyframes guestbookStackSettle {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Extra sheet flare when the spread wakes — reads as pages opening under the book */
+.guestbook-spread--alive .guestbook-stack-left .guestbook-stack-sheet--deep {
+  animation: guestbookSheetLeftDeep 1.05s cubic-bezier(0.2, 0.7, 0.2, 1) 0.08s both;
+}
+
+.guestbook-spread--alive .guestbook-stack-left .guestbook-stack-sheet--near {
+  animation: guestbookSheetLeftNear 1.05s cubic-bezier(0.2, 0.7, 0.2, 1) 0.16s both;
+}
+
+.guestbook-spread--alive .guestbook-stack-right .guestbook-stack-sheet--deep {
+  animation: guestbookSheetRightDeep 1.05s cubic-bezier(0.2, 0.7, 0.2, 1) 0.08s both;
+}
+
+.guestbook-spread--alive .guestbook-stack-right .guestbook-stack-sheet--near {
+  animation: guestbookSheetRightNear 1.05s cubic-bezier(0.2, 0.7, 0.2, 1) 0.16s both;
+}
+
+@keyframes guestbookSheetLeftDeep {
+  from {
+    transform: translate(-14px, 18px) rotate(-2.2deg);
+    opacity: 0.35;
+  }
+  to {
+    transform: translate(-3px, 7px) rotate(-0.55deg);
+    opacity: 1;
+  }
+}
+
+@keyframes guestbookSheetLeftNear {
+  from {
+    transform: translate(-8px, 12px) rotate(-1.4deg);
+    opacity: 0.45;
+  }
+  to {
+    transform: translate(-1px, 3.5px) rotate(-0.3deg);
+    opacity: 1;
+  }
+}
+
+@keyframes guestbookSheetRightDeep {
+  from {
+    transform: translate(14px, 18px) rotate(2.2deg);
+    opacity: 0.35;
+  }
+  to {
+    transform: translate(3px, 7px) rotate(0.55deg);
+    opacity: 1;
+  }
+}
+
+@keyframes guestbookSheetRightNear {
+  from {
+    transform: translate(8px, 12px) rotate(1.4deg);
+    opacity: 0.45;
+  }
+  to {
+    transform: translate(1px, 3.5px) rotate(0.3deg);
+    opacity: 1;
+  }
+}
+
+.guestbook-spread--alive .guestbook-spine {
+  animation: guestbookSpineBreathe 3.6s ease-in-out infinite;
+}
+
+@keyframes guestbookSpineBreathe {
+  0%,
+  100% {
+    filter: brightness(1) saturate(1);
+    box-shadow:
+      -10px 0 20px -8px rgba(74, 14, 14, 0.16),
+      10px 0 20px -8px rgba(74, 14, 14, 0.16),
+      inset 0 0 0 1px rgba(74, 14, 14, 0.06);
+  }
+  50% {
+    filter: brightness(1.28) saturate(1.15);
+    box-shadow:
+      -16px 0 28px -6px rgba(74, 14, 14, 0.34),
+      16px 0 28px -6px rgba(74, 14, 14, 0.34),
+      inset 0 0 0 1px rgba(74, 14, 14, 0.16);
+  }
+}
+
+@media (max-width: 767px) {
+  @keyframes guestbookSpineBreathe {
+    0%,
+    100% {
+      filter: brightness(1) saturate(1);
+      box-shadow:
+        0 -8px 14px -6px rgba(74, 14, 14, 0.12),
+        0 8px 14px -6px rgba(74, 14, 14, 0.12),
+        inset 0 0 0 1px rgba(74, 14, 14, 0.06);
+    }
+    50% {
+      filter: brightness(1.28) saturate(1.15);
+      box-shadow:
+        0 -12px 20px -4px rgba(74, 14, 14, 0.28),
+        0 12px 20px -4px rgba(74, 14, 14, 0.28),
+        inset 0 0 0 1px rgba(74, 14, 14, 0.16);
+    }
+  }
+
+  .guestbook-spread--alive .guestbook-stack-left .guestbook-stack-sheet--deep,
+  .guestbook-spread--alive .guestbook-stack-left .guestbook-stack-sheet--near,
+  .guestbook-spread--alive .guestbook-stack-right .guestbook-stack-sheet--deep,
+  .guestbook-spread--alive .guestbook-stack-right .guestbook-stack-sheet--near {
+    animation: none;
+  }
+}
+
+.bow-place-flutter {
+  display: inline-block;
+  transform-origin: center center;
+  animation: bowPlaceFlutter 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes bowPlaceFlutter {
+  0% {
+    transform: scale(0.86) rotate(-10deg);
+    opacity: 0.7;
+  }
+  42% {
+    transform: scale(1.1) rotate(5deg);
+    opacity: 1;
+  }
+  72% {
+    transform: scale(0.98) rotate(-2deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
 }
 
 .bow-stamp {
-  animation: bowStamp 4.5s cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+  animation: bowStamp 4.8s cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
 }
 
 @keyframes bowStamp {
   0%,
-  88%,
   100% {
     transform: rotate(0deg) scale(1);
   }
-  92% {
-    transform: rotate(-6deg) scale(1.06);
+  10% {
+    transform: rotate(-11deg) scale(0.9);
+  }
+  22% {
+    transform: rotate(7deg) scale(1.1);
+  }
+  34% {
+    transform: rotate(-3deg) scale(1.02);
+  }
+  44%,
+  86% {
+    transform: rotate(0deg) scale(1);
+  }
+  91% {
+    transform: rotate(-5deg) scale(1.05);
   }
   96% {
-    transform: rotate(2deg) scale(1.02);
+    transform: rotate(2deg) scale(1.01);
+  }
+}
+
+.cli-window {
+  overflow: hidden;
+  transform-origin: top center;
+}
+
+.cli-window__boot-dot {
+  animation: cliBootDot 1.4s ease-in-out infinite;
+}
+
+@keyframes cliBootDot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.85);
   }
 }
 
@@ -1096,8 +1349,24 @@
     animation: none;
   }
 
-  .bow-stamp {
+  .bow-stamp,
+  .bow-place-flutter,
+  .guestbook-spread--alive .guestbook-stack,
+  .guestbook-spread--alive .guestbook-spine,
+  .guestbook-spread--alive .guestbook-stack-left .guestbook-stack-sheet--deep,
+  .guestbook-spread--alive .guestbook-stack-left .guestbook-stack-sheet--near,
+  .guestbook-spread--alive .guestbook-stack-right .guestbook-stack-sheet--deep,
+  .guestbook-spread--alive .guestbook-stack-right .guestbook-stack-sheet--near,
+  .guestbook-ink-ripple,
+  .stack-mark--stamp .stack-mark-icon,
+  .cli-window__boot-dot {
     animation: none;
+  }
+
+  .guestbook-stack {
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 
   .photo-frame img {

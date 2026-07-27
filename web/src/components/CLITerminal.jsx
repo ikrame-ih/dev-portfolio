@@ -382,12 +382,12 @@ export const CLITerminal = ({ open, onClose }) => {
   };
 
   const panelMotion = reduce
-    ? { initial: false, animate: { opacity: 1, y: 0 } }
+    ? { initial: false, animate: { opacity: 1, clipPath: "inset(0% 0% 0% 0%)" } }
     : {
-        initial: { y: 40, opacity: 0 },
-        animate: { y: 0, opacity: 1 },
-        exit: { y: 40, opacity: 0 },
-        transition: { duration: MOTION_DURATION.normal, ease: MOTION_EASE },
+        initial: { opacity: 0, y: 16, clipPath: "inset(0% 0% 92% 0%)" },
+        animate: { opacity: 1, y: 0, clipPath: "inset(0% 0% 0% 0%)" },
+        exit: { opacity: 0, y: 20, clipPath: "inset(0% 0% 85% 0%)" },
+        transition: { duration: 0.5, ease: MOTION_EASE },
       };
 
   return (
@@ -410,14 +410,14 @@ export const CLITerminal = ({ open, onClose }) => {
               focusInput();
             }}
             data-testid="cli-terminal"
-            className="w-full max-w-3xl bg-bone border border-burgundy font-mono text-sm text-ink shadow-2xl"
+            className="cli-window w-full max-w-3xl bg-bone border border-burgundy font-mono text-sm text-ink shadow-2xl"
             role="dialog"
             aria-modal="true"
             aria-label="Quick terminal"
           >
             <div className="flex items-center justify-between border-b border-bone-400 px-4 py-2 bg-bone-200">
               <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-ink-soft">
-                <span className="w-2 h-2 rounded-full bg-burgundy shrink-0" />
+                <span className="cli-window__boot-dot w-2 h-2 rounded-full bg-burgundy shrink-0" />
                 <span className="caret">ikrame@portfolio · zsh</span>
               </div>
               <button
@@ -442,10 +442,11 @@ export const CLITerminal = ({ open, onClose }) => {
               {lines.map((l) => (
                 <motion.div
                   key={l.id}
-                  initial={reduce ? false : { opacity: 0, y: 3 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  className="cli-boot-line"
+                  initial={reduce ? false : { opacity: 0, x: -8, filter: "blur(2px)" }}
+                  animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                   transition={{
-                    duration: MOTION_DURATION.fast,
+                    duration: 0.32,
                     ease: MOTION_EASE,
                     delay: reduce ? 0 : l.delay ?? 0,
                   }}

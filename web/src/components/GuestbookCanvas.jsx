@@ -39,12 +39,34 @@ function mergeVisitorBow(bows, bow, visitorId) {
   return [bow, ...withoutVisitor].map(normalizeBow);
 }
 
-function pressPage(ref) {
+function pressPage(ref, point) {
   if (!ref.current) return;
   ref.current.classList.add("guestbook-page--pressed");
   window.setTimeout(() => {
     ref.current?.classList.remove("guestbook-page--pressed");
-  }, 180);
+  }, 220);
+
+  if (typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  const el = ref.current;
+  const rect = el.getBoundingClientRect();
+  let x = rect.width / 2;
+  let y = rect.height / 2;
+  if (point && Number.isFinite(point.x) && Number.isFinite(point.y)) {
+    x = point.x * rect.width;
+    y = point.y * rect.height;
+  }
+
+  const ripple = document.createElement("span");
+  ripple.className = "guestbook-ink-ripple";
+  ripple.setAttribute("aria-hidden", "true");
+  ripple.style.left = `${x}px`;
+  ripple.style.top = `${y}px`;
+  el.appendChild(ripple);
+  window.setTimeout(() => ripple.remove(), 650);
 }
 
 function canHoverPreview() {
@@ -98,13 +120,19 @@ const PageBows = ({
           }}
           aria-hidden="true"
         >
-          <TyingBow
-            size={justPlaced ? 32 : isMine ? 29 : 24}
-            strokeWidth={isMine ? 1.45 : 1.15}
-            color={isMine ? "#4A0E0E" : "#6B1D1D"}
-            className={isMine ? "" : "opacity-75"}
-            tie={justPlaced}
-          />
+          <div
+            className={
+              justPlaced && !reduce ? "bow-place-flutter" : undefined
+            }
+          >
+            <TyingBow
+              size={justPlaced ? 32 : isMine ? 29 : 24}
+              strokeWidth={isMine ? 1.45 : 1.15}
+              color={isMine ? "#4A0E0E" : "#6B1D1D"}
+              className={isMine ? "" : "opacity-75"}
+              tie={justPlaced}
+            />
+          </div>
         </motion.div>
       );
     })}
@@ -126,7 +154,28 @@ export const GuestbookCanvas = () => {
   const [hasSigned, setHasSigned] = useState(false);
   const [ghost, setGhost] = useState(null);
   const [visitorId, setVisitorId] = useState(null);
+  const [spreadAlive, setSpreadAlive] = useState(false);
   const reduce = useReducedMotion();
+
+  useEffect(() => {
+    if (reduce) {
+      setSpreadAlive(true);
+      return undefined;
+    }
+    const el = document.querySelector('[data-testid="guestbook-canvas"]');
+    if (!el) return undefined;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setSpreadAlive(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.22 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [reduce]);
 
   useEffect(() => {
     let cancelled = false;
@@ -230,7 +279,7 @@ export const GuestbookCanvas = () => {
       const ref = page === "left" ? leftRef : rightRef;
       if (!ref.current) return;
 
-      pressPage(ref);
+      pressPage(ref, { x: localX, y: localY });
       setGhost(null);
 
       const { mx, y } = clampBowPosition(localX, localY, page);
@@ -368,11 +417,11 @@ export const GuestbookCanvas = () => {
               <TyingBow size={14} tie={false} />
               <motion.span
                 aria-hidden="true"
-                className="hairline w-10 md:w-14 origin-left"
-                initial={reduce ? false : { scaleX: 0 }}
-                whileInView={reduce ? undefined : { scaleX: 1 }}
+                className="hairline hairline--draw w-12 md:w-20 origin-left"
+                initial={reduce ? false : { scaleX: 0, opacity: 0.15 }}
+                whileInView={reduce ? undefined : { scaleX: 1, opacity: 0.55 }}
                 viewport={{ once: true, margin: "-48px 0px" }}
-                transition={{ duration: 0.7, ease: MOTION_EASE, delay: 0.05 }}
+                transition={{ duration: 0.95, ease: MOTION_EASE, delay: 0.08 }}
               />
               <span className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft">
                 {BOW_BOARD.overline}
@@ -420,7 +469,10 @@ export const GuestbookCanvas = () => {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div data-testid="guestbook-canvas" className="guestbook-spread">
+          <div
+            data-testid="guestbook-canvas"
+            className={`guestbook-spread${spreadAlive ? " guestbook-spread--alive" : ""}`}
+          >
             {unavailable && (
               <div
                 role="status"
