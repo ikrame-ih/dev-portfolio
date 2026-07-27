@@ -18,7 +18,7 @@ export const PROFILE = {
     { text: "and the context behind\u00A0it.", italic: true },
   ],
   heroSubtext:
-    "Hi, I'm Ikrame Ibn Hayoun, a software developer based in Málaga, specializing in frontend development while actively building backend solutions. I enjoy turning ideas into intuitive, reliable, and scalable applications.",
+    "Hi, I'm Ikrame Ibn Hayoun, a software developer based in Málaga, specializing in frontend development while actively building backend solutions. I enjoy turning ideas into intuitive, reliable, and scalable applications — with AI in the toolkit.",
   // Compact hero facts — avoid repeating overline role or Málaga (already in copy + photo).
   heroFacts: [
     { eyebrow: "Open to", text: "Remote · hybrid" },
@@ -36,13 +36,13 @@ export const PROFILE = {
   ],
   // Ultra-short pitch for CLI `tldr`.
   cliTldr: [
-    "Software developer in Málaga — equally at home in frontend and backend.",
-    "Looking for remote or hybrid roles where craft and clarity matter.",
+    "Software developer in Málaga — frontend, backend, and AI as part of how I ship.",
+    "AI & Big Data from Sep 2026. Looking for remote or hybrid where craft and clarity matter.",
   ],
   cliAvail:
     "Open to remote or hybrid. Based in Málaga (CET). Happy to chat anytime.",
   cliNow:
-    "Just finished DAW (Jun 2026) and internship work at DATA CONTROL. AI & Big Data starts Sep 2026 — actively open to the next role.",
+    "Just finished DAW (Jun 2026) and internship work at DATA CONTROL. AI is already in my day-to-day build loop; the specialisation starts Sep 2026 — actively open to the next role.",
   portraitLink: {
     label: "Say hi on LinkedIn →",
   },
