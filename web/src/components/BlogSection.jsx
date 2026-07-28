@@ -1,13 +1,11 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Bow } from "./Bow";
 import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
 import SectionOverline from "./SectionOverline";
-import { BLOG } from "@/data/portfolio";
+import { useContent, useUi } from "@/i18n/LocaleContext";
 
-const vaultTitleParts = BLOG.name.split("'");
-
-const PostRow = ({ post, index, reduce, soon }) => (
+const PostRow = ({ post, index, reduce, soon, soonLabel }) => (
   <motion.div
     data-testid={`blog-post-${post.slug}`}
     initial={reduce ? false : { opacity: 0, y: 12 }}
@@ -21,7 +19,7 @@ const PostRow = ({ post, index, reduce, soon }) => (
         {post.kind} · {post.date}
       </span>
       {soon && (
-        <span className="font-mono text-xs text-ink-mute">soon →</span>
+        <span className="font-mono text-xs text-ink-mute">{soonLabel}</span>
       )}
     </div>
     <p className="font-serif text-xl md:text-2xl text-ink leading-snug transition-colors duration-500 group-hover:text-burgundy">
@@ -36,6 +34,10 @@ const PostRow = ({ post, index, reduce, soon }) => (
 export const BlogSection = () => {
   const [avatarOk, setAvatarOk] = useState(true);
   const reduce = useReducedMotion();
+  const { BLOG } = useContent();
+  const ui = useUi();
+
+  const vaultTitleParts = useMemo(() => BLOG.name.split("'"), [BLOG.name]);
 
   return (
     <section
@@ -73,7 +75,7 @@ export const BlogSection = () => {
                 </div>
                 {BLOG.avatarCredit && (
                   <p className="font-mono text-xs text-ink-mute mt-1.5 max-w-[5.5rem] leading-snug">
-                    art by{" "}
+                    {ui.blog.artBy}{" "}
                     <a
                       href={BLOG.avatarCredit.url}
                       target="_blank"
@@ -81,7 +83,7 @@ export const BlogSection = () => {
                       className="lnk text-ink-soft hover:text-burgundy"
                     >
                       {BLOG.avatarCredit.artist}
-                      <span className="sr-only"> (opens in new tab)</span>
+                      <span className="sr-only">{ui.hero.opensNewTab}</span>
                     </a>
                   </p>
                 )}
@@ -96,7 +98,7 @@ export const BlogSection = () => {
                   {vaultTitleParts[1] ?? "s vault"}
                 </h2>
                 <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-mute mt-1">
-                  personal · didactic
+                  {ui.blog.personalDidactic}
                 </p>
               </div>
             </div>
@@ -122,6 +124,7 @@ export const BlogSection = () => {
                       index={i}
                       reduce={reduce}
                       soon
+                      soonLabel={ui.blog.soon}
                     />
                   ))}
                   <div className="border-t border-ink/20" />
@@ -139,15 +142,14 @@ export const BlogSection = () => {
                         <Bow size={16} />
                       </span>
                       <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-ink caret">
-                        Coming soon
+                        {ui.blog.comingSoon}
                       </span>
                     </div>
                     <p className="font-mono text-xs text-ink-soft leading-relaxed md:sr-only">
-                      Notes are not published yet — check back soon.
+                      {ui.blog.unpublished}
                     </p>
                     <p className="sr-only">
-                      {BLOG.name} is coming soon. Draft notes are not published
-                      yet.
+                      {BLOG.name} — {ui.blog.unpublished}
                     </p>
                   </div>
                 </div>

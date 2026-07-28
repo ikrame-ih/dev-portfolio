@@ -5,10 +5,10 @@ import { MOTION_EASE, MOTION_DURATION } from "@/lib/motion";
 import { scrollToElement } from "@/lib/scroll";
 import { useFocusTrap } from "@/lib/useFocusTrap";
 import { useModalIsolation } from "@/lib/useModalIsolation";
-import { PROFILE } from "@/data/portfolio";
+import { useContent, useLocale, useUi } from "@/i18n/LocaleContext";
 import {
   L,
-  HELP_LINES,
+  getHelpLines,
   buildBanner,
   echoPrompt,
   resolveShortcut,
@@ -162,7 +162,12 @@ const CliLine = ({ line }) => {
 };
 
 export const CLITerminal = ({ open, onClose }) => {
-  const [lines, setLines] = useState(buildBanner);
+  const content = useContent();
+  const ui = useUi();
+  const { lang } = useLocale();
+  const { PROFILE } = content;
+  const cli = ui.cli;
+  const [lines, setLines] = useState(() => buildBanner(cli));
   const [input, setInput] = useState("");
   const [history, setHistory] = useState(() => loadCliHistory());
   const [historyIdx, setHistoryIdx] = useState(-1);
@@ -180,7 +185,7 @@ export const CLITerminal = ({ open, onClose }) => {
 
   useEffect(() => {
     if (!open) return;
-    setLines(buildBanner());
+    setLines(buildBanner(cli));
     setInput("");
     setHistoryIdx(-1);
     setHistory(loadCliHistory());
@@ -192,7 +197,7 @@ export const CLITerminal = ({ open, onClose }) => {
     });
 
     return () => cancelAnimationFrame(raf);
-  }, [open, focusInput]);
+  }, [open, focusInput, lang]);
 
   useEffect(() => {
     if (!open) return;
@@ -223,14 +228,14 @@ export const CLITerminal = ({ open, onClose }) => {
     const args = parseQuoted(rest.trim());
     if (args.length === 0) {
       return print(
-        L("meta", 'usage: sign "your name" "short message"'),
-        L("meta", "Or close and use the visual Guest book on the page."),
+        L("meta", cli.signUsage),
+        L("meta", cli.signHint),
       );
     }
     const name = args[0];
     const message = args[1];
     if (!name || !message) {
-      return print(L("err", 'usage: sign "your name" "short message"'));
+      return print(L("err", cli.signUsage));
     }
     saveGuestbookEntry({
       id: `gb_${Date.now()}`,
@@ -238,30 +243,32 @@ export const CLITerminal = ({ open, onClose }) => {
       message,
       created_at: new Date().toISOString(),
     });
-    return print(L("ok", `Thanks, ${name} — note saved.`));
+    return print(
+      L("ok", cli.signThanks.replace("{name}", name)),
+    );
   };
 
   const runGo = (rest) => {
     const token = rest.trim().split(/\s+/)[0];
-    if (!token) return print(...goHelpLines());
+    if (!token) return print(...goHelpLines(cli));
     const id = resolveGoTarget(token);
     if (!id) {
       return print(
-        L("err", `Unknown section: ${token}`),
-        ...goHelpLines().slice(1),
+        L("err", `${cli.unknownSection}: ${token}`),
+        ...goHelpLines(cli).slice(1),
       );
     }
-    return goSection(id, `Opening #${id}…`);
+    return goSection(id, `${cli.openingSection} #${id}…`);
   };
 
   const runCommand = async (raw) => {
     let cmd = raw.trim();
-    print(L("cmd", cmd || "(empty)"));
+    print(L("cmd", cmd || cli.emptyCmd));
 
     if (!cmd) {
       return print(
-        L("meta", "Type help (or cmds) for every command."),
-        L("meta", "Or press 1–6 for the quick menu."),
+        L("meta", cli.emptyHint),
+        L("meta", cli.menuHint),
       );
     }
 
@@ -279,57 +286,63 @@ export const CLITerminal = ({ open, onClose }) => {
       headLower === "cmds" ||
       headLower === "commands"
     ) {
-      return print(...HELP_LINES);
+      return print(...getHelpLines(cli));
     }
     if (headLower === "clear") {
-      setLines(buildBanner());
+      setLines(buildBanner(cli));
       return;
     }
     if (headLower === "exit" || headLower === "q") return onClose();
 
-    if (headLower === "about") return print(...aboutLines());
-    if (headLower === "tldr") return print(...tldrLines());
-    if (headLower === "avail") return print(...availLines());
-    if (headLower === "now") return print(...nowLines());
-    if (headLower === "edu") return print(...eduLines());
-    if (headLower === "stack") return print(...stackLines());
-    if (headLower === "proj") return print(...projectLines());
-    if (headLower === "links") return print(...linkLines());
-    if (headLower === "pdf") return print(...openCvPdf(arg0 || rest || "en"));
+    if (headLower === "about") return print(...aboutLines(content));
+    if (headLower === "tldr") return print(...tldrLines(content, cli));
+    if (headLower === "avail") return print(...availLines(content, cli));
+    if (headLower === "now") return print(...nowLines(content, cli));
+    if (headLower === "edu") return print(...eduLines(content, cli));
+    if (headLower === "stack") return print(...stackLines(content, cli));
+    if (headLower === "proj") return print(...projectLines(content, cli));
+    if (headLower === "links") return print(...linkLines(content, cli));
+    if (headLower === "pdf")
+      return print(...openCvPdf(arg0 || rest || "en", cli));
     if (headLower === "gh")
-      return print(...openExternal("GitHub", PROFILE.github));
+      return print(...openExternal("GitHub", PROFILE.github, cli));
     if (headLower === "li")
-      return print(...openExternal("LinkedIn", PROFILE.linkedin));
-    if (headLower === "copy") return print(...(await copyEmail()));
+      return print(...openExternal("LinkedIn", PROFILE.linkedin, cli));
+    if (headLower === "copy")
+      return print(...(await copyEmail(content, cli)));
 
-    if (headLower === "open") return print(...openProjectUrl("open", arg0));
-    if (headLower === "demo") return print(...openProjectUrl("demo", arg0));
-    if (headLower === "repo") return print(...openProjectUrl("repo", arg0));
+    if (headLower === "open")
+      return print(...openProjectUrl("open", arg0, content, cli));
+    if (headLower === "demo")
+      return print(...openProjectUrl("demo", arg0, content, cli));
+    if (headLower === "repo")
+      return print(...openProjectUrl("repo", arg0, content, cli));
 
     if (headLower === "go") return runGo(rest);
 
     if (headLower === "cv") {
       if (rest.toLowerCase().includes("pdf")) {
         const es = /\bes\b/i.test(rest);
-        return print(...openCvPdf(es ? "es" : "en"));
+        return print(...openCvPdf(es ? "es" : "en", cli));
       }
-      return goSection("cv", "Opening CV…");
+      return goSection("cv", cli.openingCv);
     }
 
-    if (headLower === "contact") return goSection("contact", "Opening contact…");
+    if (headLower === "contact")
+      return goSection("contact", cli.openingContact);
 
     if (headLower === "sign") return runSign(rest);
 
     const suggestion = suggestCommand(head.toLowerCase());
     if (suggestion && suggestion !== head.toLowerCase()) {
       return print(
-        L("err", `Unknown. Did you mean “${suggestion}”?`),
-        L("meta", "Type help for every command."),
+        L("err", `${cli.didYouMean} “${suggestion}”?`),
+        L("meta", cli.typeHelp),
       );
     }
     return print(
-      L("err", "Unknown command."),
-      L("meta", "Type help (or cmds) for every command."),
+      L("err", cli.unknown),
+      L("meta", cli.typeHelp),
     );
   };
 
@@ -358,7 +371,7 @@ export const CLITerminal = ({ open, onClose }) => {
       const { matches, completed } = completeCommand(input);
       if (matches.length > 1) {
         print(
-          L("meta", "completions:"),
+          L("meta", cli.completions),
           ...matches.map((m) => L("menu", "", { key: "·", cmd: m, label: "" })),
         );
       }
@@ -413,7 +426,7 @@ export const CLITerminal = ({ open, onClose }) => {
             className="cli-window w-full max-w-3xl bg-bone border border-burgundy font-mono text-sm text-ink shadow-2xl"
             role="dialog"
             aria-modal="true"
-            aria-label="Quick terminal"
+            aria-label={ui.cli.dialog}
           >
             <div className="flex items-center justify-between border-b border-bone-400 px-4 py-2 bg-bone-200">
               <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-ink-soft">
@@ -427,10 +440,10 @@ export const CLITerminal = ({ open, onClose }) => {
                   e.stopPropagation();
                   onClose();
                 }}
-                aria-label="Close terminal"
+                aria-label={ui.cli.close}
                 className="text-xs uppercase tracking-[0.2em] text-ink-soft hover:text-burgundy"
               >
-                close ✕
+                {ui.cli.closeBtn}
               </button>
             </div>
             <div
@@ -471,7 +484,7 @@ export const CLITerminal = ({ open, onClose }) => {
                 className="flex-1 min-w-0 bg-transparent outline-none text-ink"
                 autoComplete="off"
                 spellCheck="false"
-                aria-label="Terminal command input"
+                aria-label={ui.cli.input}
               />
             </form>
           </motion.div>

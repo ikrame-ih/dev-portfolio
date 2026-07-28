@@ -4,14 +4,9 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { MOTION_EASE } from "@/lib/motion";
 import { useFocusTrap } from "@/lib/useFocusTrap";
 import { useModalIsolation } from "@/lib/useModalIsolation";
+import { useUi } from "@/i18n/LocaleContext";
 
 const MermaidDiagram = lazy(() => import("./MermaidDiagram"));
-
-const DiagramFallback = () => (
-  <p className="font-mono text-xs text-ink-mute py-8 text-center">
-    Loading diagram…
-  </p>
-);
 
 /** Soft spring — slow settle, no snappy pop. */
 const PANEL_SPRING = {
@@ -31,6 +26,7 @@ const TITLE_SPRING = {
 export const ArchitectureModal = ({ project, onClose }) => {
   const panelRef = useRef(null);
   const reduce = useReducedMotion();
+  const ui = useUi();
   const summaryId = project ? `arch-summary-${project.id}` : undefined;
 
   useFocusTrap(!!project, panelRef, onClose);
@@ -93,20 +89,20 @@ export const ArchitectureModal = ({ project, onClose }) => {
                   >
                     {project.name}
                   </motion.span>
-                  <span className="text-ink-soft">· How it works</span>
+                  <span className="text-ink-soft">{ui.modal.howItWorks}</span>
                 </h2>
                 <p className="font-mono text-xs text-ink-soft mt-1">
-                  Live architecture diagram
+                  {ui.modal.liveDiagram}
                 </p>
               </div>
               <button
                 type="button"
                 data-testid="arch-modal-close"
                 onClick={onClose}
-                aria-label="Close dialog"
+                aria-label={ui.modal.closeDialog}
                 className="btn-tactile font-mono text-xs uppercase tracking-[0.18em] text-ink-soft hover:text-burgundy shrink-0"
               >
-                close ✕
+                {ui.modal.closeBtn}
               </button>
             </div>
 
@@ -121,7 +117,13 @@ export const ArchitectureModal = ({ project, onClose }) => {
               )}
 
               <figure className="border border-bone-400 p-4 md:p-6 bg-bone-100">
-                <Suspense fallback={<DiagramFallback />}>
+                <Suspense
+                  fallback={
+                    <p className="font-mono text-xs text-ink-mute py-8 text-center">
+                      {ui.modal.loading}
+                    </p>
+                  }
+                >
                   <MermaidDiagram
                     chart={project.mermaid}
                     id={project.id}

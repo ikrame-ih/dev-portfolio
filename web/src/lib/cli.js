@@ -1,11 +1,7 @@
-import {
-  PROFILE,
-  PROJECTS,
-  STACK,
-  LANGUAGES,
-  EDUCATION,
-} from "@/data/portfolio";
+import { catalogs } from "@/data/portfolio";
 import { ASSETS } from "@/data/assets";
+
+const defaultContent = catalogs.en;
 
 const CLI_HISTORY_KEY = "cli-cmd-history-v1";
 const CLI_HISTORY_MAX = 40;
@@ -44,107 +40,114 @@ export const CLI_COMMANDS = [
   "exit",
 ];
 
-export const MENU = [
-  { key: "1", cmd: "about", label: "who I am" },
-  { key: "2", cmd: "stack", label: "skills" },
-  { key: "3", cmd: "proj", label: "list projects" },
-  { key: "4", cmd: "cv", label: "jump to CV" },
-  { key: "5", cmd: "links", label: "GitHub · LinkedIn · email" },
-  { key: "6", cmd: "contact", label: "contact form" },
-];
-
 export const GO_TARGETS = [
-  { id: "cv", aliases: ["cv", "skills"] },
-  { id: "projects", aliases: ["projects", "proj", "work"] },
-  { id: "bento", aliases: ["bento", "interests"] },
+  { id: "cv", aliases: ["cv", "skills", "habilidades"] },
+  { id: "projects", aliases: ["projects", "proj", "work", "proyectos"] },
+  { id: "bento", aliases: ["bento", "interests", "intereses"] },
   { id: "blog", aliases: ["blog", "vault"] },
-  { id: "guestbook", aliases: ["guestbook", "guest"] },
-  { id: "contact", aliases: ["contact", "hi"] },
+  { id: "guestbook", aliases: ["guestbook", "guest", "lazos"] },
+  { id: "contact", aliases: ["contact", "hi", "contacto"] },
 ];
 
 /** @param {'sys'|'cmd'|'out'|'title'|'meta'|'ok'|'err'|'menu'|'blank'|'rule'} type */
 export const L = (type, text = "", extra = {}) => ({ type, text, ...extra });
 
+export const getMenu = (cli) => [
+  { key: "1", cmd: "about", label: cli.menu.about },
+  { key: "2", cmd: "stack", label: cli.menu.stack },
+  { key: "3", cmd: "proj", label: cli.menu.proj },
+  { key: "4", cmd: "cv", label: cli.menu.cv },
+  { key: "5", cmd: "links", label: cli.menu.links },
+  { key: "6", cmd: "contact", label: cli.menu.contact },
+];
+
 /**
  * Full catalog — every command users can run (help is built from this).
  * Keep labels short; aliases are noted in the label when useful.
  */
-export const COMMAND_CATALOG = [
-  { cmd: "help", label: "show this full list (also: cmds · ?)" },
-  { cmd: "about", label: "who I am" },
-  { cmd: "tldr", label: "10-second pitch" },
-  { cmd: "stack", label: "skills catalog" },
-  { cmd: "proj", label: "list projects (numbered)" },
-  { cmd: "open <n>", label: "open project n from that list" },
-  { cmd: "demo <n>", label: "open live demo for project n" },
-  { cmd: "repo <n>", label: "open GitHub repo for project n" },
-  { cmd: "cv", label: "jump to CV section" },
-  { cmd: "pdf", label: "open CV PDF (pdf es → Spanish)" },
-  { cmd: "links", label: "GitHub · LinkedIn · email · site" },
-  { cmd: "gh", label: "open GitHub" },
-  { cmd: "li", label: "open LinkedIn" },
-  { cmd: "copy", label: "copy email to clipboard" },
-  { cmd: "contact", label: "jump to contact form" },
-  { cmd: "avail", label: "availability" },
-  { cmd: "edu", label: "education" },
-  { cmd: "now", label: "what I'm up to" },
-  { cmd: "go …", label: "cv · projects · bento · blog · guestbook · contact" },
-  { cmd: "sign", label: 'guestbook: sign "name" "msg"' },
-  { cmd: "clear", label: "wipe the screen (alias: reset · cls)" },
-  { cmd: "exit", label: "close terminal (Esc)" },
+export const getCommandCatalog = (cli) => [
+  { cmd: "help", label: cli.catalog.help },
+  { cmd: "about", label: cli.catalog.about },
+  { cmd: "tldr", label: cli.catalog.tldr },
+  { cmd: "stack", label: cli.catalog.stack },
+  { cmd: "proj", label: cli.catalog.proj },
+  { cmd: "open <n>", label: cli.catalog.open },
+  { cmd: "demo <n>", label: cli.catalog.demo },
+  { cmd: "repo <n>", label: cli.catalog.repo },
+  { cmd: "cv", label: cli.catalog.cv },
+  { cmd: "pdf", label: cli.catalog.pdf },
+  { cmd: "links", label: cli.catalog.links },
+  { cmd: "gh", label: cli.catalog.gh },
+  { cmd: "li", label: cli.catalog.li },
+  { cmd: "copy", label: cli.catalog.copy },
+  { cmd: "contact", label: cli.catalog.contact },
+  { cmd: "avail", label: cli.catalog.avail },
+  { cmd: "edu", label: cli.catalog.edu },
+  { cmd: "now", label: cli.catalog.now },
+  { cmd: "go …", label: cli.catalog.go },
+  { cmd: "sign", label: cli.catalog.sign },
+  { cmd: "clear", label: cli.catalog.clear },
+  { cmd: "exit", label: cli.catalog.exit },
 ];
 
-export const HELP_LINES = [
-  L("title", "all commands"),
-  L("meta", "Shortcuts 1–6 jump faster — everything else is below."),
-  L("blank"),
-  L("title", "quick"),
-  ...MENU.map((m) =>
-    L("menu", "", { key: m.key, cmd: m.cmd, label: m.label }),
-  ),
-  L("blank"),
-  L("title", "full list"),
-  ...COMMAND_CATALOG.map((c) =>
-    L("menu", "", { key: "·", cmd: c.cmd, label: c.label }),
-  ),
-  L("blank"),
-  L("meta", "Tab autocompletes · ↑↓ history · Esc closes"),
-];
+export const getHelpLines = (cli) => {
+  const menu = getMenu(cli);
+  const catalog = getCommandCatalog(cli);
+  return [
+    L("title", cli.helpTitle),
+    L("meta", cli.helpShortcuts),
+    L("blank"),
+    L("title", cli.helpQuick),
+    ...menu.map((m) =>
+      L("menu", "", { key: m.key, cmd: m.cmd, label: m.label }),
+    ),
+    L("blank"),
+    L("title", cli.helpFull),
+    ...catalog.map((c) =>
+      L("menu", "", { key: "·", cmd: c.cmd, label: c.label }),
+    ),
+    L("blank"),
+    L("meta", cli.bannerControls),
+  ];
+};
 
-export const buildBanner = () => [
-  {
-    id: "banner-0",
-    type: "sys",
-    text: "welcome — press 1–6, or type help for every command.",
-    delay: 0.08,
-  },
-  {
-    id: "banner-rule",
-    type: "rule",
-    text: "",
-    delay: 0.18,
-  },
-  ...MENU.map((m, i) => ({
-    id: `banner-m-${m.key}`,
-    type: "menu",
-    key: m.key,
-    cmd: m.cmd,
-    label: m.label,
-    delay: 0.28 + 0.07 * i,
-  })),
-  {
-    id: "banner-tip",
-    type: "meta",
-    text: "type help (or cmds) to list every command",
-    delay: 0.28 + 0.07 * MENU.length + 0.1,
-  },
-  {
-    id: "banner-tip-2",
-    type: "meta",
-    text: "Tab autocompletes · ↑↓ history · Esc closes",
-    delay: 0.28 + 0.07 * MENU.length + 0.2,
-  },
-];
+export const buildBanner = (cli) => {
+  const menu = getMenu(cli);
+  return [
+    {
+      id: "banner-0",
+      type: "sys",
+      text: cli.bannerWelcome,
+      delay: 0.08,
+    },
+    {
+      id: "banner-rule",
+      type: "rule",
+      text: "",
+      delay: 0.18,
+    },
+    ...menu.map((m, i) => ({
+      id: `banner-m-${m.key}`,
+      type: "menu",
+      key: m.key,
+      cmd: m.cmd,
+      label: m.label,
+      delay: 0.28 + 0.07 * i,
+    })),
+    {
+      id: "banner-tip",
+      type: "meta",
+      text: cli.bannerTip,
+      delay: 0.28 + 0.07 * menu.length + 0.1,
+    },
+    {
+      id: "banner-tip-2",
+      type: "meta",
+      text: cli.bannerControls,
+      delay: 0.28 + 0.07 * menu.length + 0.2,
+    },
+  ];
+};
 
 export const echoPrompt = () => "ikrame@portfolio:~$";
 
@@ -190,9 +193,15 @@ export const editDistance = (a, b) => {
 };
 
 export const resolveShortcut = (raw) => {
-  const token = raw.trim().toLowerCase();
-  const hit = MENU.find((m) => m.key === token);
-  return hit ? hit.cmd : null;
+  const map = {
+    1: "about",
+    2: "stack",
+    3: "proj",
+    4: "cv",
+    5: "links",
+    6: "contact",
+  };
+  return map[raw.trim()] ?? null;
 };
 
 /** Map aliases to canonical commands. */
@@ -258,28 +267,41 @@ export const completeCommand = (raw) => {
   return { matches: [], completed: raw };
 };
 
-export const aboutLines = () => [
-  L("title", `${PROFILE.name} — ${PROFILE.location}`),
-  ...(PROFILE.cliAbout ?? [PROFILE.heroSubtext]).map((t) => L("out", t)),
-];
+export const aboutLines = (content = defaultContent) => {
+  const { PROFILE } = content;
+  return [
+    L("title", `${PROFILE.name} — ${PROFILE.location}`),
+    ...(PROFILE.cliAbout ?? [PROFILE.heroSubtext]).map((t) => L("out", t)),
+  ];
+};
 
-export const tldrLines = () => [
-  L("title", "tl;dr"),
-  ...(PROFILE.cliTldr ?? []).map((t) => L("out", t)),
-];
+export const tldrLines = (content = defaultContent, cli) => {
+  const { PROFILE } = content;
+  return [
+    L("title", cli?.titleTldr ?? "tl;dr"),
+    ...(PROFILE.cliTldr ?? []).map((t) => L("out", t)),
+  ];
+};
 
-export const availLines = () => [
-  L("title", "availability"),
-  L("out", PROFILE.cliAvail ?? PROFILE.workPreference),
-];
+export const availLines = (content = defaultContent, cli) => {
+  const { PROFILE } = content;
+  return [
+    L("title", cli?.titleAvail ?? "availability"),
+    L("out", PROFILE.cliAvail ?? PROFILE.workPreference),
+  ];
+};
 
-export const nowLines = () => [
-  L("title", "now"),
-  L("out", PROFILE.cliNow ?? PROFILE.tagline),
-];
+export const nowLines = (content = defaultContent, cli) => {
+  const { PROFILE } = content;
+  return [
+    L("title", cli?.titleNow ?? "now"),
+    L("out", PROFILE.cliNow ?? PROFILE.tagline),
+  ];
+};
 
-export const eduLines = () => {
-  const lines = [L("title", "education")];
+export const eduLines = (content = defaultContent, cli) => {
+  const { EDUCATION } = content;
+  const lines = [L("title", cli?.titleEdu ?? "education")];
   EDUCATION.forEach((ed) => {
     lines.push(L("out", ed.degree));
     lines.push(L("meta", `${ed.school} · ${ed.period}`));
@@ -287,37 +309,45 @@ export const eduLines = () => {
   return lines;
 };
 
-export const stackLines = () => [
-  L("title", "stack"),
-  ...STACK.domains.map((domain) => {
-    const skills = domain.groups.flatMap((g) => g.items).join(", ");
-    return L("out", `${domain.title}: ${skills}`);
-  }),
-  L(
-    "out",
-    `Languages: ${LANGUAGES.map((l) => `${l.lang} (${l.level})`).join(", ")}`,
-  ),
-];
+export const stackLines = (content = defaultContent, cli) => {
+  const { STACK, LANGUAGES } = content;
+  const langPrefix = cli?.languagesPrefix ?? "Languages";
+  return [
+    L("title", cli?.titleStack ?? "stack"),
+    ...STACK.domains.map((domain) => {
+      const skills = domain.groups.flatMap((g) => g.items).join(", ");
+      return L("out", `${domain.title}: ${skills}`);
+    }),
+    L(
+      "out",
+      `${langPrefix}: ${LANGUAGES.map((l) => `${l.lang} (${l.level})`).join(", ")}`,
+    ),
+  ];
+};
 
-export const projectLines = () => {
-  const lines = [L("title", "projects")];
+export const projectLines = (content = defaultContent, cli) => {
+  const { PROJECTS } = content;
+  const lines = [L("title", cli?.titleProjects ?? "projects")];
   PROJECTS.forEach((p, i) => {
     lines.push(L("out", `${i + 1}. ${p.name}`));
     if (p.demo) lines.push(L("meta", `demo  ${p.demo}`));
     if (p.href) lines.push(L("meta", `repo  ${p.href}`));
-    if (!p.demo && !p.href) lines.push(L("meta", "in progress"));
+    if (!p.demo && !p.href)
+      lines.push(L("meta", cli?.inProgress ?? "in progress"));
   });
   lines.push(L("blank"));
   lines.push(
     L(
       "meta",
-      "Numbers above are the project index. Example: open 1 · demo 1 · repo 1",
+      cli?.projIndexHint ??
+        "Numbers above are the project index. Example: open 1 · demo 1 · repo 1",
     ),
   );
   return lines;
 };
 
-export const resolveProject = (token) => {
+export const resolveProject = (token, content = defaultContent) => {
+  const { PROJECTS } = content;
   if (!token) return null;
   const asNum = Number.parseInt(token, 10);
   if (!Number.isNaN(asNum) && asNum >= 1 && asNum <= PROJECTS.length) {
@@ -331,21 +361,31 @@ export const resolveProject = (token) => {
   );
 };
 
-export const openProjectUrl = (kind, token) => {
+export const openProjectUrl = (
+  kind,
+  token,
+  content = defaultContent,
+  cli,
+) => {
   if (!token) {
     return [
-      L("err", `usage: ${kind} <n>`),
+      L("err", `${cli?.usageN ?? "usage"}: ${kind} <n>`),
       L(
         "meta",
-        "n is the number from the proj list (1, 2, 3…). Run proj to see them.",
+        cli?.usageNMeta ??
+          "n is the number from the proj list (1, 2, 3…). Run proj to see them.",
       ),
     ];
   }
-  const project = resolveProject(token);
+  const project = resolveProject(token, content);
   if (!project) {
     return [
-      L("err", `Unknown project: ${token || "?"}`),
-      L("meta", "Run proj first — then use the number shown (e.g. open 2)."),
+      L("err", `${cli?.unknownProject ?? "Unknown project"}: ${token || "?"}`),
+      L(
+        "meta",
+        cli?.runProjFirst ??
+          "Run proj first — then use the number shown (e.g. open 2).",
+      ),
     ];
   }
   const url =
@@ -355,46 +395,72 @@ export const openProjectUrl = (kind, token) => {
         ? project.href
         : project.demo || project.href;
   if (!url) {
+    if (kind === "open") {
+      return [
+        L(
+          "err",
+          `${project.name} ${cli?.noPublicLink ?? "has no public link yet."}`,
+        ),
+      ];
+    }
     return [
-      L("err", `${project.name} has no ${kind === "open" ? "public link" : kind} yet.`),
+      L(
+        "err",
+        `${project.name} ${cli?.noKindYet ?? "has no"} ${kind}${cli?.yet ?? " yet."}`,
+      ),
     ];
   }
   window.open(url, "_blank", "noopener,noreferrer");
-  return [L("ok", `Opening ${project.name}…`), L("meta", url)];
+  return [
+    L("ok", `${cli?.opening ?? "Opening"} ${project.name}…`),
+    L("meta", url),
+  ];
 };
 
-export const linkLines = () => [
-  L("title", "links"),
-  L("out", `GitHub    ${PROFILE.github}`),
-  L("out", `LinkedIn  ${PROFILE.linkedin}`),
-  L("out", `Email     ${PROFILE.email}`),
-  L("out", `Site      ${PROFILE.siteUrl}`),
-  L("blank"),
-  L("meta", "tip: gh · li · copy"),
-];
+export const linkLines = (content = defaultContent, cli) => {
+  const { PROFILE } = content;
+  return [
+    L("title", cli?.titleLinks ?? "links"),
+    L("out", `GitHub    ${PROFILE.github}`),
+    L("out", `LinkedIn  ${PROFILE.linkedin}`),
+    L("out", `Email     ${PROFILE.email}`),
+    L("out", `Site      ${PROFILE.siteUrl}`),
+    L("blank"),
+    L("meta", cli?.linksTip ?? "tip: gh · li · copy"),
+  ];
+};
 
-export const openCvPdf = (lang = "en") => {
+export const openCvPdf = (lang = "en", cli) => {
   const es = String(lang).toLowerCase().startsWith("es");
   const href = es ? ASSETS.cvPdfEs : ASSETS.cvPdf;
   window.open(href, "_blank", "noopener,noreferrer");
   return [
-    L("ok", es ? "Opening CV PDF (ES)…" : "Opening CV PDF…"),
+    L(
+      "ok",
+      es
+        ? (cli?.openingCvPdfEs ?? "Opening CV PDF (ES)…")
+        : (cli?.openingCvPdf ?? "Opening CV PDF…"),
+    ),
     L("meta", href),
   ];
 };
 
-export const openExternal = (label, href) => {
+export const openExternal = (label, href, cli) => {
   window.open(href, "_blank", "noopener,noreferrer");
-  return [L("ok", `Opening ${label}…`), L("meta", href)];
+  return [
+    L("ok", `${cli?.opening ?? "Opening"} ${label}…`),
+    L("meta", href),
+  ];
 };
 
-export const copyEmail = async () => {
+export const copyEmail = async (content = defaultContent, cli) => {
+  const { PROFILE } = content;
   try {
     await navigator.clipboard.writeText(PROFILE.email);
-    return [L("ok", `Copied ${PROFILE.email}`)];
+    return [L("ok", `${cli?.copied ?? "Copied"} ${PROFILE.email}`)];
   } catch {
     return [
-      L("err", "Couldn't copy automatically."),
+      L("err", cli?.copyFailed ?? "Couldn't copy automatically."),
       L("meta", PROFILE.email),
     ];
   }
@@ -406,9 +472,9 @@ export const resolveGoTarget = (token) => {
   return GO_TARGETS.find((t) => t.aliases.includes(lower))?.id ?? null;
 };
 
-export const goHelpLines = () => [
-  L("title", "go"),
-  L("meta", "usage: go <section>"),
+export const goHelpLines = (cli) => [
+  L("title", cli?.goTitle ?? "go"),
+  L("meta", cli?.goUsage ?? "usage: go <section>"),
   ...GO_TARGETS.map((t) =>
     L("menu", "", {
       key: "·",

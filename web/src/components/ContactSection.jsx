@@ -8,35 +8,29 @@ import { toast } from "sonner";
 import { TyingBow } from "./TyingBow";
 import Reveal from "./Reveal";
 import SectionOverline from "./SectionOverline";
-import { PROFILE } from "@/data/portfolio";
 import { CTA_SPRING, MOTION_DURATION, MOTION_EASE } from "@/lib/motion";
+import { useContent, useUi } from "@/i18n/LocaleContext";
 
 const MAX_NAME = 100;
 const MAX_EMAIL = 254;
 const MAX_MESSAGE = 2000;
 
-const CONTACT_EMAIL = PROFILE.email;
-const RATE_LIMIT_MESSAGE =
-  "Too many messages have been sent. Please try again later or email me directly.";
-
-const SendFailedToast = () => (
+const SendFailedToast = ({ email, prefix }) => (
   <span>
-    I couldn&apos;t send your message right now. Please email me directly at{" "}
+    {prefix}{" "}
     <a
-      href={`mailto:${CONTACT_EMAIL}`}
+      href={`mailto:${email}`}
       className="underline underline-offset-2 hover:opacity-80"
     >
-      {CONTACT_EMAIL}
+      {email}
     </a>
     .
   </span>
 );
 
-const showSendFailedToast = () => {
-  toast.error(<SendFailedToast />);
-};
-
 export const ContactSection = () => {
+  const { PROFILE } = useContent();
+  const ui = useUi();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -48,6 +42,15 @@ export const ContactSection = () => {
   const [sent, setSent] = useState(false);
   const formStartedAt = useRef(Date.now());
   const reduce = useReducedMotion();
+
+  const showSendFailedToast = () => {
+    toast.error(
+      <SendFailedToast
+        email={PROFILE.email}
+        prefix={ui.contact.sendFailedPrefix}
+      />,
+    );
+  };
 
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -63,16 +66,16 @@ export const ContactSection = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     const nextErrors = {};
-    if (!form.name.trim()) nextErrors.name = "Name is required.";
-    if (!form.email.trim()) nextErrors.email = "Email is required.";
+    if (!form.name.trim()) nextErrors.name = ui.contact.nameRequired;
+    if (!form.email.trim()) nextErrors.email = ui.contact.emailRequired;
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
-      nextErrors.email = "Enter a valid email address.";
+      nextErrors.email = ui.contact.emailInvalid;
     }
-    if (!form.message.trim()) nextErrors.message = "Message is required.";
+    if (!form.message.trim()) nextErrors.message = ui.contact.messageRequired;
 
     if (Object.keys(nextErrors).length) {
       setErrors(nextErrors);
-      toast.error("Please fill in all fields.");
+      toast.error(ui.contact.fillAll);
       return;
     }
 
@@ -95,21 +98,20 @@ export const ContactSection = () => {
         const code = typeof data.error === "string" ? data.error : "";
 
         if (code === "rate_limited") {
-          toast.error(RATE_LIMIT_MESSAGE);
+          toast.error(ui.contact.rateLimited);
         } else if (code === "too_fast") {
-          toast.error("Please take a moment before sending.");
+          toast.error(ui.contact.tooFast);
         } else if (code === "invalid_email") {
-          toast.error("Please enter a valid email address.");
+          toast.error(ui.contact.emailInvalid);
         } else if (code === "missing_fields") {
-          toast.error("Please fill in all fields.");
+          toast.error(ui.contact.fillAll);
         } else {
-          // Unknown / provider / config failures — never surface API text.
           showSendFailedToast();
         }
         return;
       }
       setSent(true);
-      toast.success("Message sent — thank you. I'll be in touch soon.");
+      toast.success(ui.contact.sent);
       setForm({ name: "", email: "", message: "", website: "" });
       formStartedAt.current = Date.now();
     } catch {
@@ -128,18 +130,18 @@ export const ContactSection = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12">
         <Reveal className="md:col-span-5">
-          <SectionOverline>06 · contact</SectionOverline>
+          <SectionOverline>{ui.contact.overline}</SectionOverline>
           <h2 className="font-serif font-light text-3xl md:text-5xl tracking-tighter text-ink">
-            Get in touch.
+            {ui.contact.title}
             <br />
             <em className="not-italic text-burgundy">
-              Happy to hear from you.
+              {ui.contact.titleAccent}
             </em>
           </h2>
           <div className="mt-10 space-y-4 font-mono text-sm text-ink">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-ink-mute">
-                Email
+                {ui.contact.email}
               </p>
               <a
                 href={`mailto:${PROFILE.email}`}
@@ -150,7 +152,7 @@ export const ContactSection = () => {
             </div>
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-ink-mute">
-                Phone
+                {ui.contact.phone}
               </p>
               <a
                 href={`tel:${PROFILE.phone.replace(/\s/g, "")}`}
@@ -161,13 +163,13 @@ export const ContactSection = () => {
             </div>
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-ink-mute">
-                Location
+                {ui.contact.location}
               </p>
               <span>{PROFILE.location}</span>
             </div>
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-ink-mute">
-                Availability
+                {ui.contact.availability}
               </p>
               <span>{PROFILE.workPreference}</span>
             </div>
@@ -184,7 +186,7 @@ export const ContactSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <label className="block field-line">
               <span className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
-                Name
+                {ui.contact.name}
               </span>
               <input
                 data-testid="contact-name"
@@ -210,7 +212,7 @@ export const ContactSection = () => {
             </label>
             <label className="block field-line">
               <span className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
-                Email
+                {ui.contact.email}
               </span>
               <input
                 data-testid="contact-email"
@@ -241,7 +243,7 @@ export const ContactSection = () => {
 
           <label className="block field-line">
             <span className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
-              Message
+              {ui.contact.message}
             </span>
             <textarea
               data-testid="contact-message"
@@ -299,7 +301,7 @@ export const ContactSection = () => {
                     className="flex items-center gap-2"
                   >
                     <TyingBow size={14} tie />
-                    <span>sent · thank you</span>
+                    <span>{ui.contact.sentThanks}</span>
                   </motion.p>
                 ) : (
                   <motion.p
@@ -312,7 +314,7 @@ export const ContactSection = () => {
                       ease: MOTION_EASE,
                     }}
                   >
-                    I&apos;ll reply as soon as I can.
+                    {ui.contact.replyNote}
                   </motion.p>
                 )}
               </AnimatePresence>
@@ -328,7 +330,7 @@ export const ContactSection = () => {
               whileTap={reduce || submitting ? undefined : { scale: 0.98 }}
               transition={CTA_SPRING}
             >
-              {submitting ? "Sending…" : "Send →"}
+              {submitting ? ui.contact.sending : ui.contact.send}
             </motion.button>
           </div>
         </Reveal>

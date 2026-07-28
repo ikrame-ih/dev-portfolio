@@ -1,9 +1,10 @@
+import { useMemo } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Bow } from "./Bow";
 import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
-import { PROFILE } from "@/data/portfolio";
 import { onHashLinkClick } from "@/lib/scroll";
 import { CTA_SPRING } from "@/lib/motion";
+import { useContent, useUi } from "@/i18n/LocaleContext";
 
 const COL_ENTER = (reduce, delay) =>
   reduce
@@ -15,18 +16,23 @@ const COL_ENTER = (reduce, delay) =>
         transition: revealTransition(delay),
       };
 
-const NAV_LINKS = [
-  { id: "cv", label: "CV & skills", index: "01" },
-  { id: "projects", label: "Projects", index: "02" },
-  { id: "bento", label: "Interests", index: "03" },
-  { id: "blog", label: "Tizza's vault", index: "04" },
-  { id: "guestbook", label: "Guest book", index: "05" },
-  { id: "contact", label: "Contact", index: "06" },
-];
-
 export const Footer = ({ onOpenTerminal }) => {
   const year = new Date().getFullYear();
   const reduce = useReducedMotion();
+  const { PROFILE } = useContent();
+  const ui = useUi();
+
+  const navLinks = useMemo(
+    () => [
+      { id: "cv", label: ui.footer.cvSkills, index: "01" },
+      { id: "projects", label: ui.nav.projects, index: "02" },
+      { id: "bento", label: ui.nav.interests, index: "03" },
+      { id: "blog", label: ui.footer.vault, index: "04" },
+      { id: "guestbook", label: ui.nav.guestbook, index: "05" },
+      { id: "contact", label: ui.nav.contact, index: "06" },
+    ],
+    [ui],
+  );
 
   return (
     <footer data-testid="footer" className="relative footer-inverse py-16">
@@ -41,28 +47,26 @@ export const Footer = ({ onOpenTerminal }) => {
             </div>
             <div className="max-w-sm space-y-3">
               <p className="font-mono text-xs footer-muted leading-relaxed">
-                Designed and built by me.
+                {ui.footer.designed}
               </p>
               <p className="font-mono text-xs footer-muted leading-relaxed">
+                {ui.footer.seePrefix}{" "}
                 <a
                   href={PROFILE.portfolioRepo}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer-link"
                 >
-                  View the source on GitHub
-                </a>
-                .
-              </p>
-              <p className="font-mono text-xs footer-muted leading-relaxed">
-                Or{" "}
+                  {ui.footer.source}
+                </a>{" "}
+                {ui.footer.or}{" "}
                 <a
                   href={PROFILE.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer-link"
                 >
-                  say hi on LinkedIn
+                  {ui.footer.linkedin}
                 </a>
                 .
               </p>
@@ -71,10 +75,10 @@ export const Footer = ({ onOpenTerminal }) => {
 
           <motion.div className="md:col-span-3" {...COL_ENTER(reduce, 0.08)}>
             <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-4">
-              Navigate
+              {ui.footer.navigate}
             </p>
             <ul className="footer-nav font-mono text-sm">
-              {NAV_LINKS.map(({ id, label, index }) => (
+              {navLinks.map(({ id, label, index }) => (
                 <li key={id}>
                   <a
                     href={`#${id}`}
@@ -94,11 +98,10 @@ export const Footer = ({ onOpenTerminal }) => {
 
           <motion.div className="md:col-span-4" {...COL_ENTER(reduce, 0.14)}>
             <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-3">
-              Terminal
+              {ui.footer.terminal}
             </p>
             <p className="font-mono text-sm leading-relaxed footer-muted">
-              Another way through the site — type a number, jump sections, leave
-              a short note.
+              {ui.footer.terminalBlurb}
             </p>
             <motion.button
               type="button"
@@ -109,10 +112,10 @@ export const Footer = ({ onOpenTerminal }) => {
               whileTap={reduce ? undefined : { scale: 0.98 }}
               transition={CTA_SPRING}
             >
-              Open terminal →
+              {ui.footer.openTerminal}
             </motion.button>
             <p className="mt-3 font-mono text-xs footer-muted">
-              Press <kbd className="footer-muted">T</kbd>
+              {ui.footer.pressKey} <kbd className="footer-muted">T</kbd>
             </p>
           </motion.div>
         </div>
@@ -120,7 +123,7 @@ export const Footer = ({ onOpenTerminal }) => {
         <div className="max-w-7xl mx-auto px-6 md:px-12 mt-12 pt-6 border-t border-[#F5F1EB]/15 flex flex-wrap items-end justify-between gap-8">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-3">
-              Contact
+              {ui.footer.contact}
             </p>
             <ul className="space-y-2 font-mono text-sm">
               <li>
@@ -146,7 +149,7 @@ export const Footer = ({ onOpenTerminal }) => {
               © {year} {PROFILE.name} · Málaga, ES
             </p>
             <p className="flex items-center gap-2 sm:justify-end">
-              built with care
+              {ui.footer.builtWithCare}
               <Bow size={12} color="#F5F1EB" />
             </p>
           </div>

@@ -5,30 +5,18 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import { TyingBow } from "./TyingBow";
-import { BOW_BOARD } from "@/data/portfolio";
 import { getVisitorId, loadAndMigrateBows, saveBow } from "@/lib/storage";
 import { fetchRemoteBows, postRemoteBow, useRemoteBows } from "@/lib/bowsApi";
 import { normalizeBow, bowTooClose, clampBowPosition } from "@/lib/bowUtils";
 import { MOTION_EASE } from "@/lib/motion";
 import Reveal from "./Reveal";
+import { useContent, useUi } from "@/i18n/LocaleContext";
 
 const BOW_MOTION = {
   initial: { opacity: 0, scale: 0.92 },
   animate: { opacity: 1, scale: 1 },
   exit: { opacity: 0, scale: 0.96 },
   transition: { duration: 0.35, ease: MOTION_EASE },
-};
-
-const HINTS = {
-  tooClose: "Too close to another signature — try a nearby spot.",
-  error: "Could not save your bow. Try again.",
-  unavailable:
-    "Guest book is temporarily unavailable. Signatures will be back soon.",
-  placedLeft:
-    "Your bow is on the left page — click again or use arrows + Enter to move it.",
-  placedRight:
-    "Your bow is on the right page — click again or use arrows + Enter to move it.",
-  moved: "Bow moved — still yours alone.",
 };
 
 const KEYBOARD_STEP = 0.05;
@@ -140,6 +128,9 @@ const PageBows = ({
 );
 
 export const GuestbookCanvas = () => {
+  const { BOW_BOARD } = useContent();
+  const ui = useUi();
+  const HINTS = ui.guestbook;
   const leftRef = useRef(null);
   const rightRef = useRef(null);
   const visitorIdRef = useRef(null);
@@ -441,9 +432,7 @@ export const GuestbookCanvas = () => {
               {hasSigned ? BOW_BOARD.signedKicker : BOW_BOARD.kicker}
             </p>
             <p id="guestbook-keyboard-help" className="sr-only">
-              Guest book: focus the left or right page. Use arrow keys to move
-              the preview bow, then press Enter or Space to place or move your
-              signature. One bow per visitor.
+              {ui.guestbook.keyboardHelp}
             </p>
           </div>
           <div className="font-mono text-xs text-ink-soft text-left md:text-right">
@@ -489,7 +478,7 @@ export const GuestbookCanvas = () => {
                 aria-live="polite"
                 className="absolute inset-0 z-20 flex items-center justify-center font-mono text-xs text-ink-mute bg-bone/80"
               >
-                loading signatures…
+                {ui.guestbook.loading}
               </div>
             )}
 
@@ -519,7 +508,7 @@ export const GuestbookCanvas = () => {
             <div
               className="guestbook-inner"
               role="group"
-              aria-label="Guest book pages"
+              aria-label={ui.guestbook.pages}
             >
               <div
                 ref={leftRef}
@@ -527,9 +516,11 @@ export const GuestbookCanvas = () => {
                 tabIndex={unavailable ? -1 : 0}
                 aria-disabled={unavailable || undefined}
                 aria-describedby="guestbook-keyboard-help"
-                aria-label={`Left page, ${leftBows.length} ${
-                  leftBows.length === 1 ? "signature" : "signatures"
-                }. Place or move your bow with arrow keys, then Enter.`}
+                aria-label={`${ui.guestbook.leftPage}, ${leftBows.length} ${
+                  leftBows.length === 1
+                    ? ui.guestbook.signature
+                    : ui.guestbook.signatures
+                }. ${ui.guestbook.placeHint}`}
                 onClick={(e) => handlePageClick("left", e)}
                 onFocus={() => handlePageFocus("left")}
                 onBlur={clearGhost}
@@ -568,9 +559,11 @@ export const GuestbookCanvas = () => {
                 tabIndex={unavailable ? -1 : 0}
                 aria-disabled={unavailable || undefined}
                 aria-describedby="guestbook-keyboard-help"
-                aria-label={`Right page, ${rightBows.length} ${
-                  rightBows.length === 1 ? "signature" : "signatures"
-                }. Place or move your bow with arrow keys, then Enter.`}
+                aria-label={`${ui.guestbook.rightPage}, ${rightBows.length} ${
+                  rightBows.length === 1
+                    ? ui.guestbook.signature
+                    : ui.guestbook.signatures
+                }. ${ui.guestbook.placeHint}`}
                 onClick={(e) => handlePageClick("right", e)}
                 onFocus={() => handlePageFocus("right")}
                 onBlur={clearGhost}

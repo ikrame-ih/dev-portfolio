@@ -1,31 +1,24 @@
+import { useMemo } from "react";
 import { useReducedMotion } from "framer-motion";
-import { STACK } from "@/data/portfolio";
 import { Bow } from "./Bow";
+import { useContent } from "@/i18n/LocaleContext";
 
-const SKILL_ITEMS = STACK.domains.flatMap((d) =>
-  d.groups.flatMap((g) => g.items),
-);
-
-const RARE_ITEMS = ["open to work", "málaga → remote", "built with care"];
-
-function buildTickerItems() {
+function buildTickerItems(skillItems, rareItems) {
   const out = [];
   let rareIdx = 0;
-  SKILL_ITEMS.forEach((name, i) => {
+  skillItems.forEach((name, i) => {
     out.push({ type: "skill", label: name });
-    if ((i + 1) % 7 === 0 && rareIdx < RARE_ITEMS.length) {
-      out.push({ type: "rare", label: RARE_ITEMS[rareIdx] });
+    if ((i + 1) % 7 === 0 && rareIdx < rareItems.length) {
+      out.push({ type: "rare", label: rareItems[rareIdx] });
       rareIdx += 1;
     }
   });
-  while (rareIdx < RARE_ITEMS.length) {
-    out.push({ type: "rare", label: RARE_ITEMS[rareIdx] });
+  while (rareIdx < rareItems.length) {
+    out.push({ type: "rare", label: rareItems[rareIdx] });
     rareIdx += 1;
   }
   return out;
 }
-
-const TICKER_ITEMS = buildTickerItems();
 
 const Separator = ({ index }) => {
   if (index % 4 === 3) {
@@ -48,8 +41,17 @@ const Separator = ({ index }) => {
 /** Quiet mono ticker — pauses on hover; static when reduced motion is preferred. */
 export const StackMarquee = ({ className = "" }) => {
   const reduce = useReducedMotion();
+  const { STACK, marqueeRare } = useContent();
   const shouldAnimate = !reduce;
-  const loop = [...TICKER_ITEMS, ...TICKER_ITEMS];
+
+  const tickerItems = useMemo(() => {
+    const skillItems = STACK.domains.flatMap((d) =>
+      d.groups.flatMap((g) => g.items),
+    );
+    return buildTickerItems(skillItems, marqueeRare ?? []);
+  }, [STACK, marqueeRare]);
+
+  const loop = [...tickerItems, ...tickerItems];
 
   return (
     <div
@@ -62,7 +64,7 @@ export const StackMarquee = ({ className = "" }) => {
           shouldAnimate ? "marquee-track" : ""
         }`}
       >
-        {(shouldAnimate ? loop : TICKER_ITEMS).map((item, i) => (
+        {(shouldAnimate ? loop : tickerItems).map((item, i) => (
           <span
             key={`${item.label}-${i}`}
             className={`inline-flex items-center shrink-0 px-5 ${

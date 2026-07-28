@@ -2,11 +2,11 @@ import { useEffect, useId, useRef, useState } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { Bow } from "./Bow";
 import TextAnimate from "./ui/TextAnimate";
-import { PROFILE } from "@/data/portfolio";
 import { ASSETS } from "@/data/assets";
 import { MOTION_EASE, heroEnter, CTA_SPRING } from "@/lib/motion";
 import { onHashLinkClick } from "@/lib/scroll";
 import StackMarquee from "./StackMarquee";
+import { useContent, useUi } from "@/i18n/LocaleContext";
 
 // After the headline word cascade finishes (~1.3s), ease the rest in quickly.
 const STEP_DELAY = {
@@ -51,25 +51,26 @@ const factItem = (reduce) =>
         },
       };
 
-const CV_DOWNLOADS = [
-  {
-    id: "en",
-    label: "English",
-    href: ASSETS.cvPdf,
-    testId: "hero-cta-cv-en",
-  },
-  {
-    id: "es",
-    label: "Español",
-    href: ASSETS.cvPdfEs,
-    testId: "hero-cta-cv-es",
-  },
-];
-
 const CvDownloadMenu = ({ reduce }) => {
   const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
   const menuId = useId();
+  const ui = useUi();
+
+  const downloads = [
+    {
+      id: "en",
+      label: ui.hero.english,
+      href: ASSETS.cvPdf,
+      testId: "hero-cta-cv-en",
+    },
+    {
+      id: "es",
+      label: ui.hero.spanish,
+      href: ASSETS.cvPdfEs,
+      testId: "hero-cta-cv-es",
+    },
+  ];
 
   useEffect(() => {
     if (!open) return undefined;
@@ -109,7 +110,7 @@ const CvDownloadMenu = ({ reduce }) => {
             : "border-ink hover:bg-burgundy hover:text-[#F5F1EB] hover:border-burgundy"
         }`}
       >
-        Download CV
+        {ui.hero.downloadCv}
         <svg
           aria-hidden="true"
           viewBox="0 0 12 12"
@@ -129,10 +130,10 @@ const CvDownloadMenu = ({ reduce }) => {
         <div
           id={menuId}
           role="menu"
-          aria-label="Download CV language"
+          aria-label={ui.hero.cvLang}
           className="absolute left-0 top-full z-20 mt-2 min-w-full border border-ink/20 bg-bone shadow-[0_8px_24px_rgba(26,26,26,0.08)]"
         >
-          {CV_DOWNLOADS.map((item) => (
+          {downloads.map((item) => (
             <a
               key={item.id}
               role="menuitem"
@@ -144,7 +145,7 @@ const CvDownloadMenu = ({ reduce }) => {
               className="block px-4 py-2.5 font-mono text-xs uppercase tracking-[0.18em] text-ink hover:bg-burgundy hover:text-[#F5F1EB] transition-colors"
             >
               {item.label}
-              <span className="sr-only"> PDF, opens in a new tab</span>
+              <span className="sr-only">{ui.hero.pdfNewTab}</span>
             </a>
           ))}
         </div>
@@ -155,6 +156,8 @@ const CvDownloadMenu = ({ reduce }) => {
 
 export const Hero = () => {
   const reduce = useReducedMotion();
+  const { PROFILE } = useContent();
+  const ui = useUi();
   const [parallaxOn, setParallaxOn] = useState(false);
   const { scrollY } = useScroll();
   const photoParallax = useTransform(
@@ -280,7 +283,7 @@ export const Hero = () => {
                 whileTap={reduce ? undefined : { scale: 0.98 }}
                 transition={CTA_SPRING}
               >
-                View projects →
+                {ui.hero.viewProjects}
               </motion.a>
               <CvDownloadMenu reduce={reduce} />
               <motion.a
@@ -291,7 +294,7 @@ export const Hero = () => {
                 whileHover={reduce ? undefined : { y: -1 }}
                 transition={CTA_SPRING}
               >
-                Get in touch
+                {ui.hero.getInTouch}
               </motion.a>
             </motion.div>
           </div>
@@ -340,7 +343,7 @@ export const Hero = () => {
                     <motion.img
                       data-testid="hero-photo"
                       src={ASSETS.profilePortrait}
-                      alt="Ikrame I. H. — portrait"
+                      alt={ui.hero.portraitAlt}
                       width={640}
                       height={735}
                       className="w-full h-full object-cover object-top"
@@ -370,7 +373,7 @@ export const Hero = () => {
                     className="lnk font-mono text-xs uppercase tracking-[0.2em] text-ink-mute hover:text-burgundy"
                   >
                     {PROFILE.portraitLink.label}
-                    <span className="sr-only"> (opens in a new tab)</span>
+                    <span className="sr-only">{ui.hero.opensNewTab}</span>
                   </a>
                 </figcaption>
               </figure>

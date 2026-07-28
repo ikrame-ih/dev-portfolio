@@ -12,11 +12,13 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import CLITerminal from "@/components/CLITerminal";
 import BowCursor from "@/components/BowCursor";
-import { PROFILE } from "@/data/portfolio";
 import { scrollToElement } from "@/lib/scroll";
+import { useContent, useUi } from "@/i18n/LocaleContext";
 
 export default function App() {
   const [cliOpen, setCliOpen] = useState(false);
+  const { PROFILE } = useContent();
+  const ui = useUi();
 
   useEffect(() => {
     const typingTarget = (el) => {
@@ -66,7 +68,7 @@ export default function App() {
       addressLocality: "Málaga",
       addressCountry: "ES",
     },
-    jobTitle: "Software Developer",
+    jobTitle: ui.jobTitle,
     description: PROFILE.heroSubtext,
     knowsLanguage: ["en", "es", "ar"],
     knowsAbout: [
@@ -90,7 +92,7 @@ export default function App() {
       />
 
       <a href="#main-content" className="skip-link">
-        Skip to content
+        {ui.skip}
       </a>
 
       <div id="app-shell">

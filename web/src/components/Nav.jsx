@@ -1,32 +1,37 @@
-import { useState, useEffect, useId } from "react";
+import { useState, useEffect, useId, useMemo } from "react";
 import { motion, useReducedMotion, LayoutGroup, AnimatePresence } from "framer-motion";
 import { Bow } from "./Bow";
-import { PROFILE, BLOG } from "@/data/portfolio";
 import { MOTION_EASE, MOTION_DURATION, CTA_SPRING } from "@/lib/motion";
 import { onHashLinkClick, scrollToTop, navigateToHash } from "@/lib/scroll";
 import { useActiveSection } from "@/lib/useActiveSection";
-
-const ALL_LINKS = [
-  { id: "cv", label: "CV" },
-  { id: "projects", label: "Projects" },
-  { id: "bento", label: "Interests" },
-  { id: "blog", label: "Vault" },
-  { id: "guestbook", label: "Guest book" },
-  { id: "contact", label: "Contact" },
-];
-
-/** Hide Vault from primary nav while unpublished; footer still links to it. */
-const DESKTOP_LINKS = ALL_LINKS;
-const MOBILE_LINKS = BLOG.comingSoon
-  ? ALL_LINKS.filter((l) => l.id !== "blog")
-  : ALL_LINKS;
+import { useContent, useLocale, useUi } from "@/i18n/LocaleContext";
 
 export const Nav = ({ onOpenTerminal }) => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const active = useActiveSection();
+  const { active, lock } = useActiveSection();
   const reduce = useReducedMotion();
   const menuId = useId();
+  const { PROFILE, BLOG } = useContent();
+  const { lang, setLang } = useLocale();
+  const ui = useUi();
+
+  const allLinks = useMemo(
+    () => [
+      { id: "cv", label: ui.nav.cv },
+      { id: "projects", label: ui.nav.projects },
+      { id: "bento", label: ui.nav.interests },
+      { id: "blog", label: ui.nav.vault },
+      { id: "guestbook", label: ui.nav.guestbook },
+      { id: "contact", label: ui.nav.contact },
+    ],
+    [ui],
+  );
+
+  const desktopLinks = allLinks;
+  const mobileLinks = BLOG.comingSoon
+    ? allLinks.filter((l) => l.id !== "blog")
+    : allLinks;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -100,17 +105,57 @@ export const Nav = ({ onOpenTerminal }) => {
 
     const id = href.slice(1);
 
-    // Unlock + scroll in the same tap turn. Deferred scrollTo is ignored on many
-    // mobile browsers once the user-activation window closes.
     document.documentElement.style.overflow = "";
     document.body.style.overflow = "";
     setMenuOpen(false);
 
     const target =
       !id || id === "main-content" || id === "top" ? "" : id;
-    // auto: smooth + drawer teardown fights on iOS/Android WebViews.
+    if (target) lock(target);
     navigateToHash(target, { behavior: "auto" });
   };
+
+  const onDesktopNavClick = (e) => {
+    const href = e.currentTarget.getAttribute("href");
+    if (!href?.startsWith("#")) return;
+    const id = href.slice(1);
+    if (id) lock(id);
+    onHashLinkClick(e);
+  };
+
+  const LangToggle = ({ className = "" }) => (
+    <div
+      className={`inline-flex items-center gap-1 font-mono text-xs uppercase tracking-[0.18em] ${className}`}
+      role="group"
+      aria-label={ui.nav.lang}
+    >
+      <button
+        type="button"
+        data-testid="nav-lang-en"
+        onClick={() => setLang("en")}
+        aria-pressed={lang === "en"}
+        className={`btn-tactile min-h-11 px-1.5 transition-colors ${
+          lang === "en" ? "text-burgundy" : "text-ink-mute hover:text-burgundy"
+        }`}
+      >
+        {ui.nav.langEn}
+      </button>
+      <span className="text-ink-mute/50" aria-hidden="true">
+        /
+      </span>
+      <button
+        type="button"
+        data-testid="nav-lang-es"
+        onClick={() => setLang("es")}
+        aria-pressed={lang === "es"}
+        className={`btn-tactile min-h-11 px-1.5 transition-colors ${
+          lang === "es" ? "text-burgundy" : "text-ink-mute hover:text-burgundy"
+        }`}
+      >
+        {ui.nav.langEs}
+      </button>
+    </div>
+  );
 
   return (
     <>
@@ -120,7 +165,7 @@ export const Nav = ({ onOpenTerminal }) => {
             key="nav-mobile-backdrop"
             type="button"
             data-testid="nav-mobile-backdrop"
-            aria-label="Close menu"
+            aria-label={ui.nav.closeMenu}
             initial={reduce ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={reduce ? undefined : { opacity: 0 }}
@@ -133,7 +178,7 @@ export const Nav = ({ onOpenTerminal }) => {
 
       <motion.nav
         data-testid="main-nav"
-        aria-label="Primary"
+        aria-label={ui.nav.primary}
         {...navMotion}
         className={`fixed top-0 left-0 right-0 z-50 border-b transition-[background-color,backdrop-filter] duration-500 ${
           menuOpen
@@ -150,6 +195,7 @@ export const Nav = ({ onOpenTerminal }) => {
           onClick={(e) => {
             e.preventDefault();
             setMenuOpen(false);
+            lock(null);
             scrollToTop();
             history.pushState(
               null,
@@ -168,15 +214,14 @@ export const Nav = ({ onOpenTerminal }) => {
           </span>
         </a>
 
-        {/* Desktop links + terminal */}
-        <div className="hidden md:flex items-center gap-8 min-w-0">
+        <div className="hidden md:flex items-center gap-6 lg:gap-8 min-w-0">
           <LayoutGroup id="primary-nav">
-            {DESKTOP_LINKS.map((l) => (
+            {desktopLinks.map((l) => (
               <a
                 key={l.id}
                 href={`#${l.id}`}
                 data-testid={`nav-link-${l.id}`}
-                onClick={onHashLinkClick}
+                onClick={onDesktopNavClick}
                 className={`${linkClass(l.id)} min-h-11 pb-1`}
                 aria-current={active === l.id ? "location" : undefined}
               >
@@ -186,31 +231,31 @@ export const Nav = ({ onOpenTerminal }) => {
                     layoutId={reduce ? undefined : "nav-underline"}
                     className="absolute left-0 right-0 -bottom-0.5 h-px bg-burgundy"
                     transition={{
-                      type: "spring",
-                      stiffness: 380,
-                      damping: 32,
+                      type: "tween",
+                      duration: reduce ? 0 : 0.32,
+                      ease: [0.22, 1, 0.36, 1],
                     }}
                   />
                 )}
               </a>
             ))}
           </LayoutGroup>
+          <LangToggle />
           <motion.button
             type="button"
             data-testid="nav-terminal-toggle"
             onClick={onOpenTerminal}
-            title="Open terminal (press T)"
-            aria-label="Open terminal guestbook. Shortcut: T"
+            title={`${ui.nav.terminal} (T)`}
+            aria-label={ui.nav.openTerminal}
             className="btn-tactile min-h-11 font-mono text-xs uppercase tracking-[0.18em] border border-ink/30 px-3 py-1.5 hover:border-burgundy hover:text-burgundy transition-colors shrink-0"
             whileHover={reduce ? undefined : { y: -1, scale: 1.02 }}
             whileTap={reduce ? undefined : { scale: 0.98 }}
             transition={CTA_SPRING}
           >
-            Terminal
+            {ui.nav.terminal}
           </motion.button>
         </div>
 
-        {/* Mobile menu toggle */}
         <button
           type="button"
           data-testid="nav-menu-toggle"
@@ -219,7 +264,7 @@ export const Nav = ({ onOpenTerminal }) => {
           aria-controls={menuId}
           onClick={() => setMenuOpen((o) => !o)}
         >
-          {menuOpen ? "Close" : "Menu"}
+          {menuOpen ? ui.nav.close : ui.nav.menu}
         </button>
       </div>
 
@@ -235,7 +280,7 @@ export const Nav = ({ onOpenTerminal }) => {
             className="md:hidden overflow-hidden border-t border-ink/10 bg-bone"
           >
             <ul className="max-w-7xl mx-auto px-6 py-3 flex flex-col">
-              {MOBILE_LINKS.map((l) => (
+              {mobileLinks.map((l) => (
                 <li key={l.id}>
                   <a
                     href={`#${l.id}`}
@@ -248,7 +293,8 @@ export const Nav = ({ onOpenTerminal }) => {
                   </a>
                 </li>
               ))}
-              <li className="pt-2 mt-1 border-t border-ink/10">
+              <li className="pt-2 mt-1 border-t border-ink/10 flex items-center justify-between gap-3">
+                <LangToggle />
                 <button
                   type="button"
                   data-testid="nav-mobile-terminal"
@@ -256,9 +302,9 @@ export const Nav = ({ onOpenTerminal }) => {
                     setMenuOpen(false);
                     onOpenTerminal();
                   }}
-                  className="btn-tactile min-h-11 w-full flex items-center font-mono text-xs uppercase tracking-[0.18em] text-ink-soft hover:text-burgundy transition-colors"
+                  className="btn-tactile min-h-11 flex items-center font-mono text-xs uppercase tracking-[0.18em] text-ink-soft hover:text-burgundy transition-colors"
                 >
-                  Terminal
+                  {ui.nav.terminal}
                 </button>
               </li>
             </ul>

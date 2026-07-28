@@ -4,6 +4,7 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { MOTION_EASE } from "@/lib/motion";
 import { useFocusTrap } from "@/lib/useFocusTrap";
 import { useModalIsolation } from "@/lib/useModalIsolation";
+import { useUi } from "@/i18n/LocaleContext";
 
 const LIGHTBOX_SPRING = {
   type: "spring",
@@ -18,6 +19,7 @@ const LIGHTBOX_SPRING = {
 export const ProjectLightbox = ({ project, onClose }) => {
   const panelRef = useRef(null);
   const reduce = useReducedMotion();
+  const ui = useUi();
   const open = Boolean(project);
 
   useFocusTrap(open, panelRef, onClose);
@@ -49,10 +51,10 @@ export const ProjectLightbox = ({ project, onClose }) => {
               type="button"
               data-testid="project-lightbox-close"
               onClick={onClose}
-              aria-label="Close preview"
+              aria-label={ui.modal.closePreview}
               className="btn-tactile absolute -top-1 right-0 z-10 min-h-11 px-3 font-mono text-xs uppercase tracking-[0.18em] text-[#F5F1EB] hover:text-white md:-top-12 md:right-0"
             >
-              close ✕
+              {ui.modal.closeBtn}
             </button>
 
             <motion.img

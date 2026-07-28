@@ -10,9 +10,9 @@ import Reveal, { REVEAL_VIEWPORT } from "./Reveal";
 import SectionOverline from "./SectionOverline";
 import ArchitectureModal from "./ArchitectureModal";
 import ProjectLightbox from "./ProjectLightbox";
-import { PROJECTS } from "@/data/portfolio";
 import { CTA_SPRING, MOTION_EASE, MOTION_DURATION } from "@/lib/motion";
 import { Bow } from "./Bow";
+import { useContent, useUi } from "@/i18n/LocaleContext";
 
 /** Capture frame is 16:9 — export mockups at 1920×1080. */
 export const PROJECT_SHOT_SIZE = { width: 1920, height: 1080, ratio: "16:9" };
@@ -62,6 +62,8 @@ const ProjectStrip = ({
   reduce,
   onOpenArch,
   onOpenShot,
+  section,
+  opensNewTab,
 }) => {
   const stripRef = useRef(null);
   const imageLeft = idx % 2 === 0;
@@ -136,10 +138,10 @@ const ProjectStrip = ({
                 <Bow size={28} />
                 <div>
                   <p className="font-serif text-2xl md:text-3xl tracking-tight text-ink">
-                    In progress
+                    {section.inProgress}
                   </p>
                   <p className="mt-2 font-mono text-xs uppercase tracking-[0.22em] text-ink-mute">
-                    Coming soon
+                    {section.comingSoon}
                   </p>
                 </div>
               </div>
@@ -206,7 +208,7 @@ const ProjectStrip = ({
               whileTap={reduce ? undefined : { scale: 0.98 }}
               transition={CTA_SPRING}
             >
-              How it works →
+              {section.howItWorks}
             </motion.button>
             {p.href && (
               <a
@@ -215,8 +217,8 @@ const ProjectStrip = ({
                 rel="noopener noreferrer"
                 className="lnk min-h-11 inline-flex items-center font-mono text-xs uppercase tracking-[0.18em] text-ink-soft"
               >
-                GitHub ↗
-                <span className="sr-only"> (opens in new tab)</span>
+                {section.github}
+                <span className="sr-only">{opensNewTab}</span>
               </a>
             )}
             {p.demo && (
@@ -226,8 +228,8 @@ const ProjectStrip = ({
                 rel="noopener noreferrer"
                 className="lnk min-h-11 inline-flex items-center font-mono text-xs uppercase tracking-[0.18em] text-ink-soft"
               >
-                Demo ↗
-                <span className="sr-only"> (opens in new tab)</span>
+                {section.demo}
+                <span className="sr-only">{opensNewTab}</span>
               </a>
             )}
           </div>
@@ -241,6 +243,8 @@ export const ProjectsSection = () => {
   const [openProject, setOpenProject] = useState(null);
   const [lightboxProject, setLightboxProject] = useState(null);
   const reduce = useReducedMotion();
+  const { PROJECTS, section } = useContent();
+  const ui = useUi();
 
   return (
     <section
@@ -251,15 +255,16 @@ export const ProjectsSection = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <Reveal className="mb-10 md:mb-16 max-w-3xl">
-          <SectionOverline>02 · selected work</SectionOverline>
+          <SectionOverline>{section.projectsOverline}</SectionOverline>
           <h2 className="font-serif font-light text-3xl md:text-5xl tracking-tighter text-ink">
-            Selected projects
+            {section.projectsTitleBefore}
             <br />
-            <em className="not-italic text-burgundy">with architecture notes.</em>
+            <em className="not-italic text-burgundy">
+              {section.projectsTitleAccent}
+            </em>
           </h2>
           <p className="mt-4 font-mono text-xs text-ink-mute max-w-xl">
-            Each project links to its repo, live demo when available, and an
-            architecture diagram. Click a capture to enlarge it.
+            {section.projectsKicker}
           </p>
         </Reveal>
 
@@ -273,6 +278,8 @@ export const ProjectsSection = () => {
                 reduce={reduce}
                 onOpenArch={setOpenProject}
                 onOpenShot={setLightboxProject}
+                section={section}
+                opensNewTab={ui.hero.opensNewTab}
               />
             ))}
           </div>

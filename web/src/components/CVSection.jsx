@@ -1,18 +1,15 @@
-import { motion, useReducedMotion } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+} from "framer-motion";
 import { useState } from "react";
 import { Bow } from "./Bow";
 import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
 import SectionOverline from "./SectionOverline";
 import ProjectLightbox from "./ProjectLightbox";
-import {
-  EXPERIENCE,
-  EDUCATION,
-  LANGUAGES,
-  PROFILE,
-  STACK,
-} from "@/data/portfolio";
 import { StackIcon } from "@/data/stackIcons";
 import { MOTION_EASE, scrollEnter } from "@/lib/motion";
+import { useContent } from "@/i18n/LocaleContext";
 
 // Shared header pattern used across CV subsections.
 const SectionHeader = ({ overline, title, kicker }) => (
@@ -28,11 +25,11 @@ const SectionHeader = ({ overline, title, kicker }) => (
 );
 
 // Colour-coded badge so visitors can spot tech vs ops roles at a glance.
-const TrackBadge = ({ track }) => {
+const TrackBadge = ({ track, tracks }) => {
   const map = {
-    tech: { label: "tech", cls: "border-burgundy text-burgundy" },
-    hybrid: { label: "tech × biz", cls: "border-ink text-ink" },
-    biz: { label: "biz / ops", cls: "border-ink/50 text-ink" },
+    tech: { label: tracks.tech, cls: "border-burgundy text-burgundy" },
+    hybrid: { label: tracks.hybrid, cls: "border-ink text-ink" },
+    biz: { label: tracks.biz, cls: "border-ink/50 text-ink" },
   };
   const m = map[track] || map.tech;
   return (
@@ -190,6 +187,7 @@ const DomainPanel = ({ domain, children, testId }) => {
 
 const SkillsBlock = () => {
   const reduce = useReducedMotion();
+  const { STACK, LANGUAGES, section } = useContent();
 
   return (
   <div className="mb-24">
@@ -220,8 +218,8 @@ const SkillsBlock = () => {
           domain={{
             id: "languages",
             index: "04",
-            title: "Languages",
-            kicker: "How I speak with people — and across contexts.",
+            title: section.languagesTitle,
+            kicker: section.languagesKicker,
           }}
           testId="languages-list"
         >
@@ -250,6 +248,7 @@ const SkillsBlock = () => {
 export const CVSection = () => {
   const reduce = useReducedMotion();
   const [proofShot, setProofShot] = useState(null);
+  const { EXPERIENCE, EDUCATION, PROFILE, section, tracks } = useContent();
 
   return (
     <section
@@ -261,14 +260,16 @@ export const CVSection = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <Reveal>
           <SectionHeader
-            overline="01 · background & skills"
+            overline={section.cvOverline}
             title={
               <>
-                Skills, roles, and{" "}
-                <em className="not-italic text-burgundy">education</em>.
+                {section.cvTitleBefore}
+                <em className="not-italic text-burgundy">
+                  {section.cvTitleAccent}
+                </em>
               </>
             }
-            kicker="Skills, languages, and the work behind them."
+            kicker={section.cvKicker}
           />
         </Reveal>
 
@@ -281,7 +282,7 @@ export const CVSection = () => {
             data-testid="experience-timeline"
           >
             <h3 className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft mb-8">
-              Experience
+              {section.experience}
             </h3>
             <ol className="relative pl-10">
               <motion.span
@@ -320,7 +321,7 @@ export const CVSection = () => {
                     <h4 className="font-serif text-xl md:text-2xl text-ink">
                       {exp.role}
                     </h4>
-                    <TrackBadge track={exp.track} />
+                    <TrackBadge track={exp.track} tracks={tracks} />
                   </div>
                   <p className="font-mono text-xs uppercase tracking-[0.18em] text-ink-soft mb-4">
                     {exp.company} · {exp.period}
@@ -367,7 +368,7 @@ export const CVSection = () => {
             data-testid="education-block"
           >
             <h3 className="font-mono text-xs uppercase tracking-[0.28em] text-ink-soft mb-8">
-              Education
+              {section.education}
             </h3>
             <div className="bg-bone-200/60 px-5 py-6 md:px-6 md:py-7">
               <ol className="space-y-10 list-none">

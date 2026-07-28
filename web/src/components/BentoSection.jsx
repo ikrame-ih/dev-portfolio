@@ -1,10 +1,11 @@
 import { motion, useReducedMotion } from "framer-motion";
 import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
 import SectionOverline from "./SectionOverline";
-import { BENTO } from "@/data/portfolio";
+import { useContent } from "@/i18n/LocaleContext";
 
 export const BentoSection = () => {
   const reduce = useReducedMotion();
+  const { BENTO } = useContent();
 
   return (
     <section
