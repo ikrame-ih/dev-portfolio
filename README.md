@@ -1,6 +1,6 @@
 # dev-portfolio
 
-[![Live Site](https://img.shields.io/badge/Live_Site-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://ikrame-ih.vercel.app/)
+[![Live Site](https://img.shields.io/badge/Live_Site-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://ikrame.dev/)
 
 **Personal portfolio site** — CV and projects up front, cream paper aesthetic, guest book, contact form, and a CLI easter egg in the corner.
 
@@ -13,7 +13,7 @@ Portfolio project (v0.1.0): React SPA deployed on Vercel. Guest book syncs via U
 
 | | |
 | --- | --- |
-| **Live site** | [ikrame-ih.vercel.app](https://ikrame-ih.vercel.app/) |
+| **Live site** | [ikrame.dev](https://ikrame.dev/) |
 | **Source** | [github.com/ikrame-ih/dev-portfolio](https://github.com/ikrame-ih/dev-portfolio) |
 
 ## Highlights
@@ -114,4 +114,4 @@ Private project — © Ikrame Ibn Hayoun. All rights reserved.
 
 ## Author
 
-**Ikrame Ibn Hayoun** — [Portfolio](https://ikrame-ih.vercel.app/) · [GitHub](https://github.com/ikrame-ih) · [LinkedIn](https://www.linkedin.com/in/ikrame-ih/)
+**Ikrame Ibn Hayoun** — [Portfolio](https://ikrame.dev/) · [GitHub](https://github.com/ikrame-ih) · [LinkedIn](https://www.linkedin.com/in/ikrame-ih/)

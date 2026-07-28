@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/amruthpillai/reactive-resume/main/packages/schema/schema.json",
   "picture": {
     "hidden": true,
-    "url": "https://ikrame-ih.vercel.app/images/profile-ikrame.png",
+    "url": "https://ikrame.dev/images/profile-ikrame.png",
     "size": 80,
     "rotation": 0,
     "aspectRatio": 1,
@@ -19,7 +19,7 @@
     "phone": "+34 682 02 76 93",
     "location": "Malaga, Spain",
     "website": {
-      "url": "https://ikrame-ih.vercel.app",
+      "url": "https://ikrame.dev",
       "label": "Portfolio"
     },
     "customFields": []

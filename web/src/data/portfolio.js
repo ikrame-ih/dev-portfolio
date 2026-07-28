@@ -10,7 +10,7 @@ export const PROFILE = {
   github: "https://github.com/ikrame-ih",
   portfolioRepo: "https://github.com/ikrame-ih/dev-portfolio",
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
-  siteUrl: "https://ikrame-ih.vercel.app",
+  siteUrl: "https://ikrame.dev",
   overline: "SOFTWARE DEVELOPER · FRONTEND · BACKEND",
   headlineParts: [
     { text: "I build software" },
@@ -469,8 +469,8 @@ export const BOW_BOARD = {
   leftWatermark:
     "For everyone who scrolled past the projects and stayed for the details.",
   rightWatermark: "A small thank-you. Your bow here means you were here.",
-  countLabel: "people were here",
-  countLabelSingular: "person was here",
+  countLabel: "people left their bow",
+  countLabelSingular: "person left their bow",
   marginHint: "one bow per person · click or arrows + Enter",
   marginHintSigned: "your bow · click or arrows to move",
 };

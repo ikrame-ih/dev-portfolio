@@ -1,5 +1,5 @@
 <svg width="1584" height="396" viewBox="0 0 1584 396" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- LinkedIn 1584×396 — keep copy in the right ~55%; bottom-left ~568×264 is covered by profile photo -->
+  <!-- LinkedIn 1584Ã—396 â€” keep copy in the right ~55%; bottom-left ~568Ã—264 is covered by profile photo -->
   <rect width="1584" height="396" fill="#F5F1EB"/>
   <rect x="0" y="393" width="1584" height="3" fill="#D8D1C7"/>
 
@@ -7,7 +7,7 @@
   <line x1="96" y1="64" x2="220" y2="64" stroke="#1A1A1A" stroke-opacity="0.18" stroke-width="0.75"/>
   <line x1="580" y1="48" x2="580" y2="348" stroke="#D8D1C7" stroke-width="1"/>
 
-  <!-- Bow accent — top-right safe area -->
+  <!-- Bow accent â€” top-right safe area -->
   <g transform="translate(1468 52) scale(1.15)" stroke="#4A0E0E" stroke-width="1.15" stroke-linejoin="round" fill="none" opacity="0.9">
     <path d="M32 32 C 22 18, 8 18, 8 28 C 8 38, 22 40, 32 32 Z"/>
     <path d="M32 32 C 42 18, 56 18, 56 28 C 56 38, 42 40, 32 32 Z"/>
@@ -18,8 +18,8 @@
 
   <!-- All copy right-aligned, clear of profile photo overlap -->
   <text x="1512" y="142" text-anchor="end" fill="#1A1A1A" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="300">Ikrame I. H.</text>
-  <text x="1512" y="182" text-anchor="end" fill="#4A0E0E" font-family="'Courier New', monospace" font-size="11.5" letter-spacing="2.8">SOFTWARE DEVELOPER · FRONTEND · BACKEND</text>
-  <text x="1512" y="214" text-anchor="end" fill="#7A7A7A" font-family="'Courier New', monospace" font-size="11" letter-spacing="1.8">Málaga, ES · Remote or hybrid</text>
+  <text x="1512" y="182" text-anchor="end" fill="#4A0E0E" font-family="'Courier New', monospace" font-size="11.5" letter-spacing="2.8">SOFTWARE DEVELOPER Â· FRONTEND Â· BACKEND</text>
+  <text x="1512" y="214" text-anchor="end" fill="#7A7A7A" font-family="'Courier New', monospace" font-size="11" letter-spacing="1.8">MÃ¡laga, ES Â· Remote or hybrid</text>
   <text x="1512" y="252" text-anchor="end" fill="#4A4A4A" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-style="italic">I build software with attention to detail</text>
-  <text x="1512" y="286" text-anchor="end" fill="#7A7A7A" font-family="'Courier New', monospace" font-size="10" letter-spacing="2.2">ikrame-ih.vercel.app</text>
+  <text x="1512" y="286" text-anchor="end" fill="#7A7A7A" font-family="'Courier New', monospace" font-size="10" letter-spacing="2.2">ikrame.dev</text>
 </svg>

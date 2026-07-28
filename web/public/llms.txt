@@ -2,12 +2,12 @@
 
 > Software developer based in Málaga — frontend and backend. Available for remote or hybrid roles.
 
-- Site: https://ikrame-ih.vercel.app/
+- Site: https://ikrame.dev/
 - Email: ikihga2223@gmail.com
 - GitHub: https://github.com/ikrame-ih
 - LinkedIn: https://www.linkedin.com/in/ikrame-ih/
-- CV (EN): https://ikrame-ih.vercel.app/Ikrame_Ibn_Hayoun_CV.pdf
-- CV (ES): https://ikrame-ih.vercel.app/Ikrame_Ibn_Hayoun_CV_ES.pdf
+- CV (EN): https://ikrame.dev/Ikrame_Ibn_Hayoun_CV.pdf
+- CV (ES): https://ikrame.dev/Ikrame_Ibn_Hayoun_CV_ES.pdf
 
 ## Summary
 

@@ -8,7 +8,7 @@ tags:
 
 Notes for the site in `web/`. Messy on purpose.
 
-Live: ikrame-ih.vercel.app · repo: dev-portfolio
+Live: ikrame.dev · repo: dev-portfolio
 
 ---
 

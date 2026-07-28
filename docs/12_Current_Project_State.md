@@ -7,7 +7,7 @@ updated: 2026-06-21
 
 # 12 — Current project state
 
-Jun 2026. Live at ikrame-ih.vercel.app. Contact + guest book work on Vercel. Blog placeholders.
+Jun 2026. Live at ikrame.dev. Contact + guest book work on Vercel. Blog placeholders.
 
 ---
 
