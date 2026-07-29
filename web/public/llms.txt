@@ -1,4 +1,4 @@
-# Ikrame I. H.
+# Ikrame Ibn Hayoun
 
 > Software developer based in Málaga — frontend and backend. Available for remote or hybrid roles.
 
@@ -6,12 +6,13 @@
 - Email: ikihga2223@gmail.com
 - GitHub: https://github.com/ikrame-ih
 - LinkedIn: https://www.linkedin.com/in/ikrame-ih/
+- DEV.to: https://dev.to/ikrame_ih
 - CV (EN): https://ikrame.dev/Ikrame_Ibn_Hayoun_CV.pdf
 - CV (ES): https://ikrame.dev/Ikrame_Ibn_Hayoun_CV_ES.pdf
 
 ## Summary
 
-DAW graduate (Jun 2026). Capstone MyPlaythrough awarded maximum grade. AI & Big Data Specialisation Course starting Sep 2026. Comfortable across interfaces, APIs, authentication, and databases.
+Higher Vocational Degree in Web Application Development (DAW, Jun 2026). Capstone MyPlaythrough awarded top honors. Postgraduate Specialization in AI & Big Data starting Sep 2026. Comfortable across interfaces, APIs, authentication, and databases.
 
 ## Selected projects
 

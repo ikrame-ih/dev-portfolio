@@ -423,7 +423,7 @@ const BENTO = {
 };
 
 const BLOG = {
-  name: "El vault de Tizza",
+  name: "Tizza's vault",
   avatar: ASSETS.tizzasVaultAvatar,
   avatarCredit: {
     artist: "heartpuff",

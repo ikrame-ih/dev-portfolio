@@ -239,7 +239,7 @@ export const UI = {
       linkedin: "saludarme en LinkedIn",
       navigate: "Navegar",
       cvSkills: "CV y habilidades",
-      vault: "El vault de Tizza",
+      vault: "Tizza's vault",
       terminal: "Terminal",
       terminalBlurb:
         "Otra forma de recorrer el sitio — escribe un número, salta de sección o deja una nota breve.",

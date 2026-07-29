@@ -206,28 +206,28 @@ const EXPERIENCE = [
 const EDUCATION = [
   {
     school: "IES Zaidín Vergeles",
-    degree: "AI & Big Data Specialisation Course",
+    degree: "Postgraduate Specialization in Artificial Intelligence & Big Data",
     tags: [
       "Curso de Especialización",
       "EQF Level 5",
-      "After Higher Vocational Diploma",
+      "Post-Diploma Specialization",
     ],
     period: "Starting Sep 2026",
   },
   {
     school: "CESUR Este, Málaga",
-    degree: "Higher Vocational Diploma in Web Application Development (DAW)",
+    degree: "Higher Vocational Degree in Web Application Development (DAW)",
     tags: [
       "Ciclo Formativo de Grado Superior",
       "EQF Level 5",
-      "HND-equivalent",
+      "HND Equivalent",
     ],
     period: "Sep 2024 — Jun 2026",
   },
   {
     school: "I.E.S. Politécnico Jesús Marín",
-    degree: "Intermediate Vocational Diploma in Administrative Management",
-    tags: ["Ciclo Formativo de Grado Medio", "EQF Level 4", "Honours"],
+    degree: "Vocational Diploma in Business Administration & Management",
+    tags: ["Ciclo Formativo de Grado Medio", "EQF Level 4", "Graduated with Honors"],
     period: "2022 — 2024",
   },
 ];
