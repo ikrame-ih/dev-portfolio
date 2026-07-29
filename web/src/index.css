@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
+  color-scheme: light only !important;
   --bone: 245 241 235;
   --burgundy: 74 14 14;
   --bone-200: 239 234 226;
@@ -29,7 +29,8 @@
   html,
   body,
   #root {
-    background-color: rgb(var(--bone, 245 241 235));
+    background-color: rgb(var(--bone, 245 241 235)) !important;
+    color: rgb(var(--ink, 26 26 26)) !important;
   }
 
   body {
