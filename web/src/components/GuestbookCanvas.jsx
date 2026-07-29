@@ -1,3 +1,8 @@
+/**
+ * @file GuestbookCanvas.jsx
+ * @description Interactive canvas allowing visitors to drop a signature (bow) 
+ * on an open book layout. Integrates keyboard accessibility and local/remote sync.
+ */
 import { useEffect, useRef, useState, useCallback } from "react";
 import {
   motion,
@@ -5,12 +10,12 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import { TyingBow } from "./TyingBow";
-import { getVisitorId, loadAndMigrateBows, saveBow } from "@/lib/storage";
-import { fetchRemoteBows, postRemoteBow, useRemoteBows } from "@/lib/bowsApi";
-import { normalizeBow, bowTooClose, clampBowPosition } from "@/lib/bowUtils";
+import { normalizeBow, clampBowPosition } from "@/lib/bowUtils";
 import { MOTION_EASE } from "@/lib/motion";
 import Reveal from "./Reveal";
 import { useContent, useUi } from "@/i18n/LocaleContext";
+import { useGuestbookSync } from "@/lib/useGuestbookSync";
+import { useGuestbookKeyboard } from "@/lib/useGuestbookKeyboard";
 
 const BOW_MOTION = {
   initial: { opacity: 0, scale: 0.92 },
@@ -18,14 +23,6 @@ const BOW_MOTION = {
   exit: { opacity: 0, scale: 0.96 },
   transition: { duration: 0.35, ease: MOTION_EASE },
 };
-
-const KEYBOARD_STEP = 0.05;
-const DEFAULT_KEYBOARD_POS = { mx: 0.5, y: 0.42 };
-
-function mergeVisitorBow(bows, bow, visitorId) {
-  const withoutVisitor = bows.filter((b) => b.visitor_id !== visitorId);
-  return [bow, ...withoutVisitor].map(normalizeBow);
-}
 
 function pressPage(ref, point) {
   if (!ref.current) return;
@@ -133,20 +130,38 @@ export const GuestbookCanvas = () => {
   const HINTS = ui.guestbook;
   const leftRef = useRef(null);
   const rightRef = useRef(null);
-  const visitorIdRef = useRef(null);
-  const syncingRef = useRef(false);
-  const hintTimerRef = useRef(null);
-  const [bows, setBows] = useState([]);
-  const [loaded, setLoaded] = useState(false);
-  const [lastDropped, setLastDropped] = useState(null);
+  
   const [hint, setHint] = useState(null);
-  const [remote, setRemote] = useState(false);
-  const [unavailable, setUnavailable] = useState(false);
-  const [hasSigned, setHasSigned] = useState(false);
-  const [ghost, setGhost] = useState(null);
-  const [visitorId, setVisitorId] = useState(null);
   const [spreadAlive, setSpreadAlive] = useState(false);
   const reduce = useReducedMotion();
+
+  const showHint = useCallback((key) => {
+    setHint(key);
+    // Note: The timer clears are handled by useGuestbookSync's hintTimerRef
+  }, []);
+
+  const {
+    bows,
+    loaded,
+    lastDropped,
+    unavailable,
+    hasSigned,
+    visitorId,
+    placeBowSync,
+    hintTimerRef
+  } = useGuestbookSync({ showHint });
+
+  // Update timer ref to clear properly
+  useEffect(() => {
+    if (hint && hintTimerRef.current) {
+      window.clearTimeout(hintTimerRef.current);
+    }
+    // We use a manual timeout rather than Framer Motion's exit delays to ensure
+    // the hint clears predictably even if the component unmounts or re-renders rapidly.
+    if (hint) {
+      hintTimerRef.current = window.setTimeout(() => setHint(null), 3200);
+    }
+  }, [hint, hintTimerRef]);
 
   useEffect(() => {
     if (reduce) {
@@ -168,83 +183,28 @@ export const GuestbookCanvas = () => {
     return () => io.disconnect();
   }, [reduce]);
 
-  useEffect(() => {
-    let cancelled = false;
-    const section = document.getElementById("guestbook");
-
-    const load = async () => {
-      if (useRemoteBows()) {
-        try {
-          const { bows: remoteBows, visitorId: vid } = await fetchRemoteBows();
-          if (!cancelled) {
-            visitorIdRef.current = vid;
-            setVisitorId(vid);
-            setBows(remoteBows.map(normalizeBow));
-            setRemote(true);
-            setUnavailable(false);
-            setHasSigned(remoteBows.some((b) => b.visitor_id === vid));
-          }
-          return;
-        } catch {
-          if (import.meta.env.PROD) {
-            if (!cancelled) {
-              setUnavailable(true);
-              setRemote(false);
-            }
-            return;
-          }
-        }
+  const placeBowAt = useCallback(
+    async (page, localX, localY) => {
+      const ref = page === "left" ? leftRef : rightRef;
+      if (!ref.current) return;
+      
+      const { mx, y } = clampBowPosition(localX, localY, page);
+      const placed = await placeBowSync(page, mx, y);
+      if (placed) {
+        pressPage(ref, { x: localX, y: localY });
+        // The ghost clear is handled locally or by hook
       }
-      if (!cancelled) {
-        const vid = getVisitorId();
-        visitorIdRef.current = vid;
-        setVisitorId(vid);
-        const local = loadAndMigrateBows();
-        setBows(local);
-        setRemote(false);
-        setUnavailable(false);
-        setHasSigned(local.some((b) => b.visitor_id === vid));
-      }
-    };
+    },
+    [placeBowSync]
+  );
 
-    const start = () => {
-      load().finally(() => {
-        if (!cancelled) setLoaded(true);
-      });
-    };
-
-    // Defer network until the guest book is near the viewport (keeps /api/bows off LCP path).
-    if (typeof IntersectionObserver === "undefined" || !section) {
-      start();
-    } else {
-      const io = new IntersectionObserver(
-        (entries) => {
-          if (entries.some((e) => e.isIntersecting)) {
-            io.disconnect();
-            start();
-          }
-        },
-        { rootMargin: "240px 0px" },
-      );
-      io.observe(section);
-      return () => {
-        cancelled = true;
-        io.disconnect();
-        if (hintTimerRef.current) window.clearTimeout(hintTimerRef.current);
-      };
-    }
-
-    return () => {
-      cancelled = true;
-      if (hintTimerRef.current) window.clearTimeout(hintTimerRef.current);
-    };
-  }, []);
-
-  const showHint = useCallback((key) => {
-    setHint(key);
-    if (hintTimerRef.current) window.clearTimeout(hintTimerRef.current);
-    hintTimerRef.current = window.setTimeout(() => setHint(null), 3200);
-  }, []);
+  const {
+    ghost,
+    setGhost,
+    clearGhost,
+    handlePageFocus,
+    handlePageKeyDown,
+  } = useGuestbookKeyboard({ unavailable, placeBowAt });
 
   const updateGhost = useCallback((page, e) => {
     if (!canHoverPreview() || unavailable) {
@@ -258,86 +218,7 @@ export const GuestbookCanvas = () => {
     const localY = (e.clientY - rect.top) / rect.height;
     const { mx, y } = clampBowPosition(localX, localY, page);
     setGhost({ page, mx, y });
-  }, [unavailable]);
-
-  const clearGhost = useCallback(() => setGhost(null), []);
-
-  const placeBowAt = useCallback(
-    async (page, localX, localY) => {
-      if (unavailable || syncingRef.current) return;
-      if (remote && !visitorIdRef.current) return;
-
-      const ref = page === "left" ? leftRef : rightRef;
-      if (!ref.current) return;
-
-      pressPage(ref, { x: localX, y: localY });
-      setGhost(null);
-
-      const { mx, y } = clampBowPosition(localX, localY, page);
-      const vid = remote ? visitorIdRef.current : getVisitorId();
-
-      if (bowTooClose(page, mx, y, bows, vid)) {
-        showHint("tooClose");
-        return;
-      }
-
-      const existing = bows.find((b) => b.visitor_id === vid);
-      const bow = normalizeBow({
-        id:
-          existing?.id ??
-          `bow_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`,
-        page,
-        mx,
-        y,
-        rotation: Math.round((Math.random() - 0.5) * 40),
-        visitor_id: vid,
-        created_at: existing?.created_at ?? new Date().toISOString(),
-      });
-
-      const snapshot = bows;
-
-      if (remote) {
-        setBows(mergeVisitorBow(bows, bow, vid));
-        setLastDropped(bow.id);
-        setHint(null);
-        syncingRef.current = true;
-      }
-
-      try {
-        if (remote) {
-          const { bows: synced, visitorId: nextVid } = await postRemoteBow(bow);
-          const resolved = nextVid ?? vid;
-          visitorIdRef.current = resolved;
-          setVisitorId(resolved);
-          setBows(synced.map(normalizeBow));
-        } else {
-          const next = saveBow(bow);
-          setBows(next);
-          setLastDropped(bow.id);
-          setHint(null);
-        }
-        setHasSigned(true);
-        if (!existing) {
-          showHint(page === "left" ? "placedLeft" : "placedRight");
-        } else {
-          showHint("moved");
-        }
-      } catch (err) {
-        if (remote) {
-          setBows(snapshot);
-          setLastDropped(existing?.id ?? null);
-        }
-        if (err.code === "too_close") {
-          showHint("tooClose");
-          return;
-        }
-        showHint("error");
-      } finally {
-        syncingRef.current = false;
-      }
-    },
-    [bows, remote, unavailable, showHint],
-  );
+  }, [unavailable, setGhost]);
 
   const handlePageClick = useCallback(
     (page, e) => {
@@ -346,48 +227,18 @@ export const GuestbookCanvas = () => {
       const rect = ref.current.getBoundingClientRect();
       const localX = (e.clientX - rect.left) / rect.width;
       const localY = (e.clientY - rect.top) / rect.height;
-      placeBowAt(page, localX, localY);
+      
+      // Immediately clear ghost and press page for responsive feel
+      setGhost(null);
+      pressPage(ref, { x: localX, y: localY });
+      
+      const { mx, y } = clampBowPosition(localX, localY, page);
+      placeBowSync(page, mx, y);
     },
-    [placeBowAt],
+    [placeBowSync, setGhost],
   );
 
-  const handlePageFocus = useCallback(
-    (page) => {
-      if (unavailable) return;
-      setGhost((prev) =>
-        prev?.page === page
-          ? prev
-          : { page, ...DEFAULT_KEYBOARD_POS },
-      );
-    },
-    [unavailable],
-  );
 
-  const handlePageKeyDown = (page, e) => {
-    if (unavailable) return;
-
-    const moveKeys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
-    if (moveKeys.includes(e.key)) {
-      e.preventDefault();
-      setGhost((prev) => {
-        const base =
-          prev?.page === page ? prev : { page, ...DEFAULT_KEYBOARD_POS };
-        let { mx, y } = base;
-        if (e.key === "ArrowLeft") mx -= KEYBOARD_STEP;
-        if (e.key === "ArrowRight") mx += KEYBOARD_STEP;
-        if (e.key === "ArrowUp") y -= KEYBOARD_STEP;
-        if (e.key === "ArrowDown") y += KEYBOARD_STEP;
-        return { page, ...clampBowPosition(mx, y, page) };
-      });
-      return;
-    }
-
-    if (e.key !== "Enter" && e.key !== " ") return;
-    e.preventDefault();
-    const pos =
-      ghost?.page === page ? ghost : { page, ...DEFAULT_KEYBOARD_POS };
-    placeBowAt(page, pos.mx, pos.y);
-  };
 
   const leftBows = bows.filter((b) => b.page === "left");
   const rightBows = bows.filter((b) => b.page === "right");

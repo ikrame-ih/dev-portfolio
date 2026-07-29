@@ -1,3 +1,8 @@
+/**
+ * @file ArchitectureModal.jsx
+ * @description Modal dialog that lazily loads and displays a Mermaid architecture 
+ * diagram for a selected project, ensuring heavy parsing libraries only load when needed.
+ */
 import { useRef, lazy, Suspense } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";

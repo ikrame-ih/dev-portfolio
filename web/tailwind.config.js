@@ -11,7 +11,7 @@ export default {
         bone: {
           DEFAULT: "rgb(var(--bone) / <alpha-value>)",
           50: "#FAF7F2",
-          100: "rgb(var(--bone-100) / <alpha-value>)",
+          100: "rgb(var(--bone) / <alpha-value>)",
           200: "rgb(var(--bone-200) / <alpha-value>)",
           300: "rgb(var(--bone-300) / <alpha-value>)",
           400: "rgb(var(--bone-400) / <alpha-value>)",
@@ -22,7 +22,7 @@ export default {
           mute: "rgb(var(--ink-mute) / <alpha-value>)",
         },
         burgundy: {
-          DEFAULT: "#4A0E0E",
+          DEFAULT: "rgb(var(--burgundy) / <alpha-value>)",
           light: "#6B1D1D",
         },
         cream: "rgb(var(--cream) / <alpha-value>)",

@@ -27,7 +27,7 @@ export const UI = {
       spanish: "Español",
       pdfNewTab: " PDF, opens in a new tab",
       opensNewTab: " (opens in a new tab)",
-      portraitAlt: "Ikrame I. H. — portrait",
+      portraitAlt: "Ikrame Ibn Hayoun — portrait",
     },
     footer: {
       designed:
@@ -228,7 +228,7 @@ export const UI = {
       spanish: "Español",
       pdfNewTab: " PDF, se abre en una pestaña nueva",
       opensNewTab: " (se abre en una pestaña nueva)",
-      portraitAlt: "Ikrame I. H. — retrato",
+      portraitAlt: "Ikrame Ibn Hayoun — retrato",
     },
     footer: {
       designed:

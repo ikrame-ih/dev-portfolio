@@ -1,3 +1,8 @@
+/**
+ * @file BentoSection.jsx
+ * @description A bento-box style grid layout displaying interests or mixed content.
+ * Uses Framer Motion for staggered reveal animations on scroll.
+ */
 import { motion, useReducedMotion } from "framer-motion";
 import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
 import SectionOverline from "./SectionOverline";

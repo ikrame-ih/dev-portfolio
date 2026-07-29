@@ -1,125 +1,24 @@
-import { useRef, useState } from "react";
 import {
   motion,
   AnimatePresence,
   useReducedMotion,
 } from "framer-motion";
-import { toast } from "sonner";
 import { TyingBow } from "./TyingBow";
 import Reveal from "./Reveal";
 import SectionOverline from "./SectionOverline";
 import { CTA_SPRING, MOTION_DURATION, MOTION_EASE } from "@/lib/motion";
 import { useContent, useUi } from "@/i18n/LocaleContext";
+import { useContactForm } from "@/lib/useContactForm";
 
 const MAX_NAME = 100;
 const MAX_EMAIL = 254;
 const MAX_MESSAGE = 2000;
 
-const SendFailedToast = ({ email, prefix }) => (
-  <span>
-    {prefix}{" "}
-    <a
-      href={`mailto:${email}`}
-      className="underline underline-offset-2 hover:opacity-80"
-    >
-      {email}
-    </a>
-    .
-  </span>
-);
-
 export const ContactSection = () => {
   const { PROFILE } = useContent();
   const ui = useUi();
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-    website: "",
-  });
-  const [errors, setErrors] = useState({});
-  const [submitting, setSubmitting] = useState(false);
-  const [sent, setSent] = useState(false);
-  const formStartedAt = useRef(Date.now());
+  const { form, errors, submitting, sent, handleChange, handleSubmit } = useContactForm();
   const reduce = useReducedMotion();
-
-  const showSendFailedToast = () => {
-    toast.error(
-      <SendFailedToast
-        email={PROFILE.email}
-        prefix={ui.contact.sendFailedPrefix}
-      />,
-    );
-  };
-
-  const onChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-    if (errors[e.target.name]) {
-      setErrors((prev) => {
-        const next = { ...prev };
-        delete next[e.target.name];
-        return next;
-      });
-    }
-  };
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    const nextErrors = {};
-    if (!form.name.trim()) nextErrors.name = ui.contact.nameRequired;
-    if (!form.email.trim()) nextErrors.email = ui.contact.emailRequired;
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
-      nextErrors.email = ui.contact.emailInvalid;
-    }
-    if (!form.message.trim()) nextErrors.message = ui.contact.messageRequired;
-
-    if (Object.keys(nextErrors).length) {
-      setErrors(nextErrors);
-      toast.error(ui.contact.fillAll);
-      return;
-    }
-
-    setErrors({});
-    setSubmitting(true);
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          message: form.message,
-          website: form.website,
-          startedAt: formStartedAt.current,
-        }),
-      });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        const code = typeof data.error === "string" ? data.error : "";
-
-        if (code === "rate_limited") {
-          toast.error(ui.contact.rateLimited);
-        } else if (code === "too_fast") {
-          toast.error(ui.contact.tooFast);
-        } else if (code === "invalid_email") {
-          toast.error(ui.contact.emailInvalid);
-        } else if (code === "missing_fields") {
-          toast.error(ui.contact.fillAll);
-        } else {
-          showSendFailedToast();
-        }
-        return;
-      }
-      setSent(true);
-      toast.success(ui.contact.sent);
-      setForm({ name: "", email: "", message: "", website: "" });
-      formStartedAt.current = Date.now();
-    } catch {
-      showSendFailedToast();
-    } finally {
-      setSubmitting(false);
-    }
-  };
 
   return (
     <section
@@ -180,7 +79,7 @@ export const ContactSection = () => {
           as="form"
           delay={0.1}
           className="md:col-span-7 space-y-6 relative"
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit}
           data-testid="contact-form"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -192,7 +91,7 @@ export const ContactSection = () => {
                 data-testid="contact-name"
                 name="name"
                 value={form.name}
-                onChange={onChange}
+                onChange={handleChange}
                 required
                 maxLength={MAX_NAME}
                 autoComplete="name"
@@ -219,7 +118,7 @@ export const ContactSection = () => {
                 name="email"
                 type="email"
                 value={form.email}
-                onChange={onChange}
+                onChange={handleChange}
                 required
                 maxLength={MAX_EMAIL}
                 autoComplete="email"
@@ -249,7 +148,7 @@ export const ContactSection = () => {
               data-testid="contact-message"
               name="message"
               value={form.message}
-              onChange={onChange}
+              onChange={handleChange}
               required
               maxLength={MAX_MESSAGE}
               rows={6}
@@ -281,7 +180,7 @@ export const ContactSection = () => {
               aria-label="Website"
               aria-hidden="true"
               value={form.website}
-              onChange={onChange}
+              onChange={handleChange}
             />
           </div>
 

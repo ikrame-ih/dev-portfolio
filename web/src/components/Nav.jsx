@@ -1,10 +1,17 @@
-import { useState, useEffect, useId, useMemo } from "react";
+/**
+ * @file Nav.jsx
+ * @description Main navigation header component for the portfolio.
+ * Handles both desktop and mobile layouts, scroll-based styling, 
+ * language switching, and hash-based smooth scrolling.
+ */
+import { useState, useEffect, useId, useMemo, useRef } from "react";
 import { motion, useReducedMotion, LayoutGroup, AnimatePresence } from "framer-motion";
 import { Bow } from "./Bow";
 import { MOTION_EASE, MOTION_DURATION, CTA_SPRING } from "@/lib/motion";
 import { onHashLinkClick, scrollToTop, navigateToHash } from "@/lib/scroll";
 import { useActiveSection } from "@/lib/useActiveSection";
 import { useContent, useLocale, useUi } from "@/i18n/LocaleContext";
+import { useFocusTrap } from "@/lib/useFocusTrap";
 
 export const Nav = ({ onOpenTerminal }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -15,6 +22,9 @@ export const Nav = ({ onOpenTerminal }) => {
   const { PROFILE, BLOG } = useContent();
   const { lang, setLang } = useLocale();
   const ui = useUi();
+  const containerRef = useRef(null);
+
+  useFocusTrap(menuOpen, containerRef, () => setMenuOpen(false));
 
   const allLinks = useMemo(
     () => [
@@ -34,8 +44,17 @@ export const Nav = ({ onOpenTerminal }) => {
     : allLinks;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -46,6 +65,8 @@ export const Nav = ({ onOpenTerminal }) => {
     };
     const prevBody = document.body.style.overflow;
     const prevHtml = document.documentElement.style.overflow;
+    // Lock scrolling on both body and html to prevent mobile browsers from 
+    // scrolling the underlying page when interacting with the open menu.
     document.body.style.overflow = "hidden";
     document.documentElement.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);
@@ -177,6 +198,7 @@ export const Nav = ({ onOpenTerminal }) => {
       </AnimatePresence>
 
       <motion.nav
+        ref={containerRef}
         data-testid="main-nav"
         aria-label={ui.nav.primary}
         {...navMotion}

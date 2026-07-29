@@ -1,3 +1,8 @@
+/**
+ * @file BlogSection.jsx
+ * @description Renders the blog/vault section. Handles empty/coming-soon states 
+ * securely without exposing unpublished drafts in the DOM.
+ */
 import { useMemo, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Bow } from "./Bow";

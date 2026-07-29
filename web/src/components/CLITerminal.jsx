@@ -208,14 +208,20 @@ export const CLITerminal = ({ open, onClose }) => {
 
   const print = (...args) => {
     const entries = toEntries(args);
-    setLines((prev) => [
-      ...prev,
-      ...entries.map((entry, j) => ({
-        ...entry,
-        id: `${Date.now()}-${prev.length + j}-${uid()}`,
-        delay: j * 0.028,
-      })),
-    ]);
+    setLines((prev) => {
+      const next = [
+        ...prev,
+        ...entries.map((entry, j) => ({
+          ...entry,
+          id: `${Date.now()}-${prev.length + j}-${uid()}`,
+          delay: j * 0.028,
+        })),
+      ];
+      if (next.length > 200) {
+        return next.slice(next.length - 200);
+      }
+      return next;
+    });
   };
 
   const goSection = (sectionId, message) => {
@@ -261,6 +267,41 @@ export const CLITerminal = ({ open, onClose }) => {
     return goSection(id, `${cli.openingSection} #${id}…`);
   };
 
+  const COMMANDS = {
+    help: async (ctx) => ctx.print(...getHelpLines(ctx.cli)),
+    "?": async (ctx) => ctx.print(...getHelpLines(ctx.cli)),
+    cmds: async (ctx) => ctx.print(...getHelpLines(ctx.cli)),
+    commands: async (ctx) => ctx.print(...getHelpLines(ctx.cli)),
+    clear: async (ctx) => ctx.setLines(buildBanner(ctx.cli)),
+    exit: async (ctx) => ctx.onClose(),
+    q: async (ctx) => ctx.onClose(),
+    about: async (ctx) => ctx.print(...aboutLines(ctx.content)),
+    tldr: async (ctx) => ctx.print(...tldrLines(ctx.content, ctx.cli)),
+    avail: async (ctx) => ctx.print(...availLines(ctx.content, ctx.cli)),
+    now: async (ctx) => ctx.print(...nowLines(ctx.content, ctx.cli)),
+    edu: async (ctx) => ctx.print(...eduLines(ctx.content, ctx.cli)),
+    stack: async (ctx) => ctx.print(...stackLines(ctx.content, ctx.cli)),
+    proj: async (ctx) => ctx.print(...projectLines(ctx.content, ctx.cli)),
+    links: async (ctx) => ctx.print(...linkLines(ctx.content, ctx.cli)),
+    pdf: async (ctx) => ctx.print(...openCvPdf(ctx.arg0 || ctx.rest || "en", ctx.cli)),
+    gh: async (ctx) => ctx.print(...openExternal("GitHub", ctx.PROFILE.github, ctx.cli)),
+    li: async (ctx) => ctx.print(...openExternal("LinkedIn", ctx.PROFILE.linkedin, ctx.cli)),
+    copy: async (ctx) => ctx.print(...(await copyEmail(ctx.content, ctx.cli))),
+    open: async (ctx) => ctx.print(...openProjectUrl("open", ctx.arg0, ctx.content, ctx.cli)),
+    demo: async (ctx) => ctx.print(...openProjectUrl("demo", ctx.arg0, ctx.content, ctx.cli)),
+    repo: async (ctx) => ctx.print(...openProjectUrl("repo", ctx.arg0, ctx.content, ctx.cli)),
+    go: async (ctx) => ctx.runGo(ctx.rest),
+    cv: async (ctx) => {
+      if (ctx.rest.toLowerCase().includes("pdf")) {
+        const es = /\bes\b/i.test(ctx.rest);
+        return ctx.print(...openCvPdf(es ? "es" : "en", ctx.cli));
+      }
+      return ctx.goSection("cv", ctx.cli.openingCv);
+    },
+    contact: async (ctx) => ctx.goSection("contact", ctx.cli.openingContact),
+    sign: async (ctx) => ctx.runSign(ctx.rest),
+  };
+
   const runCommand = async (raw) => {
     let cmd = raw.trim();
     print(L("cmd", cmd || cli.emptyCmd));
@@ -280,58 +321,25 @@ export const CLITerminal = ({ open, onClose }) => {
     const rest = restParts.join(" ");
     const arg0 = restParts[0];
 
-    if (
-      headLower === "help" ||
-      headLower === "?" ||
-      headLower === "cmds" ||
-      headLower === "commands"
-    ) {
-      return print(...getHelpLines(cli));
-    }
-    if (headLower === "clear") {
-      setLines(buildBanner(cli));
+    const ctx = {
+      print,
+      setLines,
+      onClose,
+      content,
+      cli,
+      PROFILE,
+      arg0,
+      rest,
+      runGo,
+      runSign,
+      goSection,
+    };
+
+    const handler = COMMANDS[headLower];
+    if (handler) {
+      await handler(ctx);
       return;
     }
-    if (headLower === "exit" || headLower === "q") return onClose();
-
-    if (headLower === "about") return print(...aboutLines(content));
-    if (headLower === "tldr") return print(...tldrLines(content, cli));
-    if (headLower === "avail") return print(...availLines(content, cli));
-    if (headLower === "now") return print(...nowLines(content, cli));
-    if (headLower === "edu") return print(...eduLines(content, cli));
-    if (headLower === "stack") return print(...stackLines(content, cli));
-    if (headLower === "proj") return print(...projectLines(content, cli));
-    if (headLower === "links") return print(...linkLines(content, cli));
-    if (headLower === "pdf")
-      return print(...openCvPdf(arg0 || rest || "en", cli));
-    if (headLower === "gh")
-      return print(...openExternal("GitHub", PROFILE.github, cli));
-    if (headLower === "li")
-      return print(...openExternal("LinkedIn", PROFILE.linkedin, cli));
-    if (headLower === "copy")
-      return print(...(await copyEmail(content, cli)));
-
-    if (headLower === "open")
-      return print(...openProjectUrl("open", arg0, content, cli));
-    if (headLower === "demo")
-      return print(...openProjectUrl("demo", arg0, content, cli));
-    if (headLower === "repo")
-      return print(...openProjectUrl("repo", arg0, content, cli));
-
-    if (headLower === "go") return runGo(rest);
-
-    if (headLower === "cv") {
-      if (rest.toLowerCase().includes("pdf")) {
-        const es = /\bes\b/i.test(rest);
-        return print(...openCvPdf(es ? "es" : "en", cli));
-      }
-      return goSection("cv", cli.openingCv);
-    }
-
-    if (headLower === "contact")
-      return goSection("contact", cli.openingContact);
-
-    if (headLower === "sign") return runSign(rest);
 
     const suggestion = suggestCommand(head.toLowerCase());
     if (suggestion && suggestion !== head.toLowerCase()) {
@@ -349,7 +357,7 @@ export const CLITerminal = ({ open, onClose }) => {
   const pushHistory = (cmd) => {
     if (!cmd.trim()) return;
     setHistory((prev) => {
-      const next = [cmd, ...prev.filter((h) => h !== cmd)];
+      const next = [cmd, ...prev.filter((h) => h !== cmd)].slice(0, 200);
       saveCliHistory(next);
       return next;
     });

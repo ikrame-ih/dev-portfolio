@@ -67,6 +67,19 @@
             "label": "linkedin.com/in/ikrame-ih",
             "inlineLink": false
           }
+        },
+        {
+          "id": "a1000001-0001-4000-8000-000000000003",
+          "hidden": false,
+          "icon": "devto-logo",
+          "iconColor": "",
+          "network": "DEV.to",
+          "username": "ikrame_ih",
+          "website": {
+            "url": "https://dev.to/ikrame_ih",
+            "label": "dev.to/ikrame_ih",
+            "inlineLink": false
+          }
         }
       ]
     },

@@ -1,7 +1,7 @@
 import { ASSETS } from "../assets.js";
 
 const PROFILE = {
-  name: "Ikrame I. H.",
+  name: "Ikrame Ibn Hayoun",
   location: "Málaga, ES",
   workPreference: "Disponible para oportunidades en remoto o híbridas",
   email: "ikihga2223@gmail.com",
@@ -9,6 +9,7 @@ const PROFILE = {
   github: "https://github.com/ikrame-ih",
   portfolioRepo: "https://github.com/ikrame-ih/dev-portfolio",
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
+  devto: "https://dev.to/ikrame_ih",
   siteUrl: "https://ikrame.dev",
   overline: "DESARROLLADORA DE SOFTWARE · FRONTEND · BACKEND",
   headlineParts: [

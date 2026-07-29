@@ -2,7 +2,7 @@ import { ASSETS } from "../assets.js";
 
 // English site copy — edit here (and locales/es.js), not scattered across components.
 const PROFILE = {
-  name: "Ikrame I. H.",
+  name: "Ikrame Ibn Hayoun",
   location: "Málaga, ES",
   workPreference: "Available for remote or hybrid opportunities",
   email: "ikihga2223@gmail.com",
@@ -10,6 +10,7 @@ const PROFILE = {
   github: "https://github.com/ikrame-ih",
   portfolioRepo: "https://github.com/ikrame-ih/dev-portfolio",
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
+  devto: "https://dev.to/ikrame_ih",
   siteUrl: "https://ikrame.dev",
   overline: "SOFTWARE DEVELOPER · FRONTEND · BACKEND",
   headlineParts: [
