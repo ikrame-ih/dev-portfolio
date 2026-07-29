@@ -20,7 +20,7 @@
     "location": "Malaga, Spain",
     "website": {
       "url": "https://ikrame.dev",
-      "label": "Portfolio"
+      "label": "ikrame.dev"
     },
     "customFields": []
   },
@@ -52,7 +52,7 @@
           "website": {
             "url": "https://github.com/ikrame-ih",
             "label": "github.com/ikrame-ih",
-            "inlineLink": false
+            "inlineLink": true
           }
         },
         {
@@ -65,7 +65,7 @@
           "website": {
             "url": "https://www.linkedin.com/in/ikrame-ih/",
             "label": "linkedin.com/in/ikrame-ih",
-            "inlineLink": false
+            "inlineLink": true
           }
         },
         {
@@ -78,7 +78,7 @@
           "website": {
             "url": "https://dev.to/ikrame_ih",
             "label": "dev.to/ikrame_ih",
-            "inlineLink": false
+            "inlineLink": true
           }
         }
       ]
