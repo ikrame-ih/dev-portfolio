@@ -219,55 +219,53 @@ export const Hero = () => {
               <div className="absolute -top-6 -left-6 z-10 hidden md:block bow-hover-tilt">
                 <Bow size={32} />
               </div>
-              <figure>
+              <motion.figure
+                style={
+                  reduce || !parallaxOn ? undefined : { y: photoParallax }
+                }
+                className="md:will-change-transform"
+              >
                 <motion.div
-                  style={
-                    reduce || !parallaxOn ? undefined : { y: photoParallax }
+                  className="photo-frame aspect-[3/4] bg-bone-300 border border-ink/15 overflow-hidden"
+                  initial={
+                    reduce
+                      ? false
+                      : {
+                          clipPath:
+                            "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+                        }
                   }
-                  className="md:will-change-transform"
+                  animate={{
+                    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                  }}
+                  transition={{
+                    duration: 1.35,
+                    delay: 0.4,
+                    ease: MOTION_EASE,
+                  }}
                 >
-                  <motion.div
-                    className="photo-frame aspect-[3/4] bg-bone-300 border border-ink/15 overflow-hidden"
+                  <motion.img
+                    data-testid="hero-photo"
+                    src={ASSETS.profilePortrait}
+                    alt={ui.hero.portraitAlt}
+                    width={640}
+                    height={735}
+                    className="w-full h-full object-cover object-top"
+                    loading="eager"
+                    decoding="async"
+                    fetchPriority="high"
                     initial={
                       reduce
                         ? false
-                        : {
-                            clipPath:
-                              "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-                          }
+                        : { scale: 1.08, y: 12 }
                     }
-                    animate={{
-                      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-                    }}
+                    animate={{ scale: 1.01, y: 0 }}
                     transition={{
                       duration: 1.35,
                       delay: 0.4,
                       ease: MOTION_EASE,
                     }}
-                  >
-                    <motion.img
-                      data-testid="hero-photo"
-                      src={ASSETS.profilePortrait}
-                      alt={ui.hero.portraitAlt}
-                      width={640}
-                      height={735}
-                      className="w-full h-full object-cover object-top"
-                      loading="eager"
-                      decoding="async"
-                      fetchPriority="high"
-                      initial={
-                        reduce
-                          ? false
-                          : { scale: 1.08, y: 12 }
-                      }
-                      animate={{ scale: 1.01, y: 0 }}
-                      transition={{
-                        duration: 1.35,
-                        delay: 0.4,
-                        ease: MOTION_EASE,
-                      }}
-                    />
-                  </motion.div>
+                  />
                 </motion.div>
                 <figcaption className="mt-3 text-right">
                   <a
@@ -281,7 +279,7 @@ export const Hero = () => {
                     <span className="sr-only">{ui.hero.opensNewTab}</span>
                   </a>
                 </figcaption>
-              </figure>
+              </motion.figure>
             </div>
           </motion.div>
         </div>
