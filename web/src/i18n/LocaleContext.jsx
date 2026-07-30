@@ -26,8 +26,11 @@ const detectLang = () => {
   } catch {
     /* ignore */
   }
-  const nav = (navigator.language || "").toLowerCase();
-  return nav.startsWith("es") ? "es" : "en";
+  const userLangs = navigator.languages || [navigator.language || ""];
+  const prefersSpanish = userLangs.some((l) =>
+    (l || "").toLowerCase().startsWith("es")
+  );
+  return prefersSpanish ? "es" : "en";
 };
 
 export const LocaleProvider = ({ children }) => {
