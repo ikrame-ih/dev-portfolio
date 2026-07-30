@@ -21,6 +21,7 @@ import {
   siVercel,
   siJsonwebtokens,
   siHtml5,
+  siElectron,
 } from "simple-icons";
 
 const Svg = ({ children, className, viewBox = "0 0 24 24", style }) => (
@@ -54,6 +55,12 @@ const CUSTOM = {
     </Svg>
   ),
   Accessibility: (p) => (
+    <Svg {...p}>
+      <circle cx="12" cy="4.5" r="2" />
+      <path d="M12 8.2c-3.6 0-6.5 1.05-6.5 1.05l.7 1.85S8.4 10.4 12 10.4s5.8.7 5.8.7l.7-1.85S15.6 8.2 12 8.2Zm-2.15 3.5v8.1h1.85v-5.2h.6v5.2h1.85v-8.1h-4.3Z" />
+    </Svg>
+  ),
+  Accesibilidad: (p) => (
     <Svg {...p}>
       <circle cx="12" cy="4.5" r="2" />
       <path d="M12 8.2c-3.6 0-6.5 1.05-6.5 1.05l.7 1.85S8.4 10.4 12 10.4s5.8.7 5.8.7l.7-1.85S15.6 8.2 12 8.2Zm-2.15 3.5v8.1h1.85v-5.2h.6v5.2h1.85v-8.1h-4.3Z" />
@@ -159,6 +166,8 @@ const FROM_SIMPLE = {
   Vercel: siVercel,
   JWT: siJsonwebtokens,
   "Semantic HTML": siHtml5,
+  "HTML semántico": siHtml5,
+  Electron: siElectron,
 };
 
 const Fallback = (p) => (
