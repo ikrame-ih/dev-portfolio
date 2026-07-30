@@ -19,7 +19,7 @@ const PROFILE = {
     { text: "and the context behind\u00A0it.", italic: true },
   ],
   heroSubtext:
-    "Hi, I'm Ikrame Ibn Hayoun, a software developer based in Málaga. I specialize in frontend development while also enjoying building backend solutions. I enjoy turning ideas into intuitive, reliable, and scalable applications. AI has become a natural part of my workflow, and I'm always exploring new ways to apply it.",
+    "Hi, I'm Ikrame Ibn Hayoun, a software developer based in Málaga. I build modern web applications and backend APIs using React, Node.js, and PostgreSQL. I enjoy turning ideas into intuitive, reliable, and scalable software. AI has become a natural part of my workflow, and I'm currently expanding into AI & Big Data.",
   // Compact hero facts — avoid repeating overline role or Málaga (already in copy + photo).
   heroFacts: [
     { eyebrow: "Open to", text: "Remote · hybrid" },

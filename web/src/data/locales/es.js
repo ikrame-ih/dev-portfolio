@@ -18,7 +18,7 @@ const PROFILE = {
     { text: "como en las personas que lo utilizan.", italic: true },
   ],
   heroSubtext:
-    "Hola, soy Ikrame Ibn Hayoun, desarrolladora de software en Málaga. Mi especialidad es el desarrollo frontend, aunque también disfruto construyendo soluciones backend. Me gusta convertir ideas en aplicaciones intuitivas, fiables y escalables. La IA forma parte de mi trabajo diario y siempre estoy explorando nuevas formas de aplicarla.",
+    "Hola, soy Ikrame Ibn Hayoun, desarrolladora de software en Málaga. Construyo aplicaciones web modernas y APIs backend con React, Node.js y PostgreSQL. Me gusta transformar ideas en software intuitivo, fiable y escalable. La IA forma parte natural de mi flujo de trabajo y actualmente me estoy expandiendo hacia IA y Big Data.",
   heroFacts: [
     { eyebrow: "Disponible para", text: "Remoto · híbrido" },
     { eyebrow: "Trayectoria", text: "DAW · jun. 2026" },
