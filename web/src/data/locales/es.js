@@ -152,7 +152,7 @@ const EXPERIENCE = [
   },
   {
     company: "EY Global Delivery Services",
-    role: "Executive Assistant",
+    role: "Asistente ejecutiva",
     period: "feb. 2025 — mar. 2026",
     track: "hybrid",
     bullets: [
@@ -172,7 +172,7 @@ const EXPERIENCE = [
   },
   {
     company: "EC Azafatas",
-    role: "Brand Ambassador",
+    role: "Embajadora de marca",
     period: "feb. 2026",
     track: "biz",
     bullets: [
