@@ -133,13 +133,12 @@ export const Hero = () => {
               ))}
             </h1>
 
-            <motion.p
-              {...heroStep("subtext", reduce)}
+            <p
               data-testid="hero-positioning"
               className="mt-8 max-w-xl text-sm md:text-base text-ink-soft leading-relaxed"
             >
               {PROFILE.heroSubtext}
-            </motion.p>
+            </p>
 
             {/* Editorial fact row — vertical rules from md only */}
             <motion.ul
@@ -225,51 +224,41 @@ export const Hero = () => {
                 }
                 className="md:will-change-transform"
               >
-                <motion.div
-                  className="photo-frame aspect-[3/4] bg-bone-300 border border-ink/15 overflow-hidden"
-                  initial={
-                    reduce
-                      ? false
-                      : {
-                          clipPath:
-                            "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-                        }
-                  }
-                  animate={{
-                    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-                  }}
-                  transition={{
-                    duration: 1.35,
-                    delay: 0.4,
-                    ease: MOTION_EASE,
-                  }}
-                >
-                  <picture>
-                    <source srcSet={ASSETS.profilePortraitWebp} type="image/webp" />
-                    <motion.img
-                      data-testid="hero-photo"
-                      src={ASSETS.profilePortrait}
-                      alt={ui.hero.portraitAlt}
-                      width={640}
-                      height={735}
-                      className="w-full h-full object-cover object-top"
-                      loading="eager"
-                      decoding="async"
-                      fetchPriority="high"
-                      initial={
-                        reduce
-                          ? false
-                          : { scale: 1.08, y: 12 }
-                      }
-                      animate={{ scale: 1.01, y: 0 }}
-                      transition={{
-                        duration: 1.35,
-                        delay: 0.4,
-                        ease: MOTION_EASE,
-                      }}
-                    />
-                  </picture>
-                </motion.div>
+                {/* Composited reveal: overflow:hidden wrapper + translateY on inner div, no clip-path */}
+                <div className="photo-frame aspect-[3/4] bg-bone-300 border border-ink/15 overflow-hidden">
+                  <motion.div
+                    className="w-full h-full"
+                    initial={reduce ? false : { y: "100%" }}
+                    animate={{ y: "0%" }}
+                    transition={{
+                      duration: 1.35,
+                      delay: 0.4,
+                      ease: MOTION_EASE,
+                    }}
+                  >
+                    <picture>
+                      <source srcSet={ASSETS.profilePortraitWebp} type="image/webp" />
+                      <motion.img
+                        data-testid="hero-photo"
+                        src={ASSETS.profilePortrait}
+                        alt={ui.hero.portraitAlt}
+                        width={640}
+                        height={735}
+                        className="w-full h-full object-cover object-top"
+                        loading="eager"
+                        decoding="async"
+                        fetchPriority="high"
+                        initial={reduce ? false : { scale: 1.08, y: 12 }}
+                        animate={{ scale: 1.01, y: 0 }}
+                        transition={{
+                          duration: 1.35,
+                          delay: 0.4,
+                          ease: MOTION_EASE,
+                        }}
+                      />
+                    </picture>
+                  </motion.div>
+                </div>
                 <figcaption className="mt-3 text-right">
                   <a
                     href={PROFILE.linkedin}
