@@ -3,17 +3,19 @@ import { Toaster } from "sonner";
 
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import CVSection from "@/components/CVSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import BentoSection from "@/components/BentoSection";
-import BlogSection from "@/components/BlogSection";
-import GuestbookCanvas from "@/components/GuestbookCanvas";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
-import CLITerminal from "@/components/CLITerminal";
 import BowCursor from "@/components/BowCursor";
 import { scrollToElement } from "@/lib/scroll";
 import { useContent, useUi } from "@/i18n/LocaleContext";
+import { lazy, Suspense } from "react";
+
+const CVSection = lazy(() => import("@/components/CVSection"));
+const ProjectsSection = lazy(() => import("@/components/ProjectsSection"));
+const BentoSection = lazy(() => import("@/components/BentoSection"));
+const BlogSection = lazy(() => import("@/components/BlogSection"));
+const GuestbookCanvas = lazy(() => import("@/components/GuestbookCanvas"));
+const ContactSection = lazy(() => import("@/components/ContactSection"));
+const Footer = lazy(() => import("@/components/Footer"));
+const CLITerminal = lazy(() => import("@/components/CLITerminal"));
 
 export default function App() {
   const [cliOpen, setCliOpen] = useState(false);
@@ -99,17 +101,23 @@ export default function App() {
         <Nav onOpenTerminal={() => setCliOpen(true)} />
         <main id="main-content" tabIndex={-1}>
           <Hero />
-          <CVSection />
-          <ProjectsSection />
-          <BentoSection />
-          <BlogSection />
-          <GuestbookCanvas />
-          <ContactSection />
+          <Suspense fallback={null}>
+            <CVSection />
+            <ProjectsSection />
+            <BentoSection />
+            <BlogSection />
+            <GuestbookCanvas />
+            <ContactSection />
+          </Suspense>
         </main>
-        <Footer onOpenTerminal={() => setCliOpen(true)} />
+        <Suspense fallback={null}>
+          <Footer onOpenTerminal={() => setCliOpen(true)} />
+        </Suspense>
       </div>
 
-      <CLITerminal open={cliOpen} onClose={() => setCliOpen(false)} />
+      <Suspense fallback={null}>
+        <CLITerminal open={cliOpen} onClose={() => setCliOpen(false)} />
+      </Suspense>
       <BowCursor />
       <Toaster
         theme="light"

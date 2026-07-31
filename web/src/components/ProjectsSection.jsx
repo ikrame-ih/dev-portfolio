@@ -128,6 +128,7 @@ const ProjectStrip = ({
             <div
               data-testid={`project-shot-pending-${p.id}`}
               className="project-shot-frame project-shot-frame--pending"
+              role="img"
               aria-label={`${p.name} preview coming soon`}
             >
               <span className="project-shot-frame__corner project-shot-frame__corner--tl" aria-hidden />
@@ -137,9 +138,9 @@ const ProjectStrip = ({
               <div className="aspect-video w-full bg-bone-200/60 flex flex-col items-center justify-center gap-4 px-6 text-center">
                 <Bow size={28} />
                 <div>
-                  <p className="font-serif text-2xl md:text-3xl tracking-tight text-ink">
+                  <h3 className="font-serif text-2xl md:text-3xl tracking-tight text-ink">
                     {section.inProgress}
-                  </p>
+                  </h3>
                   <p className="mt-2 font-mono text-xs uppercase tracking-[0.22em] text-ink-mute">
                     {section.comingSoon}
                   </p>

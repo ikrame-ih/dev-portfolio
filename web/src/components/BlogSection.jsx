@@ -27,9 +27,9 @@ const PostRow = ({ post, index, reduce, soon, soonLabel }) => (
         <span className="font-mono text-xs text-ink-mute">{soonLabel}</span>
       )}
     </div>
-    <p className="font-serif text-xl md:text-2xl text-ink leading-snug transition-colors duration-500 group-hover:text-burgundy">
+    <h3 className="font-serif text-xl md:text-2xl text-ink leading-snug transition-colors duration-500 group-hover:text-burgundy">
       {post.title}
-    </p>
+    </h3>
     <p className="mt-2 font-mono text-xs md:text-sm text-ink-soft leading-relaxed max-w-2xl">
       {post.excerpt}
     </p>
