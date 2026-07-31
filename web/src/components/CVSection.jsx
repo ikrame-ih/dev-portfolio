@@ -99,9 +99,9 @@ const DomainPanel = ({ domain, children, testId }) => {
     <div data-testid={testId} className="relative min-h-0 md:min-h-[260px]">
       <motion.span
         aria-hidden="true"
-        className="pointer-events-none absolute -top-2 right-0 hidden md:block font-serif font-light text-[7rem] leading-none select-none text-ink-mute"
-        initial={reduce ? false : { opacity: 0, x: 12 }}
-        whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
+        className="pointer-events-none absolute -top-2 right-0 hidden md:block font-serif font-light text-[7rem] leading-none select-none text-[#4A4A4A]"
+        initial={reduce ? false : { x: 12 }}
+        whileInView={reduce ? undefined : { x: 0 }}
         viewport={REVEAL_VIEWPORT}
         transition={revealTransition(0.08)}
       >

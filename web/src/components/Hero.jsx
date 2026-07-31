@@ -115,10 +115,10 @@ export const Hero = () => {
                   key={part.text}
                   as="span"
                   by="word"
-                  animation="blurInUp"
+                  animation="fadeIn"
                   delay={HEADLINE_LINE_DELAY[i]}
                   stagger={HEADLINE_WORD_STAGGER}
-                  duration={0.32}
+                  duration={0.38}
                   startOnView={false}
                   className={`block ${
                     part.italic
@@ -244,28 +244,31 @@ export const Hero = () => {
                     ease: MOTION_EASE,
                   }}
                 >
-                  <motion.img
-                    data-testid="hero-photo"
-                    src={ASSETS.profilePortrait}
-                    alt={ui.hero.portraitAlt}
-                    width={640}
-                    height={735}
-                    className="w-full h-full object-cover object-top"
-                    loading="eager"
-                    decoding="async"
-                    fetchPriority="high"
-                    initial={
-                      reduce
-                        ? false
-                        : { scale: 1.08, y: 12 }
-                    }
-                    animate={{ scale: 1.01, y: 0 }}
-                    transition={{
-                      duration: 1.35,
-                      delay: 0.4,
-                      ease: MOTION_EASE,
-                    }}
-                  />
+                  <picture>
+                    <source srcSet={ASSETS.profilePortraitWebp} type="image/webp" />
+                    <motion.img
+                      data-testid="hero-photo"
+                      src={ASSETS.profilePortrait}
+                      alt={ui.hero.portraitAlt}
+                      width={640}
+                      height={735}
+                      className="w-full h-full object-cover object-top"
+                      loading="eager"
+                      decoding="async"
+                      fetchPriority="high"
+                      initial={
+                        reduce
+                          ? false
+                          : { scale: 1.08, y: 12 }
+                      }
+                      animate={{ scale: 1.01, y: 0 }}
+                      transition={{
+                        duration: 1.35,
+                        delay: 0.4,
+                        ease: MOTION_EASE,
+                      }}
+                    />
+                  </picture>
                 </motion.div>
                 <figcaption className="mt-3 text-right">
                   <a

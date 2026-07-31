@@ -63,12 +63,19 @@ export const BlogSection = () => {
               <div>
                 <div className="shrink-0 w-16 h-16 md:w-20 md:h-20 border border-ink/20 bg-bone overflow-hidden">
                   {avatarOk ? (
-                    <img
-                      src={BLOG.avatar}
-                      alt=""
-                      className="w-full h-full object-cover object-top"
-                      onError={() => setAvatarOk(false)}
-                    />
+                    <picture>
+                      <source srcSet={BLOG.avatar.replace(".jpg", ".webp")} type="image/webp" />
+                      <img
+                        src={BLOG.avatar}
+                        alt=""
+                        width={80}
+                        height={80}
+                        className="w-full h-full object-cover object-top"
+                        loading="lazy"
+                        decoding="async"
+                        onError={() => setAvatarOk(false)}
+                      />
+                    </picture>
                   ) : (
                     <div
                       className="w-full h-full flex items-center justify-center bg-bone-300"
