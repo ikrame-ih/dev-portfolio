@@ -83,11 +83,12 @@ export const ContactSection = () => {
           data-testid="contact-form"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <label className="block field-line">
+            <label htmlFor="contact-name" className="block field-line">
               <span className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
                 {ui.contact.name}
               </span>
               <input
+                id="contact-name"
                 data-testid="contact-name"
                 name="name"
                 value={form.name}
@@ -109,11 +110,12 @@ export const ContactSection = () => {
                 </span>
               )}
             </label>
-            <label className="block field-line">
+            <label htmlFor="contact-email" className="block field-line">
               <span className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
                 {ui.contact.email}
               </span>
               <input
+                id="contact-email"
                 data-testid="contact-email"
                 name="email"
                 type="email"
@@ -140,11 +142,12 @@ export const ContactSection = () => {
             </label>
           </div>
 
-          <label className="block field-line">
+          <label htmlFor="contact-message" className="block field-line">
             <span className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
               {ui.contact.message}
             </span>
             <textarea
+              id="contact-message"
               data-testid="contact-message"
               name="message"
               value={form.message}
@@ -169,15 +172,15 @@ export const ContactSection = () => {
             )}
           </label>
 
-          {/* Honeypot — off-screen; aria-label avoids WAVE orphaned-label + missing-label. */}
+          {/* Honeypot — off-screen; standard label avoids WAVE alerts. */}
           <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
+            <label htmlFor="contact-website" className="sr-only">Website</label>
             <input
               id="contact-website"
               name="website"
               type="text"
               tabIndex={-1}
               autoComplete="off"
-              aria-label="Website"
               aria-hidden="true"
               value={form.website}
               onChange={handleChange}
