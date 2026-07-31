@@ -203,17 +203,7 @@ export const Hero = () => {
             </motion.div>
           </div>
 
-          <motion.div
-            // Opacity stays on — CSS clip-path owns the portrait reveal (Framer fade was hiding it).
-            initial={reduce ? false : { opacity: 1, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={
-              reduce
-                ? undefined
-                : { duration: 0.7, ease: MOTION_EASE, delay: 0.2 }
-            }
-            className="col-span-12 md:col-span-5 md:pt-2"
-          >
+          <div className="col-span-12 md:col-span-5 md:pt-2">
             <div className="relative">
               <div className="absolute -top-6 -left-6 z-10 hidden md:block bow-hover-tilt">
                 <Bow size={32} />
@@ -273,7 +263,7 @@ export const Hero = () => {
                 </figcaption>
               </motion.figure>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
