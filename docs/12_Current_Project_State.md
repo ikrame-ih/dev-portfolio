@@ -2,12 +2,23 @@
 tags:
   - portfolio
   - current-state
-updated: 2026-06-21
+updated: 2026-08-01
 ---
 
 # 12 — Current project state
 
-Jun 2026. Live at ikrame.dev. Contact + guest book work on Vercel. Blog placeholders.
+Aug 2026. Live at ikrame.dev. Contact + guest book work on Vercel. Blog placeholders. CV updated to latest PDF version.
+
+---
+
+## Performance Optimizations (Aug 2026)
+
+Major mobile performance sprint pushed the site from 87 to a 100 lighthouse score:
+- **LCP fixes**: Removed opacity delay on hero subtext, pre-rendered hero skeleton in `index.html` for instant paints.
+- **Render blocking**: Injected CSS via a custom JS plugin to remove render-blocking stylesheets without bloating the main HTML.
+- **Images**: Replaced heavy assets with preloaded WebP portraits.
+- **Animations**: Replaced expensive `clip-path` with composited `translateY` animations.
+- **A11Y**: Fixed WAVE contrast errors on decorative numbers.
 
 ---
 
