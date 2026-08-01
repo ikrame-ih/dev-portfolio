@@ -151,7 +151,7 @@ const EXPERIENCE = [
   {
     company: "EY Global Delivery Services",
     role: "Executive Assistant",
-    period: "Feb 2025 — Mar 2026",
+    period: "Jan 2025 — Mar 2026",
     track: "hybrid",
     bullets: [
       {
@@ -193,7 +193,7 @@ const EXPERIENCE = [
   {
     company: "Sylvis Profesional Cosmetic",
     role: "Admin Assistant",
-    period: "Mar — Oct 2024",
+    period: "Jan — Oct 2024",
     track: "biz",
     bullets: [
       "Reconciled bank accounts and posted invoices, including import purchases.",
