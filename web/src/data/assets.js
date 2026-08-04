@@ -15,6 +15,7 @@ export const ASSETS = {
     travelling: "/images/interests/travelling.jpg",
   },
   projects: {
+    reckonFlow: "/images/projects/reckon-flow.png",
     liveEventRadar: "/images/projects/live-event-radar.png",
     myPlaythrough: "/images/projects/my-playthrough.png",
     aibaWidget: "/images/projects/aiba-widget.png",

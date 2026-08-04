@@ -239,8 +239,8 @@ const PROJECTS = [
     stack: ["Python", "FastAPI", "PostgreSQL", "Redis", "Alembic", "pytest"],
     href: "https://github.com/ikrame-ih/reckon-flow",
     demo: "https://reckon-flow.onrender.com/docs",
-    image: null,
-    imageAlt: null,
+    image: ASSETS.projects.reckonFlow,
+    imageAlt: "ReckonFlow Swagger UI — GET suggestions returning a matched bank line",
     description:
       "Headless FastAPI API for travel approvals, an immutable double-entry ledger, LLM receipt extraction, and hybrid bank reconciliation — built so a retried POST cannot double-pay.",
     architectureSummary:
