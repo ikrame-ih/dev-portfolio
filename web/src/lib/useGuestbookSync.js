@@ -1,9 +1,3 @@
-/**
- * @file useGuestbookSync.js
- * @description Custom hook for synchronising guestbook signatures between 
- * the local client state and a remote backend (if available), gracefully 
- * falling back to local storage upon network failures.
- */
 import { useState, useRef, useEffect, useCallback } from "react";
 import { getVisitorId, loadAndMigrateBows, saveBow } from "@/lib/storage";
 import { fetchRemoteBows, postRemoteBow, useRemoteBows } from "@/lib/bowsApi";

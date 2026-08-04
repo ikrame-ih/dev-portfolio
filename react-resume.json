@@ -14,10 +14,10 @@
   },
   "basics": {
     "name": "Ikrame Ibn Hayoun",
-    "headline": "Software Developer - Frontend and Backend - Malaga, Spain",
+    "headline": "Backend Developer · Python/FastAPI · PostgreSQL · Node — Málaga, Spain",
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
-    "location": "Malaga, Spain",
+    "location": "Málaga, Spain",
     "website": {
       "url": "https://ikrame.dev",
       "label": "ikrame.dev"
@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Software developer based in Malaga, comfortable across frontend and backend: interfaces and component systems, APIs, authentication, and databases.</p><p>DAW graduate (Jun 2026). Capstone project MyPlaythrough awarded maximum grade. AI and Big Data Specialisation Course starting Sep 2026.</p><p>Open to remote or hybrid software developer roles.</p>"
+    "content": "<p>Backend-focused software developer based in Málaga. I build APIs, authentication, and databases — and I can ship the frontend when the product needs it.</p><p>Most recently: ReckonFlow, a FastAPI ledger and reconciliation API with idempotent writes so retried payments cannot double-post.</p><p>DAW graduate (Jun 2026). Capstone MyPlaythrough awarded maximum grade. AI &amp; Big Data specialisation starting Sep 2026. Open to remote or hybrid backend roles.</p>"
   },
   "sections": {
     "profiles": {
@@ -70,7 +70,7 @@
         },
         {
           "id": "a1000001-0001-4000-8000-000000000003",
-          "hidden": false,
+          "hidden": true,
           "icon": "devto-logo",
           "iconColor": "",
           "network": "DEV.to",
@@ -110,7 +110,7 @@
           "location": "Málaga, Spain",
           "period": "Jan 2025 - Mar 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Executive support and internal tooling in a global professional services environment.</p><ul><li>Built a Power App that ran the CNS Christmas raffle end-to-end — registration and number assignment in one place, instead of chasing it over email/Teams.</li><li>Owned high-stakes client visits in Málaga end-to-end — agendas, logistics, and local experiences — where the day often shaped whether a deal moved forward.</li><li>Ran the day-to-day ops stack — travel, Concur, Outlook, Teams, SharePoint, plus the firm's own internal tools — in a global professional-services setting.</li></ul>",
+          "description": "<p>Executive support and internal tooling in a global professional services environment.</p><ul><li>Built a Power App that ran the CNS Christmas raffle end-to-end — registration and number assignment in one place, instead of chasing it over email/Teams.</li><li>Ran logistics for client visits in Málaga — agendas, venues, and coordination.</li><li>Day-to-day ops stack: travel, Concur, Outlook, Teams, SharePoint, plus the firm's internal tools.</li></ul>",
           "roles": []
         },
         {
@@ -159,7 +159,7 @@
         {
           "id": "c3000001-0001-4000-8000-000000000001",
           "hidden": false,
-          "school": "IES Zaidin Vergeles",
+          "school": "IES Zaidín Vergeles",
           "degree": "Postgraduate Specialization",
           "area": "Artificial Intelligence & Big Data",
           "grade": "EQF Level 5",
@@ -171,11 +171,11 @@
         {
           "id": "c3000001-0001-4000-8000-000000000002",
           "hidden": false,
-          "school": "CESUR Este, Malaga",
+          "school": "CESUR Este, Málaga",
           "degree": "Higher Vocational Degree (DAW)",
           "area": "Web Application Development",
           "grade": "Capstone: top honors (10/10). EQF Level 5 (UK HND Equivalent)",
-          "location": "Malaga, Spain",
+          "location": "Málaga, Spain",
           "period": "Sep 2024 - Jun 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
           "description": "Capstone: MyPlaythrough — web application with React frontend, Node.js/Express API, and PostgreSQL."
@@ -183,11 +183,11 @@
         {
           "id": "c3000001-0001-4000-8000-000000000003",
           "hidden": false,
-          "school": "I.E.S. Politecnico Jesus Marin",
+          "school": "I.E.S. Politécnico Jesús Marín",
           "degree": "Vocational Diploma",
           "area": "Business Administration & Management",
           "grade": "Graduated with Honors. EQF Level 4",
-          "location": "Malaga, Spain",
+          "location": "Málaga, Spain",
           "period": "Sep 2022 - Jun 2024",
           "website": { "url": "", "label": "", "inlineLink": false },
           "description": ""
@@ -212,13 +212,13 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>DAW capstone awarded maximum grade. Personal game library manager with backlog tracking, community features, recommendations, discussions, and admin moderation.</p><ul><li>Built with React, Vite, Node.js, Express, PostgreSQL, JWT, and Docker Compose.</li><li>Added Vitest unit tests and CI for reliable releases.</li><li>Live demo: https://my-playthrough.vercel.app/</li></ul>"
+          "description": "<p>DAW capstone awarded maximum grade. Personal game library manager with backlog tracking, community features, recommendations, discussions, and admin moderation.</p><ul><li>Built with React, Vite, Node.js, Express, PostgreSQL, JWT, and Docker Compose.</li><li>Vitest unit tests on client and server.</li><li>Live demo: https://my-playthrough.vercel.app/</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000002",
           "hidden": false,
           "name": "Live Event Radar",
-          "period": "Jun 2025 - Present",
+          "period": "May 2026 - Present",
           "website": {
             "url": "https://github.com/ikrame-ih/live-event-radar",
             "label": "GitHub",
@@ -227,24 +227,28 @@
           "description": "<p>Real-time venue operations dashboard for brand activations with synchronized command center and telemetry map views.</p><ul><li>Developed with Next.js, React, TypeScript, Zustand, and Leaflet.</li><li>Feature-sliced architecture, Vitest tests, Playwright smoke tests, and GitHub Actions CI.</li><li>Live demo: https://live-event-radar.vercel.app</li></ul>"
         },
         {
+          "id": "d4000001-0001-4000-8000-000000000003",
+          "hidden": false,
+          "name": "ReckonFlow",
+          "period": "Aug 2026 - Present",
+          "website": {
+            "url": "https://github.com/ikrame-ih/reckon-flow",
+            "label": "GitHub",
+            "inlineLink": true
+          },
+          "description": "<p>Headless FastAPI backend for corporate travel: approvals, an immutable double-entry ledger, LLM receipt extraction, and hybrid bank reconciliation.</p><ul><li>Python, FastAPI, SQLAlchemy async, PostgreSQL/Neon, Redis/Upstash, Alembic.</li><li>Idempotent mutating writes, money as Decimal strings, row locks on reconcile, CI with mypy and coverage.</li><li>Live API: https://reckon-flow.onrender.com/docs · Docs: https://ikrame-ih.github.io/reckon-flow/</li></ul>"
+        },
+        {
           "id": "d4000001-0001-4000-8000-000000000004",
           "hidden": false,
           "name": "Aiba",
-          "period": "Jun 2026 - Present",
+          "period": "Jul 2026 - Present",
           "website": {
             "url": "https://github.com/ikrame-ih/aiba-widget",
             "label": "GitHub",
             "inlineLink": true
           },
           "description": "<p>Local-first Windows productivity companion for planning, focus sessions, and wrap-up, with session history and offline help. No account, no cloud.</p><ul><li>Built with Electron, React 19, TypeScript, and Vite.</li><li>Compact timer plus expanded studio shell, focus guard, and preferences.</li></ul>"
-        },
-        {
-          "id": "d4000001-0001-4000-8000-000000000003",
-          "hidden": false,
-          "name": "ReconFlow",
-          "period": "Jun 2026 - Present",
-          "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Headless reconciliation pipeline for bank CSVs and invoice data (in progress).</p><ul><li>Ingest, transform, and match stages with Python, FastAPI, dbt, and PostgreSQL.</li><li>Outputs a reconciliation mart and exceptions queue.</li><li>Orchestration with Dagster (in progress).</li></ul>"
         }
       ]
     },
@@ -286,16 +290,16 @@
           "proficiency": "",
           "level": 0,
           "keywords": [
-            "Node.js",
-            "Express",
             "Python",
             "FastAPI",
+            "Node.js",
+            "Express",
             "PostgreSQL",
             "SQL",
+            "Redis",
             "REST APIs",
             "JWT",
-            "dbt",
-            "Dagster"
+            "Alembic"
           ]
         },
         {

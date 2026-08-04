@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Designing idempotent POSTs for a ledger API — Ikrame Ibn Hayoun</title>
+  <meta name="description" content="How ReckonFlow uses Idempotency-Key, Redis SET NX EX, response replay, and fail-open behaviour so retried payments cannot double-post." />
+  <link rel="canonical" href="https://ikrame.dev/blog/idempotent-posts-ledger-api.html" />
+  <style>
+    :root { color-scheme: light; --ink: #1a1a1a; --soft: #5a5a5a; --bone: #f5f1eb; --burgundy: #4a0e0e; }
+    body { margin: 0; font-family: "IBM Plex Sans", "Segoe UI", sans-serif; background: var(--bone); color: var(--ink); line-height: 1.65; }
+    main { max-width: 42rem; margin: 0 auto; padding: 3rem 1.25rem 5rem; }
+    a { color: var(--burgundy); }
+    .meta { font-family: ui-monospace, monospace; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--soft); }
+    h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; font-size: clamp(1.75rem, 4vw, 2.4rem); line-height: 1.2; margin: 0.75rem 0 1.5rem; }
+    h2 { font-family: Georgia, "Times New Roman", serif; font-size: 1.25rem; margin: 2.25rem 0 0.75rem; }
+    p, li { color: var(--ink); }
+    code, pre { font-family: ui-monospace, "Cascadia Code", monospace; font-size: 0.9em; }
+    pre { background: #efe9e0; padding: 1rem; overflow-x: auto; border: 1px solid #d9d0c4; }
+    .back { display: inline-block; margin-bottom: 2rem; font-family: ui-monospace, monospace; font-size: 0.8rem; text-decoration: none; }
+    footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #d9d0c4; font-family: ui-monospace, monospace; font-size: 0.8rem; color: var(--soft); }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="/#blog">← Tizza's vault</a>
+    <p class="meta">didactic · 2026-08-04 · ReckonFlow</p>
+    <h1>Designing idempotent POSTs for a ledger API</h1>
+
+    <p>
+      A client posts an expense, the connection times out, and the client retries.
+      Without protection you get two ledger entries and a balance that no longer
+      matches reality. ReckonFlow treats that as the default failure mode of
+      HTTP — not an edge case — and builds around it.
+    </p>
+
+    <h2>What the client sends</h2>
+    <p>
+      Mutating endpoints honour an <code>Idempotency-Key</code> header. The first
+      call with a given key runs the handler; a retry with the same key and the
+      same body replays the stored response and sets
+      <code>Idempotency-Replayed: true</code>.
+    </p>
+    <p>
+      The cache key is scoped by Redis prefix, method, path, and a hash of the
+      body. Same key with a different body is not a replay — it is a different
+      request. That stops one key from accidentally replaying an unrelated
+      endpoint's response.
+    </p>
+
+    <h2>The claim: SET NX EX</h2>
+    <p>
+      On the first attempt Redis does an atomic <code>SET key NX EX 86400</code>.
+      If the set succeeds, this worker owns the key and runs the route. While it
+      is still working the value is a sentinel (<code>__in_progress__</code>);
+      concurrent callers with the same key get <code>409 IdempotencyConflict</code>
+      and should retry shortly.
+    </p>
+    <p>
+      When the handler finishes, the middleware captures status, headers, and
+      body, then overwrites the Redis entry with that snapshot (keeping the TTL).
+      The next identical request rebuilds the response from cache and never
+      re-runs the service layer.
+    </p>
+
+    <h2>Corrupt entries and background tasks</h2>
+    <p>
+      If the stored value is not valid JSON, ReckonFlow deletes it and reclaims
+      the key instead of serving garbage. Receipt uploads that return
+      <code>202</code> with FastAPI <code>BackgroundTasks</code> keep those tasks
+      attached after the response is rebuilt — otherwise extraction would silently
+      disappear on the replay path.
+    </p>
+
+    <h2>Fail-open when Redis is down</h2>
+    <p>
+      When Redis is unreachable the middleware logs a warning and lets the
+      request through. Availability wins over the retry guarantee for that
+      moment. That is a deliberate trade-off for a public demo API (see
+      <a href="https://ikrame-ih.github.io/reckon-flow/adr/003-redis-idempotency/">ADR 003</a>).
+      Redis is not a hard dependency for serving traffic — only for the
+      idempotency guarantee. Prefer fixing Redis over flipping this to fail-closed
+      unless you are ready to shed load.
+    </p>
+
+    <h2>Why this belongs in a portfolio</h2>
+    <p>
+      CRUD demos rarely force you to answer: what happens on a retry? what if the
+      cache is mid-write? what if the cache is gone? The interesting parts of
+      finance software are money precision, safe retries, concurrent
+      reconciliation, and untrusted model output. Idempotent POSTs are one of
+      those four.
+    </p>
+
+    <footer>
+      <p>
+        Source:
+        <a href="https://github.com/ikrame-ih/reckon-flow">github.com/ikrame-ih/reckon-flow</a>
+        · Live API:
+        <a href="https://reckon-flow.onrender.com/docs">reckon-flow.onrender.com/docs</a>
+        · <a href="https://ikrame.dev/">ikrame.dev</a>
+      </p>
+    </footer>
+  </main>
+</body>
+</html>

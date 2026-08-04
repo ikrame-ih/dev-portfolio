@@ -18,7 +18,7 @@
 
   <!-- All copy right-aligned, clear of profile photo overlap -->
   <text x="1512" y="142" text-anchor="end" fill="#1A1A1A" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="300">Ikrame I. H.</text>
-  <text x="1512" y="182" text-anchor="end" fill="#4A0E0E" font-family="'Courier New', monospace" font-size="11.5" letter-spacing="2.8">SOFTWARE DEVELOPER · FRONTEND · BACKEND</text>
+  <text x="1512" y="182" text-anchor="end" fill="#4A0E0E" font-family="'Courier New', monospace" font-size="11.5" letter-spacing="2.8">BACKEND DEVELOPER · APIs · POSTGRESQL</text>
   <text x="1512" y="214" text-anchor="end" fill="#7A7A7A" font-family="'Courier New', monospace" font-size="11" letter-spacing="1.8">Málaga, ES · Remote or hybrid</text>
   <text x="1512" y="252" text-anchor="end" fill="#4A4A4A" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-style="italic">I build software with attention to detail</text>
   <text x="1512" y="286" text-anchor="end" fill="#7A7A7A" font-family="'Courier New', monospace" font-size="10" letter-spacing="2.2">ikrame.dev</text>

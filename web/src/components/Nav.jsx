@@ -1,9 +1,3 @@
-/**
- * @file Nav.jsx
- * @description Main navigation header component for the portfolio.
- * Handles both desktop and mobile layouts, scroll-based styling, 
- * language switching, and hash-based smooth scrolling.
- */
 import { useState, useEffect, useId, useMemo, useRef } from "react";
 import { motion, useReducedMotion, LayoutGroup, AnimatePresence } from "framer-motion";
 import { Bow } from "./Bow";

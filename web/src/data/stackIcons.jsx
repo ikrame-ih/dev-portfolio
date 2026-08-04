@@ -22,6 +22,7 @@ import {
   siJsonwebtokens,
   siHtml5,
   siElectron,
+  siRedis,
 } from "simple-icons";
 
 const Svg = ({ children, className, viewBox = "0 0 24 24", style }) => (
@@ -106,17 +107,6 @@ const CUSTOM = {
       />
     </Svg>
   ),
-  dbt: (p) => (
-    <Svg {...p}>
-      {/* dbt hexagon mark */}
-      <path d="M12 1.8 3.6 6.6v10.8L12 22.2l8.4-4.8V6.6L12 1.8Zm0 2.2 6.4 3.65v7.5L12 18.8l-6.4-3.65v-7.5L12 4Zm0 3.4-3.2 5.5h6.4L12 7.4Zm0 2.5 1.35 2.35h-2.7L12 9.9Z" />
-    </Svg>
-  ),
-  Dagster: (p) => (
-    <Svg {...p}>
-      <path d="M12 2.2 4.2 6.7v10.6L12 21.8l7.8-4.5V6.7L12 2.2Zm0 2.35 5.55 3.2v.1L12 11.05 6.45 7.85 12 4.55Zm-6.05 4.85 5.35 3.1v6.15l-5.35-3.1V9.4Zm6.75 9.25v-6.15l5.35-3.1v6.15l-5.35 3.1Z" />
-    </Svg>
-  ),
   Playwright: (p) => (
     <Svg {...p}>
       {/* Playwright masks — geometric, not the busy official glyph */}
@@ -168,6 +158,7 @@ const FROM_SIMPLE = {
   "Semantic HTML": siHtml5,
   "HTML semántico": siHtml5,
   Electron: siElectron,
+  Redis: siRedis,
 };
 
 const Fallback = (p) => (

@@ -9,48 +9,47 @@ const PROFILE = {
   github: "https://github.com/ikrame-ih",
   portfolioRepo: "https://github.com/ikrame-ih/dev-portfolio",
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
-  devto: "https://dev.to/ikrame_ih",
   siteUrl: "https://ikrame.dev",
-  overline: "DESARROLLADORA DE SOFTWARE · FRONTEND · BACKEND",
+  overline: "DESARROLLADORA BACKEND · APIs · POSTGRESQL · TAMBIÉN FRONTEND",
   headlineParts: [
     { text: "Desarrollo software" },
     { text: "pensando tanto en los detalles", accent: true },
     { text: "como en las personas que lo utilizan.", italic: true },
   ],
   heroSubtext:
-    "Hola, soy Ikrame Ibn Hayoun, desarrolladora de software en Málaga. Construyo aplicaciones web modernas y APIs backend con React, Node.js y PostgreSQL. Me gusta transformar ideas en software intuitivo, fiable y escalable. La IA forma parte natural de mi flujo de trabajo y actualmente me estoy expandiendo hacia IA y Big Data.",
+    "Hola, soy Ikrame Ibn Hayoun, desarrolladora centrada en backend en Málaga. Ahora mismo construyo ReckonFlow — una API FastAPI de ledger y conciliación donde un POST reintentado nunca debe pagar dos veces. También entrego frontends en React cuando el producto lo necesita.",
   heroFacts: [
     { eyebrow: "Disponible para", text: "Remoto · híbrido" },
     { eyebrow: "Trayectoria", text: "DAW · jun. 2026" },
     {
       eyebrow: "Enfoque",
-      text: "IA y Big Data",
+      text: "APIs backend",
       accent: true,
     },
   ],
   tagline:
-    "Graduada en DAW · especializándome en IA y Big Data · disponible en remoto o híbrido",
+    "Desarrolladora backend · FastAPI · PostgreSQL · Node · disponible en remoto o híbrido",
   cliAbout: [
-    "Hola — soy Ikrame. Desarrollo software en Málaga, con debilidad por las interfaces tranquilas y cuidadas.",
-    "Me desenvuelvo bien en ambos lados de un producto: la interfaz que la gente toca y las APIs y datos que lo sostienen.",
+    "Hola — soy Ikrame. Desarrolladora backend en Málaga, con debilidad por las interfaces tranquilas cuando toca el lado UI.",
+    "Dedico la mayor parte de la energía a APIs, bases de datos y los bordes difíciles: reintentos, precisión monetaria, auth.",
     "Fuera del editor suelo estar metida en un juego con mucha historia, cantando para desconectar, o afinando pequeños detalles estéticos.",
-    "Acabo de terminar DAW (jun. 2026). Enfoque en IA y Big Data. Remoto o híbrido me encaja bien.",
+    "Acabo de terminar DAW (jun. 2026). Busco roles backend remotos o híbridos.",
     "Este portfolio también lo construí yo de punta a punta — el código está en GitHub.",
   ],
   cliTldr: [
-    "Desarrolladora de software en Málaga — especialidad frontend, también backend.",
-    "La IA forma parte de mi día a día; me especializo en IA y Big Data. Busco roles remotos o híbridos donde importen el oficio y la claridad.",
+    "Desarrolladora backend en Málaga — FastAPI, Node, PostgreSQL. También frontend cuando hace falta.",
+    "Ahora mismo: ReckonFlow (API de ledger idempotente). Busco roles backend remotos o híbridos.",
   ],
   cliAvail:
     "Disponible en remoto o híbrido. Basada en Málaga (CET). Encantada de hablar cuando quieras.",
   cliNow:
-    "Acabo de terminar DAW (jun. 2026) y las prácticas en DATA CONTROL. La IA ya forma parte de mi día a día; enfoque en IA y Big Data — abierta a la siguiente oportunidad.",
+    "Acabo de terminar DAW (jun. 2026) y las prácticas en DATA CONTROL. Centrada en ReckonFlow — abierta a la siguiente oportunidad backend.",
   portraitLink: {
     label: "Salúdame en LinkedIn →",
   },
   practiceAside: {
     title: "De un vistazo",
-    text: "Técnico Superior en DAW (jun. 2026) — proyecto final MyPlaythrough con la máxima calificación. Especializándome en IA y Big Data. Los proyectos en GitHub usan layouts basados en componentes, tests y CI; en las prácticas me centré en componentes reutilizables y marcado semántico. Incluido este portfolio, construido de cero.",
+    text: "Técnico Superior en DAW (jun. 2026) — proyecto final MyPlaythrough con la máxima calificación. Los proyectos backend en GitHub cubren FastAPI, Express, PostgreSQL, tests y CI. Incluido este portfolio, construido de cero.",
   },
 };
 
@@ -63,11 +62,35 @@ const LANGUAGES = [
 const STACK = {
   domains: [
     {
-      id: "frontend",
+      id: "backend",
       index: "01",
+      title: "Backend y datos",
+      kicker: "APIs, persistencia y los bordes difíciles entre ambos.",
+      groups: [
+        {
+          label: "APIs y runtime",
+          items: [
+            "Python",
+            "FastAPI",
+            "Node.js",
+            "Express",
+            "Java",
+            "REST APIs",
+            "JWT",
+          ],
+        },
+        {
+          label: "Datos",
+          items: ["PostgreSQL", "SQL", "Redis", "Alembic"],
+        },
+      ],
+    },
+    {
+      id: "frontend",
+      index: "02",
       title: "Frontend",
       kicker:
-        "Interfaces, animaciones y todo aquello con lo que interactúa el usuario.",
+        "Interfaces y movimiento cuando el producto lo necesita.",
       groups: [
         {
           label: "UI y frameworks",
@@ -87,31 +110,6 @@ const STACK = {
         {
           label: "Oficio",
           items: ["HTML semántico", "Accesibilidad"],
-        },
-      ],
-    },
-    {
-      id: "backend",
-      index: "02",
-      title: "Backend y datos",
-      kicker:
-        "APIs, bases de datos y los procesos que conectan toda la aplicación.",
-      groups: [
-        {
-          label: "APIs y runtime",
-          items: [
-            "Node.js",
-            "Express",
-            "Java",
-            "Python",
-            "FastAPI",
-            "REST APIs",
-            "JWT",
-          ],
-        },
-        {
-          label: "Datos",
-          items: ["PostgreSQL", "SQL", "dbt", "Dagster"],
         },
       ],
     },
@@ -235,6 +233,30 @@ const EDUCATION = [
 
 const PROJECTS = [
   {
+    id: "reconflow",
+    name: "ReckonFlow",
+    subtitle: "API de conciliación de viajes corporativos · backend",
+    stack: ["Python", "FastAPI", "PostgreSQL", "Redis", "Alembic", "pytest"],
+    href: "https://github.com/ikrame-ih/reckon-flow",
+    demo: "https://reckon-flow.onrender.com/docs",
+    image: null,
+    imageAlt: null,
+    description:
+      "API FastAPI headless para aprobaciones de viaje, ledger de doble entrada inmutable, extracción de recibos con LLM y conciliación bancaria híbrida — para que un POST reintentado no pague dos veces.",
+    architectureSummary:
+      "Los clientes pasan por middleware de idempotencia (Redis), routers FastAPI y servicios, hasta PostgreSQL. Las subidas de recibos responden 202 y extraen en segundo plano. El matching usa prefiltro SQL, RapidFuzz, embeddings y RRF.",
+    mermaid: `flowchart LR
+  Client --> Idem[Idempotencia Redis]
+  Idem --> API[Routers FastAPI]
+  API --> Svc[Servicios]
+  Svc --> DB[(PostgreSQL)]
+  API --> Receipts[202 + extracción en background]
+  Receipts --> LLM[Groq o stub]
+  Svc --> Match[SQL + RapidFuzz + RRF]
+  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
+  class Idem,Svc,Match accent`,
+  },
+  {
     id: "live-event-radar",
     name: "Live Event Radar",
     subtitle: "Panel de operaciones en tiempo real para eventos · frontend",
@@ -316,30 +338,6 @@ const PROJECTS = [
   Main --> Guard[Overlay de foco]
   classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
   class Main,Store accent`,
-  },
-  {
-    id: "reconflow",
-    name: "ReconFlow",
-    subtitle: "Pipeline de conciliación de importaciones · backend (en curso)",
-    stack: ["Python", "FastAPI", "dbt", "PostgreSQL", "Dagster"],
-    href: null,
-    demo: null,
-    image: null,
-    imageAlt: null,
-    description:
-      "Pipeline FastAPI sin interfaz: CSV bancarios y facturas pasan por ingesta, transformación y cruce hasta un mart de conciliación.",
-    architectureSummary:
-      "Extractos CSV y webhooks de facturas llegan a una zona raw. Transformaciones dbt alimentan un cruce difuso y FX, que escribe el mart de conciliación y una cola de excepciones.",
-    mermaid: `flowchart LR
-  CSV[Extractos CSV] --> Raw[(Zona raw)]
-  WH[Webhooks de facturas] --> Stream[Enriquecedor]
-  Stream --> Raw
-  Raw --> dbt[Transformaciones dbt]
-  dbt --> Match[Cruce difuso + FX]
-  Match --> Mart[Mart de conciliación]
-  Match --> Quar[Cola de excepciones]
-  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
-  class Stream,dbt,Match accent`,
   },
 ];
 
@@ -430,32 +428,17 @@ const BLOG = {
     url: "https://www.instagram.com/heart_puff/",
   },
   intro:
-    "Notas desde mi rincón de internet sobre desarrollo, lo que estoy aprendiendo, música, anime y lo que se cruce. No es un blog técnico: es un sitio para pensar en voz alta, compartir lo que me gusta y dejar espacio para experimentar.",
-  comingSoon: true,
+    "Notas de ingeniería al construir ReckonFlow y otros proyectos — posts cortos sobre las decisiones que importaron de verdad.",
+  comingSoon: false,
   posts: [
     {
-      slug: "planning-first",
-      title: "Primero planificar. Sí, soy de esas.",
+      slug: "idempotent-posts-ledger-api",
+      title: "Diseñar POSTs idempotentes para una API de ledger",
       excerpt:
-        "Notas de colores, carpetas ordenadas. Pasar de los rotuladores al ordenador fue una revelación. Obsidian como desarrolladora se sintió como la herramienta que me faltaba.",
-      date: "2026-04-02",
-      kind: "personal",
-    },
-    {
-      slug: "it-never-really-stops",
-      title: "Nunca para del todo",
-      excerpt:
-        "La tecnología implica aprender sin parar. Dejé de perseguirlo todo y me centro en mejorar un poco cada día. Mantener la curiosidad basta.",
-      date: "2026-03-20",
-      kind: "diary",
-    },
-    {
-      slug: "the-fun-part-building-things",
-      title: "La parte divertida: hacer algo de verdad",
-      excerpt:
-        "Convertir una idea en algo que se pueda usar. Empezar de cero, chocar con problemas, resolverlos. A veces es un lío, pero ahí está lo bueno.",
-      date: "2026-02-10",
+        "Un cliente publica un gasto, hace timeout y reintenta. Sin Idempotency-Key, acabas con dos asientos. Así es como ReckonFlow reclama una clave en Redis, cachea la respuesta y falla abierto si Redis cae.",
+      date: "2026-08-04",
       kind: "didactic",
+      href: "/blog/idempotent-posts-ledger-api.html",
     },
   ],
 };

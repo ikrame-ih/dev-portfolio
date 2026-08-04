@@ -1,8 +1,3 @@
-/**
- * @file BlogSection.jsx
- * @description Renders the blog/vault section. Handles empty/coming-soon states 
- * securely without exposing unpublished drafts in the DOM.
- */
 import { useMemo, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Bow } from "./Bow";
@@ -10,31 +5,58 @@ import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
 import SectionOverline from "./SectionOverline";
 import { useContent, useUi } from "@/i18n/LocaleContext";
 
-const PostRow = ({ post, index, reduce, soon, soonLabel }) => (
-  <motion.div
-    data-testid={`blog-post-${post.slug}`}
-    initial={reduce ? false : { opacity: 0, y: 12 }}
-    whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-    viewport={REVEAL_VIEWPORT}
-    transition={revealTransition(index * 0.08)}
-    className="group block w-full text-left border-t border-ink/20 py-6"
-  >
-    <div className="flex items-baseline justify-between gap-4 mb-2">
-      <span className="font-mono text-xs uppercase tracking-[0.2em] text-burgundy">
-        {post.kind} · {post.date}
-      </span>
-      {soon && (
-        <span className="font-mono text-xs text-ink-mute">{soonLabel}</span>
-      )}
-    </div>
-    <h3 className="font-serif text-xl md:text-2xl text-ink leading-snug transition-colors duration-500 group-hover:text-burgundy">
-      {post.title}
-    </h3>
-    <p className="mt-2 font-mono text-xs md:text-sm text-ink-soft leading-relaxed max-w-2xl">
-      {post.excerpt}
-    </p>
-  </motion.div>
-);
+const PostRow = ({ post, index, reduce, soon, soonLabel }) => {
+  const body = (
+    <>
+      <div className="flex items-baseline justify-between gap-4 mb-2">
+        <span className="font-mono text-xs uppercase tracking-[0.2em] text-burgundy">
+          {post.kind} · {post.date}
+        </span>
+        {soon && (
+          <span className="font-mono text-xs text-ink-mute">{soonLabel}</span>
+        )}
+      </div>
+      <h3 className="font-serif text-xl md:text-2xl text-ink leading-snug transition-colors duration-500 group-hover:text-burgundy">
+        {post.title}
+      </h3>
+      <p className="mt-2 font-mono text-xs md:text-sm text-ink-soft leading-relaxed max-w-2xl">
+        {post.excerpt}
+      </p>
+    </>
+  );
+
+  const sharedClass =
+    "group block w-full text-left border-t border-ink/20 py-6";
+
+  if (post.href && !soon) {
+    return (
+      <motion.a
+        href={post.href}
+        data-testid={`blog-post-${post.slug}`}
+        initial={reduce ? false : { opacity: 0, y: 12 }}
+        whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+        viewport={REVEAL_VIEWPORT}
+        transition={revealTransition(index * 0.08)}
+        className={sharedClass}
+      >
+        {body}
+      </motion.a>
+    );
+  }
+
+  return (
+    <motion.div
+      data-testid={`blog-post-${post.slug}`}
+      initial={reduce ? false : { opacity: 0, y: 12 }}
+      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+      viewport={REVEAL_VIEWPORT}
+      transition={revealTransition(index * 0.08)}
+      className={sharedClass}
+    >
+      {body}
+    </motion.div>
+  );
+};
 
 export const BlogSection = () => {
   const [avatarOk, setAvatarOk] = useState(true);
@@ -123,7 +145,6 @@ export const BlogSection = () => {
           <div className="md:col-span-7 relative space-y-2 md:pt-16 min-h-[240px] md:min-h-[420px]">
             {BLOG.comingSoon ? (
               <>
-                {/* Draft previews only from md — mobile keeps a short coming-soon notice. */}
                 <div
                   className="hidden md:block"
                   aria-hidden="true"

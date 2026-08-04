@@ -1,8 +1,3 @@
-/**
- * @file CVSection.jsx
- * @description A comprehensive curriculum vitae display, comprising skills, 
- * employment history, and education, featuring staggered timeline animations.
- */
 import {
   motion,
   useReducedMotion,

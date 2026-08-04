@@ -14,7 +14,7 @@
   },
   "basics": {
     "name": "Ikrame Ibn Hayoun",
-    "headline": "Desarrolladora de software - Frontend y Backend - Málaga, España",
+    "headline": "Desarrolladora backend · Python/FastAPI · PostgreSQL · Node — Málaga, España",
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
     "location": "Málaga, España",
@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Desarrolladora de software en Málaga, cómoda en frontend y backend: interfaces y sistemas de componentes, APIs, autenticación y bases de datos.</p><p>Graduada en DAW (jun. 2026). Proyecto final MyPlaythrough con calificación máxima. Curso de Especialización en IA y Big Data a partir de sep. 2026.</p><p>Abierta a roles de desarrolladora de software en remoto o híbrido.</p>"
+    "content": "<p>Desarrolladora de software centrada en backend, basada en Málaga. Construyo APIs, autenticación y bases de datos — y también puedo entregar el frontend cuando el producto lo necesita.</p><p>Lo más reciente: ReckonFlow, una API FastAPI de ledger y conciliación con escrituras idempotentes para que un pago reintentado no se doble.</p><p>Graduada en DAW (jun. 2026). Proyecto final MyPlaythrough con calificación máxima. Especialización en IA y Big Data a partir de sep. 2026. Abierta a roles backend en remoto o híbrido.</p>"
   },
   "sections": {
     "profiles": {
@@ -70,7 +70,7 @@
         },
         {
           "id": "a1000001-0001-4000-8000-000000000003",
-          "hidden": false,
+          "hidden": true,
           "icon": "devto-logo",
           "iconColor": "",
           "network": "DEV.to",
@@ -110,7 +110,7 @@
           "location": "Málaga, España",
           "period": "ene. 2025 - mar. 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Soporte ejecutivo y herramientas internas en un entorno global de servicios profesionales.</p><ul><li>Creé una Power App que gestionó de punta a punta el sorteo de Navidad de CNS — registro y asignación de números en un solo sitio, en lugar de coordinarlo por email/Teams.</li><li>Gestioné de punta a punta visitas de clientes de alto impacto en Málaga — agendas, logística y experiencias locales — en las que el día a menudo condicionaba si un acuerdo avanzaba.</li><li>Llevé el día a día operativo — viajes, Concur, Outlook, Teams, SharePoint y las herramientas internas propias de la firma — en un entorno global de servicios profesionales.</li></ul>",
+          "description": "<p>Soporte ejecutivo y herramientas internas en un entorno global de servicios profesionales.</p><ul><li>Creé una Power App que gestionó de punta a punta el sorteo de Navidad de CNS — registro y asignación de números en un solo sitio, en lugar de coordinarlo por email/Teams.</li><li>Coordiné la logística de visitas de clientes en Málaga — agendas, sedes y coordinación.</li><li>Día a día operativo: viajes, Concur, Outlook, Teams, SharePoint y las herramientas internas de la firma.</li></ul>",
           "roles": []
         },
         {
@@ -212,13 +212,13 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>Proyecto final de DAW con calificación máxima. Gestor personal de biblioteca de juegos con seguimiento de backlog, comunidad, recomendaciones, discusiones y moderación de administración.</p><ul><li>Construido con React, Vite, Node.js, Express, PostgreSQL, JWT y Docker Compose.</li><li>Añadí tests unitarios con Vitest y CI para releases fiables.</li><li>Demo en vivo: https://my-playthrough.vercel.app/</li></ul>"
+          "description": "<p>Proyecto final de DAW con calificación máxima. Gestor personal de biblioteca de juegos con seguimiento de backlog, comunidad, recomendaciones, discusiones y moderación de administración.</p><ul><li>Construido con React, Vite, Node.js, Express, PostgreSQL, JWT y Docker Compose.</li><li>Tests unitarios con Vitest en cliente y servidor.</li><li>Demo en vivo: https://my-playthrough.vercel.app/</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000002",
           "hidden": false,
           "name": "Live Event Radar",
-          "period": "jun. 2025 - Actualidad",
+          "period": "may. 2026 - Actualidad",
           "website": {
             "url": "https://github.com/ikrame-ih/live-event-radar",
             "label": "GitHub",
@@ -227,24 +227,28 @@
           "description": "<p>Dashboard de operaciones en tiempo real para activaciones de marca, con centro de mando sincronizado y vistas de mapa de telemetría.</p><ul><li>Desarrollado con Next.js, React, TypeScript, Zustand y Leaflet.</li><li>Arquitectura feature-sliced, tests Vitest, smoke tests Playwright y CI con GitHub Actions.</li><li>Demo en vivo: https://live-event-radar.vercel.app</li></ul>"
         },
         {
+          "id": "d4000001-0001-4000-8000-000000000003",
+          "hidden": false,
+          "name": "ReckonFlow",
+          "period": "ago. 2026 - Actualidad",
+          "website": {
+            "url": "https://github.com/ikrame-ih/reckon-flow",
+            "label": "GitHub",
+            "inlineLink": true
+          },
+          "description": "<p>Backend FastAPI headless para viajes corporativos: aprobaciones, ledger de doble entrada inmutable, extracción de recibos con LLM y conciliación bancaria híbrida.</p><ul><li>Python, FastAPI, SQLAlchemy async, PostgreSQL/Neon, Redis/Upstash, Alembic.</li><li>Escrituras mutantes idempotentes, dinero como strings Decimal, bloqueos de fila al conciliar, CI con mypy y cobertura.</li><li>API en vivo: https://reckon-flow.onrender.com/docs · Docs: https://ikrame-ih.github.io/reckon-flow/</li></ul>"
+        },
+        {
           "id": "d4000001-0001-4000-8000-000000000004",
           "hidden": false,
           "name": "Aiba",
-          "period": "jun. 2026 - Actualidad",
+          "period": "jul. 2026 - Actualidad",
           "website": {
             "url": "https://github.com/ikrame-ih/aiba-widget",
             "label": "GitHub",
             "inlineLink": true
           },
           "description": "<p>Compañero de productividad local-first para Windows: planificación, sesiones de foco y cierre, con historial de sesiones y ayuda offline. Sin cuenta, sin nube.</p><ul><li>Construido con Electron, React 19, TypeScript y Vite.</li><li>Timer compacto más shell de estudio ampliado, guardia de foco y preferencias.</li></ul>"
-        },
-        {
-          "id": "d4000001-0001-4000-8000-000000000003",
-          "hidden": false,
-          "name": "ReconFlow",
-          "period": "jun. 2026 - Actualidad",
-          "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Pipeline headless de conciliación para CSVs bancarios y datos de facturas (en progreso).</p><ul><li>Etapas de ingestión, transformación y matching con Python, FastAPI, dbt y PostgreSQL.</li><li>Genera un mart de conciliación y una cola de excepciones.</li><li>Orquestación con Dagster (en progreso).</li></ul>"
         }
       ]
     },
@@ -286,16 +290,16 @@
           "proficiency": "",
           "level": 0,
           "keywords": [
-            "Node.js",
-            "Express",
             "Python",
             "FastAPI",
+            "Node.js",
+            "Express",
             "PostgreSQL",
             "SQL",
+            "Redis",
             "APIs REST",
             "JWT",
-            "dbt",
-            "Dagster"
+            "Alembic"
           ]
         },
         {

@@ -1,26 +1,26 @@
 # Ikrame Ibn Hayoun
 
-> Software developer based in Málaga — frontend and backend. Available for remote or hybrid roles.
+> Backend-focused software developer based in Málaga. Available for remote or hybrid roles.
 
 - Site: https://ikrame.dev/
 - Email: ikihga2223@gmail.com
 - GitHub: https://github.com/ikrame-ih
 - LinkedIn: https://www.linkedin.com/in/ikrame-ih/
-- DEV.to: https://dev.to/ikrame_ih
 - CV (EN): https://ikrame.dev/Ikrame_Ibn_Hayoun_CV.pdf
 - CV (ES): https://ikrame.dev/Ikrame_Ibn_Hayoun_CV_ES.pdf
 
 ## Summary
 
-Higher Vocational Degree in Web Application Development (DAW, Jun 2026). Capstone MyPlaythrough awarded top honors. Postgraduate Specialization in AI & Big Data starting Sep 2026. Comfortable across interfaces, APIs, authentication, and databases.
+Higher Vocational Degree in Web Application Development (DAW, Jun 2026). Capstone MyPlaythrough awarded top honors. Builds APIs and databases first — FastAPI, Node/Express, PostgreSQL, Redis — and ships React frontends when the product needs them.
 
 ## Selected projects
 
-- Live Event Radar — real-time venue ops dashboard (Next.js, React, TypeScript)
+- ReckonFlow — corporate travel reconciliation API (Python, FastAPI, PostgreSQL, Redis); live docs at https://reckon-flow.onrender.com/docs
 - MyPlaythrough — personal game library manager, DAW capstone (React, Node, PostgreSQL)
+- Live Event Radar — real-time venue ops dashboard (Next.js, React, TypeScript)
 - Aiba — local-first Windows productivity companion (Electron)
-- ReconFlow — bank/invoice reconciliation pipeline (in progress; Python, FastAPI, dbt)
 
 ## Optional
 
 - Portfolio source: https://github.com/ikrame-ih/dev-portfolio
+- ReckonFlow docs: https://ikrame-ih.github.io/reckon-flow/

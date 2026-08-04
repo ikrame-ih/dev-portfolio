@@ -1,8 +1,3 @@
-/**
- * @file useGuestbookKeyboard.js
- * @description Custom hook managing keyboard navigation for the guestbook canvas.
- * Allows users to place signatures precisely using arrow keys without relying on a pointer.
- */
 import { useState, useCallback } from "react";
 import { clampBowPosition } from "@/lib/bowUtils";
 

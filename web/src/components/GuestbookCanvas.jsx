@@ -1,8 +1,3 @@
-/**
- * @file GuestbookCanvas.jsx
- * @description Interactive canvas allowing visitors to drop a signature (bow) 
- * on an open book layout. Integrates keyboard accessibility and local/remote sync.
- */
 import { useEffect, useRef, useState, useCallback } from "react";
 import {
   motion,

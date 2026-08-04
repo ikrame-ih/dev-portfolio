@@ -1,8 +1,3 @@
-/**
- * @file Footer.jsx
- * @description Global footer component containing quick links, contact 
- * information, and an alternative terminal invocation trigger.
- */
 import { useMemo } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Bow } from "./Bow";

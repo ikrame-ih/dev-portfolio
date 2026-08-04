@@ -10,47 +10,46 @@ const PROFILE = {
   github: "https://github.com/ikrame-ih",
   portfolioRepo: "https://github.com/ikrame-ih/dev-portfolio",
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
-  devto: "https://dev.to/ikrame_ih",
   siteUrl: "https://ikrame.dev",
-  overline: "SOFTWARE DEVELOPER · FRONTEND · BACKEND",
+  overline: "BACKEND DEVELOPER · APIs · POSTGRESQL · ALSO SHIPS FRONTEND",
   headlineParts: [
     { text: "I build software" },
     { text: "with attention to detail", accent: true },
     { text: "and the context behind\u00A0it.", italic: true },
   ],
   heroSubtext:
-    "Hi, I'm Ikrame Ibn Hayoun, a software developer based in Málaga. I build modern web applications and backend APIs using React, Node.js, and PostgreSQL. I enjoy turning ideas into intuitive, reliable, and scalable software. AI has become a natural part of my workflow, and I'm currently expanding into AI & Big Data.",
+    "Hi, I'm Ikrame Ibn Hayoun, a backend-focused developer in Málaga. Right now I'm building ReckonFlow — a FastAPI ledger and reconciliation API where a retried POST must never double-pay anyone. I also ship React frontends when the product needs them.",
   // Compact hero facts — avoid repeating overline role or Málaga (already in copy + photo).
   heroFacts: [
     { eyebrow: "Open to", text: "Remote · hybrid" },
     { eyebrow: "Path", text: "DAW · Jun 2026" },
-    { eyebrow: "Focus", text: "AI & Big Data", accent: true },
+    { eyebrow: "Focus", text: "Backend APIs", accent: true },
   ],
   // Flat string for terminal / plain contexts.
-  tagline: "DAW graduate · specializing in AI & Big Data · open to remote or hybrid",
+  tagline: "Backend developer · FastAPI · PostgreSQL · Node · open to remote or hybrid",
   // Friendly blurb for CLI `about` — warm, specific, not a CV tagline dump.
   cliAbout: [
-    "Hi — I'm Ikrame. I build software in Málaga, with a soft spot for interfaces that feel calm and considered.",
-    "I'm at ease on both sides of a product: the UI people touch, and the APIs and data that hold it up.",
+    "Hi — I'm Ikrame. Backend developer in Málaga, with a soft spot for calm interfaces when I build the UI side.",
+    "I spend most of my energy on APIs, databases, and the hard edges: retries, money precision, auth.",
     "Away from the editor I'm usually deep in a story-heavy game, singing to reset my head, or fussing over little aesthetic details.",
-    "Just wrapped DAW (Jun 2026). Focusing on AI & Big Data next. Remote or hybrid suits me well.",
+    "Just wrapped DAW (Jun 2026). Looking for remote or hybrid backend roles.",
     "I also built this portfolio end to end — the code is on GitHub.",
   ],
   // Ultra-short pitch for CLI `tldr`.
   cliTldr: [
-    "Software developer in Málaga — frontend first, with solid backend work too.",
-    "AI is a natural part of how I build; specializing in AI & Big Data. Looking for remote or hybrid where craft and clarity matter.",
+    "Backend developer in Málaga — FastAPI, Node, PostgreSQL. Ships frontend when needed.",
+    "Currently building ReckonFlow (idempotent ledger API). Looking for remote or hybrid backend roles.",
   ],
   cliAvail:
     "Open to remote or hybrid. Based in Málaga (CET). Happy to chat anytime.",
   cliNow:
-    "Just finished DAW (Jun 2026) and internship work at DATA CONTROL. AI is already in my day-to-day build loop; focusing on AI & Big Data — actively open to the next role.",
+    "Just finished DAW (Jun 2026) and internship work at DATA CONTROL. Deep on ReckonFlow — actively open to the next backend role.",
   portraitLink: {
     label: "Say hi on LinkedIn →",
   },
   practiceAside: {
     title: "At a glance",
-    text: "Higher Vocational Diploma (DAW, Jun 2026) — final project MyPlaythrough awarded maximum grade. Specializing in AI & Big Data. Side projects on GitHub use component-based layouts, tests, and CI; intern work focused on reusable components and semantic markup. This portfolio included — built from scratch.",
+    text: "Higher Vocational Diploma (DAW, Jun 2026) — final project MyPlaythrough awarded maximum grade. Backend projects on GitHub cover FastAPI, Express, PostgreSQL, tests, and CI. This portfolio included — built from scratch.",
   },
 };
 
@@ -64,10 +63,34 @@ const LANGUAGES = [
 const STACK = {
   domains: [
     {
-      id: "frontend",
+      id: "backend",
       index: "01",
+      title: "Backend & data",
+      kicker: "APIs, persistence, and the hard edges between them.",
+      groups: [
+        {
+          label: "APIs & runtime",
+          items: [
+            "Python",
+            "FastAPI",
+            "Node.js",
+            "Express",
+            "Java",
+            "REST APIs",
+            "JWT",
+          ],
+        },
+        {
+          label: "Data",
+          items: ["PostgreSQL", "SQL", "Redis", "Alembic"],
+        },
+      ],
+    },
+    {
+      id: "frontend",
+      index: "02",
       title: "Frontend",
-      kicker: "Interfaces, motion, and everything the eye touches.",
+      kicker: "Interfaces and motion when the product needs them.",
       groups: [
         {
           label: "UI & frameworks",
@@ -87,30 +110,6 @@ const STACK = {
         {
           label: "Craft",
           items: ["Semantic HTML", "Accessibility"],
-        },
-      ],
-    },
-    {
-      id: "backend",
-      index: "02",
-      title: "Backend & data",
-      kicker: "APIs, persistence, and the pipelines between them.",
-      groups: [
-        {
-          label: "APIs & runtime",
-          items: [
-            "Node.js",
-            "Express",
-            "Java",
-            "Python",
-            "FastAPI",
-            "REST APIs",
-            "JWT",
-          ],
-        },
-        {
-          label: "Data",
-          items: ["PostgreSQL", "SQL", "dbt", "Dagster"],
         },
       ],
     },
@@ -234,6 +233,30 @@ const EDUCATION = [
 
 const PROJECTS = [
   {
+    id: "reconflow",
+    name: "ReckonFlow",
+    subtitle: "Corporate travel reconciliation API · backend",
+    stack: ["Python", "FastAPI", "PostgreSQL", "Redis", "Alembic", "pytest"],
+    href: "https://github.com/ikrame-ih/reckon-flow",
+    demo: "https://reckon-flow.onrender.com/docs",
+    image: null,
+    imageAlt: null,
+    description:
+      "Headless FastAPI API for travel approvals, an immutable double-entry ledger, LLM receipt extraction, and hybrid bank reconciliation — built so a retried POST cannot double-pay.",
+    architectureSummary:
+      "Clients hit idempotency middleware (Redis), then FastAPI routers and services, then PostgreSQL. Receipt uploads return 202 and extract in the background. Matching uses SQL prefilter, RapidFuzz, embeddings, and RRF.",
+    mermaid: `flowchart LR
+  Client --> Idem[Idempotency Redis]
+  Idem --> API[FastAPI routers]
+  API --> Svc[Services]
+  Svc --> DB[(PostgreSQL)]
+  API --> Receipts[202 + background extract]
+  Receipts --> LLM[Groq or stub]
+  Svc --> Match[SQL + RapidFuzz + RRF]
+  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
+  class Idem,Svc,Match accent`,
+  },
+  {
     id: "live-event-radar",
     name: "Live Event Radar",
     subtitle: "Real-time venue ops dashboard · frontend",
@@ -315,30 +338,6 @@ const PROJECTS = [
   Main --> Guard[Focus guard / overlay]
   classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
   class Main,Store accent`,
-  },
-  {
-    id: "reconflow",
-    name: "ReconFlow",
-    subtitle: "Import reconciliation pipeline · backend (in progress)",
-    stack: ["Python", "FastAPI", "dbt", "PostgreSQL", "Dagster"],
-    href: null,
-    demo: null,
-    image: null,
-    imageAlt: null,
-    description:
-      "Headless FastAPI pipeline: bank CSVs and invoices through ingest, transform, and match into a reconciliation mart.",
-    architectureSummary:
-      "Bank CSV extracts and invoice webhook JSON land in a raw zone. dbt transforms feed a fuzzy-match and FX stage, which writes a reconciliation mart and an exceptions queue.",
-    mermaid: `flowchart LR
-  CSV[Bank CSV extracts] --> Raw[(Raw zone)]
-  WH[Invoice webhooks JSON] --> Stream[Stream enricher]
-  Stream --> Raw
-  Raw --> dbt[dbt transforms]
-  dbt --> Match[Fuzzy match + FX]
-  Match --> Mart[Reconciliation mart]
-  Match --> Quar[Exceptions queue]
-  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
-  class Stream,dbt,Match accent`,
   },
 ];
 
@@ -429,32 +428,17 @@ const BLOG = {
     url: "https://www.instagram.com/heart_puff/",
   },
   intro:
-    "Notes from my corner of the internet about development, what I'm learning, music, anime, and whatever else catches my interest. It's not really a technical blog, more a place to think aloud, share what I enjoy, and leave room to experiment.",
-  comingSoon: true,
+    "Engineering notes from building ReckonFlow and other projects — short posts about the decisions that actually mattered.",
+  comingSoon: false,
   posts: [
     {
-      slug: "planning-first",
-      title: "Planning first. Yes, I'm one of those people.",
+      slug: "idempotent-posts-ledger-api",
+      title: "Designing idempotent POSTs for a ledger API",
       excerpt:
-        "Colour-coded notes, neat folders. Moving from markers to a computer felt like a revelation. Obsidian as a developer felt like the tool I'd been missing.",
-      date: "2026-04-02",
-      kind: "personal",
-    },
-    {
-      slug: "it-never-really-stops",
-      title: "It never really stops",
-      excerpt:
-        "Tech means constant learning. I stopped chasing everything and focus on getting a bit better each day. Staying curious is enough.",
-      date: "2026-03-20",
-      kind: "diary",
-    },
-    {
-      slug: "the-fun-part-building-things",
-      title: "The fun part: making something real",
-      excerpt:
-        "Turning an idea into something you can use. Starting from scratch, hitting problems, figuring them out. Messy sometimes, but that's where the good stuff happens.",
-      date: "2026-02-10",
+        "A client posts an expense, times out, and retries. Without an Idempotency-Key, you get two ledger entries. Here's how ReckonFlow claims a Redis key, caches the response, and fails open when Redis is down.",
+      date: "2026-08-04",
       kind: "didactic",
+      href: "/blog/idempotent-posts-ledger-api.html",
     },
   ],
 };

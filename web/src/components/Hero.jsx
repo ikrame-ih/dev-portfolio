@@ -1,8 +1,3 @@
-/**
- * @file Hero.jsx
- * @description The primary landing section of the portfolio. Features a highly 
- * orchestrated entrance animation sequence and parallax scrolling effects.
- */
 import { useEffect, useId, useRef, useState } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { Bow } from "./Bow";
