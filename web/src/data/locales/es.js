@@ -240,7 +240,7 @@ const PROJECTS = [
     href: "https://github.com/ikrame-ih/reckon-flow",
     demo: "https://reckon-flow.onrender.com/docs",
     image: ASSETS.projects.reckonFlow,
-    imageAlt: "Swagger UI de ReckonFlow — GET suggestions con una línea bancaria emparejada"
+    imageAlt: "Swagger UI de ReckonFlow — GET suggestions con una línea bancaria emparejada",
     description:
       "API FastAPI headless para aprobaciones de viaje, ledger de doble entrada inmutable, extracción de recibos con LLM y conciliación bancaria híbrida — para que un POST reintentado no pague dos veces.",
     architectureSummary:
