@@ -16,7 +16,7 @@ Projects: Live Event Radar + ReconFlow wip. Mermaid chart strings in portfolio.j
 
 Interests bento — real hobby photos and copy. The kicker literally says hobbies aren't CV skills because I kept doing that by accident.
 
-Vault section is placeholder blog cards. `docs/` is not the blog — future posts would come from a separate `vault-posts/` folder ([[09_Future_Roadmap]]).
+LinkedIn signals section (`LINKEDIN_SIGNALS` in locales): up to three own posts as an editorial list, plus one quiet footnote linking to the LinkedIn profile. No recommendation panel, no blog CMS. Static article at `/blog/...` may remain for old links.
 
 Guest book strings in `BOW_BOARD`. The faint watermark lines on each page stayed in `GuestbookCanvas.jsx` when I was styling the spread.
 

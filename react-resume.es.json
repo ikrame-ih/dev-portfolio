@@ -14,7 +14,7 @@
   },
   "basics": {
     "name": "Ikrame Ibn Hayoun",
-    "headline": "Desarrolladora backend · Python/FastAPI · PostgreSQL · Node — Málaga, España",
+    "headline": "Desarrolladora backend | Python | FastAPI | PostgreSQL | Node.js | Málaga, España | Remoto o híbrido",
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
     "location": "Málaga, España",
@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Desarrolladora de software centrada en backend, basada en Málaga. Construyo APIs, autenticación y bases de datos — y también puedo entregar el frontend cuando el producto lo necesita.</p><p>Lo más reciente: ReckonFlow, una API FastAPI de ledger y conciliación con escrituras idempotentes para que un pago reintentado no se doble.</p><p>Graduada en DAW (jun. 2026). Proyecto final MyPlaythrough con calificación máxima. Especialización en IA y Big Data a partir de sep. 2026. Abierta a roles backend en remoto o híbrido.</p>"
+    "content": "<p>Desarrolladora de software centrada en backend, basada en Málaga. Construyo APIs, flujos de autenticación y bases de datos, y entrego frontends en React cuando el producto necesita UI.</p><p>El trabajo reciente incluye servicios con FastAPI y Node.js, PostgreSQL, Redis, escrituras idempotentes, CI con tests y entrega full-stack en proyectos personales y prácticas.</p><p>Graduada en DAW (jun. 2026). Proyecto final MyPlaythrough con calificación máxima (10/10). Especialización en IA y Big Data a partir de sep. 2026. Abierta a roles backend en remoto o híbrido.</p>"
   },
   "sections": {
     "profiles": {
@@ -67,19 +67,6 @@
             "label": "linkedin.com/in/ikrame-ih",
             "inlineLink": true
           }
-        },
-        {
-          "id": "a1000001-0001-4000-8000-000000000003",
-          "hidden": true,
-          "icon": "devto-logo",
-          "iconColor": "",
-          "network": "DEV.to",
-          "username": "ikrame_ih",
-          "website": {
-            "url": "https://dev.to/ikrame_ih",
-            "label": "dev.to/ikrame_ih",
-            "inlineLink": true
-          }
         }
       ]
     },
@@ -99,7 +86,7 @@
           "location": "Málaga, España",
           "period": "mar. 2026 - jun. 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Prácticas centradas en una plataforma Moodle, bases de datos y personalización de la UI.</p><ul><li>Entregué una plataforma de aprendizaje basada en Moodle como proyecto central de las prácticas: puesta en marcha, estructura de contenidos y personalización continua.</li><li>Me ocupé del trabajo diario con bases de datos que sostenían la plataforma (consultas, estructura y conexión de datos a la app).</li><li>Llevé el pase de look-and-feel — CSS y ajustes de UI — para que la experiencia se sintiera coherente y no como Moodle de serie.</li></ul>",
+          "description": "<p>Prácticas centradas en una plataforma Moodle, bases de datos y personalización de la UI.</p><ul><li>Desarrollé y puse en marcha una plataforma de aprendizaje basada en Moodle como proyecto central: configuración, estructura de contenidos y personalización continua.</li><li>Gestioné el trabajo diario con bases de datos que sostenían la plataforma (consultas, estructura y conexión de datos a la app).</li><li>Personalicé el look-and-feel con CSS y ajustes de UI para que la experiencia fuera coherente y no Moodle de serie.</li></ul>",
           "roles": []
         },
         {
@@ -110,7 +97,7 @@
           "location": "Málaga, España",
           "period": "ene. 2025 - mar. 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Soporte ejecutivo y herramientas internas en un entorno global de servicios profesionales.</p><ul><li>Creé una Power App que gestionó de punta a punta el sorteo de Navidad de CNS — registro y asignación de números en un solo sitio, en lugar de coordinarlo por email/Teams.</li><li>Coordiné la logística de visitas de clientes en Málaga — agendas, sedes y coordinación.</li><li>Día a día operativo: viajes, Concur, Outlook, Teams, SharePoint y las herramientas internas de la firma.</li></ul>",
+          "description": "<p>Soporte ejecutivo y herramientas internas en un entorno global de servicios profesionales.</p><ul><li>Creé una Power App que gestionó de punta a punta el sorteo de Navidad de CNS: registro y asignación de números en un solo sitio, en lugar de coordinarlo por email y Teams.</li><li>Coordiné de principio a fin visitas de clientes en Málaga: agendas, logística y experiencias locales.</li><li>Gestión operativa diaria con herramientas de viaje, Concur, Outlook, Teams, SharePoint y sistemas internos de la firma.</li></ul>",
           "roles": []
         },
         {
@@ -121,7 +108,7 @@
           "location": "Málaga, España",
           "period": "feb. 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Activación de marca a corto plazo en entornos retail de alto tráfico.</p><ul><li>Realicé degustaciones y presentaciones breves de producto en entornos retail concurridos.</li><li>Gestioné la logística del stand y las actualizaciones de inventario al cierre del día.</li><li>Ver de cerca la operativa en retail en vivo inspiró Live Event Radar, mi dashboard de operaciones de venue en tiempo real.</li></ul>",
+          "description": "<p>Activación de marca a corto plazo en entornos retail de alto tráfico.</p><ul><li>Realicé degustaciones y presentaciones breves de producto en entornos retail concurridos.</li><li>Gestioné la logística del stand y las actualizaciones de inventario al cierre del día.</li><li>Ver de cerca la operativa en retail inspiró Live Event Radar, un dashboard de operaciones de venue en tiempo real.</li></ul>",
           "roles": []
         },
         {
@@ -132,7 +119,7 @@
           "location": "Remoto, España",
           "period": "nov. 2024 - dic. 2024",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Soporte de operaciones e informes para una organización de captación de fondos.</p><ul><li>Preparé informes de donantes y seguimiento con Google Drive y Outlook.</li><li>Gestioné tareas de RR. HH. en Factorial y controlé costes de viajes y gastos.</li><li>Mantuve la coordinación del equipo en Asana, Notion y Slack; creé vistas de reporting en Looker.</li></ul>",
+          "description": "<p>Soporte de operaciones e informes para una organización de captación de fondos.</p><ul><li>Preparé informes de donantes y seguimiento con Google Drive, Outlook y Evergiving.</li><li>Gestioné tareas de RR. HH. en Factorial y controlé costes de viajes y gastos.</li><li>Mantuve la coordinación del equipo en Asana, Notion y Slack; creé vistas de reporting en Looker.</li></ul>",
           "roles": []
         },
         {
@@ -163,7 +150,7 @@
           "degree": "Curso de Especialización",
           "area": "Inteligencia Artificial y Big Data",
           "grade": "Nivel MECES / EQF 5",
-          "location": "",
+          "location": "Granada, España",
           "period": "Inicio sep. 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
           "description": "Curso de Especialización tras el ciclo formativo de grado superior."
@@ -174,7 +161,7 @@
           "school": "CESUR Este, Málaga",
           "degree": "Ciclo Formativo de Grado Superior (DAW)",
           "area": "Desarrollo de Aplicaciones Web",
-          "grade": "Proyecto final: calificación máxima. Nivel EQF 5 (equivalente HND)",
+          "grade": "Proyecto final: calificación máxima (10/10). Nivel EQF 5 (equivalente HND)",
           "location": "Málaga, España",
           "period": "sep. 2024 - jun. 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
@@ -203,16 +190,16 @@
       "startOnNewPage": false,
       "items": [
         {
-          "id": "d4000001-0001-4000-8000-000000000001",
+          "id": "d4000001-0001-4000-8000-000000000003",
           "hidden": false,
-          "name": "MyPlaythrough",
-          "period": "sep. 2025 - jun. 2026",
+          "name": "ReckonFlow",
+          "period": "ago. 2026 - Actualidad",
           "website": {
-            "url": "https://github.com/ikrame-ih/my-playthrough",
+            "url": "https://github.com/ikrame-ih/reckon-flow",
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>Proyecto final de DAW con calificación máxima. Gestor personal de biblioteca de juegos con seguimiento de backlog, comunidad, recomendaciones, discusiones y moderación de administración.</p><ul><li>Construido con React, Vite, Node.js, Express, PostgreSQL, JWT y Docker Compose.</li><li>Tests unitarios con Vitest en cliente y servidor.</li><li>Demo en vivo: https://my-playthrough.vercel.app/</li></ul>"
+          "description": "<p>Backend FastAPI headless para viajes corporativos: aprobaciones, ledger de doble entrada inmutable, extracción de recibos con LLM y conciliación bancaria híbrida.</p><ul><li>Python, FastAPI, SQLAlchemy async, PostgreSQL, Redis, Alembic, pytest, mypy.</li><li>Escrituras mutantes idempotentes, dinero como strings Decimal, bloqueos de fila al conciliar, CI con cobertura.</li><li>API en vivo: https://reckon-flow.onrender.com/docs. Docs: https://ikrame-ih.github.io/reckon-flow/</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000002",
@@ -227,16 +214,16 @@
           "description": "<p>Dashboard de operaciones en tiempo real para activaciones de marca, con centro de mando sincronizado y vistas de mapa de telemetría.</p><ul><li>Desarrollado con Next.js, React, TypeScript, Zustand y Leaflet.</li><li>Arquitectura feature-sliced, tests Vitest, smoke tests Playwright y CI con GitHub Actions.</li><li>Demo en vivo: https://live-event-radar.vercel.app</li></ul>"
         },
         {
-          "id": "d4000001-0001-4000-8000-000000000003",
+          "id": "d4000001-0001-4000-8000-000000000001",
           "hidden": false,
-          "name": "ReckonFlow",
-          "period": "ago. 2026 - Actualidad",
+          "name": "MyPlaythrough",
+          "period": "sep. 2025 - jun. 2026",
           "website": {
-            "url": "https://github.com/ikrame-ih/reckon-flow",
+            "url": "https://github.com/ikrame-ih/my-playthrough",
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>Backend FastAPI headless para viajes corporativos: aprobaciones, ledger de doble entrada inmutable, extracción de recibos con LLM y conciliación bancaria híbrida.</p><ul><li>Python, FastAPI, SQLAlchemy async, PostgreSQL/Neon, Redis/Upstash, Alembic.</li><li>Escrituras mutantes idempotentes, dinero como strings Decimal, bloqueos de fila al conciliar, CI con mypy y cobertura.</li><li>API en vivo: https://reckon-flow.onrender.com/docs · Docs: https://ikrame-ih.github.io/reckon-flow/</li></ul>"
+          "description": "<p>Proyecto final de DAW con calificación máxima (10/10). Gestor personal de biblioteca de juegos con seguimiento de backlog, comunidad, recomendaciones, discusiones y moderación de administración.</p><ul><li>Construido con React, Vite, Node.js, Express, PostgreSQL, JWT y Docker Compose.</li><li>Tests unitarios con Vitest en cliente y servidor, y CI con GitHub Actions.</li><li>Demo en vivo: https://my-playthrough.vercel.app/</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000004",
@@ -261,27 +248,6 @@
       "startOnNewPage": false,
       "items": [
         {
-          "id": "e5000001-0001-4000-8000-000000000001",
-          "hidden": false,
-          "icon": "",
-          "iconColor": "",
-          "name": "Frontend",
-          "proficiency": "",
-          "level": 0,
-          "keywords": [
-            "React",
-            "Next.js",
-            "TypeScript",
-            "Vite",
-            "Tailwind CSS",
-            "Framer Motion",
-            "Zustand",
-            "Leaflet",
-            "HTML semántico",
-            "Accesibilidad"
-          ]
-        },
-        {
           "id": "e5000001-0001-4000-8000-000000000002",
           "hidden": false,
           "icon": "",
@@ -294,12 +260,37 @@
             "FastAPI",
             "Node.js",
             "Express",
+            "Java",
             "PostgreSQL",
             "SQL",
             "Redis",
             "APIs REST",
             "JWT",
-            "Alembic"
+            "Alembic",
+            "pytest",
+            "mypy"
+          ]
+        },
+        {
+          "id": "e5000001-0001-4000-8000-000000000001",
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "name": "Frontend",
+          "proficiency": "",
+          "level": 0,
+          "keywords": [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "JavaScript",
+            "Vite",
+            "Tailwind CSS",
+            "Framer Motion",
+            "Zustand",
+            "Leaflet",
+            "HTML semántico",
+            "Accesibilidad"
           ]
         },
         {

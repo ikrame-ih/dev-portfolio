@@ -14,9 +14,9 @@ Backlog. Not promises.
 
 **Soon maybe:** custom domain, OG/meta tags for link previews, print CV polish.
 
-**Blog:** real posts from Obsidian somehow — `vault-posts/` folder + sync script is the current idea. MDX vs react-markdown undecided. Placeholders stay until then. `docs/` is build notes only, not blog source.
+**LinkedIn signals:** editorial list of up to three own posts + quiet profile footnote (no recommendation panel, no LinkedIn API sync). Update posts in locales when a new note earns a slot.
 
-**Nice later:** guest book page turn animation, a11y pass, RSS, webp hero image, Lighthouse nagging.
+**Nice later:** guest book page turn animation, a11y pass, webp hero image, Lighthouse nagging.
 
 **Probably not:** merging CLI guestbook with visual bows, name modal on bow click (too much friction).
 

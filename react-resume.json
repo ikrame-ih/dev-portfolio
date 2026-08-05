@@ -14,7 +14,7 @@
   },
   "basics": {
     "name": "Ikrame Ibn Hayoun",
-    "headline": "Backend Developer · Python/FastAPI · PostgreSQL · Node — Málaga, Spain",
+    "headline": "Backend Developer | Python | FastAPI | PostgreSQL | Node.js | Málaga, Spain | Remote or Hybrid",
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
     "location": "Málaga, Spain",
@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Backend-focused software developer based in Málaga. I build APIs, authentication, and databases — and I can ship the frontend when the product needs it.</p><p>Most recently: ReckonFlow, a FastAPI ledger and reconciliation API with idempotent writes so retried payments cannot double-post.</p><p>DAW graduate (Jun 2026). Capstone MyPlaythrough awarded maximum grade. AI &amp; Big Data specialisation starting Sep 2026. Open to remote or hybrid backend roles.</p>"
+    "content": "<p>Backend-focused software developer based in Málaga, Spain. I build APIs, authentication flows, and databases, and I ship React frontends when a product needs a UI.</p><p>Recent work covers FastAPI and Node.js services, PostgreSQL, Redis, idempotent writes, CI with tests, and full-stack delivery across personal projects and an internship.</p><p>DAW graduate (Jun 2026). Capstone MyPlaythrough awarded maximum grade (10/10). AI and Big Data specialisation starting Sep 2026. Open to remote or hybrid backend roles.</p>"
   },
   "sections": {
     "profiles": {
@@ -67,19 +67,6 @@
             "label": "linkedin.com/in/ikrame-ih",
             "inlineLink": true
           }
-        },
-        {
-          "id": "a1000001-0001-4000-8000-000000000003",
-          "hidden": true,
-          "icon": "devto-logo",
-          "iconColor": "",
-          "network": "DEV.to",
-          "username": "ikrame_ih",
-          "website": {
-            "url": "https://dev.to/ikrame_ih",
-            "label": "dev.to/ikrame_ih",
-            "inlineLink": true
-          }
         }
       ]
     },
@@ -99,7 +86,7 @@
           "location": "Málaga, Spain",
           "period": "Mar 2026 - Jun 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Internship focused on a Moodle learning platform, databases, and UI customization.</p><ul><li>Delivered a Moodle-based learning platform as the core internship project — setup, content structure, and ongoing customization.</li><li>Handled day-to-day database work supporting the platform (queries, structure, and keeping data wired to the app).</li><li>Owned the look-and-feel pass — CSS and UI tweaks — so the experience felt coherent rather than stock Moodle.</li></ul>",
+          "description": "<p>Internship focused on a Moodle learning platform, databases, and UI customization.</p><ul><li>Delivered a Moodle-based learning platform as the core internship project: setup, content structure, and ongoing customization.</li><li>Handled day-to-day database work supporting the platform (queries, structure, and keeping data wired to the app).</li><li>Owned the look-and-feel pass with CSS and UI tweaks so the experience felt coherent rather than stock Moodle.</li></ul>",
           "roles": []
         },
         {
@@ -110,7 +97,7 @@
           "location": "Málaga, Spain",
           "period": "Jan 2025 - Mar 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Executive support and internal tooling in a global professional services environment.</p><ul><li>Built a Power App that ran the CNS Christmas raffle end-to-end — registration and number assignment in one place, instead of chasing it over email/Teams.</li><li>Ran logistics for client visits in Málaga — agendas, venues, and coordination.</li><li>Day-to-day ops stack: travel, Concur, Outlook, Teams, SharePoint, plus the firm's internal tools.</li></ul>",
+          "description": "<p>Executive support and internal tooling in a global professional services environment.</p><ul><li>Built a Power App that ran the CNS Christmas raffle end to end: registration and number assignment in one place instead of email and Teams coordination.</li><li>Coordinated client visits in Málaga end to end: agendas, logistics, and local experiences.</li><li>Ran day-to-day operations with travel tools, Concur, Outlook, Teams, SharePoint, and firm internal systems.</li></ul>",
           "roles": []
         },
         {
@@ -121,7 +108,7 @@
           "location": "Málaga, Spain",
           "period": "Feb 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Short-term brand activation role in high-traffic retail environments.</p><ul><li>Ran product tastings and short presentations in busy retail settings.</li><li>Handled booth logistics and end-of-day inventory updates.</li><li>Seeing live retail ops up close inspired Live Event Radar, my real-time venue ops dashboard.</li></ul>",
+          "description": "<p>Short-term brand activation role in high-traffic retail environments.</p><ul><li>Ran product tastings and short presentations in busy retail settings.</li><li>Handled booth logistics and end-of-day inventory updates.</li><li>Live retail operations later informed Live Event Radar, a real-time venue ops dashboard.</li></ul>",
           "roles": []
         },
         {
@@ -132,7 +119,7 @@
           "location": "Remote, Spain",
           "period": "Nov 2024 - Dec 2024",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Operations and reporting support for a fundraising organisation.</p><ul><li>Prepared donor reports and follow-up using Google Drive and Outlook.</li><li>Managed HR tasks in Factorial and tracked travel and expense costs.</li><li>Maintained team coordination in Asana, Notion, and Slack; built reporting views in Looker.</li></ul>",
+          "description": "<p>Operations and reporting support for a fundraising organisation.</p><ul><li>Prepared donor reports and follow-up using Google Drive, Outlook, and Evergiving.</li><li>Managed HR tasks in Factorial and tracked travel and expense costs.</li><li>Maintained team coordination in Asana, Notion, and Slack; built reporting views in Looker.</li></ul>",
           "roles": []
         },
         {
@@ -161,7 +148,7 @@
           "hidden": false,
           "school": "IES Zaidín Vergeles",
           "degree": "Postgraduate Specialization",
-          "area": "Artificial Intelligence & Big Data",
+          "area": "Artificial Intelligence and Big Data",
           "grade": "EQF Level 5",
           "location": "Granada, Spain",
           "period": "Starting Sep 2026",
@@ -178,14 +165,14 @@
           "location": "Málaga, Spain",
           "period": "Sep 2024 - Jun 2026",
           "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "Capstone: MyPlaythrough — web application with React frontend, Node.js/Express API, and PostgreSQL."
+          "description": "Capstone: MyPlaythrough - web application with React frontend, Node.js/Express API, and PostgreSQL."
         },
         {
           "id": "c3000001-0001-4000-8000-000000000003",
           "hidden": false,
           "school": "I.E.S. Politécnico Jesús Marín",
           "degree": "Vocational Diploma",
-          "area": "Business Administration & Management",
+          "area": "Business Administration and Management",
           "grade": "Graduated with Honors. EQF Level 4",
           "location": "Málaga, Spain",
           "period": "Sep 2022 - Jun 2024",
@@ -203,16 +190,16 @@
       "startOnNewPage": false,
       "items": [
         {
-          "id": "d4000001-0001-4000-8000-000000000001",
+          "id": "d4000001-0001-4000-8000-000000000003",
           "hidden": false,
-          "name": "MyPlaythrough",
-          "period": "Sep 2025 - Jun 2026",
+          "name": "ReckonFlow",
+          "period": "Aug 2026 - Present",
           "website": {
-            "url": "https://github.com/ikrame-ih/my-playthrough",
+            "url": "https://github.com/ikrame-ih/reckon-flow",
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>DAW capstone awarded maximum grade. Personal game library manager with backlog tracking, community features, recommendations, discussions, and admin moderation.</p><ul><li>Built with React, Vite, Node.js, Express, PostgreSQL, JWT, and Docker Compose.</li><li>Vitest unit tests on client and server.</li><li>Live demo: https://my-playthrough.vercel.app/</li></ul>"
+          "description": "<p>Headless FastAPI backend for corporate travel: approvals, an immutable double-entry ledger, LLM receipt extraction, and hybrid bank reconciliation.</p><ul><li>Python, FastAPI, SQLAlchemy async, PostgreSQL, Redis, Alembic, pytest, mypy.</li><li>Idempotent mutating writes, money as Decimal strings, row locks on reconcile, CI with coverage.</li><li>Live API: https://reckon-flow.onrender.com/docs. Docs: https://ikrame-ih.github.io/reckon-flow/</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000002",
@@ -227,16 +214,16 @@
           "description": "<p>Real-time venue operations dashboard for brand activations with synchronized command center and telemetry map views.</p><ul><li>Developed with Next.js, React, TypeScript, Zustand, and Leaflet.</li><li>Feature-sliced architecture, Vitest tests, Playwright smoke tests, and GitHub Actions CI.</li><li>Live demo: https://live-event-radar.vercel.app</li></ul>"
         },
         {
-          "id": "d4000001-0001-4000-8000-000000000003",
+          "id": "d4000001-0001-4000-8000-000000000001",
           "hidden": false,
-          "name": "ReckonFlow",
-          "period": "Aug 2026 - Present",
+          "name": "MyPlaythrough",
+          "period": "Sep 2025 - Jun 2026",
           "website": {
-            "url": "https://github.com/ikrame-ih/reckon-flow",
+            "url": "https://github.com/ikrame-ih/my-playthrough",
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>Headless FastAPI backend for corporate travel: approvals, an immutable double-entry ledger, LLM receipt extraction, and hybrid bank reconciliation.</p><ul><li>Python, FastAPI, SQLAlchemy async, PostgreSQL/Neon, Redis/Upstash, Alembic.</li><li>Idempotent mutating writes, money as Decimal strings, row locks on reconcile, CI with mypy and coverage.</li><li>Live API: https://reckon-flow.onrender.com/docs · Docs: https://ikrame-ih.github.io/reckon-flow/</li></ul>"
+          "description": "<p>DAW capstone awarded maximum grade (10/10). Personal game library manager with backlog tracking, community features, recommendations, discussions, and admin moderation.</p><ul><li>Built with React, Vite, Node.js, Express, PostgreSQL, JWT, and Docker Compose.</li><li>Vitest unit tests on client and server, with GitHub Actions CI.</li><li>Live demo: https://my-playthrough.vercel.app/</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000004",
@@ -261,27 +248,6 @@
       "startOnNewPage": false,
       "items": [
         {
-          "id": "e5000001-0001-4000-8000-000000000001",
-          "hidden": false,
-          "icon": "",
-          "iconColor": "",
-          "name": "Frontend",
-          "proficiency": "",
-          "level": 0,
-          "keywords": [
-            "React",
-            "Next.js",
-            "TypeScript",
-            "Vite",
-            "Tailwind CSS",
-            "Framer Motion",
-            "Zustand",
-            "Leaflet",
-            "Semantic HTML",
-            "Accessibility"
-          ]
-        },
-        {
           "id": "e5000001-0001-4000-8000-000000000002",
           "hidden": false,
           "icon": "",
@@ -294,12 +260,37 @@
             "FastAPI",
             "Node.js",
             "Express",
+            "Java",
             "PostgreSQL",
             "SQL",
             "Redis",
             "REST APIs",
             "JWT",
-            "Alembic"
+            "Alembic",
+            "pytest",
+            "mypy"
+          ]
+        },
+        {
+          "id": "e5000001-0001-4000-8000-000000000001",
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "name": "Frontend",
+          "proficiency": "",
+          "level": 0,
+          "keywords": [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "JavaScript",
+            "Vite",
+            "Tailwind CSS",
+            "Framer Motion",
+            "Zustand",
+            "Leaflet",
+            "Semantic HTML",
+            "Accessibility"
           ]
         },
         {

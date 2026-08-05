@@ -38,4 +38,4 @@ Wireframe in excalidraw updated to match what actually shipped. Also learned to 
 
 ---
 
-Still want: real blog posts, OG tags, custom domain. [[09_Future_Roadmap]]
+Still want: OG tags, custom domain. LinkedIn signals replaced Vault. [[09_Future_Roadmap]]

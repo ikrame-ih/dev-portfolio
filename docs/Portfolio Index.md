@@ -34,6 +34,6 @@ Functions cheat sheet: [[11_Key_Functions_Reference]]
 
 ---
 
-Page scroll: hero cv projects bento vault guestbook contact
+Page scroll: hero cv projects linkedin bento guestbook contact
 
 Vercel root directory = web. Upstash + Resend env vars for prod features.

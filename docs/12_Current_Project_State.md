@@ -7,7 +7,7 @@ updated: 2026-08-01
 
 # 12 — Current project state
 
-Aug 2026. Live at ikrame.dev. Contact + guest book work on Vercel. Blog placeholders. CV updated to latest PDF version.
+Aug 2026. Live at ikrame.dev. Contact + guest book work on Vercel. LinkedIn signals is an editorial list of own posts with a quiet profile footnote. Reactive Resume JSON at repo root for CV import.
 
 ---
 
@@ -22,9 +22,9 @@ Major mobile performance sprint pushed the site from 87 to a 100 lighthouse scor
 
 ---
 
-Single page, no router. Nav scrolls to `#cv` `#projects` `#bento` `#blog` `#guestbook` `#contact`. Labels: CV, Projects, Vault, Guest book, Contact + Terminal button.
+Single page, no router. Nav scrolls to `#cv` `#projects` `#linkedin` `#bento` `#guestbook` `#contact`. Labels: CV, Projects, LinkedIn, Guest book, Contact + Terminal button.
 
-App order: Hero → CV → Projects → Bento → Vault → Guest book → Contact.
+App order: Hero → CV → Projects → LinkedIn → Bento → Guest book → Contact.
 
 ---
 

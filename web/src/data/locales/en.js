@@ -11,14 +11,14 @@ const PROFILE = {
   portfolioRepo: "https://github.com/ikrame-ih/dev-portfolio",
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
   siteUrl: "https://ikrame.dev",
-  overline: "BACKEND DEVELOPER · APIs · POSTGRESQL · ALSO SHIPS FRONTEND",
+  overline: "BACKEND · APIs · POSTGRESQL",
   headlineParts: [
     { text: "I build software" },
     { text: "with attention to detail", accent: true },
     { text: "and the context behind\u00A0it.", italic: true },
   ],
   heroSubtext:
-    "Hi, I'm Ikrame Ibn Hayoun, a backend-focused developer in Málaga. Right now I'm building ReckonFlow — a FastAPI ledger and reconciliation API where a retried POST must never double-pay anyone. I also ship React frontends when the product needs them.",
+    "Hi, I'm Ikrame Ibn Hayoun — a backend-focused developer in Málaga. I build APIs, data models, and the edges that break under retries and real traffic. I also ship React when a product needs a UI. Open to remote or hybrid roles.",
   // Compact hero facts — avoid repeating overline role or Málaga (already in copy + photo).
   heroFacts: [
     { eyebrow: "Open to", text: "Remote · hybrid" },
@@ -342,7 +342,7 @@ const PROJECTS = [
 ];
 
 const BENTO = {
-  overline: "03 · interests",
+  overline: "04 · interests",
   title: "Things I enjoy",
   titleAccent: "outside of development.",
   kicker: "The part of me that doesn't show up in a linter.",
@@ -420,27 +420,36 @@ const BENTO = {
   ],
 };
 
-const BLOG = {
-  name: "Tizza's vault",
-  avatar: ASSETS.tizzasVaultAvatar,
-  avatarCredit: {
-    artist: "heartpuff",
-    url: "https://www.instagram.com/heart_puff/",
-  },
+const LINKEDIN_SIGNALS = {
+  overline: "03 · from LinkedIn",
+  title: "Notes from LinkedIn.",
+  titleAccent: "",
   intro:
-    "Engineering notes from building ReckonFlow and other projects — short posts about the decisions that actually mattered.",
-  comingSoon: false,
+    "Short technical notes I publish there. Up to three recent ones stay here.",
   posts: [
     {
-      slug: "idempotent-posts-ledger-api",
-      title: "Designing idempotent POSTs for a ledger API",
+      slug: "two-sum-fundamentals",
+      title: "Programming Fundamentals · Episode 1: Two Sum",
       excerpt:
-        "A client posts an expense, times out, and retries. Without an Idempotency-Key, you get two ledger entries. Here's how ReckonFlow claims a Redis key, caches the response, and fails open when Redis is down.",
+        "Brute force gets you Accepted - then a hash map turns O(n²) into O(n). Why enumerate() helps, and why the complement trick matters more than memorising the answer.",
       date: "2026-08-04",
-      kind: "didactic",
-      href: "/blog/idempotent-posts-ledger-api.html",
+      topic: "Algorithms",
+      series: "Fundamentals · Ep. 1",
+      href: "https://www.linkedin.com/posts/ikrame-ih_python-softwareengineering-algorithms-activity-7490454995847323650-2Ik9",
+    },
+    {
+      slug: "big-o-cheat-sheet",
+      title: "What Big O actually measures",
+      excerpt:
+        "n is the size of the input - not the runtime in seconds. A one-page refresher on common classes, time vs space, and why worst-case scaling matters in interviews and real systems.",
+      date: "2026-08-03",
+      topic: "CS fundamentals",
+      series: null,
+      href: "https://www.linkedin.com/posts/ikrame-ih_technology-softwareengineering-programming-activity-7489953261064642560-AJK5",
     },
   ],
+  profileNote:
+    "Some people I have worked with have left public recommendations on LinkedIn.",
 };
 
 const BOW_BOARD = {
@@ -470,7 +479,7 @@ const catalog = {
   EDUCATION,
   PROJECTS,
   BENTO,
-  BLOG,
+  LINKEDIN_SIGNALS,
   BOW_BOARD,
   marqueeRare: ["open to work", "málaga → remote", "built with care"],
   section: {

@@ -20,9 +20,9 @@ Everything hangs off `App.jsx`. One `<main>`, sections in order, `cliOpen` state
 
 ## Scroll order (matches nav)
 
-Hero → CV → Projects → Interests (bento) → Vault (blog) → Guest book → Contact.
+Hero → CV → Projects → LinkedIn signals → Interests (bento) → Guest book → Contact.
 
-Backgrounds flip bone / bone-200 between sections. ids for nav: `cv`, `projects`, `bento`, `blog`, `guestbook`, `contact`.
+Backgrounds flip bone / bone-200 between sections. ids for nav: `cv`, `projects`, `linkedin`, `bento`, `guestbook`, `contact`. Legacy `#blog` / `#vault` aliases redirect to `#linkedin`.
 
 ---
 
@@ -30,7 +30,7 @@ Backgrounds flip bone / bone-200 between sections. ids for nav: `cv`, `projects`
 
 **Layout:** `Nav.jsx`, `Footer.jsx`, `Bow.jsx`
 
-**Sections:** `Hero.jsx`, `CVSection.jsx`, `ProjectsSection.jsx`, `BentoSection.jsx`, `BlogSection.jsx`, `GuestbookCanvas.jsx`, `ContactSection.jsx`
+**Sections:** `Hero.jsx`, `CVSection.jsx`, `ProjectsSection.jsx`, `LinkedInSection.jsx`, `BentoSection.jsx`, `GuestbookCanvas.jsx`, `ContactSection.jsx`
 
 **Overlays:** `CLITerminal.jsx` (Terminal btn, Ctrl+`), `ArchitectureModal.jsx` + lazy `MermaidDiagram.jsx` (project cards), Sonner toasts in App for contact form
 

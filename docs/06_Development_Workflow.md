@@ -40,9 +40,18 @@ Deployable app is **`web/`**. Vercel root directory = `web`, not the repo root.
 
 ## Editing copy
 
-Almost everything the visitor reads is in `web/src/data/portfolio.js`. Hero text, jobs, projects, guest book strings, etc. Save and Vite hot-reloads.
+Almost everything the visitor reads is in `web/src/data/locales/en.js` and `es.js` (re-exported via `portfolio.js`). Hero text, jobs, projects, guest book strings, LinkedIn signals, etc. Save and Vite hot-reloads.
 
-Blog posts aren't real yet — placeholders in the same file until I build the vault sync ([[09_Future_Roadmap]]).
+### Updating LinkedIn notes (max 3)
+
+There is no automatic LinkedIn sync. Keep `LINKEDIN_SIGNALS.posts` curated:
+
+1. Copy the public URL of the LinkedIn post.
+2. Add a faithful title and excerpt in both `en.js` and `es.js` under `LINKEDIN_SIGNALS.posts` (newest first).
+3. Keep at most three entries; remove the oldest when adding a fourth.
+4. Run `npm run build` before publishing.
+
+Reactive Resume CVs live at repo root: `react-resume.json` (EN) and `react-resume.es.json` (ES). Import those into Reactive Resume when the site copy changes.
 
 ---
 
