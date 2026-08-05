@@ -7,29 +7,19 @@ const SECTION_IDS = ["cv", "projects", "linkedin", "bento", "guestbook", "contac
 const ACTIVE_LINE = NAV_SCROLL_OFFSET + 48;
 
 /** Ignore observer/scroll updates briefly after a nav click. */
-const LOCK_MS = 900;
+const LOCK_MS = 1200;
 
-let cachedOffsets = null;
-
-function invalidateOffsets() {
-  cachedOffsets = null;
-}
-
-if (typeof window !== "undefined") {
-  window.addEventListener("resize", invalidateOffsets, { passive: true });
-}
-
+/**
+ * Active section from scroll. Remeasure every call — lazy sections and
+ * layout shifts make a long-lived offset cache drift (e.g. LinkedIn → Contact).
+ */
 function sectionFromScroll() {
-  if (!cachedOffsets) {
-    cachedOffsets = SECTION_IDS.map(id => {
-      const el = document.getElementById(id);
-      return { id, top: el ? el.getBoundingClientRect().top + window.scrollY : 0 };
-    });
-  }
-  
   const marker = window.scrollY + ACTIVE_LINE;
   let current = null;
-  for (const { id, top } of cachedOffsets) {
+  for (const id of SECTION_IDS) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    const top = el.getBoundingClientRect().top + window.scrollY;
     if (top <= marker) current = id;
   }
   return current;

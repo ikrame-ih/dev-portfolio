@@ -463,7 +463,7 @@ const LINKEDIN_SIGNALS = {
     quote:
       "She stands out for her commitment, responsibility, and constant desire to learn and grow. What I appreciated most was her ability to listen, take feedback on board, and continuously look for ways to improve.",
     attribution: "Assistant Director",
-    cta: "+6 recommendations",
+    cta: "+5 recommendations",
     href: "https://www.linkedin.com/in/ikrame-ih/details/recommendations/",
   },
 };

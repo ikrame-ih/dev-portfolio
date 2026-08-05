@@ -463,7 +463,7 @@ const LINKEDIN_SIGNALS = {
     quote:
       "Destaca por su compromiso, responsabilidad y ganas constantes de aprender y crecer. Lo que más valoré fue su capacidad de escuchar, integrar el feedback y buscar siempre maneras de mejorar.",
     attribution: "Assistant Director",
-    cta: "+6 recomendaciones",
+    cta: "+5 recomendaciones",
     href: "https://www.linkedin.com/in/ikrame-ih/details/recommendations/",
   },
 };
