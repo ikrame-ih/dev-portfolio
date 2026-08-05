@@ -34,18 +34,16 @@ const stripVariants = {
 };
 
 const mediaVariants = {
-  hidden: { opacity: 0, y: 22 },
+  hidden: { y: 22 },
   show: {
-    opacity: 1,
     y: 0,
     transition: { duration: MOTION_DURATION.reveal, ease: MOTION_EASE },
   },
 };
 
 const copyVariants = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: { y: 16 },
   show: {
-    opacity: 1,
     y: 0,
     transition: { duration: MOTION_DURATION.normal, ease: MOTION_EASE },
   },

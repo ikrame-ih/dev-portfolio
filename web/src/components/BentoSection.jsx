@@ -31,8 +31,8 @@ export const BentoSection = () => {
           {BENTO.items.map((item, idx) => (
             <motion.div
               key={item.key}
-              initial={reduce ? false : { opacity: 0, y: 14 }}
-              whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+              initial={reduce ? false : { y: 14 }}
+              whileInView={reduce ? undefined : { y: 0 }}
               viewport={REVEAL_VIEWPORT}
               transition={revealTransition(idx * 0.06)}
               data-testid={`bento-${item.key}`}
@@ -42,6 +42,9 @@ export const BentoSection = () => {
                 <img
                   src={item.image}
                   alt={item.imageAlt || item.title}
+                  width={1200}
+                  height={900}
+                  decoding="async"
                   className={`absolute inset-0 w-full h-full object-cover opacity-40 md:opacity-50 group-hover:opacity-[0.62] transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.2,0.7,0.2,1)] motion-safe:group-hover:scale-[1.04] ${item.imagePosition || "object-center"}`}
                   loading="lazy"
                 />

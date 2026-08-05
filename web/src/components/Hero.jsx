@@ -66,12 +66,24 @@ export const Hero = () => {
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 768px)");
-    // Only enable parallax on desktop to prevent janky scrolling on mobile 
-    // devices where touch events can conflict with scroll-linked animations.
-    const sync = () => setParallaxOn(mq.matches);
-    sync();
-    mq.addEventListener("change", sync);
-    return () => mq.removeEventListener("change", sync);
+    // Defer scroll-linked parallax until after first paint to cut forced reflow / TBT.
+    let idleId = 0;
+    let timeoutId = 0;
+    const enable = () => {
+      if (mq.matches) setParallaxOn(true);
+    };
+    if (typeof window.requestIdleCallback === "function") {
+      idleId = window.requestIdleCallback(enable, { timeout: 1200 });
+    } else {
+      timeoutId = window.setTimeout(enable, 700);
+    }
+    const onChange = () => setParallaxOn(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => {
+      mq.removeEventListener("change", onChange);
+      if (idleId && window.cancelIdleCallback) window.cancelIdleCallback(idleId);
+      if (timeoutId) window.clearTimeout(timeoutId);
+    };
   }, []);
 
   return (

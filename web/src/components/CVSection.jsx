@@ -45,8 +45,8 @@ const TrackBadge = ({ track, tracks }) => {
 const BrandMark = ({ name, index = 0, reduce }) => (
   <motion.li
     className="stack-mark text-center min-w-0"
-    initial={reduce ? false : { opacity: 0, y: 10 }}
-    whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+    initial={reduce ? false : { y: 10 }}
+    whileInView={reduce ? undefined : { y: 0 }}
     viewport={REVEAL_VIEWPORT}
     transition={revealTransition(Math.min(index * 0.04, 0.35))}
   >

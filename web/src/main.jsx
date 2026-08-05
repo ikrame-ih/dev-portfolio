@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import React from "react";
+import { LazyMotion, domAnimation } from "framer-motion";
 import "./fonts.css";
 import App from "./App.jsx";
 import "./index.css";
@@ -33,7 +34,9 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ErrorBoundary>
       <LocaleProvider>
-        <App />
+        <LazyMotion features={domAnimation} strict={false}>
+          <App />
+        </LazyMotion>
       </LocaleProvider>
     </ErrorBoundary>
   </StrictMode>,

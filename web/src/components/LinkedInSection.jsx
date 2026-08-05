@@ -14,12 +14,12 @@ const formatDate = (iso, lang) => {
 };
 
 const AVATAR_TONES = [
-  "bg-bone text-ink/65",
-  "bg-bone-300 text-ink/65",
-  "bg-bone-400 text-ink/70",
-  "bg-bone text-ink/65",
-  "bg-bone-300 text-ink/65",
-  "bg-ink/[0.08] text-ink/70",
+  "bg-bone text-ink-mute",
+  "bg-bone-300 text-ink-mute",
+  "bg-bone-400 text-ink-soft",
+  "bg-bone text-ink-mute",
+  "bg-bone-300 text-ink-mute",
+  "bg-ink/[0.08] text-ink-soft",
 ];
 
 /** Decorative opening quote for the feedback card. */
@@ -48,15 +48,15 @@ const FeaturedPost = ({ post, reduce, label, readLabel, opensNewTab, lang }) => 
     target="_blank"
     rel="noopener noreferrer"
     data-testid={`linkedin-post-${post.slug}`}
-    initial={reduce ? false : { opacity: 0, y: 12 }}
-    whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+    initial={reduce ? false : { y: 12 }}
+    whileInView={reduce ? undefined : { y: 0 }}
     viewport={REVEAL_VIEWPORT}
     transition={revealTransition(0)}
     className="group block pb-9 md:pb-11 outline-none focus-visible:ring-2 focus-visible:ring-burgundy/30 focus-visible:ring-offset-4 focus-visible:ring-offset-bone"
   >
     <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-mute mb-4">
       {label}
-      <span className="text-ink/25" aria-hidden="true">
+      <span className="text-ink-mute/50" aria-hidden="true">
         {" "}
         ·{" "}
       </span>
@@ -68,7 +68,7 @@ const FeaturedPost = ({ post, reduce, label, readLabel, opensNewTab, lang }) => 
     <p className="mt-4 font-mono text-xs md:text-sm text-ink-soft leading-relaxed text-pretty max-w-2xl">
       {post.excerpt}
     </p>
-    <span className="mt-5 inline-flex font-mono text-xs text-burgundy opacity-75 transition-opacity group-hover:opacity-100">
+    <span className="mt-5 inline-flex font-mono text-xs text-burgundy transition-colors group-hover:text-ink">
       {readLabel}
       <span className="sr-only">{opensNewTab}</span>
     </span>
@@ -82,15 +82,15 @@ const SecondaryPost = ({ post, index, reduce, readLabel, opensNewTab, lang }) =>
     target="_blank"
     rel="noopener noreferrer"
     data-testid={`linkedin-post-${post.slug}`}
-    initial={reduce ? false : { opacity: 0, y: 12 }}
-    whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+    initial={reduce ? false : { y: 12 }}
+    whileInView={reduce ? undefined : { y: 0 }}
     viewport={REVEAL_VIEWPORT}
     transition={revealTransition(0.06 + index * 0.06)}
     className="group flex h-full flex-col pt-7 md:pt-8 outline-none focus-visible:ring-2 focus-visible:ring-burgundy/30 focus-visible:ring-offset-4 focus-visible:ring-offset-bone"
   >
     <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-mute mb-3">
       {post.series || post.topic}
-      <span className="text-ink/25" aria-hidden="true">
+      <span className="text-ink-mute/50" aria-hidden="true">
         {" "}
         ·{" "}
       </span>
@@ -102,7 +102,7 @@ const SecondaryPost = ({ post, index, reduce, readLabel, opensNewTab, lang }) =>
     <p className="mt-2.5 font-mono text-xs text-ink-soft leading-relaxed text-pretty line-clamp-3 grow">
       {post.excerpt}
     </p>
-    <span className="mt-4 inline-flex font-mono text-xs text-burgundy opacity-70 transition-opacity group-hover:opacity-100">
+    <span className="mt-4 inline-flex font-mono text-xs text-burgundy transition-colors group-hover:text-ink">
       {readLabel}
       <span className="sr-only">{opensNewTab}</span>
     </span>
@@ -157,7 +157,7 @@ const FeedbackCard = ({ feedback, opensNewTab }) => {
         )}
 
         <div className="flex gap-3 items-start">
-          <QuoteMark className="mt-0.5 h-5 w-6 shrink-0 text-burgundy/50" />
+          <QuoteMark className="mt-0.5 h-5 w-6 shrink-0 text-burgundy" />
           <div className="min-w-0">
             <blockquote className="font-serif text-[0.95rem] md:text-base font-light italic text-ink leading-relaxed text-pretty">
               {feedback.quote}

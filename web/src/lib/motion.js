@@ -55,15 +55,16 @@ export const scrollEnter = (
   delay = 0,
   { y = 14, duration = MOTION_DURATION.reveal } = {},
 ) => {
+  // Transform-only (no opacity:0) so WAVE/a11y tools never see invisible text.
   if (reduce) {
     return {
       initial: false,
-      whileInView: { opacity: 1, y: 0 },
+      whileInView: { y: 0 },
     };
   }
   return {
-    initial: { opacity: 0, y },
-    whileInView: { opacity: 1, y: 0 },
+    initial: { y },
+    whileInView: { y: 0 },
     transition: { duration, ease: MOTION_EASE, delay },
   };
 };
