@@ -422,16 +422,25 @@ const BENTO = {
 
 const LINKEDIN_SIGNALS = {
   overline: "03 · desde LinkedIn",
-  title: "Notas de LinkedIn.",
-  titleAccent: "",
-  intro:
-    "Notas técnicas cortas que publico allí. Aquí se quedan como máximo tres recientes.",
+  title: "Notas de",
+  titleAccent: "LinkedIn.",
+  featuredLabel: "Nota destacada",
   posts: [
     {
-      slug: "two-sum-fundamentals",
-      title: "Fundamentos de programación · Episodio 1: Two Sum",
+      slug: "contains-duplicate-fundamentals",
+      title: "Programming Fundamentals Series | Episode 2: Contains Duplicate",
       excerpt:
-        "La fuerza bruta te da el Accepted; luego un hash map pasa de O(n²) a O(n). Por qué ayuda enumerate() y por qué el truco del complemento importa más que memorizar la solución.",
+        "Siguiendo el post anterior, continúo esta serie documentando cómo refuerzo fundamentos de programación y resolución de problemas. El tema de hoy es otro clásico: Contains Duplicate.",
+      date: "2026-08-05",
+      topic: "Algoritmos",
+      series: "Fundamentos · Ep. 2",
+      href: "https://www.linkedin.com/posts/ikrame-ih_python-softwareengineering-algorithms-share-7490756595665162241-Awub/",
+    },
+    {
+      slug: "two-sum-fundamentals",
+      title: "Programming Fundamentals Series | Episode 1: Two Sum",
+      excerpt:
+        "Empiezo una serie para documentar cómo refuerzo fundamentos de programación y resolución de problemas. El tema de hoy es un clásico de LeetCode: Two Sum.",
       date: "2026-08-04",
       topic: "Algoritmos",
       series: "Fundamentos · Ep. 1",
@@ -439,17 +448,24 @@ const LINKEDIN_SIGNALS = {
     },
     {
       slug: "big-o-cheat-sheet",
-      title: "Qué mide realmente Big O",
+      title: "Notación Big O",
       excerpt:
-        "n es el tamaño de la entrada, no el tiempo en segundos. Un resumen de una página: clases habituales, tiempo vs espacio, y por qué el peor caso importa en entrevistas y en sistemas reales.",
+        "La notación Big O aparece mucho al estudiar algoritmos y estructuras de datos, y también en entrevistas técnicas. En Big O, n representa el tamaño de la entrada.",
       date: "2026-08-03",
       topic: "Fundamentos",
       series: null,
-      href: "https://www.linkedin.com/posts/ikrame-ih_technology-softwareengineering-programming-activity-7489953261064642560-AJK5",
+      href: "https://www.linkedin.com/posts/ikrame-ih_technology-softwareengineering-programming-share-7489761460697403393-ldOL/",
     },
   ],
-  profileNote:
-    "Algunas personas con las que he trabajado han dejado recomendaciones públicas en LinkedIn.",
+  feedback: {
+    label: "Feedback profesional",
+    initials: ["A", "P", "I", "E", "N", "S"],
+    quote:
+      "Destaca por su compromiso, responsabilidad y ganas constantes de aprender y crecer. Lo que más valoré fue su capacidad de escuchar, integrar el feedback y buscar siempre maneras de mejorar.",
+    attribution: "Assistant Director",
+    cta: "+6 recomendaciones",
+    href: "https://www.linkedin.com/in/ikrame-ih/details/recommendations/",
+  },
 };
 
 const BOW_BOARD = {

@@ -44,11 +44,11 @@ Almost everything the visitor reads is in `web/src/data/locales/en.js` and `es.j
 
 ### Updating LinkedIn notes (max 3)
 
-There is no automatic LinkedIn sync. Keep `LINKEDIN_SIGNALS.posts` curated:
+There is no automatic LinkedIn sync (member post APIs are closed / not approved for portfolio feeds). Keep `LINKEDIN_SIGNALS.posts` curated by hand:
 
-1. Copy the public URL of the LinkedIn post.
-2. Add a faithful title and excerpt in both `en.js` and `es.js` under `LINKEDIN_SIGNALS.posts` (newest first).
-3. Keep at most three entries; remove the oldest when adding a fourth.
+1. Copy the public post URL (prefer the “Copy link to post” URL LinkedIn gives you).
+2. In both `en.js` and `es.js`, set `title` and `excerpt` from how the post actually opens — do not rewrite the opening into a marketing blurb.
+3. Keep at most three entries; newest first; drop the oldest when adding a fourth.
 4. Run `npm run build` before publishing.
 
 Reactive Resume CVs live at repo root: `react-resume.json` (EN) and `react-resume.es.json` (ES). Import those into Reactive Resume when the site copy changes.

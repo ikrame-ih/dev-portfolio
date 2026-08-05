@@ -43,8 +43,11 @@ export const CLI_COMMANDS = [
 export const GO_TARGETS = [
   { id: "cv", aliases: ["cv", "skills", "habilidades"] },
   { id: "projects", aliases: ["projects", "proj", "work", "proyectos"] },
+  {
+    id: "linkedin",
+    aliases: ["linkedin", "signals", "blog", "vault"],
+  },
   { id: "bento", aliases: ["bento", "interests", "intereses"] },
-  { id: "blog", aliases: ["blog", "vault"] },
   { id: "guestbook", aliases: ["guestbook", "guest", "lazos"] },
   { id: "contact", aliases: ["contact", "hi", "contacto"] },
 ];

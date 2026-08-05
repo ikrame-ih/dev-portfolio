@@ -26,8 +26,8 @@ export const Footer = ({ onOpenTerminal }) => {
     () => [
       { id: "cv", label: ui.footer.cvSkills, index: "01" },
       { id: "projects", label: ui.nav.projects, index: "02" },
-      { id: "bento", label: ui.nav.interests, index: "03" },
-      { id: "blog", label: ui.footer.vault, index: "04" },
+      { id: "linkedin", label: ui.footer.linkedinSection, index: "03" },
+      { id: "bento", label: ui.nav.interests, index: "04" },
       { id: "guestbook", label: ui.nav.guestbook, index: "05" },
       { id: "contact", label: ui.nav.contact, index: "06" },
     ],

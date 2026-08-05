@@ -10,8 +10,8 @@ import { lazy, Suspense } from "react";
 
 const CVSection = lazy(() => import("@/components/CVSection"));
 const ProjectsSection = lazy(() => import("@/components/ProjectsSection"));
+const LinkedInSection = lazy(() => import("@/components/LinkedInSection"));
 const BentoSection = lazy(() => import("@/components/BentoSection"));
-const BlogSection = lazy(() => import("@/components/BlogSection"));
 const GuestbookCanvas = lazy(() => import("@/components/GuestbookCanvas"));
 const ContactSection = lazy(() => import("@/components/ContactSection"));
 const Footer = lazy(() => import("@/components/Footer"));
@@ -46,8 +46,17 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    const HASH_ALIASES = {
+      blog: "linkedin",
+      vault: "linkedin",
+    };
     const goHash = () => {
-      const id = window.location.hash.slice(1);
+      let id = window.location.hash.slice(1);
+      if (HASH_ALIASES[id]) {
+        id = HASH_ALIASES[id];
+        const url = `${window.location.pathname}${window.location.search}#${id}`;
+        window.history.replaceState(null, "", url);
+      }
       if (id && id !== "main-content") scrollToElement(id);
     };
     // Deep links / refresh with hash — wait a tick for layout.
@@ -104,8 +113,8 @@ export default function App() {
           <Suspense fallback={null}>
             <CVSection />
             <ProjectsSection />
+            <LinkedInSection />
             <BentoSection />
-            <BlogSection />
             <GuestbookCanvas />
             <ContactSection />
           </Suspense>

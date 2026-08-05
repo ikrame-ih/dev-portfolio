@@ -4,7 +4,6 @@ export const ASSETS = {
   profilePortraitWebp: "/images/profile-ikrame-640.webp",
   cvPdf: "/Ikrame_Ibn_Hayoun_CV.pdf",
   cvPdfEs: "/Ikrame_Ibn_Hayoun_CV_ES.pdf",
-  tizzasVaultAvatar: "/images/tizzas-vault-avatar.jpg",
   interests: {
     gaming: "/images/interests/gaming-ace-attorney.jpg",
     music: "/images/interests/music-voila.jpg",

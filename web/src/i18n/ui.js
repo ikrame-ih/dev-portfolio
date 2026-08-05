@@ -97,7 +97,8 @@ export const UI = {
     },
     linkedin: {
       readOnLinkedIn: "Open ↗",
-      profileLinkLabel: "View on LinkedIn ↗",
+      profileLinkLabel: "On LinkedIn ↗",
+      profileCta: "Open profile",
     },
     cli: {
       dialog: "Quick terminal",
@@ -295,7 +296,8 @@ export const UI = {
     },
     linkedin: {
       readOnLinkedIn: "Abrir ↗",
-      profileLinkLabel: "Ver en LinkedIn ↗",
+      profileLinkLabel: "En LinkedIn ↗",
+      profileCta: "Abrir perfil",
     },
     cli: {
       dialog: "Terminal rápida",

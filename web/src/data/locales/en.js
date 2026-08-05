@@ -422,16 +422,25 @@ const BENTO = {
 
 const LINKEDIN_SIGNALS = {
   overline: "03 · from LinkedIn",
-  title: "Notes from LinkedIn.",
-  titleAccent: "",
-  intro:
-    "Short technical notes I publish there. Up to three recent ones stay here.",
+  title: "Notes from",
+  titleAccent: "LinkedIn.",
+  featuredLabel: "Featured post",
   posts: [
     {
-      slug: "two-sum-fundamentals",
-      title: "Programming Fundamentals · Episode 1: Two Sum",
+      slug: "contains-duplicate-fundamentals",
+      title: "Programming Fundamentals Series | Episode 2: Contains Duplicate",
       excerpt:
-        "Brute force gets you Accepted - then a hash map turns O(n²) into O(n). Why enumerate() helps, and why the complement trick matters more than memorising the answer.",
+        "Following up on my previous post, I'm continuing this series where I document my journey to strengthen my core programming and problem-solving skills! Today's topic is another classic: Contains Duplicate.",
+      date: "2026-08-05",
+      topic: "Algorithms",
+      series: "Fundamentals · Ep. 2",
+      href: "https://www.linkedin.com/posts/ikrame-ih_python-softwareengineering-algorithms-share-7490756595665162241-Awub/",
+    },
+    {
+      slug: "two-sum-fundamentals",
+      title: "Programming Fundamentals Series | Episode 1: Two Sum",
+      excerpt:
+        "I'm starting a new series where I'll document my journey to strengthen my programming fundamentals and problem-solving skills. Today's topic is a classic LeetCode problem: Two Sum.",
       date: "2026-08-04",
       topic: "Algorithms",
       series: "Fundamentals · Ep. 1",
@@ -439,17 +448,24 @@ const LINKEDIN_SIGNALS = {
     },
     {
       slug: "big-o-cheat-sheet",
-      title: "What Big O actually measures",
+      title: "Big O notation",
       excerpt:
-        "n is the size of the input - not the runtime in seconds. A one-page refresher on common classes, time vs space, and why worst-case scaling matters in interviews and real systems.",
+        "Big O notation is a concept that often comes up when studying algorithms and data structures, and it's also common in technical interviews. In Big O, n represents the size of the input.",
       date: "2026-08-03",
       topic: "CS fundamentals",
       series: null,
-      href: "https://www.linkedin.com/posts/ikrame-ih_technology-softwareengineering-programming-activity-7489953261064642560-AJK5",
+      href: "https://www.linkedin.com/posts/ikrame-ih_technology-softwareengineering-programming-share-7489761460697403393-ldOL/",
     },
   ],
-  profileNote:
-    "Some people I have worked with have left public recommendations on LinkedIn.",
+  feedback: {
+    label: "Professional feedback",
+    initials: ["A", "P", "I", "E", "N", "S"],
+    quote:
+      "She stands out for her commitment, responsibility, and constant desire to learn and grow. What I appreciated most was her ability to listen, take feedback on board, and continuously look for ways to improve.",
+    attribution: "Assistant Director",
+    cta: "+6 recommendations",
+    href: "https://www.linkedin.com/in/ikrame-ih/details/recommendations/",
+  },
 };
 
 const BOW_BOARD = {

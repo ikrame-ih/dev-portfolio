@@ -13,7 +13,7 @@ export const Nav = ({ onOpenTerminal }) => {
   const { active, lock } = useActiveSection();
   const reduce = useReducedMotion();
   const menuId = useId();
-  const { PROFILE, BLOG } = useContent();
+  const { PROFILE } = useContent();
   const { lang, setLang } = useLocale();
   const ui = useUi();
   const containerRef = useRef(null);
@@ -24,8 +24,8 @@ export const Nav = ({ onOpenTerminal }) => {
     () => [
       { id: "cv", label: ui.nav.cv },
       { id: "projects", label: ui.nav.projects },
+      { id: "linkedin", label: ui.nav.linkedin },
       { id: "bento", label: ui.nav.interests },
-      { id: "blog", label: ui.nav.vault },
       { id: "guestbook", label: ui.nav.guestbook },
       { id: "contact", label: ui.nav.contact },
     ],
@@ -33,9 +33,7 @@ export const Nav = ({ onOpenTerminal }) => {
   );
 
   const desktopLinks = allLinks;
-  const mobileLinks = BLOG.comingSoon
-    ? allLinks.filter((l) => l.id !== "blog")
-    : allLinks;
+  const mobileLinks = allLinks;
 
   useEffect(() => {
     let ticking = false;
