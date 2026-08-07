@@ -190,6 +190,18 @@
       "startOnNewPage": false,
       "items": [
         {
+          "id": "d4000001-0001-4000-8000-000000000005",
+          "hidden": false,
+          "name": "Import Resolve Cli",
+          "period": "Aug 2026",
+          "website": {
+            "url": "https://github.com/ikrame-ih/import-resolve-cli",
+            "label": "GitHub",
+            "inlineLink": true
+          },
+          "description": "<p>CLI tool and Git merge driver for automatically resolving merge conflicts in Python import blocks. Published on PyPI with zero runtime dependencies.</p><ul><li>Python 3.9+, Git CLI, Hatchling, PyPI, GitHub Actions CI.</li><li>Parses Git conflict markers, deduplicates and sorts import lines, supports dry-run and repo auto-merge driver mode.</li><li>PyPI package: https://pypi.org/project/import-resolve-cli/</li></ul>"
+        },
+        {
           "id": "d4000001-0001-4000-8000-000000000003",
           "hidden": false,
           "name": "ReckonFlow",
