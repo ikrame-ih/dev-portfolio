@@ -233,6 +233,28 @@ const EDUCATION = [
 
 const PROJECTS = [
   {
+    id: "import-resolve-cli",
+    name: "Import Resolve Cli",
+    subtitle: "Herramienta CLI y Git merge driver · paquete Python PyPI",
+    stack: ["Python 3.9+", "Git CLI", "Hatchling", "PyPI", "GitHub Actions"],
+    href: "https://github.com/ikrame-ih/import-resolve-cli",
+    demo: "https://pypi.org/project/import-resolve-cli/",
+    image: ASSETS.projects.importResolveCli,
+    imageAlt: "Demo de Import Resolve Cli",
+    description:
+      "Herramienta CLI y controlador de fusión para Git que resuelve automáticamente conflictos de merge en bloques de imports de Python. Publicado en PyPI con cero dependencias en runtime.",
+    architectureSummary:
+      "Analiza marcadores de conflicto de Git en archivos .py, extrae bloques en conflicto, elimina duplicados, ordena imports respetando sintaxis Python e implementa un motor de auto-merge.",
+    mermaid: `flowchart LR
+  Git[Git Merge Conflict] --> CLI[import-resolve-cli]
+  CLI --> Parse[Parse conflicto .py]
+  Parse --> Dedupe[Deduplicar + ordenar imports]
+  Dedupe --> Write[Resolución limpia sin marcadores]
+  CLI --> Driver[Modo Auto Merge Driver .git/config]
+  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
+  class CLI,Parse,Dedupe accent`,
+  },
+  {
     id: "reconflow",
     name: "ReckonFlow",
     subtitle: "API de conciliación de viajes corporativos · backend",

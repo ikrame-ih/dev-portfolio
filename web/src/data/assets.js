@@ -14,6 +14,7 @@ export const ASSETS = {
     travelling: "/images/interests/travelling.webp",
   },
   projects: {
+    importResolveCli: "/images/projects/import-resolve-cli.webp",
     reckonFlow: "/images/projects/reckon-flow.webp",
     liveEventRadar: "/images/projects/live-event-radar.webp",
     myPlaythrough: "/images/projects/my-playthrough.webp",
