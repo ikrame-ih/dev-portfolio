@@ -239,7 +239,7 @@ const PROJECTS = [
     stack: ["Python 3.9+", "Git CLI", "Hatchling", "PyPI", "GitHub Actions"],
     href: "https://github.com/ikrame-ih/import-resolve-cli",
     demo: "https://pypi.org/project/import-resolve-cli/",
-    image: ASSETS.projects.importResolveCli,
+    image: null,
     imageAlt: "Import Resolve Cli demo preview",
     description:
       "CLI developer tool and Git merge driver for automatically resolving merge conflicts in Python import blocks. Published on PyPI with zero runtime dependencies.",
