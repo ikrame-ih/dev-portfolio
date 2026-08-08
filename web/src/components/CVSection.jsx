@@ -88,52 +88,52 @@ const BrandGrid = ({ items, cols = "grid-cols-2 sm:grid-cols-3", testId, reduce 
 );
 
 const DomainPanel = ({ domain, children, testId }) => {
-  const reduce = useReducedMotion();
   const showIndex = /^\d+$/.test(String(domain.index ?? ""));
 
   return (
-    <div data-testid={testId} className="relative min-h-0 md:min-h-[260px]">
+    <div data-testid={testId} className="relative h-full min-h-0 md:min-h-[260px]">
+      {/* Desktop index — fixed box so 01–04 share one baseline across the row. */}
       {showIndex && (
-        <motion.span
+        <span
           aria-hidden="true"
-          className="pointer-events-none absolute -top-2 right-0 hidden md:block font-serif font-light text-[7rem] leading-none select-none text-[#4A4A4A]"
-          initial={reduce ? false : { x: 12 }}
-          whileInView={reduce ? undefined : { x: 0 }}
-          viewport={REVEAL_VIEWPORT}
-          transition={revealTransition(0.08)}
+          className="pointer-events-none absolute right-0 top-0 z-0 hidden h-[5.5rem] w-[7.5rem] items-start justify-end md:flex"
         >
-          {domain.index}
-        </motion.span>
+          <span className="font-serif font-light text-[7rem] leading-none select-none text-[#4A4A4A]/[0.22]">
+            {domain.index}
+          </span>
+        </span>
       )}
 
       {/* Open catalog — top rule only, no filled card (unlike projects / bento). */}
-      <div className="relative border-t border-ink/25 pt-5 md:pt-6">
-        <div className="flex items-start gap-3 mb-1">
+      <div className="relative z-10 border-t border-ink/25 pt-5 md:pt-6">
+        <div className="flex items-start gap-3 md:min-h-[5.75rem]">
           <DomainGlyph
             id={domain.id}
-            className="w-6 h-6 mt-1.5 shrink-0 text-burgundy"
+            className="mt-1.5 h-6 w-6 shrink-0 text-burgundy"
           />
-          <div className="min-w-0 flex-1">
-            <div className="flex items-baseline justify-between gap-3">
-              <h3 className="font-serif text-2xl md:text-3xl tracking-tight text-ink">
+          <div className="min-w-0 flex-1 pr-0 md:pr-[7.5rem]">
+            <div className="flex items-baseline gap-3">
+              <h3 className="font-serif text-2xl tracking-tight text-ink md:text-3xl">
                 {domain.title}
               </h3>
+              {/* Mobile-only — desktop uses the large index above. */}
               {showIndex && (
-                <span className="font-mono text-xs uppercase tracking-[0.28em] text-burgundy shrink-0">
+                <span className="shrink-0 font-mono text-xs uppercase tracking-[0.28em] text-burgundy md:hidden">
                   {domain.index}
                 </span>
               )}
             </div>
-            <p className="mt-1.5 font-mono text-xs leading-relaxed text-ink-mute max-w-sm">
+            <p className="mt-1.5 max-w-sm font-mono text-xs leading-relaxed text-ink-mute">
               {domain.kicker}
             </p>
           </div>
         </div>
 
-        <div className="mt-5 mb-6 flex items-center gap-3" aria-hidden="true">
-          <span className="h-px flex-1 bg-bone-400" />
-          <span className="h-1 w-1 rotate-45 bg-burgundy" />
-          <span className="h-px w-8 bg-bone-400" />
+        {/* Full-bleed rule; diamond locked under the index column. */}
+        <div className="relative mt-5 mb-6" aria-hidden="true">
+          <span className="block h-px w-full bg-bone-400" />
+          <span className="absolute top-1/2 right-[3.25rem] hidden h-1 w-1 -translate-y-1/2 rotate-45 bg-burgundy md:block" />
+          <span className="absolute top-1/2 left-1/2 h-1 w-1 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-burgundy md:hidden" />
         </div>
 
         {children}
@@ -149,14 +149,19 @@ const SkillsBlock = () => {
   return (
   <div className="mb-24">
     {/* Four tech domains in a 2×2 grid; languages sit below at full width. */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-x-14 md:gap-y-16">
+    <div className="grid grid-cols-1 items-stretch gap-10 md:grid-cols-2 md:gap-x-14 md:gap-y-16">
       {STACK.domains.map((domain, idx) => (
-        <Reveal key={domain.id} delay={0.04 + idx * 0.05}>
+        <Reveal
+          key={domain.id}
+          // Same delay per row so paired panels settle on one baseline.
+          delay={0.04 + Math.floor(idx / 2) * 0.08}
+          className="h-full"
+        >
           <DomainPanel domain={domain} testId={`stack-${domain.id}`}>
             <div className="space-y-7">
               {domain.groups.map((group) => (
                 <div key={group.label}>
-                  <p className="font-mono text-xs uppercase tracking-[0.22em] text-ink-mute mb-5">
+                  <p className="mb-5 font-mono text-xs uppercase tracking-[0.22em] text-ink-mute">
                     {group.label}
                   </p>
                   <BrandGrid
