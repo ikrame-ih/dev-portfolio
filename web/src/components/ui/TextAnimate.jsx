@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { MOTION_EASE } from "@/lib/motion";
 
 const ANIMATIONS = {
@@ -59,6 +59,8 @@ function TextAnimateBase({
   startOnView = false,
   once = true,
   accessible = true,
+  /** When false, segments stay hidden (opacity 0) in final layout — no premature paint. */
+  play = true,
   ...props
 }) {
   const reduce = useReducedMotion();
@@ -90,55 +92,55 @@ function TextAnimateBase({
     },
   };
 
-  return (
-    <AnimatePresence mode="popLayout">
-      <MotionTag
-        variants={containerVariants}
-        initial="hidden"
-        animate={startOnView ? undefined : "show"}
-        whileInView={startOnView ? "show" : undefined}
-        viewport={startOnView ? { once } : undefined}
-        className={`relative whitespace-pre-wrap ${className}`.trim()}
-        aria-label={accessible ? children : undefined}
-        {...props}
-      >
-        {accessible && (
-          <span
-            className="absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0 text-ink bg-bone"
-            style={{ clip: "rect(0, 0, 0, 0)" }}
-          >
-            {children}
-          </span>
-        )}
-        {segments.map((segment, i) => {
-          // Spaces stay static so stagger only hits real words/characters.
-          if (by === "word" && /^\s+$/.test(segment)) {
-            return (
-              <span
-                key={`${by}-${i}-space`}
-                className="whitespace-pre"
-                aria-hidden={accessible ? true : undefined}
-              >
-                {segment}
-              </span>
-            );
-          }
+  const animateState = startOnView ? undefined : play ? "show" : "hidden";
 
+  return (
+    <MotionTag
+      variants={containerVariants}
+      initial="hidden"
+      animate={animateState}
+      whileInView={startOnView && play ? "show" : undefined}
+      viewport={startOnView ? { once } : undefined}
+      className={`relative whitespace-pre-wrap ${className}`.trim()}
+      aria-label={accessible ? children : undefined}
+      {...props}
+    >
+      {accessible && (
+        <span
+          className="absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0 text-ink bg-bone"
+          style={{ clip: "rect(0, 0, 0, 0)" }}
+        >
+          {children}
+        </span>
+      )}
+      {segments.map((segment, i) => {
+        // Spaces stay static so stagger only hits real words/characters.
+        if (by === "word" && /^\s+$/.test(segment)) {
           return (
-            <motion.span
-              key={`${by}-${i}-${segment}`}
-              variants={itemVariants}
-              className={`${
-                by === "line" ? "block" : "inline-block whitespace-pre"
-              } ${segmentClassName}`.trim()}
+            <span
+              key={`${by}-${i}-space`}
+              className="whitespace-pre"
               aria-hidden={accessible ? true : undefined}
             >
               {segment}
-            </motion.span>
+            </span>
           );
-        })}
-      </MotionTag>
-    </AnimatePresence>
+        }
+
+        return (
+          <motion.span
+            key={`${by}-${i}-${segment}`}
+            variants={itemVariants}
+            className={`${
+              by === "line" ? "block" : "inline-block whitespace-pre"
+            } ${segmentClassName}`.trim()}
+            aria-hidden={accessible ? true : undefined}
+          >
+            {segment}
+          </motion.span>
+        );
+      })}
+    </MotionTag>
   );
 }
 

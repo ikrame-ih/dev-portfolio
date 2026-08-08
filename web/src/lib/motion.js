@@ -1,14 +1,21 @@
 /** Shared motion grammar — calm editorial easing across the site. */
-export const MOTION_EASE = [0.2, 0.7, 0.2, 1];
+/** Strong ease-out (Emil): starts fast so UI feels responsive, not sluggish. */
+export const MOTION_EASE = [0.23, 1, 0.32, 1];
 
 export const MOTION_DURATION = {
-  fast: 0.25,
-  normal: 0.55,
-  reveal: 0.85,
+  fast: 0.16,
+  normal: 0.28,
+  /** Hero/marketing focal moment — still under ~700ms. */
+  reveal: 0.55,
 };
 
 /** Micro-interaction spring for CTAs and tactile controls. */
-export const CTA_SPRING = { type: "spring", stiffness: 420, damping: 28 };
+export const CTA_SPRING = {
+  type: "spring",
+  stiffness: 480,
+  damping: 32,
+  mass: 0.85,
+};
 
 export const motionTransition = (delay = 0, duration = MOTION_DURATION.reveal) => ({
   duration,

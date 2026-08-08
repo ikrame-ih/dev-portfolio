@@ -1,9 +1,9 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { Bow } from "./Bow";
 import TextAnimate from "./ui/TextAnimate";
 import { ASSETS } from "@/data/assets";
-import { MOTION_EASE, heroEnter, CTA_SPRING } from "@/lib/motion";
+import { MOTION_EASE, CTA_SPRING } from "@/lib/motion";
 import { onHashLinkClick } from "@/lib/scroll";
 import StackMarquee from "./StackMarquee";
 import { useContent, useUi } from "@/i18n/LocaleContext";
@@ -20,12 +20,6 @@ const STEP_DELAY = {
 
 const HEADLINE_LINE_DELAY = [0.06, 0.38, 0.7];
 const HEADLINE_WORD_STAGGER = 0.07;
-
-const heroStep = (key, reduce, opts) =>
-  heroEnter(reduce, STEP_DELAY[key], {
-    duration: 0.45,
-    ...opts,
-  });
 
 const factsContainer = (reduce) =>
   reduce
@@ -57,12 +51,47 @@ export const Hero = () => {
   const { PROFILE } = useContent();
   const ui = useUi();
   const [parallaxOn, setParallaxOn] = useState(false);
+  /** Headline stays fully hidden until fonts + layout settle — then plays aligned. */
+  const [headlineReady, setHeadlineReady] = useState(false);
   const { scrollY } = useScroll();
   const photoParallax = useTransform(
     scrollY,
     [0, 420],
     [0, reduce || !parallaxOn ? 0 : 18],
   );
+
+  useEffect(() => {
+    let alive = true;
+    const reveal = () => {
+      // Two frames after fonts: layout is stacked before any word becomes visible.
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          if (alive) setHeadlineReady(true);
+        });
+      });
+    };
+
+    const run = async () => {
+      try {
+        if (document.fonts?.ready) await document.fonts.ready;
+      } catch {
+        /* ignore */
+      }
+      if (alive) reveal();
+    };
+
+    if (reduce) {
+      setHeadlineReady(true);
+      return undefined;
+    }
+
+    run();
+    const fallback = window.setTimeout(reveal, 1000);
+    return () => {
+      alive = false;
+      window.clearTimeout(fallback);
+    };
+  }, [reduce]);
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 768px)");
@@ -95,19 +124,37 @@ export const Hero = () => {
         <div className="grid grid-cols-12 gap-6 md:gap-10 items-start md:items-center">
           <div className="col-span-12 md:col-span-7">
             <motion.div
-              {...heroStep("overline", reduce)}
-              className="flex items-center gap-3 mb-6"
+              className="mb-6 flex items-center gap-3"
+              initial={reduce ? false : { opacity: 0, y: 8 }}
+              animate={
+                reduce || headlineReady
+                  ? { opacity: 1, y: 0 }
+                  : { opacity: 0, y: 8 }
+              }
+              transition={{
+                duration: 0.45,
+                ease: MOTION_EASE,
+                delay: headlineReady ? STEP_DELAY.overline : 0,
+              }}
             >
               <motion.span
                 aria-hidden="true"
-                className="hairline hairline--draw w-16 md:w-24 origin-left"
+                className="hairline hairline--draw w-16 origin-left md:w-24"
                 initial={reduce ? false : { scaleX: 0, opacity: 0.15 }}
-                animate={reduce ? undefined : { scaleX: 1, opacity: 0.55 }}
-                transition={{ duration: 0.9, ease: MOTION_EASE, delay: 0.12 }}
+                animate={
+                  reduce || headlineReady
+                    ? { scaleX: 1, opacity: 0.55 }
+                    : { scaleX: 0, opacity: 0.15 }
+                }
+                transition={{
+                  duration: 0.7,
+                  ease: MOTION_EASE,
+                  delay: headlineReady ? 0.12 : 0,
+                }}
               />
               <span
                 data-testid="hero-overline"
-                className="font-mono text-xs md:text-sm uppercase tracking-[0.14em] md:tracking-[0.22em] text-ink leading-relaxed"
+                className="font-mono text-xs uppercase tracking-[0.14em] text-ink leading-relaxed md:text-sm md:tracking-[0.22em]"
               >
                 {PROFILE.overline}
               </span>
@@ -115,37 +162,49 @@ export const Hero = () => {
 
             <h1
               data-testid="hero-headline"
-              className="font-serif font-light text-[2.05rem] leading-[1.12] sm:text-5xl md:text-6xl lg:text-7xl sm:leading-[1.05] tracking-tighter text-ink text-pretty md:text-balance"
+              className="font-serif font-light text-[2.05rem] leading-[1.12] sm:text-5xl md:text-6xl lg:text-7xl sm:leading-[1.12] tracking-[-0.03em] text-ink text-pretty md:text-balance"
             >
               {PROFILE.headlineParts.map((part, i) => (
                 <TextAnimate
                   key={part.text}
-                  as="span"
+                  as="div"
                   by="word"
                   animation="fadeIn"
                   delay={HEADLINE_LINE_DELAY[i]}
                   stagger={HEADLINE_WORD_STAGGER}
                   duration={0.38}
                   startOnView={false}
-                  className={`block ${
+                  play={headlineReady}
+                  className={
                     part.italic
-                      ? "font-serif italic font-light text-ink-soft"
+                      ? "font-serif italic font-light text-ink-soft pb-1"
                       : part.accent
                         ? "text-burgundy font-normal"
                         : ""
-                  }`}
+                  }
                 >
                   {part.text}
                 </TextAnimate>
               ))}
             </h1>
 
-            <p
+            <motion.p
               data-testid="hero-positioning"
-              className="mt-8 max-w-xl text-sm md:text-base text-ink-soft leading-relaxed"
+              className="mt-8 max-w-[65ch] text-sm md:text-base text-ink-soft leading-relaxed"
+              initial={reduce ? false : { opacity: 0, y: 8 }}
+              animate={
+                reduce || headlineReady
+                  ? { opacity: 1, y: 0 }
+                  : { opacity: 0, y: 8 }
+              }
+              transition={{
+                duration: 0.45,
+                ease: MOTION_EASE,
+                delay: headlineReady ? STEP_DELAY.subtext : 0,
+              }}
             >
               {PROFILE.heroSubtext}
-            </p>
+            </motion.p>
 
             {/* Editorial fact row — vertical rules from md only */}
             <motion.ul
@@ -153,7 +212,7 @@ export const Hero = () => {
               className="mt-6 grid grid-cols-2 gap-y-5 md:mt-7 md:flex md:flex-wrap"
               variants={factsContainer(reduce)}
               initial={reduce ? false : "hidden"}
-              animate={reduce ? undefined : "show"}
+              animate={reduce || headlineReady ? "show" : "hidden"}
             >
               {PROFILE.heroFacts.map((fact, i) => (
                 <motion.li
@@ -182,8 +241,18 @@ export const Hero = () => {
             </motion.ul>
 
             <motion.div
-              {...heroStep("ctas", reduce)}
               className="mt-9 grid grid-cols-2 gap-3 sm:mt-10 sm:flex sm:flex-wrap sm:items-center sm:gap-4"
+              initial={reduce ? false : { opacity: 0, y: 8 }}
+              animate={
+                reduce || headlineReady
+                  ? { opacity: 1, y: 0 }
+                  : { opacity: 0, y: 8 }
+              }
+              transition={{
+                duration: 0.45,
+                ease: MOTION_EASE,
+                delay: headlineReady ? STEP_DELAY.ctas : 0,
+              }}
             >
               <motion.a
                 href="#projects"

@@ -17,3 +17,7 @@ Thumbs.db
 *.local
 .vscode/
 .idea/
+
+# Agent skill installs (local scratch — never commit)
+.agents/
+

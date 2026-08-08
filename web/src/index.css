@@ -67,6 +67,30 @@
     outline-offset: 3px;
   }
 
+  /* Browser chrome — themed to the bone/burgundy world (impeccable craft floor). */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--burgundy) / 0.35) rgb(var(--bone-300));
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: rgb(var(--bone-300));
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: rgb(var(--burgundy) / 0.35);
+    border: 2px solid rgb(var(--bone-300));
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--burgundy) / 0.55);
+  }
+
   /* Custom BowCursor — hide native cursor while the lacito follows the pointer. */
   html.has-bow-cursor,
   html.has-bow-cursor body,
@@ -933,7 +957,7 @@
 
 .bow-hover-tilt {
   display: inline-block;
-  transition: transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition: transform 280ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .group:hover .bow-hover-tilt,
@@ -947,15 +971,15 @@
 
 .btn-tactile {
   transition:
-    color 200ms ease,
-    background-color 200ms ease,
-    border-color 200ms ease,
-    transform 160ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    color 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    background-color 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 140ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .btn-tactile:hover {
-    transform: translateY(-1px) scale(1.02);
+    transform: translateY(-1px) scale(1.015);
   }
 }
 
