@@ -87,11 +87,27 @@ const BrandGrid = ({ items, cols = "grid-cols-2 sm:grid-cols-3", testId, reduce 
   </ul>
 );
 
-const DomainPanel = ({ domain, children, testId }) => {
+const DomainPanel = ({ domain, children, testId, rule = "before" }) => {
   const showIndex = /^\d+$/.test(String(domain.index ?? ""));
 
+  const Rule = (
+    <div
+      className={`relative ${rule === "before" ? "mt-5 mb-6" : "mt-6 md:mt-8"}`}
+      aria-hidden="true"
+    >
+      <span className="block h-px w-full bg-bone-400" />
+      <span className="absolute top-1/2 right-[3.25rem] hidden h-1 w-1 -translate-y-1/2 rotate-45 bg-burgundy md:block" />
+      <span className="absolute top-1/2 left-1/2 h-1 w-1 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-burgundy md:hidden" />
+    </div>
+  );
+
   return (
-    <div data-testid={testId} className="relative h-full min-h-0 md:min-h-[260px]">
+    <div
+      data-testid={testId}
+      className={`relative h-full min-h-0 ${
+        rule === "after" ? "" : "md:min-h-[260px]"
+      }`}
+    >
       {/* Desktop index — fixed box so 01–04 share one baseline across the row. */}
       {showIndex && (
         <span
@@ -106,7 +122,11 @@ const DomainPanel = ({ domain, children, testId }) => {
 
       {/* Open catalog — top rule only, no filled card (unlike projects / bento). */}
       <div className="relative z-10 border-t border-ink/25 pt-5 md:pt-6">
-        <div className="flex items-start gap-3 md:min-h-[5.75rem]">
+        <div
+          className={`flex items-start gap-3 ${
+            rule === "after" ? "" : "md:min-h-[5.75rem]"
+          }`}
+        >
           <DomainGlyph
             id={domain.id}
             className="mt-1.5 h-6 w-6 shrink-0 text-burgundy"
@@ -129,14 +149,9 @@ const DomainPanel = ({ domain, children, testId }) => {
           </div>
         </div>
 
-        {/* Full-bleed rule; diamond locked under the index column. */}
-        <div className="relative mt-5 mb-6" aria-hidden="true">
-          <span className="block h-px w-full bg-bone-400" />
-          <span className="absolute top-1/2 right-[3.25rem] hidden h-1 w-1 -translate-y-1/2 rotate-45 bg-burgundy md:block" />
-          <span className="absolute top-1/2 left-1/2 h-1 w-1 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-burgundy md:hidden" />
-        </div>
-
+        {rule === "before" ? Rule : null}
         {children}
+        {rule === "after" ? Rule : null}
       </div>
     </div>
   );
@@ -145,11 +160,39 @@ const DomainPanel = ({ domain, children, testId }) => {
 const SkillsBlock = () => {
   const reduce = useReducedMotion();
   const { STACK, LANGUAGES, section } = useContent();
-  const topDomains = STACK.domains.slice(0, 2);
-  const bottomDomains = STACK.domains.slice(2);
 
-  const LanguagesStrip = ({ delay }) => (
-    <Reveal delay={delay}>
+  return (
+  <div className="mb-24 space-y-10 md:space-y-16">
+    {/* Four tech domains in a 2×2 grid */}
+    <div className="grid grid-cols-1 items-stretch gap-10 md:grid-cols-2 md:gap-x-14 md:gap-y-16">
+      {STACK.domains.map((domain, idx) => (
+        <Reveal
+          key={domain.id}
+          delay={0.04 + Math.floor(idx / 2) * 0.08}
+          className="h-full"
+        >
+          <DomainPanel domain={domain} testId={`stack-${domain.id}`}>
+            <div className="space-y-7">
+              {domain.groups.map((group) => (
+                <div key={group.label}>
+                  <p className="mb-5 font-mono text-xs uppercase tracking-[0.22em] text-ink-mute">
+                    {group.label}
+                  </p>
+                  <BrandGrid
+                    items={group.items}
+                    reduce={reduce}
+                    cols="grid-cols-2 sm:grid-cols-3"
+                  />
+                </div>
+              ))}
+            </div>
+          </DomainPanel>
+        </Reveal>
+      ))}
+    </div>
+
+    {/* Languages last — title/kicker, then list, then closing rule */}
+    <Reveal delay={0.22}>
       <DomainPanel
         domain={{
           id: "languages",
@@ -157,14 +200,15 @@ const SkillsBlock = () => {
           kicker: section.languagesKicker,
         }}
         testId="languages-list"
+        rule="after"
       >
-        <ul className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-8">
+        <ul className="mt-5 grid grid-cols-1 gap-5 sm:mt-6 sm:grid-cols-3 sm:gap-8">
           {LANGUAGES.map((l) => (
             <li
               key={l.code}
-              className="flex flex-wrap items-baseline justify-between gap-2 border-t border-bone-400 pt-4 sm:border-0 sm:pt-0 sm:flex-col sm:items-start sm:gap-2"
+              className="flex flex-wrap items-baseline justify-between gap-2 sm:flex-col sm:items-start sm:gap-2"
             >
-              <span className="font-serif text-2xl md:text-[1.75rem] text-ink tracking-tight">
+              <span className="font-serif text-2xl tracking-tight text-ink md:text-[1.75rem]">
                 {l.lang}
               </span>
               <span className="font-mono text-xs uppercase tracking-[0.18em] text-ink-mute">
@@ -175,68 +219,6 @@ const SkillsBlock = () => {
         </ul>
       </DomainPanel>
     </Reveal>
-  );
-
-  return (
-  <div className="mb-24 space-y-10 md:space-y-16">
-    {/* Row 1: Backend · Frontend */}
-    <div className="grid grid-cols-1 items-stretch gap-10 md:grid-cols-2 md:gap-x-14">
-      {topDomains.map((domain, idx) => (
-        <Reveal
-          key={domain.id}
-          delay={0.04 + idx * 0.04}
-          className="h-full"
-        >
-          <DomainPanel domain={domain} testId={`stack-${domain.id}`}>
-            <div className="space-y-7">
-              {domain.groups.map((group) => (
-                <div key={group.label}>
-                  <p className="mb-5 font-mono text-xs uppercase tracking-[0.22em] text-ink-mute">
-                    {group.label}
-                  </p>
-                  <BrandGrid
-                    items={group.items}
-                    reduce={reduce}
-                    cols="grid-cols-2 sm:grid-cols-3"
-                  />
-                </div>
-              ))}
-            </div>
-          </DomainPanel>
-        </Reveal>
-      ))}
-    </div>
-
-    {/* Languages between the two skill rows */}
-    <LanguagesStrip delay={0.12} />
-
-    {/* Row 2: AI · Tooling */}
-    <div className="grid grid-cols-1 items-stretch gap-10 md:grid-cols-2 md:gap-x-14">
-      {bottomDomains.map((domain, idx) => (
-        <Reveal
-          key={domain.id}
-          delay={0.16 + idx * 0.04}
-          className="h-full"
-        >
-          <DomainPanel domain={domain} testId={`stack-${domain.id}`}>
-            <div className="space-y-7">
-              {domain.groups.map((group) => (
-                <div key={group.label}>
-                  <p className="mb-5 font-mono text-xs uppercase tracking-[0.22em] text-ink-mute">
-                    {group.label}
-                  </p>
-                  <BrandGrid
-                    items={group.items}
-                    reduce={reduce}
-                    cols="grid-cols-2 sm:grid-cols-3"
-                  />
-                </div>
-              ))}
-            </div>
-          </DomainPanel>
-        </Reveal>
-      ))}
-    </div>
   </div>
   );
 };
