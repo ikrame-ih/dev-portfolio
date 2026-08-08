@@ -60,6 +60,7 @@ const LANGUAGES = [
 ];
 
 // Four skill domains — rendered as a 2×2 panel grid in CVSection.
+// Languages sit below as a full-width strip (not a fifth grid cell).
 const STACK = {
   domains: [
     {
@@ -114,8 +115,29 @@ const STACK = {
       ],
     },
     {
-      id: "tooling",
+      id: "ai",
       index: "03",
+      title: "AI & Big Data",
+      kicker:
+        "Specialization track — data science, ML, and distributed platforms.",
+      groups: [
+        {
+          label: "Data science",
+          items: ["NumPy", "Pandas"],
+        },
+        {
+          label: "Machine learning",
+          items: ["TensorFlow", "Keras", "PyTorch", "SageMaker"],
+        },
+        {
+          label: "Platforms & streaming",
+          items: ["Spark", "Flink", "Kafka", "Kubernetes"],
+        },
+      ],
+    },
+    {
+      id: "tooling",
+      index: "04",
       title: "Tooling & delivery",
       kicker: "Ship, test, and keep the loop honest.",
       groups: [
@@ -239,8 +261,9 @@ const PROJECTS = [
     stack: ["Python 3.9+", "Git CLI", "Hatchling", "PyPI", "GitHub Actions"],
     href: "https://github.com/ikrame-ih/import-resolve-cli",
     demo: "https://pypi.org/project/import-resolve-cli/",
-    image: null,
-    imageAlt: "Import Resolve Cli demo preview",
+    image: ASSETS.projects.importResolve,
+    imageAlt:
+      "VS Code with a Python import merge conflict and import-resolve dry-run resolving it in the terminal",
     description:
       "CLI developer tool and Git merge driver for automatically resolving merge conflicts in Python import blocks. Published on PyPI with zero runtime dependencies.",
     architectureSummary:

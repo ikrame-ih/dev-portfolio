@@ -89,19 +89,22 @@ const BrandGrid = ({ items, cols = "grid-cols-2 sm:grid-cols-3", testId, reduce 
 
 const DomainPanel = ({ domain, children, testId }) => {
   const reduce = useReducedMotion();
+  const showIndex = /^\d+$/.test(String(domain.index ?? ""));
 
   return (
     <div data-testid={testId} className="relative min-h-0 md:min-h-[260px]">
-      <motion.span
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-2 right-0 hidden md:block font-serif font-light text-[7rem] leading-none select-none text-[#4A4A4A]"
-        initial={reduce ? false : { x: 12 }}
-        whileInView={reduce ? undefined : { x: 0 }}
-        viewport={REVEAL_VIEWPORT}
-        transition={revealTransition(0.08)}
-      >
-        {domain.index}
-      </motion.span>
+      {showIndex && (
+        <motion.span
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-2 right-0 hidden md:block font-serif font-light text-[7rem] leading-none select-none text-[#4A4A4A]"
+          initial={reduce ? false : { x: 12 }}
+          whileInView={reduce ? undefined : { x: 0 }}
+          viewport={REVEAL_VIEWPORT}
+          transition={revealTransition(0.08)}
+        >
+          {domain.index}
+        </motion.span>
+      )}
 
       {/* Open catalog — top rule only, no filled card (unlike projects / bento). */}
       <div className="relative border-t border-ink/25 pt-5 md:pt-6">
@@ -115,9 +118,11 @@ const DomainPanel = ({ domain, children, testId }) => {
               <h3 className="font-serif text-2xl md:text-3xl tracking-tight text-ink">
                 {domain.title}
               </h3>
-              <span className="font-mono text-xs uppercase tracking-[0.28em] text-burgundy shrink-0">
-                {domain.index}
-              </span>
+              {showIndex && (
+                <span className="font-mono text-xs uppercase tracking-[0.28em] text-burgundy shrink-0">
+                  {domain.index}
+                </span>
+              )}
             </div>
             <p className="mt-1.5 font-mono text-xs leading-relaxed text-ink-mute max-w-sm">
               {domain.kicker}
@@ -143,6 +148,7 @@ const SkillsBlock = () => {
 
   return (
   <div className="mb-24">
+    {/* Four tech domains in a 2×2 grid; languages sit below at full width. */}
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-x-14 md:gap-y-16">
       {STACK.domains.map((domain, idx) => (
         <Reveal key={domain.id} delay={0.04 + idx * 0.05}>
@@ -164,35 +170,34 @@ const SkillsBlock = () => {
           </DomainPanel>
         </Reveal>
       ))}
-
-      <Reveal delay={0.2}>
-        <DomainPanel
-          domain={{
-            id: "languages",
-            index: "04",
-            title: section.languagesTitle,
-            kicker: section.languagesKicker,
-          }}
-          testId="languages-list"
-        >
-          <ul className="space-y-5">
-            {LANGUAGES.map((l) => (
-              <li
-                key={l.code}
-                className="flex flex-wrap items-baseline justify-between gap-2 border-t border-bone-400 pt-4 first:border-0 first:pt-0"
-              >
-                <span className="font-serif text-2xl md:text-[1.75rem] text-ink tracking-tight">
-                  {l.lang}
-                </span>
-                <span className="font-mono text-xs uppercase tracking-[0.18em] text-ink-mute">
-                  {l.detail ? `${l.level} · ${l.detail}` : l.level}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </DomainPanel>
-      </Reveal>
     </div>
+
+    <Reveal delay={0.22} className="mt-10 md:mt-16">
+      <DomainPanel
+        domain={{
+          id: "languages",
+          title: section.languagesTitle,
+          kicker: section.languagesKicker,
+        }}
+        testId="languages-list"
+      >
+        <ul className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-8">
+          {LANGUAGES.map((l) => (
+            <li
+              key={l.code}
+              className="flex flex-wrap items-baseline justify-between gap-2 border-t border-bone-400 pt-4 sm:border-0 sm:pt-0 sm:flex-col sm:items-start sm:gap-2"
+            >
+              <span className="font-serif text-2xl md:text-[1.75rem] text-ink tracking-tight">
+                {l.lang}
+              </span>
+              <span className="font-mono text-xs uppercase tracking-[0.18em] text-ink-mute">
+                {l.detail ? `${l.level} · ${l.detail}` : l.level}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </DomainPanel>
+    </Reveal>
   </div>
   );
 };

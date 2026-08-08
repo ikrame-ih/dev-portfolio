@@ -59,6 +59,7 @@ const LANGUAGES = [
   { lang: "Darija", level: "Nativo", detail: "árabe marroquí", code: "AR" },
 ];
 
+// Cuatro dominios en grid 2×2; los idiomas van debajo a ancho completo.
 const STACK = {
   domains: [
     {
@@ -114,8 +115,29 @@ const STACK = {
       ],
     },
     {
-      id: "tooling",
+      id: "ai",
       index: "03",
+      title: "IA y Big Data",
+      kicker:
+        "Especialización — ciencia de datos, ML y plataformas distribuidas.",
+      groups: [
+        {
+          label: "Ciencia de datos",
+          items: ["NumPy", "Pandas"],
+        },
+        {
+          label: "Machine learning",
+          items: ["TensorFlow", "Keras", "PyTorch", "SageMaker"],
+        },
+        {
+          label: "Plataformas y streaming",
+          items: ["Spark", "Flink", "Kafka", "Kubernetes"],
+        },
+      ],
+    },
+    {
+      id: "tooling",
+      index: "04",
       title: "Herramientas y entrega",
       kicker:
         "Herramientas para desarrollar, probar y desplegar aplicaciones con confianza.",
@@ -239,8 +261,9 @@ const PROJECTS = [
     stack: ["Python 3.9+", "Git CLI", "Hatchling", "PyPI", "GitHub Actions"],
     href: "https://github.com/ikrame-ih/import-resolve-cli",
     demo: "https://pypi.org/project/import-resolve-cli/",
-    image: null,
-    imageAlt: "Demo de Import Resolve Cli",
+    image: ASSETS.projects.importResolve,
+    imageAlt:
+      "VS Code con un conflicto de imports en Python e import-resolve en dry-run resolviéndolo en la terminal",
     description:
       "Herramienta CLI y controlador de fusión para Git que resuelve automáticamente conflictos de merge en bloques de imports de Python. Publicado en PyPI con cero dependencias en runtime.",
     architectureSummary:

@@ -31,6 +31,18 @@ export const DomainGlyph = ({ id, className = "w-5 h-5 text-burgundy" }) => {
       </svg>
     );
   }
+  if (id === "ai") {
+    return (
+      <svg {...common}>
+        {/* Node graph — reads as ML / distributed data at small sizes */}
+        <circle cx="12" cy="5.2" r="1.9" />
+        <circle cx="5.2" cy="16.5" r="1.9" />
+        <circle cx="18.8" cy="16.5" r="1.9" />
+        <circle cx="12" cy="12" r="1.55" fill="currentColor" stroke="none" />
+        <path d="M12 7.1v3.1M10.7 13.1 6.6 15.4M13.3 13.1l4.1 2.3" />
+      </svg>
+    );
+  }
   if (id === "tooling") {
     return (
       <svg {...common}>

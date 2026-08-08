@@ -23,6 +23,15 @@ import {
   siHtml5,
   siElectron,
   siRedis,
+  siNumpy,
+  siPandas,
+  siTensorflow,
+  siKeras,
+  siPytorch,
+  siApachespark,
+  siApacheflink,
+  siApachekafka,
+  siKubernetes,
 } from "simple-icons";
 
 const Svg = ({ children, className, viewBox = "0 0 24 24", style }) => (
@@ -134,6 +143,26 @@ const CUSTOM = {
       />
     </Svg>
   ),
+  // No SageMaker mark in Simple Icons — cube + node reads as managed ML.
+  SageMaker: (p) => (
+    <Svg {...p}>
+      <path
+        d="M5 8.2 12 4.5l7 3.7v7.6L12 19.5l-7-3.7V8.2Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 4.5v7.2M5 8.2l7 3.5 7-3.5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+        strokeLinejoin="round"
+      />
+      <circle cx="12" cy="11.7" r="1.35" />
+    </Svg>
+  ),
 };
 
 const FROM_SIMPLE = {
@@ -159,6 +188,15 @@ const FROM_SIMPLE = {
   "HTML semántico": siHtml5,
   Electron: siElectron,
   Redis: siRedis,
+  NumPy: siNumpy,
+  Pandas: siPandas,
+  TensorFlow: siTensorflow,
+  Keras: siKeras,
+  PyTorch: siPytorch,
+  Spark: siApachespark,
+  Flink: siApacheflink,
+  Kafka: siApachekafka,
+  Kubernetes: siKubernetes,
 };
 
 const Fallback = (p) => (
