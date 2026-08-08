@@ -89,9 +89,9 @@ export const Hero = () => {
   return (
     <section
       data-testid="hero-section"
-      className="relative pt-24 md:pt-28"
+      className="relative flex min-h-[100dvh] flex-col pt-24 md:pt-28"
     >
-      <div className="max-w-7xl w-full mx-auto px-6 md:px-12 pb-8 md:pb-10">
+      <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 pb-8 md:px-12 md:pb-10">
         <div className="grid grid-cols-12 gap-6 md:gap-10 items-start md:items-center">
           <div className="col-span-12 md:col-span-7">
             <motion.div
@@ -274,10 +274,11 @@ export const Hero = () => {
         </div>
       </div>
 
-      <div className="mt-2 md:mt-4">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 pb-4 md:pb-5">
+      {/* Marquee pins to the bottom of the first viewport so CV stays below the fold. */}
+      <div className="mt-auto w-full pt-2 md:pt-4">
+        <div className="mx-auto max-w-7xl px-6 pb-4 md:px-12 md:pb-5">
           <div className="relative h-px bg-ink/20">
-            <div className="absolute left-1/2 -translate-x-1/2 -top-3 bg-bone px-3">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-bone px-3">
               <Bow size={18} />
             </div>
           </div>

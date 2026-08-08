@@ -63,18 +63,69 @@
       type="image/webp"
       fetchpriority="high"
     />
+    <style>
+      /* Boot shell — matches bone/ink until React replaces #root (avoids unstyled flash). */
+      html,
+      body {
+        margin: 0;
+        background: #f5f1eb;
+        color: #1a1a1a;
+      }
+      #boot-shell {
+        box-sizing: border-box;
+        min-height: 100dvh;
+        max-width: 80rem;
+        margin: 0 auto;
+        padding: 6rem 1.5rem 2rem;
+        font-family: FrauncesVar, FrauncesFallback, Georgia, "Times New Roman", serif;
+      }
+      #boot-shell .boot-overline {
+        font-family: JetBrainsMono, ui-monospace, monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #1a1a1a;
+        margin: 0 0 1.5rem;
+      }
+      #boot-shell h1 {
+        margin: 0;
+        font-weight: 300;
+        font-size: clamp(2.05rem, 5vw, 4.5rem);
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+        color: #1a1a1a;
+      }
+      #boot-shell h1 .accent {
+        color: #4a0e0e;
+      }
+      #boot-shell h1 .italic {
+        font-style: italic;
+      }
+    </style>
   </head>
   <body>
     <div id="root">
-      <div style="max-width: 80rem; margin: 0 auto; padding: 4rem 1.5rem;">
-        <h1 style="font-size: 2.75rem; line-height: 1.05; margin-top: 2rem; color: rgb(26,26,26);">
+      <div id="boot-shell" aria-hidden="true">
+        <p class="boot-overline">Backend · APIs · PostgreSQL</p>
+        <h1>
           I build software
+          <span class="accent">with attention to detail</span>
+          <span class="italic">and the context behind it.</span>
         </h1>
-        <p style="margin-top: 2rem; max-width: 36rem; font-size: 0.875rem; color: rgb(58,58,58); line-height: 1.625; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;">
-          Hi, I'm Ikrame Ibn Hayoun, a software developer based in Málaga. I build modern web applications and backend APIs using React, Node.js, and PostgreSQL. I enjoy turning ideas into intuitive, reliable, and scalable software. AI has become a natural part of my workflow, and I'm currently expanding into AI &amp; Big Data.
-        </p>
       </div>
     </div>
+    <noscript>
+      <div style="max-width: 40rem; margin: 2rem auto; padding: 1.5rem; font-family: Georgia, serif;">
+        <h1>Ikrame Ibn Hayoun</h1>
+        <p>
+          Backend-focused developer in Málaga. Enable JavaScript to view the full portfolio,
+          or visit
+          <a href="https://github.com/ikrame-ih">GitHub</a>
+          /
+          <a href="https://www.linkedin.com/in/ikrame-ih/">LinkedIn</a>.
+        </p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

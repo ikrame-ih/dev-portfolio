@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense, useCallback } from "react";
 import { Toaster } from "sonner";
 
 import Nav from "@/components/Nav";
@@ -6,7 +6,6 @@ import Hero from "@/components/Hero";
 import BowCursor from "@/components/BowCursor";
 import { scrollToElement } from "@/lib/scroll";
 import { useContent, useUi } from "@/i18n/LocaleContext";
-import { lazy, Suspense } from "react";
 
 const CVSection = lazy(() => import("@/components/CVSection"));
 const ProjectsSection = lazy(() => import("@/components/ProjectsSection"));
@@ -17,10 +16,30 @@ const ContactSection = lazy(() => import("@/components/ContactSection"));
 const Footer = lazy(() => import("@/components/Footer"));
 const CLITerminal = lazy(() => import("@/components/CLITerminal"));
 
+/** Mounts below-the-fold sections; signals when the chunk tree is ready. */
+function BelowFold({ onReady }) {
+  useEffect(() => {
+    onReady();
+  }, [onReady]);
+
+  return (
+    <>
+      <CVSection />
+      <ProjectsSection />
+      <LinkedInSection />
+      <BentoSection />
+      <GuestbookCanvas />
+      <ContactSection />
+    </>
+  );
+}
+
 export default function App() {
   const [cliOpen, setCliOpen] = useState(false);
+  const [belowReady, setBelowReady] = useState(false);
   const { PROFILE } = useContent();
   const ui = useUi();
+  const markBelowReady = useCallback(() => setBelowReady(true), []);
 
   useEffect(() => {
     const typingTarget = (el) => {
@@ -110,18 +129,17 @@ export default function App() {
         <Nav onOpenTerminal={() => setCliOpen(true)} />
         <main id="main-content" tabIndex={-1}>
           <Hero />
-          <Suspense fallback={null}>
-            <CVSection />
-            <ProjectsSection />
-            <LinkedInSection />
-            <BentoSection />
-            <GuestbookCanvas />
-            <ContactSection />
+          <Suspense
+            fallback={<div className="min-h-[70vh]" aria-hidden="true" />}
+          >
+            <BelowFold onReady={markBelowReady} />
           </Suspense>
         </main>
-        <Suspense fallback={null}>
-          <Footer onOpenTerminal={() => setCliOpen(true)} />
-        </Suspense>
+        {belowReady ? (
+          <Suspense fallback={null}>
+            <Footer onOpenTerminal={() => setCliOpen(true)} />
+          </Suspense>
+        ) : null}
       </div>
 
       <Suspense fallback={null}>
