@@ -145,39 +145,11 @@ const DomainPanel = ({ domain, children, testId }) => {
 const SkillsBlock = () => {
   const reduce = useReducedMotion();
   const { STACK, LANGUAGES, section } = useContent();
+  const topDomains = STACK.domains.slice(0, 2);
+  const bottomDomains = STACK.domains.slice(2);
 
-  return (
-  <div className="mb-24">
-    {/* Four tech domains in a 2×2 grid; languages sit below at full width. */}
-    <div className="grid grid-cols-1 items-stretch gap-10 md:grid-cols-2 md:gap-x-14 md:gap-y-16">
-      {STACK.domains.map((domain, idx) => (
-        <Reveal
-          key={domain.id}
-          // Same delay per row so paired panels settle on one baseline.
-          delay={0.04 + Math.floor(idx / 2) * 0.08}
-          className="h-full"
-        >
-          <DomainPanel domain={domain} testId={`stack-${domain.id}`}>
-            <div className="space-y-7">
-              {domain.groups.map((group) => (
-                <div key={group.label}>
-                  <p className="mb-5 font-mono text-xs uppercase tracking-[0.22em] text-ink-mute">
-                    {group.label}
-                  </p>
-                  <BrandGrid
-                    items={group.items}
-                    reduce={reduce}
-                    cols="grid-cols-2 sm:grid-cols-3"
-                  />
-                </div>
-              ))}
-            </div>
-          </DomainPanel>
-        </Reveal>
-      ))}
-    </div>
-
-    <Reveal delay={0.22} className="mt-10 md:mt-16">
+  const LanguagesStrip = ({ delay }) => (
+    <Reveal delay={delay}>
       <DomainPanel
         domain={{
           id: "languages",
@@ -203,6 +175,68 @@ const SkillsBlock = () => {
         </ul>
       </DomainPanel>
     </Reveal>
+  );
+
+  return (
+  <div className="mb-24 space-y-10 md:space-y-16">
+    {/* Row 1: Backend · Frontend */}
+    <div className="grid grid-cols-1 items-stretch gap-10 md:grid-cols-2 md:gap-x-14">
+      {topDomains.map((domain, idx) => (
+        <Reveal
+          key={domain.id}
+          delay={0.04 + idx * 0.04}
+          className="h-full"
+        >
+          <DomainPanel domain={domain} testId={`stack-${domain.id}`}>
+            <div className="space-y-7">
+              {domain.groups.map((group) => (
+                <div key={group.label}>
+                  <p className="mb-5 font-mono text-xs uppercase tracking-[0.22em] text-ink-mute">
+                    {group.label}
+                  </p>
+                  <BrandGrid
+                    items={group.items}
+                    reduce={reduce}
+                    cols="grid-cols-2 sm:grid-cols-3"
+                  />
+                </div>
+              ))}
+            </div>
+          </DomainPanel>
+        </Reveal>
+      ))}
+    </div>
+
+    {/* Languages between the two skill rows */}
+    <LanguagesStrip delay={0.12} />
+
+    {/* Row 2: AI · Tooling */}
+    <div className="grid grid-cols-1 items-stretch gap-10 md:grid-cols-2 md:gap-x-14">
+      {bottomDomains.map((domain, idx) => (
+        <Reveal
+          key={domain.id}
+          delay={0.16 + idx * 0.04}
+          className="h-full"
+        >
+          <DomainPanel domain={domain} testId={`stack-${domain.id}`}>
+            <div className="space-y-7">
+              {domain.groups.map((group) => (
+                <div key={group.label}>
+                  <p className="mb-5 font-mono text-xs uppercase tracking-[0.22em] text-ink-mute">
+                    {group.label}
+                  </p>
+                  <BrandGrid
+                    items={group.items}
+                    reduce={reduce}
+                    cols="grid-cols-2 sm:grid-cols-3"
+                  />
+                </div>
+              ))}
+            </div>
+          </DomainPanel>
+        </Reveal>
+      ))}
+    </div>
   </div>
   );
 };
