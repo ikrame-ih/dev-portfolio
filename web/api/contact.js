@@ -73,7 +73,7 @@ export default async function handler(req, res) {
   };
 
   try {
-    const response = await fetch("https://api.resend.com/emails", {
+    let response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${apiKey}`,
@@ -81,6 +81,21 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify(payload),
     });
+
+    if (!response.ok && from !== "Portfolio <onboarding@resend.dev>") {
+      // Fallback if custom domain ikrame.dev is not fully verified yet in Resend
+      const initialError = await response.text();
+      console.warn("custom_domain_unverified_fallback", response.status, initialError);
+      payload.from = "Portfolio <onboarding@resend.dev>";
+      response = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+    }
 
     if (!response.ok) {
       const detail = await response.text();
