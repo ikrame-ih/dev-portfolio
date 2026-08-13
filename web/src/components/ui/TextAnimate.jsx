@@ -4,7 +4,7 @@ import { MOTION_EASE } from "@/lib/motion";
 
 const ANIMATIONS = {
   fadeIn: {
-    hidden: { opacity: 0, y: 8 },
+    hidden: { opacity: 1, y: 8 },
     show: (duration) => ({
       opacity: 1,
       y: 0,
@@ -59,7 +59,7 @@ function TextAnimateBase({
   startOnView = false,
   once = true,
   accessible = true,
-  /** When false, segments stay hidden (opacity 0) in final layout — no premature paint. */
+  /** When false, child variants stay at `hidden`. fadeIn keeps opacity 1 so the hero H1 can paint immediately. */
   play = true,
   ...props
 }) {
@@ -102,16 +102,10 @@ function TextAnimateBase({
       whileInView={startOnView && play ? "show" : undefined}
       viewport={startOnView ? { once } : undefined}
       className={`relative whitespace-pre-wrap ${className}`.trim()}
-      aria-label={accessible ? children : undefined}
       {...props}
     >
       {accessible && (
-        <span
-          className="absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0 text-ink bg-bone"
-          style={{ clip: "rect(0, 0, 0, 0)" }}
-        >
-          {children}
-        </span>
+        <span className="sr-only">{children}</span>
       )}
       {segments.map((segment, i) => {
         // Spaces stay static so stagger only hits real words/characters.

@@ -51,7 +51,7 @@ export const Hero = () => {
   const { PROFILE } = useContent();
   const ui = useUi();
   const [parallaxOn, setParallaxOn] = useState(false);
-  /** Headline stays fully hidden until fonts + layout settle — then plays aligned. */
+  /** Headline paints immediately (LCP). Overline / facts / CTAs still wait on fonts. */
   const [headlineReady, setHeadlineReady] = useState(false);
   const { scrollY } = useScroll();
   const photoParallax = useTransform(
@@ -174,7 +174,7 @@ export const Hero = () => {
                   stagger={HEADLINE_WORD_STAGGER}
                   duration={0.38}
                   startOnView={false}
-                  play={headlineReady}
+                  play
                   className={
                     part.italic
                       ? "font-serif italic font-light text-ink-soft pb-1"
