@@ -9,7 +9,7 @@ import SectionOverline from "./SectionOverline";
 import ProjectLightbox from "./ProjectLightbox";
 import { StackIcon } from "@/data/stackIcons";
 import { MOTION_EASE, scrollEnter } from "@/lib/motion";
-import { useContent } from "@/i18n/LocaleContext";
+import { useContent, useUi } from "@/i18n/LocaleContext";
 import { DomainGlyph } from "./icons/DomainGlyph";
 
 // Shared header pattern used across CV subsections.
@@ -227,6 +227,7 @@ export const CVSection = () => {
   const reduce = useReducedMotion();
   const [proofShot, setProofShot] = useState(null);
   const { EXPERIENCE, EDUCATION, PROFILE, section, tracks } = useContent();
+  const ui = useUi();
 
   return (
     <section
@@ -319,7 +320,7 @@ export const CVSection = () => {
                           <button
                             type="button"
                             onClick={() => setProofShot(proof)}
-                            aria-label={`View ${proof.name}`}
+                            aria-label={ui.viewProof.replace("{name}", proof.name)}
                             data-testid={`experience-proof-${proof.id}`}
                             className="group inline-flex max-w-[13.5rem] text-left outline-none focus-visible:ring-2 focus-visible:ring-burgundy/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
                           >

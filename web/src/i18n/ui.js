@@ -87,6 +87,7 @@ export const UI = {
         "Place or move your bow with arrow keys, then Enter.",
       tooClose: "Too close to another signature — try a nearby spot.",
       error: "Could not save your bow. Try again.",
+      rateLimited: "Too many bows from this network — try again in a little while.",
       unavailable:
         "Guest book is temporarily unavailable. Signatures will be back soon.",
       placedLeft:
@@ -186,6 +187,7 @@ export const UI = {
       signUsage: 'usage: sign "your name" "short message"',
       signHint: "Or close and use the visual Guest book on the page.",
       signThanks: "Thanks, {name} — note saved.",
+      coursework: "coursework",
     },
     modal: {
       howItWorks: "· How it works",
@@ -196,7 +198,10 @@ export const UI = {
       closeBtn: "close ✕",
       architecture: "Architecture diagram",
     },
-    jobTitle: "Software Developer",
+    jobTitle: "Backend Developer",
+    pageTitle: "Ikrame Ibn Hayoun — Backend Developer | ikrame.dev",
+    viewPreview: "View {name} preview larger",
+    viewProof: "View {name}",
   },
   es: {
     skip: "Saltar al contenido",
@@ -286,6 +291,8 @@ export const UI = {
         "Coloca o mueve tu lazo con las flechas y luego Intro.",
       tooClose: "Demasiado cerca de otra firma — prueba un sitio cercano.",
       error: "No se pudo guardar tu lazo. Inténtalo de nuevo.",
+      rateLimited:
+        "Demasiados lazos desde esta red — inténtalo de nuevo en un rato.",
       unavailable:
         "Lazos no está disponible ahora. Las firmas volverán pronto.",
       placedLeft:
@@ -387,6 +394,7 @@ export const UI = {
       signUsage: 'uso: sign "tu nombre" "mensaje corto"',
       signHint: "O cierra y usa Lazos en la página.",
       signThanks: "Gracias, {name} — nota guardada.",
+      coursework: "formación",
     },
     modal: {
       howItWorks: "· Cómo funciona",
@@ -397,6 +405,9 @@ export const UI = {
       closeBtn: "cerrar ✕",
       architecture: "Diagrama de arquitectura",
     },
-    jobTitle: "Desarrolladora de software",
+    jobTitle: "Desarrolladora backend",
+    pageTitle: "Ikrame Ibn Hayoun — Desarrolladora backend | ikrame.dev",
+    viewPreview: "Ver la captura de {name} más grande",
+    viewProof: "Ver {name}",
   },
 };

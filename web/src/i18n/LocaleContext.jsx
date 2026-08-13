@@ -56,6 +56,8 @@ export const LocaleProvider = ({ children }) => {
 
   useEffect(() => {
     document.documentElement.lang = lang;
+    const nextTitle = (UI[lang] ?? UI.en).pageTitle;
+    if (nextTitle) document.title = nextTitle;
   }, [lang]);
 
   const value = useMemo(() => {

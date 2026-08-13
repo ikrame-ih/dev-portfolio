@@ -62,6 +62,7 @@ const ProjectStrip = ({
   onOpenShot,
   section,
   opensNewTab,
+  viewPreview,
 }) => {
   const stripRef = useRef(null);
   const imageLeft = idx % 2 === 0;
@@ -101,7 +102,7 @@ const ProjectStrip = ({
               <motion.button
                 type="button"
                 data-testid={`project-shot-${p.id}`}
-                aria-label={`View ${p.name} preview larger`}
+                aria-label={viewPreview.replace("{name}", p.name)}
                 onClick={() => onOpenShot(p)}
                 className="photo-frame project-shot aspect-video w-full bg-bone cursor-[var(--cursor-bow)] text-left"
                 initial="rest"
@@ -279,6 +280,7 @@ export const ProjectsSection = () => {
                 onOpenShot={setLightboxProject}
                 section={section}
                 opensNewTab={ui.hero.opensNewTab}
+                viewPreview={ui.viewPreview}
               />
             ))}
           </div>
