@@ -118,20 +118,20 @@ const STACK = {
       id: "ai",
       index: "03",
       title: "AI & Big Data",
+      coursework: true,
       kicker:
-        "Specialization track — data science, ML, and distributed platforms.",
+        "Specialization starting Sep 2026 — coursework ahead, not production delivery.",
       groups: [
         {
-          label: "Data science",
-          items: ["NumPy", "Pandas"],
-        },
-        {
-          label: "Machine learning",
-          items: ["TensorFlow", "Keras", "PyTorch", "SageMaker"],
-        },
-        {
-          label: "Platforms & streaming",
-          items: ["Spark", "Flink", "Kafka", "Kubernetes"],
+          label: "Starting Sep 2026",
+          items: [
+            "NumPy",
+            "Pandas",
+            "TensorFlow",
+            "PyTorch",
+            "Spark",
+            "Kafka",
+          ],
         },
       ],
     },

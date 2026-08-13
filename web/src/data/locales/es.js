@@ -118,20 +118,20 @@ const STACK = {
       id: "ai",
       index: "03",
       title: "IA y Big Data",
+      coursework: true,
       kicker:
-        "Especialización — ciencia de datos, ML y plataformas distribuidas.",
+        "Especialización a partir de sep. 2026 — formación, no entrega en producción.",
       groups: [
         {
-          label: "Ciencia de datos",
-          items: ["NumPy", "Pandas"],
-        },
-        {
-          label: "Machine learning",
-          items: ["TensorFlow", "Keras", "PyTorch", "SageMaker"],
-        },
-        {
-          label: "Plataformas y streaming",
-          items: ["Spark", "Flink", "Kafka", "Kubernetes"],
+          label: "A partir de sep. 2026",
+          items: [
+            "NumPy",
+            "Pandas",
+            "TensorFlow",
+            "PyTorch",
+            "Spark",
+            "Kafka",
+          ],
         },
       ],
     },

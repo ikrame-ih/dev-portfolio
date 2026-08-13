@@ -45,9 +45,9 @@ export const StackMarquee = ({ className = "" }) => {
   const shouldAnimate = !reduce;
 
   const tickerItems = useMemo(() => {
-    const skillItems = STACK.domains.flatMap((d) =>
-      d.groups.flatMap((g) => g.items),
-    );
+    const skillItems = STACK.domains
+      .filter((d) => !d.coursework)
+      .flatMap((d) => d.groups.flatMap((g) => g.items));
     return buildTickerItems(skillItems, marqueeRare ?? []);
   }, [STACK, marqueeRare]);
 

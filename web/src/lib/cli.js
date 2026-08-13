@@ -319,7 +319,10 @@ export const stackLines = (content = defaultContent, cli) => {
     L("title", cli?.titleStack ?? "stack"),
     ...STACK.domains.map((domain) => {
       const skills = domain.groups.flatMap((g) => g.items).join(", ");
-      return L("out", `${domain.title}: ${skills}`);
+      return L(
+        "out",
+        `${domain.title}${domain.coursework ? ` (${cli?.coursework ?? "coursework"})` : ""}: ${skills}`,
+      );
     }),
     L(
       "out",
