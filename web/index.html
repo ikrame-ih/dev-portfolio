@@ -3,7 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ikrame Ibn Hayoun — Software Developer | ikrame.dev</title>
+    <script>
+      (function () {
+        try {
+          var q = new URLSearchParams(location.search).get("lang");
+          if (q === "en" || q === "es") {
+            document.documentElement.lang = q;
+            return;
+          }
+          var stored = localStorage.getItem("ik_lang");
+          if (stored === "en" || stored === "es") {
+            document.documentElement.lang = stored;
+            return;
+          }
+          var langs = navigator.languages || [navigator.language];
+          if (
+            langs.some(function (l) {
+              return String(l || "")
+                .toLowerCase()
+                .indexOf("es") === 0;
+            })
+          ) {
+            document.documentElement.lang = "es";
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <title>Ikrame Ibn Hayoun — Backend Developer | ikrame.dev</title>
     <meta
       name="description"
       content="Ikrame Ibn Hayoun (ikrame dev) — Software developer based in Málaga. Frontend and backend. Portfolio, CV, projects, and contact."
@@ -13,7 +39,9 @@
     <link rel="canonical" href="https://ikrame.dev/" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ikrame.dev/" />
-    <meta property="og:title" content="Ikrame Ibn Hayoun — Software Developer | ikrame.dev" />
+    <meta property="og:title" content="Ikrame Ibn Hayoun — Backend Developer | ikrame.dev" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale:alternate" content="es_ES" />
     <meta
       property="og:description"
       content="Ikrame Ibn Hayoun (ikrame dev) — Software developer based in Málaga. Frontend and backend. Explore projects, CV, and contact details."
@@ -22,8 +50,11 @@
       property="og:image"
       content="https://ikrame.dev/images/profile-ikrame-640.jpg"
     />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="640" />
+    <meta property="og:image:height" content="735" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Ikrame Ibn Hayoun — Software Developer | ikrame.dev" />
+    <meta name="twitter:title" content="Ikrame Ibn Hayoun — Backend Developer | ikrame.dev" />
     <meta
       name="twitter:description"
       content="Ikrame Ibn Hayoun (ikrame dev) — Software developer based in Málaga. Frontend and backend portfolio."
