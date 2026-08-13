@@ -1,8 +1,18 @@
 import { getRedis } from "./redis.js";
 
-export async function rateLimit({ key, limit, windowSec }) {
+export async function rateLimit({
+  key,
+  limit,
+  windowSec,
+  required = Boolean(process.env.VERCEL),
+}) {
   const redis = getRedis();
-  if (!redis) return { ok: true, limited: false };
+  if (!redis) {
+    if (required) {
+      return { ok: false, limited: true, unavailable: true };
+    }
+    return { ok: true, limited: false };
+  }
 
   const bucket = `rl:${key}`;
   const count = await redis.incr(bucket);

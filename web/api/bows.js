@@ -1,5 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { getRedis } from "./_lib/redis.js";
+import { rateLimit } from "./_lib/rateLimit.js";
+import { getClientIp } from "./_lib/security.js";
 
 const BOWS_KEY = "guestbook:bows";
 const MIN_DISTANCE = 0.05;
@@ -57,6 +59,18 @@ export default async function handler(req, res) {
     }
 
     if (req.method === "POST") {
+      const bowLimit = await rateLimit({
+        key: `bows:${getClientIp(req)}`,
+        limit: 30,
+        windowSec: 60 * 60,
+      });
+      if (bowLimit.unavailable) {
+        return res.status(503).json({ error: "redis_not_configured" });
+      }
+      if (bowLimit.limited) {
+        return res.status(429).json({ error: "rate_limited" });
+      }
+
       const { page, mx, y, rotation } = req.body ?? {};
 
       if (page !== "left" && page !== "right") {

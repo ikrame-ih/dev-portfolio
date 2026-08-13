@@ -154,6 +154,10 @@ export function useGuestbookSync({ showHint }) {
           showHint("tooClose");
           return false;
         }
+        if (err.code === "rate_limited") {
+          showHint("rateLimited");
+          return false;
+        }
         showHint("error");
         return false;
       } finally {

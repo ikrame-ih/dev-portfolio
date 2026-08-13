@@ -30,6 +30,9 @@ export default async function handler(req, res) {
     limit: 5,
     windowSec: 60 * 60,
   });
+  if (contactLimit.unavailable) {
+    return res.status(503).json({ error: "service_unavailable" });
+  }
   if (contactLimit.limited) {
     return res.status(429).json({ error: "rate_limited" });
   }
@@ -59,7 +62,10 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "invalid_email" });
   }
 
-  if (typeof startedAt === "number" && Date.now() - startedAt < MIN_FILL_MS) {
+  if (typeof startedAt !== "number" || !Number.isFinite(startedAt)) {
+    return res.status(400).json({ error: "too_fast" });
+  }
+  if (Date.now() - startedAt < MIN_FILL_MS) {
     return res.status(400).json({ error: "too_fast" });
   }
 
