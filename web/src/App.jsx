@@ -39,7 +39,12 @@ export default function App() {
   const [belowReady, setBelowReady] = useState(false);
   const { PROFILE } = useContent();
   const ui = useUi();
-  const markBelowReady = useCallback(() => setBelowReady(true), []);
+  const markBelowReady = useCallback(() => {
+    setBelowReady(true);
+    window.requestAnimationFrame(() => {
+      window.dispatchEvent(new Event("resize"));
+    });
+  }, []);
 
   useEffect(() => {
     const typingTarget = (el) => {
@@ -92,7 +97,6 @@ export default function App() {
     "@type": "Person",
     name: PROFILE.name,
     email: `mailto:${PROFILE.email}`,
-    telephone: PROFILE.phone,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Málaga",
