@@ -33,7 +33,7 @@ Portfolio project (v0.1.0): React SPA deployed on Vercel. Guest book syncs via U
 
 ![CV and projects](web/screenshots/cv-projects.png)
 
-![Interests and vault](web/screenshots/interests-vault.png)
+![Interests](web/screenshots/interests-vault.png)
 
 ![Guest book](web/screenshots/guestbook-contact.png)
 
@@ -104,7 +104,15 @@ Internal build notes live in [`docs/`](docs/) — design system, component map, 
 ```bash
 cd web
 npm run build && npm run preview -- --port 4173
-npx playwright@1.49.1 install chromium
+npx playwright@1.49.1 install chromium   # optional — script falls back to Edge/Chrome
+npm run capture:readme
+```
+
+To capture the live site (guest book with real bows):
+
+```bash
+cd web
+$env:CAPTURE_BASE_URL="https://ikrame.dev/?lang=en"
 npm run capture:readme
 ```
 
