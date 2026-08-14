@@ -3,7 +3,6 @@ import { Toaster } from "sonner";
 
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import BowCursor from "@/components/BowCursor";
 import { scrollToElement } from "@/lib/scroll";
 import { useContent, useUi } from "@/i18n/LocaleContext";
 
@@ -15,6 +14,18 @@ const GuestbookCanvas = lazy(() => import("@/components/GuestbookCanvas"));
 const ContactSection = lazy(() => import("@/components/ContactSection"));
 const Footer = lazy(() => import("@/components/Footer"));
 const CLITerminal = lazy(() => import("@/components/CLITerminal"));
+const BowCursor = lazy(() => import("@/components/BowCursor"));
+
+const HASH_ALIASES = {
+  blog: "linkedin",
+  vault: "linkedin",
+};
+
+const hasSectionHash = () => {
+  if (typeof window === "undefined") return false;
+  const id = window.location.hash.slice(1);
+  return Boolean(id) && id !== "main-content";
+};
 
 /** Mounts below-the-fold sections; signals when the chunk tree is ready. */
 function BelowFold({ onReady }) {
@@ -37,6 +48,8 @@ function BelowFold({ onReady }) {
 export default function App() {
   const [cliOpen, setCliOpen] = useState(false);
   const [belowReady, setBelowReady] = useState(false);
+  const [loadBelow, setLoadBelow] = useState(hasSectionHash);
+  const [cursorOn, setCursorOn] = useState(false);
   const { PROFILE } = useContent();
   const ui = useUi();
   const markBelowReady = useCallback(() => {
@@ -44,6 +57,51 @@ export default function App() {
     window.requestAnimationFrame(() => {
       window.dispatchEvent(new Event("resize"));
     });
+  }, []);
+
+  useEffect(() => {
+    if (loadBelow) return undefined;
+    let idleId = 0;
+    let timeoutId = 0;
+    const start = () => setLoadBelow(true);
+    const interactOpts = { once: true, passive: true, capture: true };
+    window.addEventListener("pointerdown", start, interactOpts);
+    window.addEventListener("keydown", start, interactOpts);
+    window.addEventListener("wheel", start, interactOpts);
+    window.addEventListener("touchstart", start, interactOpts);
+    // After LCP, not during it — a 1.8s idle timeout still races a ~2.5s paint.
+    timeoutId = window.setTimeout(() => {
+      if (typeof window.requestIdleCallback === "function") {
+        idleId = window.requestIdleCallback(start, { timeout: 1500 });
+      } else {
+        start();
+      }
+    }, 4000);
+    return () => {
+      window.removeEventListener("pointerdown", start, interactOpts);
+      window.removeEventListener("keydown", start, interactOpts);
+      window.removeEventListener("wheel", start, interactOpts);
+      window.removeEventListener("touchstart", start, interactOpts);
+      if (idleId && window.cancelIdleCallback) window.cancelIdleCallback(idleId);
+      if (timeoutId) window.clearTimeout(timeoutId);
+    };
+  }, [loadBelow]);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
+    if (!mq.matches) return undefined;
+    let idleId = 0;
+    let timeoutId = 0;
+    const start = () => setCursorOn(true);
+    if (typeof window.requestIdleCallback === "function") {
+      idleId = window.requestIdleCallback(start, { timeout: 2500 });
+    } else {
+      timeoutId = window.setTimeout(start, 800);
+    }
+    return () => {
+      if (idleId && window.cancelIdleCallback) window.cancelIdleCallback(idleId);
+      if (timeoutId) window.clearTimeout(timeoutId);
+    };
   }, []);
 
   useEffect(() => {
@@ -70,10 +128,6 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const HASH_ALIASES = {
-      blog: "linkedin",
-      vault: "linkedin",
-    };
     const goHash = () => {
       let id = window.location.hash.slice(1);
       if (HASH_ALIASES[id]) {
@@ -81,15 +135,17 @@ export default function App() {
         const url = `${window.location.pathname}${window.location.search}#${id}`;
         window.history.replaceState(null, "", url);
       }
-      if (id && id !== "main-content") scrollToElement(id);
+      if (id && id !== "main-content") {
+        setLoadBelow(true);
+        if (belowReady) scrollToElement(id);
+      }
     };
-    // Deep links / refresh with hash — wait a tick for layout.
     if (window.location.hash) {
       window.requestAnimationFrame(goHash);
     }
     window.addEventListener("hashchange", goHash);
     return () => window.removeEventListener("hashchange", goHash);
-  }, []);
+  }, [belowReady]);
 
   const schema = {
     // Structured data for search engines — description mirrors PROFILE.heroSubtext.
@@ -133,11 +189,15 @@ export default function App() {
         <Nav onOpenTerminal={() => setCliOpen(true)} />
         <main id="main-content" tabIndex={-1}>
           <Hero />
-          <Suspense
-            fallback={<div className="min-h-[70vh]" aria-hidden="true" />}
-          >
-            <BelowFold onReady={markBelowReady} />
-          </Suspense>
+          {loadBelow ? (
+            <Suspense
+              fallback={<div className="min-h-[70vh]" aria-hidden="true" />}
+            >
+              <BelowFold onReady={markBelowReady} />
+            </Suspense>
+          ) : (
+            <div className="min-h-[70vh]" aria-hidden="true" />
+          )}
         </main>
         {belowReady ? (
           <Suspense fallback={null}>
@@ -146,10 +206,16 @@ export default function App() {
         ) : null}
       </div>
 
-      <Suspense fallback={null}>
-        <CLITerminal open={cliOpen} onClose={() => setCliOpen(false)} />
-      </Suspense>
-      <BowCursor />
+      {cliOpen ? (
+        <Suspense fallback={null}>
+          <CLITerminal open onClose={() => setCliOpen(false)} />
+        </Suspense>
+      ) : null}
+      {cursorOn ? (
+        <Suspense fallback={null}>
+          <BowCursor />
+        </Suspense>
+      ) : null}
       <Toaster
         theme="light"
         toastOptions={{
