@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   motion,
   useReducedMotion,
@@ -67,6 +67,28 @@ const ProjectStrip = ({
   const stripRef = useRef(null);
   const imageLeft = idx % 2 === 0;
   const stackPreview = p.stack.slice(0, STACK_PREVIEW);
+  const [parallaxOn, setParallaxOn] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    let idleId = 0;
+    let timeoutId = 0;
+    const enable = () => {
+      if (mq.matches) setParallaxOn(true);
+    };
+    if (typeof window.requestIdleCallback === "function") {
+      idleId = window.requestIdleCallback(enable, { timeout: 1200 });
+    } else {
+      timeoutId = window.setTimeout(enable, 700);
+    }
+    const onChange = () => setParallaxOn(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => {
+      mq.removeEventListener("change", onChange);
+      if (idleId && window.cancelIdleCallback) window.cancelIdleCallback(idleId);
+      if (timeoutId) window.clearTimeout(timeoutId);
+    };
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: stripRef,
@@ -75,7 +97,7 @@ const ProjectStrip = ({
   const parallaxY = useTransform(
     scrollYProgress,
     [0, 1],
-    reduce ? [0, 0] : [10, -10],
+    reduce || !parallaxOn ? [0, 0] : [10, -10],
   );
 
   return (
@@ -116,8 +138,10 @@ const ProjectStrip = ({
                   height={PROJECT_SHOT_SIZE.height}
                   loading="lazy"
                   decoding="async"
-                  className="h-full w-full object-cover will-change-transform pointer-events-none"
-                  style={reduce ? undefined : { y: parallaxY }}
+                  className={`h-full w-full object-cover pointer-events-none ${
+                    parallaxOn ? "will-change-transform" : ""
+                  }`}
+                  style={reduce || !parallaxOn ? undefined : { y: parallaxY }}
                   variants={reduce ? undefined : shotImageVariants}
                   transition={LIGHTBOX_SPRING}
                 />

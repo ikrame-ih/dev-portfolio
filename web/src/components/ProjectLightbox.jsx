@@ -52,7 +52,7 @@ export const ProjectLightbox = ({ project, onClose }) => {
               data-testid="project-lightbox-close"
               onClick={onClose}
               aria-label={ui.modal.closePreview}
-              className="btn-tactile absolute -top-1 right-0 z-10 min-h-11 px-3 font-mono text-xs uppercase tracking-[0.18em] text-[#F5F1EB] hover:text-white md:-top-12 md:right-0"
+              className="btn-tactile absolute top-2 right-2 z-10 min-h-11 bg-ink/70 px-3 font-mono text-xs uppercase tracking-[0.18em] text-[#F5F1EB] hover:text-white md:-top-12 md:right-0 md:bg-transparent"
             >
               {ui.modal.closeBtn}
             </button>

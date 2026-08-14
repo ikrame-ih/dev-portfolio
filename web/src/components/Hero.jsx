@@ -118,7 +118,7 @@ export const Hero = () => {
   return (
     <section
       data-testid="hero-section"
-      className="relative flex min-h-[100dvh] flex-col pt-24 md:pt-28"
+      className="relative flex min-h-0 flex-col pt-24 md:min-h-[100dvh] md:pt-28"
     >
       <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 pb-8 md:px-12 md:pb-10">
         <div className="grid grid-cols-12 gap-6 md:gap-10 items-start md:items-center">
@@ -162,7 +162,7 @@ export const Hero = () => {
 
             <h1
               data-testid="hero-headline"
-              className="font-serif font-light text-[2.05rem] leading-[1.12] sm:text-5xl md:text-6xl lg:text-7xl sm:leading-[1.12] tracking-[-0.03em] text-ink text-pretty md:text-balance"
+              className="font-serif font-light text-[clamp(1.6rem,8vw,2.05rem)] leading-[1.12] md:text-6xl lg:text-7xl tracking-[-0.03em] text-ink text-pretty md:text-balance"
             >
               {PROFILE.headlineParts.map((part, i) => (
                 <TextAnimate
@@ -241,7 +241,7 @@ export const Hero = () => {
             </motion.ul>
 
             <motion.div
-              className="mt-9 grid grid-cols-2 gap-3 sm:mt-10 sm:flex sm:flex-wrap sm:items-center sm:gap-4"
+              className="mt-9 grid grid-cols-1 gap-3 sm:mt-10 sm:flex sm:flex-wrap sm:items-center sm:gap-4"
               initial={reduce ? false : { opacity: 0, y: 8 }}
               animate={
                 reduce || headlineReady
@@ -258,7 +258,7 @@ export const Hero = () => {
                 href="#projects"
                 data-testid="hero-cta-projects"
                 onClick={onHashLinkClick}
-                className="btn-tactile min-h-11 inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-6 py-3 hover:bg-ink transition-colors"
+                className="btn-tactile min-h-11 inline-flex w-full items-center justify-center font-mono text-xs uppercase tracking-[0.18em] bg-burgundy text-[#F5F1EB] px-6 py-3 hover:bg-ink transition-colors sm:w-auto"
                 whileHover={reduce ? undefined : { y: -2, scale: 1.02 }}
                 whileTap={reduce ? undefined : { scale: 0.98 }}
                 transition={CTA_SPRING}
@@ -270,7 +270,7 @@ export const Hero = () => {
                 href="#contact"
                 data-testid="hero-cta-contact"
                 onClick={onHashLinkClick}
-                className="col-span-2 sm:col-auto lnk min-h-11 inline-flex items-center justify-center sm:justify-start font-mono text-xs uppercase tracking-[0.18em] text-ink-soft hover:text-burgundy"
+                className="lnk min-h-11 inline-flex items-center justify-center sm:justify-start font-mono text-xs uppercase tracking-[0.18em] text-ink-soft hover:text-burgundy"
                 whileHover={reduce ? undefined : { y: -1 }}
                 transition={CTA_SPRING}
               >
@@ -291,7 +291,7 @@ export const Hero = () => {
                 className="md:will-change-transform"
               >
                 {/* Composited reveal: overflow:hidden wrapper + translateY on inner div, no clip-path */}
-                <div className="photo-frame aspect-[3/4] bg-bone-300 border border-ink/15 overflow-hidden">
+                <div className="photo-frame h-[min(42vh,20rem)] w-full overflow-hidden border border-ink/15 bg-bone-300 md:h-auto md:aspect-[3/4] md:max-h-none">
                   <motion.div
                     className="w-full h-full"
                     initial={reduce ? false : { y: "100%" }}

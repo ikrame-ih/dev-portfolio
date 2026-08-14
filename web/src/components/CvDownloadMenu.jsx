@@ -69,7 +69,7 @@ const CvDownloadMenu = ({ reduce }) => {
     <motion.div
       ref={rootRef}
       data-testid="hero-cta-cv"
-      className="relative"
+      className="relative w-full sm:w-auto"
       whileHover={reduce || open ? undefined : { y: -2, scale: 1.02 }}
       whileTap={reduce ? undefined : { scale: 0.98 }}
       transition={CTA_SPRING}
@@ -81,7 +81,7 @@ const CvDownloadMenu = ({ reduce }) => {
         aria-haspopup="menu"
         aria-controls={menuId}
         onClick={() => setOpen((v) => !v)}
-        className={`btn-tactile min-h-11 inline-flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-[0.18em] border px-6 py-3 transition-colors ${
+        className={`btn-tactile min-h-11 inline-flex w-full items-center justify-center gap-2 font-mono text-xs uppercase tracking-[0.18em] border px-6 py-3 transition-colors sm:w-auto ${
           open
             ? "border-burgundy bg-burgundy text-[#F5F1EB]"
             : "border-ink hover:bg-burgundy hover:text-[#F5F1EB] hover:border-burgundy"

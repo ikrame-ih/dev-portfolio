@@ -98,7 +98,7 @@ export const ContactSection = () => {
                 autoComplete="name"
                 aria-invalid={errors.name ? "true" : undefined}
                 aria-describedby={errors.name ? "contact-name-error" : undefined}
-                className="mt-2 w-full bg-transparent border-b border-ink/30 focus:border-burgundy outline-none py-2 font-mono text-sm text-ink"
+                className="mt-2 w-full bg-transparent border-b border-ink/30 focus:border-burgundy outline-none py-2 font-mono text-base text-ink"
               />
               {errors.name && (
                 <span
@@ -128,7 +128,7 @@ export const ContactSection = () => {
                 aria-describedby={
                   errors.email ? "contact-email-error" : undefined
                 }
-                className="mt-2 w-full bg-transparent border-b border-ink/30 focus:border-burgundy outline-none py-2 font-mono text-sm text-ink"
+                className="mt-2 w-full bg-transparent border-b border-ink/30 focus:border-burgundy outline-none py-2 font-mono text-base text-ink"
               />
               {errors.email && (
                 <span
@@ -159,7 +159,7 @@ export const ContactSection = () => {
               aria-describedby={
                 errors.message ? "contact-message-error" : undefined
               }
-              className="mt-2 w-full bg-transparent border-b border-ink/30 focus:border-burgundy outline-none py-2 font-mono text-sm text-ink resize-none"
+              className="mt-2 w-full bg-transparent border-b border-ink/30 focus:border-burgundy outline-none py-2 font-mono text-base text-ink resize-none"
             />
             {errors.message && (
               <span
