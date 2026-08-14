@@ -21,12 +21,6 @@ const HASH_ALIASES = {
   vault: "linkedin",
 };
 
-const hasSectionHash = () => {
-  if (typeof window === "undefined") return false;
-  const id = window.location.hash.slice(1);
-  return Boolean(id) && id !== "main-content";
-};
-
 /** Mounts below-the-fold sections; signals when the chunk tree is ready. */
 function BelowFold({ onReady }) {
   useEffect(() => {
@@ -48,7 +42,6 @@ function BelowFold({ onReady }) {
 export default function App() {
   const [cliOpen, setCliOpen] = useState(false);
   const [belowReady, setBelowReady] = useState(false);
-  const [loadBelow, setLoadBelow] = useState(hasSectionHash);
   const [cursorOn, setCursorOn] = useState(false);
   const { PROFILE } = useContent();
   const ui = useUi();
@@ -58,34 +51,6 @@ export default function App() {
       window.dispatchEvent(new Event("resize"));
     });
   }, []);
-
-  useEffect(() => {
-    if (loadBelow) return undefined;
-    let idleId = 0;
-    let timeoutId = 0;
-    const start = () => setLoadBelow(true);
-    const interactOpts = { once: true, passive: true, capture: true };
-    window.addEventListener("pointerdown", start, interactOpts);
-    window.addEventListener("keydown", start, interactOpts);
-    window.addEventListener("wheel", start, interactOpts);
-    window.addEventListener("touchstart", start, interactOpts);
-    // After LCP, not during it — a 1.8s idle timeout still races a ~2.5s paint.
-    timeoutId = window.setTimeout(() => {
-      if (typeof window.requestIdleCallback === "function") {
-        idleId = window.requestIdleCallback(start, { timeout: 1500 });
-      } else {
-        start();
-      }
-    }, 4000);
-    return () => {
-      window.removeEventListener("pointerdown", start, interactOpts);
-      window.removeEventListener("keydown", start, interactOpts);
-      window.removeEventListener("wheel", start, interactOpts);
-      window.removeEventListener("touchstart", start, interactOpts);
-      if (idleId && window.cancelIdleCallback) window.cancelIdleCallback(idleId);
-      if (timeoutId) window.clearTimeout(timeoutId);
-    };
-  }, [loadBelow]);
 
   useEffect(() => {
     const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
@@ -135,10 +100,7 @@ export default function App() {
         const url = `${window.location.pathname}${window.location.search}#${id}`;
         window.history.replaceState(null, "", url);
       }
-      if (id && id !== "main-content") {
-        setLoadBelow(true);
-        if (belowReady) scrollToElement(id);
-      }
+      if (id && id !== "main-content" && belowReady) scrollToElement(id);
     };
     if (window.location.hash) {
       window.requestAnimationFrame(goHash);
@@ -189,15 +151,11 @@ export default function App() {
         <Nav onOpenTerminal={() => setCliOpen(true)} />
         <main id="main-content" tabIndex={-1}>
           <Hero />
-          {loadBelow ? (
-            <Suspense
-              fallback={<div className="min-h-[70vh]" aria-hidden="true" />}
-            >
-              <BelowFold onReady={markBelowReady} />
-            </Suspense>
-          ) : (
-            <div className="min-h-[70vh]" aria-hidden="true" />
-          )}
+          <Suspense
+            fallback={<div className="min-h-[70vh]" aria-hidden="true" />}
+          >
+            <BelowFold onReady={markBelowReady} />
+          </Suspense>
         </main>
         {belowReady ? (
           <Suspense fallback={null}>
