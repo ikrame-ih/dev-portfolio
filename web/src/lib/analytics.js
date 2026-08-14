@@ -25,7 +25,7 @@ const whenReady = (fn, { tries = 50, ms = 100 } = {}) => {
   tick();
 };
 
-export const initAnalytics = () => {
+const loadGoatCounter = () => {
   const code =
     String(import.meta.env.VITE_GOATCOUNTER_CODE ?? "").trim() || DEFAULT_CODE;
   if (!code) return;
@@ -49,5 +49,17 @@ export const initAnalytics = () => {
   // SPA section jumps (#cv, #projects, …) as extra paths.
   window.addEventListener("hashchange", () => {
     whenReady(() => window.goatcounter.count());
+  });
+};
+
+/** Load after first paint so count.js never contends with LCP. */
+export const initAnalytics = () => {
+  const boot = () => loadGoatCounter();
+  if (typeof window.requestIdleCallback === "function") {
+    window.requestIdleCallback(boot, { timeout: 4000 });
+    return;
+  }
+  window.addEventListener("load", () => window.setTimeout(boot, 1), {
+    once: true,
   });
 };
