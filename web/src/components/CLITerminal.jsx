@@ -286,6 +286,14 @@ export const CLITerminal = ({ open, onClose }) => {
     pdf: async (ctx) => ctx.print(...openCvPdf(ctx.arg0 || ctx.rest || "en", ctx.cli)),
     gh: async (ctx) => ctx.print(...openExternal("GitHub", ctx.PROFILE.github, ctx.cli)),
     li: async (ctx) => ctx.print(...openExternal("LinkedIn", ctx.PROFILE.linkedin, ctx.cli)),
+    tip: async (ctx) =>
+      ctx.print(
+        ...openExternal(
+          ctx.cli.tipLabel ?? "Buy Me a Coffee",
+          ctx.PROFILE.buyMeACoffee,
+          ctx.cli,
+        ),
+      ),
     copy: async (ctx) => ctx.print(...(await copyEmail(ctx.content, ctx.cli))),
     open: async (ctx) => ctx.print(...openProjectUrl("open", ctx.arg0, ctx.content, ctx.cli)),
     demo: async (ctx) => ctx.print(...openProjectUrl("demo", ctx.arg0, ctx.content, ctx.cli)),

@@ -9,12 +9,13 @@ const PROFILE = {
   github: "https://github.com/ikrame-ih",
   portfolioRepo: "https://github.com/ikrame-ih/dev-portfolio",
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
+  buyMeACoffee: "https://buymeacoffee.com/ikrame.dev",
   siteUrl: "https://ikrame.dev",
   overline: "BACKEND · APIs · POSTGRESQL",
   headlineParts: [
     { text: "Desarrollo software" },
-    { text: "pensando tanto en los detalles", accent: true },
-    { text: "como en las personas que lo utilizan.", italic: true },
+    { text: "pensando en el detalle", accent: true },
+    { text: "y en quien lo usa.", italic: true },
   ],
   heroSubtext:
     "Hola, soy Ikrame Ibn Hayoun — desarrolladora centrada en backend en Málaga. Construyo APIs, modelos de datos y los bordes que fallan con reintentos y tráfico real. También entrego React cuando el producto necesita UI. Abierta a roles remotos o híbridos.",

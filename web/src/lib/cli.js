@@ -27,6 +27,8 @@ export const CLI_COMMANDS = [
   "links",
   "gh",
   "li",
+  "tip",
+  "coffee",
   "copy",
   "contact",
   "avail",
@@ -82,6 +84,7 @@ export const getCommandCatalog = (cli) => [
   { cmd: "links", label: cli.catalog.links },
   { cmd: "gh", label: cli.catalog.gh },
   { cmd: "li", label: cli.catalog.li },
+  { cmd: "tip", label: cli.catalog.tip },
   { cmd: "copy", label: cli.catalog.copy },
   { cmd: "contact", label: cli.catalog.contact },
   { cmd: "avail", label: cli.catalog.avail },
@@ -224,6 +227,8 @@ export const canonicalize = (head) => {
     guestbook: "sign",
     github: "gh",
     linkedin: "li",
+    coffee: "tip",
+    bmc: "tip",
     email: "copy",
     tl: "tldr",
     "tl;dr": "tldr",
@@ -431,8 +436,11 @@ export const linkLines = (content = defaultContent, cli) => {
     L("out", `LinkedIn  ${PROFILE.linkedin}`),
     L("out", `Email     ${PROFILE.email}`),
     L("out", `Site      ${PROFILE.siteUrl}`),
+    ...(PROFILE.buyMeACoffee
+      ? [L("out", `Tip       ${PROFILE.buyMeACoffee}`)]
+      : []),
     L("blank"),
-    L("meta", cli?.linksTip ?? "tip: gh · li · copy"),
+    L("meta", cli?.linksTip ?? "tip: gh · li · tip · copy"),
   ];
 };
 

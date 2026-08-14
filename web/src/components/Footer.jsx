@@ -58,8 +58,8 @@ export const Footer = ({ onOpenTerminal }) => {
                   className="footer-link"
                 >
                   {ui.footer.source}
-                </a>{" "}
-                {ui.footer.or}{" "}
+                </a>
+                {ui.footer.listSep}{" "}
                 <a
                   href={PROFILE.linkedin}
                   target="_blank"
@@ -68,7 +68,18 @@ export const Footer = ({ onOpenTerminal }) => {
                 >
                   {ui.footer.linkedin}
                 </a>
-                .
+                {ui.footer.orBeforeTip}{" "}
+                <a
+                  href={PROFILE.buyMeACoffee}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-link"
+                  data-testid="footer-tip"
+                  aria-label={ui.footer.tipAria}
+                >
+                  {ui.footer.tip}
+                </a>{" "}
+                {ui.footer.tipSuffix}.
               </p>
             </div>
           </motion.div>
