@@ -2,13 +2,13 @@
 
 > Backend-focused software developer based in Málaga. Available for remote or hybrid roles.
 
-- Site: https://ikrame.dev/
-- Email: ikihga2223@gmail.com
-- GitHub: https://github.com/ikrame-ih
-- LinkedIn: https://www.linkedin.com/in/ikrame-ih/
-- Tip (optional): https://buymeacoffee.com/ikrame.dev
-- CV (EN): https://ikrame.dev/Ikrame_Ibn_Hayoun_CV.pdf
-- CV (ES): https://ikrame.dev/Ikrame_Ibn_Hayoun_CV_ES.pdf
+- [Site](https://ikrame.dev/)
+- [Email](mailto:ikihga2223@gmail.com)
+- [GitHub](https://github.com/ikrame-ih)
+- [LinkedIn](https://www.linkedin.com/in/ikrame-ih/)
+- [Tip (optional)](https://buymeacoffee.com/ikrame.dev)
+- [CV (EN)](https://ikrame.dev/Ikrame_Ibn_Hayoun_CV.pdf)
+- [CV (ES)](https://ikrame.dev/Ikrame_Ibn_Hayoun_CV_ES.pdf)
 
 ## Summary
 
@@ -16,12 +16,12 @@ Higher Vocational Degree in Web Application Development (DAW, Jun 2026). Capston
 
 ## Selected projects
 
-- ReckonFlow — corporate travel reconciliation API (Python, FastAPI, PostgreSQL, Redis); live docs at https://reckon-flow.onrender.com/docs
+- [ReckonFlow](https://reckon-flow.onrender.com/docs) — corporate travel reconciliation API (Python, FastAPI, PostgreSQL, Redis)
 - MyPlaythrough — personal game library manager, DAW capstone (React, Node, PostgreSQL)
 - Live Event Radar — real-time venue ops dashboard (Next.js, React, TypeScript)
 - Aiba — local-first Windows productivity companion (Electron)
 
 ## Optional
 
-- Portfolio source: https://github.com/ikrame-ih/dev-portfolio
-- ReckonFlow docs: https://ikrame-ih.github.io/reckon-flow/
+- [Portfolio source](https://github.com/ikrame-ih/dev-portfolio)
+- [ReckonFlow docs](https://ikrame-ih.github.io/reckon-flow/)
