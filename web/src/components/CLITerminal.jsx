@@ -497,7 +497,7 @@ export const CLITerminal = ({ open, onClose }) => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={onInputKeyDown}
-                className="flex-1 min-w-0 bg-transparent outline-none text-ink"
+                className="flex-1 min-w-0 bg-transparent outline-none text-base text-ink"
                 autoComplete="off"
                 spellCheck="false"
                 aria-label={ui.cli.input}
