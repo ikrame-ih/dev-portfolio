@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { Bow } from "./Bow";
 import TextAnimate from "./ui/TextAnimate";
 import { ASSETS } from "@/data/assets";
@@ -12,10 +12,8 @@ import CvDownloadMenu from "./CvDownloadMenu";
 // After the headline word cascade finishes (~1.3s), ease the rest in quickly.
 const STEP_DELAY = {
   overline: 0,
-  subtext: 1.35,
   tagline: 1.55,
   ctas: 1.75,
-  photo: 1.4, // unused for entrance — portrait uses CSS unveil; kept for reference
 };
 
 const HEADLINE_LINE_DELAY = [0.06, 0.38, 0.7];
@@ -46,6 +44,38 @@ const factItem = (reduce) =>
         },
       };
 
+/** Light parallax without useScroll — that hook measures layout and forces a reflow on load. */
+const PortraitFrame = ({ reduce, parallaxOn, children }) => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (!parallaxOn || reduce) return undefined;
+    const el = ref.current;
+    if (!el) return undefined;
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        const y = Math.min(18, window.scrollY * (18 / 420));
+        el.style.transform = `translate3d(0, ${y}px, 0)`;
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      el.style.transform = "";
+    };
+  }, [parallaxOn, reduce]);
+
+  return (
+    <figure ref={ref} className={parallaxOn ? "md:will-change-transform" : undefined}>
+      {children}
+    </figure>
+  );
+};
+
 export const Hero = () => {
   const reduce = useReducedMotion();
   const { PROFILE } = useContent();
@@ -53,12 +83,6 @@ export const Hero = () => {
   const [parallaxOn, setParallaxOn] = useState(false);
   /** Headline paints immediately (LCP). Overline / facts / CTAs still wait on fonts. */
   const [headlineReady, setHeadlineReady] = useState(false);
-  const { scrollY } = useScroll();
-  const photoParallax = useTransform(
-    scrollY,
-    [0, 420],
-    [0, reduce || !parallaxOn ? 0 : 18],
-  );
 
   useEffect(() => {
     let alive = true;
@@ -188,23 +212,12 @@ export const Hero = () => {
               ))}
             </h1>
 
-            <motion.p
+            <p
               data-testid="hero-positioning"
               className="mt-8 max-w-[65ch] text-sm md:text-base text-ink-soft leading-relaxed"
-              initial={reduce ? false : { opacity: 0, y: 8 }}
-              animate={
-                reduce || headlineReady
-                  ? { opacity: 1, y: 0 }
-                  : { opacity: 0, y: 8 }
-              }
-              transition={{
-                duration: 0.45,
-                ease: MOTION_EASE,
-                delay: headlineReady ? STEP_DELAY.subtext : 0,
-              }}
             >
               {PROFILE.heroSubtext}
-            </motion.p>
+            </p>
 
             {/* Editorial fact row — vertical rules from md only */}
             <motion.ul
@@ -284,46 +297,25 @@ export const Hero = () => {
               <div className="absolute -top-6 -left-6 z-10 hidden md:block bow-hover-tilt">
                 <Bow size={32} />
               </div>
-              <motion.figure
-                style={
-                  reduce || !parallaxOn ? undefined : { y: photoParallax }
-                }
-                className="md:will-change-transform"
-              >
+              <PortraitFrame reduce={reduce} parallaxOn={parallaxOn}>
                 {/* Composited reveal: overflow:hidden wrapper + translateY on inner div, no clip-path */}
                 <div className="photo-frame h-[min(42vh,20rem)] w-full overflow-hidden border border-ink/15 bg-bone-300 md:h-auto md:aspect-[3/4] md:max-h-none">
-                  <motion.div
-                    className="w-full h-full"
-                    initial={reduce ? false : { y: "100%" }}
-                    animate={{ y: "0%" }}
-                    transition={{
-                      duration: 1.35,
-                      delay: 0.4,
-                      ease: MOTION_EASE,
-                    }}
-                  >
+                  <div className="h-full w-full">
                     <picture>
                       <source srcSet={ASSETS.profilePortraitWebp} type="image/webp" />
-                      <motion.img
+                      <img
                         data-testid="hero-photo"
                         src={ASSETS.profilePortrait}
                         alt={ui.hero.portraitAlt}
                         width={640}
                         height={735}
-                        className="w-full h-full object-cover object-top"
+                        className="h-full w-full object-cover object-top"
                         loading="eager"
                         decoding="async"
                         fetchPriority="high"
-                        initial={reduce ? false : { scale: 1.08, y: 12 }}
-                        animate={{ scale: 1.01, y: 0 }}
-                        transition={{
-                          duration: 1.35,
-                          delay: 0.4,
-                          ease: MOTION_EASE,
-                        }}
                       />
                     </picture>
-                  </motion.div>
+                  </div>
                 </div>
                 <figcaption className="mt-3 text-right">
                   <a
@@ -337,7 +329,7 @@ export const Hero = () => {
                     <span className="sr-only">{ui.hero.opensNewTab}</span>
                   </a>
                 </figcaption>
-              </motion.figure>
+              </PortraitFrame>
             </div>
           </div>
         </div>

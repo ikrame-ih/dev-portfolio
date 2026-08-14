@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import { Bow } from "./Bow";
 import { useContent } from "@/i18n/LocaleContext";
@@ -42,7 +42,24 @@ const Separator = ({ index }) => {
 export const StackMarquee = ({ className = "" }) => {
   const reduce = useReducedMotion();
   const { STACK, marqueeRare } = useContent();
-  const shouldAnimate = !reduce;
+  const [animateReady, setAnimateReady] = useState(false);
+  const shouldAnimate = !reduce && animateReady;
+
+  useEffect(() => {
+    if (reduce) return undefined;
+    let idleId = 0;
+    let timeoutId = 0;
+    const start = () => setAnimateReady(true);
+    if (typeof window.requestIdleCallback === "function") {
+      idleId = window.requestIdleCallback(start, { timeout: 2500 });
+    } else {
+      timeoutId = window.setTimeout(start, 800);
+    }
+    return () => {
+      if (idleId && window.cancelIdleCallback) window.cancelIdleCallback(idleId);
+      if (timeoutId) window.clearTimeout(timeoutId);
+    };
+  }, [reduce]);
 
   const tickerItems = useMemo(() => {
     const skillItems = STACK.domains
@@ -64,7 +81,7 @@ export const StackMarquee = ({ className = "" }) => {
           shouldAnimate ? "marquee-track" : ""
         }`}
       >
-        {(shouldAnimate ? loop : tickerItems).map((item, i) => (
+        {(reduce ? tickerItems : loop).map((item, i) => (
           <span
             key={`${item.label}-${i}`}
             className={`inline-flex items-center shrink-0 px-5 ${
