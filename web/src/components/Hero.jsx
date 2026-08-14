@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { Bow } from "./Bow";
 import TextAnimate from "./ui/TextAnimate";
 import { ASSETS } from "@/data/assets";
@@ -147,7 +147,7 @@ export const Hero = () => {
       <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 pb-8 md:px-12 md:pb-10">
         <div className="grid grid-cols-12 gap-6 md:gap-10 items-start md:items-center">
           <div className="col-span-12 md:col-span-7">
-            <motion.div
+            <m.div
               className="mb-6 flex items-center gap-3"
               initial={reduce ? false : { opacity: 0, y: 8 }}
               animate={
@@ -161,7 +161,7 @@ export const Hero = () => {
                 delay: headlineReady ? STEP_DELAY.overline : 0,
               }}
             >
-              <motion.span
+              <m.span
                 aria-hidden="true"
                 className="hairline hairline--draw w-16 origin-left md:w-24"
                 initial={reduce ? false : { scaleX: 0, opacity: 0.15 }}
@@ -182,7 +182,7 @@ export const Hero = () => {
               >
                 {PROFILE.overline}
               </span>
-            </motion.div>
+            </m.div>
 
             <h1
               data-testid="hero-headline"
@@ -192,7 +192,7 @@ export const Hero = () => {
                 <TextAnimate
                   key={part.text}
                   as="div"
-                  by="word"
+                  by="text"
                   animation="fadeIn"
                   delay={HEADLINE_LINE_DELAY[i]}
                   stagger={HEADLINE_WORD_STAGGER}
@@ -220,7 +220,7 @@ export const Hero = () => {
             </p>
 
             {/* Editorial fact row — vertical rules from md only */}
-            <motion.ul
+            <m.ul
               data-testid="hero-facts"
               className="mt-6 grid grid-cols-2 gap-y-5 md:mt-7 md:flex md:flex-wrap"
               variants={factsContainer(reduce)}
@@ -228,7 +228,7 @@ export const Hero = () => {
               animate={reduce || headlineReady ? "show" : "hidden"}
             >
               {PROFILE.heroFacts.map((fact, i) => (
-                <motion.li
+                <m.li
                   key={fact.eyebrow}
                   variants={factItem(reduce)}
                   className={`flex flex-col gap-1 pr-6 md:pr-8 ${
@@ -249,11 +249,11 @@ export const Hero = () => {
                   >
                     {fact.text}
                   </span>
-                </motion.li>
+                </m.li>
               ))}
-            </motion.ul>
+            </m.ul>
 
-            <motion.div
+            <m.div
               className="mt-9 grid grid-cols-1 gap-3 sm:mt-10 sm:flex sm:flex-wrap sm:items-center sm:gap-4"
               initial={reduce ? false : { opacity: 0, y: 8 }}
               animate={
@@ -267,7 +267,7 @@ export const Hero = () => {
                 delay: headlineReady ? STEP_DELAY.ctas : 0,
               }}
             >
-              <motion.a
+              <m.a
                 href="#projects"
                 data-testid="hero-cta-projects"
                 onClick={onHashLinkClick}
@@ -277,9 +277,9 @@ export const Hero = () => {
                 transition={CTA_SPRING}
               >
                 {ui.hero.viewProjects}
-              </motion.a>
+              </m.a>
               <CvDownloadMenu reduce={reduce} />
-              <motion.a
+              <m.a
                 href="#contact"
                 data-testid="hero-cta-contact"
                 onClick={onHashLinkClick}
@@ -288,8 +288,8 @@ export const Hero = () => {
                 transition={CTA_SPRING}
               >
                 {ui.hero.getInTouch}
-              </motion.a>
-            </motion.div>
+              </m.a>
+            </m.div>
           </div>
 
           <div className="col-span-12 md:col-span-5 md:pt-2">

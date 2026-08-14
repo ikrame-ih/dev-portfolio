@@ -1,5 +1,5 @@
 import { useState, useEffect, useId, useMemo, useRef } from "react";
-import { motion, useReducedMotion, LayoutGroup, AnimatePresence } from "framer-motion";
+import { m, useReducedMotion, AnimatePresence } from "framer-motion";
 import { Bow } from "./Bow";
 import { MOTION_EASE, MOTION_DURATION, CTA_SPRING } from "@/lib/motion";
 import { onHashLinkClick, scrollToTop, navigateToHash } from "@/lib/scroll";
@@ -174,7 +174,7 @@ export const Nav = ({ onOpenTerminal }) => {
     <>
       <AnimatePresence>
         {menuOpen && (
-          <motion.button
+          <m.button
             key="nav-mobile-backdrop"
             type="button"
             data-testid="nav-mobile-backdrop"
@@ -189,7 +189,7 @@ export const Nav = ({ onOpenTerminal }) => {
         )}
       </AnimatePresence>
 
-      <motion.nav
+      <m.nav
         ref={containerRef}
         data-testid="main-nav"
         aria-label={ui.nav.primary}
@@ -229,33 +229,26 @@ export const Nav = ({ onOpenTerminal }) => {
         </a>
 
         <div className="hidden md:flex items-center gap-6 lg:gap-8 min-w-0">
-          <LayoutGroup id="primary-nav">
-            {desktopLinks.map((l) => (
-              <a
-                key={l.id}
-                href={`#${l.id}`}
-                data-testid={`nav-link-${l.id}`}
-                onClick={onDesktopNavClick}
-                className={`${linkClass(l.id)} min-h-11 pb-1`}
-                aria-current={active === l.id ? "location" : undefined}
-              >
-                {l.label}
-                {active === l.id && (
-                  <motion.span
-                    layoutId={reduce ? undefined : "nav-underline"}
-                    className="absolute left-0 right-0 -bottom-0.5 h-px bg-burgundy"
-                    transition={{
-                      type: "tween",
-                      duration: reduce ? 0 : 0.32,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
-                  />
-                )}
-              </a>
-            ))}
-          </LayoutGroup>
+          {desktopLinks.map((l) => (
+            <a
+              key={l.id}
+              href={`#${l.id}`}
+              data-testid={`nav-link-${l.id}`}
+              onClick={onDesktopNavClick}
+              className={`${linkClass(l.id)} min-h-11 pb-1`}
+              aria-current={active === l.id ? "location" : undefined}
+            >
+              {l.label}
+              <span
+                aria-hidden="true"
+                className={`absolute left-0 right-0 -bottom-0.5 h-px origin-left bg-burgundy transition-transform duration-300 ease-out ${
+                  active === l.id ? "scale-x-100" : "scale-x-0"
+                }`}
+              />
+            </a>
+          ))}
           <LangToggle />
-          <motion.button
+          <m.button
             type="button"
             data-testid="nav-terminal-toggle"
             onClick={onOpenTerminal}
@@ -267,7 +260,7 @@ export const Nav = ({ onOpenTerminal }) => {
             transition={CTA_SPRING}
           >
             {ui.nav.terminal}
-          </motion.button>
+          </m.button>
         </div>
 
         <button
@@ -284,12 +277,12 @@ export const Nav = ({ onOpenTerminal }) => {
 
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
+          <m.div
             id={menuId}
             data-testid="nav-mobile-panel"
-            initial={reduce ? false : { opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={reduce ? undefined : { opacity: 0, height: 0 }}
+            initial={reduce ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={reduce ? undefined : { opacity: 0 }}
             transition={{ duration: MOTION_DURATION.fast, ease: MOTION_EASE }}
             className="md:hidden overflow-hidden border-t border-ink/10 bg-bone"
           >
@@ -322,10 +315,10 @@ export const Nav = ({ onOpenTerminal }) => {
                 </button>
               </li>
             </ul>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
-      </motion.nav>
+      </m.nav>
     </>
   );
 };

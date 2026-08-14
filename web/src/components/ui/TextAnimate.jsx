@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { MOTION_EASE } from "@/lib/motion";
 
 const ANIMATIONS = {
@@ -64,7 +64,7 @@ function TextAnimateBase({
   ...props
 }) {
   const reduce = useReducedMotion();
-  const MotionTag = motion[Component] || motion.p;
+  const MotionTag = m[Component] || m.p;
   const segments = splitSegments(children, by);
   const base = ANIMATIONS[animation] || ANIMATIONS.fadeIn;
   const itemVariants = {
@@ -122,16 +122,16 @@ function TextAnimateBase({
         }
 
         return (
-          <motion.span
+          <m.span
             key={`${by}-${i}-${segment}`}
             variants={itemVariants}
             className={`${
-              by === "line" ? "block" : "inline-block whitespace-pre"
+              by === "line" || by === "text" ? "block" : "inline-block whitespace-pre"
             } ${segmentClassName}`.trim()}
             aria-hidden={accessible ? true : undefined}
           >
             {segment}
-          </motion.span>
+          </m.span>
         );
       })}
     </MotionTag>

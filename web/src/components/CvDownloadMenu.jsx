@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ASSETS } from "@/data/assets";
 import { CTA_SPRING } from "@/lib/motion";
 import { useUi } from "@/i18n/LocaleContext";
@@ -66,7 +66,7 @@ const CvDownloadMenu = ({ reduce }) => {
   }, [open]);
 
   return (
-    <motion.div
+    <m.div
       ref={rootRef}
       data-testid="hero-cta-cv"
       className="relative w-full sm:w-auto"
@@ -127,7 +127,7 @@ const CvDownloadMenu = ({ reduce }) => {
           ))}
         </div>
       )}
-    </motion.div>
+    </m.div>
   );
 };
 
