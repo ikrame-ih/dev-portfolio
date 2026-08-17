@@ -23,7 +23,7 @@ const PROFILE = {
   // Compact hero facts — avoid repeating overline role or Málaga (already in copy + photo).
   heroFacts: [
     { eyebrow: "Open to", text: "Remote · hybrid" },
-    { eyebrow: "Path", text: "DAW · Jun 2026" },
+    { eyebrow: "Path", text: "AI & Big Data · Sep 2026" },
     { eyebrow: "Focus", text: "Backend APIs", accent: true },
   ],
   // Flat string for terminal / plain contexts.
