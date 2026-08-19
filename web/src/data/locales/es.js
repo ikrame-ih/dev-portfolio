@@ -46,7 +46,7 @@ const PROFILE = {
   },
   practiceAside: {
     title: "De un vistazo",
-    text: "Python backend con IA en producto (ReckonFlow: Groq, Pydantic, embeddings). En EY, una Power App que el equipo usó. Prácticas: plataforma de formación con SQL en uso real.",
+    text: "Python backend con IA en producto (ReckonFlow: Groq, Pydantic, embeddings). En EY, una Power App que sustituyó correo y Teams en el sorteo del CNS. Prácticas: plataforma de formación con SQL en uso.",
   },
 };
 
@@ -134,14 +134,25 @@ const STACK = {
 
 const EXPERIENCE = [
   {
+    company: "Proyectos propios",
+    role: "Backend Python e IA aplicada",
+    period: "ago. 2026 — actualidad",
+    track: "tech",
+    bullets: [
+      "ReckonFlow: API FastAPI en vivo (OpenAPI) — ledger idempotente, extracción de recibos con Groq y PydanticAI, conciliación híbrida, pytest y CI.",
+      "import-resolve-cli en PyPI: merge driver de Git para conflictos de imports, sin dependencias de runtime.",
+      "Publicación de punta a punta: docs, tests, GitHub Actions, Render y el paquete en el índice.",
+    ],
+  },
+  {
     company: "DATA CONTROL",
     role: "Desarrolladora de software en prácticas",
     period: "mar. 2026 — jun. 2026",
     track: "tech",
     bullets: [
-      "Puse en marcha una plataforma de formación (Moodle): modelo de datos, consultas SQL y conexión con la aplicación.",
-      "La usaban formadores y alumnos — no era un ejercicio de clase.",
-      "Ajusté la UI (CSS) para que el día a día no dependiera del tema por defecto.",
+      "Puse en marcha una plataforma de formación en Moodle: estructura de contenidos, personalización y el ciclo de cambios posteriores.",
+      "Llevé el día a día de la base de datos: consultas SQL, modelo de datos y conexión con la aplicación que usaban formadores y alumnos.",
+      "Personalicé la interfaz con CSS para que el uso diario no dependiera del tema por defecto.",
     ],
   },
   {
@@ -151,7 +162,7 @@ const EXPERIENCE = [
     track: "hybrid",
     bullets: [
       {
-        text: "Desarrollé una Power App para el sorteo de Navidad del CNS: inscripción y asignación de números en un solo sitio, en lugar de correo y Teams. El equipo la usó de verdad.",
+        text: "Desarrollé una Power App que gestionó de extremo a extremo el sorteo de Navidad del CNS: inscripción y asignación de números en un solo sitio, en lugar de correo o Teams.",
         proof: {
           id: "ey-holiday-raffle",
           name: "Sorteo de Navidad CNS — Power App",
@@ -160,7 +171,8 @@ const EXPERIENCE = [
             "Power App de EY para el sorteo de cestas de Navidad del CNS: reservar número y guardar nombre, correo y asignación",
         },
       },
-      "Coordiné visitas de clientes en Málaga de punta a punta (agenda, logística, estancia).",
+      "Coordiné de principio a fin visitas de clientes en Málaga: agenda, logística y la estancia — jornadas que a menudo condicionaban el avance de un acuerdo.",
+      "Operé en un entorno GDS internacional: el día a día de un equipo de servicios profesionales.",
     ],
   },
 ];

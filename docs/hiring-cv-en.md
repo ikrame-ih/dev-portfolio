@@ -9,7 +9,7 @@ GitHub: github.com/ikrame-ih · LinkedIn: linkedin.com/in/ikrame-ih
 
 Python backend developer (FastAPI, Pydantic, SQLAlchemy, PostgreSQL, Redis) with applied AI in product: REST/OpenAPI APIs, async, tests, and LLM receipt extraction (Groq, structured output, embeddings).
 
-ReckonFlow: reconciliation with idempotent writes, CI/CD, live docs (Swagger/Scalar). import-resolve-cli on PyPI. At EY a Power App the team used; internship: learning platform with live SQL.
+ReckonFlow: reconciliation with idempotent writes, CI/CD, live docs (Swagger/Scalar). import-resolve-cli on PyPI. At EY, a Power App that replaced email and Teams for the CNS raffle; internship: learning platform wired to live SQL.
 
 Málaga · remote or hybrid · English C1. AI & Big Data specialisation (Sep 2026).
 
@@ -32,11 +32,14 @@ DAW capstone (10/10). React + Node/Express + PostgreSQL + JWT + Docker Compose +
 
 ## Experience
 
+**Independent** — Python backend & applied AI (Aug 2026 – present)  
+ReckonFlow (live FastAPI API) and import-resolve-cli (PyPI). Docs, tests, CI, Render.
+
 **DATA CONTROL** — Software Developer Intern (Mar 2026 – Jun 2026)  
-Learning platform in real use: SQL, data model, app wiring. CSS UI pass.
+Moodle platform: SQL, data model, app wiring. CSS UI. Trainers and learners.
 
 **EY Global Delivery Services** — Executive Assistant · internal tooling (Jan 2025 – Mar 2026)  
-Power App for the CNS Christmas raffle used by the team. Client visits in Málaga.
+Power App that ran the CNS Christmas raffle (registration and numbers, instead of email/Teams). Client visits in Málaga.
 
 ## Education
 

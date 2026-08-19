@@ -50,7 +50,7 @@ const PROFILE = {
   },
   practiceAside: {
     title: "At a glance",
-    text: "Python backend with AI in product (ReckonFlow: Groq, Pydantic, embeddings). At EY, a Power App the team used. Internship: learning platform with live SQL.",
+    text: "Python backend with AI in product (ReckonFlow: Groq, Pydantic, embeddings). At EY, a Power App that replaced email and Teams for the CNS raffle. Internship: learning platform wired to live SQL.",
   },
 };
 
@@ -138,14 +138,25 @@ const STACK = {
 
 const EXPERIENCE = [
   {
+    company: "Independent",
+    role: "Python backend & applied AI",
+    period: "Aug 2026 — present",
+    track: "tech",
+    bullets: [
+      "ReckonFlow: live FastAPI API (OpenAPI) — idempotent ledger, Groq + PydanticAI receipt extraction, hybrid matching, pytest and CI.",
+      "import-resolve-cli on PyPI: Git merge driver for import-only conflicts, no runtime dependencies.",
+      "Shipped end to end: docs, tests, GitHub Actions, Render, and the package on the index.",
+    ],
+  },
+  {
     company: "DATA CONTROL",
     role: "Software Developer Intern",
     period: "Mar 2026 — Jun 2026",
     track: "tech",
     bullets: [
-      "Stood up a learning platform (Moodle): data model, SQL queries, and wiring data into the app.",
-      "Trainers and learners used it — not a classroom exercise.",
-      "UI pass (CSS) so day-to-day use did not depend on the default theme.",
+      "Stood up a Moodle learning platform: content structure, customization, and the change cycle after go-live.",
+      "Day-to-day database work: SQL queries, data model, and wiring data into the app trainers and learners ran on.",
+      "CSS and UI pass so daily use did not depend on the default Moodle theme.",
     ],
   },
   {
@@ -155,7 +166,7 @@ const EXPERIENCE = [
     track: "hybrid",
     bullets: [
       {
-        text: "Built a Power App for the CNS Christmas raffle: registration and number assignment in one place instead of email and Teams. The team actually used it.",
+        text: "Built a Power App that ran the CNS Christmas raffle end to end — registration and number assignment in one place, instead of chasing it over email and Teams.",
         proof: {
           id: "ey-holiday-raffle",
           name: "CNS Christmas raffle — Power App",
@@ -164,7 +175,8 @@ const EXPERIENCE = [
             "EY Power App for the CNS Christmas hamper raffle — claim a number and store name, email, and assignment",
         },
       },
-      "Owned client visits in Málaga end to end (agenda, logistics, on-site experience).",
+      "Owned client visits in Málaga end to end: agendas, logistics, and the stay — days that often shaped whether a deal moved forward.",
+      "Worked inside an international GDS environment: day-to-day of a professional-services team.",
     ],
   },
 ];

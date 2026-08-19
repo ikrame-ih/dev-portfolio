@@ -23,7 +23,7 @@ ReckonFlow is the main proof: idempotent ledger writes, Groq + PydanticAI receip
 https://reckon-flow.onrender.com/docs
 
 Also on PyPI: import-resolve-cli (Git import merge conflicts).
-At EY I shipped a Power App the team actually used. Software internship: learning platform with live SQL.
+At EY I shipped a Power App that ran the CNS Christmas raffle instead of email and Teams. Software internship: learning platform with live SQL.
 
 English C1. AI & Big Data specialisation from Sep 2026 (online, compatible with full-time work).
 
@@ -57,7 +57,7 @@ La prueba principal es ReckonFlow: escrituras idempotentes, extracción de recib
 https://reckon-flow.onrender.com/docs
 
 También en PyPI: import-resolve-cli (conflictos de merge en imports).
-En EY entregué una Power App que el equipo usó. Prácticas: plataforma de formación con SQL en uso real.
+En EY entregué una Power App que sustituyó correo y Teams en el sorteo del CNS. Prácticas: plataforma de formación con SQL en uso.
 
 Inglés C1. Especialización en IA y Big Data desde sep. 2026 (online, compatible con jornada completa).
 

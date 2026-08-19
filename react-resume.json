@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Python backend developer (FastAPI, Pydantic, SQLAlchemy, PostgreSQL, Redis) with applied AI in product: REST/OpenAPI APIs, async, tests, and LLM receipt extraction (Groq, structured output, embeddings).</p><p>ReckonFlow: reconciliation with idempotent writes, CI/CD, live docs (Swagger/Scalar). import-resolve-cli on PyPI. At EY a Power App the team used; internship: learning platform with live SQL.</p><p>Málaga · remote or hybrid · English C1. AI &amp; Big Data specialisation (Sep 2026).</p>"
+    "content": "<p>Python backend developer (FastAPI, Pydantic, SQLAlchemy, PostgreSQL, Redis) with applied AI in product: REST/OpenAPI APIs, async, tests, and LLM receipt extraction (Groq, structured output, embeddings).</p><p>ReckonFlow: reconciliation with idempotent writes, CI/CD, live docs (Swagger/Scalar). import-resolve-cli on PyPI. At EY, a Power App that replaced email and Teams for the CNS raffle; internship: learning platform wired to live SQL.</p><p>Málaga · remote or hybrid · English C1. AI &amp; Big Data specialisation (Sep 2026).</p>"
   },
   "sections": {
     "profiles": {
@@ -79,6 +79,21 @@
       "startOnNewPage": false,
       "items": [
         {
+          "id": "b2000001-0001-4000-8000-000000000000",
+          "hidden": false,
+          "company": "Independent",
+          "position": "Python backend & applied AI",
+          "location": "Málaga, Spain",
+          "period": "Aug 2026 - present",
+          "website": {
+            "url": "https://ikrame.dev/",
+            "label": "ikrame.dev",
+            "inlineLink": false
+          },
+          "description": "<p>Published Python engineering: live API and a package on PyPI.</p><ul><li>ReckonFlow: FastAPI API (OpenAPI) — idempotent ledger, Groq + PydanticAI receipt extraction, hybrid matching, pytest and CI.</li><li>import-resolve-cli on PyPI: Git merge driver for import-only conflicts, no runtime dependencies.</li><li>Shipped end to end: docs, tests, GitHub Actions, Render, and the package on the index.</li></ul>",
+          "roles": []
+        },
+        {
           "id": "b2000001-0001-4000-8000-000000000001",
           "hidden": false,
           "company": "DATA CONTROL",
@@ -90,7 +105,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "<p>Software internship: learning platform in real use (data + application).</p><ul><li>Stood up the platform (Moodle): data model, SQL queries, and wiring data into the app.</li><li>Trainers and learners used it — not a classroom exercise.</li><li>UI pass (CSS) so day-to-day use did not depend on the default theme.</li></ul>",
+          "description": "<p>Software internship: Moodle learning platform used by trainers and learners.</p><ul><li>Stood up the platform: content structure, customization, and the change cycle after go-live.</li><li>Day-to-day database work: SQL queries, data model, and wiring data into the app.</li><li>CSS and UI pass so daily use did not depend on the default Moodle theme.</li></ul>",
           "roles": []
         },
         {
@@ -105,7 +120,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "<p>International environment (EY GDS). The engineering signal: internal software that reached real users.</p><ul><li>Built a Power App for the CNS Christmas raffle: registration and number assignment in one place instead of email and Teams. The team actually used it.</li><li>Owned client visits in Málaga end to end (agenda, logistics, on-site experience).</li></ul>",
+          "description": "<p>International environment (EY GDS). Internal software for a firm process.</p><ul><li>Built a Power App that ran the CNS Christmas raffle end to end: registration and number assignment in one place, instead of chasing it over email and Teams.</li><li>Owned client visits in Málaga end to end: agendas, logistics, and the stay.</li></ul>",
           "roles": []
         },
         {

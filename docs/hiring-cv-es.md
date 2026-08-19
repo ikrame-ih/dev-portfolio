@@ -9,7 +9,7 @@ GitHub: github.com/ikrame-ih · LinkedIn: linkedin.com/in/ikrame-ih
 
 Desarrolladora backend Python (FastAPI, Pydantic, SQLAlchemy, PostgreSQL, Redis) con IA aplicada en producto: APIs REST/OpenAPI, async, tests y extracción LLM de recibos (Groq, salida estructurada, embeddings).
 
-ReckonFlow: conciliación con escrituras idempotentes, CI/CD y docs en vivo (Swagger/Scalar). import-resolve-cli en PyPI. En EY una Power App usada por el equipo; en prácticas, plataforma de formación con SQL en uso real.
+ReckonFlow: conciliación con escrituras idempotentes, CI/CD y docs en vivo (Swagger/Scalar). import-resolve-cli en PyPI. En EY, una Power App que sustituyó correo y Teams en el sorteo del CNS; en prácticas, plataforma de formación con SQL en uso.
 
 Málaga · remoto o híbrido · inglés C1. Especialización IA y Big Data (sep. 2026).
 
@@ -32,11 +32,14 @@ Proyecto final DAW (10/10). React + Node/Express + PostgreSQL + JWT + Docker Com
 
 ## Experiencia
 
+**Proyectos propios** — Backend Python e IA aplicada (ago. 2026 – actualidad)  
+ReckonFlow (API FastAPI en vivo) e import-resolve-cli (PyPI). Docs, tests, CI, Render.
+
 **DATA CONTROL** — Desarrolladora de software en prácticas (mar. 2026 – jun. 2026)  
-Plataforma de formación en uso real: SQL, modelo de datos, conexión con la app. UI CSS.
+Plataforma Moodle: SQL, modelo de datos, conexión con la app. UI CSS. Formadores y alumnos.
 
 **EY Global Delivery Services** — Asistente ejecutiva · herramienta interna (ene. 2025 – mar. 2026)  
-Power App del sorteo de Navidad del CNS usada por el equipo. Visitas de cliente en Málaga.
+Power App del sorteo de Navidad del CNS (inscripción y números, en lugar de correo/Teams). Visitas de cliente en Málaga.
 
 ## Formación
 
