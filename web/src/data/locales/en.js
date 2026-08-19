@@ -14,9 +14,9 @@ const PROFILE = {
   siteUrl: "https://ikrame.dev",
   overline: "PYTHON · FASTAPI · APPLIED AI",
   headlineParts: [
-    { text: "Python APIs" },
-    { text: "with production judgement", accent: true },
-    { text: "and AI that stays in schema.", italic: true },
+    { text: "I build APIs in Python" },
+    { text: "with attention to the details", accent: true },
+    { text: "and the people who use them.", italic: true },
   ],
   heroSubtext:
     "Hi, I'm Ikrame Ibn Hayoun — Python backend in Málaga. FastAPI, PostgreSQL, Redis, and tests; applied AI where it earns its keep (structured LLM extraction, embeddings). React when a product needs a UI. Open to remote or hybrid.",
