@@ -1,7 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { NAV_SCROLL_OFFSET } from "./scroll";
 
-const SECTION_IDS = ["cv", "projects", "linkedin", "bento", "guestbook", "contact"];
+const SECTION_IDS = [
+  "cv",
+  "projects",
+  "linkedin",
+  "bento",
+  "guestbook",
+  "contact",
+];
 
 /** How far below the nav the “active” line sits. */
 const ACTIVE_LINE = NAV_SCROLL_OFFSET + 48;

@@ -14,7 +14,7 @@
   },
   "basics": {
     "name": "Ikrame Ibn Hayoun",
-    "headline": "Desarrolladora backend | Python | FastAPI | PostgreSQL | Node.js | Málaga, España | Remoto o híbrido",
+    "headline": "Desarrolladora backend | Python | FastAPI | IA aplicada | PostgreSQL | Málaga | Remoto o híbrido",
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
     "location": "Málaga, España",
@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Desarrolladora de software centrada en backend, basada en Málaga. Construyo APIs, flujos de autenticación y bases de datos, y entrego frontends en React cuando el producto necesita UI.</p><p>El trabajo reciente incluye servicios con FastAPI y Node.js, PostgreSQL, Redis, escrituras idempotentes, CI con tests y entrega full-stack en proyectos personales y prácticas.</p><p>Graduada en DAW (jun. 2026). Proyecto final MyPlaythrough con calificación máxima (10/10). Especialización en IA y Big Data a partir de sep. 2026. Abierta a roles backend en remoto o híbrido.</p>"
+    "content": "<p>Desarrolladora backend Python (FastAPI, Pydantic, SQLAlchemy, PostgreSQL, Redis) con IA aplicada en producto: APIs REST/OpenAPI, async, tests y extracción LLM de recibos (Groq, salida estructurada, embeddings).</p><p>ReckonFlow: conciliación con escrituras idempotentes, CI/CD y docs en vivo (Swagger/Scalar). import-resolve-cli en PyPI. En EY una Power App usada por el equipo; en prácticas, plataforma de formación con SQL en uso real.</p><p>Málaga · remoto o híbrido · inglés C1. Especialización IA y Big Data (sep. 2026).</p>"
   },
   "sections": {
     "profiles": {
@@ -85,51 +85,71 @@
           "position": "Desarrolladora de software en prácticas",
           "location": "Málaga, España",
           "period": "mar. 2026 - jun. 2026",
-          "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Prácticas centradas en una plataforma Moodle, bases de datos y personalización de la UI.</p><ul><li>Desarrollé y puse en marcha una plataforma de aprendizaje basada en Moodle como proyecto central: configuración, estructura de contenidos y personalización continua.</li><li>Gestioné el trabajo diario con bases de datos que sostenían la plataforma (consultas, estructura y conexión de datos a la app).</li><li>Personalicé el look-and-feel con CSS y ajustes de UI para que la experiencia fuera coherente y no Moodle de serie.</li></ul>",
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
+          "description": "<p>Prácticas de desarrollo: plataforma de formación en uso real (datos + aplicación).</p><ul><li>Puse en marcha la plataforma (Moodle): modelo de datos, consultas SQL y conexión con la aplicación.</li><li>La usaban formadores y alumnos; no era un ejercicio de clase.</li><li>Ajusté la UI (CSS) para que el día a día no dependiera del tema por defecto.</li></ul>",
           "roles": []
         },
         {
           "id": "b2000001-0001-4000-8000-000000000002",
           "hidden": false,
           "company": "EY Global Delivery Services",
-          "position": "Asistente ejecutiva",
+          "position": "Asistente ejecutiva · herramienta interna",
           "location": "Málaga, España",
           "period": "ene. 2025 - mar. 2026",
-          "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "<p>Soporte ejecutivo y herramientas internas en un entorno global de servicios profesionales.</p><ul><li>Creé una Power App que gestionó de punta a punta el sorteo de Navidad de CNS: registro y asignación de números en un solo sitio, en lugar de coordinarlo por email y Teams.</li><li>Coordiné de principio a fin visitas de clientes en Málaga: agendas, logística y experiencias locales.</li><li>Gestión operativa diaria con herramientas de viaje, Concur, Outlook, Teams, SharePoint y sistemas internos de la firma.</li></ul>",
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
+          "description": "<p>Entorno internacional (EY GDS). Lo relevante para ingeniería: software interno entregado a usuarios reales.</p><ul><li>Desarrollé una Power App para el sorteo de Navidad del CNS: inscripción y asignación de números en un solo sitio, en lugar de correo y Teams. El equipo la usó de verdad.</li><li>Coordiné visitas de clientes en Málaga de punta a punta (agenda, logística, estancia).</li></ul>",
           "roles": []
         },
         {
           "id": "b2000001-0001-4000-8000-000000000003",
-          "hidden": false,
+          "hidden": true,
           "company": "EC Azafatas",
           "position": "Embajadora de marca",
           "location": "Málaga, España",
           "period": "feb. 2026",
-          "website": { "url": "", "label": "", "inlineLink": false },
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
           "description": "<p>Activación de marca a corto plazo en entornos retail de alto tráfico.</p><ul><li>Realicé degustaciones y presentaciones breves de producto en entornos retail concurridos.</li><li>Gestioné la logística del stand y las actualizaciones de inventario al cierre del día.</li><li>Ver de cerca la operativa en retail inspiró Live Event Radar, un dashboard de operaciones de venue en tiempo real.</li></ul>",
           "roles": []
         },
         {
           "id": "b2000001-0001-4000-8000-000000000004",
-          "hidden": false,
+          "hidden": true,
           "company": "Conciencia Fundraising",
           "position": "Administrativa de contabilidad y operaciones",
           "location": "Remoto, España",
           "period": "nov. 2024 - dic. 2024",
-          "website": { "url": "", "label": "", "inlineLink": false },
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
           "description": "<p>Soporte de operaciones e informes para una organización de captación de fondos.</p><ul><li>Preparé informes de donantes y seguimiento con Google Drive, Outlook y Evergiving.</li><li>Gestioné tareas de RR. HH. en Factorial y controlé costes de viajes y gastos.</li><li>Mantuve la coordinación del equipo en Asana, Notion y Slack; creé vistas de reporting en Looker.</li></ul>",
           "roles": []
         },
         {
           "id": "b2000001-0001-4000-8000-000000000005",
-          "hidden": false,
+          "hidden": true,
           "company": "Sylvis Profesional Cosmetic",
           "position": "Auxiliar administrativa",
           "location": "Málaga, España",
           "period": "ene. 2024 - oct. 2024",
-          "website": { "url": "", "label": "", "inlineLink": false },
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
           "description": "<p>Soporte de contabilidad y documentación de importación para un importador de cosmética.</p><ul><li>Concilié cuentas bancarias y contabilicé facturas, incluidas compras de importación.</li><li>Seguí costes de vehículos e importación en Excel y gestioné la documentación entrante.</li></ul>",
           "roles": []
         }
@@ -144,18 +164,6 @@
       "startOnNewPage": false,
       "items": [
         {
-          "id": "c3000001-0001-4000-8000-000000000001",
-          "hidden": false,
-          "school": "IES Zaidín Vergeles",
-          "degree": "Curso de Especialización",
-          "area": "Inteligencia Artificial y Big Data",
-          "grade": "Nivel MECES / EQF 5",
-          "location": "Granada, España",
-          "period": "Inicio sep. 2026",
-          "website": { "url": "", "label": "", "inlineLink": false },
-          "description": "Curso de Especialización tras el ciclo formativo de grado superior."
-        },
-        {
           "id": "c3000001-0001-4000-8000-000000000002",
           "hidden": false,
           "school": "CESUR Este, Málaga",
@@ -164,8 +172,28 @@
           "grade": "Proyecto final: calificación máxima (10/10). Nivel EQF 5 (equivalente HND)",
           "location": "Málaga, España",
           "period": "sep. 2024 - jun. 2026",
-          "website": { "url": "", "label": "", "inlineLink": false },
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
           "description": "Proyecto final: MyPlaythrough - aplicación web con frontend React y API Node.js/Express sobre PostgreSQL."
+        },
+        {
+          "id": "c3000001-0001-4000-8000-000000000001",
+          "hidden": false,
+          "school": "IES Zaidín Vergeles",
+          "degree": "Curso de Especialización",
+          "area": "Inteligencia Artificial y Big Data",
+          "grade": "Nivel MECES / EQF 5",
+          "location": "Granada, España",
+          "period": "Inicio sep. 2026",
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
+          "description": "Curso de Especialización tras el ciclo formativo de grado superior."
         },
         {
           "id": "c3000001-0001-4000-8000-000000000003",
@@ -176,7 +204,11 @@
           "grade": "Matrícula de honor. Nivel EQF 4",
           "location": "Málaga, España",
           "period": "sep. 2022 - jun. 2024",
-          "website": { "url": "", "label": "", "inlineLink": false },
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
           "description": ""
         }
       ]
@@ -190,6 +222,18 @@
       "startOnNewPage": false,
       "items": [
         {
+          "id": "d4000001-0001-4000-8000-000000000003",
+          "hidden": false,
+          "name": "ReckonFlow",
+          "period": "ago. 2026 - Actualidad",
+          "website": {
+            "url": "https://github.com/ikrame-ih/reckon-flow",
+            "label": "GitHub",
+            "inlineLink": true
+          },
+          "description": "<p>API FastAPI (OpenAPI/Swagger) para viajes corporativos: aprobaciones, ledger de doble entrada, extracción de recibos con LLM (Groq + PydanticAI, salida estructurada) y conciliación híbrida (SQL + RapidFuzz + embeddings + RRF).</p><ul><li>Python 3.12, FastAPI, Pydantic, SQLAlchemy 2 async, PostgreSQL, Redis, Alembic, pytest, mypy, Ruff, CI/CD (GitHub Actions).</li><li>Escrituras idempotentes, async/await, Decimal, bloqueos de fila, rate limiting, /metrics, docs Scalar + Swagger.</li><li>API en vivo: https://reckon-flow.onrender.com/docs</li></ul>"
+        },
+        {
           "id": "d4000001-0001-4000-8000-000000000005",
           "hidden": false,
           "name": "Import Resolve Cli",
@@ -200,30 +244,6 @@
             "inlineLink": true
           },
           "description": "<p>Herramienta CLI y controlador de fusión para Git que resuelve automáticamente conflictos de merge en bloques de imports de Python. Publicado en PyPI con cero dependencias en runtime.</p><ul><li>Python 3.9+, Git CLI, Hatchling, PyPI, GitHub Actions CI.</li><li>Analiza marcadores de conflicto de Git, elimina duplicados y ordena imports; incluye modo dry-run y driver automático.</li><li>Paquete PyPI: https://pypi.org/project/import-resolve-cli/</li></ul>"
-        },
-        {
-          "id": "d4000001-0001-4000-8000-000000000003",
-          "hidden": false,
-          "name": "ReckonFlow",
-          "period": "ago. 2026 - Actualidad",
-          "website": {
-            "url": "https://github.com/ikrame-ih/reckon-flow",
-            "label": "GitHub",
-            "inlineLink": true
-          },
-          "description": "<p>Backend FastAPI headless para viajes corporativos: aprobaciones, ledger de doble entrada inmutable, extracción de recibos con LLM y conciliación bancaria híbrida.</p><ul><li>Python, FastAPI, SQLAlchemy async, PostgreSQL, Redis, Alembic, pytest, mypy.</li><li>Escrituras mutantes idempotentes, dinero como strings Decimal, bloqueos de fila al conciliar, CI con cobertura.</li><li>API en vivo: https://reckon-flow.onrender.com/docs. Docs: https://ikrame-ih.github.io/reckon-flow/</li></ul>"
-        },
-        {
-          "id": "d4000001-0001-4000-8000-000000000002",
-          "hidden": false,
-          "name": "Live Event Radar",
-          "period": "may. 2026 - Actualidad",
-          "website": {
-            "url": "https://github.com/ikrame-ih/live-event-radar",
-            "label": "GitHub",
-            "inlineLink": true
-          },
-          "description": "<p>Dashboard de operaciones en tiempo real para activaciones de marca, con centro de mando sincronizado y vistas de mapa de telemetría.</p><ul><li>Desarrollado con Next.js, React, TypeScript, Zustand y Leaflet.</li><li>Arquitectura feature-sliced, tests Vitest, smoke tests Playwright y CI con GitHub Actions.</li><li>Demo en vivo: https://live-event-radar.vercel.app</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000001",
@@ -238,8 +258,20 @@
           "description": "<p>Proyecto final de DAW con calificación máxima (10/10). Gestor personal de biblioteca de juegos con seguimiento de backlog, comunidad, recomendaciones, discusiones y moderación de administración.</p><ul><li>Construido con React, Vite, Node.js, Express, PostgreSQL, JWT y Docker Compose.</li><li>Tests unitarios con Vitest en cliente y servidor, y CI con GitHub Actions.</li><li>Demo en vivo: https://my-playthrough.vercel.app/</li></ul>"
         },
         {
+          "id": "d4000001-0001-4000-8000-000000000002",
+          "hidden": true,
+          "name": "Live Event Radar",
+          "period": "may. 2026 - Actualidad",
+          "website": {
+            "url": "https://github.com/ikrame-ih/live-event-radar",
+            "label": "GitHub",
+            "inlineLink": true
+          },
+          "description": "<p>Dashboard de operaciones en tiempo real para activaciones de marca, con centro de mando sincronizado y vistas de mapa de telemetría.</p><ul><li>Desarrollado con Next.js, React, TypeScript, Zustand y Leaflet.</li><li>Arquitectura feature-sliced, tests Vitest, smoke tests Playwright y CI con GitHub Actions.</li><li>Demo en vivo: https://live-event-radar.vercel.app</li></ul>"
+        },
+        {
           "id": "d4000001-0001-4000-8000-000000000004",
-          "hidden": false,
+          "hidden": true,
           "name": "Aiba",
           "period": "jul. 2026 - Actualidad",
           "website": {
@@ -264,45 +296,42 @@
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "Backend y datos",
+          "name": "Backend Python",
           "proficiency": "",
           "level": 0,
           "keywords": [
             "Python",
             "FastAPI",
-            "Node.js",
-            "Express",
-            "Java",
+            "Pydantic",
+            "SQLAlchemy",
+            "Alembic",
             "PostgreSQL",
             "SQL",
             "Redis",
             "APIs REST",
+            "OpenAPI",
+            "async/await",
             "JWT",
-            "Alembic",
             "pytest",
             "mypy"
           ]
         },
         {
-          "id": "e5000001-0001-4000-8000-000000000001",
+          "id": "e5000001-0001-4000-8000-000000000004",
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "Frontend",
+          "name": "IA aplicada / GenAI",
           "proficiency": "",
           "level": 0,
           "keywords": [
-            "React",
-            "Next.js",
-            "TypeScript",
-            "JavaScript",
-            "Vite",
-            "Tailwind CSS",
-            "Framer Motion",
-            "Zustand",
-            "Leaflet",
-            "HTML semántico",
-            "Accesibilidad"
+            "LLMs",
+            "Groq",
+            "PydanticAI",
+            "extracción estructurada",
+            "embeddings",
+            "prompting",
+            "evals"
           ]
         },
         {
@@ -310,17 +339,18 @@
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "Herramientas y entrega",
+          "name": "Entrega",
           "proficiency": "",
           "level": 0,
           "keywords": [
             "Git",
+            "CI/CD",
             "GitHub Actions",
-            "Vitest",
-            "Playwright",
             "Docker",
-            "Vercel",
-            "Electron"
+            "Ruff",
+            "Linux",
+            "Node.js",
+            "React"
           ]
         }
       ]
@@ -456,8 +486,8 @@
           "main": [
             "summary",
             "skills",
-            "experience",
             "projects",
+            "experience",
             "education",
             "languages",
             "profiles"
@@ -491,13 +521,18 @@
     "typography": {
       "body": {
         "fontFamily": "IBM Plex Sans",
-        "fontWeights": ["400", "500"],
+        "fontWeights": [
+          "400",
+          "500"
+        ],
         "fontSize": 10.5,
         "lineHeight": 1.5
       },
       "heading": {
         "fontFamily": "IBM Plex Sans",
-        "fontWeights": ["600"],
+        "fontWeights": [
+          "600"
+        ],
         "fontSize": 12.5,
         "lineHeight": 1.3
       }

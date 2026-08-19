@@ -12,45 +12,45 @@ const PROFILE = {
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
   buyMeACoffee: "https://buymeacoffee.com/ikrame.dev",
   siteUrl: "https://ikrame.dev",
-  overline: "BACKEND · APIs · POSTGRESQL",
+  overline: "PYTHON · FASTAPI · APPLIED AI",
   headlineParts: [
-    { text: "I build software" },
-    { text: "with attention to detail", accent: true },
-    { text: "and the context behind\u00A0it.", italic: true },
+    { text: "Python APIs" },
+    { text: "with production judgement", accent: true },
+    { text: "and AI that stays in schema.", italic: true },
   ],
   heroSubtext:
-    "Hi, I'm Ikrame Ibn Hayoun — a backend-focused developer in Málaga. I build APIs, data models, and the edges that break under retries and real traffic. I also ship React when a product needs a UI. Open to remote or hybrid roles.",
+    "Hi, I'm Ikrame Ibn Hayoun — Python backend in Málaga. FastAPI, PostgreSQL, Redis, and tests; applied AI where it earns its keep (structured LLM extraction, embeddings). React when a product needs a UI. Open to remote or hybrid.",
   // Compact hero facts — avoid repeating overline role or Málaga (already in copy + photo).
   heroFacts: [
     { eyebrow: "Open to", text: "Remote · hybrid" },
-    { eyebrow: "Path", text: "AI & Big Data · Sep 2026" },
-    { eyebrow: "Focus", text: "Backend APIs", accent: true },
+    { eyebrow: "Focus", text: "Python + AI", accent: true },
+    { eyebrow: "Stack", text: "FastAPI · Postgres" },
   ],
   // Flat string for terminal / plain contexts.
-  tagline: "Backend developer · FastAPI · PostgreSQL · Node · open to remote or hybrid",
+  tagline: "Python backend · FastAPI · PostgreSQL · applied AI · remote or hybrid",
   // Friendly blurb for CLI `about` — warm, specific, not a CV tagline dump.
   cliAbout: [
-    "Hi — I'm Ikrame. Backend developer in Málaga, with a soft spot for calm interfaces when I build the UI side.",
-    "I spend most of my energy on APIs, databases, and the hard edges: retries, money precision, auth.",
+    "Hi — I'm Ikrame. Python backend in Málaga: FastAPI, Postgres, and AI in product (not a notebook).",
+    "ReckonFlow is the example: idempotent ledger, Groq/PydanticAI receipt extraction, embedding-based recon.",
     "Away from the editor I'm usually deep in a story-heavy game, singing to reset my head, or fussing over little aesthetic details.",
-    "Just wrapped DAW (Jun 2026). Looking for remote or hybrid backend roles.",
+    "Looking for Python backend / applied-AI roles, remote or hybrid.",
     "I also built this portfolio end to end — the code is on GitHub.",
   ],
   // Ultra-short pitch for CLI `tldr`.
   cliTldr: [
-    "Backend developer in Málaga — FastAPI, Node, PostgreSQL. Ships frontend when needed.",
-    "Currently building ReckonFlow (idempotent ledger API). Looking for remote or hybrid backend roles.",
+    "Python backend · FastAPI · PostgreSQL · LLMs in product (Groq, structured extraction, embeddings).",
+    "Now: ReckonFlow (live API). Looking for Python backend + AI, remote or hybrid.",
   ],
   cliAvail:
     "Open to remote or hybrid. Based in Málaga (CET). Happy to chat anytime.",
   cliNow:
-    "Just finished DAW (Jun 2026) and internship work at DATA CONTROL. Deep on ReckonFlow — actively open to the next backend role.",
+    "Deep on ReckonFlow (FastAPI + LLM + Postgres) and looking for the next Python backend / applied-AI role.",
   portraitLink: {
     label: "Say hi on LinkedIn →",
   },
   practiceAside: {
     title: "At a glance",
-    text: "Higher Vocational Diploma (DAW, Jun 2026) — final project MyPlaythrough awarded maximum grade. Backend projects on GitHub cover FastAPI, Express, PostgreSQL, tests, and CI. This portfolio included — built from scratch.",
+    text: "Python backend with AI in product (ReckonFlow: Groq, Pydantic, embeddings). At EY, a Power App the team used. Internship: learning platform with live SQL.",
   },
 };
 
@@ -67,90 +67,68 @@ const STACK = {
     {
       id: "backend",
       index: "01",
-      title: "Backend & data",
-      kicker: "APIs, persistence, and the hard edges between them.",
+      title: "Python backend",
+      kicker: "REST APIs, persistence, and the OpenAPI contract — what most listings ask for.",
       groups: [
         {
           label: "APIs & runtime",
           items: [
             "Python",
             "FastAPI",
-            "Node.js",
-            "Express",
-            "Java",
+            "Pydantic",
+            "async/await",
             "REST APIs",
+            "OpenAPI",
             "JWT",
           ],
         },
         {
           label: "Data",
-          items: ["PostgreSQL", "SQL", "Redis", "Alembic"],
-        },
-      ],
-    },
-    {
-      id: "frontend",
-      index: "02",
-      title: "Frontend",
-      kicker: "Interfaces and motion when the product needs them.",
-      groups: [
-        {
-          label: "UI & frameworks",
-          items: [
-            "React",
-            "Next.js",
-            "TypeScript",
-            "Vite",
-            "Tailwind CSS",
-            "Framer Motion",
-          ],
-        },
-        {
-          label: "State & maps",
-          items: ["Zustand", "Leaflet"],
-        },
-        {
-          label: "Craft",
-          items: ["Semantic HTML", "Accessibility"],
+          items: ["PostgreSQL", "SQL", "SQLAlchemy", "Alembic", "Redis"],
         },
       ],
     },
     {
       id: "ai",
-      index: "03",
-      title: "AI & Big Data",
-      coursework: true,
+      index: "02",
+      title: "Applied AI",
       kicker:
-        "Specialization starting Sep 2026 — coursework ahead, not production delivery.",
+        "In product: LLMs with structured output. Not tutorial LangChain or coursework TensorFlow.",
       groups: [
         {
-          label: "Starting Sep 2026",
-          items: [
-            "NumPy",
-            "Pandas",
-            "TensorFlow",
-            "PyTorch",
-            "Spark",
-            "Kafka",
-          ],
+          label: "Shipped (ReckonFlow)",
+          items: ["LLMs", "Groq", "PydanticAI", "Embeddings", "Evals"],
+        },
+      ],
+    },
+    {
+      id: "frontend",
+      index: "03",
+      title: "Frontend",
+      kicker: "When the product needs a UI — not the hiring axis.",
+      groups: [
+        {
+          label: "UI",
+          items: ["React", "TypeScript", "Vite", "Tailwind CSS"],
         },
       ],
     },
     {
       id: "tooling",
       index: "04",
-      title: "Tooling & delivery",
-      kicker: "Ship, test, and keep the loop honest.",
+      title: "Delivery",
+      kicker: "Git, tests, containers, CI — the InfoJobs/LinkedIn checklist.",
       groups: [
         {
           label: "Toolchain",
           items: [
             "Git",
             "GitHub Actions",
-            "Vitest",
-            "Playwright",
+            "pytest",
+            "mypy",
+            "Ruff",
             "Docker",
-            "Vercel",
+            "Linux",
           ],
         },
       ],
@@ -165,19 +143,19 @@ const EXPERIENCE = [
     period: "Mar 2026 — Jun 2026",
     track: "tech",
     bullets: [
-      "Delivered a Moodle-based learning platform as the core internship project — setup, content structure, and ongoing customization.",
-      "Handled day-to-day database work supporting the platform (queries, structure, and keeping data wired to the app).",
-      "Owned the look-and-feel pass — CSS and UI tweaks — so the experience felt coherent rather than stock Moodle.",
+      "Stood up a learning platform (Moodle): data model, SQL queries, and wiring data into the app.",
+      "Trainers and learners used it — not a classroom exercise.",
+      "UI pass (CSS) so day-to-day use did not depend on the default theme.",
     ],
   },
   {
     company: "EY Global Delivery Services",
-    role: "Executive Assistant",
+    role: "Executive Assistant · internal tooling",
     period: "Jan 2025 — Mar 2026",
     track: "hybrid",
     bullets: [
       {
-        text: "Built a Power App that ran the CNS Christmas raffle end-to-end — registration and number assignment in one place, instead of chasing it over email/Teams.",
+        text: "Built a Power App for the CNS Christmas raffle: registration and number assignment in one place instead of email and Teams. The team actually used it.",
         proof: {
           id: "ey-holiday-raffle",
           name: "CNS Christmas raffle — Power App",
@@ -186,56 +164,13 @@ const EXPERIENCE = [
             "EY Power App for the CNS Christmas hamper raffle — claim a number and store name, email, and assignment",
         },
       },
-      "Owned high-stakes client visits in Málaga end-to-end — agendas, logistics, and local experiences — where the day often shaped whether a deal moved forward.",
-      "Ran the day-to-day ops stack — travel, Concur, Outlook, Teams, SharePoint, plus the firm's own internal tools — in a global professional-services setting.",
-    ],
-  },
-  {
-    company: "EC Azafatas",
-    role: "Brand Ambassador",
-    period: "Feb 2026",
-    track: "biz",
-    bullets: [
-      "Ran product tastings and short presentations in busy retail settings.",
-      "Handled booth logistics and end-of-day inventory updates.",
-      "Seeing live retail ops up close inspired Live Event Radar, my real-time venue ops dashboard.",
-    ],
-  },
-  {
-    company: "Conciencia Fundraising",
-    role: "Accounting & Operations Admin",
-    period: "Nov — Dec 2024",
-    track: "biz",
-    bullets: [
-      "Prepared donor reports and follow-up via Drive, Outlook, and Evergiving.",
-      "Managed HR tasks in Factorial and tracked travel and expense costs.",
-      "Kept team coordination in Asana, Notion, and Slack; created reporting views in Looker.",
-    ],
-  },
-  {
-    company: "Sylvis Profesional Cosmetic",
-    role: "Admin Assistant",
-    period: "Jan — Oct 2024",
-    track: "biz",
-    bullets: [
-      "Reconciled bank accounts and posted invoices, including import purchases.",
-      "Tracked vehicle and import costs in Excel; managed incoming documentation.",
+      "Owned client visits in Málaga end to end (agenda, logistics, on-site experience).",
     ],
   },
 ];
 
 // Titles use English + Spanish pathway names + EQF so EU / UK / ES readers align.
 const EDUCATION = [
-  {
-    school: "IES Zaidín Vergeles",
-    degree: "Postgraduate Specialization in Artificial Intelligence & Big Data",
-    tags: [
-      "Curso de Especialización",
-      "EQF Level 5",
-      "Post-Diploma Specialization",
-    ],
-    period: "Starting Sep 2026",
-  },
   {
     school: "CESUR Este, Málaga",
     degree: "Higher Vocational Degree in Web Application Development (DAW)",
@@ -247,6 +182,16 @@ const EDUCATION = [
     period: "Sep 2024 — Jun 2026",
   },
   {
+    school: "IES Zaidín Vergeles",
+    degree: "Postgraduate Specialization in Artificial Intelligence & Big Data",
+    tags: [
+      "Curso de Especialización",
+      "EQF Level 5",
+      "Post-Diploma Specialization",
+    ],
+    period: "Starting Sep 2026",
+  },
+  {
     school: "I.E.S. Politécnico Jesús Marín",
     degree: "Vocational Diploma in Business Administration & Management",
     tags: ["Ciclo Formativo de Grado Medio", "EQF Level 4", "Graduated with Honors"],
@@ -255,6 +200,30 @@ const EDUCATION = [
 ];
 
 const PROJECTS = [
+  {
+    id: "reconflow",
+    name: "ReckonFlow",
+    subtitle: "Corporate travel reconciliation API · backend",
+    stack: ["Python", "FastAPI", "Pydantic", "PostgreSQL", "Redis", "pytest"],
+    href: "https://github.com/ikrame-ih/reckon-flow",
+    demo: "https://reckon-flow.onrender.com/docs",
+    image: ASSETS.projects.reckonFlow,
+    imageAlt: "ReckonFlow Swagger UI — GET suggestions returning a matched bank line",
+    description:
+      "FastAPI API (OpenAPI) for corporate travel: approvals, ledger, LLM receipt extraction (Groq + PydanticAI, structured output) and hybrid reconciliation (SQL + RapidFuzz + embeddings + RRF).",
+    architectureSummary:
+      "Clients hit idempotency middleware (Redis), then FastAPI routers and services, then PostgreSQL. Receipt uploads return 202 and extract in the background. Matching uses SQL prefilter, RapidFuzz, embeddings, and RRF.",
+    mermaid: `flowchart LR
+  Client --> Idem[Idempotency Redis]
+  Idem --> API[FastAPI routers]
+  API --> Svc[Services]
+  Svc --> DB[(PostgreSQL)]
+  API --> Receipts[202 + background extract]
+  Receipts --> LLM[Groq or stub]
+  Svc --> Match[SQL + RapidFuzz + RRF]
+  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
+  class Idem,Svc,Match accent`,
+  },
   {
     id: "import-resolve-cli",
     name: "Import Resolve Cli",
@@ -277,30 +246,6 @@ const PROJECTS = [
   CLI --> Driver[Auto Merge Driver Mode]
   classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
   class CLI,Parse,Dedupe accent`,
-  },
-  {
-    id: "reconflow",
-    name: "ReckonFlow",
-    subtitle: "Corporate travel reconciliation API · backend",
-    stack: ["Python", "FastAPI", "PostgreSQL", "Redis", "Alembic", "pytest"],
-    href: "https://github.com/ikrame-ih/reckon-flow",
-    demo: "https://reckon-flow.onrender.com/docs",
-    image: ASSETS.projects.reckonFlow,
-    imageAlt: "ReckonFlow Swagger UI — GET suggestions returning a matched bank line",
-    description:
-      "Headless FastAPI API for travel approvals, an immutable double-entry ledger, LLM receipt extraction, and hybrid bank reconciliation — built so a retried POST cannot double-pay.",
-    architectureSummary:
-      "Clients hit idempotency middleware (Redis), then FastAPI routers and services, then PostgreSQL. Receipt uploads return 202 and extract in the background. Matching uses SQL prefilter, RapidFuzz, embeddings, and RRF.",
-    mermaid: `flowchart LR
-  Client --> Idem[Idempotency Redis]
-  Idem --> API[FastAPI routers]
-  API --> Svc[Services]
-  Svc --> DB[(PostgreSQL)]
-  API --> Receipts[202 + background extract]
-  Receipts --> LLM[Groq or stub]
-  Svc --> Match[SQL + RapidFuzz + RRF]
-  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
-  class Idem,Svc,Match accent`,
   },
   {
     id: "live-event-radar",
@@ -543,12 +488,12 @@ const catalog = {
   BENTO,
   LINKEDIN_SIGNALS,
   BOW_BOARD,
-  marqueeRare: ["open to work", "málaga → remote", "built with care"],
+  marqueeRare: ["Python + AI", "Málaga → remote", "OpenAPI"],
   section: {
     cvOverline: "01 · background & skills",
     cvTitleBefore: "Skills, roles, and ",
     cvTitleAccent: "education.",
-    cvKicker: "Skills, languages, and the work behind them.",
+    cvKicker: "The Python backend stack listings ask for — and the AI I have actually shipped.",
     languagesTitle: "Languages",
     languagesKicker: "How I speak with people — and across contexts.",
     experience: "Experience",

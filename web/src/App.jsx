@@ -19,6 +19,12 @@ const BowCursor = lazy(() => import("@/components/BowCursor"));
 const HASH_ALIASES = {
   blog: "linkedin",
   vault: "linkedin",
+  // Old #hire / letter URLs land on proof, not a cover-letter page.
+  hire: "projects",
+  letter: "projects",
+  hiring: "projects",
+  carta: "projects",
+  equipos: "projects",
 };
 
 /** Mounts below-the-fold sections; signals when the chunk tree is ready. */
@@ -124,13 +130,15 @@ export default function App() {
     description: PROFILE.heroSubtext,
     knowsLanguage: ["en", "es", "ar"],
     knowsAbout: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "FastAPI",
       "Python",
-      "Tailwind CSS",
+      "FastAPI",
       "PostgreSQL",
+      "Pydantic",
+      "SQLAlchemy",
+      "LLMs",
+      "OpenAPI",
+      "Redis",
+      "React",
     ],
     url: PROFILE.siteUrl,
     sameAs: [PROFILE.github, PROFILE.linkedin],

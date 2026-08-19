@@ -199,6 +199,23 @@ const FROM_SIMPLE = {
   Kubernetes: siKubernetes,
 };
 
+const ALIASES = {
+  OpenAPI: "REST APIs",
+  "async/await": "Python",
+  LLMs: "Python",
+  Groq: "Python",
+  PydanticAI: "FastAPI",
+  Pydantic: "FastAPI",
+  SQLAlchemy: "PostgreSQL",
+  Alembic: "PostgreSQL",
+  pytest: "Python",
+  mypy: "Python",
+  Ruff: "Python",
+  Linux: "Docker",
+  Embeddings: "Python",
+  Evals: "Python",
+};
+
 const Fallback = (p) => (
   <Svg {...p}>
     <rect
@@ -219,9 +236,10 @@ export const StackIcon = ({
   name,
   className = "w-4 h-4 shrink-0 text-burgundy",
 }) => {
-  const Custom = CUSTOM[name];
+  const resolved = ALIASES[name] || name;
+  const Custom = CUSTOM[resolved] || CUSTOM[name];
   if (Custom) return <Custom className={className} />;
-  const brand = FROM_SIMPLE[name];
+  const brand = FROM_SIMPLE[resolved] || FROM_SIMPLE[name];
   if (brand) return <BrandPath path={brand.path} className={className} />;
   return <Fallback className={className} />;
 };
