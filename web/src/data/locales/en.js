@@ -12,7 +12,7 @@ const PROFILE = {
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
   buyMeACoffee: "https://buymeacoffee.com/ikrame.dev",
   siteUrl: "https://ikrame.dev",
-  overline: "BACKEND · APIs · POSTGRESQL",
+  overline: "PYTHON BACKEND · FASTAPI · POSTGRESQL",
   headlineParts: [
     { text: "I build software" },
     { text: "with attention to detail", accent: true },
@@ -27,18 +27,18 @@ const PROFILE = {
     { eyebrow: "Focus", text: "Backend APIs", accent: true },
   ],
   // Flat string for terminal / plain contexts.
-  tagline: "Backend developer · FastAPI · PostgreSQL · Node · open to remote or hybrid",
+  tagline: "Python backend · FastAPI · PostgreSQL · open to remote or hybrid",
   // Friendly blurb for CLI `about` — warm, specific, not a CV tagline dump.
   cliAbout: [
     "Hi — I'm Ikrame. Backend developer in Málaga, with a soft spot for calm interfaces when I build the UI side.",
-    "I spend most of my energy on APIs, databases, and the hard edges: retries, money precision, auth.",
+    "I spend most of my energy on FastAPI, PostgreSQL, and the hard edges: retries, money precision, auth.",
     "Away from the editor I'm usually deep in a story-heavy game, singing to reset my head, or fussing over little aesthetic details.",
     "Just wrapped DAW (Jun 2026). Looking for remote or hybrid backend roles.",
     "I also built this portfolio end to end — the code is on GitHub.",
   ],
   // Ultra-short pitch for CLI `tldr`.
   cliTldr: [
-    "Backend developer in Málaga — FastAPI, Node, PostgreSQL. Ships frontend when needed.",
+    "Python backend in Málaga — FastAPI, PostgreSQL. Ships React when a product needs a UI.",
     "Currently building ReckonFlow (idempotent ledger API). Looking for remote or hybrid backend roles.",
   ],
   cliAvail:
@@ -256,6 +256,35 @@ const EDUCATION = [
 
 const PROJECTS = [
   {
+    id: "reconflow",
+    name: "ReckonFlow",
+    subtitle: "Corporate travel reconciliation API · backend",
+    stack: ["Python", "FastAPI", "PostgreSQL", "Redis", "Alembic", "pytest"],
+    href: "https://github.com/ikrame-ih/reckon-flow",
+    demo: "https://reckon-flow.onrender.com/docs",
+    image: ASSETS.projects.reckonFlow,
+    imageAlt: "ReckonFlow Swagger UI — GET suggestions returning a matched bank line",
+    description:
+      "Headless FastAPI API for travel approvals, an immutable double-entry ledger, LLM receipt extraction, and hybrid bank reconciliation — built so a retried POST cannot double-pay.",
+    signals: [
+      "Idempotent writes, Decimal money, row locks on reconcile",
+      "Hybrid match: SQL prefilter + RapidFuzz + RRF",
+      "Limitation: Render free tier can take ~50s to wake; embeddings may be stubbed",
+    ],
+    architectureSummary:
+      "Clients hit idempotency middleware (Redis), then FastAPI routers and services, then PostgreSQL. Receipt uploads return 202 and extract in the background. Matching uses SQL prefilter, RapidFuzz, embeddings, and RRF.",
+    mermaid: `flowchart LR
+  Client --> Idem[Idempotency Redis]
+  Idem --> API[FastAPI routers]
+  API --> Svc[Services]
+  Svc --> DB[(PostgreSQL)]
+  API --> Receipts[202 + background extract]
+  Receipts --> LLM[Groq or stub]
+  Svc --> Match[SQL + RapidFuzz + RRF]
+  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
+  class Idem,Svc,Match accent`,
+  },
+  {
     id: "import-resolve-cli",
     name: "Import Resolve Cli",
     subtitle: "CLI developer tool & Git merge driver · PyPI Python package",
@@ -277,61 +306,6 @@ const PROJECTS = [
   CLI --> Driver[Auto Merge Driver Mode]
   classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
   class CLI,Parse,Dedupe accent`,
-  },
-  {
-    id: "reconflow",
-    name: "ReckonFlow",
-    subtitle: "Corporate travel reconciliation API · backend",
-    stack: ["Python", "FastAPI", "PostgreSQL", "Redis", "Alembic", "pytest"],
-    href: "https://github.com/ikrame-ih/reckon-flow",
-    demo: "https://reckon-flow.onrender.com/docs",
-    image: ASSETS.projects.reckonFlow,
-    imageAlt: "ReckonFlow Swagger UI — GET suggestions returning a matched bank line",
-    description:
-      "Headless FastAPI API for travel approvals, an immutable double-entry ledger, LLM receipt extraction, and hybrid bank reconciliation — built so a retried POST cannot double-pay.",
-    architectureSummary:
-      "Clients hit idempotency middleware (Redis), then FastAPI routers and services, then PostgreSQL. Receipt uploads return 202 and extract in the background. Matching uses SQL prefilter, RapidFuzz, embeddings, and RRF.",
-    mermaid: `flowchart LR
-  Client --> Idem[Idempotency Redis]
-  Idem --> API[FastAPI routers]
-  API --> Svc[Services]
-  Svc --> DB[(PostgreSQL)]
-  API --> Receipts[202 + background extract]
-  Receipts --> LLM[Groq or stub]
-  Svc --> Match[SQL + RapidFuzz + RRF]
-  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
-  class Idem,Svc,Match accent`,
-  },
-  {
-    id: "live-event-radar",
-    name: "Live Event Radar",
-    subtitle: "Real-time venue ops dashboard · frontend",
-    stack: [
-      "Next.js",
-      "React 19",
-      "TypeScript",
-      "Zustand",
-      "Leaflet",
-      "Vitest",
-      "Playwright",
-    ],
-    href: "https://github.com/ikrame-ih/live-event-radar",
-    demo: "https://live-event-radar.vercel.app",
-    image: ASSETS.projects.liveEventRadar,
-    imageAlt: "Live Event Radar — command center and telemetry dashboard",
-    description:
-      "A venue ops dashboard where one event stream feeds a command center and a live map—built after watching floor updates arrive too late.",
-    architectureSummary:
-      "A mock event stream writes into a Zustand telemetry store. Pure derivations from that store feed two synchronized views: the Command Center (SVG venue map) and the Telemetry dashboard (Leaflet map).",
-    mermaid: `flowchart LR
-  Sim[Mock Event Stream] --> Store[Zustand telemetry-store]
-  Store --> Derive[Pure derivations]
-  Derive --> CC[Command Center /]
-  Derive --> Dash[Telemetry /dashboard]
-  CC --> SVG[SVG Venue Map]
-  Dash --> Map[Leaflet Map]
-  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
-  class Store,Derive accent`,
   },
   {
     id: "my-playthrough",
@@ -363,6 +337,37 @@ const PROJECTS = [
   API --> Covers[Steam / RAWG proxy]
   classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
   class API,Auth,DB accent`,
+  },
+  {
+    id: "live-event-radar",
+    name: "Live Event Radar",
+    subtitle: "Real-time venue ops dashboard · frontend",
+    stack: [
+      "Next.js",
+      "React 19",
+      "TypeScript",
+      "Zustand",
+      "Leaflet",
+      "Vitest",
+      "Playwright",
+    ],
+    href: "https://github.com/ikrame-ih/live-event-radar",
+    demo: "https://live-event-radar.vercel.app",
+    image: ASSETS.projects.liveEventRadar,
+    imageAlt: "Live Event Radar — command center and telemetry dashboard",
+    description:
+      "A venue ops dashboard where one event stream feeds a command center and a live map—built after watching floor updates arrive too late.",
+    architectureSummary:
+      "A mock event stream writes into a Zustand telemetry store. Pure derivations from that store feed two synchronized views: the Command Center (SVG venue map) and the Telemetry dashboard (Leaflet map).",
+    mermaid: `flowchart LR
+  Sim[Mock Event Stream] --> Store[Zustand telemetry-store]
+  Store --> Derive[Pure derivations]
+  Derive --> CC[Command Center /]
+  Derive --> Dash[Telemetry /dashboard]
+  CC --> SVG[SVG Venue Map]
+  Dash --> Map[Leaflet Map]
+  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
+  class Store,Derive accent`,
   },
   {
     id: "aiba-widget",

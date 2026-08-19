@@ -11,7 +11,7 @@ const PROFILE = {
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
   buyMeACoffee: "https://buymeacoffee.com/ikrame.dev",
   siteUrl: "https://ikrame.dev",
-  overline: "BACKEND · APIs · POSTGRESQL",
+  overline: "PYTHON BACKEND · FASTAPI · POSTGRESQL",
   headlineParts: [
     { text: "Desarrollo software" },
     { text: "pensando en el detalle", accent: true },
@@ -29,16 +29,16 @@ const PROFILE = {
     },
   ],
   tagline:
-    "Desarrolladora backend · FastAPI · PostgreSQL · Node · disponible en remoto o híbrido",
+    "Backend Python · FastAPI · PostgreSQL · disponible en remoto o híbrido",
   cliAbout: [
     "Hola — soy Ikrame. Desarrolladora backend en Málaga, con debilidad por las interfaces tranquilas cuando toca el lado UI.",
-    "Dedico la mayor parte de la energía a APIs, bases de datos y los bordes difíciles: reintentos, precisión monetaria, auth.",
+    "Dedico la mayor parte de la energía a FastAPI, PostgreSQL y los bordes difíciles: reintentos, precisión monetaria, auth.",
     "Fuera del editor suelo estar metida en un juego con mucha historia, cantando para desconectar, o afinando pequeños detalles estéticos.",
     "Acabo de terminar DAW (jun. 2026). Busco roles backend remotos o híbridos.",
     "Este portfolio también lo construí yo de punta a punta — el código está en GitHub.",
   ],
   cliTldr: [
-    "Desarrolladora backend en Málaga — FastAPI, Node, PostgreSQL. También frontend cuando hace falta.",
+    "Backend Python en Málaga — FastAPI, PostgreSQL. También React cuando el producto lo pide.",
     "Ahora mismo: ReckonFlow (API de ledger idempotente). Busco roles backend remotos o híbridos.",
   ],
   cliAvail:
@@ -256,6 +256,35 @@ const EDUCATION = [
 
 const PROJECTS = [
   {
+    id: "reconflow",
+    name: "ReckonFlow",
+    subtitle: "API de conciliación de viajes corporativos · backend",
+    stack: ["Python", "FastAPI", "PostgreSQL", "Redis", "Alembic", "pytest"],
+    href: "https://github.com/ikrame-ih/reckon-flow",
+    demo: "https://reckon-flow.onrender.com/docs",
+    image: ASSETS.projects.reckonFlow,
+    imageAlt: "Swagger UI de ReckonFlow — GET suggestions con una línea bancaria emparejada",
+    description:
+      "API FastAPI headless para aprobaciones de viaje, ledger de doble entrada inmutable, extracción de recibos con LLM y conciliación bancaria híbrida — para que un POST reintentado no pague dos veces.",
+    signals: [
+      "Escrituras idempotentes, dinero Decimal, bloqueos de fila al conciliar",
+      "Matching híbrido: prefiltro SQL + RapidFuzz + RRF",
+      "Límite: Render free puede tardar ~50s en despertar; embeddings a veces stub",
+    ],
+    architectureSummary:
+      "Los clientes pasan por middleware de idempotencia (Redis), routers FastAPI y servicios, hasta PostgreSQL. Las subidas de recibos responden 202 y extraen en segundo plano. El matching usa prefiltro SQL, RapidFuzz, embeddings y RRF.",
+    mermaid: `flowchart LR
+  Client --> Idem[Idempotencia Redis]
+  Idem --> API[Routers FastAPI]
+  API --> Svc[Servicios]
+  Svc --> DB[(PostgreSQL)]
+  API --> Receipts[202 + extracción en background]
+  Receipts --> LLM[Groq o stub]
+  Svc --> Match[SQL + RapidFuzz + RRF]
+  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
+  class Idem,Svc,Match accent`,
+  },
+  {
     id: "import-resolve-cli",
     name: "Import Resolve Cli",
     subtitle: "Herramienta CLI y Git merge driver · paquete Python PyPI",
@@ -277,61 +306,6 @@ const PROJECTS = [
   CLI --> Driver[Modo Auto Merge Driver .git/config]
   classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
   class CLI,Parse,Dedupe accent`,
-  },
-  {
-    id: "reconflow",
-    name: "ReckonFlow",
-    subtitle: "API de conciliación de viajes corporativos · backend",
-    stack: ["Python", "FastAPI", "PostgreSQL", "Redis", "Alembic", "pytest"],
-    href: "https://github.com/ikrame-ih/reckon-flow",
-    demo: "https://reckon-flow.onrender.com/docs",
-    image: ASSETS.projects.reckonFlow,
-    imageAlt: "Swagger UI de ReckonFlow — GET suggestions con una línea bancaria emparejada",
-    description:
-      "API FastAPI headless para aprobaciones de viaje, ledger de doble entrada inmutable, extracción de recibos con LLM y conciliación bancaria híbrida — para que un POST reintentado no pague dos veces.",
-    architectureSummary:
-      "Los clientes pasan por middleware de idempotencia (Redis), routers FastAPI y servicios, hasta PostgreSQL. Las subidas de recibos responden 202 y extraen en segundo plano. El matching usa prefiltro SQL, RapidFuzz, embeddings y RRF.",
-    mermaid: `flowchart LR
-  Client --> Idem[Idempotencia Redis]
-  Idem --> API[Routers FastAPI]
-  API --> Svc[Servicios]
-  Svc --> DB[(PostgreSQL)]
-  API --> Receipts[202 + extracción en background]
-  Receipts --> LLM[Groq o stub]
-  Svc --> Match[SQL + RapidFuzz + RRF]
-  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
-  class Idem,Svc,Match accent`,
-  },
-  {
-    id: "live-event-radar",
-    name: "Live Event Radar",
-    subtitle: "Panel de operaciones en tiempo real para eventos · frontend",
-    stack: [
-      "Next.js",
-      "React 19",
-      "TypeScript",
-      "Zustand",
-      "Leaflet",
-      "Vitest",
-      "Playwright",
-    ],
-    href: "https://github.com/ikrame-ih/live-event-radar",
-    demo: "https://live-event-radar.vercel.app",
-    image: ASSETS.projects.liveEventRadar,
-    imageAlt: "Live Event Radar — panel de control y telemetría",
-    description:
-      "Aplicación para supervisar en tiempo real la operativa de un recinto mediante un panel de control y un mapa interactivo, inspirada en la necesidad de disponer de información actualizada durante eventos.",
-    architectureSummary:
-      "Un flujo de eventos simulado escribe en un store de telemetría Zustand. Derivaciones puras alimentan dos vistas sincronizadas: el centro de mando (mapa SVG del recinto) y el panel de telemetría (mapa Leaflet).",
-    mermaid: `flowchart LR
-  Sim[Flujo de eventos simulado] --> Store[Zustand telemetry-store]
-  Store --> Derive[Derivaciones puras]
-  Derive --> CC[Centro de mando /]
-  Derive --> Dash[Telemetría /dashboard]
-  CC --> SVG[Mapa SVG del recinto]
-  Dash --> Map[Mapa Leaflet]
-  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
-  class Store,Derive accent`,
   },
   {
     id: "my-playthrough",
@@ -363,6 +337,37 @@ const PROJECTS = [
   API --> Covers[Proxy Steam / RAWG]
   classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
   class API,Auth,DB accent`,
+  },
+  {
+    id: "live-event-radar",
+    name: "Live Event Radar",
+    subtitle: "Panel de operaciones en tiempo real para eventos · frontend",
+    stack: [
+      "Next.js",
+      "React 19",
+      "TypeScript",
+      "Zustand",
+      "Leaflet",
+      "Vitest",
+      "Playwright",
+    ],
+    href: "https://github.com/ikrame-ih/live-event-radar",
+    demo: "https://live-event-radar.vercel.app",
+    image: ASSETS.projects.liveEventRadar,
+    imageAlt: "Live Event Radar — panel de control y telemetría",
+    description:
+      "Aplicación para supervisar en tiempo real la operativa de un recinto mediante un panel de control y un mapa interactivo, inspirada en la necesidad de disponer de información actualizada durante eventos.",
+    architectureSummary:
+      "Un flujo de eventos simulado escribe en un store de telemetría Zustand. Derivaciones puras alimentan dos vistas sincronizadas: el centro de mando (mapa SVG del recinto) y el panel de telemetría (mapa Leaflet).",
+    mermaid: `flowchart LR
+  Sim[Flujo de eventos simulado] --> Store[Zustand telemetry-store]
+  Store --> Derive[Derivaciones puras]
+  Derive --> CC[Centro de mando /]
+  Derive --> Dash[Telemetría /dashboard]
+  CC --> SVG[Mapa SVG del recinto]
+  Dash --> Map[Mapa Leaflet]
+  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
+  class Store,Derive accent`,
   },
   {
     id: "aiba-widget",

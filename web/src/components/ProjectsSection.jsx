@@ -211,6 +211,17 @@ const ProjectStrip = ({
             {p.description}
           </p>
 
+          {p.signals?.length ? (
+            <ul className="mb-5 space-y-1.5 font-mono text-xs leading-relaxed text-burgundy">
+              {p.signals.map((line) => (
+                <li key={line} className="flex gap-2">
+                  <span className="mt-[0.35em] h-1 w-1 shrink-0 rotate-45 bg-burgundy" aria-hidden="true" />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+
           <div className="flex flex-wrap gap-2 mb-6">
             {stackPreview.map((s) => (
               <span
