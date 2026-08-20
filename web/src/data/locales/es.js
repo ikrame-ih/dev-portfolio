@@ -21,7 +21,7 @@ const PROFILE = {
     "Hola, soy Ikrame Ibn Hayoun — desarrolladora centrada en backend en Málaga. Construyo APIs, modelos de datos y los bordes que fallan con reintentos y tráfico real. También entrego React cuando el producto necesita UI. Abierta a roles remotos o híbridos.",
   heroFacts: [
     { eyebrow: "Disponible para", text: "Remoto · híbrido" },
-    { eyebrow: "Trayectoria", text: "IA y Big Data · sep. 2026" },
+    { eyebrow: "Titulación", text: "DAW · jun. 2026" },
     {
       eyebrow: "Enfoque",
       text: "APIs backend",

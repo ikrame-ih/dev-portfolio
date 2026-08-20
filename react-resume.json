@@ -14,7 +14,7 @@
   },
   "basics": {
     "name": "Ikrame Ibn Hayoun",
-    "headline": "Backend Python | FastAPI | PostgreSQL | Redis | Málaga, Spain | Remote or Hybrid",
+    "headline": "Backend Developer | Python | FastAPI | PostgreSQL | Node.js | Redis | Málaga, Spain | Remote or Hybrid",
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
     "location": "Málaga, Spain",
@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Backend Python developer based in Málaga. I build APIs with FastAPI, PostgreSQL, Redis, and tests. I apply AI where it pays off: structured LLM extraction and embeddings.</p><p>I ship React when a product needs a UI. DAW graduate (Jun 2026); MyPlaythrough capstone awarded 10/10. AI and Big Data specialisation starting Sep 2026. Open to remote or hybrid backend roles.</p>"
+    "content": "<p>Backend-focused software developer based in Málaga, Spain. About 2.5 years of continuous professional work experience across administration, operations, and software delivery — now focused on backend APIs (Python, FastAPI, PostgreSQL, Redis).</p><p>I build APIs, authentication, and data models, and I ship React when a product needs a UI. Software proof points: ReckonFlow (idempotent ledger API), MyPlaythrough (DAW capstone, 10/10), and a software internship at DATA CONTROL.</p><p>DAW graduate (Jun 2026). AI and Big Data specialisation starting Sep 2026. Open to remote or hybrid backend roles.</p>"
   },
   "sections": {
     "profiles": {
@@ -105,7 +105,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "<p>Internal tooling and high-stakes coordination for real users in a global professional services firm.</p><ul><li>Built a Power App that ran the CNS Christmas raffle end to end: registration and number assignment in one place instead of email and Teams coordination.</li><li>Coordinated client visits in Málaga end to end: agendas, logistics, and local experiences.</li></ul>",
+          "description": "<p>Executive support and internal tooling in a global professional services environment.</p><ul><li>Built a Power App that ran the CNS Christmas raffle end to end: registration and number assignment in one place instead of email and Teams coordination.</li><li>Coordinated client visits in Málaga end to end: agendas, logistics, and local experiences.</li><li>Ran day-to-day operations with travel tools, Concur, Outlook, Teams, SharePoint, and firm internal systems.</li></ul>",
           "roles": []
         },
         {
@@ -125,7 +125,7 @@
         },
         {
           "id": "b2000001-0001-4000-8000-000000000004",
-          "hidden": true,
+          "hidden": false,
           "company": "Conciencia Fundraising",
           "position": "Accounting and Operations Administrator",
           "location": "Remote, Spain",
@@ -140,7 +140,7 @@
         },
         {
           "id": "b2000001-0001-4000-8000-000000000005",
-          "hidden": true,
+          "hidden": false,
           "company": "Sylvis Profesional Cosmetic",
           "position": "Administrative Assistant",
           "location": "Málaga, Spain",
@@ -150,7 +150,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "<p>Accounting and import documentation support for a cosmetics importer.</p><ul><li>Reconciled bank accounts and posted invoices, including import purchases.</li><li>Tracked vehicle and import costs in Excel and managed incoming documentation.</li></ul>",
+          "description": "<p>Accounting and import documentation support for a cosmetics importer.</p><ul><li>Reconciled bank accounts and posted invoices (including import purchases) in SAGE — day-to-day money accuracy and audit trail.</li><li>Tracked vehicle and import costs in Excel; managed incoming documentation under deadlines.</li></ul>",
           "roles": []
         }
       ]
@@ -163,22 +163,6 @@
       "keepTogether": false,
       "startOnNewPage": false,
       "items": [
-        {
-          "id": "c3000001-0001-4000-8000-000000000001",
-          "hidden": false,
-          "school": "IES Zaidín Vergeles",
-          "degree": "Postgraduate Specialization",
-          "area": "Artificial Intelligence and Big Data",
-          "grade": "EQF Level 5",
-          "location": "Granada, Spain",
-          "period": "Starting Sep 2026",
-          "website": {
-            "url": "",
-            "label": "",
-            "inlineLink": false
-          },
-          "description": "Post-diploma specialization course following Higher Vocational Degree (DAW)."
-        },
         {
           "id": "c3000001-0001-4000-8000-000000000002",
           "hidden": false,
@@ -194,6 +178,22 @@
             "inlineLink": false
           },
           "description": "Capstone: MyPlaythrough - web application with React frontend, Node.js/Express API, and PostgreSQL."
+        },
+        {
+          "id": "c3000001-0001-4000-8000-000000000001",
+          "hidden": false,
+          "school": "IES Zaidín Vergeles",
+          "degree": "Postgraduate Specialization",
+          "area": "Artificial Intelligence and Big Data",
+          "grade": "EQF Level 5",
+          "location": "Granada, Spain",
+          "period": "Starting Sep 2026",
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
+          "description": "Post-diploma specialization course following Higher Vocational Degree (DAW)."
         },
         {
           "id": "c3000001-0001-4000-8000-000000000003",
@@ -259,7 +259,7 @@
         },
         {
           "id": "d4000001-0001-4000-8000-000000000002",
-          "hidden": true,
+          "hidden": false,
           "name": "Live Event Radar",
           "period": "May 2026 - Present",
           "website": {
@@ -296,12 +296,15 @@
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "Backend Python",
+          "name": "Backend and data",
           "proficiency": "",
           "level": 0,
           "keywords": [
             "Python",
             "FastAPI",
+            "Node.js",
+            "Express",
+            "Java",
             "PostgreSQL",
             "SQL",
             "Redis",
@@ -310,24 +313,29 @@
             "REST APIs",
             "JWT",
             "pytest",
-            "mypy",
-            "Node.js"
+            "mypy"
           ]
         },
         {
-          "id": "e5000001-0001-4000-8000-000000000004",
+          "id": "e5000001-0001-4000-8000-000000000001",
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "Applied AI",
+          "name": "Frontend",
           "proficiency": "",
           "level": 0,
           "keywords": [
-            "Structured LLM extraction",
-            "Embeddings",
-            "Groq",
-            "RapidFuzz",
-            "Hybrid retrieval"
+            "React",
+            "Next.js",
+            "TypeScript",
+            "JavaScript",
+            "Vite",
+            "Tailwind CSS",
+            "Framer Motion",
+            "Zustand",
+            "Leaflet",
+            "Semantic HTML",
+            "Accessibility"
           ]
         },
         {
@@ -335,17 +343,17 @@
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "Delivery",
+          "name": "Tooling and delivery",
           "proficiency": "",
           "level": 0,
           "keywords": [
             "Git",
             "GitHub Actions",
+            "Vitest",
+            "Playwright",
             "Docker",
             "Vercel",
-            "React",
-            "TypeScript",
-            "Vitest"
+            "Electron"
           ]
         }
       ]
@@ -481,8 +489,8 @@
           "main": [
             "summary",
             "skills",
-            "projects",
             "experience",
+            "projects",
             "education",
             "languages",
             "profiles"
@@ -532,7 +540,7 @@
         "lineHeight": 1.3
       }
     },
-    "notes": "Hiring CV: summary to skills to projects to experience to education. Radar/Aiba and older admin roles hidden.",
+    "notes": "ATS hybrid: experience before projects; full labor history Jan 2024–Jun 2026 (~2.5y) visible; no multi-year backend claim; no Applied AI skill block; DAW before upcoming coursework. Brand Ambassador and Aiba hidden.",
     "styleRules": []
   }
 }

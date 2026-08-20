@@ -14,7 +14,7 @@
   },
   "basics": {
     "name": "Ikrame Ibn Hayoun",
-    "headline": "Backend Python | FastAPI | PostgreSQL | Redis | Málaga, España | Remoto o híbrido",
+    "headline": "Desarrolladora backend | Python | FastAPI | PostgreSQL | Node.js | Redis | Málaga, España | Remoto o híbrido",
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
     "location": "Málaga, España",
@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Desarrolladora backend Python en Málaga. Construyo APIs con FastAPI, PostgreSQL, Redis y tests. Aplico IA donde aporta: extracción LLM estructurada y embeddings.</p><p>Entrego React cuando el producto necesita UI. Graduada en DAW (jun. 2026); proyecto final MyPlaythrough con 10/10. Especialización en IA y Big Data a partir de sep. 2026. Abierta a roles backend en remoto o híbrido.</p>"
+    "content": "<p>Desarrolladora de software centrada en backend en Málaga. Unos 2,5 años de experiencia laboral continua en administración, operaciones y entrega de software — ahora enfocada en APIs backend (Python, FastAPI, PostgreSQL, Redis).</p><p>Construyo APIs, autenticación y modelos de datos, y entrego React cuando el producto necesita UI. Prueba técnica: ReckonFlow (API de ledger idempotente), MyPlaythrough (proyecto final DAW, 10/10) y prácticas de software en DATA CONTROL.</p><p>Graduada en DAW (jun. 2026). Especialización en IA y Big Data a partir de sep. 2026. Abierta a roles backend en remoto o híbrido.</p>"
   },
   "sections": {
     "profiles": {
@@ -105,7 +105,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "<p>Herramientas internas y coordinación de alto impacto para usuarios reales en una multinacional de servicios profesionales.</p><ul><li>Creé una Power App que gestionó de punta a punta el sorteo de Navidad de CNS: registro y asignación de números en un solo sitio, en lugar de coordinarlo por email y Teams.</li><li>Coordiné de principio a fin visitas de clientes en Málaga: agendas, logística y experiencias locales.</li></ul>",
+          "description": "<p>Soporte ejecutivo y herramientas internas en un entorno global de servicios profesionales.</p><ul><li>Construí una Power App que gestionó el sorteo de Navidad del CNS de punta a punta: registro y asignación de números en un solo sitio en lugar de email y Teams.</li><li>Coordiné visitas de clientes en Málaga de punta a punta: agendas, logística y experiencias locales.</li><li>Operaciones del día a día con herramientas de viaje, Concur, Outlook, Teams, SharePoint y sistemas internos.</li></ul>",
           "roles": []
         },
         {
@@ -125,7 +125,7 @@
         },
         {
           "id": "b2000001-0001-4000-8000-000000000004",
-          "hidden": true,
+          "hidden": false,
           "company": "Conciencia Fundraising",
           "position": "Administrativa de contabilidad y operaciones",
           "location": "Remoto, España",
@@ -135,12 +135,12 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "<p>Soporte de operaciones e informes para una organización de captación de fondos.</p><ul><li>Preparé informes de donantes y seguimiento con Google Drive, Outlook y Evergiving.</li><li>Gestioné tareas de RR. HH. en Factorial y controlé costes de viajes y gastos.</li><li>Mantuve la coordinación del equipo en Asana, Notion y Slack; creé vistas de reporting en Looker.</li></ul>",
+          "description": "<p>Soporte de operaciones y reporting para una organización de fundraising.</p><ul><li>Preparé informes de donantes y seguimiento con Google Drive, Outlook y Evergiving.</li><li>Gestioné tareas de RRHH en Factorial y controlé costes de viajes y gastos.</li><li>Mantuve la coordinación del equipo en Asana, Notion y Slack; creé vistas de reporting en Looker.</li></ul>",
           "roles": []
         },
         {
           "id": "b2000001-0001-4000-8000-000000000005",
-          "hidden": true,
+          "hidden": false,
           "company": "Sylvis Profesional Cosmetic",
           "position": "Auxiliar administrativa",
           "location": "Málaga, España",
@@ -150,7 +150,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "<p>Soporte de contabilidad y documentación de importación para un importador de cosmética.</p><ul><li>Concilié cuentas bancarias y contabilicé facturas, incluidas compras de importación.</li><li>Seguí costes de vehículos e importación en Excel y gestioné la documentación entrante.</li></ul>",
+          "description": "<p>Soporte de contabilidad y documentación de importación para un importador de cosmética.</p><ul><li>Concilié cuentas bancarias y registré facturas (incluidas compras de importación) en SAGE — precisión diaria del dinero y trazabilidad.</li><li>Seguí costes de vehículos e importaciones en Excel; gestioné documentación entrante con plazos.</li></ul>",
           "roles": []
         }
       ]
@@ -163,22 +163,6 @@
       "keepTogether": false,
       "startOnNewPage": false,
       "items": [
-        {
-          "id": "c3000001-0001-4000-8000-000000000001",
-          "hidden": false,
-          "school": "IES Zaidín Vergeles",
-          "degree": "Curso de Especialización",
-          "area": "Inteligencia Artificial y Big Data",
-          "grade": "Nivel MECES / EQF 5",
-          "location": "Granada, España",
-          "period": "Inicio sep. 2026",
-          "website": {
-            "url": "",
-            "label": "",
-            "inlineLink": false
-          },
-          "description": "Curso de Especialización tras el ciclo formativo de grado superior."
-        },
         {
           "id": "c3000001-0001-4000-8000-000000000002",
           "hidden": false,
@@ -194,6 +178,22 @@
             "inlineLink": false
           },
           "description": "Proyecto final: MyPlaythrough - aplicación web con frontend React y API Node.js/Express sobre PostgreSQL."
+        },
+        {
+          "id": "c3000001-0001-4000-8000-000000000001",
+          "hidden": false,
+          "school": "IES Zaidín Vergeles",
+          "degree": "Curso de Especialización",
+          "area": "Inteligencia Artificial y Big Data",
+          "grade": "Nivel MECES / EQF 5",
+          "location": "Granada, España",
+          "period": "Inicio sep. 2026",
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
+          "description": "Curso de Especialización tras el ciclo formativo de grado superior."
         },
         {
           "id": "c3000001-0001-4000-8000-000000000003",
@@ -259,7 +259,7 @@
         },
         {
           "id": "d4000001-0001-4000-8000-000000000002",
-          "hidden": true,
+          "hidden": false,
           "name": "Live Event Radar",
           "period": "may. 2026 - Actualidad",
           "website": {
@@ -296,12 +296,15 @@
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "Backend Python",
+          "name": "Backend y datos",
           "proficiency": "",
           "level": 0,
           "keywords": [
             "Python",
             "FastAPI",
+            "Node.js",
+            "Express",
+            "Java",
             "PostgreSQL",
             "SQL",
             "Redis",
@@ -310,24 +313,29 @@
             "APIs REST",
             "JWT",
             "pytest",
-            "mypy",
-            "Node.js"
+            "mypy"
           ]
         },
         {
-          "id": "e5000001-0001-4000-8000-000000000004",
+          "id": "e5000001-0001-4000-8000-000000000001",
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "IA aplicada",
+          "name": "Frontend",
           "proficiency": "",
           "level": 0,
           "keywords": [
-            "Extracción LLM estructurada",
-            "Embeddings",
-            "Groq",
-            "RapidFuzz",
-            "Recuperación híbrida"
+            "React",
+            "Next.js",
+            "TypeScript",
+            "JavaScript",
+            "Vite",
+            "Tailwind CSS",
+            "Framer Motion",
+            "Zustand",
+            "Leaflet",
+            "HTML semántico",
+            "Accesibilidad"
           ]
         },
         {
@@ -335,17 +343,17 @@
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "Entrega",
+          "name": "Herramientas y entrega",
           "proficiency": "",
           "level": 0,
           "keywords": [
             "Git",
             "GitHub Actions",
+            "Vitest",
+            "Playwright",
             "Docker",
             "Vercel",
-            "React",
-            "TypeScript",
-            "Vitest"
+            "Electron"
           ]
         }
       ]
@@ -481,8 +489,8 @@
           "main": [
             "summary",
             "skills",
-            "projects",
             "experience",
+            "projects",
             "education",
             "languages",
             "profiles"
@@ -532,7 +540,7 @@
         "lineHeight": 1.3
       }
     },
-    "notes": "CV de contratacion: resumen, skills, proyectos, experiencia, formacion. Radar/Aiba y roles admin antiguos ocultos.",
+    "notes": "Hibrido ATS: experiencia antes que proyectos; historial laboral ene 2024–jun 2026 (~2,5 años) visible; sin tenure backend inventada; sin bloque de IA aplicada; DAW antes que formacion futura. Brand Ambassador y Aiba ocultos.",
     "styleRules": []
   }
 }
