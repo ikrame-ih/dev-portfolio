@@ -96,16 +96,16 @@
         {
           "id": "b2000001-0001-4000-8000-000000000002",
           "hidden": false,
-          "company": "EY",
+          "company": "EY Global Delivery Services",
           "position": "Asistente ejecutiva",
           "location": "Málaga · Híbrido",
-          "period": "feb. 2025 - mar. 2026",
+          "period": "ene. 2025 - mar. 2026",
           "website": {
             "url": "",
             "label": "",
             "inlineLink": false
           },
-          "description": "<ul><li>Apoyo a Executive Directors en visitas de clientes y member firms (agendas, logística, stakeholders).</li><li>Viajes y gastos en Concur, Outlook, Teams y SharePoint; Power App que sustituyó la coordinación por email/Teams de un sorteo interno.</li></ul>",
+          "description": "<ul><li>Desarrollé una Power App (Power Fx) que gestionó de extremo a extremo el sorteo de Navidad del CNS: inscripción y asignación de números en un solo sitio, en lugar de perseguirlo por correo o Teams.</li><li>Coordiné de principio a fin visitas de clientes estratégicos en Málaga, gestionando agendas, logística y la experiencia durante la estancia — jornadas que a menudo condicionaban el avance de un acuerdo.</li><li>Llevé el día a día operativo — viajes, Concur, Outlook, Teams, SharePoint y las herramientas internas de la firma — en un entorno global de servicios profesionales.</li></ul>",
           "roles": []
         },
         {
@@ -348,6 +348,8 @@
             "React",
             "TypeScript",
             "DataFlex",
+            "Power Apps",
+            "Power Fx",
             "Node.js",
             "Vitest"
           ]
