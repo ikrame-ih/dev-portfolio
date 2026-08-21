@@ -90,7 +90,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "<ul><li>Desarrollo de aplicaciones internas en entorno DataFlex y en Python: acceso a datos, lógica de negocio y personalización continua.</li><li>Entrega de una plataforma Moodle (configuración, SQL, CSS/UI) para que el producto no saliera como Moodle de plantilla.</li></ul>",
+          "description": "<ul><li>Desarrollo de aplicaciones internas en entorno DataFlex y en Python: acceso a datos, lógica de negocio y personalización continua.</li><li>Creación de una plataforma Moodle desde cero: entorno e instalación, estructura de cursos y contenidos, usuarios y roles, base de datos/SQL y theming CSS/UI de punta a punta.</li></ul>",
           "roles": []
         },
         {

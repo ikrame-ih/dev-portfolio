@@ -90,7 +90,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "<ul><li>Developed internal applications in a DataFlex environment and in Python: data access, business logic, and ongoing customisation.</li><li>Delivered a Moodle learning platform (setup, SQL, CSS/UI) so it shipped as a coherent product, not a stock install.</li></ul>",
+          "description": "<ul><li>Developed internal applications in a DataFlex environment and in Python: data access, business logic, and ongoing customisation.</li><li>Built a Moodle learning platform from scratch: environment and install, course and content structure, users and roles, SQL/database, and CSS/UI theming end to end.</li></ul>",
           "roles": []
         },
         {
