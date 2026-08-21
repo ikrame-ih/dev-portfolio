@@ -14,7 +14,7 @@
   },
   "basics": {
     "name": "Ikrame Ibn Hayoun",
-    "headline": "Backend Python | FastAPI | PostgreSQL | Redis | Málaga, España | Remoto o híbrido",
+    "headline": "Backend Python | FastAPI | PostgreSQL | Redis | pytest | Málaga | Remoto o híbrido",
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
     "location": "Málaga, España",
@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Desarrolladora backend Python en Málaga, con más de 2 años de experiencia profesional (EY y roles de operaciones previos, más prácticas de software). Construyo APIs con FastAPI, PostgreSQL, Redis y tests. Aplico IA donde aporta: extracción LLM estructurada y embeddings.</p><p>Entrego React cuando el producto necesita UI. Graduada en DAW (jun. 2026); proyecto final MyPlaythrough con 10/10. Especialización en IA y Big Data a partir de sep. 2026. Abierta a roles backend en remoto o híbrido.</p>"
+    "content": "<p>Desarrolladora backend Python en Málaga. Más de 2 años de experiencia profesional (EY, operaciones y prácticas de software). Construyo APIs REST con FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic y pytest. IA aplicada: extracción LLM estructurada y embeddings. Graduada DAW (jun. 2026), proyecto final 10/10. Abierta a backend remoto o híbrido.</p>"
   },
   "sections": {
     "profiles": {
@@ -71,7 +71,7 @@
       ]
     },
     "experience": {
-      "title": "Experiencia",
+      "title": "Experiencia laboral",
       "icon": "",
       "columns": 1,
       "hidden": false,
@@ -90,7 +90,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "<ul><li>Puse en marcha una plataforma Moodle como proyecto de prácticas: configuración, contenidos, consultas a base de datos y CSS/UI para que no se viera de plantilla.</li></ul>",
+          "description": "<ul><li>Desarrollo de aplicaciones internas en entorno DataFlex y en Python: acceso a datos, lógica de negocio y personalización continua.</li><li>Entrega de una plataforma Moodle (configuración, SQL, CSS/UI) para que el producto no saliera como Moodle de plantilla.</li></ul>",
           "roles": []
         },
         {
@@ -105,7 +105,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "<ul><li>Apoyo a Executive Directors en visitas de clientes y member firms: logística, agendas, materiales y comunicación con stakeholders.</li><li>Gestión de calendario, viajes internacionales y reporting de gastos (Outlook, Teams, Concur, SharePoint); creé una Power App que gestionó de punta a punta un sorteo interno.</li></ul>",
+          "description": "<ul><li>Apoyo a Executive Directors en visitas de clientes y member firms (agendas, logística, stakeholders).</li><li>Viajes y gastos en Concur, Outlook, Teams y SharePoint; Power App que sustituyó la coordinación por email/Teams de un sorteo interno.</li></ul>",
           "roles": []
         },
         {
@@ -156,7 +156,7 @@
       ]
     },
     "education": {
-      "title": "Formación",
+      "title": "Educación",
       "icon": "",
       "columns": 1,
       "hidden": false,
@@ -177,7 +177,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "Curso de Especialización tras el ciclo formativo de grado superior."
+          "description": ""
         },
         {
           "id": "c3000001-0001-4000-8000-000000000002",
@@ -193,7 +193,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "Proyecto final: MyPlaythrough - aplicación web con frontend React y API Node.js/Express sobre PostgreSQL."
+          "description": ""
         },
         {
           "id": "c3000001-0001-4000-8000-000000000003",
@@ -231,7 +231,7 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>Backend FastAPI headless para viajes corporativos: aprobaciones, ledger de doble entrada inmutable, extracción de recibos con LLM y conciliación bancaria híbrida.</p><ul><li>Python, FastAPI, SQLAlchemy async, PostgreSQL, Redis, Alembic, pytest, mypy.</li><li>Escrituras mutantes idempotentes, dinero como strings Decimal, bloqueos de fila al conciliar, CI con cobertura.</li><li>API en vivo: https://reckon-flow.onrender.com/docs. Docs: https://ikrame-ih.github.io/reckon-flow/</li></ul>"
+          "description": "<p>API FastAPI headless para viajes corporativos: aprobaciones, ledger de doble entrada, extracción LLM de recibos, conciliación bancaria. En vivo: reckon-flow.onrender.com/docs</p><ul><li>Python, FastAPI, SQLAlchemy async, PostgreSQL, Redis, Alembic, Pydantic, pytest, mypy. Escrituras idempotentes, Decimal, bloqueos de fila. CI/CD: ruff, mypy, pytest, Alembic, pip-audit.</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000005",
@@ -243,7 +243,7 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>Herramienta CLI y controlador de fusión para Git que resuelve automáticamente conflictos de merge en bloques de imports de Python. Publicado en PyPI con cero dependencias en runtime.</p><ul><li>Python 3.9+, Git CLI, Hatchling, PyPI, GitHub Actions CI.</li><li>Analiza marcadores de conflicto de Git, elimina duplicados y ordena imports; incluye modo dry-run y driver automático.</li><li>Paquete PyPI: https://pypi.org/project/import-resolve-cli/</li></ul>"
+          "description": "<p>Publicado en PyPI (import-resolve-cli). Driver de merge de Git para conflictos en bloques de imports Python. Cero dependencias en runtime. CI: pytest, mypy, ruff.</p>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000001",
@@ -255,7 +255,7 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>Proyecto final de DAW con calificación máxima (10/10). Gestor personal de biblioteca de juegos con seguimiento de backlog, comunidad, recomendaciones, discusiones y moderación de administración.</p><ul><li>Construido con React, Vite, Node.js, Express, PostgreSQL, JWT y Docker Compose.</li><li>Tests unitarios con Vitest en cliente y servidor, y CI con GitHub Actions.</li><li>Demo en vivo: https://my-playthrough.vercel.app/</li></ul>"
+          "description": "<p>Proyecto final DAW, 10/10. Biblioteca de juegos con React, Node.js/Express, PostgreSQL, JWT, Docker Compose. Vitest en cliente y servidor. Demo: my-playthrough.vercel.app</p>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000002",
@@ -308,6 +308,7 @@
             "SQLAlchemy",
             "Alembic",
             "APIs REST",
+            "Pydantic",
             "JWT",
             "pytest",
             "mypy"
@@ -339,11 +340,14 @@
           "level": 0,
           "keywords": [
             "Git",
+            "CI/CD",
             "GitHub Actions",
             "Docker",
+            "Docker Compose",
             "Vercel",
             "React",
             "TypeScript",
+            "DataFlex",
             "Node.js",
             "Vitest"
           ]
@@ -493,7 +497,7 @@
     },
     "page": {
       "gapX": 4,
-      "gapY": 7,
+      "gapY": 5,
       "marginX": 18,
       "marginY": 18,
       "format": "a4",
@@ -520,7 +524,7 @@
           "400",
           "500"
         ],
-        "fontSize": 10.5,
+        "fontSize": 10,
         "lineHeight": 1.5
       },
       "heading": {
@@ -532,7 +536,7 @@
         "lineHeight": 1.3
       }
     },
-    "notes": "CV de contratacion: todos los empleos visibles para filtros de 2 anos. Bullets admin comprimidos, no ocultos. Radar/Aiba ocultos. Reexportar PDF.",
+    "notes": "CV hiring: empleos visibles. Keywords Pydantic/CI-CD, titulos ATS, proyectos compactos. Reexportar PDF.",
     "styleRules": []
   }
 }

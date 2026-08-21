@@ -14,7 +14,7 @@
   },
   "basics": {
     "name": "Ikrame Ibn Hayoun",
-    "headline": "Backend Python | FastAPI | PostgreSQL | Redis | Málaga, Spain | Remote or Hybrid",
+    "headline": "Backend Python | FastAPI | PostgreSQL | Redis | pytest | Málaga | Remote or Hybrid",
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
     "location": "Málaga, Spain",
@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Backend Python developer in Málaga with 2+ years of professional work (EY and prior ops roles, plus a software internship). I build APIs with FastAPI, PostgreSQL, Redis, and tests. I apply AI where it pays off: structured LLM extraction and embeddings.</p><p>I ship React when a product needs a UI. DAW graduate (Jun 2026); MyPlaythrough capstone awarded 10/10. AI and Big Data specialisation starting Sep 2026. Open to remote or hybrid backend roles.</p>"
+    "content": "<p>Backend Python developer in Málaga. 2+ years of professional work (EY, ops roles, and a software internship). I build REST APIs with FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic, and pytest. Applied AI: structured LLM extraction and embeddings. DAW graduate (Jun 2026), capstone 10/10. Open to remote or hybrid backend roles.</p>"
   },
   "sections": {
     "profiles": {
@@ -71,7 +71,7 @@
       ]
     },
     "experience": {
-      "title": "Experience",
+      "title": "Work Experience",
       "icon": "",
       "columns": 1,
       "hidden": false,
@@ -90,7 +90,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "<ul><li>Delivered a Moodle learning platform as the internship project: setup, content structure, database queries, and CSS/UI so it did not look like stock Moodle.</li></ul>",
+          "description": "<ul><li>Developed internal applications in a DataFlex environment and in Python: data access, business logic, and ongoing customisation.</li><li>Delivered a Moodle learning platform (setup, SQL, CSS/UI) so it shipped as a coherent product, not a stock install.</li></ul>",
           "roles": []
         },
         {
@@ -105,7 +105,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "<ul><li>Supported Executive Directors on client and member-firm visits: logistics, agendas, materials, and stakeholder communication.</li><li>Owned calendar, international travel, and expense reporting (Outlook, Teams, Concur, SharePoint); built a Power App that ran an internal raffle end to end.</li></ul>",
+          "description": "<ul><li>Supported Executive Directors on client and member-firm visits (agendas, logistics, stakeholders).</li><li>Ran travel and expenses on Concur, Outlook, Teams, and SharePoint; shipped a Power App that replaced email/Teams coordination for an internal raffle.</li></ul>",
           "roles": []
         },
         {
@@ -177,7 +177,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "Post-diploma specialization course following Higher Vocational Degree (DAW)."
+          "description": ""
         },
         {
           "id": "c3000001-0001-4000-8000-000000000002",
@@ -193,7 +193,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "Capstone: MyPlaythrough - web application with React frontend, Node.js/Express API, and PostgreSQL."
+          "description": ""
         },
         {
           "id": "c3000001-0001-4000-8000-000000000003",
@@ -231,7 +231,7 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>Headless FastAPI backend for corporate travel: approvals, an immutable double-entry ledger, LLM receipt extraction, and hybrid bank reconciliation.</p><ul><li>Python, FastAPI, SQLAlchemy async, PostgreSQL, Redis, Alembic, pytest, mypy.</li><li>Idempotent mutating writes, money as Decimal strings, row locks on reconcile, CI with coverage.</li><li>Live API: https://reckon-flow.onrender.com/docs. Docs: https://ikrame-ih.github.io/reckon-flow/</li></ul>"
+          "description": "<p>Headless FastAPI API for corporate travel: approvals, immutable double-entry ledger, LLM receipt extraction, hybrid bank reconciliation. Live: reckon-flow.onrender.com/docs</p><ul><li>Python, FastAPI, SQLAlchemy async, PostgreSQL, Redis, Alembic, Pydantic, pytest, mypy. Idempotent writes, Decimal money, row locks. CI/CD: ruff, mypy, pytest, Alembic, pip-audit.</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000005",
@@ -243,7 +243,7 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>CLI tool and Git merge driver for automatically resolving merge conflicts in Python import blocks. Published on PyPI with zero runtime dependencies.</p><ul><li>Python 3.9+, Git CLI, Hatchling, PyPI, GitHub Actions CI.</li><li>Parses Git conflict markers, deduplicates and sorts import lines, supports dry-run and repo auto-merge driver mode.</li><li>PyPI package: https://pypi.org/project/import-resolve-cli/</li></ul>"
+          "description": "<p>Published on PyPI (import-resolve-cli). Git merge driver that resolves Python import-block conflicts. Zero runtime dependencies. CI: pytest, mypy, ruff.</p>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000001",
@@ -255,7 +255,7 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>DAW capstone awarded maximum grade (10/10). Personal game library manager with backlog tracking, community features, recommendations, discussions, and admin moderation.</p><ul><li>Built with React, Vite, Node.js, Express, PostgreSQL, JWT, and Docker Compose.</li><li>Vitest unit tests on client and server, with GitHub Actions CI.</li><li>Live demo: https://my-playthrough.vercel.app/</li></ul>"
+          "description": "<p>DAW capstone, grade 10/10. Game library with React, Node.js/Express, PostgreSQL, JWT, Docker Compose. Vitest on client and server. Live: my-playthrough.vercel.app</p>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000002",
@@ -308,6 +308,7 @@
             "SQLAlchemy",
             "Alembic",
             "REST APIs",
+            "Pydantic",
             "JWT",
             "pytest",
             "mypy"
@@ -339,11 +340,14 @@
           "level": 0,
           "keywords": [
             "Git",
+            "CI/CD",
             "GitHub Actions",
             "Docker",
+            "Docker Compose",
             "Vercel",
             "React",
             "TypeScript",
+            "DataFlex",
             "Node.js",
             "Vitest"
           ]
@@ -493,7 +497,7 @@
     },
     "page": {
       "gapX": 4,
-      "gapY": 7,
+      "gapY": 5,
       "marginX": 18,
       "marginY": 18,
       "format": "a4",
@@ -520,7 +524,7 @@
           "400",
           "500"
         ],
-        "fontSize": 10.5,
+        "fontSize": 10,
         "lineHeight": 1.5
       },
       "heading": {
@@ -532,7 +536,7 @@
         "lineHeight": 1.3
       }
     },
-    "notes": "Hiring CV: keep ALL jobs visible for 2-year tenure filters. Compress admin bullets; do not hide them. Radar/Aiba hidden. Re-export PDF.",
+    "notes": "Hiring CV: all jobs visible for 2-year filters. Compressed bullets, ATS headers, Pydantic/CI-CD keywords. No Linux unless evidenced. Re-export PDF.",
     "styleRules": []
   }
 }
