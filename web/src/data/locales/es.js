@@ -152,6 +152,9 @@ const STACK = {
             "Playwright",
             "Docker",
             "Vercel",
+            "DataFlex",
+            "Power Apps",
+            "Power Fx",
           ],
         },
       ],
@@ -166,9 +169,8 @@ const EXPERIENCE = [
     period: "mar. 2026 — jun. 2026",
     track: "tech",
     bullets: [
-      "Desarrollé y puse en marcha una plataforma de formación basada en Moodle como proyecto principal de las prácticas: configuración, estructura de contenidos y personalización continua.",
-      "Gestioné el día a día de la base de datos de la plataforma (consultas, estructura y conexión con la aplicación).",
-      "Personalicé la interfaz mediante CSS y ajustes de diseño para ofrecer una experiencia más coherente que la instalación estándar de Moodle.",
+      "Desarrollo de aplicaciones internas en entorno DataFlex y en Python: acceso a datos, lógica de negocio y personalización continua.",
+      "Creación de una plataforma Moodle desde cero: entorno e instalación, estructura de cursos y contenidos, usuarios y roles, base de datos/SQL y theming CSS/UI de punta a punta.",
     ],
   },
   {
@@ -178,7 +180,7 @@ const EXPERIENCE = [
     track: "hybrid",
     bullets: [
       {
-        text: "Desarrollé una Power App que gestionó de extremo a extremo el sorteo de Navidad del CNS: inscripción y asignación de números en un solo sitio, en lugar de perseguido por correo o Teams.",
+        text: "Desarrollé una Power App (Power Fx) que gestionó de extremo a extremo el sorteo de Navidad del CNS: inscripción y asignación de números en un solo sitio, en lugar de perseguirlo por correo o Teams.",
         proof: {
           id: "ey-holiday-raffle",
           name: "Sorteo de Navidad CNS — Power App",
@@ -197,30 +199,25 @@ const EXPERIENCE = [
     period: "feb. 2026",
     track: "biz",
     bullets: [
-      "Realicé degustaciones de producto y presentaciones breves en entornos retail con mucho ritmo.",
-      "Organicé la logística del stand y el inventario de fin de jornada.",
-      "Ver de cerca la operativa en retail inspiró Live Event Radar, mi panel de operaciones en tiempo real para recintos.",
+      "Catas de producto y logística de stand en retail de alta afluencia, incluido el inventario de fin de jornada para la agencia.",
     ],
   },
   {
     company: "Conciencia Fundraising",
-    role: "Administrativa de contabilidad y operaciones",
+    role: "Asistente administrativa y contable",
     period: "nov. — dic. 2024",
     track: "biz",
     bullets: [
-      "Elaboré informes de donantes y el seguimiento correspondiente vía Drive, Outlook y Evergiving.",
-      "Gestioné tareas de RR. HH. en Factorial y el control de costes de viajes y gastos.",
-      "Coordiné al equipo en Asana, Notion y Slack; creé vistas de reporting en Looker.",
+      "Seguimiento de donantes y captadores en Drive, Outlook, Evergiving, Factorial, Odoo y Looker; registro de costes de viaje y gastos para control interno.",
     ],
   },
   {
     company: "Sylvis Profesional Cosmetic",
     role: "Administrativa",
-    period: "ene. — oct. 2024",
+    period: "mar. — oct. 2024",
     track: "biz",
     bullets: [
-      "Concilié cuentas bancarias y registré facturas, incluidas compras de importación.",
-      "Seguí costes de vehículos e importación en Excel; gestioné la documentación entrante.",
+      "Conciliación bancaria, contabilización de facturas (empresa e importaciones) y control de costes de vehículos e importación en Excel.",
     ],
   },
 ];

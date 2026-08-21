@@ -151,6 +151,9 @@ const STACK = {
             "Playwright",
             "Docker",
             "Vercel",
+            "DataFlex",
+            "Power Apps",
+            "Power Fx",
           ],
         },
       ],
@@ -165,9 +168,8 @@ const EXPERIENCE = [
     period: "Mar 2026 — Jun 2026",
     track: "tech",
     bullets: [
-      "Delivered a Moodle-based learning platform as the core internship project — setup, content structure, and ongoing customization.",
-      "Handled day-to-day database work supporting the platform (queries, structure, and keeping data wired to the app).",
-      "Owned the look-and-feel pass — CSS and UI tweaks — so the experience felt coherent rather than stock Moodle.",
+      "Developed internal applications in a DataFlex environment and in Python: data access, business logic, and ongoing customisation.",
+      "Built a Moodle learning platform from scratch: environment and install, course and content structure, users and roles, SQL/database, and CSS/UI theming end to end.",
     ],
   },
   {
@@ -177,7 +179,7 @@ const EXPERIENCE = [
     track: "hybrid",
     bullets: [
       {
-        text: "Built a Power App that ran the CNS Christmas raffle end-to-end — registration and number assignment in one place, instead of chasing it over email/Teams.",
+        text: "Built a Power App (Power Fx) that ran the CNS Christmas raffle end-to-end — registration and number assignment in one place, instead of chasing it over email or Teams.",
         proof: {
           id: "ey-holiday-raffle",
           name: "CNS Christmas raffle — Power App",
@@ -186,8 +188,8 @@ const EXPERIENCE = [
             "EY Power App for the CNS Christmas hamper raffle — claim a number and store name, email, and assignment",
         },
       },
-      "Owned high-stakes client visits in Málaga end-to-end — agendas, logistics, and local experiences — where the day often shaped whether a deal moved forward.",
-      "Ran the day-to-day ops stack — travel, Concur, Outlook, Teams, SharePoint, plus the firm's own internal tools — in a global professional-services setting.",
+      "Coordinated strategic client visits in Málaga end to end: agendas, logistics, and the on-site experience — days that often shaped whether a deal moved forward.",
+      "Ran day-to-day ops — travel, Concur, Outlook, Teams, SharePoint, and the firm's internal tools — in a global professional-services setting.",
     ],
   },
   {
@@ -196,30 +198,25 @@ const EXPERIENCE = [
     period: "Feb 2026",
     track: "biz",
     bullets: [
-      "Ran product tastings and short presentations in busy retail settings.",
-      "Handled booth logistics and end-of-day inventory updates.",
-      "Seeing live retail ops up close inspired Live Event Radar, my real-time venue ops dashboard.",
+      "Ran product tastings and stand logistics in high-traffic retail, including end-of-day inventory for the agency.",
     ],
   },
   {
     company: "Conciencia Fundraising",
-    role: "Accounting & Operations Admin",
+    role: "Accounting & Administrative Assistant",
     period: "Nov — Dec 2024",
     track: "biz",
     bullets: [
-      "Prepared donor reports and follow-up via Drive, Outlook, and Evergiving.",
-      "Managed HR tasks in Factorial and tracked travel and expense costs.",
-      "Kept team coordination in Asana, Notion, and Slack; created reporting views in Looker.",
+      "Tracked donors and fundraisers in Drive, Outlook, Evergiving, Factorial, Odoo, and Looker; recorded travel and expense costs for internal cost control.",
     ],
   },
   {
     company: "Sylvis Profesional Cosmetic",
-    role: "Admin Assistant",
-    period: "Jan — Oct 2024",
+    role: "Administrative Assistant",
+    period: "Mar — Oct 2024",
     track: "biz",
     bullets: [
-      "Reconciled bank accounts and posted invoices, including import purchases.",
-      "Tracked vehicle and import costs in Excel; managed incoming documentation.",
+      "Reconciled bank accounts, posted company and import invoices, and tracked vehicle and import costs in Excel.",
     ],
   },
 ];
