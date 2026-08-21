@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Desarrolladora backend Python en Málaga. Construyo APIs con FastAPI, PostgreSQL, Redis y tests. Aplico IA donde aporta: extracción LLM estructurada y embeddings.</p><p>Entrego React cuando el producto necesita UI. Graduada en DAW (jun. 2026); proyecto final MyPlaythrough con 10/10. Especialización en IA y Big Data a partir de sep. 2026. Abierta a roles backend en remoto o híbrido.</p>"
+    "content": "<p>Desarrolladora backend Python en Málaga, con más de 2 años de experiencia profesional (EY y roles de operaciones previos, más prácticas de software). Construyo APIs con FastAPI, PostgreSQL, Redis y tests. Aplico IA donde aporta: extracción LLM estructurada y embeddings.</p><p>Entrego React cuando el producto necesita UI. Graduada en DAW (jun. 2026); proyecto final MyPlaythrough con 10/10. Especialización en IA y Big Data a partir de sep. 2026. Abierta a roles backend en remoto o híbrido.</p>"
   },
   "sections": {
     "profiles": {
@@ -83,74 +83,74 @@
           "hidden": false,
           "company": "DATA CONTROL",
           "position": "Desarrolladora de software en prácticas",
-          "location": "Málaga, España",
+          "location": "Málaga · En remoto",
           "period": "mar. 2026 - jun. 2026",
           "website": {
             "url": "",
             "label": "",
             "inlineLink": false
           },
-          "description": "<p>Prácticas centradas en una plataforma Moodle, bases de datos y personalización de la UI.</p><ul><li>Desarrollé y puse en marcha una plataforma de aprendizaje basada en Moodle como proyecto central: configuración, estructura de contenidos y personalización continua.</li><li>Gestioné el trabajo diario con bases de datos que sostenían la plataforma (consultas, estructura y conexión de datos a la app).</li><li>Personalicé el look-and-feel con CSS y ajustes de UI para que la experiencia fuera coherente y no Moodle de serie.</li></ul>",
+          "description": "<ul><li>Puse en marcha una plataforma Moodle como proyecto de prácticas: configuración, contenidos, consultas a base de datos y CSS/UI para que no se viera de plantilla.</li></ul>",
           "roles": []
         },
         {
           "id": "b2000001-0001-4000-8000-000000000002",
           "hidden": false,
-          "company": "EY Global Delivery Services",
+          "company": "EY",
           "position": "Asistente ejecutiva",
-          "location": "Málaga, España",
-          "period": "ene. 2025 - mar. 2026",
+          "location": "Málaga · Híbrido",
+          "period": "feb. 2025 - mar. 2026",
           "website": {
             "url": "",
             "label": "",
             "inlineLink": false
           },
-          "description": "<p>Herramientas internas y coordinación de alto impacto para usuarios reales en una multinacional de servicios profesionales.</p><ul><li>Creé una Power App que gestionó de punta a punta el sorteo de Navidad de CNS: registro y asignación de números en un solo sitio, en lugar de coordinarlo por email y Teams.</li><li>Coordiné de principio a fin visitas de clientes en Málaga: agendas, logística y experiencias locales.</li></ul>",
+          "description": "<ul><li>Apoyo a Executive Directors en visitas de clientes y member firms: logística, agendas, materiales y comunicación con stakeholders.</li><li>Gestión de calendario, viajes internacionales y reporting de gastos (Outlook, Teams, Concur, SharePoint); creé una Power App que gestionó de punta a punta un sorteo interno.</li></ul>",
           "roles": []
         },
         {
           "id": "b2000001-0001-4000-8000-000000000003",
-          "hidden": true,
+          "hidden": false,
           "company": "EC Azafatas",
           "position": "Embajadora de marca",
-          "location": "Málaga, España",
+          "location": "Málaga, Andalucía, España · Presencial",
           "period": "feb. 2026",
           "website": {
             "url": "",
             "label": "",
             "inlineLink": false
           },
-          "description": "<p>Activación de marca a corto plazo en entornos retail de alto tráfico.</p><ul><li>Realicé degustaciones y presentaciones breves de producto en entornos retail concurridos.</li><li>Gestioné la logística del stand y las actualizaciones de inventario al cierre del día.</li><li>Ver de cerca la operativa en retail inspiró Live Event Radar, un dashboard de operaciones de venue en tiempo real.</li></ul>",
+          "description": "<ul><li>Catas de producto y logística de stand en retail de alta afluencia, incluido el inventario de fin de jornada para la agencia.</li></ul>",
           "roles": []
         },
         {
           "id": "b2000001-0001-4000-8000-000000000004",
-          "hidden": true,
+          "hidden": false,
           "company": "Conciencia Fundraising",
-          "position": "Administrativa de contabilidad y operaciones",
-          "location": "Remoto, España",
+          "position": "Asistente administrativa y contable",
+          "location": "Málaga, Andalucía, España · Híbrido",
           "period": "nov. 2024 - dic. 2024",
           "website": {
             "url": "",
             "label": "",
             "inlineLink": false
           },
-          "description": "<p>Soporte de operaciones e informes para una organización de captación de fondos.</p><ul><li>Preparé informes de donantes y seguimiento con Google Drive, Outlook y Evergiving.</li><li>Gestioné tareas de RR. HH. en Factorial y controlé costes de viajes y gastos.</li><li>Mantuve la coordinación del equipo en Asana, Notion y Slack; creé vistas de reporting en Looker.</li></ul>",
+          "description": "<ul><li>Seguimiento de donantes y captadores en Drive, Outlook, Evergiving, Factorial, Odoo y Looker; registro de costes de viaje y gastos para control interno.</li></ul>",
           "roles": []
         },
         {
           "id": "b2000001-0001-4000-8000-000000000005",
-          "hidden": true,
-          "company": "Sylvis Profesional Cosmetic",
-          "position": "Auxiliar administrativa",
-          "location": "Málaga, España",
-          "period": "ene. 2024 - oct. 2024",
+          "hidden": false,
+          "company": "SYLVIS PROFESIONAL COSMETIC",
+          "position": "Administrativa",
+          "location": "Málaga, Andalucía, España · Presencial",
+          "period": "mar. 2024 - oct. 2024",
           "website": {
             "url": "",
             "label": "",
             "inlineLink": false
           },
-          "description": "<p>Soporte de contabilidad y documentación de importación para un importador de cosmética.</p><ul><li>Concilié cuentas bancarias y contabilicé facturas, incluidas compras de importación.</li><li>Seguí costes de vehículos e importación en Excel y gestioné la documentación entrante.</li></ul>",
+          "description": "<ul><li>Conciliación bancaria, contabilización de facturas (empresa e importaciones) y control de costes de vehículos e importación en Excel.</li></ul>",
           "roles": []
         }
       ]
@@ -310,8 +310,7 @@
             "APIs REST",
             "JWT",
             "pytest",
-            "mypy",
-            "Node.js"
+            "mypy"
           ]
         },
         {
@@ -345,6 +344,7 @@
             "Vercel",
             "React",
             "TypeScript",
+            "Node.js",
             "Vitest"
           ]
         }
@@ -532,7 +532,7 @@
         "lineHeight": 1.3
       }
     },
-    "notes": "CV de contratacion: resumen, skills, proyectos, experiencia, formacion. Radar/Aiba y roles admin antiguos ocultos.",
+    "notes": "CV de contratacion: todos los empleos visibles para filtros de 2 anos. Bullets admin comprimidos, no ocultos. Radar/Aiba ocultos. Reexportar PDF.",
     "styleRules": []
   }
 }
