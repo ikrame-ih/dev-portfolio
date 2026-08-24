@@ -153,7 +153,7 @@ const STACK = {
             "Docker",
             "Vercel",
             "DataFlex",
-            "Power Apps",
+            "Obsidian",
             "Power Fx",
           ],
         },
