@@ -12,45 +12,45 @@ const PROFILE = {
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
   buyMeACoffee: "https://buymeacoffee.com/ikrame.dev",
   siteUrl: "https://ikrame.dev",
-  overline: "PYTHON BACKEND · FASTAPI · POSTGRESQL",
+  overline: "PYTHON BACKEND · GENAI · FASTAPI",
   headlineParts: [
     { text: "I build software" },
     { text: "with attention to detail", accent: true },
     { text: "and the context behind\u00A0it.", italic: true },
   ],
   heroSubtext:
-    "Hi, I'm Ikrame Ibn Hayoun — a backend-focused developer in Málaga. I build APIs, data models, and the edges that break under retries and real traffic. I also ship React when a product needs a UI. Open to remote or hybrid roles.",
+    "Hi, I'm Ikrame Ibn Hayoun — a backend-focused developer in Málaga. I build APIs and the edges that break under retries, and I ship generative AI in those APIs: structured LLM extraction, embeddings, hybrid retrieval. I work with agents, reusable skills, and cost-aware model routing. Open to remote or hybrid backend and GenAI roles.",
   // Compact hero facts — avoid repeating overline role or Málaga (already in copy + photo).
   heroFacts: [
     { eyebrow: "Open to", text: "Remote · hybrid" },
     { eyebrow: "Path", text: "AI & Big Data · Sep 2026" },
-    { eyebrow: "Focus", text: "Backend APIs", accent: true },
+    { eyebrow: "Focus", text: "Backend · GenAI", accent: true },
   ],
   // Flat string for terminal / plain contexts.
-  tagline: "Python backend · FastAPI · PostgreSQL · open to remote or hybrid",
+  tagline: "Python backend · FastAPI · generative AI · open to remote or hybrid",
   // Friendly blurb for CLI `about` — warm, specific, not a CV tagline dump.
   cliAbout: [
     "Hi — I'm Ikrame. Backend developer in Málaga, with a soft spot for calm interfaces when I build the UI side.",
-    "I spend most of my energy on FastAPI, PostgreSQL, and the hard edges: retries, money precision, auth.",
+    "I spend most of my energy on FastAPI, PostgreSQL, and generative AI in production paths: structured extraction, embeddings, retrieval.",
     "Away from the editor I'm usually deep in a story-heavy game, singing to reset my head, or fussing over little aesthetic details.",
-    "Just wrapped DAW (Jun 2026). Looking for remote or hybrid backend roles.",
+    "Just wrapped DAW (Jun 2026). Looking for remote or hybrid backend and GenAI roles.",
     "I also built this portfolio end to end — the code is on GitHub.",
   ],
   // Ultra-short pitch for CLI `tldr`.
   cliTldr: [
-    "Python backend in Málaga — FastAPI, PostgreSQL. Ships React when a product needs a UI.",
-    "Currently building ReckonFlow (idempotent ledger API). Looking for remote or hybrid backend roles.",
+    "Python backend in Málaga — FastAPI, PostgreSQL, generative AI. Ships React when a product needs a UI.",
+    "Currently building ReckonFlow (ledger API + LLM extraction). Looking for remote or hybrid backend and GenAI roles.",
   ],
   cliAvail:
     "Open to remote or hybrid. Based in Málaga (CET). Happy to chat anytime.",
   cliNow:
-    "Just finished DAW (Jun 2026) and internship work at DATA CONTROL. Deep on ReckonFlow — actively open to the next backend role.",
+    "Just finished DAW (Jun 2026) and internship work at DATA CONTROL. Deep on ReckonFlow — open to the next backend or GenAI role.",
   portraitLink: {
     label: "Say hi on LinkedIn →",
   },
   practiceAside: {
     title: "At a glance",
-    text: "Higher Vocational Diploma (DAW, Jun 2026) — final project MyPlaythrough awarded maximum grade. Backend projects on GitHub cover FastAPI, Express, PostgreSQL, tests, and CI. This portfolio included — built from scratch.",
+    text: "Higher Vocational Diploma (DAW, Jun 2026) — final project MyPlaythrough awarded maximum grade. Backend and applied GenAI on GitHub: FastAPI, PostgreSQL, LLM extraction, embeddings, tests, and CI. This portfolio included — built from scratch.",
   },
 };
 
@@ -118,21 +118,35 @@ const STACK = {
     {
       id: "ai",
       index: "03",
-      title: "AI & Big Data",
-      coursework: true,
+      title: "Generative AI",
       kicker:
-        "Specialization starting Sep 2026 — coursework ahead, not production delivery.",
+        "Shipped in APIs, plus how I run agents: prompts, skills, routing, context.",
       groups: [
         {
-          label: "Starting Sep 2026",
+          label: "In product",
           items: [
-            "NumPy",
-            "Pandas",
-            "TensorFlow",
-            "PyTorch",
-            "Spark",
-            "Kafka",
+            "LLMs",
+            "Prompt engineering",
+            "Structured outputs",
+            "Embeddings",
+            "Hybrid retrieval",
+            "RRF",
+            "Guardrails",
           ],
+        },
+        {
+          label: "Agentic workflow",
+          items: [
+            "LangGraph",
+            "Context engineering",
+            "LLM routing",
+            "Agent skills",
+            "Git worktrees",
+          ],
+        },
+        {
+          label: "Starting Sep 2026",
+          items: ["NumPy", "Pandas", "TensorFlow", "PyTorch", "Spark", "Kafka"],
         },
       ],
     },
@@ -256,7 +270,7 @@ const PROJECTS = [
     id: "reconflow",
     name: "ReckonFlow",
     subtitle: "Corporate travel reconciliation API · backend",
-    stack: ["Python", "FastAPI", "PostgreSQL", "Redis", "Alembic", "pytest"],
+    stack: ["Python", "FastAPI", "PostgreSQL", "Redis", "LLMs", "Embeddings", "pytest"],
     href: "https://github.com/ikrame-ih/reckon-flow",
     demo: "https://reckon-flow.onrender.com/docs",
     image: ASSETS.projects.reckonFlow,
@@ -265,7 +279,8 @@ const PROJECTS = [
       "Headless FastAPI API for travel approvals, an immutable double-entry ledger, LLM receipt extraction, and hybrid bank reconciliation — built so a retried POST cannot double-pay.",
     signals: [
       "Idempotent writes, Decimal money, row locks on reconcile",
-      "Hybrid match: SQL prefilter + RapidFuzz + RRF",
+      "Structured LLM extraction with schema guardrails (prompt injection)",
+      "Hybrid match: SQL prefilter + RapidFuzz + embeddings + RRF (RAG-style)",
       "Limitation: Render free tier can take ~50s to wake; embeddings may be stubbed",
     ],
     architectureSummary:

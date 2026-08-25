@@ -14,7 +14,7 @@
   },
   "basics": {
     "name": "Ikrame Ibn Hayoun",
-    "headline": "Backend Python | FastAPI | PostgreSQL | Redis | pytest | Málaga | Remote or Hybrid",
+    "headline": "Backend Python | FastAPI | Generative AI | LLMs | Prompt Engineering | Remote or Hybrid",
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
     "location": "Málaga, Spain",
@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Backend Python developer in Málaga. 2+ years of professional work (EY, ops roles, and a software internship). I build REST APIs with FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic, and pytest. Applied AI: structured LLM extraction and embeddings. DAW graduate (Jun 2026), capstone 10/10. Open to remote or hybrid backend roles.</p>"
+    "content": "<p>Backend Python developer in Málaga. 2+ years of professional work (EY, ops roles, and a software internship). I build REST APIs with FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic, and pytest. Applied generative AI and NLP: prompt engineering (zero-shot, few-shot, Chain-of-Thought, ReAct), structured LLM extraction, embeddings, hybrid retrieval, and RAG-style grounding. Agentic workflows with LangGraph, reusable agent skills, context engineering, and cost-aware LLM routing. DAW graduate (Jun 2026), capstone 10/10. Open to remote or hybrid backend and GenAI roles.</p>"
   },
   "sections": {
     "profiles": {
@@ -231,7 +231,7 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>Headless FastAPI API for corporate travel: approvals, immutable double-entry ledger, LLM receipt extraction, hybrid bank reconciliation. Live: reckon-flow.onrender.com/docs</p><ul><li>Python, FastAPI, SQLAlchemy async, PostgreSQL, Redis, Alembic, Pydantic, pytest, mypy. Idempotent writes, Decimal money, row locks. CI/CD: ruff, mypy, pytest, Alembic, pip-audit.</li></ul>"
+          "description": "<p>Headless FastAPI API for corporate travel: approvals, immutable double-entry ledger, LLM receipt extraction, hybrid bank reconciliation. Live: reckon-flow.onrender.com/docs</p><ul><li>Generative AI: structured LLM extraction (Pydantic schema, extra=forbid) as a guardrail against prompt injection; HTTP 202 background jobs so the model cannot approve or pay.</li><li>Hybrid retrieval and RAG-style matching: SQL prefilter, RapidFuzz, embeddings, Reciprocal Rank Fusion (RRF). Python, FastAPI, PostgreSQL, Redis, pytest, CI/CD.</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000005",
@@ -319,15 +319,22 @@
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "Applied AI",
+          "name": "Generative AI",
           "proficiency": "",
           "level": 0,
           "keywords": [
-            "Structured LLM extraction",
+            "Generative AI",
+            "NLP",
+            "LLMs",
+            "Prompt engineering",
+            "RAG",
             "Embeddings",
-            "Groq",
-            "RapidFuzz",
-            "Hybrid retrieval"
+            "Hybrid retrieval",
+            "LangGraph",
+            "Structured outputs",
+            "Guardrails",
+            "LLM routing",
+            "Context engineering"
           ]
         },
         {
@@ -538,7 +545,7 @@
         "lineHeight": 1.3
       }
     },
-    "notes": "Hiring CV: all jobs visible for 2-year filters. Compressed bullets, ATS headers, Pydantic/CI-CD keywords. No Linux unless evidenced. Re-export PDF.",
+    "notes": "Hiring CV: all jobs visible for 2-year filters. Compressed bullets, ATS headers, GenAI/NLP/RAG keywords without claiming vector DBs or eval harnesses. Re-export PDF.",
     "styleRules": []
   }
 }

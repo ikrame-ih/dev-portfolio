@@ -14,7 +14,7 @@
   },
   "basics": {
     "name": "Ikrame Ibn Hayoun",
-    "headline": "Backend Python | FastAPI | PostgreSQL | Redis | pytest | Málaga | Remoto o híbrido",
+    "headline": "Backend Python | FastAPI | IA Generativa | LLMs | Prompt Engineering | Remoto o híbrido",
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
     "location": "Málaga, España",
@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Desarrolladora backend Python en Málaga. Más de 2 años de experiencia profesional (EY, operaciones y prácticas de software). Construyo APIs REST con FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic y pytest. IA aplicada: extracción LLM estructurada y embeddings. Graduada DAW (jun. 2026), proyecto final 10/10. Abierta a backend remoto o híbrido.</p>"
+    "content": "<p>Desarrolladora backend Python en Málaga. Más de 2 años de experiencia profesional (EY, operaciones y prácticas de software). Construyo APIs REST con FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic y pytest. IA generativa y NLP: prompt engineering (zero-shot, few-shot, Chain-of-Thought, ReAct), extracción LLM estructurada, embeddings, recuperación híbrida y grounding tipo RAG. Flujos agénticos con LangGraph, skills reutilizables, context engineering y LLM routing según coste. Graduada DAW (jun. 2026), proyecto final 10/10. Abierta a backend e IA generativa remoto o híbrido.</p>"
   },
   "sections": {
     "profiles": {
@@ -231,7 +231,7 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>API FastAPI headless para viajes corporativos: aprobaciones, ledger de doble entrada, extracción LLM de recibos, conciliación bancaria. En vivo: reckon-flow.onrender.com/docs</p><ul><li>Python, FastAPI, SQLAlchemy async, PostgreSQL, Redis, Alembic, Pydantic, pytest, mypy. Escrituras idempotentes, Decimal, bloqueos de fila. CI/CD: ruff, mypy, pytest, Alembic, pip-audit.</li></ul>"
+          "description": "<p>API FastAPI headless para viajes corporativos: aprobaciones, ledger de doble entrada, extracción LLM de recibos, conciliación bancaria. En vivo: reckon-flow.onrender.com/docs</p><ul><li>IA generativa: extracción LLM estructurada (schema Pydantic, extra=forbid) como guardrail frente a prompt injection; jobs en background (HTTP 202) para que el modelo no apruebe ni pague.</li><li>Recuperación híbrida y matching tipo RAG: prefiltro SQL, RapidFuzz, embeddings, Reciprocal Rank Fusion (RRF). Python, FastAPI, PostgreSQL, Redis, pytest, CI/CD.</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000005",
@@ -319,15 +319,22 @@
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "IA aplicada",
+          "name": "IA generativa",
           "proficiency": "",
           "level": 0,
           "keywords": [
-            "Extracción LLM estructurada",
+            "IA generativa",
+            "NLP",
+            "LLMs",
+            "Prompt engineering",
+            "RAG",
             "Embeddings",
-            "Groq",
-            "RapidFuzz",
-            "Recuperación híbrida"
+            "Recuperación híbrida",
+            "LangGraph",
+            "Structured outputs",
+            "Guardrails",
+            "LLM routing",
+            "Context engineering"
           ]
         },
         {
@@ -538,7 +545,7 @@
         "lineHeight": 1.3
       }
     },
-    "notes": "CV hiring: empleos visibles. Keywords Pydantic/CI-CD, titulos ATS, proyectos compactos. Reexportar PDF.",
+    "notes": "CV hiring: empleos visibles. Keywords IA generativa/NLP/RAG sin inventar vector DB. Reexportar PDF.",
     "styleRules": []
   }
 }
