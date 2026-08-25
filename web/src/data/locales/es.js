@@ -11,46 +11,46 @@ const PROFILE = {
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
   buyMeACoffee: "https://buymeacoffee.com/ikrame.dev",
   siteUrl: "https://ikrame.dev",
-  overline: "PYTHON BACKEND · IA GENERATIVA · FASTAPI",
+  overline: "PYTHON BACKEND · IA · FASTAPI",
   headlineParts: [
     { text: "Desarrollo software" },
     { text: "pensando en el detalle", accent: true },
     { text: "y en quien lo usa.", italic: true },
   ],
   heroSubtext:
-    "Hola, soy Ikrame Ibn Hayoun — desarrolladora centrada en backend en Málaga. Construyo APIs y los bordes que fallan con reintentos, y entrego IA generativa en esas APIs: extracción LLM estructurada, embeddings, recuperación híbrida. Trabajo con agentes, skills reutilizables y enrutado de modelos según coste. Abierta a roles remotos o híbridos de backend e IA generativa.",
+    "Hola, soy Ikrame Ibn Hayoun — desarrolladora centrada en backend en Málaga. Construyo APIs y los bordes que fallan con reintentos, y entrego IA en esas APIs: extracción LLM estructurada, embeddings, recuperación híbrida. Trabajo con agentes, skills reutilizables y enrutado de modelos según coste. Abierta a roles remotos o híbridos de backend e IA.",
   heroFacts: [
     { eyebrow: "Disponible para", text: "Remoto · híbrido" },
     { eyebrow: "Trayectoria", text: "IA y Big Data · sep. 2026" },
     {
       eyebrow: "Enfoque",
-      text: "Backend · IA generativa",
+      text: "Backend · IA",
       accent: true,
     },
   ],
   tagline:
-    "Backend Python · FastAPI · IA generativa · disponible en remoto o híbrido",
+    "Backend Python · FastAPI · IA · disponible en remoto o híbrido",
   cliAbout: [
     "Hola — soy Ikrame. Desarrolladora backend en Málaga, con debilidad por las interfaces tranquilas cuando toca el lado UI.",
-    "Dedico la mayor parte de la energía a FastAPI, PostgreSQL e IA generativa en el camino de producción: extracción estructurada, embeddings, retrieval.",
+    "Dedico la mayor parte de la energía a FastAPI, PostgreSQL e IA en el camino de producción: extracción estructurada, embeddings, retrieval.",
     "Fuera del editor suelo estar metida en un juego con mucha historia, cantando para desconectar, o afinando pequeños detalles estéticos.",
-    "Acabo de terminar DAW (jun. 2026). Busco roles backend e IA generativa remotos o híbridos.",
+    "Acabo de terminar DAW (jun. 2026). Busco roles backend e IA remotos o híbridos.",
     "Este portfolio también lo construí yo de punta a punta — el código está en GitHub.",
   ],
   cliTldr: [
-    "Backend Python en Málaga — FastAPI, PostgreSQL, IA generativa. También React cuando el producto lo pide.",
-    "Ahora mismo: ReckonFlow (API de ledger + extracción LLM). Busco roles backend e IA generativa remotos o híbridos.",
+    "Backend Python en Málaga — FastAPI, PostgreSQL, IA. También React cuando el producto lo pide.",
+    "Ahora mismo: ReckonFlow (API de ledger + extracción LLM). Busco roles backend e IA remotos o híbridos.",
   ],
   cliAvail:
     "Disponible en remoto o híbrido. Basada en Málaga (CET). Encantada de hablar cuando quieras.",
   cliNow:
-    "Acabo de terminar DAW (jun. 2026) y las prácticas en DATA CONTROL. Centrada en ReckonFlow — abierta a la siguiente oportunidad backend o de IA generativa.",
+    "Acabo de terminar DAW (jun. 2026) y las prácticas en DATA CONTROL. Centrada en ReckonFlow — abierta a la siguiente oportunidad backend o de IA.",
   portraitLink: {
     label: "Salúdame en LinkedIn →",
   },
   practiceAside: {
     title: "De un vistazo",
-    text: "Técnico Superior en DAW (jun. 2026) — proyecto final MyPlaythrough con la máxima calificación. Backend e IA generativa aplicada en GitHub: FastAPI, PostgreSQL, extracción LLM, embeddings, tests y CI. Incluido este portfolio, construido de cero.",
+    text: "Técnico Superior en DAW (jun. 2026) — proyecto final MyPlaythrough con la máxima calificación. Backend e IA aplicada en GitHub: FastAPI, PostgreSQL, extracción LLM, embeddings, tests y CI. Incluido este portfolio, construido de cero.",
   },
 };
 
@@ -118,7 +118,7 @@ const STACK = {
     {
       id: "ai",
       index: "03",
-      title: "IA generativa",
+      title: "IA",
       kicker:
         "Entregada en APIs, más cómo orquesto agentes: prompts, skills, routing, contexto.",
       groups: [

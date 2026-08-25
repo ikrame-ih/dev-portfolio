@@ -12,45 +12,45 @@ const PROFILE = {
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
   buyMeACoffee: "https://buymeacoffee.com/ikrame.dev",
   siteUrl: "https://ikrame.dev",
-  overline: "PYTHON BACKEND · GENAI · FASTAPI",
+  overline: "PYTHON BACKEND · AI · FASTAPI",
   headlineParts: [
     { text: "I build software" },
     { text: "with attention to detail", accent: true },
     { text: "and the context behind\u00A0it.", italic: true },
   ],
   heroSubtext:
-    "Hi, I'm Ikrame Ibn Hayoun — a backend-focused developer in Málaga. I build APIs and the edges that break under retries, and I ship generative AI in those APIs: structured LLM extraction, embeddings, hybrid retrieval. I work with agents, reusable skills, and cost-aware model routing. Open to remote or hybrid backend and GenAI roles.",
+    "Hi, I'm Ikrame Ibn Hayoun — a backend-focused developer in Málaga. I build APIs and the edges that break under retries, and I ship AI in those APIs: structured LLM extraction, embeddings, hybrid retrieval. I work with agents, reusable skills, and cost-aware model routing. Open to remote or hybrid backend and AI roles.",
   // Compact hero facts — avoid repeating overline role or Málaga (already in copy + photo).
   heroFacts: [
     { eyebrow: "Open to", text: "Remote · hybrid" },
     { eyebrow: "Path", text: "AI & Big Data · Sep 2026" },
-    { eyebrow: "Focus", text: "Backend · GenAI", accent: true },
+    { eyebrow: "Focus", text: "Backend · AI", accent: true },
   ],
   // Flat string for terminal / plain contexts.
-  tagline: "Python backend · FastAPI · generative AI · open to remote or hybrid",
+  tagline: "Python backend · FastAPI · AI · open to remote or hybrid",
   // Friendly blurb for CLI `about` — warm, specific, not a CV tagline dump.
   cliAbout: [
     "Hi — I'm Ikrame. Backend developer in Málaga, with a soft spot for calm interfaces when I build the UI side.",
-    "I spend most of my energy on FastAPI, PostgreSQL, and generative AI in production paths: structured extraction, embeddings, retrieval.",
+    "I spend most of my energy on FastAPI, PostgreSQL, and AI in production paths: structured extraction, embeddings, retrieval.",
     "Away from the editor I'm usually deep in a story-heavy game, singing to reset my head, or fussing over little aesthetic details.",
-    "Just wrapped DAW (Jun 2026). Looking for remote or hybrid backend and GenAI roles.",
+    "Just wrapped DAW (Jun 2026). Looking for remote or hybrid backend and AI roles.",
     "I also built this portfolio end to end — the code is on GitHub.",
   ],
   // Ultra-short pitch for CLI `tldr`.
   cliTldr: [
-    "Python backend in Málaga — FastAPI, PostgreSQL, generative AI. Ships React when a product needs a UI.",
-    "Currently building ReckonFlow (ledger API + LLM extraction). Looking for remote or hybrid backend and GenAI roles.",
+    "Python backend in Málaga — FastAPI, PostgreSQL, AI. Ships React when a product needs a UI.",
+    "Currently building ReckonFlow (ledger API + LLM extraction). Looking for remote or hybrid backend and AI roles.",
   ],
   cliAvail:
     "Open to remote or hybrid. Based in Málaga (CET). Happy to chat anytime.",
   cliNow:
-    "Just finished DAW (Jun 2026) and internship work at DATA CONTROL. Deep on ReckonFlow — open to the next backend or GenAI role.",
+    "Just finished DAW (Jun 2026) and internship work at DATA CONTROL. Deep on ReckonFlow — open to the next backend or AI role.",
   portraitLink: {
     label: "Say hi on LinkedIn →",
   },
   practiceAside: {
     title: "At a glance",
-    text: "Higher Vocational Diploma (DAW, Jun 2026) — final project MyPlaythrough awarded maximum grade. Backend and applied GenAI on GitHub: FastAPI, PostgreSQL, LLM extraction, embeddings, tests, and CI. This portfolio included — built from scratch.",
+    text: "Higher Vocational Diploma (DAW, Jun 2026) — final project MyPlaythrough awarded maximum grade. Backend and applied AI on GitHub: FastAPI, PostgreSQL, LLM extraction, embeddings, tests, and CI. This portfolio included — built from scratch.",
   },
 };
 
@@ -118,7 +118,7 @@ const STACK = {
     {
       id: "ai",
       index: "03",
-      title: "Generative AI",
+      title: "AI",
       kicker:
         "Shipped in APIs, plus how I run agents: prompts, skills, routing, context.",
       groups: [
