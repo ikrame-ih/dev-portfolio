@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Desarrolladora backend Python en Málaga. Más de 2 años de experiencia profesional (EY, operaciones y prácticas de software). Construyo APIs REST con FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic y pytest. IA generativa y NLP: prompt engineering (zero-shot, few-shot, Chain-of-Thought, ReAct), extracción LLM estructurada, embeddings, recuperación híbrida y grounding tipo RAG. Flujos agénticos con LangGraph, skills reutilizables, context engineering y LLM routing según coste. Graduada DAW (jun. 2026), proyecto final 10/10. Abierta a backend e IA generativa remoto o híbrido.</p>"
+    "content": "<p>Desarrolladora backend Python en Málaga. Más de 2 años de experiencia profesional (EY, operaciones y prácticas de software). Construyo APIs REST con FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic y pytest. IA generativa y NLP: prompt engineering (zero-shot, few-shot, Chain-of-Thought, ReAct), extracción LLM estructurada, embeddings, recuperación híbrida y grounding tipo RAG. Pipelines LangGraph.js para el operador (GraphState tipado, tool calling, Groq), skills reutilizables, context engineering y LLM routing según coste. Graduada DAW (jun. 2026), proyecto final 10/10. Abierta a backend e IA generativa remoto o híbrido.</p>"
   },
   "sections": {
     "profiles": {
@@ -231,7 +231,7 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>API FastAPI headless para viajes corporativos: aprobaciones, ledger de doble entrada, extracción LLM de recibos, conciliación bancaria. En vivo: reckon-flow.onrender.com/docs</p><ul><li>IA generativa: extracción LLM estructurada (schema Pydantic, extra=forbid) como guardrail frente a prompt injection; jobs en background (HTTP 202) para que el modelo no apruebe ni pague.</li><li>Recuperación híbrida y matching tipo RAG: prefiltro SQL, RapidFuzz, embeddings, Reciprocal Rank Fusion (RRF). Python, FastAPI, PostgreSQL, Redis, pytest, CI/CD.</li></ul>"
+          "description": "<p>API FastAPI headless para viajes corporativos: aprobaciones, ledger de doble entrada, extracción LLM de recibos, conciliación bancaria. En vivo: reckon-flow.onrender.com/docs</p><ul><li>IA generativa: PydanticAI + Groq, extracción estructurada (schema extra=forbid) como guardrail frente a prompt injection; jobs HTTP 202; stub en CI; reintentos ante rate limit. El modelo no aprueba ni paga.</li><li>Recuperación híbrida: prefiltro SQL, RapidFuzz, embeddings, Reciprocal Rank Fusion (RRF). Prometheus /metrics. Python, FastAPI, PostgreSQL, Redis, pytest, CI/CD.</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000005",
@@ -256,6 +256,18 @@
             "inlineLink": true
           },
           "description": "<p>Proyecto final DAW, 10/10. Biblioteca de juegos con React, Node.js/Express, PostgreSQL, JWT, Docker Compose. Vitest en cliente y servidor. Demo: my-playthrough.vercel.app</p>"
+        },
+        {
+          "id": "d4000001-0001-4000-8000-000000000006",
+          "hidden": false,
+          "name": "Málaga Onboarding",
+          "period": "2026 - Actualidad",
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
+          "description": "<p>Guía para expats del PTA que se mudan a Málaga. El API de plan en producción es un topological sort determinista — sin LLM en el camino del usuario (0€ de inferencia). CLI LangGraph.js solo para el operador, en local, verifica fichas JSON.</p><ul><li>Grafo de cuatro nodos con GraphState tipado: researcher (claims con Groq) → source finder (búsqueda DuckDuckGo limitada por dominio, fetch + Cheerio) → fact checker (verified / uncertain / potentially_inaccurate) → editor (redacta solo con evidencia oficial).</li><li>Enrutado condicional: riesgo medium/high corta a HUMAN_REVIEW_REQUIRED. Sin memoria entre ejecuciones. Tool calling, guardrails de prompt, Groq.</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000002",
@@ -330,11 +342,16 @@
             "RAG",
             "Embeddings",
             "Recuperación híbrida",
+            "PydanticAI",
+            "Groq",
             "LangGraph",
+            "LangGraph.js",
+            "Tool calling",
             "Structured outputs",
             "Guardrails",
             "LLM routing",
-            "Context engineering"
+            "Context engineering",
+            "Prometheus"
           ]
         },
         {

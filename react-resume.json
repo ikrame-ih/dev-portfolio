@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Backend Python developer in Málaga. 2+ years of professional work (EY, ops roles, and a software internship). I build REST APIs with FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic, and pytest. Applied generative AI and NLP: prompt engineering (zero-shot, few-shot, Chain-of-Thought, ReAct), structured LLM extraction, embeddings, hybrid retrieval, and RAG-style grounding. Agentic workflows with LangGraph, reusable agent skills, context engineering, and cost-aware LLM routing. DAW graduate (Jun 2026), capstone 10/10. Open to remote or hybrid backend and GenAI roles.</p>"
+    "content": "<p>Backend Python developer in Málaga. 2+ years of professional work (EY, ops roles, and a software internship). I build REST APIs with FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic, and pytest. Applied generative AI and NLP: prompt engineering (zero-shot, few-shot, Chain-of-Thought, ReAct), structured LLM extraction, embeddings, hybrid retrieval, and RAG-style grounding. LangGraph.js operator pipelines (typed GraphState, tool calling, Groq), reusable agent skills, context engineering, and cost-aware LLM routing. DAW graduate (Jun 2026), capstone 10/10. Open to remote or hybrid backend and GenAI roles.</p>"
   },
   "sections": {
     "profiles": {
@@ -231,7 +231,7 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>Headless FastAPI API for corporate travel: approvals, immutable double-entry ledger, LLM receipt extraction, hybrid bank reconciliation. Live: reckon-flow.onrender.com/docs</p><ul><li>Generative AI: structured LLM extraction (Pydantic schema, extra=forbid) as a guardrail against prompt injection; HTTP 202 background jobs so the model cannot approve or pay.</li><li>Hybrid retrieval and RAG-style matching: SQL prefilter, RapidFuzz, embeddings, Reciprocal Rank Fusion (RRF). Python, FastAPI, PostgreSQL, Redis, pytest, CI/CD.</li></ul>"
+          "description": "<p>Headless FastAPI API for corporate travel: approvals, immutable double-entry ledger, LLM receipt extraction, hybrid bank reconciliation. Live: reckon-flow.onrender.com/docs</p><ul><li>Generative AI: PydanticAI + Groq structured extraction (schema extra=forbid) as a guardrail against prompt injection; HTTP 202 background jobs; stub provider in CI; retries on rate limits. The model cannot approve or pay.</li><li>Hybrid retrieval: SQL prefilter, RapidFuzz, embeddings, Reciprocal Rank Fusion (RRF). Prometheus /metrics. Python, FastAPI, PostgreSQL, Redis, pytest, CI/CD.</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000005",
@@ -256,6 +256,18 @@
             "inlineLink": true
           },
           "description": "<p>DAW capstone, grade 10/10. Game library with React, Node.js/Express, PostgreSQL, JWT, Docker Compose. Vitest on client and server. Live: my-playthrough.vercel.app</p>"
+        },
+        {
+          "id": "d4000001-0001-4000-8000-000000000006",
+          "hidden": false,
+          "name": "Málaga Onboarding",
+          "period": "2026 - Present",
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
+          "description": "<p>Guide for PTA expats relocating to Málaga. Production plan API is a deterministic topological sort — no LLM on the user path (0€ inference). Operator-only LangGraph.js CLI verifies JSON fact sheets locally.</p><ul><li>Four-node graph with typed GraphState: researcher (Groq claims) → source finder (DuckDuckGo site-limited search, fetch + Cheerio) → fact checker (verified / uncertain / potentially_inaccurate) → editor (draft from official evidence only).</li><li>Conditional routing: medium/high risk short-circuits to HUMAN_REVIEW_REQUIRED. No cross-run memory; each invoke is one sheet. Tool calling, prompt guardrails, Groq.</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000002",
@@ -330,11 +342,16 @@
             "RAG",
             "Embeddings",
             "Hybrid retrieval",
+            "PydanticAI",
+            "Groq",
             "LangGraph",
+            "LangGraph.js",
+            "Tool calling",
             "Structured outputs",
             "Guardrails",
             "LLM routing",
-            "Context engineering"
+            "Context engineering",
+            "Prometheus"
           ]
         },
         {
