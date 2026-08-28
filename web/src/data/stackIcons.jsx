@@ -164,6 +164,332 @@ const CUSTOM = {
       <circle cx="12" cy="11.7" r="1.35" />
     </Svg>
   ),
+  // Concepts below have no Simple Icons mark — geometric metaphors at stamp size.
+  LLMs: (p) => (
+    <Svg {...p}>
+      <rect
+        x="3.8"
+        y="6.2"
+        width="16.4"
+        height="11.6"
+        rx="2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <circle cx="8.2" cy="12" r="1.25" />
+      <circle cx="12" cy="9.4" r="1.25" />
+      <circle cx="12" cy="14.6" r="1.25" />
+      <circle cx="15.8" cy="12" r="1.25" />
+      <path
+        d="M9.35 11.2 10.85 10.05M9.35 12.8 10.85 13.95M13.15 10.05 14.65 11.2M13.15 13.95 14.65 12.8"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+      />
+    </Svg>
+  ),
+  "Prompt engineering": (p) => (
+    <Svg {...p}>
+      <rect
+        x="3.6"
+        y="5.2"
+        width="16.8"
+        height="13.6"
+        rx="1.6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <path
+        d="M7.1 10.4 9.2 12 7.1 13.6M11.4 13.6h5.4"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  ),
+  "Structured outputs": (p) => (
+    <Svg {...p}>
+      <path
+        d="M8.4 5.2c-2.15 0-2.9 1.35-2.9 2.7 0 1.05-.85 1.4-.85 1.4s.85.35.85 1.4c0 1.35.75 2.7 2.9 2.7"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+        strokeLinecap="round"
+      />
+      <path
+        d="M15.6 5.2c2.15 0 2.9 1.35 2.9 2.7 0 1.05.85 1.4.85 1.4s-.85.35-.85 1.4c0 1.35-.75 2.7-2.9 2.7"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+        strokeLinecap="round"
+      />
+      <path
+        d="M9.4 9.1h5.2M9.4 12.5h3.6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+        strokeLinecap="round"
+      />
+    </Svg>
+  ),
+  Embeddings: (p) => (
+    <Svg {...p}>
+      <path
+        d="M4.4 19.2h15.4M4.4 19.2V4.6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+        strokeLinecap="round"
+      />
+      <path
+        d="M4.4 19.2 10.2 13.6M4.4 19.2 15.6 9.4M4.4 19.2 17.4 15.2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.35"
+        strokeLinecap="round"
+      />
+      <circle cx="10.2" cy="13.6" r="1.35" />
+      <circle cx="15.6" cy="9.4" r="1.35" />
+      <circle cx="17.4" cy="15.2" r="1.35" />
+    </Svg>
+  ),
+  "Hybrid retrieval": (p) => (
+    <Svg {...p}>
+      <circle
+        cx="9.1"
+        cy="12"
+        r="5.3"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <circle
+        cx="14.9"
+        cy="12"
+        r="5.3"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <circle cx="12" cy="12" r="1.15" />
+    </Svg>
+  ),
+  RRF: (p) => (
+    <Svg {...p}>
+      <circle cx="5.4" cy="6.8" r="1.2" />
+      <circle cx="5.4" cy="12" r="1.2" />
+      <circle cx="5.4" cy="17.2" r="1.2" />
+      <circle cx="18.6" cy="6.8" r="1.2" />
+      <circle cx="18.6" cy="12" r="1.2" />
+      <circle cx="18.6" cy="17.2" r="1.2" />
+      <circle cx="12" cy="9.4" r="1.45" />
+      <circle cx="12" cy="14.6" r="1.45" />
+      <path
+        d="M6.7 7.4 10.6 9M6.7 12 10.6 14.2M17.3 7.4 13.4 9M17.3 12 13.4 14.2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.35"
+        strokeLinecap="round"
+      />
+    </Svg>
+  ),
+  Guardrails: (p) => (
+    <Svg {...p}>
+      <path
+        d="M5.2 5.2v13.6M18.8 5.2v13.6M5.2 8.4h13.6M5.2 15.6h13.6M8.4 8.4v7.2M12 8.4v7.2M15.6 8.4v7.2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+        strokeLinecap="round"
+      />
+    </Svg>
+  ),
+  LangGraph: (p) => (
+    <Svg {...p}>
+      <circle
+        cx="6.2"
+        cy="12"
+        r="2.15"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <circle
+        cx="12"
+        cy="6.2"
+        r="2.15"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <circle
+        cx="12"
+        cy="17.8"
+        r="2.15"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <circle
+        cx="17.8"
+        cy="12"
+        r="2.15"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <path
+        d="M8.3 11.2 10 7.9M8.3 12.8 10 16.1M13.9 7.9 15.7 10.8M13.9 16.1 15.7 13.2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.35"
+        strokeLinecap="round"
+      />
+    </Svg>
+  ),
+  "Context engineering": (p) => (
+    <Svg {...p}>
+      <path
+        d="M4.6 7.2h14.8M4.6 12h11M4.6 16.8h13.2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+        strokeLinecap="round"
+      />
+      <rect
+        x="7.4"
+        y="5"
+        width="8.4"
+        height="14"
+        rx="1"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+    </Svg>
+  ),
+  "LLM routing": (p) => (
+    <Svg {...p}>
+      <circle
+        cx="5.8"
+        cy="12"
+        r="2.2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <circle
+        cx="18.2"
+        cy="5.8"
+        r="1.85"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <circle
+        cx="18.2"
+        cy="12"
+        r="1.85"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <circle
+        cx="18.2"
+        cy="18.2"
+        r="1.85"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <path
+        d="M8.1 12h3.1M11.2 12 16.3 6.4M11.2 12h5.1M11.2 12 16.3 17.6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  ),
+  "Agent skills": (p) => (
+    <Svg {...p}>
+      <rect
+        x="5.2"
+        y="4.4"
+        width="13.6"
+        height="15.2"
+        rx="1.4"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <path
+        d="M8.2 11h7.6M8.2 14.2h7.6M8.2 17.2h4.6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+        strokeLinecap="round"
+      />
+      <path d="M12 6.1 12.55 7.45 14.05 7.7 12.9 8.7 13.2 10.2 12 9.45 10.8 10.2 11.1 8.7 9.95 7.7 11.45 7.45Z" />
+    </Svg>
+  ),
+  "Git worktrees": (p) => (
+    <Svg {...p}>
+      <circle
+        cx="12"
+        cy="4.8"
+        r="1.85"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <path
+        d="M12 6.7v3M6.6 9.7h10.8M6.6 9.7v2.2M17.4 9.7v2.2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+        strokeLinecap="round"
+      />
+      <rect
+        x="3.4"
+        y="12.6"
+        width="6.4"
+        height="7.2"
+        rx="1"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <path
+        d="M3.4 14.6h6.4"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <rect
+        x="14.2"
+        y="12.6"
+        width="6.4"
+        height="7.2"
+        rx="1"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <path
+        d="M14.2 14.6h6.4"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+    </Svg>
+  ),
   // Data Access DataFlex has no Simple Icons entry — offset plates read as
   // sliding data records (the "flex") at stamp size.
   DataFlex: (p) => (
@@ -235,6 +561,10 @@ const FROM_SIMPLE = {
   Obsidian: siObsidian,
 };
 
+const ALIASES = {
+  "Recuperación híbrida": "Hybrid retrieval",
+};
+
 const Fallback = (p) => (
   <Svg {...p}>
     <rect
@@ -255,9 +585,10 @@ export const StackIcon = ({
   name,
   className = "w-4 h-4 shrink-0 text-burgundy",
 }) => {
-  const Custom = CUSTOM[name];
+  const key = ALIASES[name] ?? name;
+  const Custom = CUSTOM[key];
   if (Custom) return <Custom className={className} />;
-  const brand = FROM_SIMPLE[name];
+  const brand = FROM_SIMPLE[key];
   if (brand) return <BrandPath path={brand.path} className={className} />;
   return <Fallback className={className} />;
 };
