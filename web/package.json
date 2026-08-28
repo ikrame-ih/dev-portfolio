@@ -7,11 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "capture:readme": "node scripts/capture-readme-shots.mjs"
+    "capture:readme": "node scripts/capture-readme-shots.mjs",
+    "cover-letter:pdf": "node scripts/render-cover-letter.mjs"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.0",
     "framer-motion": "^11.18.0",
+    "lucide-react": "^1.35.0",
     "mermaid": "^11.4.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

@@ -157,6 +157,32 @@ const DomainPanel = ({ domain, children, testId, rule = "before" }) => {
   );
 };
 
+const SkillGroup = ({ group, reduce, cols }) => (
+  <div>
+    <p className="mb-5 font-mono text-xs uppercase tracking-[0.22em] text-ink-mute">
+      {group.label}
+    </p>
+    <BrandGrid
+      items={group.items}
+      reduce={reduce}
+      cols={cols}
+    />
+  </div>
+);
+
+const layoutSkillGroups = (groups) => {
+  const rows = [];
+  for (let i = 0; i < groups.length; i += 1) {
+    if (groups[i].pairWithNext && groups[i + 1]) {
+      rows.push([groups[i], groups[i + 1]]);
+      i += 1;
+    } else {
+      rows.push([groups[i]]);
+    }
+  }
+  return rows;
+};
+
 const SkillsBlock = () => {
   const reduce = useReducedMotion();
   const { STACK, LANGUAGES, section } = useContent();
@@ -173,18 +199,32 @@ const SkillsBlock = () => {
         >
           <DomainPanel domain={domain} testId={`stack-${domain.id}`}>
             <div className="space-y-7">
-              {domain.groups.map((group) => (
-                <div key={group.label}>
-                  <p className="mb-5 font-mono text-xs uppercase tracking-[0.22em] text-ink-mute">
-                    {group.label}
-                  </p>
-                  <BrandGrid
-                    items={group.items}
-                    reduce={reduce}
-                    cols="grid-cols-2 sm:grid-cols-3"
-                  />
-                </div>
-              ))}
+              {layoutSkillGroups(domain.groups).map((row) => {
+                const paired = row.length === 2;
+                return (
+                  <div
+                    key={row.map((g) => g.label).join("|")}
+                    className={
+                      paired
+                        ? "grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-8"
+                        : undefined
+                    }
+                  >
+                    {row.map((group) => (
+                      <SkillGroup
+                        key={group.label}
+                        group={group}
+                        reduce={reduce}
+                        cols={
+                          paired
+                            ? "grid-cols-2"
+                            : "grid-cols-2 sm:grid-cols-3"
+                        }
+                      />
+                    ))}
+                  </div>
+                );
+              })}
             </div>
           </DomainPanel>
         </Reveal>

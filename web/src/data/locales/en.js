@@ -120,7 +120,7 @@ const STACK = {
       index: "03",
       title: "AI",
       kicker:
-        "Shipped in APIs, plus how I run agents: prompts, skills, routing, context.",
+        "Shipped in APIs, plus spec-driven agent work: prompts, skills, routing, context.",
       groups: [
         {
           label: "In product",
@@ -136,12 +136,14 @@ const STACK = {
         },
         {
           label: "Agentic workflow",
+          pairWithNext: true,
           items: [
             "LangGraph",
             "Context engineering",
             "LLM routing",
             "Agent skills",
             "Git worktrees",
+            "Spec-driven development",
           ],
         },
         {
