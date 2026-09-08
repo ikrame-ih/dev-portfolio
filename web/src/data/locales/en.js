@@ -4,7 +4,7 @@ import { ASSETS } from "../assets.js";
 const PROFILE = {
   name: "Ikrame Ibn Hayoun",
   location: "Málaga, ES",
-  workPreference: "Available for remote or hybrid opportunities",
+  workPreference: "Open to remote or hybrid roles",
   email: "ikihga2223@gmail.com",
   phone: "+34 682 02 76 93",
   github: "https://github.com/ikrame-ih",
@@ -19,11 +19,11 @@ const PROFILE = {
     { text: "and the context behind\u00A0it.", italic: true },
   ],
   heroSubtext:
-    "Hi, I'm Ikrame Ibn Hayoun — a backend-focused developer in Málaga. I build APIs and the edges that break under retries, and I ship AI in those APIs: structured LLM extraction, embeddings, hybrid retrieval. I work with agents, reusable skills, and cost-aware model routing. Open to remote or hybrid backend and AI roles.",
+    "Hi, I'm Ikrame Ibn Hayoun — a backend developer in Málaga. I write APIs that stay correct when a request is retried, and I put AI on those same paths: structured LLM extraction, embeddings, hybrid retrieval. I work with agents, reusable skills, and routing models by cost. Open to remote or hybrid backend and AI roles.",
   // Compact hero facts — avoid repeating overline role or Málaga (already in copy + photo).
   heroFacts: [
     { eyebrow: "Open to", text: "Remote · hybrid" },
-    { eyebrow: "Path", text: "AI & Big Data · Sep 2026" },
+    { eyebrow: "Path", text: "AI & Big Data · in progress" },
     { eyebrow: "Focus", text: "Backend · AI", accent: true },
   ],
   // Flat string for terminal / plain contexts.
@@ -39,18 +39,18 @@ const PROFILE = {
   // Ultra-short pitch for CLI `tldr`.
   cliTldr: [
     "Python backend in Málaga — FastAPI, PostgreSQL, AI. Ships React when a product needs a UI.",
-    "Currently building ReckonFlow (ledger API + LLM extraction). Looking for remote or hybrid backend and AI roles.",
+    "Building ReckonFlow (ledger API + LLM extraction) and the Málaga onboarding guide. Looking for remote or hybrid backend and AI roles.",
   ],
   cliAvail:
     "Open to remote or hybrid. Based in Málaga (CET). Happy to chat anytime.",
   cliNow:
-    "Just finished DAW (Jun 2026) and internship work at DATA CONTROL. Deep on ReckonFlow — open to the next backend or AI role.",
+    "Just finished DAW (Jun 2026) and the DATA CONTROL internship. ReckonFlow and the Málaga onboarding guide next — open to a backend or AI role.",
   portraitLink: {
     label: "Say hi on LinkedIn →",
   },
   practiceAside: {
     title: "At a glance",
-    text: "Higher Vocational Diploma (DAW, Jun 2026) — final project MyPlaythrough awarded maximum grade. Backend and applied AI on GitHub: FastAPI, PostgreSQL, LLM extraction, embeddings, tests, and CI. This portfolio included — built from scratch.",
+    text: "DAW, Jun 2026. Final project MyPlaythrough got the maximum grade. Backend and applied AI on GitHub: FastAPI, PostgreSQL, LLM extraction, embeddings, tests, and CI. This portfolio too — built from scratch.",
   },
 };
 
@@ -68,7 +68,7 @@ const STACK = {
       id: "backend",
       index: "01",
       title: "Backend & data",
-      kicker: "APIs, persistence, and the hard edges between them.",
+      kicker: "APIs, databases, and the messy bit between them.",
       groups: [
         {
           label: "APIs & runtime",
@@ -119,8 +119,7 @@ const STACK = {
       id: "ai",
       index: "03",
       title: "AI",
-      kicker:
-        "Shipped in APIs, plus spec-driven agent work: prompts, skills, routing, context.",
+      kicker: "In APIs, and with agents: prompts, skills, routing, context.",
       groups: [
         {
           label: "In product",
@@ -135,7 +134,7 @@ const STACK = {
           ],
         },
         {
-          label: "Agentic workflow",
+          label: "With agents",
           pairWithNext: true,
           items: [
             "LangGraph",
@@ -156,7 +155,7 @@ const STACK = {
       id: "tooling",
       index: "04",
       title: "Tooling & delivery",
-      kicker: "Ship, test, and keep the loop honest.",
+      kicker: "Tests, CI, and the rest of the delivery loop.",
       groups: [
         {
           label: "Toolchain",
@@ -247,7 +246,7 @@ const EDUCATION = [
       "EQF Level 5",
       "Post-Diploma Specialization",
     ],
-    period: "Starting Sep 2026",
+    period: "Sep 2026 — present",
   },
   {
     school: "CESUR Este, Málaga",
@@ -300,7 +299,7 @@ const PROJECTS = [
   },
   {
     id: "import-resolve-cli",
-    name: "Import Resolve Cli",
+    name: "Import Resolve CLI",
     subtitle: "CLI developer tool & Git merge driver · PyPI Python package",
     stack: ["Python 3.9+", "Git CLI", "Hatchling", "PyPI", "GitHub Actions"],
     href: "https://github.com/ikrame-ih/import-resolve-cli",
@@ -311,7 +310,7 @@ const PROJECTS = [
     description:
       "CLI developer tool and Git merge driver for automatically resolving merge conflicts in Python import blocks. Published on PyPI with zero runtime dependencies.",
     architectureSummary:
-      "Parses Git conflict markers in .py files, extracts conflict blocks, deduplicates and sorts import lines adhering to Python conventions, and acts as an automated repository merge driver.",
+      "Parses Git conflict markers in .py files, extracts the conflicted import blocks, deduplicates and sorts them to PEP 8, and can run as an automated Git merge driver.",
     mermaid: `flowchart LR
   Git[Git Merge Conflict] --> CLI[import-resolve-cli]
   CLI --> Parse[Parse .py Conflict Markers]
@@ -320,6 +319,37 @@ const PROJECTS = [
   CLI --> Driver[Auto Merge Driver Mode]
   classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
   class CLI,Parse,Dedupe accent`,
+  },
+  {
+    id: "malaga-onboarding",
+    name: "Málaga Onboarding",
+    subtitle: "Expat relocation checklist · web + LangGraph",
+    stack: ["JavaScript", "LangGraph.js", "Groq", "Cheerio", "Cloudflare"],
+    href: null,
+    demo: "https://malaga-onboarding.pages.dev/",
+    image: ASSETS.projects.malagaOnboarding,
+    imageAlt:
+      "Device mockup of málaga.onboarding in light and dark mode — desktop, laptop, tablet, and phone",
+    description:
+      "Checklist for landing in Málaga: padrón, NIE, Social Security. The live plan is a topological sort — no LLM on the user path. A local LangGraph.js CLI checks the fact sheets.",
+    signals: [
+      "User path is a graph sort — 0€ LLM inference",
+      "Operator CLI: LangGraph.js, typed GraphState, Groq",
+      "Ambiguous claims go to HUMAN_REVIEW_REQUIRED",
+    ],
+    architectureSummary:
+      "The public API orders steps with a topological sort. The operator CLI is a four-node LangGraph.js graph: researcher (Groq), source finder (DuckDuckGo + Cheerio), fact-checker, editor. Medium or high risk cuts to human review.",
+    mermaid: `flowchart LR
+  UI[Checklist UI] --> Plan[Plan API]
+  Plan --> Sort[Topological sort]
+  Op[Operator CLI] --> LG[LangGraph.js]
+  LG --> R[Researcher Groq]
+  LG --> S[Sources + Cheerio]
+  LG --> F[Fact checker]
+  F --> H{risk?}
+  H -->|high| Human[HUMAN_REVIEW]
+  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
+  class Plan,LG,F accent`,
   },
   {
     id: "my-playthrough",
@@ -436,7 +466,7 @@ const BENTO = {
       key: "aesthetics",
       label: "at the vanity",
       title: "Skincare",
-      body: "I love learning more about skincare, haircare, and makeup every day — there's always something to improve.",
+      body: "I like picking up new skincare, hair, and makeup tricks — usually one small thing at a time.",
       span: "md:col-span-2 md:row-span-1",
       image: ASSETS.interests.aesthetics,
       imageAlt: "Skincare and makeup — personal routines",
@@ -456,7 +486,7 @@ const BENTO = {
       key: "reading",
       label: "on the shelf",
       title: "Reading",
-      body: "I like reading, and I pick one book to work through slowly — almost always fiction. The last one I finished was Touch of Death by Alice Wilde.",
+      body: "I pick one book and read it slowly — almost always fiction. Last finished: Touch of Death by Alice Wilde.",
       span: "md:col-span-1 md:row-span-1",
       image: ASSETS.interests.reading,
       imageAlt: "Touch of Death by Alice Wilde — last book I read",
@@ -476,7 +506,7 @@ const BENTO = {
       key: "travelling",
       label: "boarding soon",
       title: "Travelling",
-      body: "I've developed a taste for travelling — and soon I'll see more of the world.",
+      body: "I like travelling, and I want to see more of the world.",
       span: "md:col-span-3 md:row-span-1",
       image: ASSETS.interests.travelling,
       imageAlt: "City street corner from a recent trip",
@@ -569,14 +599,14 @@ const catalog = {
     cvTitleAccent: "education.",
     cvKicker: "Skills, languages, and the work behind them.",
     languagesTitle: "Languages",
-    languagesKicker: "How I speak with people — and across contexts.",
+    languagesKicker: "Spanish, English, and Darija — the ones I actually use.",
     experience: "Experience",
     education: "Education",
     projectsOverline: "02 · selected work",
     projectsTitleBefore: "Selected projects",
     projectsTitleAccent: "with architecture notes.",
     projectsKicker:
-      "Each project links to its repo, live demo when available, and an architecture diagram. Click a capture to enlarge it.",
+      "Repo, live demo when there is one, and an architecture diagram. Click a capture to enlarge it.",
     inProgress: "In progress",
     comingSoon: "Coming soon",
     howItWorks: "How it works →",

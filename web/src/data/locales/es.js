@@ -3,7 +3,7 @@ import { ASSETS } from "../assets.js";
 const PROFILE = {
   name: "Ikrame Ibn Hayoun",
   location: "Málaga, ES",
-  workPreference: "Disponible para oportunidades en remoto o híbridas",
+  workPreference: "Abierta a roles en remoto o híbridos",
   email: "ikihga2223@gmail.com",
   phone: "+34 682 02 76 93",
   github: "https://github.com/ikrame-ih",
@@ -18,10 +18,10 @@ const PROFILE = {
     { text: "y en quien lo usa.", italic: true },
   ],
   heroSubtext:
-    "Hola, soy Ikrame Ibn Hayoun — desarrolladora centrada en backend en Málaga. Construyo APIs y los bordes que fallan con reintentos, y entrego IA en esas APIs: extracción LLM estructurada, embeddings, recuperación híbrida. Trabajo con agentes, skills reutilizables y enrutado de modelos según coste. Abierta a roles remotos o híbridos de backend e IA.",
+    "Hola, soy Ikrame Ibn Hayoun — desarrolladora backend en Málaga. Escribo APIs que no se rompen si una petición se reintenta, y meto IA en ese mismo camino: extracción LLM estructurada, embeddings, recuperación híbrida. Trabajo con agentes, skills reutilizables y elijo el modelo según el coste. Abierta a roles remotos o híbridos de backend e IA.",
   heroFacts: [
     { eyebrow: "Disponible para", text: "Remoto · híbrido" },
-    { eyebrow: "Trayectoria", text: "IA y Big Data · sep. 2026" },
+    { eyebrow: "Trayectoria", text: "IA y Big Data · en curso" },
     {
       eyebrow: "Enfoque",
       text: "Backend · IA",
@@ -39,18 +39,18 @@ const PROFILE = {
   ],
   cliTldr: [
     "Backend Python en Málaga — FastAPI, PostgreSQL, IA. También React cuando el producto lo pide.",
-    "Ahora mismo: ReckonFlow (API de ledger + extracción LLM). Busco roles backend e IA remotos o híbridos.",
+    "Ahora mismo: ReckonFlow (API de ledger + extracción LLM) y la guía de onboarding de Málaga. Busco roles backend e IA remotos o híbridos.",
   ],
   cliAvail:
     "Disponible en remoto o híbrido. Basada en Málaga (CET). Encantada de hablar cuando quieras.",
   cliNow:
-    "Acabo de terminar DAW (jun. 2026) y las prácticas en DATA CONTROL. Centrada en ReckonFlow — abierta a la siguiente oportunidad backend o de IA.",
+    "Acabo de terminar DAW (jun. 2026) y las prácticas en DATA CONTROL. ReckonFlow y la guía de onboarding de Málaga — abierta a la siguiente oportunidad backend o de IA.",
   portraitLink: {
     label: "Salúdame en LinkedIn →",
   },
   practiceAside: {
     title: "De un vistazo",
-    text: "Técnico Superior en DAW (jun. 2026) — proyecto final MyPlaythrough con la máxima calificación. Backend e IA aplicada en GitHub: FastAPI, PostgreSQL, extracción LLM, embeddings, tests y CI. Incluido este portfolio, construido de cero.",
+    text: "DAW, jun. 2026. El proyecto final, MyPlaythrough, con la máxima calificación. Backend e IA aplicada en GitHub: FastAPI, PostgreSQL, extracción LLM, embeddings, tests y CI. Este portfolio también, construido de cero.",
   },
 };
 
@@ -67,7 +67,7 @@ const STACK = {
       id: "backend",
       index: "01",
       title: "Backend y datos",
-      kicker: "APIs, persistencia y los bordes difíciles entre ambos.",
+      kicker: "APIs, bases de datos y lo que hay entre medias.",
       groups: [
         {
           label: "APIs y runtime",
@@ -110,7 +110,7 @@ const STACK = {
           items: ["Zustand", "Leaflet"],
         },
         {
-          label: "Oficio",
+          label: "Calidad",
           items: ["HTML semántico", "Accesibilidad"],
         },
       ],
@@ -119,8 +119,7 @@ const STACK = {
       id: "ai",
       index: "03",
       title: "IA",
-      kicker:
-        "Entregada en APIs, más trabajo agéntico spec-driven: prompts, skills, routing, contexto.",
+      kicker: "En las APIs, y con agentes: prompts, skills, routing, contexto.",
       groups: [
         {
           label: "En producto",
@@ -135,7 +134,7 @@ const STACK = {
           ],
         },
         {
-          label: "Flujo agéntico",
+          label: "Con agentes",
           pairWithNext: true,
           items: [
             "LangGraph",
@@ -156,8 +155,7 @@ const STACK = {
       id: "tooling",
       index: "04",
       title: "Herramientas y entrega",
-      kicker:
-        "Herramientas para desarrollar, probar y desplegar aplicaciones con confianza.",
+      kicker: "Tests, CI y el resto del flujo de entrega.",
       groups: [
         {
           label: "Cadena de trabajo",
@@ -247,7 +245,7 @@ const EDUCATION = [
       "Nivel MECES / EQF 5",
       "Tras ciclo superior",
     ],
-    period: "Inicio: septiembre de 2026",
+    period: "sep. 2026 — en curso",
   },
   {
     school: "CESUR Este, Málaga",
@@ -300,7 +298,7 @@ const PROJECTS = [
   },
   {
     id: "import-resolve-cli",
-    name: "Import Resolve Cli",
+    name: "Import Resolve CLI",
     subtitle: "Herramienta CLI y Git merge driver · paquete Python PyPI",
     stack: ["Python 3.9+", "Git CLI", "Hatchling", "PyPI", "GitHub Actions"],
     href: "https://github.com/ikrame-ih/import-resolve-cli",
@@ -309,9 +307,9 @@ const PROJECTS = [
     imageAlt:
       "VS Code con un conflicto de imports en Python e import-resolve en dry-run resolviéndolo en la terminal",
     description:
-      "Herramienta CLI y controlador de fusión para Git que resuelve automáticamente conflictos de merge en bloques de imports de Python. Publicado en PyPI con cero dependencias en runtime.",
+      "CLI y merge driver de Git que resuelve conflictos de merge en bloques de imports de Python. Publicado en PyPI, sin dependencias en runtime.",
     architectureSummary:
-      "Analiza marcadores de conflicto de Git en archivos .py, extrae bloques en conflicto, elimina duplicados, ordena imports respetando sintaxis Python e implementa un motor de auto-merge.",
+      "Lee los marcadores de conflicto de Git en archivos .py, extrae los imports en conflicto, elimina duplicados, los ordena según PEP 8 y puede usarse como merge driver automático.",
     mermaid: `flowchart LR
   Git[Git Merge Conflict] --> CLI[import-resolve-cli]
   CLI --> Parse[Parse conflicto .py]
@@ -320,6 +318,37 @@ const PROJECTS = [
   CLI --> Driver[Modo Auto Merge Driver .git/config]
   classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
   class CLI,Parse,Dedupe accent`,
+  },
+  {
+    id: "malaga-onboarding",
+    name: "Málaga Onboarding",
+    subtitle: "Checklist de llegada para expats · web + LangGraph",
+    stack: ["JavaScript", "LangGraph.js", "Groq", "Cheerio", "Cloudflare"],
+    href: null,
+    demo: "https://malaga-onboarding.pages.dev/",
+    image: ASSETS.projects.malagaOnboarding,
+    imageAlt:
+      "Mockup de málaga.onboarding en claro y oscuro — escritorio, portátil, tablet y móvil",
+    description:
+      "Checklist para aterrizar en Málaga: padrón, NIE, Seguridad Social. El plan en vivo es un orden topológico: sin LLM en el camino del usuario. Un CLI local con LangGraph.js revisa las fichas.",
+    signals: [
+      "El camino del usuario es un grafo — 0€ de inferencia",
+      "CLI de operador: LangGraph.js, GraphState tipado, Groq",
+      "Si una afirmación es ambigua, pasa a HUMAN_REVIEW_REQUIRED",
+    ],
+    architectureSummary:
+      "La API pública ordena los pasos con un orden topológico. El CLI de operador es un grafo LangGraph.js de cuatro nodos: researcher (Groq), source finder (DuckDuckGo + Cheerio), fact-checker, editor. Si el riesgo es medio o alto, corta a revisión humana.",
+    mermaid: `flowchart LR
+  UI[Checklist UI] --> Plan[Plan API]
+  Plan --> Sort[Topological sort]
+  Op[Operator CLI] --> LG[LangGraph.js]
+  LG --> R[Researcher Groq]
+  LG --> S[Fuentes + Cheerio]
+  LG --> F[Fact checker]
+  F --> H{riesgo?}
+  H -->|alto| Human[HUMAN_REVIEW]
+  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
+  class Plan,LG,F accent`,
   },
   {
     id: "my-playthrough",
@@ -370,7 +399,7 @@ const PROJECTS = [
     image: ASSETS.projects.liveEventRadar,
     imageAlt: "Live Event Radar — panel de control y telemetría",
     description:
-      "Aplicación para supervisar en tiempo real la operativa de un recinto mediante un panel de control y un mapa interactivo, inspirada en la necesidad de disponer de información actualizada durante eventos.",
+      "Un panel de recinto: un flujo de eventos alimenta el centro de mando y el mapa. Lo hice después de ver que la información del recinto llegaba tarde.",
     architectureSummary:
       "Un flujo de eventos simulado escribe en un store de telemetría Zustand. Derivaciones puras alimentan dos vistas sincronizadas: el centro de mando (mapa SVG del recinto) y el panel de telemetría (mapa Leaflet).",
     mermaid: `flowchart LR
@@ -436,7 +465,7 @@ const BENTO = {
       key: "aesthetics",
       label: "en el tocador",
       title: "Cuidado de la piel",
-      body: "Me encanta aprender cada día sobre skincare, haircare y maquillaje: siempre hay algo que mejorar.",
+      body: "Me gusta ir aprendiendo skincare, haircare y maquillaje: casi siempre un detalle pequeño cada vez.",
       span: "md:col-span-2 md:row-span-1",
       image: ASSETS.interests.aesthetics,
       imageAlt: "Cuidado de la piel y maquillaje — rutinas personales",
@@ -456,7 +485,7 @@ const BENTO = {
       key: "reading",
       label: "en la estantería",
       title: "Lectura",
-      body: "Me gusta leer y escojo un libro solo para ir leyéndomelo poco a poco; casi siempre es ficción. El último que terminé fue Touch of Death de Alice Wilde.",
+      body: "Elijo un libro y lo leo despacio; casi siempre ficción. El último que terminé fue Touch of Death de Alice Wilde.",
       span: "md:col-span-1 md:row-span-1",
       image: ASSETS.interests.reading,
       imageAlt: "Touch of Death de Alice Wilde — último libro leído",
@@ -569,14 +598,14 @@ const catalog = {
     cvKicker:
       "Tecnologías con las que trabajo, idiomas y la experiencia que las respalda.",
     languagesTitle: "Idiomas",
-    languagesKicker: "Cómo me comunico con la gente — y entre contextos.",
+    languagesKicker: "Español, inglés y darija: los que uso de verdad.",
     experience: "Experiencia",
     education: "Formación",
     projectsOverline: "02 · proyectos seleccionados",
     projectsTitleBefore: "Proyectos seleccionados",
     projectsTitleAccent: "con notas de arquitectura.",
     projectsKicker:
-      "Cada proyecto enlaza a su repositorio, la demo en vivo si existe, y un diagrama de arquitectura. Haz clic en una captura para ampliarla.",
+      "Repo, demo en vivo si hay, y un diagrama de arquitectura. Haz clic en una captura para ampliarla.",
     inProgress: "En curso",
     comingSoon: "Próximamente",
     howItWorks: "Cómo funciona →",

@@ -181,7 +181,7 @@ const ProjectStrip = ({
         >
           <div className="flex items-start justify-between gap-4 mb-4">
             <div className="min-w-0">
-              {(p.badge || !p.href) && (
+              {(p.badge || (!p.href && !p.demo)) && (
                 <p className="font-mono text-xs uppercase tracking-[0.2em] text-burgundy mb-2">
                   {p.badge || "in progress"}
                 </p>
