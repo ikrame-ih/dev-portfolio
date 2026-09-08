@@ -26,7 +26,7 @@ const factsContainer = (reduce) =>
         hidden: {},
         show: {
           transition: {
-            staggerChildren: 0.1,
+            staggerChildren: 0,
             delayChildren: STEP_DELAY.tagline,
           },
         },
@@ -142,9 +142,9 @@ export const Hero = () => {
   return (
     <section
       data-testid="hero-section"
-      className="relative flex min-h-0 flex-col pt-24 md:min-h-[100dvh] md:pt-28"
+      className="relative flex min-h-0 flex-col pt-24 md:h-[100svh] md:max-h-[100svh] md:pt-28"
     >
-      <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 pb-8 md:px-12 md:pb-10">
+      <div className="mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col justify-center overflow-hidden px-6 pb-6 md:px-12 md:pb-4">
         <div className="grid grid-cols-12 gap-6 md:gap-10 items-start md:items-center">
           <div className="col-span-12 md:col-span-7">
             <m.div
@@ -222,7 +222,7 @@ export const Hero = () => {
             {/* Editorial fact row — vertical rules from md only */}
             <m.ul
               data-testid="hero-facts"
-              className="mt-6 grid grid-cols-2 gap-y-5 md:mt-7 md:flex md:flex-wrap"
+              className="mt-6 grid grid-cols-3 items-start gap-x-3 gap-y-5 md:mt-7 md:gap-x-0"
               variants={factsContainer(reduce)}
               initial={reduce ? false : "hidden"}
               animate={reduce || headlineReady ? "show" : "hidden"}
@@ -231,10 +231,8 @@ export const Hero = () => {
                 <m.li
                   key={fact.eyebrow}
                   variants={factItem(reduce)}
-                  className={`flex flex-col gap-1 pr-6 md:pr-8 ${
-                    i === 2 ? "col-span-2 md:col-auto" : ""
-                  } ${
-                    i > 0 ? "md:pl-8 md:border-l md:border-ink/15" : ""
+                  className={`flex min-w-0 flex-col gap-1 ${
+                    i > 0 ? "md:border-l md:border-ink/15 md:pl-8" : "md:pr-8"
                   }`}
                 >
                   <span className="font-mono text-xs uppercase tracking-[0.22em] text-ink-mute">
@@ -254,7 +252,7 @@ export const Hero = () => {
             </m.ul>
 
             <m.div
-              className="mt-9 grid grid-cols-1 gap-3 sm:mt-10 sm:flex sm:flex-wrap sm:items-center sm:gap-4"
+              className="hero-cta-row mt-9 grid grid-cols-1 gap-3 sm:mt-10 sm:flex sm:flex-wrap sm:items-center sm:gap-4"
               initial={reduce ? false : { opacity: 0, y: 8 }}
               animate={
                 reduce || headlineReady
@@ -299,7 +297,7 @@ export const Hero = () => {
               </div>
               <PortraitFrame reduce={reduce} parallaxOn={parallaxOn}>
                 {/* Composited reveal: overflow:hidden wrapper + translateY on inner div, no clip-path */}
-                <div className="photo-frame h-[min(42vh,20rem)] w-full overflow-hidden border border-ink/15 bg-bone-300 md:h-auto md:aspect-[3/4] md:max-h-none">
+                <div className="hero-photo-frame photo-frame h-[min(42vh,20rem)] w-full overflow-hidden border border-ink/15 bg-bone-300 md:h-auto md:aspect-[3/4] md:max-h-[calc(100svh-20rem)]">
                   <div className="h-full w-full">
                     <picture>
                       <source srcSet={ASSETS.profilePortraitWebp} type="image/webp" />
@@ -335,9 +333,9 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Marquee pins to the bottom of the first viewport so CV stays below the fold. */}
-      <div className="mt-auto w-full pt-2 md:pt-4">
-        <div className="mx-auto max-w-7xl px-6 pb-4 md:px-12 md:pb-5">
+      {/* Marquee stays in the first screen — shrink-0 so the photo yields, not this strip. */}
+      <div className="mt-auto w-full shrink-0 pt-2 md:pt-3">
+        <div className="mx-auto max-w-7xl px-6 pb-3 md:px-12 md:pb-3">
           <div className="relative h-px bg-ink/20">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-bone px-3">
               <Bow size={18} />

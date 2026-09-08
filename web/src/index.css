@@ -1061,6 +1061,31 @@
   }
 }
 
+@layer components {
+  /* Laptop heights: keep the stack marquee fully on the first screen. */
+  @media (min-width: 768px) and (max-height: 56rem) {
+    [data-testid="hero-headline"] {
+      font-size: clamp(2.35rem, 5.6vh, 3.75rem);
+    }
+
+    [data-testid="hero-positioning"] {
+      margin-top: 1.25rem;
+    }
+
+    [data-testid="hero-facts"] {
+      margin-top: 1.15rem;
+    }
+
+    .hero-cta-row {
+      margin-top: 1.5rem;
+    }
+
+    .hero-photo-frame {
+      max-height: calc(100svh - 22rem);
+    }
+  }
+}
+
 /* —— yui540-inspired micro motions (guestbook / bow / terminal / hero) —— */
 
 .guestbook-stack {
