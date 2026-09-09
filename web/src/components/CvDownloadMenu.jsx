@@ -1,4 +1,5 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { m } from "framer-motion";
 import { ASSETS } from "@/data/assets";
 import { CTA_SPRING } from "@/lib/motion";
@@ -6,7 +7,9 @@ import { useUi } from "@/i18n/LocaleContext";
 
 const CvDownloadMenu = ({ reduce }) => {
   const [open, setOpen] = useState(false);
+  const [coords, setCoords] = useState(null);
   const rootRef = useRef(null);
+  const menuRef = useRef(null);
   const menuId = useId();
   const ui = useUi();
 
@@ -23,27 +26,77 @@ const CvDownloadMenu = ({ reduce }) => {
       href: ASSETS.cvPdfEs,
       testId: "hero-cta-cv-es",
     },
+    {
+      id: "letter-en",
+      label: ui.hero.coverLetterEn,
+      href: ASSETS.coverLetterPdf,
+      testId: "hero-cta-letter-en",
+    },
+    {
+      id: "letter-es",
+      label: ui.hero.coverLetterEs,
+      href: ASSETS.coverLetterPdfEs,
+      testId: "hero-cta-letter-es",
+    },
   ];
+
+  useLayoutEffect(() => {
+    if (!open) {
+      setCoords(null);
+      return undefined;
+    }
+
+    const place = () => {
+      const btn = rootRef.current;
+      if (!btn) return;
+      const r = btn.getBoundingClientRect();
+      const gap = 8;
+      const estimatedH = menuRef.current?.offsetHeight ?? downloads.length * 42;
+      const spaceBelow = window.innerHeight - r.bottom;
+      const openUp = spaceBelow < estimatedH + gap;
+      const width = Math.max(r.width, 12 * 16);
+      setCoords({
+        left: Math.min(r.left, window.innerWidth - width - 12),
+        width,
+        top: openUp ? undefined : r.bottom + gap,
+        bottom: openUp ? window.innerHeight - r.top + gap : undefined,
+      });
+    };
+
+    place();
+    const id = window.requestAnimationFrame(place);
+    window.addEventListener("resize", place);
+    window.addEventListener("scroll", place, true);
+    return () => {
+      window.cancelAnimationFrame(id);
+      window.removeEventListener("resize", place);
+      window.removeEventListener("scroll", place, true);
+    };
+  }, [open, downloads.length]);
 
   useEffect(() => {
     if (!open) return undefined;
     const onPointer = (e) => {
-      if (!rootRef.current?.contains(e.target)) setOpen(false);
+      const t = e.target;
+      if (rootRef.current?.contains(t) || menuRef.current?.contains(t)) return;
+      setOpen(false);
     };
     const onKey = (e) => {
       if (e.key === "Escape") {
         setOpen(false);
         return;
       }
-      
+
       if (["ArrowDown", "ArrowUp", "Home", "End"].includes(e.key)) {
         e.preventDefault();
-        const items = Array.from(rootRef.current?.querySelectorAll('[role="menuitem"]') || []);
+        const items = Array.from(
+          menuRef.current?.querySelectorAll('[role="menuitem"]') || [],
+        );
         if (!items.length) return;
-        
+
         const index = items.indexOf(document.activeElement);
         let nextIndex = 0;
-        
+
         if (e.key === "ArrowDown") {
           nextIndex = index < items.length - 1 ? index + 1 : 0;
         } else if (e.key === "ArrowUp") {
@@ -53,7 +106,7 @@ const CvDownloadMenu = ({ reduce }) => {
         } else if (e.key === "End") {
           nextIndex = items.length - 1;
         }
-        
+
         items[nextIndex]?.focus();
       }
     };
@@ -64,6 +117,44 @@ const CvDownloadMenu = ({ reduce }) => {
       document.removeEventListener("keydown", onKey);
     };
   }, [open]);
+
+  const menu =
+    open &&
+    coords &&
+    createPortal(
+      <div
+        ref={menuRef}
+        id={menuId}
+        role="menu"
+        aria-label={ui.hero.cvLang}
+        className="border border-ink/20 bg-bone shadow-[0_8px_24px_rgba(26,26,26,0.08)]"
+        style={{
+          position: "fixed",
+          zIndex: 60,
+          left: coords.left,
+          width: coords.width,
+          top: coords.top,
+          bottom: coords.bottom,
+        }}
+      >
+        {downloads.map((item) => (
+          <a
+            key={item.id}
+            role="menuitem"
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid={item.testId}
+            onClick={() => setOpen(false)}
+            className="block px-4 py-2.5 font-mono text-xs uppercase tracking-[0.18em] text-ink hover:bg-burgundy hover:text-[#F5F1EB] transition-colors"
+          >
+            {item.label}
+            <span className="sr-only">{ui.hero.pdfNewTab}</span>
+          </a>
+        ))}
+      </div>,
+      document.body,
+    );
 
   return (
     <m.div
@@ -103,30 +194,7 @@ const CvDownloadMenu = ({ reduce }) => {
           />
         </svg>
       </button>
-      {open && (
-        <div
-          id={menuId}
-          role="menu"
-          aria-label={ui.hero.cvLang}
-          className="absolute left-0 top-full z-20 mt-2 min-w-full border border-ink/20 bg-bone shadow-[0_8px_24px_rgba(26,26,26,0.08)]"
-        >
-          {downloads.map((item) => (
-            <a
-              key={item.id}
-              role="menuitem"
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-testid={item.testId}
-              onClick={() => setOpen(false)}
-              className="block px-4 py-2.5 font-mono text-xs uppercase tracking-[0.18em] text-ink hover:bg-burgundy hover:text-[#F5F1EB] transition-colors"
-            >
-              {item.label}
-              <span className="sr-only">{ui.hero.pdfNewTab}</span>
-            </a>
-          ))}
-        </div>
-      )}
+      {menu}
     </m.div>
   );
 };

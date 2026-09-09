@@ -183,8 +183,8 @@ const EXPERIENCE = [
     period: "mar. 2026 — jun. 2026",
     track: "tech",
     bullets: [
-      "Desarrollo de aplicaciones internas en entorno DataFlex y en Python: acceso a datos, lógica de negocio y personalización continua.",
-      "Creación de una plataforma Moodle desde cero: entorno e instalación, estructura de cursos y contenidos, usuarios y roles, base de datos/SQL y theming CSS/UI de punta a punta.",
+      "Desarrollé aplicaciones internas en entorno DataFlex y en Python: acceso a datos, lógica de negocio y personalización continua.",
+      "Creé una plataforma Moodle desde cero: entorno e instalación, estructura de cursos y contenidos, usuarios y roles, base de datos/SQL y theming CSS/UI de punta a punta.",
     ],
   },
   {

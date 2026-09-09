@@ -183,7 +183,7 @@ const EXPERIENCE = [
     period: "Mar 2026 — Jun 2026",
     track: "tech",
     bullets: [
-      "Developed internal applications in a DataFlex environment and in Python: data access, business logic, and ongoing customisation.",
+      "Developed internal applications in a DataFlex environment and in Python: data access, business logic, and ongoing customization.",
       "Built a Moodle learning platform from scratch: environment and install, course and content structure, users and roles, SQL/database, and CSS/UI theming end to end.",
     ],
   },
@@ -449,7 +449,7 @@ const BENTO = {
       body: "Ace Attorney is still my #1 franchise, no matter what else I play. Beyond that my taste is wide and mood-driven — story-heavy games, visual novels, mysteries, long JRPGs and ARPGs, even shooters, plus a soft spot for Pokémon ever since I was a kid.",
       span: "md:col-span-2 md:row-span-2",
       image: ASSETS.interests.gaming,
-      imageAlt: "Phoenix Wright: Ace Attorney — my favourite franchise",
+      imageAlt: "Phoenix Wright: Ace Attorney — my favorite franchise",
       imagePosition: "object-top",
     },
     {
@@ -459,7 +459,7 @@ const BENTO = {
       body: "I sing when I need to clear my head (though honestly I sing all the time). Voilà is usually on repeat, but I switch playlists with my mood.",
       span: "md:col-span-1 md:row-span-2",
       image: ASSETS.interests.music,
-      imageAlt: "Voilà — my favourite group",
+      imageAlt: "Voilà — my favorite group",
       imagePosition: "object-center",
     },
     {
@@ -505,8 +505,8 @@ const BENTO = {
     {
       key: "travelling",
       label: "boarding soon",
-      title: "Travelling",
-      body: "I like travelling, and I want to see more of the world.",
+      title: "Traveling",
+      body: "I like traveling, and I want to see more of the world.",
       span: "md:col-span-3 md:row-span-1",
       image: ASSETS.interests.travelling,
       imageAlt: "City street corner from a recent trip",

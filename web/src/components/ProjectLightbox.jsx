@@ -43,7 +43,7 @@ export const ProjectLightbox = ({ project, onClose }) => {
             ref={panelRef}
             role="dialog"
             aria-modal="true"
-            aria-label={`${project.name} preview`}
+            aria-label={ui.previewNamed.replace("{name}", project.name)}
             className="relative w-full max-w-5xl outline-none"
             onClick={(e) => e.stopPropagation()}
           >

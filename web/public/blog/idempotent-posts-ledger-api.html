@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Designing idempotent POSTs for a ledger API — Ikrame Ibn Hayoun</title>
-  <meta name="description" content="How ReckonFlow uses Idempotency-Key, Redis SET NX EX, response replay, and fail-open behaviour so retried payments cannot double-post." />
+  <meta name="description" content="How ReckonFlow uses Idempotency-Key, Redis SET NX EX, response replay, and fail-open behavior so retried payments cannot double-post." />
   <link rel="canonical" href="https://ikrame.dev/blog/idempotent-posts-ledger-api.html" />
   <style>
     :root { color-scheme: light; --ink: #1a1a1a; --soft: #5a5a5a; --bone: #f5f1eb; --burgundy: #4a0e0e; }
@@ -36,7 +36,7 @@
 
     <h2>What the client sends</h2>
     <p>
-      Mutating endpoints honour an <code>Idempotency-Key</code> header. The first
+      Mutating endpoints honor an <code>Idempotency-Key</code> header. The first
       call with a given key runs the handler; a retry with the same key and the
       same body replays the stored response and sets
       <code>Idempotency-Replayed: true</code>.

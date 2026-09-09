@@ -127,11 +127,11 @@ export const ArchitectureModal = ({ project, onClose }) => {
                   <MermaidDiagram
                     chart={project.mermaid}
                     id={project.id}
-                    label={`${project.name} architecture diagram. ${project.architectureSummary || ""}`.trim()}
+                    label={`${ui.modal.architectureNamed.replace("{name}", project.name)}${project.architectureSummary ? `. ${project.architectureSummary}` : ""}`}
                   />
                 </Suspense>
                 <figcaption className="sr-only">
-                  Visual flowchart for {project.name}. Text alternative:{" "}
+                  {ui.modal.flowchartAlt.replace("{name}", project.name)}{" "}
                   {project.architectureSummary || project.description}
                 </figcaption>
               </figure>
