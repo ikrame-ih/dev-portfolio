@@ -8,6 +8,7 @@ import {
 } from "react";
 import en from "@/data/locales/en.js";
 import es from "@/data/locales/es.js";
+import { htmlLang } from "./htmlLang.js";
 import { UI } from "./ui.js";
 
 const catalogs = { en, es };
@@ -55,7 +56,7 @@ export const LocaleProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    document.documentElement.lang = lang;
+    document.documentElement.lang = htmlLang(lang);
     const nextTitle = (UI[lang] ?? UI.en).pageTitle;
     if (nextTitle) document.title = nextTitle;
   }, [lang]);

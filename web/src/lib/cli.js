@@ -452,8 +452,8 @@ export const openCvPdf = (lang = "en", cli) => {
     L(
       "ok",
       es
-        ? (cli?.openingCvPdfEs ?? "Opening CV PDF (ES)…")
-        : (cli?.openingCvPdf ?? "Opening CV PDF…"),
+        ? (cli?.openingCvPdfEs ?? "Opening resume PDF (ES)…")
+        : (cli?.openingCvPdf ?? "Opening resume PDF…"),
     ),
     L("meta", href),
   ];

@@ -152,7 +152,7 @@ const ProjectStrip = ({
               data-testid={`project-shot-pending-${p.id}`}
               className="project-shot-frame project-shot-frame--pending"
               role="img"
-              aria-label={`${p.name} preview coming soon`}
+              aria-label={ui.previewComingSoon.replace("{name}", p.name)}
             >
               <span className="project-shot-frame__corner project-shot-frame__corner--tl" aria-hidden />
               <span className="project-shot-frame__corner project-shot-frame__corner--tr" aria-hidden />
@@ -183,7 +183,7 @@ const ProjectStrip = ({
             <div className="min-w-0">
               {(p.badge || (!p.href && !p.demo)) && (
                 <p className="font-mono text-xs uppercase tracking-[0.2em] text-burgundy mb-2">
-                  {p.badge || "in progress"}
+                  {p.badge || section.inProgress}
                 </p>
               )}
               <h3 className="font-serif text-2xl md:text-3xl tracking-tight text-ink group-hover:text-burgundy transition-colors duration-500">

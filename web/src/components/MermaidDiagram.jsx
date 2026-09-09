@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import mermaid from "mermaid";
+import { useUi } from "@/i18n/LocaleContext";
 
 let initialized = false;
 
@@ -67,6 +68,8 @@ function sizeSvg(svgEl, containerWidth) {
 // Renders a Mermaid flowchart from the string defined in portfolio.js per project.
 export const MermaidDiagram = ({ chart, id, label }) => {
   const ref = useRef(null);
+  const ui = useUi();
+  const accessibleName = label || ui.modal.architecture;
 
   useEffect(() => {
     if (!initialized) {
@@ -103,7 +106,7 @@ export const MermaidDiagram = ({ chart, id, label }) => {
       className="mermaid w-full overflow-x-auto flex justify-center"
       data-testid={`mermaid-${id}`}
       role="img"
-      aria-label={label || "Architecture diagram"}
+      aria-label={accessibleName}
     />
   );
 };

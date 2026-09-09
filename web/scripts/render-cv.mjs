@@ -16,6 +16,11 @@ const jobs = [
     pdf: path.join(publicDir, "Ikrame_Ibn_Hayoun_CV.pdf"),
     altHref: "./es.html",
     altLabel: "Español",
+    htmlLang: "en-US",
+    docTitle: "Resume",
+    toolbar:
+      "Hiring resume — print or <strong>Save PDF</strong>.",
+    printLabel: "Save PDF",
   },
   {
     json: path.join(repoRoot, "react-resume.es.json"),
@@ -23,6 +28,11 @@ const jobs = [
     pdf: path.join(publicDir, "Ikrame_Ibn_Hayoun_CV_ES.pdf"),
     altHref: "./en.html",
     altLabel: "English",
+    htmlLang: "es-ES",
+    docTitle: "CV",
+    toolbar:
+      "CV para procesos de selección — imprime o <strong>Guardar PDF</strong>.",
+    printLabel: "Guardar PDF",
   },
 ];
 
@@ -30,7 +40,7 @@ const visible = (items = []) => items.filter((item) => !item.hidden);
 
 const stripEmpty = (html = "") => html.replace(/^\s+|\s+$/g, "");
 
-const buildHtml = (data, { altHref, altLabel }) => {
+const buildHtml = (data, job) => {
   const { basics, summary, sections } = data;
   const contact = [
     basics.email,
@@ -97,19 +107,19 @@ const buildHtml = (data, { altHref, altLabel }) => {
     .join("\n");
 
   return `<!DOCTYPE html>
-<html lang="${data.metadata?.page?.locale === "en-US" ? "en" : "es"}">
+<html lang="${job.htmlLang}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>${basics.name} — CV</title>
+    <title>${basics.name} — ${job.docTitle}</title>
     <link rel="stylesheet" href="./cv.css" />
   </head>
   <body>
     <div class="toolbar">
-      <p>Hiring CV — print or <strong>Save PDF</strong>.</p>
+      <p>${job.toolbar}</p>
       <div>
-        <a href="${altHref}">${altLabel}</a>
-        <button type="button" onclick="window.print()">Save PDF</button>
+        <a href="${job.altHref}">${job.altLabel}</a>
+        <button type="button" onclick="window.print()">${job.printLabel}</button>
       </div>
     </div>
     <article class="page">

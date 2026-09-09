@@ -2,7 +2,7 @@
 
 [![Live Site](https://img.shields.io/badge/Live_Site-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://ikrame.dev/)
 
-**Personal portfolio site** — CV and projects up front, cream paper aesthetic, guest book, contact form, and a CLI easter egg in the corner.
+**Personal portfolio site** — resume and projects up front, cream paper aesthetic, guest book, contact form, and a CLI easter egg in the corner.
 
 Portfolio project (v0.1.0): React SPA deployed on Vercel. Guest book syncs via Upstash; contact form uses Resend.
 
@@ -18,7 +18,7 @@ Portfolio project (v0.1.0): React SPA deployed on Vercel. Guest book syncs via U
 
 ## Highlights
 
-- **Hero + CV** — role, stack, and experience above the fold
+- **Hero + resume** — role, stack, and experience above the fold
 - **Projects** — featured work with Mermaid architecture diagrams, live demos, and GitHub links
 - **Engineering** — component-based sections, semantic HTML, accessible patterns, and documented project structure
 - **Guest book** — shared bows via Upstash Redis on Vercel; localStorage fallback on localhost
@@ -31,7 +31,7 @@ Portfolio project (v0.1.0): React SPA deployed on Vercel. Guest book syncs via U
 
 ![Hero section](web/screenshots/hero.png)
 
-![CV and projects](web/screenshots/cv-projects.png)
+![Resume and projects](web/screenshots/cv-projects.png)
 
 ![Interests](web/screenshots/interests-vault.png)
 

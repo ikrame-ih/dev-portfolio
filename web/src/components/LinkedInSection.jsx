@@ -2,11 +2,12 @@ import { motion, useReducedMotion } from "framer-motion";
 import Reveal, { REVEAL_VIEWPORT, revealTransition } from "./Reveal";
 import SectionOverline from "./SectionOverline";
 import { useContent, useLocale, useUi } from "@/i18n/LocaleContext";
+import { htmlLang } from "@/i18n/htmlLang.js";
 
 const formatDate = (iso, lang) => {
   const d = new Date(`${iso}T12:00:00`);
   if (Number.isNaN(d.getTime())) return iso;
-  return d.toLocaleDateString(lang === "es" ? "es-ES" : "en-GB", {
+  return d.toLocaleDateString(htmlLang(lang), {
     day: "numeric",
     month: "short",
     year: "numeric",

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,13 +7,14 @@
       (function () {
         try {
           var q = new URLSearchParams(location.search).get("lang");
+          var htmlLang = { en: "en-US", es: "es-ES" };
           if (q === "en" || q === "es") {
-            document.documentElement.lang = q;
+            document.documentElement.lang = htmlLang[q];
             return;
           }
           var stored = localStorage.getItem("ik_lang");
           if (stored === "en" || stored === "es") {
-            document.documentElement.lang = stored;
+            document.documentElement.lang = htmlLang[stored];
             return;
           }
           var langs = navigator.languages || [navigator.language];
@@ -24,7 +25,7 @@
                 .indexOf("es") === 0;
             })
           ) {
-            document.documentElement.lang = "es";
+            document.documentElement.lang = "es-ES";
           }
         } catch (e) {}
       })();
@@ -32,7 +33,7 @@
     <title>Ikrame Ibn Hayoun — Backend Developer | ikrame.dev</title>
     <meta
       name="description"
-      content="Ikrame Ibn Hayoun — backend developer in Málaga. FastAPI, PostgreSQL, applied AI. Portfolio, CV, and contact."
+      content="Ikrame Ibn Hayoun — backend developer in Málaga. FastAPI, PostgreSQL, applied AI. Portfolio, resume, and contact."
     />
     <meta name="keywords" content="Ikrame, Ikrame Dev, Ikrame Ibn Hayoun, ikrame-ih, Software Developer, Málaga, Frontend Developer, Full Stack Developer, React, Portfolio" />
     <meta name="author" content="Ikrame Ibn Hayoun" />
@@ -41,11 +42,11 @@
     <meta property="og:url" content="https://ikrame.dev/" />
     <meta property="og:site_name" content="ikrame.dev" />
     <meta property="og:title" content="Ikrame Ibn Hayoun — Backend Developer | ikrame.dev" />
-    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="es_ES" />
     <meta
       property="og:description"
-      content="Ikrame Ibn Hayoun — backend developer in Málaga. FastAPI, GenAI, projects, and CV."
+      content="Ikrame Ibn Hayoun — backend developer in Málaga. FastAPI, GenAI, projects, and resume."
     />
     <meta
       property="og:image"
@@ -58,7 +59,7 @@
     <meta name="twitter:title" content="Ikrame Ibn Hayoun — Backend Developer | ikrame.dev" />
     <meta
       name="twitter:description"
-      content="Ikrame Ibn Hayoun — backend developer in Málaga. FastAPI, GenAI, projects, and CV."
+      content="Ikrame Ibn Hayoun — backend developer in Málaga. FastAPI, GenAI, projects, and resume."
     />
     <meta
       name="twitter:image"
