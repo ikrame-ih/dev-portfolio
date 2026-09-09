@@ -244,6 +244,7 @@ const FROM_SIMPLE = {
   Keras: siKeras,
   PyTorch: siPytorch,
   Spark: siApachespark,
+  PySpark: siApachespark,
   Flink: siApacheflink,
   Kafka: siApachekafka,
   Kubernetes: siKubernetes,

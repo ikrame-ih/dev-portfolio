@@ -51,7 +51,12 @@ There is no automatic LinkedIn sync (member post APIs are closed / not approved 
 3. Keep at most three entries; newest first; drop the oldest when adding a fourth.
 4. Run `npm run build` before publishing.
 
-Reactive Resume CVs live at repo root: `react-resume.json` (EN) and `react-resume.es.json` (ES). Import those into Reactive Resume when the site copy changes.
+Reactive Resume CVs live at repo root: `react-resume.json` (EN) and `react-resume.es.json` (ES). After editing them, regenerate the downloadable PDFs:
+
+```powershell
+cd web
+npm run cv:pdf
+```
 
 ---
 

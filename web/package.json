@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "capture:readme": "node scripts/capture-readme-shots.mjs",
     "cover-letter:pdf": "node scripts/render-cover-letter.mjs",
+    "cv:pdf": "node scripts/render-cv.mjs",
     "og-card": "node scripts/render-og-card.mjs"
   },
   "dependencies": {

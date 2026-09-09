@@ -146,8 +146,8 @@ const STACK = {
           ],
         },
         {
-          label: "A partir de sep. 2026",
-          items: ["NumPy", "Pandas", "TensorFlow", "PyTorch", "Spark", "Kafka"],
+          label: "En curso · IA y Big Data",
+          items: ["PySpark", "NumPy", "Pandas", "TensorFlow", "PyTorch", "Spark", "Kafka"],
         },
       ],
     },

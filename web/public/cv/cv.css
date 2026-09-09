@@ -1,0 +1,176 @@
+/* Hiring CV — text-based A4, ATS-friendly (no tables, no headers/footers). */
+
+:root {
+  --ink: #1a1a1a;
+  --mute: #3a3a3a;
+  --burgundy: #4a0e0e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  line-height: 1.45;
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  background: #f5f1eb;
+  border-bottom: 1px solid #d8d1c7;
+  font-size: 12px;
+}
+
+.toolbar a,
+.toolbar button {
+  font: inherit;
+  color: var(--burgundy);
+  background: none;
+  border: 1px solid var(--burgundy);
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.page {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 14mm 16mm;
+}
+
+h1 {
+  margin: 0 0 2px;
+  font-size: 18pt;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.headline {
+  margin: 0 0 6px;
+  color: var(--burgundy);
+  font-size: 9.5pt;
+  font-weight: 700;
+}
+
+.contact {
+  margin: 0 0 10px;
+  color: var(--mute);
+  font-size: 9pt;
+}
+
+.contact a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h2 {
+  margin: 11px 0 5px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--burgundy);
+  color: var(--burgundy);
+  font-size: 10.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.summary p {
+  margin: 0;
+}
+
+.skill {
+  margin: 0 0 3px;
+}
+
+.skill strong {
+  display: inline;
+  margin-right: 0.35em;
+}
+
+.item {
+  margin: 0 0 7px;
+}
+
+.item-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.item-head strong {
+  font-size: 10.5pt;
+}
+
+.meta {
+  white-space: nowrap;
+  color: var(--mute);
+  font-size: 9pt;
+}
+
+.sub {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--mute);
+  font-size: 9pt;
+  font-style: italic;
+}
+
+.item p {
+  margin: 3px 0 0;
+}
+
+.item ul {
+  margin: 3px 0 0;
+  padding-left: 1.1em;
+}
+
+.item li {
+  margin: 0 0 1px;
+}
+
+.langs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.langs li {
+  margin: 0 0 2px;
+}
+
+@media print {
+  .toolbar {
+    display: none !important;
+  }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  html,
+  body {
+    background: #fff;
+  }
+
+  .page {
+    max-width: none;
+    padding: 14mm 16mm;
+  }
+}

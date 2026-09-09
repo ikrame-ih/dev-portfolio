@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ikrame Ibn Hayoun — CV</title>
+    <link rel="stylesheet" href="./cv.css" />
+  </head>
+  <body>
+    <div class="toolbar">
+      <p>Hiring CV — print or <strong>Save PDF</strong>.</p>
+      <div>
+        <a href="./en.html">English</a>
+        <button type="button" onclick="window.print()">Save PDF</button>
+      </div>
+    </div>
+    <article class="page">
+      <h1>Ikrame Ibn Hayoun</h1>
+      <p class="headline">Backend Python | FastAPI | IA Generativa | LLMs | Prompt Engineering | Remoto o híbrido</p>
+      <p class="contact">ikihga2223@gmail.com · +34 682 02 76 93 · Málaga, España · <a href="https://ikrame.dev">ikrame.dev</a></p>
+
+      <h2>Resumen</h2>
+      <div class="summary"><p>Desarrolladora backend Python en Málaga. Más de 2 años de experiencia profesional (EY, operaciones y prácticas de software). Construyo APIs REST con FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic y pytest. IA generativa y NLP: prompt engineering (zero-shot, few-shot, Chain-of-Thought, ReAct), extracción LLM estructurada, embeddings, recuperación híbrida y grounding tipo RAG. Pipelines LangGraph.js para el operador (GraphState tipado, tool calling, Groq), skills reutilizables, context engineering y LLM routing según coste. Graduada DAW (jun. 2026), proyecto final 10/10. En curso: especialización en inteligencia artificial y Big Data (PySpark, DataFrames). Abierta a backend e IA generativa remoto o híbrido.</p></div>
+
+      <h2>Habilidades</h2>
+      <p class="skill"><strong>Backend Python.</strong> Python, FastAPI, PostgreSQL, SQL, Redis, SQLAlchemy, Alembic, APIs REST, Pydantic, JWT, pytest, mypy, PySpark, DataFrames, Spark</p>
+<p class="skill"><strong>IA generativa.</strong> IA generativa, NLP, LLMs, Prompt engineering, RAG, Embeddings, Recuperación híbrida, PydanticAI, Groq, LangGraph, LangGraph.js, Tool calling, Structured outputs, Guardrails, LLM routing, Context engineering, Spec-driven development, Prometheus</p>
+<p class="skill"><strong>Entrega.</strong> Git, CI/CD, GitHub Actions, Docker, Docker Compose, Vercel, React, TypeScript, DataFlex, Power Apps, Power Fx, Node.js, Vitest</p>
+
+      <h2>Proyectos</h2>
+      <article class="item">
+        <div class="item-head"><strong>ReckonFlow</strong><span class="meta">ago. 2026 - Actualidad</span></div>
+        <div class="sub"><a href="https://github.com/ikrame-ih/reckon-flow">GitHub</a></div>
+        <p>API FastAPI headless para viajes corporativos: aprobaciones, ledger de doble entrada, extracción LLM de recibos, conciliación bancaria. En vivo: reckon-flow.onrender.com/docs</p><ul><li>IA generativa: PydanticAI + Groq, extracción estructurada (schema extra=forbid) como guardrail frente a prompt injection; jobs HTTP 202; stub en CI; reintentos ante rate limit. El modelo no aprueba ni paga.</li><li>Recuperación híbrida: prefiltro SQL, RapidFuzz, embeddings, Reciprocal Rank Fusion (RRF). Prometheus /metrics. Python, FastAPI, PostgreSQL, Redis, pytest, CI/CD.</li></ul>
+      </article>
+<article class="item">
+        <div class="item-head"><strong>Import Resolve Cli</strong><span class="meta">ago. 2026</span></div>
+        <div class="sub"><a href="https://github.com/ikrame-ih/import-resolve-cli">GitHub</a></div>
+        <p>Publicado en PyPI (import-resolve-cli). Driver de merge de Git para conflictos en bloques de imports Python. Cero dependencias en runtime. CI: pytest, mypy, ruff.</p>
+      </article>
+<article class="item">
+        <div class="item-head"><strong>MyPlaythrough</strong><span class="meta">sep. 2025 - jun. 2026</span></div>
+        <div class="sub"><a href="https://github.com/ikrame-ih/my-playthrough">GitHub</a></div>
+        <p>Proyecto final DAW, 10/10. Biblioteca de juegos con React, Node.js/Express, PostgreSQL, JWT, Docker Compose. Vitest en cliente y servidor. Demo: my-playthrough.vercel.app</p>
+      </article>
+<article class="item">
+        <div class="item-head"><strong>Málaga Onboarding</strong><span class="meta">2026 - Actualidad</span></div>
+        
+        <p>Guía para expats del PTA que se mudan a Málaga. El API de plan en producción es un topological sort determinista — sin LLM en el camino del usuario (0€ de inferencia). CLI LangGraph.js solo para el operador, en local, verifica fichas JSON.</p><ul><li>Grafo de cuatro nodos con GraphState tipado: researcher (claims con Groq) → source finder (búsqueda DuckDuckGo limitada por dominio, fetch + Cheerio) → fact checker (verified / uncertain / potentially_inaccurate) → editor (redacta solo con evidencia oficial).</li><li>Enrutado condicional: riesgo medium/high corta a HUMAN_REVIEW_REQUIRED. Sin memoria entre ejecuciones. Tool calling, guardrails de prompt, Groq.</li></ul>
+      </article>
+
+      <h2>Experiencia laboral</h2>
+      <article class="item">
+        <div class="item-head"><strong>DATA CONTROL</strong><span class="meta">Málaga · En remoto</span></div>
+        <div class="sub"><span>Desarrolladora de software en prácticas</span><span>mar. 2026 - jun. 2026</span></div>
+        <ul><li>Desarrollo de aplicaciones internas en entorno DataFlex y en Python: acceso a datos, lógica de negocio y personalización continua.</li><li>Creación de una plataforma Moodle desde cero: entorno e instalación, estructura de cursos y contenidos, usuarios y roles, base de datos/SQL y theming CSS/UI de punta a punta.</li></ul>
+      </article>
+<article class="item">
+        <div class="item-head"><strong>EY Global Delivery Services</strong><span class="meta">Málaga · Híbrido</span></div>
+        <div class="sub"><span>Asistente ejecutiva</span><span>ene. 2025 - mar. 2026</span></div>
+        <ul><li>Desarrollé una Power App (Power Fx) que gestionó de extremo a extremo el sorteo de Navidad del CNS: inscripción y asignación de números en un solo sitio, en lugar de perseguirlo por correo o Teams.</li><li>Coordiné de principio a fin visitas de clientes estratégicos en Málaga, gestionando agendas, logística y la experiencia durante la estancia — jornadas que a menudo condicionaban el avance de un acuerdo.</li><li>Llevé el día a día operativo — viajes, Concur, Outlook, Teams, SharePoint y las herramientas internas de la firma — en un entorno global de servicios profesionales.</li></ul>
+      </article>
+<article class="item">
+        <div class="item-head"><strong>EC Azafatas</strong><span class="meta">Málaga, Andalucía, España · Presencial</span></div>
+        <div class="sub"><span>Embajadora de marca</span><span>feb. 2026</span></div>
+        <ul><li>Catas de producto y logística de stand en retail de alta afluencia, incluido el inventario de fin de jornada para la agencia.</li></ul>
+      </article>
+<article class="item">
+        <div class="item-head"><strong>Conciencia Fundraising</strong><span class="meta">Málaga, Andalucía, España · Híbrido</span></div>
+        <div class="sub"><span>Asistente administrativa y contable</span><span>nov. 2024 - dic. 2024</span></div>
+        <ul><li>Seguimiento de donantes y captadores en Drive, Outlook, Evergiving, Factorial, Odoo y Looker; registro de costes de viaje y gastos para control interno.</li></ul>
+      </article>
+<article class="item">
+        <div class="item-head"><strong>SYLVIS PROFESIONAL COSMETIC</strong><span class="meta">Málaga, Andalucía, España · Presencial</span></div>
+        <div class="sub"><span>Administrativa</span><span>mar. 2024 - oct. 2024</span></div>
+        <ul><li>Conciliación bancaria, contabilización de facturas (empresa e importaciones) y control de costes de vehículos e importación en Excel.</li></ul>
+      </article>
+
+      <h2>Educación</h2>
+      <article class="item">
+        <div class="item-head"><strong>IES Zaidín Vergeles</strong><span class="meta">sep. 2026 - en curso</span></div>
+        <div class="sub"><span>Inteligencia Artificial y Big Data · Curso de Especialización · Nivel MECES / EQF 5</span><span>Granada, España</span></div>
+        <p>En curso. Trabajo con PySpark, DataFrames, cálculo distribuido y ML.</p>
+      </article>
+<article class="item">
+        <div class="item-head"><strong>CESUR Este, Málaga</strong><span class="meta">sep. 2024 - jun. 2026</span></div>
+        <div class="sub"><span>Desarrollo de Aplicaciones Web · Ciclo Formativo de Grado Superior (DAW) · Proyecto final: calificación máxima (10/10). Nivel EQF 5 (equivalente HND)</span><span>Málaga, España</span></div>
+        
+      </article>
+<article class="item">
+        <div class="item-head"><strong>I.E.S. Politécnico Jesús Marín</strong><span class="meta">sep. 2022 - jun. 2024</span></div>
+        <div class="sub"><span>Gestión Administrativa · Ciclo Formativo de Grado Medio · Matrícula de honor. Nivel EQF 4</span><span>Málaga, España</span></div>
+        
+      </article>
+
+      <h2>Idiomas</h2>
+      <ul class="langs"><li><strong>Español</strong> — Lengua nativa</li>
+<li><strong>Inglés</strong> — Competencia profesional (C1)</li>
+<li><strong>Árabe marroquí (Darija)</strong> — Lengua nativa</li></ul>
+
+      <h2>Perfiles</h2>
+      <ul class="langs"><li>GitHub: <a href="https://github.com/ikrame-ih">github.com/ikrame-ih</a></li>
+<li>LinkedIn: <a href="https://www.linkedin.com/in/ikrame-ih/">linkedin.com/in/ikrame-ih</a></li></ul>
+    </article>
+  </body>
+</html>
