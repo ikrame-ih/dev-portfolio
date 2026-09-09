@@ -322,17 +322,18 @@ const PROJECTS = [
   {
     id: "malaga-onboarding",
     name: "Málaga Onboarding",
-    subtitle: "Checklist de llegada para expats · web + LangGraph",
+    subtitle: "Lista para instalarse en Málaga · web + LangGraph",
     stack: ["JavaScript", "LangGraph.js", "Groq", "Cheerio", "Cloudflare"],
     href: null,
     demo: "https://malaga-onboarding.pages.dev/",
+    live: true,
     image: ASSETS.projects.malagaOnboarding,
     imageAlt:
       "Mockup de málaga.onboarding en claro y oscuro — escritorio, portátil, tablet y móvil",
     description:
-      "Checklist para aterrizar en Málaga: padrón, NIE, Seguridad Social. El plan en vivo es un orden topológico: sin LLM en el camino del usuario. Un CLI local con LangGraph.js revisa las fichas.",
+      "Lista para instalarse en Málaga: padrón, NIE, Seguridad Social. El plan que ves en la web es un orden topológico: no hay LLM en lo que usa la persona. Un CLI local con LangGraph.js revisa las fichas.",
     signals: [
-      "El camino del usuario es un grafo — 0€ de inferencia",
+      "Lo que usa la persona es un grafo — 0€ de inferencia",
       "CLI de operador: LangGraph.js, GraphState tipado, Groq",
       "Si una afirmación es ambigua, pasa a HUMAN_REVIEW_REQUIRED",
     ],
@@ -611,6 +612,7 @@ const catalog = {
     howItWorks: "Cómo funciona →",
     github: "GitHub ↗",
     demo: "Demo ↗",
+    live: "Live ↗",
   },
   tracks: { tech: "tech", hybrid: "tech × negocio", biz: "negocio / ops" },
 };
