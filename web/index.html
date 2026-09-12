@@ -35,9 +35,42 @@
       name="description"
       content="Ikrame Ibn Hayoun — backend developer in Málaga. FastAPI, PostgreSQL, applied AI. Portfolio, resume, and contact."
     />
-    <meta name="keywords" content="Ikrame, Ikrame Dev, Ikrame Ibn Hayoun, ikrame-ih, Software Developer, Málaga, Frontend Developer, Full Stack Developer, React, Portfolio" />
     <meta name="author" content="Ikrame Ibn Hayoun" />
     <link rel="canonical" href="https://ikrame.dev/" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://ikrame.dev/#website",
+            "name": "ikrame.dev",
+            "url": "https://ikrame.dev/",
+            "alternateName": ["Ikrame Ibn Hayoun", "Ikrame"],
+            "inLanguage": ["en-US", "es-ES"]
+          },
+          {
+            "@type": "Person",
+            "@id": "https://ikrame.dev/#person",
+            "name": "Ikrame Ibn Hayoun",
+            "url": "https://ikrame.dev/",
+            "email": "mailto:ikihga2223@gmail.com",
+            "jobTitle": "Python Backend · AI",
+            "description": "Backend developer in Málaga. FastAPI, PostgreSQL, applied AI. Portfolio at ikrame.dev.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "sameAs": [
+              "https://github.com/ikrame-ih",
+              "https://www.linkedin.com/in/ikrame-ih/",
+              "https://dev.to/ikrame-ih"
+            ]
+          }
+        ]
+      }
+    </script>
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ikrame.dev/" />
     <meta property="og:site_name" content="ikrame.dev" />
@@ -111,21 +144,62 @@
         min-height: 100dvh;
         background: #f5f1eb;
       }
+      /* In the HTML source for crawlers; clipped so visitors do not see a text flash. */
+      #seo-snapshot {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
     </style>
   </head>
   <body>
     <div id="root">
       <div id="boot-shell" aria-hidden="true"></div>
+      <div id="seo-snapshot">
+        <h1>Ikrame Ibn Hayoun — ikrame.dev</h1>
+        <p>
+          Hi, I'm Ikrame Ibn Hayoun — a backend developer in Málaga. I write APIs
+          that stay correct when a request is retried, and I put AI on those same
+          paths. Portfolio: https://ikrame.dev/
+        </p>
+        <p>Python · FastAPI · PostgreSQL · applied AI. Open to remote or hybrid roles.</p>
+        <h2>Selected work</h2>
+        <ul>
+          <li>ReckonFlow — corporate travel reconciliation API (FastAPI, PostgreSQL, Redis)</li>
+          <li>Import Resolve CLI — Git merge driver for Python imports (PyPI)</li>
+          <li>Málaga Onboarding — expat relocation checklist</li>
+          <li>MyPlaythrough — game library manager (DAW capstone)</li>
+          <li>Live Event Radar — real-time venue ops dashboard</li>
+          <li>Aiba — desktop productivity companion</li>
+        </ul>
+        <p>
+          <a href="https://github.com/ikrame-ih">GitHub</a>
+          ·
+          <a href="https://www.linkedin.com/in/ikrame-ih/">LinkedIn</a>
+          ·
+          <a href="https://ikrame.dev/blog/idempotent-posts-ledger-api.html">Blog</a>
+        </p>
+      </div>
     </div>
     <noscript>
       <div style="max-width: 40rem; margin: 2rem auto; padding: 1.5rem; font-family: Georgia, serif;">
-        <h1>Ikrame Ibn Hayoun</h1>
+        <h1>Ikrame Ibn Hayoun — ikrame.dev</h1>
         <p>
-          Backend-focused developer in Málaga. Enable JavaScript to view the full portfolio,
-          or visit
+          Backend developer in Málaga. FastAPI, PostgreSQL, applied AI. Open to
+          remote or hybrid roles.
+        </p>
+        <p>
           <a href="https://github.com/ikrame-ih">GitHub</a>
           /
-          <a href="https://www.linkedin.com/in/ikrame-ih/">LinkedIn</a>.
+          <a href="https://www.linkedin.com/in/ikrame-ih/">LinkedIn</a>
+          /
+          <a href="https://ikrame.dev/blog/idempotent-posts-ledger-api.html">Blog</a>
         </p>
       </div>
     </noscript>
