@@ -168,6 +168,7 @@ body {
   min-height: 297mm;
   max-height: 297mm;
   margin: 1.25rem auto 2.5rem;
+  padding-top: 4.5mm;
   background: var(--bone);
   overflow: hidden;
   display: flex;
@@ -191,8 +192,10 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 2.5mm 10mm 1.5mm;
+  padding: 1.5mm 10mm 2mm;
   flex: 0 0 auto;
+  overflow: visible;
+  border-bottom: 1px solid rgb(26 26 26 / 0.12);
 }
 
 .mast-brand {
@@ -265,11 +268,13 @@ body {
 }
 
 .overline {
-  font-size: 6.6pt;
+  font-size: 6.2pt;
   font-weight: 500;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink);
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 h1 {
@@ -277,10 +282,11 @@ h1 {
   font-family: FrauncesVar, Georgia, serif;
   font-optical-sizing: auto;
   font-weight: 400;
-  font-size: 20pt;
-  line-height: 1.1;
+  font-size: 18.5pt;
+  line-height: 1.12;
   letter-spacing: -0.03em;
   text-wrap: balance;
+  overflow: visible;
 }
 
 h1 .accent {
@@ -328,11 +334,12 @@ h1 .soft {
 .hero-facts .val {
   font-family: FrauncesVar, Georgia, serif;
   font-optical-sizing: auto;
-  font-size: 10.5pt;
+  font-size: 10pt;
   font-weight: 480;
   letter-spacing: -0.02em;
   line-height: 1.2;
   white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .hero-facts .val.accent {
@@ -610,6 +617,19 @@ h1 .soft {
   text-indent: 0;
 }
 
+.leaf a {
+  color: var(--burgundy);
+  text-decoration: underline;
+  text-decoration-color: rgb(74 14 14 / 0.45);
+  text-underline-offset: 2px;
+}
+
+.leaf code,
+.panel code {
+  font-family: JetBrainsMono, ui-monospace, monospace;
+  font-size: 0.86em;
+}
+
 .leaf > p:last-of-type {
   margin-bottom: 0;
 }
@@ -638,6 +658,14 @@ h1 .soft {
   font-size: 12pt;
   font-weight: 480;
   line-height: var(--rule);
+}
+
+.sign-links {
+  margin: 1mm 0 0;
+  font-family: JetBrainsMono, ui-monospace, monospace;
+  font-size: 6.4pt;
+  letter-spacing: 0.04em;
+  color: var(--ink-mute);
 }
 
 aside {
@@ -695,7 +723,7 @@ aside {
   font-family: FrauncesVar, Georgia, serif;
   font-optical-sizing: auto;
   font-weight: 500;
-  font-size: 11pt;
+  font-size: 10.5pt;
   line-height: 1.22;
   letter-spacing: -0.02em;
   text-wrap: balance;
@@ -817,7 +845,7 @@ aside {
     background: var(--bone) !important;
     height: 297mm;
     max-height: 297mm;
-    overflow: hidden;
+    overflow: visible;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -829,6 +857,7 @@ aside {
     min-height: 297mm;
     max-height: 297mm;
     margin: 0;
+    padding-top: 5mm;
     overflow: hidden;
     box-shadow: none;
   }

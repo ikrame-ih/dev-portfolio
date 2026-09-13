@@ -38,7 +38,7 @@
           <div>
             <div class="overline-row">
               <span class="hairline"></span>
-              <span class="overline">Python backend, AI, FastAPI</span>
+              <span class="overline">Backend Python | FastAPI | PostgreSQL | Applied AI</span>
             </div>
             <h1>
               I build software<br />
@@ -48,15 +48,15 @@
             <ul class="hero-facts">
               <li>
                 <span class="ey">Open to</span>
-                <span class="val">Remote, hybrid</span>
+                <span class="val">Remote or hybrid</span>
               </li>
               <li>
-                <span class="ey">Path</span>
-                <span class="val">AI &amp; Big Data, in progress</span>
+                <span class="ey">Study</span>
+                <span class="val">Online máster, in progress</span>
               </li>
               <li>
                 <span class="ey">Focus</span>
-                <span class="val accent">Backend, AI</span>
+                <span class="val accent">Applied AI</span>
               </li>
             </ul>
           </div>
@@ -96,50 +96,51 @@
               </svg>
               <span>01. the letter</span>
             </div>
-            <p class="lead">
-              Hello - I’m Ikrame, and I came to development by a slightly
-              different path.
+            <p class="lead">Hello team,</p>
+            <p>
+              I’m Ikrame. I started in operations, close to people, teams, and
+              work that had to land every day. That’s where I learned to watch
+              the details: the missing information, the steps that get repeated,
+              the mess that grows because nobody had time to sort it.
             </p>
             <p>
-              Before software, I worked as an executive assistant. I managed
-              calendars, visits, and internal tools, and I sat close to the
-              company’s day-to-day - and to its clients. A lot of the work was
-              sorting information, coordinating people, and solving problems
-              that were not always well defined.
+              When I found development, I knew I wanted the other side of that:
+              the tools, the processes, and the systems that make the work a
+              bit clearer for whoever comes next. It wasn’t an overnight switch.
+              I learned, I built projects, I broke things and put them back
+              together until programming stopped being something I studied and
+              became how I solve problems.
             </p>
             <p>
-              That still shapes how I build. I want the whole problem, how what
-              I build will be used, and what can get simpler - not only the
-              technical slice. That is why many of my projects start from
-              problems I already know well: importing information, reconciling
-              data, or turning manual processes into clearer flows.
+              Today I work mostly on backends. I like to understand before I
+              build. What the person using the system needs, what can go wrong,
+              and which decision should stay human. I use AI when it actually
+              helps, but I still want the code to stay readable, the data to be
+              validated, and someone to be able to review what happened.
             </p>
             <p>
-              I am focused on backend and AI now, working with FastAPI, async
-              SQLAlchemy, Pydantic, pytest, and systems that use agents.
+              I’m fairly meticulous about my work. I like leaving things thought
+              through, documented, and tested. I also like keeping up. This
+              academic year I’m starting the vocational master’s (máster de FP)
+              in AI and big data, fully online, while I prepare GCP and AWS
+              cloud certifications.
             </p>
             <p>
-              When I work with agents, context is the foundation. I keep the
-              architecture, decisions, rules, and project state in Obsidian, so
-              the agents and I start from the same information.
+              My projects tell the technical side. This letter tells the other:
+              I care about useful software, with attention to the detail and to
+              the person who will use it.
             </p>
-            <p>
-              I also break the work into small tasks, each with a clear goal
-              and milestones that mark the progress of every stage. From there
-              I bring in different agents by job, and LangGraph to orchestrate
-              them: one may implement, another test, another review. I am not
-              trying to make every agent do everything. I want each one to have
-              a clear role, the right context, and a well-defined task.
-            </p>
-            <p>
-              In the end, the way I work joins two things that have always been
-              connected for me: understanding people’s problems well, and
-              building systems that help solve them more clearly and
-              efficiently.
-            </p>
+            <p>Best,</p>
             <div class="sign">
               <div>
                 <p class="name">Ikrame Ibn Hayoun</p>
+                <p class="sign-links">
+                  <a href="https://ikrame.dev">ikrame.dev</a>
+                  |
+                  <a href="https://www.linkedin.com/in/ikrame-ih/">LinkedIn</a>
+                  |
+                  <a href="https://github.com/ikrame-ih">GitHub</a>
+                </p>
               </div>
               <svg class="bow" width="20" height="20" viewBox="0 0 64 64" fill="none" aria-hidden="true">
                 <path d="M32 32 C 22 18, 8 18, 8 28 C 8 38, 22 40, 32 32 Z" stroke="#4A0E0E" stroke-width="1.25" stroke-linejoin="round"/>
@@ -154,35 +155,30 @@
 
         <aside>
           <div class="panel">
-            <p class="kicker">01. how I work</p>
-            <h2>The learning, in a product</h2>
+            <p class="kicker">01. ReckonFlow</p>
+            <h2>The technical proof</h2>
             <p>
-              ReckonFlow is where that becomes concrete: sessions, transactions,
-              migrations, and operations that involve money. That is where
-              backend decisions show up in the data.
+              FastAPI, PostgreSQL, Redis, Decimal ledger. Row locks
+              (<code>FOR UPDATE</code>) and Redis idempotency so a retried
+              confirm cannot double-post. pytest in CI.
             </p>
           </div>
           <div class="panel">
-            <p class="kicker">Orca</p>
-            <h2>Who steps in, and when</h2>
+            <p class="kicker">02. Judgment</p>
+            <h2>The model extracts. Code decides.</h2>
             <p>
-              Orca is the layer that coordinates those agents and decides who
-              enters at each stage. It does not replace the project rules. It
-              uses them.
+              Closed schema, extra=forbid. Validation in code before any
+              database write. The LLM has no authority to approve payouts or
+              change business rules.
             </p>
           </div>
           <div class="panel">
-            <p class="kicker">Product</p>
-            <h2>The model, with a limited margin</h2>
+            <p class="kicker">03. Delivery</p>
+            <h2>What I ship has to hold</h2>
             <p>
-              When AI touches data, it extracts into JSON with a schema. That
-              payload is validated first; if it fails, it never continues to
-              PostgreSQL. How amounts are interpreted or calculated lives in
-              code, under tests - not in the model.
-            </p>
-            <p>
-              AI does the part it is useful for. The rest is the system’s
-              rules.
+              GitHub Actions, Docker, Prometheus. Validata uses Celery for bulk
+              jobs. The CLI and the skill are packages you can install, not
+              product APIs.
             </p>
           </div>
         </aside>
@@ -209,11 +205,12 @@
           <p class="foot-label">Stack</p>
           <div class="foot-stack">
             <span>FastAPI</span>
-            <span>SQLAlchemy</span>
-            <span>Pydantic</span>
-            <span>Obsidian</span>
-            <span>LangGraph</span>
+            <span>PostgreSQL</span>
+            <span>Redis</span>
             <span>pytest</span>
+            <span>CI/CD</span>
+            <span>Docker</span>
+            <span>observability</span>
           </div>
         </div>
         <div class="foot-links">
