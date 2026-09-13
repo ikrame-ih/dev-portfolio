@@ -12,39 +12,34 @@ const PROFILE = {
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
   buyMeACoffee: "https://buymeacoffee.com/ikrame.dev",
   siteUrl: "https://ikrame.dev",
-  overline: "PYTHON BACKEND · AI · FASTAPI",
+  overline: "PYTHON BACKEND · APPLIED AI · FASTAPI",
   headlineParts: [
-    { text: "I build software" },
-    { text: "with attention to detail", accent: true },
-    { text: "and the context behind\u00A0it.", italic: true },
+    { text: "I build Python backends where AI extracts and " },
+    { text: "code decides.", accent: true },
   ],
   heroSubtext:
-    "Hi, I'm Ikrame Ibn Hayoun — a backend developer in Málaga. I write APIs that stay correct when a request is retried, and I put AI on those same paths: structured LLM extraction, embeddings, hybrid retrieval. I work with agents, reusable skills, and routing models by cost. Open to remote or hybrid backend and AI roles.",
-  // Compact hero facts — avoid repeating overline role or Málaga (already in copy + photo).
+    "I'm Ikrame, a backend developer in Málaga. I work in FastAPI and PostgreSQL on paths that have to stay correct when two people act at once, or a request is retried. Open to remote or hybrid roles.",
   heroFacts: [
-    { eyebrow: "Open to", text: "Remote · hybrid" },
-    { eyebrow: "Path", text: "AI & Big Data · in progress" },
-    { eyebrow: "Focus", text: "Backend · AI", accent: true },
+    { eyebrow: "English", text: "C1 Advanced" },
+    { eyebrow: "Now", text: "Vocational AI specialization" },
+    { eyebrow: "On PyPI", text: "import-resolve-cli", accent: true },
   ],
-  // Flat string for terminal / plain contexts.
-  tagline: "Python backend · FastAPI · AI · open to remote or hybrid",
-  // Friendly blurb for CLI `about` — warm, specific, not a CV tagline dump.
+  tagline: "Python backend · FastAPI · applied AI · open to remote or hybrid",
   cliAbout: [
-    "Hi — I'm Ikrame. Backend developer in Málaga, with a soft spot for calm interfaces when I build the UI side.",
-    "I spend most of my energy on FastAPI, PostgreSQL, and AI in production paths: structured extraction, embeddings, retrieval.",
+    "Hi. I'm Ikrame. Backend developer in Málaga, with a soft spot for calm interfaces when I build the UI side.",
+    "Most of my energy goes to FastAPI, PostgreSQL, and applied AI on production paths: structured extraction, matching, tests.",
     "Away from the editor I'm usually deep in a story-heavy game, singing to reset my head, or fussing over little aesthetic details.",
-    "Just wrapped DAW (Jun 2026). Looking for remote or hybrid backend and AI roles.",
-    "I also built this portfolio end to end — the code is on GitHub.",
+    "Finished DAW (Jun 2026). Starting a vocational specialization in AI and big data, online and compatible with full-time work. Preparing official cloud certifications. Looking for remote or hybrid backend and AI roles.",
+    "I also built this portfolio end to end. The code is on GitHub.",
   ],
-  // Ultra-short pitch for CLI `tldr`.
   cliTldr: [
-    "Python backend in Málaga — FastAPI, PostgreSQL, AI. Ships React when a product needs a UI.",
-    "Building ReckonFlow (ledger API + LLM extraction) and the Málaga onboarding guide. Looking for remote or hybrid backend and AI roles.",
+    "Python backend in Málaga. FastAPI, PostgreSQL, applied AI. Ships React when a product needs a UI.",
+    "ReckonFlow is the flagship, and it's shipped (ledger API, locked reconcile, structured extraction). Validata is B2B SaaS with Jairo García Antolín, in progress. Looking for remote or hybrid backend and AI roles.",
   ],
   cliAvail:
     "Open to remote or hybrid. Based in Málaga (CET). Happy to chat anytime.",
   cliNow:
-    "Just finished DAW (Jun 2026) and the DATA CONTROL internship. ReckonFlow and the Málaga onboarding guide next — open to a backend or AI role.",
+    "Finished DAW (Jun 2026) and the DATA CONTROL internship. Starting an online vocational specialization in AI and big data, and preparing cloud certifications. ReckonFlow is done. Validata is in progress. Open to a backend or AI role.",
   portraitLink: {
     label: "Say hi on LinkedIn →",
   },
@@ -60,8 +55,8 @@ const LANGUAGES = [
   { lang: "Darija", level: "Native", detail: "Moroccan Arabic", code: "AR" },
 ];
 
-// Four skill domains — rendered as a 2×2 panel grid in CVSection.
-// Languages sit below as a full-width strip (not a fifth grid cell).
+// Four skill domains — full-width catalog bands in CVSection.
+// Languages sit below as three type plates, not a list.
 const STACK = {
   domains: [
     {
@@ -80,6 +75,7 @@ const STACK = {
             "Java",
             "REST APIs",
             "JWT",
+            "Celery",
           ],
         },
         {
@@ -96,6 +92,7 @@ const STACK = {
       groups: [
         {
           label: "UI & frameworks",
+          pairWithNext: true,
           items: [
             "React",
             "Next.js",
@@ -107,6 +104,7 @@ const STACK = {
         },
         {
           label: "State & maps",
+          pairWithNext: true,
           items: ["Zustand", "Leaflet"],
         },
         {
@@ -125,9 +123,10 @@ const STACK = {
           label: "In product",
           items: [
             "LLMs",
+            "PydanticAI",
             "Prompt engineering",
             "Structured outputs",
-            "Embeddings",
+            "Hashed-token vectors",
             "Hybrid retrieval",
             "RRF",
             "Guardrails",
@@ -135,7 +134,6 @@ const STACK = {
         },
         {
           label: "With agents",
-          pairWithNext: true,
           items: [
             "LangGraph",
             "Context engineering",
@@ -162,6 +160,7 @@ const STACK = {
           items: [
             "Git",
             "GitHub Actions",
+            "pytest",
             "Vitest",
             "Playwright",
             "Docker",
@@ -240,29 +239,34 @@ const EXPERIENCE = [
 const EDUCATION = [
   {
     school: "IES Zaidín Vergeles",
-    degree: "Postgraduate Specialization in Artificial Intelligence & Big Data",
+    degree:
+      "Vocational specialization in artificial intelligence and big data",
     tags: [
-      "Curso de Especialización",
+      "Máster de FP",
       "EQF Level 5",
-      "Post-Diploma Specialization",
+      "100% online",
     ],
-    period: "Sep 2026 — present",
+    period: "Sep 2026 to present",
   },
   {
     school: "CESUR Este, Málaga",
-    degree: "Higher Vocational Degree in Web Application Development (DAW)",
+    degree: "Higher vocational degree in web application development (DAW)",
     tags: [
-      "Ciclo Formativo de Grado Superior",
+      "Ciclo formativo de grado superior",
       "EQF Level 5",
-      "HND Equivalent",
+      "Matrícula de Honor (10/10)",
     ],
-    period: "Sep 2024 — Jun 2026",
+    period: "Sep 2024 to Jun 2026",
   },
   {
     school: "I.E.S. Politécnico Jesús Marín",
-    degree: "Vocational Diploma in Business Administration & Management",
-    tags: ["Ciclo Formativo de Grado Medio", "EQF Level 4", "Graduated with Honors"],
-    period: "2022 — 2024",
+    degree: "Vocational diploma in business administration and management",
+    tags: [
+      "Ciclo formativo de grado medio",
+      "EQF Level 4",
+      "Matrícula de Honor",
+    ],
+    period: "2022 to 2024",
   },
 ];
 
@@ -270,22 +274,38 @@ const PROJECTS = [
   {
     id: "reconflow",
     name: "ReckonFlow",
+    lane: "backend",
+    tier: "flagship",
+    status: "Shipped. Public API and source. Scalar docs can take about 50s to wake on the free Render tier. Finance routes need an API key in production.",
+    role: "Sole author",
     subtitle: "Corporate travel reconciliation API · backend",
-    stack: ["Python", "FastAPI", "PostgreSQL", "Redis", "LLMs", "Embeddings", "pytest"],
+    stack: ["Python", "FastAPI", "PostgreSQL", "Redis", "PydanticAI", "RapidFuzz", "pytest"],
     href: "https://github.com/ikrame-ih/reckon-flow",
     demo: "https://reckon-flow.onrender.com/docs",
+    demoKind: "docs",
+    proof: "reconcile",
     image: ASSETS.projects.reckonFlow,
-    imageAlt: "ReckonFlow Swagger UI — GET suggestions returning a matched bank line",
+    imageKind: "screenshot",
+    imageCaption: "Interactive API reference (Scalar). Not the concurrency proof.",
+    imageAlt: "ReckonFlow API reference showing a matched bank line suggestion",
     description:
-      "Headless FastAPI API for travel approvals, an immutable double-entry ledger, LLM receipt extraction, and hybrid bank reconciliation — built so a retried POST cannot double-pay.",
+      "FastAPI API for corporate travel reconciliation: it matches expense receipts to bank lines, posts an append-only ledger, and confirms with FOR UPDATE so the same payment cannot be settled twice.",
+    problem:
+      "The API reconciles corporate travel spend with the bank: it matches each receipt to a bank line and posts it to a ledger.",
+    decision:
+      "On confirm, Postgres locks the rows (FOR UPDATE) so the same payment cannot post twice. Amounts stay Decimal. The ledger is append-only. The model fills a closed receipt schema; the code decides whether to post it.",
+    evidence:
+      "pytest coverage includes concurrent confirm conflict, ledger immutability on Postgres, idempotency replay with a 24h Redis TTL (fails open if Redis is down), and extra=forbid on extraction.",
+    limitations:
+      "Idempotency is bounded by Redis availability and TTL. Matching uses SQL, RapidFuzz, and hashed-token vectors with RRF, not a learned embedding model. Receipts are text or OCR text, not built-in image OCR.",
     signals: [
-      "Idempotent writes, Decimal money, row locks on reconcile",
-      "Structured LLM extraction with schema guardrails (prompt injection)",
-      "Hybrid match: SQL prefilter + RapidFuzz + embeddings + RRF (RAG-style)",
-      "Limitation: Render free tier can take ~50s to wake; embeddings may be stubbed",
+      "Row locks on reconcile confirm (Postgres FOR UPDATE)",
+      "Decimal money and append-only ledger triggers",
+      "Closed-schema extraction; the model does not approve payouts",
+      "Docs may cold-start; production finance routes are keyed",
     ],
     architectureSummary:
-      "Clients hit idempotency middleware (Redis), then FastAPI routers and services, then PostgreSQL. Receipt uploads return 202 and extract in the background. Matching uses SQL prefilter, RapidFuzz, embeddings, and RRF.",
+      "Clients hit Redis idempotency middleware (SET NX EX, 24h, fail-open), then FastAPI services and PostgreSQL. Receipt uploads return 202 and extract in the background. Matching is SQL prefilter, RapidFuzz, hashed-token vectors, and RRF.",
     mermaid: `flowchart LR
   Client --> Idem[Idempotency Redis]
   Idem --> API[FastAPI routers]
@@ -298,17 +318,70 @@ const PROJECTS = [
   class Idem,Svc,Match accent`,
   },
   {
+    id: "validata",
+    name: "Validata",
+    lane: "backend",
+    tier: "supporting",
+    badge: "In progress",
+    status: "In progress. Paid product, no public repository.",
+    roleBefore: "Co-developed with ",
+    roleLink: {
+      href: "https://jagardev.com/",
+      label: "Jairo García Antolín",
+    },
+    roleAfter:
+      ". I led quotas, DNI/NIE masking, signed downloads, VIES tri-state (unavailable stays null), Stripe test Checkout, waitlist, CI, and the React UX. Jairo originated BOE ingest, Celery workers, RapidFuzz matching, and the FastAPI/VIES scaffold.",
+    role: "Co-developed with Jairo García Antolín. I led quotas, DNI/NIE masking, signed downloads, VIES tri-state (unavailable stays null), Stripe test Checkout, waitlist, CI, and the React UX. Jairo originated BOE ingest, Celery workers, RapidFuzz matching, and the FastAPI/VIES scaffold.",
+    subtitle: "Batch CIF validation · B2B SaaS",
+    stack: ["Python", "FastAPI", "Celery", "PostgreSQL", "Redis", "React", "TypeScript", "Stripe"],
+    href: null,
+    demo: null,
+    proof: "validata",
+    image: null,
+    imageKind: "illustration",
+    imageCaption: "Synthetic walkthrough of verified behavior, not a live tenant.",
+    imageAlt: "Synthetic Validata rows: matched company, skipped VIES, discarded personal ID",
+    description:
+      "Upload a spreadsheet of Spanish company IDs. The pipeline returns structured validation and enrichment: local BOE/BORME name match, optional VIES, and GDPR masking for DNI/NIE.",
+    problem:
+      "Ops teams need batch CIF checks without treating a timeout as 'not registered', and without shipping personal DNI/NIE into enrichment.",
+    decision:
+      "Quota before the worker, redact personal IDs in API responses, lock downloads behind signed tokens, and keep skipped/unavailable VIES as null.",
+    evidence:
+      "Committed tests cover VIES null-vs-false, soft-launch quota/redaction/download auth, waitlist persistence, and Stripe test Checkout webhooks.",
+    signals: [
+      "Paid product, no public repository",
+      "VIES tri-state: true / false / null",
+      "Guest quotas, DNI/NIE masking, signed downloads",
+      "Co-built with Jairo García Antolín",
+    ],
+    mermaid: `flowchart LR
+  File[Spreadsheet] --> API[FastAPI]
+  API --> Q[Quota]
+  API --> GDPR[DNI filter]
+  API --> Celery[Celery]
+  Celery --> BOE[BOE name match]
+  Celery --> VIES[VIES optional]
+  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
+  class API,Q,GDPR accent`,
+  },
+  {
     id: "import-resolve-cli",
     name: "Import Resolve CLI",
-    subtitle: "CLI developer tool & Git merge driver · PyPI Python package",
-    stack: ["Python 3.9+", "Git CLI", "Hatchling", "PyPI", "GitHub Actions"],
+    lane: "tools",
+    tier: "compact",
+    status: "Published on PyPI. Import-block conflicts only, not arbitrary merges.",
+    role: "Sole author",
+    subtitle: "CLI developer tool and Git merge driver · PyPI",
+    stack: ["Python 3.9+", "ast", "Hatchling", "PyPI", "GitHub Actions"],
     href: "https://github.com/ikrame-ih/import-resolve-cli",
     demo: "https://pypi.org/project/import-resolve-cli/",
+    demoKind: "package",
     image: ASSETS.projects.importResolve,
     imageAlt:
       "VS Code with a Python import merge conflict and import-resolve dry-run resolving it in the terminal",
     description:
-      "CLI developer tool and Git merge driver for automatically resolving merge conflicts in Python import blocks. Published on PyPI with zero runtime dependencies.",
+      "Zero-dependency CLI and Git merge driver. It parses conflicted Python import blocks with ast, then dedupes and sorts them.",
     architectureSummary:
       "Parses Git conflict markers in .py files, extracts the conflicted import blocks, deduplicates and sorts them to PEP 8, and can run as an automated Git merge driver.",
     mermaid: `flowchart LR
@@ -321,17 +394,55 @@ const PROJECTS = [
   class CLI,Parse,Dedupe accent`,
   },
   {
+    id: "en-es-localization",
+    name: "English-Spanish web localization",
+    lane: "tools",
+    tier: "compact",
+    status: "Published on skills.sh. Source is public.",
+    role: "Sole author",
+    subtitle: "Agent skill · meaning-first EN/ES",
+    stack: ["Python", "en-GB", "en-US", "es-ES", "es-419"],
+    href: "https://github.com/ikrame-ih/english-spanish-web-localization",
+    demo: "https://www.skills.sh/ikrame-ih/english-spanish-web-localization/english-spanish-web-localization",
+    demoKind: "skill",
+    image: ASSETS.projects.enEsLocalization,
+    imageAlt:
+      "Mockup of the English-Spanish localization skill: the skills.sh page and a context-aware CTA pair",
+    description:
+      "Meaning-first localization among en-GB, en-US, es-ES, and es-419. locale_guard is a Python script (stdlib only) that diffs two JSON catalogs for missing keys, placeholder drift, tags, and encoding.",
+    problem:
+      "en-GB, en-US, es-ES, and es-419 get treated as one language. Sentence-level swaps leak register, spelling, and institutional terms.",
+    decision:
+      "Four locale guides, a meaning-first brief, and a Python locale_guard on catalogs. No live translation API.",
+    evidence:
+      "Published as a skill on skills.sh. Source is on GitHub. locale_guard is Python stdlib plus unittest.",
+    limitations: "Not certified translation.",
+    architectureSummary:
+      "A brief picks the exact locale. Copy is written against that guide. locale_guard, a Python script, checks the catalog offline.",
+    mermaid: `flowchart LR
+  Brief[Locale brief] --> Guides[en-GB en-US es-ES es-419]
+  Guides --> Copy[Target copy]
+  Copy --> Guard[locale_guard Python]
+  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
+  class Guides,Guard accent`,
+  },
+  {
     id: "malaga-onboarding",
     name: "Málaga Onboarding",
+    lane: "apps",
+    tier: "compact",
+    status: "Public checklist. Operator CLI is local.",
+    role: "Sole author",
     subtitle: "Expat relocation checklist · web + LangGraph",
     stack: ["JavaScript", "LangGraph.js", "Groq", "Cheerio", "Cloudflare"],
     href: null,
     demo: "https://malaga-onboarding.pages.dev/",
+    live: true,
     image: ASSETS.projects.malagaOnboarding,
     imageAlt:
       "Device mockup of málaga.onboarding in light and dark mode — desktop, laptop, tablet, and phone",
     description:
-      "Checklist for landing in Málaga: padrón, NIE, Social Security. The live plan is a topological sort — no LLM on the user path. A local LangGraph.js CLI checks the fact sheets.",
+      "Landing checklist for Málaga (padrón, NIE, Social Security). The public plan is a topological sort, so the user path does not call an LLM. A local LangGraph.js CLI checks fact sheets and can stop on HUMAN_REVIEW_REQUIRED.",
     signals: [
       "User path is a graph sort — 0€ LLM inference",
       "Operator CLI: LangGraph.js, typed GraphState, Groq",
@@ -355,6 +466,10 @@ const PROJECTS = [
     id: "my-playthrough",
     name: "MyPlaythrough",
     badge: "DAW final project",
+    lane: "apps",
+    tier: "compact",
+    status: "Public demo and source. Capstone graded 10/10.",
+    role: "Sole author",
     subtitle: "Personal game library manager · full-stack",
     stack: [
       "React",
@@ -371,7 +486,7 @@ const PROJECTS = [
     image: ASSETS.projects.myPlaythrough,
     imageAlt: "MyPlaythrough — personal game library and community UI",
     description:
-      "DAW capstone (max grade): a PERN app for backlog, play, and completions—with community, recommendations, and admin moderation.",
+      "DAW capstone (10/10): PERN app for backlog, community, and moderation. JWT, bcrypt, Steam/RAWG proxy, Docker Compose, Vitest on client and server.",
     architectureSummary:
       "A React SPA talks to an Express REST API. The API handles JWT and bcrypt auth, persists data in PostgreSQL, and proxies Steam/RAWG cover requests.",
     mermaid: `flowchart LR
@@ -385,6 +500,10 @@ const PROJECTS = [
   {
     id: "live-event-radar",
     name: "Live Event Radar",
+    lane: "apps",
+    tier: "compact",
+    status: "Public demo. Telemetry is simulated, not a live venue feed.",
+    role: "Sole author",
     subtitle: "Real-time venue ops dashboard · frontend",
     stack: [
       "Next.js",
@@ -400,7 +519,7 @@ const PROJECTS = [
     image: ASSETS.projects.liveEventRadar,
     imageAlt: "Live Event Radar — command center and telemetry dashboard",
     description:
-      "A venue ops dashboard where one event stream feeds a command center and a live map—built after watching floor updates arrive too late.",
+      "Venue ops views derived from one Zustand store: SVG command center and a Leaflet map. The event stream is mocked.",
     architectureSummary:
       "A mock event stream writes into a Zustand telemetry store. Pure derivations from that store feed two synchronized views: the Command Center (SVG venue map) and the Telemetry dashboard (Leaflet map).",
     mermaid: `flowchart LR
@@ -416,6 +535,10 @@ const PROJECTS = [
   {
     id: "aiba-widget",
     name: "Aiba",
+    lane: "apps",
+    tier: "compact",
+    status: "Local Windows widget. No installer store listing, no cloud sync.",
+    role: "Sole author",
     subtitle: "Desktop productivity companion · Electron",
     stack: ["Electron", "React 19", "TypeScript", "Vite", "Vitest"],
     href: "https://github.com/ikrame-ih/aiba-widget",
@@ -423,7 +546,7 @@ const PROJECTS = [
     image: ASSETS.projects.aibaWidget,
     imageAlt: "Aiba — desktop focus timer and planning widget",
     description:
-      "Local-first Windows widget to plan the day, protect a focus block, and unwind—no account, no cloud.",
+      "Local Windows focus widget: plan the day, guard a block, unwind. Electron, React, IPC preload. No account.",
     architectureSummary:
       "The React UI talks through an IPC preload bridge to the Electron main process. Main stores local JSON and runs the focus-guard overlay—no cloud dependency.",
     mermaid: `flowchart LR
@@ -437,7 +560,7 @@ const PROJECTS = [
 ];
 
 const BENTO = {
-  overline: "04 · interests",
+  overline: "Interests",
   title: "Things I enjoy",
   titleAccent: "outside of development.",
   kicker: "The part of me that doesn't show up in a linter.",
@@ -516,55 +639,80 @@ const BENTO = {
 };
 
 const LINKEDIN_SIGNALS = {
-  overline: "03 · from LinkedIn",
+  overline: "From LinkedIn",
   title: "Notes from",
   titleAccent: "LinkedIn.",
   featuredLabel: "Featured post",
   posts: [
     {
-      slug: "contains-duplicate-fundamentals",
-      title: "Programming Fundamentals Series | Episode 2: Contains Duplicate",
+      slug: "grok-bot-openclaw-instinct",
+      title: "Grok Bot vs Open Claw vs Instinct - Which one fits you?",
       excerpt:
-        "Following up on my previous post, I'm continuing this series where I document my journey to strengthen my core programming and problem-solving skills! Today's topic is another classic: Contains Duplicate.",
-      date: "2026-08-05",
-      topic: "Algorithms",
-      series: "Fundamentals · Ep. 2",
-      href: "https://www.linkedin.com/posts/ikrame-ih_python-softwareengineering-algorithms-share-7490756595665162241-Awub/",
+        "I've been reading a lot about personal AI agents lately, so I compared three that keep coming up: OpenClaw, Instinct, and Grok Bot. I've used all three, and also looked at what users share on X and Reddit, reviews, and deep dives.",
+      date: "2026-09-08",
+      href: "https://www.linkedin.com/posts/ikrame-ih_grok-bot-vs-open-claw-vs-instinct-which-activity-7503148582032699392-_6Q9",
+      image: ASSETS.linkedin.agentsCompare,
+      imageAlt:
+        "First slide of the LinkedIn carousel: Which one fits you?",
     },
     {
-      slug: "two-sum-fundamentals",
-      title: "Programming Fundamentals Series | Episode 1: Two Sum",
+      slug: "reasoning-effort-dial",
+      title: "Reasoning effort is a dial",
       excerpt:
-        "I'm starting a new series where I'll document my journey to strengthen my programming fundamentals and problem-solving skills. Today's topic is a classic LeetCode problem: Two Sum.",
-      date: "2026-08-04",
-      topic: "Algorithms",
-      series: "Fundamentals · Ep. 1",
-      href: "https://www.linkedin.com/posts/ikrame-ih_python-softwareengineering-algorithms-activity-7490454995847323650-2Ik9",
+        "Some language models do not jump straight to an answer. First they write a private draft of their thinking. That draft is made of tokens, the same small pieces of text the model always generates. We call that draft the reasoning.",
+      date: "2026-09-04",
+      href: "https://www.linkedin.com/posts/ikrame-ih_reasoning-effort-is-a-dial-llms-activity-7501615098176847872-xFtR",
+      image: ASSETS.linkedin.reasoningEffort,
+      imageAlt:
+        "First slide of the LinkedIn carousel: Reasoning effort is a dial",
     },
     {
-      slug: "big-o-cheat-sheet",
-      title: "Big O notation",
+      slug: "reckonflow-llm-authority",
+      title: "AI + Backend Architecture - ReckonFlow",
       excerpt:
-        "Big O notation is a concept that often comes up when studying algorithms and data structures, and it's also common in technical interviews. In Big O, n represents the size of the input.",
-      date: "2026-08-03",
-      topic: "CS fundamentals",
-      series: null,
-      href: "https://www.linkedin.com/posts/ikrame-ih_technology-softwareengineering-programming-share-7489761460697403393-ldOL/",
+        "One architectural decision I made while building ReckonFlow: I don't give the LLM authority over business state. LLMs are useful for interpreting unstructured input.",
+      date: "2026-08-18",
+      href: "https://www.linkedin.com/posts/ikrame-ih_ai-backend-architecture-reckonflow-activity-7495453949236387840-jPDy",
+      image: ASSETS.linkedin.reckonFlowArchitecture,
+      imageAlt:
+        "First slide of the LinkedIn carousel on ReckonFlow: the LLM interprets, the application decides",
     },
   ],
   feedback: {
     label: "Professional feedback",
-    initials: ["A", "P", "I", "E", "N", "S"],
-    quote:
-      "She stands out for her commitment, responsibility, and constant desire to learn and grow. What I appreciated most was her ability to listen, take feedback on board, and continuously look for ways to improve.",
-    attribution: "Assistant Director",
-    cta: "+5 recommendations",
+    cta: "+4 recommendations",
     href: "https://www.linkedin.com/in/ikrame-ih/details/recommendations/",
+    items: [
+      {
+        lang: "en",
+        role: "Financial Crime Manager",
+        quote:
+          "Ikrame is a great professional, dedicated, decisive, and able to handle several complex tasks at once, meeting the deadlines that were set, always with a proactive attitude.",
+      },
+      {
+        lang: "en",
+        role: "Assistant Director",
+        quote:
+          "Working with Ikrame was a great experience. She stands out for her commitment, responsibility, and constant desire to learn and grow. What I appreciated most was her ability to listen, take feedback on board, and continuously look for ways to improve. Her positive mindset and dedication make her a fantastic professional and teammate.",
+      },
+      {
+        lang: "en",
+        role: "Senior Executive Assistant",
+        quote:
+          "Ikrame is a very responsible colleague, always helpful and responsive. She's always eager to help and suggest if anything come up. It's been a pleasure working with Ikrame.",
+      },
+      {
+        lang: "en",
+        role: "HR Recruiter",
+        quote:
+          "I had the pleasure of working closely with Ikrame, she consistently demonstrated professionalism, dedication, and a strong commitment to delivering high-quality results. Her expertise, reliability, and collaborative approach made her a valued partner across teams.",
+      },
+    ],
   },
 };
 
 const BOW_BOARD = {
-  overline: "05 · guest book",
+  overline: "Guest book",
   title: "Thanks for reading.",
   titleAccent: "Pin a little bow before you go.",
   kicker:
@@ -594,24 +742,57 @@ const catalog = {
   BOW_BOARD,
   marqueeRare: ["open to work", "málaga → remote", "built with care"],
   section: {
-    cvOverline: "01 · background & skills",
-    cvTitleBefore: "Skills, roles, and ",
-    cvTitleAccent: "education.",
-    cvKicker: "Skills, languages, and the work behind them.",
+    cvOverline: "Resume & skills",
+    cvTitleBefore: "Roles, skills, and ",
+    cvTitleAccent: "study.",
+    cvKicker:
+      "I spent years on reconciliations, expenses, and the people who use the tools. That is why I care about concurrent updates, retries, and what the system should do when something is uncertain.",
     languagesTitle: "Languages",
-    languagesKicker: "Spanish, English, and Darija — the ones I actually use.",
+    languagesKicker: "Spanish, English, and Darija. The ones I actually use.",
     experience: "Experience",
     education: "Education",
-    projectsOverline: "02 · selected work",
-    projectsTitleBefore: "Selected projects",
-    projectsTitleAccent: "with architecture notes.",
+    projectsOverline: "Selected work",
+    projectsTitleBefore: "Work you can ",
+    projectsTitleAccent: "inspect.",
     projectsKicker:
-      "Repo, live demo when there is one, and an architecture diagram. Click a capture to enlarge it.",
+      "Python projects, published tools, and other work as a hands-on builder.",
+    pythonLane: "Python backends",
+    toolsLane: "Published tools",
+    appsLane: "Other work",
     inProgress: "In progress",
     comingSoon: "Coming soon",
-    howItWorks: "How it works →",
-    github: "GitHub ↗",
-    demo: "Demo ↗",
+    shotPending: "Screenshot pending",
+    howItWorks: "Read case study",
+    github: "View source",
+    demo: "Demo",
+    live: "Open product",
+    viewPackage: "View package",
+    viewSkill: "View skill",
+    apiReference: "API docs",
+    privateNote: "Private product",
+    walkthrough: {
+      reconcile: {
+        kicker: "If two people confirm at once",
+        steps: [
+          "Both pick the same bank line.",
+          "The first confirm locks the row (FOR UPDATE) and matches it.",
+          "The second hits a conflict. No second ledger post.",
+        ],
+        footnote:
+          "Idempotency uses Redis (24h TTL). If Redis is down, the request still goes through.",
+      },
+      validata: {
+        kicker: "What each row does",
+        headers: ["CIF", "Company", "What happens"],
+        rows: [
+          { id: "B12345678", name: "Acme Iberia SL", result: "Found in BOE" },
+          { id: "A87654321", name: "Norte Logística SA", result: "VIES not called" },
+          { id: "12345678Z", name: "DNI", result: "Dropped (GDPR)" },
+        ],
+        footnote:
+          "BOE match uses the local cache. Skipped VIES stays null.",
+      },
+    },
   },
   tracks: { tech: "tech", hybrid: "tech × biz", biz: "biz / ops" },
 };

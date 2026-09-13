@@ -14,16 +14,6 @@ const formatDate = (iso, lang) => {
   });
 };
 
-const AVATAR_TONES = [
-  "bg-bone text-ink-mute",
-  "bg-bone-300 text-ink-mute",
-  "bg-bone-400 text-ink-soft",
-  "bg-bone text-ink-mute",
-  "bg-bone-300 text-ink-mute",
-  "bg-ink/[0.08] text-ink-soft",
-];
-
-/** Decorative opening quote for the feedback card. */
 const QuoteMark = ({ className }) => (
   <svg
     viewBox="0 0 40 32"
@@ -36,14 +26,7 @@ const QuoteMark = ({ className }) => (
   </svg>
 );
 
-const HoverHairline = () => (
-  <span
-    aria-hidden="true"
-    className="mt-5 block h-px w-0 origin-left bg-burgundy/55 transition-[width] duration-500 ease-[cubic-bezier(0.2,0.7,0.2,1)] group-hover:w-14"
-  />
-);
-
-const FeaturedPost = ({ post, reduce, label, readLabel, opensNewTab, lang }) => (
+const PostCard = ({ post, index, reduce, readLabel, opensNewTab, lang }) => (
   <motion.a
     href={post.href}
     target="_blank"
@@ -52,129 +35,89 @@ const FeaturedPost = ({ post, reduce, label, readLabel, opensNewTab, lang }) => 
     initial={reduce ? false : { y: 12 }}
     whileInView={reduce ? undefined : { y: 0 }}
     viewport={REVEAL_VIEWPORT}
-    transition={revealTransition(0)}
-    className="group block pb-9 md:pb-11 outline-none focus-visible:ring-2 focus-visible:ring-burgundy/30 focus-visible:ring-offset-4 focus-visible:ring-offset-bone"
+    transition={revealTransition(index * 0.05)}
+    className="group grid grid-cols-1 items-start border-b border-ink/15 outline-none last:border-b-0 focus-visible:ring-2 focus-visible:ring-burgundy/30 focus-visible:ring-offset-4 focus-visible:ring-offset-bone md:grid-cols-[minmax(0,20rem)_minmax(0,1fr)]"
   >
-    <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-mute mb-4">
-      {label}
-      <span className="text-ink-mute/50" aria-hidden="true">
-        {" "}
-        ·{" "}
+    {post.image ? (
+      <div className="border-b border-ink/10 bg-bone-200 p-4 md:border-b-0 md:border-r md:p-5">
+        <img
+          src={post.image}
+          alt={post.imageAlt || ""}
+          width={1037}
+          height={1296}
+          loading="lazy"
+          decoding="async"
+          className="mx-auto h-auto w-full max-h-[22rem] object-contain"
+        />
+      </div>
+    ) : null}
+    <div className="flex min-h-0 flex-col p-6 md:p-8">
+      <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.22em] text-ink-mute">
+        {formatDate(post.date, lang)}
+      </p>
+      <h3 className="text-balance font-serif text-xl font-light leading-snug tracking-tight text-ink transition-colors duration-500 group-hover:text-burgundy md:text-2xl">
+        {post.title}
+      </h3>
+      <p className="mt-3 text-pretty font-mono text-xs leading-relaxed text-ink-soft">
+        {post.excerpt}
+      </p>
+      <span className="mt-5 inline-flex min-h-11 items-center font-mono text-xs text-burgundy transition-colors group-hover:text-ink">
+        {readLabel}
+        <span className="sr-only">{opensNewTab}</span>
       </span>
-      {formatDate(post.date, lang)}
-    </p>
-    <h3 className="font-serif font-light text-2xl md:text-3xl lg:text-[2.35rem] text-ink tracking-tight leading-[1.15] transition-colors duration-500 group-hover:text-burgundy text-balance">
-      {post.title}
-    </h3>
-    <p className="mt-4 font-mono text-xs md:text-sm text-ink-soft leading-relaxed text-pretty max-w-2xl">
-      {post.excerpt}
-    </p>
-    <span className="mt-5 inline-flex font-mono text-xs text-burgundy transition-colors group-hover:text-ink">
-      {readLabel}
-      <span className="sr-only">{opensNewTab}</span>
-    </span>
-    <HoverHairline />
+    </div>
   </motion.a>
 );
 
-const SecondaryPost = ({ post, index, reduce, readLabel, opensNewTab, lang }) => (
-  <motion.a
-    href={post.href}
-    target="_blank"
-    rel="noopener noreferrer"
-    data-testid={`linkedin-post-${post.slug}`}
-    initial={reduce ? false : { y: 12 }}
-    whileInView={reduce ? undefined : { y: 0 }}
-    viewport={REVEAL_VIEWPORT}
-    transition={revealTransition(0.06 + index * 0.06)}
-    className="group flex h-full flex-col pt-7 md:pt-8 outline-none focus-visible:ring-2 focus-visible:ring-burgundy/30 focus-visible:ring-offset-4 focus-visible:ring-offset-bone"
-  >
-    <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-mute mb-3">
-      {post.series || post.topic}
-      <span className="text-ink-mute/50" aria-hidden="true">
-        {" "}
-        ·{" "}
-      </span>
-      {formatDate(post.date, lang)}
-    </p>
-    <h3 className="font-serif font-light text-lg md:text-xl text-ink tracking-tight leading-snug transition-colors duration-500 group-hover:text-burgundy text-balance">
-      {post.title}
-    </h3>
-    <p className="mt-2.5 font-mono text-xs text-ink-soft leading-relaxed text-pretty line-clamp-3 grow">
-      {post.excerpt}
-    </p>
-    <span className="mt-4 inline-flex font-mono text-xs text-burgundy transition-colors group-hover:text-ink">
-      {readLabel}
-      <span className="sr-only">{opensNewTab}</span>
-    </span>
-    <HoverHairline />
-  </motion.a>
+const recCellClass = (index) => {
+  const left = index % 2 === 0;
+  return [
+    "flex h-full flex-col border-b border-ink/15 p-6 md:p-8",
+    left ? "md:border-r" : "",
+  ].join(" ");
+};
+
+const RecCard = ({ item, index }) => (
+  <article data-testid={`linkedin-rec-${index}`} className={recCellClass(index)}>
+    <QuoteMark className="mb-4 h-5 w-6 shrink-0 text-burgundy" />
+    <blockquote
+      lang={item.lang}
+      className="grow text-pretty font-serif text-[0.95rem] font-light italic leading-relaxed text-ink md:text-base"
+    >
+      {item.quote}
+    </blockquote>
+    {item.role ? (
+      <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-mute">
+        {item.role}
+      </p>
+    ) : null}
+  </article>
 );
 
-const FeedbackCard = ({ feedback, opensNewTab }) => {
-  const initials = feedback.initials?.slice(0, 6) || [];
+const RecsBand = ({ feedback, opensNewTab }) => {
+  const items = feedback.items || [];
+  if (!items.length) return null;
 
   return (
-    <div data-testid="linkedin-profile-note" className="lg:sticky lg:top-28">
-      <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-mute mb-4">
-        {feedback.label}
-      </p>
-
-      <div className="relative border border-ink/15 bg-bone-200/50 px-5 py-6 md:px-6 md:py-7 transition-colors duration-300 hover:border-ink/25">
-        {initials.length ? (
-          <div className="mb-6">
-            <div className="flex -space-x-2" aria-hidden="true">
-              {initials.map((initial, i) => (
-                <span
-                  key={`${initial}-${i}`}
-                  className={`flex h-8 w-8 items-center justify-center rounded-full border border-bone-200/90 font-mono text-[10px] uppercase tracking-wide ring-1 ring-ink/10 ${
-                    AVATAR_TONES[i % AVATAR_TONES.length]
-                  }`}
-                >
-                  {initial}
-                </span>
-              ))}
-            </div>
-            <a
-              href={feedback.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3.5 inline-flex font-mono text-[11px] uppercase tracking-[0.2em] text-burgundy lnk"
-            >
-              {feedback.cta}
-              <span className="sr-only">{opensNewTab}</span>
-            </a>
-          </div>
-        ) : (
-          <a
-            href={feedback.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mb-6 inline-flex font-mono text-[11px] uppercase tracking-[0.2em] text-burgundy lnk"
-          >
-            {feedback.cta}
-            <span className="sr-only">{opensNewTab}</span>
-          </a>
-        )}
-
-        <div className="flex gap-3 items-start">
-          <QuoteMark className="mt-0.5 h-5 w-6 shrink-0 text-burgundy" />
-          <div className="min-w-0">
-            <blockquote className="font-serif text-[0.95rem] md:text-base font-light italic text-ink leading-relaxed text-pretty">
-              {feedback.quote}
-            </blockquote>
-
-            {feedback.attribution ? (
-              <p className="mt-5 flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-mute">
-                <span
-                  aria-hidden="true"
-                  className="inline-block h-px w-5 bg-ink/25"
-                />
-                {feedback.attribution}
-              </p>
-            ) : null}
-          </div>
-        </div>
+    <div className="mt-14 md:mt-16" data-testid="linkedin-profile-note">
+      <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+        <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-mute">
+          {feedback.label}
+        </p>
+        <a
+          href={feedback.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="lnk inline-flex min-h-11 items-center font-mono text-xs uppercase tracking-[0.2em] text-burgundy"
+        >
+          {feedback.cta}
+          <span className="sr-only">{opensNewTab}</span>
+        </a>
+      </div>
+      <div className="grid grid-cols-1 border-t border-ink/15 md:grid-cols-2">
+        {items.map((item, i) => (
+          <RecCard key={`${item.role}-${i}`} item={item} index={i} />
+        ))}
       </div>
     </div>
   );
@@ -185,7 +128,7 @@ export const LinkedInSection = () => {
   const { LINKEDIN_SIGNALS } = useContent();
   const { lang } = useLocale();
   const ui = useUi();
-  const [featured, ...rest] = LINKEDIN_SIGNALS.posts.slice(0, 3);
+  const posts = LINKEDIN_SIGNALS.posts.slice(0, 3);
   const feedback = LINKEDIN_SIGNALS.feedback;
 
   return (
@@ -194,16 +137,16 @@ export const LinkedInSection = () => {
       tabIndex={-1}
       aria-labelledby="linkedin-heading"
       data-testid="linkedin-section"
-      className="relative py-16 sm:py-20 md:py-32 outline-none"
+      className="relative py-16 outline-none sm:py-20 md:py-32"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <Reveal className="mb-10 md:mb-12 max-w-3xl">
+      <div className="mx-auto max-w-[1240px] px-5 md:px-12">
+        <Reveal className="mb-10 max-w-3xl md:mb-12">
           <SectionOverline className="mb-6 md:mb-8">
             {LINKEDIN_SIGNALS.overline}
           </SectionOverline>
           <h2
             id="linkedin-heading"
-            className="font-serif font-light text-3xl md:text-5xl tracking-tighter text-ink text-balance"
+            className="text-balance font-serif text-3xl font-light tracking-tighter text-ink md:text-5xl"
           >
             {LINKEDIN_SIGNALS.title}
             {LINKEDIN_SIGNALS.titleAccent ? (
@@ -217,53 +160,23 @@ export const LinkedInSection = () => {
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-0 lg:items-start border-t border-ink/15">
-          <div className="lg:col-span-8 lg:pr-10 xl:pr-12 lg:border-r lg:border-ink/15 pt-8 md:pt-10">
-            {featured ? (
-              <FeaturedPost
-                post={featured}
-                reduce={reduce}
-                label={LINKEDIN_SIGNALS.featuredLabel}
-                readLabel={ui.linkedin.readOnLinkedIn}
-                opensNewTab={ui.hero.opensNewTab}
-                lang={lang}
-              />
-            ) : null}
-
-            {rest.length ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-t border-ink/15">
-                {rest.map((post, i) => (
-                  <div
-                    key={post.slug}
-                    className={
-                      i > 0
-                        ? "border-t border-ink/15 sm:border-t-0 sm:border-l sm:border-ink/15 sm:pl-8"
-                        : "sm:pr-8"
-                    }
-                  >
-                    <SecondaryPost
-                      post={post}
-                      index={i}
-                      reduce={reduce}
-                      readLabel={ui.linkedin.readOnLinkedIn}
-                      opensNewTab={ui.hero.opensNewTab}
-                      lang={lang}
-                    />
-                  </div>
-                ))}
-              </div>
-            ) : null}
-          </div>
-
-          {feedback ? (
-            <div className="lg:col-span-4 lg:pl-10 xl:pl-12 pt-2 lg:pt-10">
-              <FeedbackCard
-                feedback={feedback}
-                opensNewTab={ui.hero.opensNewTab}
-              />
-            </div>
-          ) : null}
+        <div className="border-t border-ink/15">
+          {posts.map((post, i) => (
+            <PostCard
+              key={post.slug}
+              post={post}
+              index={i}
+              reduce={reduce}
+              readLabel={ui.linkedin.readOnLinkedIn}
+              opensNewTab={ui.hero.opensNewTab}
+              lang={lang}
+            />
+          ))}
         </div>
+
+        {feedback ? (
+          <RecsBand feedback={feedback} opensNewTab={ui.hero.opensNewTab} />
+        ) : null}
       </div>
     </section>
   );
