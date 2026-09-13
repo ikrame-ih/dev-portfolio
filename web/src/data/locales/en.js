@@ -754,7 +754,7 @@ const catalog = {
     cvTitleBefore: "Roles, skills, and ",
     cvTitleAccent: "study.",
     cvKicker:
-      "I spent years on reconciliations, expenses, and the people who use the tools. That is why I care about concurrent updates, retries, and what the system should do when something is uncertain. I work in one harness: specs in Obsidian, spec-driven development, Orca to route agents. I write the code in Cursor, with help from its best models. The merge stays mine.",
+      "I spent years on reconciliations, expenses, and the people who use the tools. That is why I care about concurrent updates, retries, and what the system should do when something is uncertain. I work in one harness: specs in Obsidian, spec-driven development, Orca to route agents. I write the code in Cursor with Grok 4.6, Composer, Codex (Astra, Sol, Terra, Luna, GPT-5), and Gemini Pro and Flash 3.8. The merge stays mine.",
     languagesTitle: "Languages",
     languagesKicker: "Spanish, English, and Darija. The ones I actually use.",
     experience: "Experience",

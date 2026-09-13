@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Ingeniera backend Python en Málaga. 3 años de experiencia profesional y proyectos en producción (EY, operaciones y prácticas de software). Construyo APIs REST con FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic y pytest. IA aplicada: prompt engineering, extracción LLM con esquemas cerrados, embeddings, recuperación híbrida y grounding tipo RAG. Un harness: specs en Obsidian, spec-driven development, Orca para enrutar agentes. El código lo escribo yo en Cursor, con ayuda de sus mejores modelos. El merge lo decido yo. En curso un máster de FP en inteligencia artificial y big data (PySpark, DataFrames; 100% online, compatible con jornada completa) y certificaciones cloud (GCP, AWS). Graduada DAW (jun. 2026), proyecto final 10/10. Abierta a backend e IA, remoto o híbrido.</p>"
+    "content": "<p>Ingeniera backend Python en Málaga. +3 años de experiencia profesional y proyectos en producción (EY, operaciones y prácticas de software). Construyo APIs REST con FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic y pytest. En producto uso IA generativa: prompt engineering, extracción LLM con esquemas cerrados, embeddings, recuperación híbrida y grounding tipo RAG. En el día a día trabajo con un harness: specs en Obsidian, spec-driven development, Orca para enrutar agentes. El código lo escribo yo en Cursor con Grok 4.6, Composer, Codex (Astra, Sol, Terra, Luna, GPT-5) y Gemini Pro y Flash 3.8. El merge lo decido yo. En curso un máster de FP en inteligencia artificial y big data (PySpark, DataFrames; 100% online, compatible con jornada completa) y certificaciones cloud (GCP, AWS). Graduada DAW (jun. 2026), proyecto final 10/10. Abierta a backend e IA, remoto o híbrido.</p>"
   },
   "sections": {
     "profiles": {
@@ -372,6 +372,13 @@
             "Obsidian",
             "Orca",
             "Cursor",
+            "Grok",
+            "Composer",
+            "Codex",
+            "Astra",
+            "GPT-5",
+            "Gemini Pro",
+            "Gemini Flash",
             "Prometheus"
           ]
         },

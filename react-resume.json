@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Backend Python engineer in Málaga. +3 years of professional experience and production projects (EY, ops roles, and a software internship). I build REST APIs with FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic, and pytest. Applied generative AI: prompt engineering, structured LLM extraction with closed schemas, embeddings, hybrid retrieval, and RAG-style grounding. One harness: specs in Obsidian, spec-driven development, Orca to route agents. I write the code in Cursor, with help from its best models. I merge. Currently a vocational specialization in AI and big data (PySpark, DataFrames; 100% online) and preparing official cloud certifications (GCP, AWS). DAW graduate (Jun 2026), capstone 10/10. Open to remote or hybrid backend and GenAI roles.</p>"
+    "content": "<p>Backend Python engineer in Málaga. +3 years of professional experience and production projects (EY, ops roles, and a software internship). I build REST APIs with FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic, and pytest. In product I use generative AI: prompt engineering, closed-schema LLM extraction, embeddings, hybrid retrieval, and RAG-style grounding. Day to day I work in one harness: specs in Obsidian, spec-driven development, Orca to route agents. I write the code in Cursor with Grok 4.6, Composer, Codex (Astra, Sol, Terra, Luna, GPT-5), and Gemini Pro and Flash 3.8. I merge. Currently a vocational specialization in AI and big data (PySpark, DataFrames; 100% online) and preparing official cloud certifications (GCP, AWS). DAW graduate (Jun 2026), capstone 10/10. Open to remote or hybrid backend and GenAI roles.</p>"
   },
   "sections": {
     "profiles": {
@@ -372,6 +372,13 @@
             "Obsidian",
             "Orca",
             "Cursor",
+            "Grok",
+            "Composer",
+            "Codex",
+            "Astra",
+            "GPT-5",
+            "Gemini Pro",
+            "Gemini Flash",
             "Prometheus"
           ]
         },
