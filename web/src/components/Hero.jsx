@@ -142,9 +142,9 @@ export const Hero = () => {
   return (
     <section
       data-testid="hero-section"
-      className="relative flex min-h-0 flex-col pt-24 md:h-[100svh] md:max-h-[100svh] md:pt-28"
+      className="relative flex min-h-0 flex-col pt-24 md:min-h-[100svh] md:pt-28"
     >
-      <div className="mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col justify-center overflow-hidden px-6 pb-6 md:px-12 md:pb-4">
+      <div className="mx-auto flex min-h-0 w-full max-w-[1240px] flex-1 flex-col justify-center px-5 pb-8 md:px-12 md:pb-6">
         <div className="grid grid-cols-12 gap-6 md:gap-10 items-start md:items-center">
           <div className="col-span-12 md:col-span-7">
             <m.div
@@ -186,15 +186,15 @@ export const Hero = () => {
 
             <h1
               data-testid="hero-headline"
-              className="font-serif font-light text-[clamp(1.6rem,8vw,2.05rem)] leading-[1.12] md:text-6xl lg:text-7xl tracking-[-0.03em] text-ink text-pretty md:text-balance"
+              className="font-serif font-light text-[clamp(2.25rem,6vw,4.5rem)] leading-[1.15] tracking-[-0.03em] text-ink text-pretty"
             >
               {PROFILE.headlineParts.map((part, i) => (
                 <TextAnimate
                   key={part.text}
-                  as="div"
+                  as="span"
                   by="text"
                   animation="fadeIn"
-                  delay={HEADLINE_LINE_DELAY[i]}
+                  delay={HEADLINE_LINE_DELAY[i] ?? 0}
                   stagger={HEADLINE_WORD_STAGGER}
                   duration={0.38}
                   startOnView={false}
@@ -212,47 +212,22 @@ export const Hero = () => {
               ))}
             </h1>
 
-            <p
-              data-testid="hero-positioning"
-              className="mt-8 max-w-[65ch] text-sm md:text-base text-ink-soft leading-relaxed"
-            >
-              {PROFILE.heroSubtext}
-            </p>
-
-            {/* Editorial fact row — vertical rules from md only */}
-            <m.ul
-              data-testid="hero-facts"
-              className="mt-6 grid grid-cols-3 items-start gap-x-3 gap-y-5 md:mt-7 md:gap-x-0"
-              variants={factsContainer(reduce)}
-              initial={reduce ? false : "hidden"}
-              animate={reduce || headlineReady ? "show" : "hidden"}
-            >
-              {PROFILE.heroFacts.map((fact, i) => (
-                <m.li
-                  key={fact.eyebrow}
-                  variants={factItem(reduce)}
-                  className={`flex min-w-0 flex-col gap-1 ${
-                    i > 0 ? "md:border-l md:border-ink/15 md:pl-8" : "md:pr-8"
-                  }`}
+            <div data-testid="hero-positioning" className="mt-8 max-w-[65ch] space-y-4">
+              {(Array.isArray(PROFILE.heroSubtext)
+                ? PROFILE.heroSubtext
+                : [PROFILE.heroSubtext]
+              ).map((para) => (
+                <p
+                  key={para}
+                  className="text-base leading-[1.6] text-ink-soft md:text-[1.0625rem]"
                 >
-                  <span className="font-mono text-xs uppercase tracking-[0.22em] text-ink-mute">
-                    {fact.eyebrow}
-                  </span>
-                  <span
-                    className={
-                      fact.accent
-                        ? "font-serif text-lg md:text-xl tracking-tight text-burgundy"
-                        : "font-serif text-lg md:text-xl tracking-tight text-ink"
-                    }
-                  >
-                    {fact.text}
-                  </span>
-                </m.li>
+                  {para}
+                </p>
               ))}
-            </m.ul>
+            </div>
 
             <m.div
-              className="hero-cta-row mt-9 grid grid-cols-1 gap-3 sm:mt-10 sm:flex sm:flex-wrap sm:items-center sm:gap-4"
+              className="hero-cta-row mt-8 grid grid-cols-1 gap-3 sm:mt-9 sm:flex sm:flex-wrap sm:items-center sm:gap-4"
               initial={reduce ? false : { opacity: 0, y: 8 }}
               animate={
                 reduce || headlineReady
@@ -288,6 +263,42 @@ export const Hero = () => {
                 {ui.hero.getInTouch}
               </m.a>
             </m.div>
+
+            <m.ul
+              data-testid="hero-facts"
+              className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-3 sm:grid-rows-[auto_auto] sm:items-stretch sm:gap-x-0 sm:gap-y-1.5"
+              variants={factsContainer(reduce)}
+              initial={reduce ? false : "hidden"}
+              animate={reduce || headlineReady ? "show" : "hidden"}
+            >
+              {PROFILE.heroFacts.map((fact, i) => {
+                const last = i === PROFILE.heroFacts.length - 1;
+                const pad =
+                  i === 0
+                    ? "sm:pr-7"
+                    : last
+                      ? "sm:border-l sm:border-ink/15 sm:pl-7"
+                      : "sm:border-l sm:border-ink/15 sm:px-7";
+                return (
+                  <m.li
+                    key={fact.eyebrow}
+                    variants={factItem(reduce)}
+                    className={`flex min-w-0 flex-col gap-1.5 sm:grid sm:grid-rows-subgrid sm:row-span-2 ${pad}`}
+                  >
+                    <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-mute">
+                      {fact.eyebrow}
+                    </span>
+                    <span
+                      className={`self-start font-serif text-lg leading-snug tracking-tight text-balance md:text-xl ${
+                        fact.accent ? "text-burgundy" : "text-ink"
+                      }`}
+                    >
+                      {fact.text}
+                    </span>
+                  </m.li>
+                );
+              })}
+            </m.ul>
           </div>
 
           <div className="col-span-12 md:col-span-5 md:pt-2">
@@ -335,7 +346,7 @@ export const Hero = () => {
 
       {/* Marquee stays in the first screen — shrink-0 so the photo yields, not this strip. */}
       <div className="mt-auto w-full shrink-0 pt-2 md:pt-3">
-        <div className="mx-auto max-w-7xl px-6 pb-3 md:px-12 md:pb-3">
+        <div className="mx-auto max-w-[1240px] px-5 pb-3 md:px-12 md:pb-3">
           <div className="relative h-px bg-ink/20">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-bone px-3">
               <Bow size={18} />
