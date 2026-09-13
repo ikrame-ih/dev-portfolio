@@ -231,7 +231,17 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>API REST FastAPI headless para viajes corporativos. Base de datos relacional PostgreSQL, Redis, ledger inmutable de doble entrada, dinero en Decimal. Despliegue en producción y docs: reckon-flow.onrender.com/docs</p><ul><li>Idempotencia Redis y bloqueos de fila PostgreSQL (FOR UPDATE) para que un confirm reintentado no duplique el asiento. Procesamiento asíncrono con jobs HTTP 202.</li><li>Extracción de recibos con PydanticAI y Groq. Esquema cerrado extra=forbid como guardrail frente a prompt injection; la salida estructurada de LLM se valida en código antes de escribir en base de datos. El modelo no aprueba ni paga.</li><li>Recuperación híbrida (tipo RAG): prefiltro SQL, RapidFuzz, vectores de tokens hasheados, Reciprocal Rank Fusion. Pruebas unitarias con pytest, integración y entrega continuas (CI/CD), observabilidad con Prometheus.</li></ul>"
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/reckon-flow"
+            },
+            {
+              "label": "Docs",
+              "url": "https://reckon-flow.onrender.com/docs"
+            }
+          ],
+          "description": "<p>API REST FastAPI headless para viajes corporativos. Base de datos relacional PostgreSQL, Redis, ledger inmutable de doble entrada, dinero en Decimal. Despliegue en producción con documentación interactiva.</p><ul><li>Idempotencia Redis y bloqueos de fila PostgreSQL (FOR UPDATE) para que un confirm reintentado no duplique el asiento. Procesamiento asíncrono con jobs HTTP 202.</li><li>Extracción de recibos con PydanticAI y Groq. Esquema cerrado extra=forbid como guardrail frente a prompt injection; la salida estructurada de LLM se valida en código antes de escribir en base de datos. El modelo no aprueba ni paga.</li><li>Recuperación híbrida (tipo RAG): prefiltro SQL, RapidFuzz, vectores de tokens hasheados, Reciprocal Rank Fusion. Pruebas unitarias con pytest, integración y entrega continuas (CI/CD), observabilidad con Prometheus.</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000007",
@@ -255,6 +265,16 @@
             "label": "GitHub",
             "inlineLink": true
           },
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/import-resolve-cli"
+            },
+            {
+              "label": "PyPI",
+              "url": "https://pypi.org/project/import-resolve-cli/"
+            }
+          ],
           "description": "<p>Publicado en PyPI (import-resolve-cli). Driver de merge de Git para conflictos en bloques de imports Python. Cero dependencias en runtime. CI: pytest, mypy, ruff.</p>"
         },
         {
@@ -267,7 +287,17 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>Proyecto final DAW, 10/10. Biblioteca de juegos con React, Node.js/Express, PostgreSQL, JWT, Docker Compose. Vitest en cliente y servidor. Demo: my-playthrough.vercel.app</p>"
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/my-playthrough"
+            },
+            {
+              "label": "Demo",
+              "url": "https://my-playthrough.vercel.app"
+            }
+          ],
+          "description": "<p>Proyecto final DAW, 10/10. Biblioteca de juegos con React, Node.js/Express, PostgreSQL, JWT, Docker Compose. Vitest en cliente y servidor.</p>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000006",
@@ -279,6 +309,12 @@
             "label": "",
             "inlineLink": false
           },
+          "links": [
+            {
+              "label": "Live",
+              "url": "https://malaga-onboarding.pages.dev/"
+            }
+          ],
           "description": "<p>Guía para expats del PTA que se mudan a Málaga. El API de plan en producción es un topological sort determinista - sin LLM en el camino del usuario (0€ de inferencia). CLI LangGraph.js solo para el operador, en local, verifica fichas JSON.</p><ul><li>Grafo de cuatro nodos con GraphState tipado: researcher (claims con Groq) → source finder (búsqueda DuckDuckGo limitada por dominio, fetch + Cheerio) → fact checker (verified / uncertain / potentially_inaccurate) → editor (redacta solo con evidencia oficial).</li><li>Enrutado condicional: riesgo medium/high corta a HUMAN_REVIEW_REQUIRED. Sin memoria entre ejecuciones. Tool calling, guardrails de prompt, Groq.</li></ul>"
         },
         {
@@ -291,7 +327,17 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>Dashboard de operaciones en tiempo real para activaciones de marca, con centro de mando sincronizado y vistas de mapa de telemetría.</p><ul><li>Desarrollado con Next.js, React, TypeScript, Zustand y Leaflet.</li><li>Arquitectura feature-sliced, tests Vitest, smoke tests Playwright y CI con GitHub Actions.</li><li>Demo en vivo: https://live-event-radar.vercel.app</li></ul>"
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/live-event-radar"
+            },
+            {
+              "label": "Demo",
+              "url": "https://live-event-radar.vercel.app"
+            }
+          ],
+          "description": "<p>Dashboard de operaciones en tiempo real para activaciones de marca, con centro de mando sincronizado y vistas de mapa de telemetría.</p><ul><li>Desarrollado con Next.js, React, TypeScript, Zustand y Leaflet.</li><li>Arquitectura feature-sliced, tests Vitest, smoke tests Playwright y CI con GitHub Actions.</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000004",
@@ -303,6 +349,12 @@
             "label": "GitHub",
             "inlineLink": true
           },
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/aiba-widget"
+            }
+          ],
           "description": "<p>Compañero de productividad local-first para Windows: planificación, sesiones de foco y cierre, con historial de sesiones y ayuda offline. Sin cuenta, sin nube.</p><ul><li>Construido con Electron, React 19, TypeScript y Vite.</li><li>Timer compacto más shell de estudio ampliado, guardia de foco y preferencias.</li></ul>"
         }
       ]
@@ -534,6 +586,16 @@
             "label": "PyPI",
             "inlineLink": true
           },
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/import-resolve-cli"
+            },
+            {
+              "label": "PyPI",
+              "url": "https://pypi.org/project/import-resolve-cli/"
+            }
+          ],
           "description": "<p>Paquete publicado en PyPI. CLI y merge driver de Git para conflictos de imports Python. Parsing AST, cero dependencias de runtime. pytest, mypy, ruff y CI. Herramienta instalable, no una API de producto.</p>"
         },
         {
@@ -546,6 +608,16 @@
             "label": "skills.sh",
             "inlineLink": true
           },
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/english-spanish-web-localization"
+            },
+            {
+              "label": "skills.sh",
+              "url": "https://www.skills.sh/ikrame-ih/english-spanish-web-localization/english-spanish-web-localization"
+            }
+          ],
           "description": "<p>Publicada en skills.sh con código público. Localización contextual entre en-GB, en-US, es-ES y es-419. locale_guard en Python estándar comprueba claves, placeholders, etiquetas y encoding de catálogos JSON. Skill de agente, no una API de producto.</p>"
         },
         {
@@ -558,6 +630,16 @@
             "label": "Demo",
             "inlineLink": true
           },
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/my-playthrough"
+            },
+            {
+              "label": "Demo",
+              "url": "https://my-playthrough.vercel.app"
+            }
+          ],
           "description": "<p>Proyecto final DAW, 10/10. Full-stack complementario: React, Node.js/Express, PostgreSQL, Docker Compose, Vitest en cliente y servidor.</p>"
         },
         {
@@ -570,6 +652,16 @@
             "label": "Demo",
             "inlineLink": true
           },
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/live-event-radar"
+            },
+            {
+              "label": "Demo",
+              "url": "https://live-event-radar.vercel.app"
+            }
+          ],
           "description": "<p>Dashboard full-stack complementario: React, TypeScript, Vitest, Playwright. La telemetría es simulada.</p>"
         }
       ]

@@ -131,6 +131,18 @@ h2 {
   font-style: italic;
 }
 
+.proj-links {
+  margin: 1px 0 0;
+  font-size: 8pt;
+  line-height: 1.35;
+  color: var(--burgundy);
+}
+
+.proj-links a {
+  color: var(--burgundy);
+  text-decoration: underline;
+}
+
 .item p {
   margin: 3px 0 0;
 }

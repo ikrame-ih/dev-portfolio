@@ -231,7 +231,17 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>Headless FastAPI REST API for corporate travel. Relational PostgreSQL database, Redis, immutable double-entry ledger, Decimal money. Production deployment and interactive docs: reckon-flow.onrender.com/docs</p><ul><li>Redis idempotency and PostgreSQL row locks (FOR UPDATE) so a retried confirm cannot double-post. Asynchronous processing via HTTP 202 background jobs.</li><li>Receipt extraction with PydanticAI and Groq. Closed schema extra=forbid as a guardrail against prompt injection; structured LLM outputs are validated in code before any database write. The model cannot approve or pay.</li><li>Hybrid retrieval (RAG-style): SQL prefilter, RapidFuzz, hashed-token vectors, Reciprocal Rank Fusion. Unit testing with pytest, CI/CD, Prometheus observability.</li></ul>"
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/reckon-flow"
+            },
+            {
+              "label": "Docs",
+              "url": "https://reckon-flow.onrender.com/docs"
+            }
+          ],
+          "description": "<p>Headless FastAPI REST API for corporate travel. Relational PostgreSQL database, Redis, immutable double-entry ledger, Decimal money. Production deployment with interactive docs.</p><ul><li>Redis idempotency and PostgreSQL row locks (FOR UPDATE) so a retried confirm cannot double-post. Asynchronous processing via HTTP 202 background jobs.</li><li>Receipt extraction with PydanticAI and Groq. Closed schema extra=forbid as a guardrail against prompt injection; structured LLM outputs are validated in code before any database write. The model cannot approve or pay.</li><li>Hybrid retrieval (RAG-style): SQL prefilter, RapidFuzz, hashed-token vectors, Reciprocal Rank Fusion. Unit testing with pytest, CI/CD, Prometheus observability.</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000007",
@@ -255,6 +265,16 @@
             "label": "GitHub",
             "inlineLink": true
           },
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/import-resolve-cli"
+            },
+            {
+              "label": "PyPI",
+              "url": "https://pypi.org/project/import-resolve-cli/"
+            }
+          ],
           "description": "<p>Published on PyPI (import-resolve-cli). Git merge driver that resolves Python import-block conflicts. Zero runtime dependencies. CI: pytest, mypy, ruff.</p>"
         },
         {
@@ -267,7 +287,17 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>DAW capstone, grade 10/10. Game library with React, Node.js/Express, PostgreSQL, JWT, Docker Compose. Vitest on client and server. Live: my-playthrough.vercel.app</p>"
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/my-playthrough"
+            },
+            {
+              "label": "Demo",
+              "url": "https://my-playthrough.vercel.app"
+            }
+          ],
+          "description": "<p>DAW capstone, grade 10/10. Game library with React, Node.js/Express, PostgreSQL, JWT, Docker Compose. Vitest on client and server.</p>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000006",
@@ -279,6 +309,12 @@
             "label": "",
             "inlineLink": false
           },
+          "links": [
+            {
+              "label": "Live",
+              "url": "https://malaga-onboarding.pages.dev/"
+            }
+          ],
           "description": "<p>Guide for PTA expats relocating to Málaga. Production plan API is a deterministic topological sort - no LLM on the user path (0€ inference). Operator-only LangGraph.js CLI verifies JSON fact sheets locally.</p><ul><li>Four-node graph with typed GraphState: researcher (Groq claims) → source finder (DuckDuckGo site-limited search, fetch + Cheerio) → fact checker (verified / uncertain / potentially_inaccurate) → editor (draft from official evidence only).</li><li>Conditional routing: medium/high risk short-circuits to HUMAN_REVIEW_REQUIRED. No cross-run memory; each invoke is one sheet. Tool calling, prompt guardrails, Groq.</li></ul>"
         },
         {
@@ -291,7 +327,17 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>Real-time venue operations dashboard for brand activations with synchronized command center and telemetry map views.</p><ul><li>Developed with Next.js, React, TypeScript, Zustand, and Leaflet.</li><li>Feature-sliced architecture, Vitest tests, Playwright smoke tests, and GitHub Actions CI.</li><li>Live demo: https://live-event-radar.vercel.app</li></ul>"
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/live-event-radar"
+            },
+            {
+              "label": "Demo",
+              "url": "https://live-event-radar.vercel.app"
+            }
+          ],
+          "description": "<p>Real-time venue operations dashboard for brand activations with synchronized command center and telemetry map views.</p><ul><li>Developed with Next.js, React, TypeScript, Zustand, and Leaflet.</li><li>Feature-sliced architecture, Vitest tests, Playwright smoke tests, and GitHub Actions CI.</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000004",
@@ -303,6 +349,12 @@
             "label": "GitHub",
             "inlineLink": true
           },
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/aiba-widget"
+            }
+          ],
           "description": "<p>Local-first Windows productivity companion for planning, focus sessions, and wrap-up, with session history and offline help. No account, no cloud.</p><ul><li>Built with Electron, React 19, TypeScript, and Vite.</li><li>Compact timer plus expanded studio shell, focus guard, and preferences.</li></ul>"
         }
       ]
@@ -534,6 +586,16 @@
             "label": "PyPI",
             "inlineLink": true
           },
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/import-resolve-cli"
+            },
+            {
+              "label": "PyPI",
+              "url": "https://pypi.org/project/import-resolve-cli/"
+            }
+          ],
           "description": "<p>Published PyPI package. CLI and Git merge driver for Python import-block conflicts. AST parsing, zero runtime dependencies. pytest, mypy, ruff, CI. Installable tool, not a product API.</p>"
         },
         {
@@ -546,6 +608,16 @@
             "label": "skills.sh",
             "inlineLink": true
           },
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/english-spanish-web-localization"
+            },
+            {
+              "label": "skills.sh",
+              "url": "https://www.skills.sh/ikrame-ih/english-spanish-web-localization/english-spanish-web-localization"
+            }
+          ],
           "description": "<p>Published on skills.sh with public source. Contextual localization among en-GB, en-US, es-ES, and es-419. Python locale_guard (stdlib) checks JSON catalog keys, placeholders, tags, and encoding. Agent skill, not a product API.</p>"
         },
         {
@@ -558,6 +630,16 @@
             "label": "Live",
             "inlineLink": true
           },
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/my-playthrough"
+            },
+            {
+              "label": "Demo",
+              "url": "https://my-playthrough.vercel.app"
+            }
+          ],
           "description": "<p>DAW capstone, 10/10. Complementary full-stack: React, Node.js/Express, PostgreSQL, Docker Compose, Vitest on client and server.</p>"
         },
         {
@@ -570,6 +652,16 @@
             "label": "Live",
             "inlineLink": true
           },
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/live-event-radar"
+            },
+            {
+              "label": "Demo",
+              "url": "https://live-event-radar.vercel.app"
+            }
+          ],
           "description": "<p>Complementary full-stack venue dashboard: React, TypeScript, Vitest, Playwright. Telemetry is mocked.</p>"
         }
       ]

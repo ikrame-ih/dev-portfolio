@@ -40,6 +40,34 @@ const visible = (items = []) => items.filter((item) => !item.hidden);
 
 const stripEmpty = (html = "") => html.replace(/^\s+|\s+$/g, "");
 
+const escapeHtml = (value = "") =>
+  String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+
+const compactHostPath = (url) => {
+  const parsed = new URL(url);
+  return `${parsed.host}${parsed.pathname.replace(/\/$/, "")}`;
+};
+
+const projectLinksHtml = (item) => {
+  const links = (item.links || []).filter((link) => link?.url);
+  if (!links.length) return "";
+  return `<div class="proj-links">${links
+    .map((link) => {
+      const url = String(link.url);
+      const label = link.label || "";
+      const text =
+        !label || label.toLowerCase() === "skills.sh"
+          ? label || compactHostPath(url)
+          : `${label}: ${compactHostPath(url)}`;
+      return `<a href="${escapeHtml(url)}">${escapeHtml(text)}</a>`;
+    })
+    .join(" | ")}</div>`;
+};
+
 const buildHtml = (data, job) => {
   const { basics, summary, sections } = data;
   const contact = [
@@ -53,16 +81,11 @@ const buildHtml = (data, job) => {
     .filter(Boolean)
     .join(" | ");
 
-  const itemBlock = (p) => {
-    const link = p.website?.url
-      ? `<a href="${p.website.url}">${p.website.label || p.website.url}</a>`
-      : "";
-    return `<article class="item">
+  const itemBlock = (p) => `<article class="item">
         <div class="item-head"><strong>${p.name}</strong><span class="meta">${p.period || p.date || ""}</span></div>
-        ${link ? `<div class="sub">${link}</div>` : ""}
+        ${projectLinksHtml(p)}
         ${stripEmpty(p.description)}
       </article>`;
-  };
 
   const skills = visible(sections.skills.items)
     .map(
