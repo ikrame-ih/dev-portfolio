@@ -24,28 +24,28 @@ export const Footer = ({ onOpenTerminal }) => {
 
   const navLinks = useMemo(
     () => [
-      { id: "cv", label: ui.footer.cvSkills, index: "01" },
-      { id: "projects", label: ui.nav.projects, index: "02" },
-      { id: "linkedin", label: ui.footer.linkedinSection, index: "03" },
-      { id: "bento", label: ui.nav.interests, index: "04" },
-      { id: "guestbook", label: ui.nav.guestbook, index: "05" },
-      { id: "contact", label: ui.nav.contact, index: "06" },
+      { id: "projects", label: ui.nav.projects },
+      { id: "cv", label: ui.footer.cvSkills },
+      { id: "linkedin", label: ui.footer.linkedinSection },
+      { id: "contact", label: ui.nav.contact },
+      { id: "bento", label: ui.nav.interests },
+      { id: "guestbook", label: ui.nav.guestbook },
     ],
     [ui],
   );
 
   return (
-    <footer data-testid="footer" className="relative footer-inverse py-16">
+    <footer data-testid="footer" className="relative footer-inverse py-10 md:py-12">
       <Reveal y={20}>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-10">
-          <motion.div className="md:col-span-5" {...COL_ENTER(reduce, 0)}>
+        <div className="mx-auto grid max-w-[1240px] grid-cols-1 gap-10 px-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 md:px-12">
+          <motion.div {...COL_ENTER(reduce, 0)}>
             <div className="flex items-center gap-3 mb-4">
               <Bow size={22} color="#F5F1EB" />
               <span className="font-serif text-2xl tracking-tight">
                 {PROFILE.name}
               </span>
             </div>
-            <div className="max-w-sm space-y-3">
+            <div className="max-w-xs space-y-3">
               <p className="font-mono text-xs footer-muted leading-relaxed">
                 {ui.footer.designed}
               </p>
@@ -84,12 +84,12 @@ export const Footer = ({ onOpenTerminal }) => {
             </div>
           </motion.div>
 
-          <motion.div className="md:col-span-3" {...COL_ENTER(reduce, 0.08)}>
+          <motion.div {...COL_ENTER(reduce, 0.06)}>
             <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-4">
               {ui.footer.navigate}
             </p>
             <ul className="footer-nav font-mono text-sm">
-              {navLinks.map(({ id, label, index }) => (
+              {navLinks.map(({ id, label }) => (
                 <li key={id}>
                   <a
                     href={`#${id}`}
@@ -99,7 +99,6 @@ export const Footer = ({ onOpenTerminal }) => {
                     <span className="footer-nav-bow" aria-hidden="true">
                       <Bow size={10} color="#F5F1EB" strokeWidth={1.6} />
                     </span>
-                    <span className="footer-nav-index">{index}</span>
                     <span className="lnk footer-nav-label">{label}</span>
                   </a>
                 </li>
@@ -107,7 +106,28 @@ export const Footer = ({ onOpenTerminal }) => {
             </ul>
           </motion.div>
 
-          <motion.div className="md:col-span-4" {...COL_ENTER(reduce, 0.14)}>
+          <motion.div {...COL_ENTER(reduce, 0.1)}>
+            <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-4">
+              {ui.footer.contact}
+            </p>
+            <ul className="space-y-2 font-mono text-sm">
+              <li>
+                <a href={`mailto:${PROFILE.email}`} className="footer-link">
+                  {PROFILE.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${PROFILE.phone.replace(/\s/g, "")}`}
+                  className="footer-link"
+                >
+                  {PROFILE.phone}
+                </a>
+              </li>
+            </ul>
+          </motion.div>
+
+          <motion.div {...COL_ENTER(reduce, 0.14)}>
             <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-3">
               {ui.footer.terminal}
             </p>
@@ -131,39 +151,14 @@ export const Footer = ({ onOpenTerminal }) => {
           </motion.div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 md:px-12 mt-12 pt-6 border-t border-[#F5F1EB]/15 flex flex-wrap items-end justify-between gap-8">
-          <div>
-            <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-3">
-              {ui.footer.contact}
-            </p>
-            <ul className="space-y-2 font-mono text-sm">
-              <li>
-                <a
-                  href={`mailto:${PROFILE.email}`}
-                  className="footer-link"
-                >
-                  {PROFILE.email}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`tel:${PROFILE.phone.replace(/\s/g, "")}`}
-                  className="footer-link"
-                >
-                  {PROFILE.phone}
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="font-mono text-xs footer-muted space-y-2 text-left sm:text-right">
-            <p>
-              © {year} {PROFILE.name} · Málaga, ES
-            </p>
-            <p className="flex items-center gap-2 sm:justify-end">
-              {ui.footer.builtWithCare}
-              <Bow size={12} color="#F5F1EB" />
-            </p>
-          </div>
+        <div className="mx-auto mt-10 flex max-w-[1240px] flex-wrap items-center justify-between gap-3 border-t border-[#F5F1EB]/15 px-5 pt-5 md:px-12">
+          <p className="font-mono text-xs footer-muted">
+            © {year} {PROFILE.name} · Málaga, ES
+          </p>
+          <p className="flex items-center gap-2 font-mono text-xs footer-muted">
+            {ui.footer.builtWithCare}
+            <Bow size={12} color="#F5F1EB" />
+          </p>
         </div>
       </Reveal>
     </footer>

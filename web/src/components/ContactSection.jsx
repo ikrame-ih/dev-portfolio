@@ -27,7 +27,7 @@ export const ContactSection = () => {
       data-testid="contact-section"
       className="relative py-16 sm:py-20 md:py-32 bg-bone-200 outline-none"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12">
+      <div className="mx-auto grid max-w-[1240px] grid-cols-1 gap-12 px-5 md:grid-cols-12 md:px-12">
         <Reveal className="md:col-span-5">
           <SectionOverline>{ui.contact.overline}</SectionOverline>
           <h2 className="font-serif font-light text-3xl md:text-5xl tracking-tighter text-ink">

@@ -8,16 +8,12 @@ aliases:
 
 # 01 — Goals & Positioning
 
-Scratch pad from rewriting hero copy.
+Portfolio for Python backend and applied AI roles, based in Málaga. Lead with ReckonFlow. Validata is complementary private SaaS, co-built with Jairo García Antolín.
 
-Portfolio for web dev roles — frontend first in how I describe myself, backend work included.
+Hero: Python backend, AI extracts / code decides. FastAPI and PostgreSQL. Concurrency and retries. Facts after CTAs. English house is en-US.
 
-Top of page: hero, CV, projects, contact. Lower down if someone scrolls: LinkedIn signals, interests, guest book.
+Scroll order: hero → projects → CV → LinkedIn → interests → contact → guest book. Nav primary: Projects, Experience, Notes, Contact.
 
-Overline: BACKEND DEVELOPER · APIs · POSTGRESQL. I avoid leading with "full-stack" or "software engineer" in Spain.
-
-I try to keep professional sections straightforward and personal sections casual. Cut ninja bragging and hobbies-as-skills.
-
-Scroll order: hero → cv → projects → linkedin → bento → guest book → contact. CLI is outside that.
+No Junior. Qualification is máster de FP, not a university master's and not HND.
 
 [[04_Content_and_Voice]] · [[12_Current_Project_State]]

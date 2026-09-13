@@ -167,9 +167,9 @@
           "id": "c3000001-0001-4000-8000-000000000001",
           "hidden": false,
           "school": "IES Zaidín Vergeles",
-          "degree": "Curso de Especialización",
+          "degree": "Máster de FP",
           "area": "Inteligencia Artificial y Big Data",
-          "grade": "Nivel MECES / EQF 5",
+          "grade": "EQF 5",
           "location": "Granada, España",
           "period": "sep. 2026 - en curso",
           "website": {
@@ -185,7 +185,7 @@
           "school": "CESUR Este, Málaga",
           "degree": "Ciclo Formativo de Grado Superior (DAW)",
           "area": "Desarrollo de Aplicaciones Web",
-          "grade": "Proyecto final: calificación máxima (10/10). Nivel EQF 5 (equivalente HND)",
+          "grade": "Proyecto final: calificación máxima (10/10). Nivel EQF 5",
           "location": "Málaga, España",
           "period": "sep. 2024 - jun. 2026",
           "website": {
@@ -225,7 +225,7 @@
           "id": "d4000001-0001-4000-8000-000000000003",
           "hidden": false,
           "name": "ReckonFlow",
-          "period": "ago. 2026 - Actualidad",
+          "period": "ago. 2026",
           "website": {
             "url": "https://github.com/ikrame-ih/reckon-flow",
             "label": "GitHub",

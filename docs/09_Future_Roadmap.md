@@ -14,11 +14,11 @@ Backlog. Not promises.
 
 **Soon maybe:** custom domain, OG/meta tags for link previews, print CV polish.
 
-**LinkedIn signals:** editorial list of up to three own posts + quiet profile footnote (no recommendation panel, no LinkedIn API sync). Update posts in locales when a new note earns a slot.
+**LinkedIn:** recommendation panel stays. Notes list is editorial.
 
-**Nice later:** guest book page turn animation, a11y pass, webp hero image, Lighthouse nagging.
+**Nice later:** print CV HTML/PDF visual pass, more compact project shots.
 
-**Probably not:** merging CLI guestbook with visual bows, name modal on bow click (too much friction).
+**Probably not:** merging CLI guestbook with visual bows.
 
 ---
 

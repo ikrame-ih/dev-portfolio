@@ -6,17 +6,15 @@ tags:
 
 # 04 — Content & Voice
 
-All readable text lives in `portfolio.js`. Image paths in `assets.js`. I read copy out loud when editing — if it sounds like LinkedIn I rewrite it.
+Copy lives in `web/src/data/locales/en.js` and `es.js`. UI chrome in `web/src/i18n/ui.js`. Image paths in `assets.js`.
 
-Hero uses `PROFILE` (overline, headline, positioningParts). Staggered intro in `Hero.jsx`. No contact details in hero.
+Hero: `PROFILE` (overline, headline, heroSubtext, heroFacts). CTAs before facts.
 
-CV section is basically the page CV — experience, stack pills with `stackIcons`, practice quote about admin work. Print via `window.print()` (css still needs a proper pass).
+Projects: `PROJECTS` with `lane` (`backend` / `tools` / `apps`), optional `proof` walkthroughs, `demoKind` (`docs` / `package` / `skill`). Case studies use status, role, problem, decision, evidence, limitations.
 
-Projects: Live Event Radar + ReconFlow wip. Mermaid chart strings in portfolio.js, loaded in a modal.
+LinkedIn keeps the recommendation panel plus notes.
 
-Interests bento — real hobby photos and copy. The kicker literally says hobbies aren't CV skills because I kept doing that by accident.
-
-LinkedIn signals section (`LINKEDIN_SIGNALS` in locales): up to three own posts as an editorial list, plus one quiet footnote linking to the LinkedIn profile. No recommendation panel, no blog CMS. Static article at `/blog/...` may remain for old links.
+Don't hardcode image paths in components. Use `assets.js`.
 
 Guest book strings in `BOW_BOARD`. The faint watermark lines on each page stayed in `GuestbookCanvas.jsx` when I was styling the spread.
 

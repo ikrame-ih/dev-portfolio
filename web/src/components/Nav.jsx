@@ -20,10 +20,10 @@ export const Nav = ({ onOpenTerminal }) => {
 
   useFocusTrap(menuOpen, containerRef, () => setMenuOpen(false));
 
-  const allLinks = useMemo(
+  const desktopLinks = useMemo(
     () => [
-      { id: "cv", label: ui.nav.cv },
       { id: "projects", label: ui.nav.projects },
+      { id: "cv", label: ui.nav.cv },
       { id: "linkedin", label: ui.nav.linkedin },
       { id: "bento", label: ui.nav.interests },
       { id: "guestbook", label: ui.nav.guestbook },
@@ -32,8 +32,7 @@ export const Nav = ({ onOpenTerminal }) => {
     [ui],
   );
 
-  const desktopLinks = allLinks;
-  const mobileLinks = allLinks;
+  const mobileLinks = desktopLinks;
 
   useEffect(() => {
     let ticking = false;
@@ -202,7 +201,7 @@ export const Nav = ({ onOpenTerminal }) => {
               : "bg-transparent"
         }`}
       >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between gap-3">
+      <div className="mx-auto flex h-16 max-w-[1240px] items-center justify-between gap-3 px-5 md:px-12">
         <a
           href="#main-content"
           data-testid="nav-logo"
@@ -228,7 +227,7 @@ export const Nav = ({ onOpenTerminal }) => {
           </span>
         </a>
 
-        <div className="hidden md:flex items-center gap-6 lg:gap-8 min-w-0">
+        <div className="hidden md:flex items-center gap-4 lg:gap-6 min-w-0">
           {desktopLinks.map((l) => (
             <a
               key={l.id}
@@ -286,7 +285,7 @@ export const Nav = ({ onOpenTerminal }) => {
             transition={{ duration: MOTION_DURATION.fast, ease: MOTION_EASE }}
             className="md:hidden overflow-hidden border-t border-ink/10 bg-bone"
           >
-            <ul className="max-w-7xl mx-auto px-6 py-3 flex flex-col">
+            <ul className="mx-auto flex max-w-[1240px] flex-col px-5 py-3">
               {mobileLinks.map((l) => (
                 <li key={l.id}>
                   <a

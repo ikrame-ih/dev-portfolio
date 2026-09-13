@@ -2,12 +2,18 @@
 tags:
   - portfolio
   - current-state
-updated: 2026-08-01
+updated: 2026-09-13
 ---
 
 # 12 — Current project state
 
-Aug 2026. Live at ikrame.dev. Contact + guest book work on Vercel. LinkedIn signals is an editorial list of own posts with a quiet profile footnote. Reactive Resume JSON at repo root for CV import.
+Sep 2026. Live at ikrame.dev. Contact + guest book on Vercel. LinkedIn keeps the recommendation panel plus notes. Reactive Resume JSON at repo root.
+
+Single page. Nav primary: `#projects` `#cv` `#linkedin` `#contact`. Mobile also `#bento` `#guestbook`. Hash `#project-<id>` opens the architecture modal.
+
+App order: Hero → Projects → CV → LinkedIn → Bento → Contact → Guestbook.
+
+Projects: three lanes. Python backends (ReckonFlow, Validata) as 16:9 editorial strips. Published tools (import-resolve-cli, english-spanish-web-localization) as a two-up row. Other work in a 2-col grid. Case study modal includes status, role, problem, decision, evidence, limitations.
 
 ---
 
@@ -24,7 +30,7 @@ Major mobile performance sprint pushed the site from 87 to a 100 lighthouse scor
 
 Single page, no router. Nav scrolls to `#cv` `#projects` `#linkedin` `#bento` `#guestbook` `#contact`. Labels: CV, Projects, LinkedIn, Guest book, Contact + Terminal button.
 
-App order: Hero → CV → Projects → LinkedIn → Bento → Guest book → Contact.
+App order: Hero → Projects → CV → LinkedIn → Bento → Contact → Guestbook.
 
 ---
 

@@ -18,6 +18,11 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Agent skill installs (local scratch — never commit)
-.agents/
+# Private Cursor Agent memory (never commit)
+AGENTS.md
+**/AGENTS.md
 
+# Agent skill installs (local only, never commit)
+.agents/
+.claude/
+skills-lock.json

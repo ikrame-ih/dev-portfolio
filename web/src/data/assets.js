@@ -17,13 +17,20 @@ export const ASSETS = {
   },
   projects: {
     importResolve: "/images/projects/import-resolve.webp",
+    enEsLocalization: "/images/projects/en-es-localization.webp",
     malagaOnboarding: "/images/projects/malaga-onboarding.webp",
     reckonFlow: "/images/projects/reckon-flow.webp",
+    validata: "/images/projects/validata.webp",
     liveEventRadar: "/images/projects/live-event-radar.webp",
     myPlaythrough: "/images/projects/my-playthrough.webp",
     aibaWidget: "/images/projects/aiba-widget.webp",
   },
   experience: {
     eyHolidayRaffle: "/images/experience/ey-holiday-raffle.webp",
+  },
+  linkedin: {
+    agentsCompare: "/images/linkedin/grok-bot-openclaw-instinct.webp",
+    reasoningEffort: "/images/linkedin/reasoning-effort.webp",
+    reckonFlowArchitecture: "/images/linkedin/reckonflow-architecture.webp",
   },
 };
