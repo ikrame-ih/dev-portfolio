@@ -190,12 +190,11 @@ body {
 .mast {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 1rem;
   padding: 1.5mm 10mm 2mm;
   flex: 0 0 auto;
   overflow: visible;
-  border-bottom: 1px solid rgb(26 26 26 / 0.12);
 }
 
 .mast-brand {
@@ -209,13 +208,6 @@ body {
   font-size: 13pt;
   font-weight: 480;
   letter-spacing: -0.02em;
-}
-
-.mast-meta {
-  font-size: 6.4pt;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
 }
 
 .mast,
@@ -254,16 +246,12 @@ body {
 
 .hairline {
   display: block;
-  flex: 1 1 auto;
-  width: auto;
-  min-width: 14mm;
+  flex: 0 0 12mm;
+  width: 12mm;
+  min-width: 12mm;
+  max-width: 12mm;
   height: 1px;
-  background: linear-gradient(
-    to right,
-    rgb(26 26 26 / 0.35),
-    #4a0e0e 55%,
-    rgb(26 26 26 / 0.45)
-  );
+  background: var(--burgundy);
   opacity: 0.55;
 }
 
@@ -752,52 +740,25 @@ aside {
   z-index: 2;
   background: #1a1a1a;
   color: #f5f1eb;
-  padding: 1.8mm 10mm 2mm;
-  display: grid;
-  grid-template-columns: 1.15fr 0.95fr 0.9fr;
-  gap: 5mm;
-  align-items: end;
-}
-
-.foot .foot-label {
-  margin: 0 0 2mm;
-  font-size: 5.6pt;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #e8e2d8;
-}
-
-.foot-stack {
+  padding: 4.5mm 10mm;
   display: flex;
   flex-wrap: wrap;
-  gap: 1.4mm;
-}
-
-.foot-stack span {
-  font-size: 5.5pt;
-  letter-spacing: 0.06em;
-  border: 1px solid rgba(245, 241, 235, 0.28);
-  padding: 1mm 1.8mm;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4mm 10mm;
 }
 
 .foot-brand {
   display: flex;
   align-items: center;
   gap: 2.4mm;
-  margin-bottom: 2.2mm;
+  margin-bottom: 0;
 }
 
 .foot-brand span {
   font-family: FrauncesVar, Georgia, serif;
-  font-size: 11pt;
+  font-size: 12pt;
   letter-spacing: -0.02em;
-}
-
-.foot p {
-  margin: 0;
-  font-size: 6.2pt;
-  line-height: 1.5;
-  color: #e8e2d8;
 }
 
 .foot a {
@@ -809,24 +770,17 @@ aside {
 
 .foot-links {
   display: flex;
-  flex-direction: column;
-  gap: 1.2mm;
-  font-size: 6.6pt;
-  letter-spacing: 0.08em;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2.5mm 7mm;
+  font-size: 8pt;
+  letter-spacing: 0.04em;
 }
 
 .foot-links a {
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 2.4mm;
-}
-
-.foot-links .n {
-  width: 5mm;
-  color: #e8e2d8;
-  letter-spacing: 0.14em;
-  font-variant-numeric: tabular-nums;
+  border-bottom: 1px solid rgba(245, 241, 235, 0.35);
+  padding-bottom: 0.4mm;
 }
 
 @media screen {

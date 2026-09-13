@@ -30,7 +30,6 @@
           </svg>
           <span class="mast-name">Ikrame Ibn Hayoun</span>
         </div>
-        <span class="mast-meta">Letter, Málaga</span>
       </header>
 
       <section class="hero">
@@ -98,37 +97,33 @@
             </div>
             <p class="lead">Hello team,</p>
             <p>
-              I’m Ikrame. I started in operations, close to people, teams, and
-              work that had to land every day. That’s where I learned to watch
-              the details: the missing information, the steps that get repeated,
-              the mess that grows because nobody had time to sort it.
+              I’m Ikrame. Before I focused on development I worked in operations
+              and administration. I sat close to teams, to clients, and to
+              processes that had to keep moving, and that’s where I picked up
+              the habit of noticing what’s missing, what gets repeated, and
+              what tangles when nobody has had time to tidy it.
             </p>
             <p>
-              When I found development, I knew I wanted the other side of that:
-              the tools, the processes, and the systems that make the work a
-              bit clearer for whoever comes next. It wasn’t an overnight switch.
-              I learned, I built projects, I broke things and put them back
-              together until programming stopped being something I studied and
-              became how I solve problems.
+              I started coding because I wanted to build those tools myself. It
+              took a while. I made projects, broke them, put them back together,
+              until writing code became how I solve things.
             </p>
             <p>
-              Today I work mostly on backends. I like to understand before I
-              build. What the person using the system needs, what can go wrong,
-              and which decision should stay human. I use AI when it actually
-              helps, but I still want the code to stay readable, the data to be
-              validated, and someone to be able to review what happened.
+              These days I work mostly on backends. I pause before I write, to
+              understand who will use the system and which part of the decision
+              should stay with a person. I reach for AI when it helps, and then
+              the code validates the data and leaves a trail someone can
+              review.
             </p>
             <p>
-              I’m fairly meticulous about my work. I like leaving things thought
-              through, documented, and tested. I also like keeping up. This
-              academic year I’m starting the vocational master’s (máster de FP)
-              in AI and big data, fully online, while I prepare GCP and AWS
-              cloud certifications.
+              I’m fairly meticulous. I prefer work that is documented and
+              covered by tests. This year I’m starting the vocational master’s
+              (máster de FP) in AI and big data, fully online, and I’m
+              preparing GCP and AWS cloud certifications at the same time.
             </p>
             <p>
-              My projects tell the technical side. This letter tells the other:
-              I care about useful software, with attention to the detail and to
-              the person who will use it.
+              When I build software I think about the person who will use it,
+              and about the context around that decision.
             </p>
             <p>Best,</p>
             <div class="sign">
@@ -155,70 +150,53 @@
 
         <aside>
           <div class="panel">
-            <p class="kicker">01. ReckonFlow</p>
-            <h2>The technical proof</h2>
+            <p class="kicker">Project</p>
+            <h2>ReckonFlow</h2>
             <p>
-              FastAPI, PostgreSQL, Redis, Decimal ledger. Row locks
-              (<code>FOR UPDATE</code>) and Redis idempotency so a retried
-              confirm cannot double-post. pytest in CI.
+              FastAPI, PostgreSQL, and Redis. Decimal ledger. Idempotency and
+              row locks (<code>FOR UPDATE</code>) protect the ledger on retries.
+              pytest in CI.
             </p>
           </div>
           <div class="panel">
-            <p class="kicker">02. Judgment</p>
-            <h2>The model extracts. Code decides.</h2>
+            <p class="kicker">Judgment</p>
+            <h2>How I work</h2>
             <p>
-              Closed schema, extra=forbid. Validation in code before any
-              database write. The LLM has no authority to approve payouts or
-              change business rules.
+              Closed schemas (<code>extra=forbid</code>) limit the model’s
+              output. Deterministic validation controls the writes. Business
+              rules stay in code.
             </p>
           </div>
           <div class="panel">
-            <p class="kicker">03. Delivery</p>
-            <h2>What I ship has to hold</h2>
+            <p class="kicker">Now</p>
+            <h2>What I’m learning</h2>
             <p>
-              GitHub Actions, Docker, Prometheus. Validata uses Celery for bulk
-              jobs. The CLI and the skill are packages you can install, not
-              product APIs.
+              Online vocational master’s (máster de FP) in AI and big data, and
+              GCP and AWS certifications in preparation. import-resolve-cli and
+              english-spanish-web-localization are installable tools published
+              on PyPI and skills.sh.
             </p>
           </div>
         </aside>
       </div>
 
       <footer class="foot">
-        <div>
-          <div class="foot-brand">
-            <svg class="bow" width="16" height="16" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-              <path d="M32 32 C 22 18, 8 18, 8 28 C 8 38, 22 40, 32 32 Z" stroke="#F5F1EB" stroke-width="1.4" stroke-linejoin="round"/>
-              <path d="M32 32 C 42 18, 56 18, 56 28 C 56 38, 42 40, 32 32 Z" stroke="#F5F1EB" stroke-width="1.4" stroke-linejoin="round"/>
-              <circle cx="32" cy="32" r="2.5" stroke="#F5F1EB" stroke-width="1.4"/>
-              <path d="M30 34 L 26 50" stroke="#F5F1EB" stroke-width="1.4" stroke-linecap="round"/>
-              <path d="M34 34 L 38 50" stroke="#F5F1EB" stroke-width="1.4" stroke-linecap="round"/>
-            </svg>
-            <span>Ikrame Ibn Hayoun</span>
-          </div>
-          <p>
-            The same visual language as
-            <a href="https://ikrame.dev">ikrame.dev</a>.
-          </p>
+        <div class="foot-brand">
+          <svg class="bow" width="16" height="16" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <path d="M32 32 C 22 18, 8 18, 8 28 C 8 38, 22 40, 32 32 Z" stroke="#F5F1EB" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M32 32 C 42 18, 56 18, 56 28 C 56 38, 42 40, 32 32 Z" stroke="#F5F1EB" stroke-width="1.4" stroke-linejoin="round"/>
+            <circle cx="32" cy="32" r="2.5" stroke="#F5F1EB" stroke-width="1.4"/>
+            <path d="M30 34 L 26 50" stroke="#F5F1EB" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M34 34 L 38 50" stroke="#F5F1EB" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <span>Ikrame Ibn Hayoun</span>
         </div>
-        <div>
-          <p class="foot-label">Stack</p>
-          <div class="foot-stack">
-            <span>FastAPI</span>
-            <span>PostgreSQL</span>
-            <span>Redis</span>
-            <span>pytest</span>
-            <span>CI/CD</span>
-            <span>Docker</span>
-            <span>observability</span>
-          </div>
-        </div>
-        <div class="foot-links">
-          <a href="https://ikrame.dev"><span class="n">01</span> ikrame.dev</a>
-          <a href="https://github.com/ikrame-ih"><span class="n">02</span> github.com/ikrame-ih</a>
-          <a href="https://www.linkedin.com/in/ikrame-ih/"><span class="n">03</span> LinkedIn</a>
-          <a href="mailto:ikihga2223@gmail.com"><span class="n">04</span> ikihga2223@gmail.com</a>
-        </div>
+        <nav class="foot-links" aria-label="Links">
+          <a href="https://ikrame.dev">ikrame.dev</a>
+          <a href="https://github.com/ikrame-ih">GitHub</a>
+          <a href="https://www.linkedin.com/in/ikrame-ih/">LinkedIn</a>
+          <a href="mailto:ikihga2223@gmail.com">ikihga2223@gmail.com</a>
+        </nav>
       </footer>
     </article>
   </body>
