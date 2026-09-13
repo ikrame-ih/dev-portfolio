@@ -11,7 +11,8 @@ const baseUrl =
 
 const shots = [
   { name: "hero", selector: '[data-testid="hero-section"]' },
-  { name: "cv-projects", selector: "#projects" },
+  { name: "projects", selector: "#projects" },
+  { name: "cv", selector: "#cv" },
   { name: "interests-vault", selector: "#bento" },
   { name: "guestbook-contact", selector: "#guestbook" },
 ];
@@ -43,21 +44,52 @@ await page.addInitScript(() => {
   }
 });
 
-await page.goto(baseUrl, { waitUntil: "networkidle" });
-await page.locator('[data-testid="hero-headline"]').waitFor({ state: "visible" });
-await page.locator("#bento").waitFor({ state: "attached" });
+await page.goto(baseUrl, { waitUntil: "load", timeout: 30000 });
+await page.locator('[data-testid="hero-headline"]').waitFor({
+  state: "visible",
+  timeout: 20000,
+});
 // Hero word cascade + photo unveil finish around ~5.4s; wait past that.
 await page.waitForTimeout(6200);
+await page.evaluate(async () => {
+  const pending = [...document.images].filter((img) => !img.complete);
+  await Promise.all(
+    pending.map(
+      (img) =>
+        new Promise((resolve) => {
+          const done = () => resolve();
+          img.addEventListener("load", done, { once: true });
+          img.addEventListener("error", done, { once: true });
+          setTimeout(done, 4000);
+        }),
+    ),
+  );
+});
 
 for (const shot of shots) {
   const el = page.locator(shot.selector).first();
-  await el.waitFor({ state: "attached" });
+  await el.waitFor({ state: "attached", timeout: 20000 });
   await el.evaluate((node) => {
     const nav = 64;
     const top = node.getBoundingClientRect().top + window.scrollY - nav;
     window.scrollTo({ top: Math.max(0, top), behavior: "instant" });
   });
-  await page.waitForTimeout(1200);
+  await page.waitForTimeout(800);
+  await page.evaluate(async () => {
+    const pending = [...document.images].filter((img) => !img.complete);
+    await Promise.all(
+      pending.map(
+        (img) =>
+          new Promise((resolve) => {
+            const done = () => resolve();
+            img.addEventListener("load", done, { once: true });
+            img.addEventListener("error", done, { once: true });
+            setTimeout(done, 4000);
+          }),
+      ),
+    );
+  });
+  await page.waitForTimeout(400);
   await page.screenshot({
     path: path.join(outDir, `${shot.name}.png`),
     fullPage: false,

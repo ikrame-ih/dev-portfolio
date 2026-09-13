@@ -2,7 +2,7 @@
 
 [![Live Site](https://img.shields.io/badge/Live_Site-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://ikrame.dev/)
 
-**Personal portfolio site** — resume and projects up front, cream paper aesthetic, guest book, contact form, and a CLI easter egg in the corner.
+**Personal portfolio site** — English and Spanish, cream paper aesthetic, guest book, contact form, and a CLI easter egg in the corner.
 
 Portfolio project (v0.1.0): React SPA deployed on Vercel. Guest book syncs via Upstash; contact form uses Resend.
 
@@ -18,9 +18,11 @@ Portfolio project (v0.1.0): React SPA deployed on Vercel. Guest book syncs via U
 
 ## Highlights
 
-- **Hero + resume** — role, stack, and experience above the fold
-- **Projects** — featured work with Mermaid architecture diagrams, live demos, and GitHub links
-- **Engineering** — component-based sections, semantic HTML, accessible patterns, and documented project structure
+- **English and Spanish** — language toggle in the nav; same layout, local copy
+- **Hero** — role, positioning, and downloads for the CV and cover letter (EN/ES PDFs)
+- **Projects** — three lanes: Python backends (ReckonFlow, Validata), published tools (PyPI CLI and skills.sh localization skill), and other work
+- **Experience** — timeline, education, and languages on the page
+- **LinkedIn notes** — selected posts and recommendations
 - **Guest book** — shared bows via Upstash Redis on Vercel; localStorage fallback on localhost
 - **Contact** — Resend-powered form with rate limiting
 - **Analytics** — optional GoatCounter (privacy-friendly, no cookies); set `VITE_GOATCOUNTER_CODE`
@@ -31,7 +33,9 @@ Portfolio project (v0.1.0): React SPA deployed on Vercel. Guest book syncs via U
 
 ![Hero section](web/screenshots/hero.png)
 
-![Resume and projects](web/screenshots/cv-projects.png)
+![Projects](web/screenshots/projects.png)
+
+![Experience](web/screenshots/cv.png)
 
 ![Interests](web/screenshots/interests-vault.png)
 
@@ -59,6 +63,8 @@ Open [http://localhost:5173](http://localhost:5173). Guest book API routes only 
 | `npm run build` | Production build |
 | `npm run preview` | Preview production build |
 | `npm run capture:readme` | Regenerate README screenshots (Playwright) |
+| `npm run cv:pdf` | Render CV HTML to PDF |
+| `npm run cover-letter:pdf` | Render cover letters to PDF |
 
 **Vercel deploy:** set root directory to **`web/`**.
 
@@ -84,12 +90,13 @@ Never commit `.env` files or API keys.
 ```
 web/
 ├── src/
-│   ├── components/     # UI sections (Hero, CV, Projects, CLI…)
-│   ├── data/           # portfolio copy, assets, stack icons
+│   ├── components/     # UI sections (Hero, Projects, CV, LinkedIn, CLI…)
+│   ├── data/           # locales, assets, stack icons
+│   ├── i18n/           # language switch and UI strings
 │   └── lib/            # guest book API, theme, storage
 ├── api/                # Vercel serverless (bows, contact)
-├── public/images/      # Project & profile assets
-└── scripts/            # README screenshot capture
+├── public/             # CV and cover-letter PDFs, images, print HTML
+└── scripts/            # README shots, CV and cover-letter PDF render
 docs/                   # Design notes (not deployed)
 ```
 
@@ -98,6 +105,8 @@ docs/                   # Design notes (not deployed)
 ## Documentation
 
 Internal build notes live in [`docs/`](docs/) — design system, component map, workflow.
+
+Print artefacts live under `web/public/cv/` and `web/public/cover-letter/` (HTML + CSS). The PDFs are generated with Playwright.
 
 ## Regenerate screenshots
 
