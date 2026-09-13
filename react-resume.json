@@ -596,7 +596,7 @@
               "url": "https://pypi.org/project/import-resolve-cli/"
             }
           ],
-          "description": "<p>Published PyPI package. CLI and Git merge driver for Python import-block conflicts. AST parsing, zero runtime dependencies. pytest, mypy, ruff, CI. Installable tool, not a product API.</p>"
+          "description": "<p>PyPI CLI and Git merge driver for Python import conflicts. AST, zero runtime deps, pytest/mypy/ruff CI. Not a product API.</p>"
         },
         {
           "id": "h8000001-0001-4000-8000-000000000012",
@@ -618,7 +618,7 @@
               "url": "https://www.skills.sh/ikrame-ih/english-spanish-web-localization/english-spanish-web-localization"
             }
           ],
-          "description": "<p>Published on skills.sh with public source. Contextual localization among en-GB, en-US, es-ES, and es-419. Python locale_guard (stdlib) checks JSON catalog keys, placeholders, tags, and encoding. Agent skill, not a product API.</p>"
+          "description": "<p>skills.sh skill with public source. locale_guard checks JSON catalogs (en-GB, en-US, es-ES, es-419). Not a product API.</p>"
         },
         {
           "id": "h8000001-0001-4000-8000-000000000013",
@@ -640,7 +640,7 @@
               "url": "https://my-playthrough.vercel.app"
             }
           ],
-          "description": "<p>DAW capstone, 10/10. Complementary full-stack: React, Node.js/Express, PostgreSQL, Docker Compose, Vitest on client and server.</p>"
+          "description": "<p>DAW capstone, 10/10. React, Express, PostgreSQL, Docker Compose, Vitest.</p>"
         },
         {
           "id": "h8000001-0001-4000-8000-000000000014",
@@ -662,7 +662,7 @@
               "url": "https://live-event-radar.vercel.app"
             }
           ],
-          "description": "<p>Complementary full-stack venue dashboard: React, TypeScript, Vitest, Playwright. Telemetry is mocked.</p>"
+          "description": "<p>React, TypeScript, Vitest, Playwright. Telemetry is mocked.</p>"
         }
       ]
     }

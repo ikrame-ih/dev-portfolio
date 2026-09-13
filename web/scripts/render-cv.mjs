@@ -58,12 +58,8 @@ const projectLinksHtml = (item) => {
   return `<div class="proj-links">${links
     .map((link) => {
       const url = String(link.url);
-      const label = link.label || "";
-      const text =
-        !label || label.toLowerCase() === "skills.sh"
-          ? label || compactHostPath(url)
-          : `${label}: ${compactHostPath(url)}`;
-      return `<a href="${escapeHtml(url)}">${escapeHtml(text)}</a>`;
+      const label = link.label || compactHostPath(url);
+      return `<a href="${escapeHtml(url)}">${escapeHtml(label)}</a>`;
     })
     .join(" | ")}</div>`;
 };
@@ -82,8 +78,7 @@ const buildHtml = (data, job) => {
     .join(" | ");
 
   const itemBlock = (p) => `<article class="item">
-        <div class="item-head"><strong>${p.name}</strong><span class="meta">${p.period || p.date || ""}</span></div>
-        ${projectLinksHtml(p)}
+        <div class="item-head"><span class="item-title"><strong>${p.name}</strong>${projectLinksHtml(p)}</span><span class="meta">${p.period || p.date || ""}</span></div>
         ${stripEmpty(p.description)}
       </article>`;
 

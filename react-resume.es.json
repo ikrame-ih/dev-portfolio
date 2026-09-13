@@ -237,7 +237,7 @@
               "url": "https://github.com/ikrame-ih/reckon-flow"
             },
             {
-              "label": "Docs",
+              "label": "Documentación",
               "url": "https://reckon-flow.onrender.com/docs"
             }
           ],
@@ -596,7 +596,7 @@
               "url": "https://pypi.org/project/import-resolve-cli/"
             }
           ],
-          "description": "<p>Paquete publicado en PyPI. CLI y merge driver de Git para conflictos de imports Python. Parsing AST, cero dependencias de runtime. pytest, mypy, ruff y CI. Herramienta instalable, no una API de producto.</p>"
+          "description": "<p>CLI y merge driver de Git en PyPI para conflictos de imports. AST, cero deps de runtime, CI con pytest/mypy/ruff. No es una API de producto.</p>"
         },
         {
           "id": "h8000001-0001-4000-8000-000000000012",
@@ -618,7 +618,7 @@
               "url": "https://www.skills.sh/ikrame-ih/english-spanish-web-localization/english-spanish-web-localization"
             }
           ],
-          "description": "<p>Publicada en skills.sh con código público. Localización contextual entre en-GB, en-US, es-ES y es-419. locale_guard en Python estándar comprueba claves, placeholders, etiquetas y encoding de catálogos JSON. Skill de agente, no una API de producto.</p>"
+          "description": "<p>Skill en skills.sh con código público. locale_guard comprueba catálogos JSON (en-GB, en-US, es-ES, es-419). No es una API de producto.</p>"
         },
         {
           "id": "h8000001-0001-4000-8000-000000000013",
@@ -640,7 +640,7 @@
               "url": "https://my-playthrough.vercel.app"
             }
           ],
-          "description": "<p>Proyecto final DAW, 10/10. Full-stack complementario: React, Node.js/Express, PostgreSQL, Docker Compose, Vitest en cliente y servidor.</p>"
+          "description": "<p>Proyecto final DAW, 10/10. React, Express, PostgreSQL, Docker Compose, Vitest.</p>"
         },
         {
           "id": "h8000001-0001-4000-8000-000000000014",
@@ -662,7 +662,7 @@
               "url": "https://live-event-radar.vercel.app"
             }
           ],
-          "description": "<p>Dashboard full-stack complementario: React, TypeScript, Vitest, Playwright. La telemetría es simulada.</p>"
+          "description": "<p>React, TypeScript, Vitest, Playwright. La telemetría es simulada.</p>"
         }
       ]
     }

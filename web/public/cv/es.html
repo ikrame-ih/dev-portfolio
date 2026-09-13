@@ -30,36 +30,30 @@
 
       <h2>Proyectos</h2>
       <article class="item">
-        <div class="item-head"><strong>ReckonFlow</strong><span class="meta">ago. 2026</span></div>
-        <div class="proj-links"><a href="https://github.com/ikrame-ih/reckon-flow">GitHub: github.com/ikrame-ih/reckon-flow</a> | <a href="https://reckon-flow.onrender.com/docs">Docs: reckon-flow.onrender.com/docs</a></div>
+        <div class="item-head"><span class="item-title"><strong>ReckonFlow</strong><div class="proj-links"><a href="https://github.com/ikrame-ih/reckon-flow">GitHub</a> | <a href="https://reckon-flow.onrender.com/docs">Documentación</a></div></span><span class="meta">ago. 2026</span></div>
         <p>API REST FastAPI headless para viajes corporativos. Base de datos relacional PostgreSQL, Redis, ledger inmutable de doble entrada, dinero en Decimal. Despliegue en producción con documentación interactiva.</p><ul><li>Idempotencia Redis y bloqueos de fila PostgreSQL (FOR UPDATE) para que un confirm reintentado no duplique el asiento. Procesamiento asíncrono con jobs HTTP 202.</li><li>Extracción de recibos con PydanticAI y Groq. Esquema cerrado extra=forbid como guardrail frente a prompt injection; la salida estructurada de LLM se valida en código antes de escribir en base de datos. El modelo no aprueba ni paga.</li><li>Recuperación híbrida (tipo RAG): prefiltro SQL, RapidFuzz, vectores de tokens hasheados, Reciprocal Rank Fusion. Pruebas unitarias con pytest, integración y entrega continuas (CI/CD), observabilidad con Prometheus.</li></ul>
       </article>
 <article class="item">
-        <div class="item-head"><strong>Validata</strong><span class="meta">2026 - Actualidad</span></div>
-        
+        <div class="item-head"><span class="item-title"><strong>Validata</strong></span><span class="meta">2026 - Actualidad</span></div>
         <p>SaaS B2B, co-desarrollado. Búsqueda por lotes de empresas españolas por razón social contra registros oficiales del BORME. FastAPI, flujos distribuidos con Celery, Redis, PostgreSQL, React. Las columnas originales se conservan en la exportación.</p><ul><li>Inferencia de la columna de razón social, cuotas atómicas en Redis, tokens HMAC de descarga, Stripe Checkout de prueba, persistencia de lista de espera, CI con GitHub Actions.</li><li>Si la forma societaria no cuadra (S.L. frente a S.A.) queda en REVISION_SUGERIDA.</li></ul>
       </article>
 
       <h2>Otros proyectos</h2>
 <article class="item">
-        <div class="item-head"><strong>import-resolve-cli</strong><span class="meta">ago. 2026</span></div>
-        <div class="proj-links"><a href="https://github.com/ikrame-ih/import-resolve-cli">GitHub: github.com/ikrame-ih/import-resolve-cli</a> | <a href="https://pypi.org/project/import-resolve-cli/">PyPI: pypi.org/project/import-resolve-cli</a></div>
-        <p>Paquete publicado en PyPI. CLI y merge driver de Git para conflictos de imports Python. Parsing AST, cero dependencias de runtime. pytest, mypy, ruff y CI. Herramienta instalable, no una API de producto.</p>
+        <div class="item-head"><span class="item-title"><strong>import-resolve-cli</strong><div class="proj-links"><a href="https://github.com/ikrame-ih/import-resolve-cli">GitHub</a> | <a href="https://pypi.org/project/import-resolve-cli/">PyPI</a></div></span><span class="meta">ago. 2026</span></div>
+        <p>CLI y merge driver de Git en PyPI para conflictos de imports. AST, cero deps de runtime, CI con pytest/mypy/ruff. No es una API de producto.</p>
       </article>
 <article class="item">
-        <div class="item-head"><strong>english-spanish-web-localization</strong><span class="meta">2026</span></div>
-        <div class="proj-links"><a href="https://github.com/ikrame-ih/english-spanish-web-localization">GitHub: github.com/ikrame-ih/english-spanish-web-localization</a> | <a href="https://www.skills.sh/ikrame-ih/english-spanish-web-localization/english-spanish-web-localization">skills.sh</a></div>
-        <p>Publicada en skills.sh con código público. Localización contextual entre en-GB, en-US, es-ES y es-419. locale_guard en Python estándar comprueba claves, placeholders, etiquetas y encoding de catálogos JSON. Skill de agente, no una API de producto.</p>
+        <div class="item-head"><span class="item-title"><strong>english-spanish-web-localization</strong><div class="proj-links"><a href="https://github.com/ikrame-ih/english-spanish-web-localization">GitHub</a> | <a href="https://www.skills.sh/ikrame-ih/english-spanish-web-localization/english-spanish-web-localization">skills.sh</a></div></span><span class="meta">2026</span></div>
+        <p>Skill en skills.sh con código público. locale_guard comprueba catálogos JSON (en-GB, en-US, es-ES, es-419). No es una API de producto.</p>
       </article>
 <article class="item">
-        <div class="item-head"><strong>MyPlaythrough</strong><span class="meta">sep. 2025 - jun. 2026</span></div>
-        <div class="proj-links"><a href="https://github.com/ikrame-ih/my-playthrough">GitHub: github.com/ikrame-ih/my-playthrough</a> | <a href="https://my-playthrough.vercel.app">Demo: my-playthrough.vercel.app</a></div>
-        <p>Proyecto final DAW, 10/10. Full-stack complementario: React, Node.js/Express, PostgreSQL, Docker Compose, Vitest en cliente y servidor.</p>
+        <div class="item-head"><span class="item-title"><strong>MyPlaythrough</strong><div class="proj-links"><a href="https://github.com/ikrame-ih/my-playthrough">GitHub</a> | <a href="https://my-playthrough.vercel.app">Demo</a></div></span><span class="meta">sep. 2025 - jun. 2026</span></div>
+        <p>Proyecto final DAW, 10/10. React, Express, PostgreSQL, Docker Compose, Vitest.</p>
       </article>
 <article class="item">
-        <div class="item-head"><strong>Live Event Radar</strong><span class="meta">2026</span></div>
-        <div class="proj-links"><a href="https://github.com/ikrame-ih/live-event-radar">GitHub: github.com/ikrame-ih/live-event-radar</a> | <a href="https://live-event-radar.vercel.app">Demo: live-event-radar.vercel.app</a></div>
-        <p>Dashboard full-stack complementario: React, TypeScript, Vitest, Playwright. La telemetría es simulada.</p>
+        <div class="item-head"><span class="item-title"><strong>Live Event Radar</strong><div class="proj-links"><a href="https://github.com/ikrame-ih/live-event-radar">GitHub</a> | <a href="https://live-event-radar.vercel.app">Demo</a></div></span><span class="meta">2026</span></div>
+        <p>React, TypeScript, Vitest, Playwright. La telemetría es simulada.</p>
       </article>
 
       <h2>Experiencia laboral</h2>
