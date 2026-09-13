@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Desarrolladora backend Python en Málaga. Más de 2 años de experiencia profesional (EY, operaciones y prácticas de software). Construyo APIs REST con FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic y pytest. IA generativa y NLP: prompt engineering (zero-shot, few-shot, Chain-of-Thought, ReAct), extracción LLM estructurada, embeddings, recuperación híbrida y grounding tipo RAG. Pipelines LangGraph.js para el operador (GraphState tipado, tool calling, Groq), skills reutilizables, context engineering y LLM routing según coste. Graduada DAW (jun. 2026), proyecto final 10/10. En curso: especialización en inteligencia artificial y Big Data (PySpark, DataFrames). Abierta a backend e IA generativa remoto o híbrido.</p>"
+    "content": "<p>Ingeniera backend Python en Málaga. 3 años de experiencia profesional y proyectos en producción (EY, operaciones y prácticas de software). Construyo APIs REST con FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic y pytest. IA aplicada: prompt engineering, extracción LLM con esquemas cerrados, embeddings, recuperación híbrida y grounding tipo RAG. Spec-driven development con Obsidian, Orca y Cursor: las specs en Markdown, los agentes ejecutan el ticket, el merge lo decido yo. En curso un máster de FP en inteligencia artificial y big data (PySpark, DataFrames; 100% online, compatible con jornada completa) y certificaciones cloud (GCP, AWS). Graduada DAW (jun. 2026), proyecto final 10/10. Abierta a backend e IA, remoto o híbrido.</p>"
   },
   "sections": {
     "profiles": {
@@ -83,7 +83,7 @@
           "hidden": false,
           "company": "DATA CONTROL",
           "position": "Desarrolladora de software en prácticas",
-          "location": "Málaga · En remoto",
+          "location": "Málaga | En remoto",
           "period": "mar. 2026 - jun. 2026",
           "website": {
             "url": "",
@@ -98,14 +98,14 @@
           "hidden": false,
           "company": "EY Global Delivery Services",
           "position": "Asistente ejecutiva",
-          "location": "Málaga · Híbrido",
+          "location": "Málaga | Híbrido",
           "period": "ene. 2025 - mar. 2026",
           "website": {
             "url": "",
             "label": "",
             "inlineLink": false
           },
-          "description": "<ul><li>Desarrollé una Power App (Power Fx) que gestionó de extremo a extremo el sorteo de Navidad del CNS: inscripción y asignación de números en un solo sitio, en lugar de perseguirlo por correo o Teams.</li><li>Coordiné de principio a fin visitas de clientes estratégicos en Málaga, gestionando agendas, logística y la experiencia durante la estancia — jornadas que a menudo condicionaban el avance de un acuerdo.</li><li>Llevé el día a día operativo — viajes, Concur, Outlook, Teams, SharePoint y las herramientas internas de la firma — en un entorno global de servicios profesionales.</li></ul>",
+          "description": "<ul><li>Desarrollé una Power App (Power Fx) que gestionó de extremo a extremo el sorteo de Navidad del CNS: inscripción y asignación de números en un solo sitio, en lugar de perseguirlo por correo o Teams.</li><li>Coordiné de principio a fin visitas de clientes estratégicos en Málaga, gestionando agendas, logística y la experiencia durante la estancia - jornadas que a menudo condicionaban el avance de un acuerdo.</li><li>Llevé el día a día operativo - viajes, Concur, Outlook, Teams, SharePoint y las herramientas internas de la firma - en un entorno global de servicios profesionales.</li></ul>",
           "roles": []
         },
         {
@@ -113,7 +113,7 @@
           "hidden": false,
           "company": "EC Azafatas",
           "position": "Embajadora de marca",
-          "location": "Málaga, Andalucía, España · Presencial",
+          "location": "Málaga, Andalucía, España | Presencial",
           "period": "feb. 2026",
           "website": {
             "url": "",
@@ -128,7 +128,7 @@
           "hidden": false,
           "company": "Conciencia Fundraising",
           "position": "Asistente administrativa y contable",
-          "location": "Málaga, Andalucía, España · Híbrido",
+          "location": "Málaga, Andalucía, España | Híbrido",
           "period": "nov. 2024 - dic. 2024",
           "website": {
             "url": "",
@@ -143,7 +143,7 @@
           "hidden": false,
           "company": "SYLVIS PROFESIONAL COSMETIC",
           "position": "Administrativa",
-          "location": "Málaga, Andalucía, España · Presencial",
+          "location": "Málaga, Andalucía, España | Presencial",
           "period": "mar. 2024 - oct. 2024",
           "website": {
             "url": "",
@@ -234,6 +234,18 @@
           "description": "<p>API FastAPI headless para viajes corporativos: aprobaciones, ledger de doble entrada, extracción LLM de recibos, conciliación bancaria. En vivo: reckon-flow.onrender.com/docs</p><ul><li>IA generativa: PydanticAI + Groq, extracción estructurada (schema extra=forbid) como guardrail frente a prompt injection; jobs HTTP 202; stub en CI; reintentos ante rate limit. El modelo no aprueba ni paga.</li><li>Recuperación híbrida: prefiltro SQL, RapidFuzz, embeddings, Reciprocal Rank Fusion (RRF). Prometheus /metrics. Python, FastAPI, PostgreSQL, Redis, pytest, CI/CD.</li></ul>"
         },
         {
+          "id": "d4000001-0001-4000-8000-000000000007",
+          "hidden": false,
+          "name": "Validata",
+          "period": "2026 - Actualidad",
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
+          "description": "<p>SaaS B2B privado con Jairo García Antolín. Búsqueda por lotes de empresas españolas por razón social contra registros oficiales del BORME. FastAPI, Celery, Redis, PostgreSQL, React.</p><ul><li>Inferencia de la columna de razón social, cuotas atómicas en Redis, descargas con token HMAC, Stripe Checkout de prueba, lista de espera, CI con GitHub Actions.</li><li>Si la forma societaria no cuadra (S.L. frente a S.A.) queda en REVISION_SUGERIDA. Las columnas originales se conservan en la exportación.</li></ul>"
+        },
+        {
           "id": "d4000001-0001-4000-8000-000000000005",
           "hidden": false,
           "name": "Import Resolve Cli",
@@ -267,7 +279,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "<p>Guía para expats del PTA que se mudan a Málaga. El API de plan en producción es un topological sort determinista — sin LLM en el camino del usuario (0€ de inferencia). CLI LangGraph.js solo para el operador, en local, verifica fichas JSON.</p><ul><li>Grafo de cuatro nodos con GraphState tipado: researcher (claims con Groq) → source finder (búsqueda DuckDuckGo limitada por dominio, fetch + Cheerio) → fact checker (verified / uncertain / potentially_inaccurate) → editor (redacta solo con evidencia oficial).</li><li>Enrutado condicional: riesgo medium/high corta a HUMAN_REVIEW_REQUIRED. Sin memoria entre ejecuciones. Tool calling, guardrails de prompt, Groq.</li></ul>"
+          "description": "<p>Guía para expats del PTA que se mudan a Málaga. El API de plan en producción es un topological sort determinista - sin LLM en el camino del usuario (0€ de inferencia). CLI LangGraph.js solo para el operador, en local, verifica fichas JSON.</p><ul><li>Grafo de cuatro nodos con GraphState tipado: researcher (claims con Groq) → source finder (búsqueda DuckDuckGo limitada por dominio, fetch + Cheerio) → fact checker (verified / uncertain / potentially_inaccurate) → editor (redacta solo con evidencia oficial).</li><li>Enrutado condicional: riesgo medium/high corta a HUMAN_REVIEW_REQUIRED. Sin memoria entre ejecuciones. Tool calling, guardrails de prompt, Groq.</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000002",
@@ -322,6 +334,8 @@
             "APIs REST",
             "Pydantic",
             "JWT",
+            "Celery",
+            "Stripe",
             "pytest",
             "mypy",
             "PySpark",
@@ -355,6 +369,9 @@
             "LLM routing",
             "Context engineering",
             "Spec-driven development",
+            "Obsidian",
+            "Orca",
+            "Cursor",
             "Prometheus"
           ]
         },
@@ -379,7 +396,12 @@
             "Power Apps",
             "Power Fx",
             "Node.js",
-            "Vitest"
+            "Vitest",
+            "Cursor",
+            "Obsidian",
+            "Orca",
+            "GCP",
+            "AWS"
           ]
         }
       ]

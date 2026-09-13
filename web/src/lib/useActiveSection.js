@@ -10,7 +10,7 @@ const ACTIVE_LINE = NAV_SCROLL_OFFSET + 48;
 const LOCK_MS = 1200;
 
 /**
- * Active section from scroll. Remeasure every call — lazy sections and
+ * Active section from scroll. Remeasure every call - lazy sections and
  * layout shifts make a long-lived offset cache drift (e.g. LinkedIn → Contact).
  */
 function sectionFromScroll() {

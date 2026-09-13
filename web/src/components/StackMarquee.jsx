@@ -33,12 +33,12 @@ const Separator = ({ index }) => {
   }
   return (
     <span className="ml-5 text-ink-mute" aria-hidden="true">
-      ·
+      |
     </span>
   );
 };
 
-/** Quiet mono ticker — pauses on hover; static when reduced motion is preferred. */
+/** Quiet mono ticker - pauses on hover; static when reduced motion is preferred. */
 export const StackMarquee = ({ className = "" }) => {
   const reduce = useReducedMotion();
   const { STACK, marqueeRare } = useContent();

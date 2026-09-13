@@ -14,7 +14,7 @@ const LIGHTBOX_SPRING = {
 };
 
 /**
- * Fullscreen project shot — shared-element expand via layoutId (Framer pattern).
+ * Fullscreen project shot - shared-element expand via layoutId (Framer pattern).
  */
 export const ProjectLightbox = ({ project, onClose }) => {
   const panelRef = useRef(null);

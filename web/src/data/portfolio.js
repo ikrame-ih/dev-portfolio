@@ -3,7 +3,7 @@ import es from "./locales/es.js";
 
 export const catalogs = { en, es };
 
-/** @deprecated Prefer useContent() — kept for modules that still import named exports. */
+/** @deprecated Prefer useContent() - kept for modules that still import named exports. */
 export const PROFILE = en.PROFILE;
 export const LANGUAGES = en.LANGUAGES;
 export const STACK = en.STACK;

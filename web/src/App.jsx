@@ -83,7 +83,7 @@ export default function App() {
     const onKey = (e) => {
       if (e.repeat || e.ctrlKey || e.metaKey) return;
       if (typingTarget(e.target)) return;
-      // Physical T key — reliable across ES/EN layouts (e.key alone can be flaky).
+      // Physical T key - reliable across ES/EN layouts (e.key alone can be flaky).
       if (e.code !== "KeyT") return;
       e.preventDefault();
       setCliOpen((open) => !open);
@@ -120,7 +120,7 @@ export default function App() {
   }, [belowReady]);
 
   const schema = {
-    // Structured data for search engines — description mirrors PROFILE.heroSubtext.
+    // Structured data for search engines - description mirrors PROFILE.heroSubtext.
     "@context": "https://schema.org",
     "@type": "Person",
     name: PROFILE.name,

@@ -11,7 +11,7 @@ const PROFILE = {
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
   buyMeACoffee: "https://buymeacoffee.com/ikrame.dev",
   siteUrl: "https://ikrame.dev",
-  overline: "INGENIERA BACKEND E IA · PYTHON · FASTAPI",
+  overline: "INGENIERA BACKEND E IA, PYTHON, FASTAPI",
   headlineParts: [
     { text: "El modelo extrae. " },
     { text: "El código decide.", accent: true },
@@ -27,7 +27,7 @@ const PROFILE = {
     { eyebrow: "En PyPI", text: "import-resolve-cli", accent: true },
   ],
   tagline:
-    "Ingeniera backend e IA · Python · FastAPI · disponible en remoto o híbrido",
+    "Ingeniera backend e IA, Python, FastAPI, disponible en remoto o híbrido",
   cliAbout: [
     "Hola, soy Ikrame. Desarrollo backend en Málaga. Si me toca la interfaz, priorizo que se lea con claridad.",
     "Casi todo el tiempo lo paso con FastAPI, PostgreSQL e IA aplicada: extracción estructurada, matching y tests.",
@@ -143,10 +143,13 @@ const STACK = {
             "Agent skills",
             "Git worktrees",
             "Spec-driven development",
+            "Obsidian",
+            "Orca",
+            "Cursor",
           ],
         },
         {
-          label: "En curso · IA y Big Data",
+          label: "En curso, IA y big data",
           items: ["PySpark", "NumPy", "Pandas", "TensorFlow", "PyTorch", "Spark", "Kafka"],
         },
       ],
@@ -169,6 +172,8 @@ const STACK = {
             "Vercel",
             "DataFlex",
             "Obsidian",
+            "Orca",
+            "Cursor",
             "Power Fx",
           ],
         },
@@ -181,7 +186,7 @@ const EXPERIENCE = [
   {
     company: "DATA CONTROL",
     role: "Desarrolladora de software en prácticas",
-    period: "mar. 2026 — jun. 2026",
+    period: "mar. 2026 - jun. 2026",
     track: "tech",
     bullets: [
       "Desarrollé aplicaciones internas en entorno DataFlex y en Python: acceso a datos, lógica de negocio y personalización continua.",
@@ -191,21 +196,21 @@ const EXPERIENCE = [
   {
     company: "EY Global Delivery Services",
     role: "Asistente ejecutiva",
-    period: "ene. 2025 — mar. 2026",
+    period: "ene. 2025 - mar. 2026",
     track: "hybrid",
     bullets: [
       {
         text: "Desarrollé una Power App (Power Fx) que gestionó de extremo a extremo el sorteo de Navidad del CNS: inscripción y asignación de números en un solo sitio, en lugar de perseguirlo por correo o Teams.",
         proof: {
           id: "ey-holiday-raffle",
-          name: "Sorteo de Navidad CNS — Power App",
+          name: "Sorteo de Navidad CNS - Power App",
           image: ASSETS.experience.eyHolidayRaffle,
           imageAlt:
             "Power App de EY para el sorteo de cestas de Navidad del CNS: reservar número y guardar nombre, correo y asignación",
         },
       },
-      "Coordiné de principio a fin visitas de clientes estratégicos en Málaga, gestionando agendas, logística y la experiencia durante la estancia — jornadas que a menudo condicionaban el avance de un acuerdo.",
-      "Llevé el día a día operativo — viajes, Concur, Outlook, Teams, SharePoint y las herramientas internas de la firma — en un entorno global de servicios profesionales.",
+      "Coordiné de principio a fin visitas de clientes estratégicos en Málaga, gestionando agendas, logística y la experiencia durante la estancia - jornadas que a menudo condicionaban el avance de un acuerdo.",
+      "Llevé el día a día operativo - viajes, Concur, Outlook, Teams, SharePoint y las herramientas internas de la firma - en un entorno global de servicios profesionales.",
     ],
   },
   {
@@ -220,7 +225,7 @@ const EXPERIENCE = [
   {
     company: "Conciencia Fundraising",
     role: "Asistente administrativa y contable",
-    period: "nov. — dic. 2024",
+    period: "nov. - dic. 2024",
     track: "biz",
     bullets: [
       "Seguimiento de donantes y captadores en Drive, Outlook, Evergiving, Factorial, Odoo y Looker; registro de costes de viaje y gastos para control interno.",
@@ -229,7 +234,7 @@ const EXPERIENCE = [
   {
     company: "Sylvis Profesional Cosmetic",
     role: "Administrativa",
-    period: "mar. — oct. 2024",
+    period: "mar. - oct. 2024",
     track: "biz",
     bullets: [
       "Conciliación bancaria, contabilización de facturas (empresa e importaciones) y control de costes de vehículos e importación en Excel.",
@@ -280,7 +285,7 @@ const PROJECTS = [
     status:
       "Hecho. API y código públicos. La documentación Scalar, en el plan gratuito de Render, puede tardar unos 50 s en arrancar. En producción las rutas financieras piden API key.",
     role: "Autora",
-    subtitle: "API de conciliación de viajes corporativos · backend",
+    subtitle: "API de conciliación de viajes corporativos, backend",
     stack: ["Python", "FastAPI", "PostgreSQL", "Redis", "PydanticAI", "RapidFuzz", "pytest"],
     href: "https://github.com/ikrame-ih/reckon-flow",
     demo: "https://reckon-flow.onrender.com/docs",
@@ -332,9 +337,9 @@ const PROJECTS = [
       label: "Jairo García Antolín",
     },
     roleAfter:
-      ". Algunas de mis implementaciones más relevantes han sido: inferir la columna de razón social (un Excel solo con CIF se rechaza), cuotas atómicas en Redis, descargas con token HMAC, Stripe Checkout de prueba, lista de espera en base de datos, CI, y dejar la búsqueda solo por nombre, sin CIF ni VIES en el camino ejecutable. Jairo diseñó la ingesta BORME, los workers Celery, RapidFuzz y la base de FastAPI.",
-    role: "Co-desarrollado con Jairo García Antolín. Algunas de mis implementaciones más relevantes han sido: inferir la columna de razón social (un Excel solo con CIF se rechaza), cuotas atómicas en Redis, descargas con token HMAC, Stripe Checkout de prueba, lista de espera en base de datos, CI, y dejar la búsqueda solo por nombre, sin CIF ni VIES en el camino ejecutable. Jairo diseñó la ingesta BORME, los workers Celery, RapidFuzz y la base de FastAPI.",
-    subtitle: "Búsqueda por razón social · BORME · SaaS B2B",
+      ". Algunas de mis implementaciones más relevantes han sido: inferir la columna de razón social, cuotas atómicas en Redis, descargas con token HMAC, Stripe Checkout de prueba, lista de espera en base de datos, CI, y dejar la búsqueda solo por denominación corporativa. Jairo diseñó la ingesta BORME, los workers Celery, RapidFuzz y la base de FastAPI.",
+    role: "Co-desarrollado con Jairo García Antolín. Algunas de mis implementaciones más relevantes han sido: inferir la columna de razón social, cuotas atómicas en Redis, descargas con token HMAC, Stripe Checkout de prueba, lista de espera en base de datos, CI, y dejar la búsqueda solo por denominación corporativa. Jairo diseñó la ingesta BORME, los workers Celery, RapidFuzz y la base de FastAPI.",
+    subtitle: "Búsqueda por razón social, BORME, SaaS B2B",
     stack: ["Python", "FastAPI", "Celery", "PostgreSQL", "Redis", "React", "TypeScript", "Stripe"],
     href: null,
     demo: null,
@@ -345,17 +350,17 @@ const PROJECTS = [
     imageAlt:
       "Monitor en un escritorio con Validata: busca y valida empresas por razón social, con zona para subir archivos",
     description:
-      "Pegas razones sociales o subes un Excel/CSV. Validata localiza cada denominación en el BORME y devuelve el estado registral. El CIF no entra en la búsqueda: si el archivo solo trae identificadores, se rechaza; si hay nombre y CIF, solo se usa el nombre y el CIF se queda en la hoja de datos originales.",
+      "Pegas razones sociales o subes un Excel/CSV. Validata localiza cada denominación en el BORME y devuelve el estado registral. Las columnas originales se conservan intactas; solo participa la columna de nombre.",
     problem:
-      "El producto busca por razón social, no por CIF. Un archivo solo de identificadores no puede pasar por el motor como si fueran empresas.",
+      "El motor busca por razón social. Un archivo sin columna de nombre no entra en el matching.",
     decision:
-      "La cuota se reserva en Redis (Lua atómico) antes del worker. El inferenciador elige la columna de razón social y penaliza CIF/NIF/DNI. Las descargas van con token HMAC. S.L. frente a S.A. queda en REVISION_SUGERIDA.",
+      "La cuota se reserva en Redis (Lua atómico) antes del worker. El inferenciador elige la columna de razón social. Las descargas van con token HMAC. S.L. frente a S.A. queda en REVISION_SUGERIDA.",
     evidence:
-      "Tests de inferencia de columna, de un Excel solo-CIF, de cuota atómica, de descarga firmada y de webhooks Stripe en test.",
+      "Tests de inferencia de columna, de cuota atómica, de descarga firmada y de webhooks Stripe en test.",
     signals: [
       "Producto de pago, sin repositorio público",
       "Búsqueda por razón social contra BORME",
-      "CIF ignorado en el match, conservado en datos originales",
+      "Columnas originales intactas en la exportación",
       "Con Jairo García Antolín",
     ],
     mermaid: `flowchart LR
@@ -374,7 +379,7 @@ const PROJECTS = [
     tier: "compact",
     status: "Publicado en PyPI. Solo conflictos de bloques de import, no merges arbitrarios.",
     role: "Autora",
-    subtitle: "Herramienta CLI y Git merge driver · paquete Python PyPI",
+    subtitle: "Herramienta CLI y Git merge driver, paquete Python PyPI",
     demoKind: "package",
     stack: ["Python 3.9+", "Git CLI", "Hatchling", "PyPI", "GitHub Actions"],
     href: "https://github.com/ikrame-ih/import-resolve-cli",
@@ -402,7 +407,7 @@ const PROJECTS = [
     tier: "compact",
     status: "Publicada en skills.sh. Código público.",
     role: "Autora",
-    subtitle: "Skill de agente · localización EN/ES",
+    subtitle: "Skill de agente, localización EN/ES",
     stack: ["Python", "en-GB", "en-US", "es-ES", "es-419"],
     href: "https://github.com/ikrame-ih/english-spanish-web-localization",
     demo: "https://www.skills.sh/ikrame-ih/english-spanish-web-localization/english-spanish-web-localization",
@@ -435,18 +440,18 @@ const PROJECTS = [
     tier: "compact",
     status: "Checklist pública. El CLI de operador es local.",
     role: "Autora",
-    subtitle: "Lista para instalarse en Málaga · web + LangGraph",
+    subtitle: "Lista para instalarse en Málaga, web + LangGraph",
     stack: ["JavaScript", "LangGraph.js", "Groq", "Cheerio", "Cloudflare"],
     href: null,
     demo: "https://malaga-onboarding.pages.dev/",
     live: true,
     image: ASSETS.projects.malagaOnboarding,
     imageAlt:
-      "Mockup de málaga.onboarding en claro y oscuro — escritorio, portátil, tablet y móvil",
+      "Mockup de málaga.onboarding en claro y oscuro - escritorio, portátil, tablet y móvil",
     description:
       "Lista para instalarse en Málaga: padrón, NIE, Seguridad Social. El plan que ves en la web es un orden topológico: no hay LLM en lo que usa la persona. Un CLI local con LangGraph.js revisa las fichas.",
     signals: [
-      "Lo que usa la persona es un grafo — 0€ de inferencia",
+      "Lo que usa la persona es un grafo - 0€ de inferencia",
       "CLI de operador: LangGraph.js, GraphState tipado, Groq",
       "Si una afirmación es ambigua, pasa a HUMAN_REVIEW_REQUIRED",
     ],
@@ -472,7 +477,7 @@ const PROJECTS = [
     tier: "compact",
     status: "Demo y código públicos. Proyecto final con un 10.",
     role: "Autora",
-    subtitle: "Gestor personal de biblioteca de juegos · full-stack",
+    subtitle: "Gestor personal de biblioteca de juegos, full-stack",
     stack: [
       "React",
       "Vite",
@@ -486,7 +491,7 @@ const PROJECTS = [
     href: "https://github.com/ikrame-ih/my-playthrough",
     demo: "https://my-playthrough.vercel.app/",
     image: ASSETS.projects.myPlaythrough,
-    imageAlt: "MyPlaythrough — biblioteca de juegos y comunidad",
+    imageAlt: "MyPlaythrough - biblioteca de juegos y comunidad",
     description:
       "Proyecto final de DAW (máxima calificación): aplicación PERN para backlog, partidas y completados, con comunidad, recomendaciones y moderación.",
     architectureSummary:
@@ -506,7 +511,7 @@ const PROJECTS = [
     tier: "compact",
     status: "Demo pública. La telemetría es simulada, no es un recinto en vivo.",
     role: "Autora",
-    subtitle: "Panel de operaciones en tiempo real para eventos · frontend",
+    subtitle: "Panel de operaciones en tiempo real para eventos, frontend",
     stack: [
       "Next.js",
       "React 19",
@@ -519,7 +524,7 @@ const PROJECTS = [
     href: "https://github.com/ikrame-ih/live-event-radar",
     demo: "https://live-event-radar.vercel.app",
     image: ASSETS.projects.liveEventRadar,
-    imageAlt: "Live Event Radar — panel de control y telemetría",
+    imageAlt: "Live Event Radar - panel de control y telemetría",
     description:
       "Un panel de recinto: un flujo de eventos alimenta el centro de mando y el mapa. Lo hice después de ver que la información del recinto llegaba tarde.",
     architectureSummary:
@@ -541,16 +546,16 @@ const PROJECTS = [
     tier: "compact",
     status: "Widget local para Windows. Sin tienda ni sincronización en la nube.",
     role: "Autora",
-    subtitle: "Compañero de productividad de escritorio · Electron",
+    subtitle: "Compañero de productividad de escritorio, Electron",
     stack: ["Electron", "React 19", "TypeScript", "Vite", "Vitest"],
     href: "https://github.com/ikrame-ih/aiba-widget",
     demo: null,
     image: ASSETS.projects.aibaWidget,
-    imageAlt: "Aiba — widget de foco y planificación en escritorio",
+    imageAlt: "Aiba - widget de foco y planificación en escritorio",
     description:
       "Widget local para Windows: planificar el día, proteger un bloque de concentración y desconectar, sin cuenta ni nube.",
     architectureSummary:
-      "La UI en React habla por un puente IPC preload con el proceso principal de Electron. El main guarda JSON local y ejecuta el overlay de foco — sin dependencia en la nube.",
+      "La UI en React habla por un puente IPC preload con el proceso principal de Electron. El main guarda JSON local y ejecuta el overlay de foco - sin dependencia en la nube.",
     mermaid: `flowchart LR
   UI[UI React] --> Bridge[IPC preload]
   Bridge --> Main[Electron main]
@@ -574,7 +579,7 @@ const BENTO = {
       body: "Ace Attorney sigue siendo mi saga número uno, pase lo que pase. Más allá de eso, mi gusto es amplio y depende del momento: juegos con historia, novelas visuales, misterios, JRPG y ARPG largos, incluso shooters, y un cariño especial por Pokémon desde pequeña.",
       span: "md:col-span-2 md:row-span-2",
       image: ASSETS.interests.gaming,
-      imageAlt: "Phoenix Wright: Ace Attorney — mi saga favorita",
+      imageAlt: "Phoenix Wright: Ace Attorney - mi saga favorita",
       imagePosition: "object-top",
     },
     {
@@ -584,7 +589,7 @@ const BENTO = {
       body: "Canto cuando necesito despejarme (aunque, en realidad, canto todo el tiempo). Suelo tener a Voilà en bucle, pero cambio de playlist según mi mood.",
       span: "md:col-span-1 md:row-span-2",
       image: ASSETS.interests.music,
-      imageAlt: "Voilà — mi grupo favorito",
+      imageAlt: "Voilà - mi grupo favorito",
       imagePosition: "object-center",
     },
     {
@@ -594,7 +599,7 @@ const BENTO = {
       body: "Me gusta ir aprendiendo skincare, haircare y maquillaje: casi siempre un detalle pequeño cada vez.",
       span: "md:col-span-2 md:row-span-1",
       image: ASSETS.interests.aesthetics,
-      imageAlt: "Cuidado de la piel y maquillaje — rutinas personales",
+      imageAlt: "Cuidado de la piel y maquillaje - rutinas personales",
       imagePosition: "object-center",
     },
     {
@@ -604,7 +609,7 @@ const BENTO = {
       body: "Tres o cuatro sesiones de gimnasio a la semana cuando puedo. Siempre entreno con auriculares: sin música me cuesta concentrarme.",
       span: "md:col-span-1 md:row-span-1",
       image: ASSETS.interests.training,
-      imageAlt: "Entrenamiento — esenciales del gimnasio",
+      imageAlt: "Entrenamiento - esenciales del gimnasio",
       imagePosition: "object-center",
     },
     {
@@ -614,7 +619,7 @@ const BENTO = {
       body: "Elijo un libro y lo leo despacio; casi siempre ficción. El último que terminé fue Touch of Death de Alice Wilde.",
       span: "md:col-span-1 md:row-span-1",
       image: ASSETS.interests.reading,
-      imageAlt: "Touch of Death de Alice Wilde — último libro leído",
+      imageAlt: "Touch of Death de Alice Wilde - último libro leído",
       imagePosition: "object-center",
     },
     {
@@ -624,7 +629,7 @@ const BENTO = {
       body: "Animes, series o películas: veo de todo cuando me apetece y según el tiempo que tenga. Breaking Bad es la última serie que terminé.",
       span: "md:col-span-2 md:row-span-1",
       image: ASSETS.interests.series,
-      imageAlt: "Anime y series — ocio",
+      imageAlt: "Anime y series - ocio",
       imagePosition: "object-center",
     },
     {
@@ -718,17 +723,17 @@ const BOW_BOARD = {
   title: "Gracias por llegar hasta aquí.",
   titleAccent: "Deja un lazo antes de irte.",
   kicker:
-    "Haz clic en cualquiera de las páginas para dejar tu lazo — o enfoca una página, usa las flechas y pulsa Intro. Uno por persona; puedes moverlo cuando quieras.",
+    "Haz clic en cualquiera de las páginas para dejar tu lazo - o enfoca una página, usa las flechas y pulsa Intro. Uno por persona; puedes moverlo cuando quieras.",
   signedKicker:
-    "Ese es tu lazo en la página — haz clic de nuevo, o usa las flechas e Intro, para moverlo.",
-  emptyState: "Sé la primera persona en dejar un lazo — clic o teclado.",
+    "Ese es tu lazo en la página - haz clic de nuevo, o usa las flechas e Intro, para moverlo.",
+  emptyState: "Sé la primera persona en dejar un lazo - clic o teclado.",
   leftWatermark:
     "Para quienes pasaron de los proyectos y se quedaron en los detalles.",
   rightWatermark: "Un pequeño gracias. Tu lazo aquí significa que estuviste.",
   countLabel: "personas dejaron su lazo",
   countLabelSingular: "persona dejó su lazo",
-  marginHint: "un lazo por persona · clic o flechas + Intro",
-  marginHintSigned: "tu lazo · clic o flechas para moverlo",
+  marginHint: "un lazo por persona, clic o flechas + Intro",
+  marginHintSigned: "tu lazo, clic o flechas para moverlo",
 };
 
 const catalog = {
@@ -747,7 +752,7 @@ const catalog = {
     cvTitleBefore: "Roles, habilidades y ",
     cvTitleAccent: "estudio.",
     cvKicker:
-      "Anteriormente trabajé en conciliaciones, gastos y en el día a día de quien usa esas herramientas. Por eso diseño APIs pensando en la concurrencia, los reintentos y los datos a medias.",
+      "Anteriormente trabajé en conciliaciones, gastos y en el día a día de quien usa esas herramientas. Por eso diseño APIs pensando en la concurrencia, los reintentos y los datos a medias. En el día a día trabajo con spec-driven development: las specs viven en Obsidian, Orca enruta a los agentes, Cursor escribe el código y el merge lo decido yo.",
     languagesTitle: "Idiomas",
     languagesKicker: "Español, inglés y darija; idiomas en los que me comunico habitualmente.",
     experience: "Experiencia",
@@ -788,10 +793,10 @@ const catalog = {
         rows: [
           { id: "Mercadona SA", name: "COINCIDENCIA_EXACTA", result: "Sale en el BORME" },
           { id: "Garcia SL vs SA", name: "REVISION_SUGERIDA", result: "Forma societaria distinta" },
-          { id: "Solo CIF", name: "Error de archivo", result: "No hay columna de nombre" },
+          { id: "Sin nombre", name: "Error de archivo", result: "No hay columna de razón social" },
         ],
         footnote:
-          "El match usa la caché BORME local. Un Excel solo con CIF ni siquiera entra al motor.",
+          "El match usa la caché BORME local. Sin columna de nombre el archivo no entra al motor.",
       },
     },
   },

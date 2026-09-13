@@ -153,7 +153,7 @@ export const Footer = ({ onOpenTerminal }) => {
 
         <div className="mx-auto mt-10 flex max-w-[1240px] flex-wrap items-center justify-between gap-3 border-t border-[#F5F1EB]/15 px-5 pt-5 md:px-12">
           <p className="font-mono text-xs footer-muted">
-            © {year} {PROFILE.name} · Málaga, ES
+            © {year} {PROFILE.name}, Málaga, ES
           </p>
           <p className="flex items-center gap-2 font-mono text-xs footer-muted">
             {ui.footer.builtWithCare}

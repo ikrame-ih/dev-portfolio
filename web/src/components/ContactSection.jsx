@@ -172,7 +172,7 @@ export const ContactSection = () => {
             )}
           </label>
 
-          {/* Honeypot — off-screen; standard label avoids WAVE alerts. */}
+          {/* Honeypot - off-screen; standard label avoids WAVE alerts. */}
           <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
             <label htmlFor="contact-website" className="sr-only">Website</label>
             <input

@@ -65,7 +65,7 @@ const isDarkSurface = (el) => {
   const lightMark = el.closest("[data-cursor-on-light]");
 
   if (darkMark) {
-    // Light panel nested inside a dark overlay wins — unless the fill itself is dark.
+    // Light panel nested inside a dark overlay wins - unless the fill itself is dark.
     if (lightMark && darkMark.contains(lightMark)) {
       return hasDarkFill(el);
     }
@@ -78,7 +78,7 @@ const isDarkSurface = (el) => {
 /**
  * Desktop bow cursor.
  * Light surfaces: DOM lacito (burgundy).
- * Dark surfaces (footer, overlays, burgundy CTAs): native CSS cream cursor —
+ * Dark surfaces (footer, overlays, burgundy CTAs): native CSS cream cursor -
  * a moving DOM/SVG layer over ink was raster-blurring in Chrome.
  * Falls back to the CSS cursor on touch / reduced motion.
  */

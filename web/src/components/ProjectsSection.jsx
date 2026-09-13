@@ -17,7 +17,7 @@ import {
   setLocationHash,
 } from "@/lib/projectHash";
 
-/** Capture frame is 16:9 — export mockups at 1920×1080. */
+/** Capture frame is 16:9 - export mockups at 1920×1080. */
 export const PROJECT_SHOT_SIZE = { width: 1920, height: 1080, ratio: "16:9" };
 
 const STACK_PREVIEW = 4;

@@ -294,7 +294,7 @@ export const CVSection = () => {
                   viewport={REVEAL_VIEWPORT}
                   className={`relative last:pb-0 ${hasProof ? "pb-9" : "pb-12"}`}
                 >
-                  {/* Center on the rail without translateX — Framer scale owns transform */}
+                  {/* Center on the rail without translateX - Framer scale owns transform */}
                   <motion.div
                     aria-hidden="true"
                     className="absolute top-1.5 -left-10 -ml-[9px] h-[18px] w-[18px]"
@@ -314,7 +314,7 @@ export const CVSection = () => {
                     <TrackBadge track={exp.track} tracks={tracks} />
                   </div>
                   <p className="font-mono text-xs uppercase tracking-[0.18em] text-ink-soft mb-4">
-                    {exp.company} · {exp.period}
+                    {exp.company}, {exp.period}
                   </p>
                   <ul className="space-y-2 font-mono text-sm text-ink-soft list-disc list-outside ml-4">
                     {exp.bullets.map((b) => {

@@ -7,7 +7,7 @@ const CLI_HISTORY_KEY = "cli-cmd-history-v1";
 const CLI_HISTORY_MAX = 40;
 
 /**
- * Useful recruiter commands — short to type.
+ * Useful recruiter commands - short to type.
  * Numbers 1 to n jump without typing the name.
  */
 export const CLI_COMMANDS = [
@@ -67,7 +67,7 @@ export const getMenu = (cli) => [
 ];
 
 /**
- * Full catalog — every command users can run (help is built from this).
+ * Full catalog - every command users can run (help is built from this).
  * Keep labels short; aliases are noted in the label when useful.
  */
 export const getCommandCatalog = (cli) => [
@@ -110,7 +110,7 @@ export const getHelpLines = (cli) => {
     L("blank"),
     L("title", cli.helpFull),
     ...catalog.map((c) =>
-      L("menu", "", { key: "·", cmd: c.cmd, label: c.label }),
+      L("menu", "", { key: "|", cmd: c.cmd, label: c.label }),
     ),
     L("blank"),
     L("meta", cli.bannerControls),
@@ -278,7 +278,7 @@ export const completeCommand = (raw) => {
 export const aboutLines = (content = defaultContent) => {
   const { PROFILE } = content;
   return [
-    L("title", `${PROFILE.name} — ${PROFILE.location}`),
+    L("title", `${PROFILE.name} - ${PROFILE.location}`),
     ...(PROFILE.cliAbout ??
       (Array.isArray(PROFILE.heroSubtext)
         ? PROFILE.heroSubtext
@@ -316,7 +316,7 @@ export const eduLines = (content = defaultContent, cli) => {
   const lines = [L("title", cli?.titleEdu ?? "education")];
   EDUCATION.forEach((ed) => {
     lines.push(L("out", ed.degree));
-    lines.push(L("meta", `${ed.school} · ${ed.period}`));
+    lines.push(L("meta", `${ed.school}, ${ed.period}`));
   });
   return lines;
 };
@@ -355,7 +355,7 @@ export const projectLines = (content = defaultContent, cli) => {
     L(
       "meta",
       cli?.projIndexHint ??
-        "Numbers above are the project index. Example: open 1 · demo 1 · repo 1",
+        "Numbers above are the project index. Example: open 1, demo 1, repo 1",
     ),
   );
   return lines;
@@ -399,7 +399,7 @@ export const openProjectUrl = (
       L(
         "meta",
         cli?.runProjFirst ??
-          "Run proj first — then use the number shown (e.g. open 2).",
+          "Run proj first - then use the number shown (e.g. open 2).",
       ),
     ];
   }
@@ -444,7 +444,7 @@ export const linkLines = (content = defaultContent, cli) => {
       ? [L("out", `Tip       ${PROFILE.buyMeACoffee}`)]
       : []),
     L("blank"),
-    L("meta", cli?.linksTip ?? "tip: gh · li · tip · copy"),
+    L("meta", cli?.linksTip ?? "tip: gh, li, tip, copy"),
   ];
 };
 
@@ -495,9 +495,9 @@ export const goHelpLines = (cli) => [
   L("meta", cli?.goUsage ?? "usage: go <section>"),
   ...GO_TARGETS.map((t) =>
     L("menu", "", {
-      key: "·",
+      key: "|",
       cmd: t.aliases[0],
-      label: t.aliases.slice(1).join(" · ") || t.id,
+      label: t.aliases.slice(1).join(", ") || t.id,
     }),
   ),
 ];

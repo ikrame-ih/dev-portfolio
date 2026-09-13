@@ -37,6 +37,7 @@ import {
 } from "simple-icons";
 import {
   BookOpenCheck,
+  Bot,
   Braces,
   Brain,
   ChartScatter,
@@ -47,6 +48,7 @@ import {
   MessageSquareCode,
   Puzzle,
   ShieldCheck,
+  SquarePen,
   Waypoints,
 } from "lucide-react";
 
@@ -76,7 +78,7 @@ const BrandPath = ({ path, className }) => (
 const CUSTOM = {
   Zustand: (p) => (
     <Svg {...p}>
-      {/* Simplified bear face — readable at 28px */}
+      {/* Simplified bear face - readable at 28px */}
       <path d="M7.2 5.4c-1.7 0-3 1.35-3 3.05 0 .85.35 1.6.9 2.15C4.4 11.4 4 12.55 4 13.8c0 3.1 2.9 5.5 8 5.5s8-2.4 8-5.5c0-1.25-.4-2.4-1.1-3.2.55-.55.9-1.3.9-2.15 0-1.7-1.3-3.05-3-3.05-1.05 0-1.95.5-2.5 1.25-.7-.2-1.45-.3-2.3-.3s-1.6.1-2.3.3c-.55-.75-1.45-1.25-2.5-1.25Zm0 1.6c.75 0 1.35.55 1.35 1.25S7.95 9.5 7.2 9.5s-1.35-.55-1.35-1.25S6.45 7 7.2 7Zm9.6 0c.75 0 1.35.55 1.35 1.25S17.55 9.5 16.8 9.5 15.45 8.95 15.45 8.25 16.05 7 16.8 7ZM9.1 12.2c.55 0 1 .55 1 1.2s-.45 1.2-1 1.2-1-.55-1-1.2.45-1.2 1-1.2Zm5.8 0c.55 0 1 .55 1 1.2s-.45 1.2-1 1.2-1-.55-1-1.2.45-1.2 1-1.2Zm-5.15 3.35h4.5c0 1.05-1 1.9-2.25 1.9s-2.25-.85-2.25-1.9Z" />
     </Svg>
   ),
@@ -94,7 +96,7 @@ const CUSTOM = {
   ),
   "REST APIs": (p) => (
     <Svg {...p}>
-      {/* Linked nodes — reads as API/network at a glance */}
+      {/* Linked nodes - reads as API/network at a glance */}
       <circle cx="6" cy="12" r="2.4" />
       <circle cx="18" cy="6.5" r="2.4" />
       <circle cx="18" cy="17.5" r="2.4" />
@@ -134,11 +136,11 @@ const CUSTOM = {
   ),
   Playwright: (p) => (
     <Svg {...p}>
-      {/* Playwright masks — geometric, not the busy official glyph */}
+      {/* Playwright masks - geometric, not the busy official glyph */}
       <path d="M3.8 7.2 12 3.5l8.2 3.7v7.2c0 3.55-3.35 6.55-8.2 7.85-4.85-1.3-8.2-4.3-8.2-7.85V7.2Zm1.9 1.35v5.85c0 2.35 2.15 4.45 6.3 5.45 4.15-1 6.3-3.1 6.3-5.45V8.55L12 6.1 5.7 8.55Zm2.7 2.15 1.35-.5 2.85 4.45 2.95-1.75.95 1.25-4.15 2.5-3.95-5.95Z" />
     </Svg>
   ),
-  // Simple Icons has no plain Java mark in this set — cup glyph reads clearly at small sizes.
+  // Simple Icons has no plain Java mark in this set - cup glyph reads clearly at small sizes.
   Java: (p) => (
     <Svg {...p}>
       <path d="M12.4 2.4c-.9 1.55.15 2.55 1.1 3.45.95.9 1.7 1.85 1.7 3.2 0 2.45-2.05 3.55-2.05 3.55s2.95-1.55 2.95-4.05c0-1.75-.95-2.85-1.95-3.8-.85-.8-1.35-1.55-1.75-2.35Z" />
@@ -159,7 +161,7 @@ const CUSTOM = {
       />
     </Svg>
   ),
-  // No SageMaker mark in Simple Icons — cube + node reads as managed ML.
+  // No SageMaker mark in Simple Icons - cube + node reads as managed ML.
   SageMaker: (p) => (
     <Svg {...p}>
       <path
@@ -179,7 +181,7 @@ const CUSTOM = {
       <circle cx="12" cy="11.7" r="1.35" />
     </Svg>
   ),
-  // Data Access DataFlex has no Simple Icons entry — offset plates read as
+  // Data Access DataFlex has no Simple Icons entry - offset plates read as
   // sliding data records (the "flex") at stamp size.
   DataFlex: (p) => (
     <Svg {...p}>
@@ -206,7 +208,7 @@ const CUSTOM = {
       />
     </Svg>
   ),
-  // Simple Icons dropped Power Fx in later sets — keep the official chevron stack.
+  // Simple Icons dropped Power Fx in later sets - keep the official chevron stack.
   "Power Fx": ({ className }) => (
     <BrandPath
       path="M7.579 23.47H1.092A1.099 1.099 0 0 1 0 22.377c0-.198.054-.392.155-.561l2.575-4.291a4.377 4.377 0 0 0 0-4.497l-1.544-2.572a6.556 6.556 0 0 1-.934-3.372C.252 3.489 3.21.53 6.805.53h11.84c.849 0 1.374.926.937 1.654l-2.639 4.4h-.301a.498.498 0 0 0-.429.242l-.391.651-.072-.12a1.59 1.59 0 0 0-1.365-.773H8.74c-1.239 0-2.004 1.35-1.367 2.411l2.575 4.291a3.87 3.87 0 0 1 0 3.981l-2.575 4.292a1.592 1.592 0 0 0 .206 1.911Zm7.742-.53c-.197.329-.553.53-.936.53H8.739a1.097 1.097 0 0 1-1.092-1.092c0-.198.054-.393.156-.562l2.574-4.292a4.375 4.375 0 0 0 0-4.496l-2.574-4.29a1.092 1.092 0 0 1 .936-1.654h5.646c.383 0 .739.201.936.53l2.574 4.29a6.562 6.562 0 0 1 0 6.745l-2.574 4.291Zm.793-.349 2.21-3.685a7.06 7.06 0 0 0 0-7.259l-2.21-3.684.528-.879h6.264c.849 0 1.374.926.937 1.654l-2.576 4.29-.018.032-.039.066-.018.033-.024.045-.012.021-.017.033-.01.018a4.381 4.381 0 0 0-.407 2.819l.003.016c.012.063.026.127.041.189l.007.026.009.036.007.029.023.084.009.029.004.015c.019.063.039.126.061.189l.027.076.013.035c.078.206.172.408.282.603l.024.042.035.06 2.576 4.292c.102.169.155.364.155.562 0 .599-.493 1.092-1.092 1.092H17.26c-.384 0-.739-.201-.937-.53l-.209-.349Z"
@@ -266,6 +268,8 @@ const FROM_LUCIDE = {
   "Agent skills": Puzzle,
   "Git worktrees": FolderTree,
   "Spec-driven development": BookOpenCheck,
+  Cursor: SquarePen,
+  Orca: Bot,
 };
 
 const LucideMark = ({ Icon, className }) => (

@@ -1,7 +1,7 @@
-// ~5% of page — denser than the old 7%, without bows looking cramped.
+// ~5% of page - denser than the old 7%, without bows looking cramped.
 export const MIN_BOW_DISTANCE = 0.05;
 
-// Deterministic hash from id — random placement made bows jump on every re-render.
+// Deterministic hash from id - random placement made bows jump on every re-render.
 export const stableUnit = (id, salt = 0) => {
   let hash = salt;
   for (let i = 0; i < id.length; i += 1) {
@@ -10,7 +10,7 @@ export const stableUnit = (id, salt = 0) => {
   return (hash % 10000) / 10000;
 };
 
-// Older bows stored a single `x` coordinate — map that to left/right page + margin position.
+// Older bows stored a single `x` coordinate - map that to left/right page + margin position.
 export const normalizeBow = (bow) => {
   const page =
     bow.page === "left" || bow.page === "right"

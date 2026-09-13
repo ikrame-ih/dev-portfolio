@@ -39,7 +39,7 @@ export function useFocusTrap(active, containerRef, onClose) {
       }
       if (e.key !== "Tab") return;
 
-      // Forward-Tab in fields is reserved (e.g. CLI autocomplete) — don't steal focus.
+      // Forward-Tab in fields is reserved (e.g. CLI autocomplete) - don't steal focus.
       const tag = e.target?.tagName;
       if (
         !e.shiftKey &&

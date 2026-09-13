@@ -23,15 +23,15 @@ const catalog = {
   BOW_BOARD,
   marqueeRare: ["open to work", "málaga → remote", "built with care"],
   section: {
-    cvOverline: "01 · background & skills",
+    cvOverline: "01, background & skills",
     cvTitleBefore: "Skills, roles, and ",
     cvTitleAccent: "education.",
     cvKicker: "Skills, languages, and the work behind them.",
     languagesTitle: "Languages",
-    languagesKicker: "How I speak with people — and across contexts.",
+    languagesKicker: "How I speak with people - and across contexts.",
     experience: "Experience",
     education: "Education",
-    projectsOverline: "02 · selected work",
+    projectsOverline: "02, selected work",
     projectsTitleBefore: "Selected projects",
     projectsTitleAccent: "with architecture notes.",
     projectsKicker:

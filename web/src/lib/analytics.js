@@ -1,6 +1,6 @@
 /**
- * GoatCounter — privacy-friendly, cookieless pageviews (free personal tier).
- * Default site: https://ikrame.goatcounter.com — override with VITE_GOATCOUNTER_CODE.
+ * GoatCounter - privacy-friendly, cookieless pageviews (free personal tier).
+ * Default site: https://ikrame.goatcounter.com - override with VITE_GOATCOUNTER_CODE.
  */
 
 const DEFAULT_CODE = "ikrame";

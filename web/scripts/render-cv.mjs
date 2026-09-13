@@ -19,7 +19,7 @@ const jobs = [
     htmlLang: "en-US",
     docTitle: "Resume",
     toolbar:
-      "Hiring resume — print or <strong>Save PDF</strong>.",
+      "Hiring resume - print or <strong>Save PDF</strong>.",
     printLabel: "Save PDF",
   },
   {
@@ -31,7 +31,7 @@ const jobs = [
     htmlLang: "es-ES",
     docTitle: "CV",
     toolbar:
-      "CV para procesos de selección — imprime o <strong>Guardar PDF</strong>.",
+      "CV para procesos de selección - imprime o <strong>Guardar PDF</strong>.",
     printLabel: "Guardar PDF",
   },
 ];
@@ -51,7 +51,7 @@ const buildHtml = (data, job) => {
       : "",
   ]
     .filter(Boolean)
-    .join(" · ");
+    .join(" | ");
 
   const skills = visible(sections.skills.items)
     .map(
@@ -85,17 +85,17 @@ const buildHtml = (data, job) => {
 
   const education = visible(sections.education.items)
     .map((ed) => {
-      const grade = [ed.degree, ed.grade].filter(Boolean).join(" · ");
+      const grade = [ed.degree, ed.grade].filter(Boolean).join(", ");
       return `<article class="item">
         <div class="item-head"><strong>${ed.school}</strong><span class="meta">${ed.period || ""}</span></div>
-        <div class="sub"><span>${ed.area}${grade ? ` · ${grade}` : ""}</span><span>${ed.location || ""}</span></div>
+        <div class="sub"><span>${ed.area}${grade ? `, ${grade}` : ""}</span><span>${ed.location || ""}</span></div>
         ${stripEmpty(ed.description)}
       </article>`;
     })
     .join("\n");
 
   const languages = visible(sections.languages.items)
-    .map((l) => `<li><strong>${l.language}</strong> — ${l.fluency}</li>`)
+    .map((l) => `<li><strong>${l.language}</strong> - ${l.fluency}</li>`)
     .join("\n");
 
   const profiles = visible(sections.profiles.items)
@@ -111,7 +111,7 @@ const buildHtml = (data, job) => {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>${basics.name} — ${job.docTitle}</title>
+    <title>${basics.name} - ${job.docTitle}</title>
     <link rel="stylesheet" href="./cv.css" />
   </head>
   <body>

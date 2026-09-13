@@ -1,6 +1,6 @@
 import { normalizeBow } from "./bowUtils";
 
-// localStorage keys — bows (guest book) and CLI guestbook are separate features.
+// localStorage keys - bows (guest book) and CLI guestbook are separate features.
 const BOWS_KEY = "ik_bows";
 const GUESTBOOK_KEY = "ik_guestbook";
 const VISITOR_KEY = "ik_visitor_id";
@@ -14,7 +14,7 @@ export function getVisitorId() {
     }
     return id;
   } catch {
-    // private mode — id won't survive refresh but clicks still work
+    // private mode - id won't survive refresh but clicks still work
     return `v_${Math.random().toString(36).slice(2, 10)}`;
   }
 }
@@ -28,7 +28,7 @@ export function loadBows() {
   }
 }
 
-// old x coords — migrate once
+// old x coords - migrate once
 export function loadAndMigrateBows() {
   const raw = loadBows();
   const normalized = raw.map(normalizeBow);

@@ -22,7 +22,7 @@
 
 @layer base {
   html {
-    /* Match fixed nav h-16 (4rem) — larger values leave a strip of the previous section. */
+    /* Match fixed nav h-16 (4rem) - larger values leave a strip of the previous section. */
     scroll-padding-top: 4rem;
   }
 
@@ -70,7 +70,7 @@
     outline-offset: 3px;
   }
 
-  /* Browser chrome — themed to the bone/burgundy world (impeccable craft floor). */
+  /* Browser chrome - themed to the bone/burgundy world (impeccable craft floor). */
   * {
     scrollbar-width: thin;
     scrollbar-color: rgb(var(--burgundy) / 0.35) rgb(var(--bone-300));
@@ -94,7 +94,7 @@
     background: rgb(var(--burgundy) / 0.55);
   }
 
-  /* Custom BowCursor — hide native cursor while the lacito follows the pointer. */
+  /* Custom BowCursor - hide native cursor while the lacito follows the pointer. */
   html.has-bow-cursor,
   html.has-bow-cursor body,
   html.has-bow-cursor a,
@@ -158,7 +158,7 @@
   pointer-events: none;
   color: rgb(var(--burgundy));
   opacity: 0;
-  /* Integer translate3d only — no mix-blend, no Framer on this layer */
+  /* Integer translate3d only - no mix-blend, no Framer on this layer */
   will-change: transform, opacity;
   contain: layout style;
 }
@@ -202,8 +202,8 @@
   outline-offset: 3px;
 }
 
-/* bento grid — falls back to regular CSS grid; grid-lanes is experimental but nicer when it works.
-   Only enable lanes from md up — on small screens the 3-col lane layout crushes cards (e.g. iPhone). */
+/* bento grid - falls back to regular CSS grid; grid-lanes is experimental but nicer when it works.
+   Only enable lanes from md up - on small screens the 3-col lane layout crushes cards (e.g. iPhone). */
 
 .bento-lanes {
   grid-auto-flow: dense;
@@ -211,7 +211,7 @@
 
 
 
-/* open book guest book — spine gradient + page texture live here, not in JSX */
+/* open book guest book - spine gradient + page texture live here, not in JSX */
 
 /* Open book: under-stack folds at the spine (two halves), spread on top */
 .guestbook-spread {
@@ -290,7 +290,7 @@
   transform-origin: 100% 50%;
 }
 
-/* Right under-pages: mirror — fold into spine from the other side */
+/* Right under-pages: mirror - fold into spine from the other side */
 .guestbook-stack-right .guestbook-stack-sheet--deep {
   border-radius: 2px 11px 14px 4px;
   clip-path: polygon(0 4%, 100% 1%, 100% 100%, 0 90%);
@@ -509,7 +509,7 @@
   }
 }
 
-/* Spine / binding crease — burgundy thread in the fold */
+/* Spine / binding crease - burgundy thread in the fold */
 .guestbook-spine {
   display: none;
   position: relative;
@@ -595,7 +595,7 @@
   }
 }
 
-/* CLI overlay — burgundy caret + mono sizing overrides for the terminal panel */
+/* CLI overlay - burgundy caret + mono sizing overrides for the terminal panel */
 
 .cli-terminal-panel {
   cursor: auto;
@@ -607,7 +607,7 @@
   caret-color: #4a0e0e;
 }
 
-/* Typed CLI lines — keep mono/terminal feel, separate roles by color + rhythm */
+/* Typed CLI lines - keep mono/terminal feel, separate roles by color + rhythm */
 .cli-log {
   font-variant-ligatures: none;
 }
@@ -744,7 +744,7 @@
   opacity: 0.5;
 }
 
-/* Drawn L→R — slightly warmer so the ink stroke reads */
+/* Drawn L→R - slightly warmer so the ink stroke reads */
 .hairline--draw {
   height: 1px;
   background: linear-gradient(
@@ -771,7 +771,7 @@
   transform: scale(1.03);
 }
 
-/* Project strips — Framer owns image transform/clip; disable CSS hover fight */
+/* Project strips - Framer owns image transform/clip; disable CSS hover fight */
 .photo-frame.project-shot:hover img {
   transform: none;
 }
@@ -1086,7 +1086,7 @@
   }
 }
 
-/* —— yui540-inspired micro motions (guestbook / bow / terminal / hero) —— */
+/* -- yui540-inspired micro motions (guestbook / bow / terminal / hero) -- */
 
 .guestbook-stack {
   opacity: 0;
@@ -1106,7 +1106,7 @@
   }
 }
 
-/* Extra sheet flare when the spread wakes — reads as pages opening under the book */
+/* Extra sheet flare when the spread wakes - reads as pages opening under the book */
 .guestbook-spread--alive .guestbook-stack-left .guestbook-stack-sheet--deep {
   animation: guestbookSheetLeftDeep 1.05s cubic-bezier(0.2, 0.7, 0.2, 1) 0.08s both;
 }
@@ -1431,7 +1431,7 @@
   }
 }
 
-/* Touch / coarse pointers — bow cursor is decorative desktop chrome only. */
+/* Touch / coarse pointers - bow cursor is decorative desktop chrome only. */
 @media (hover: none), (pointer: coarse) {
   body,
   a,
@@ -1457,7 +1457,7 @@
   display: block;
 }
 
-/* footer strip — always ink bg / bone text (doesn't follow section alternation) */
+/* footer strip - always ink bg / bone text (doesn't follow section alternation) */
 .footer-inverse {
   background-color: #1a1a1a;
   color: #f5f1eb;
@@ -1487,7 +1487,7 @@
   background: #f5f1eb;
 }
 
-/* Editorial navigate index — bow + numeral, lacito reveals on hover */
+/* Editorial navigate index - bow + numeral, lacito reveals on hover */
 .footer-nav {
   display: flex;
   flex-direction: column;
@@ -1505,7 +1505,7 @@
 }
 
 /* Out of flow so indices flush-align with the NAVIGATE title.
-   Keep bows at full opacity — opacity:0 fails WAVE contrast on cream strokes. */
+   Keep bows at full opacity - opacity:0 fails WAVE contrast on cream strokes. */
 .footer-nav-bow {
   position: absolute;
   left: -1rem;

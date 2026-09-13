@@ -1,6 +1,6 @@
 import { ASSETS } from "../assets.js";
 
-// English site copy — edit here (and locales/es.js), not scattered across components.
+// English site copy - edit here (and locales/es.js), not scattered across components.
 const PROFILE = {
   name: "Ikrame Ibn Hayoun",
   location: "Málaga, ES",
@@ -12,7 +12,7 @@ const PROFILE = {
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
   buyMeACoffee: "https://buymeacoffee.com/ikrame.dev",
   siteUrl: "https://ikrame.dev",
-  overline: "BACKEND & AI ENGINEER · PYTHON · FASTAPI",
+  overline: "BACKEND & AI ENGINEER, PYTHON, FASTAPI",
   headlineParts: [
     { text: "The model extracts. " },
     { text: "The code decides.", accent: true },
@@ -27,7 +27,7 @@ const PROFILE = {
     { eyebrow: "Now", text: "Vocational AI specialization" },
     { eyebrow: "On PyPI", text: "import-resolve-cli", accent: true },
   ],
-  tagline: "Backend & AI engineer · Python · FastAPI · open to remote or hybrid",
+  tagline: "Backend & AI engineer, Python, FastAPI, open to remote or hybrid",
   cliAbout: [
     "Hi. I'm Ikrame. Backend developer in Málaga, with a soft spot for calm interfaces when I build the UI side.",
     "Most of my energy goes to FastAPI, PostgreSQL, and applied AI on production paths: structured extraction, matching, tests.",
@@ -48,7 +48,7 @@ const PROFILE = {
   },
   practiceAside: {
     title: "At a glance",
-    text: "DAW, Jun 2026. Final project MyPlaythrough got the maximum grade. Backend and applied AI on GitHub: FastAPI, PostgreSQL, LLM extraction, embeddings, tests, and CI. This portfolio too — built from scratch.",
+    text: "DAW, Jun 2026. Final project MyPlaythrough got the maximum grade. Backend and applied AI on GitHub: FastAPI, PostgreSQL, LLM extraction, embeddings, tests, and CI. This portfolio too - built from scratch.",
   },
 };
 
@@ -58,7 +58,7 @@ const LANGUAGES = [
   { lang: "Darija", level: "Native", detail: "Moroccan Arabic", code: "AR" },
 ];
 
-// Four skill domains — full-width catalog bands in CVSection.
+// Four skill domains - full-width catalog bands in CVSection.
 // Languages sit below as three type plates, not a list.
 const STACK = {
   domains: [
@@ -144,10 +144,13 @@ const STACK = {
             "Agent skills",
             "Git worktrees",
             "Spec-driven development",
+            "Obsidian",
+            "Orca",
+            "Cursor",
           ],
         },
         {
-          label: "In progress · AI & Big Data",
+          label: "In progress, AI and big data",
           items: ["PySpark", "NumPy", "Pandas", "TensorFlow", "PyTorch", "Spark", "Kafka"],
         },
       ],
@@ -170,6 +173,8 @@ const STACK = {
             "Vercel",
             "DataFlex",
             "Obsidian",
+            "Orca",
+            "Cursor",
             "Power Fx",
           ],
         },
@@ -182,7 +187,7 @@ const EXPERIENCE = [
   {
     company: "DATA CONTROL",
     role: "Software Developer Intern",
-    period: "Mar 2026 — Jun 2026",
+    period: "Mar 2026 - Jun 2026",
     track: "tech",
     bullets: [
       "Developed internal applications in a DataFlex environment and in Python: data access, business logic, and ongoing customization.",
@@ -192,21 +197,21 @@ const EXPERIENCE = [
   {
     company: "EY Global Delivery Services",
     role: "Executive Assistant",
-    period: "Jan 2025 — Mar 2026",
+    period: "Jan 2025 - Mar 2026",
     track: "hybrid",
     bullets: [
       {
-        text: "Built a Power App (Power Fx) that ran the CNS Christmas raffle end-to-end — registration and number assignment in one place, instead of chasing it over email or Teams.",
+        text: "Built a Power App (Power Fx) that ran the CNS Christmas raffle end-to-end - registration and number assignment in one place, instead of chasing it over email or Teams.",
         proof: {
           id: "ey-holiday-raffle",
-          name: "CNS Christmas raffle — Power App",
+          name: "CNS Christmas raffle - Power App",
           image: ASSETS.experience.eyHolidayRaffle,
           imageAlt:
-            "EY Power App for the CNS Christmas hamper raffle — claim a number and store name, email, and assignment",
+            "EY Power App for the CNS Christmas hamper raffle - claim a number and store name, email, and assignment",
         },
       },
-      "Coordinated strategic client visits in Málaga end to end: agendas, logistics, and the on-site experience — days that often shaped whether a deal moved forward.",
-      "Ran day-to-day ops — travel, Concur, Outlook, Teams, SharePoint, and the firm's internal tools — in a global professional-services setting.",
+      "Coordinated strategic client visits in Málaga end to end: agendas, logistics, and the on-site experience - days that often shaped whether a deal moved forward.",
+      "Ran day-to-day ops - travel, Concur, Outlook, Teams, SharePoint, and the firm's internal tools - in a global professional-services setting.",
     ],
   },
   {
@@ -221,7 +226,7 @@ const EXPERIENCE = [
   {
     company: "Conciencia Fundraising",
     role: "Accounting & Administrative Assistant",
-    period: "Nov — Dec 2024",
+    period: "Nov - Dec 2024",
     track: "biz",
     bullets: [
       "Tracked donors and fundraisers in Drive, Outlook, Evergiving, Factorial, Odoo, and Looker; recorded travel and expense costs for internal cost control.",
@@ -230,7 +235,7 @@ const EXPERIENCE = [
   {
     company: "Sylvis Profesional Cosmetic",
     role: "Administrative Assistant",
-    period: "Mar — Oct 2024",
+    period: "Mar - Oct 2024",
     track: "biz",
     bullets: [
       "Reconciled bank accounts, posted company and import invoices, and tracked vehicle and import costs in Excel.",
@@ -281,7 +286,7 @@ const PROJECTS = [
     tier: "flagship",
     status: "Shipped. Public API and source. Scalar docs can take about 50s to wake on the free Render tier. Finance routes need an API key in production.",
     role: "Sole author",
-    subtitle: "Corporate travel reconciliation API · backend",
+    subtitle: "Corporate travel reconciliation API, backend",
     stack: ["Python", "FastAPI", "PostgreSQL", "Redis", "PydanticAI", "RapidFuzz", "pytest"],
     href: "https://github.com/ikrame-ih/reckon-flow",
     demo: "https://reckon-flow.onrender.com/docs",
@@ -333,9 +338,9 @@ const PROJECTS = [
       label: "Jairo García Antolín",
     },
     roleAfter:
-      ". Some of the pieces I implemented: company-name column inference (a CIF-only spreadsheet is rejected), atomic Redis quotas, HMAC download tokens, Stripe test Checkout, a real waitlist, CI, and a name-only search path with CIF and VIES out of the executable flow. Jairo designed BORME ingest, Celery workers, RapidFuzz matching, and the FastAPI scaffold.",
-    role: "Co-developed with Jairo García Antolín. Some of the pieces I implemented: company-name column inference (a CIF-only spreadsheet is rejected), atomic Redis quotas, HMAC download tokens, Stripe test Checkout, a real waitlist, CI, and a name-only search path with CIF and VIES out of the executable flow. Jairo designed BORME ingest, Celery workers, RapidFuzz matching, and the FastAPI scaffold.",
-    subtitle: "Company-name search · BORME · B2B SaaS",
+      ". Some of the pieces I implemented: company-name column inference, atomic Redis quotas, HMAC download tokens, Stripe test Checkout, a real waitlist, CI, and a search path that only uses corporate names. Jairo designed BORME ingest, Celery workers, RapidFuzz matching, and the FastAPI scaffold.",
+    role: "Co-developed with Jairo García Antolín. Some of the pieces I implemented: company-name column inference, atomic Redis quotas, HMAC download tokens, Stripe test Checkout, a real waitlist, CI, and a search path that only uses corporate names. Jairo designed BORME ingest, Celery workers, RapidFuzz matching, and the FastAPI scaffold.",
+    subtitle: "Company-name search, BORME, B2B SaaS",
     stack: ["Python", "FastAPI", "Celery", "PostgreSQL", "Redis", "React", "TypeScript", "Stripe"],
     href: null,
     demo: null,
@@ -346,17 +351,17 @@ const PROJECTS = [
     imageAlt:
       "Monitor on a desk showing Validata: search and validate companies by business name, with a file upload drop zone",
     description:
-      "Paste company names or upload Excel/CSV. Validata looks up each legal name in BORME and returns the filing status. CIF is not a search key: a file with only tax IDs is rejected; if name and CIF both exist, only the name is searched and the CIF stays on the original-data sheet.",
+      "Paste company names or upload Excel/CSV. Validata looks up each legal name in BORME and returns the filing status. Original columns stay intact; only the name column is searched.",
     problem:
-      "The product searches by company name, not tax ID. A file of identifiers must not be treated as company names.",
+      "The engine searches by company name. A file with no name column never reaches matching.",
     decision:
-      "Quota is reserved in Redis (atomic Lua) before the worker. The inferencer picks the company-name column and penalizes CIF/NIF/DNI. Downloads use HMAC tokens. S.L. vs S.A. stays REVISION_SUGERIDA.",
+      "Quota is reserved in Redis (atomic Lua) before the worker. The inferencer picks the company-name column. Downloads use HMAC tokens. S.L. vs S.A. stays REVISION_SUGERIDA.",
     evidence:
-      "Tests cover column inference, CIF-only spreadsheets, atomic quota, signed downloads, and Stripe test webhooks.",
+      "Tests cover column inference, atomic quota, signed downloads, and Stripe test webhooks.",
     signals: [
       "Paid product, no public repository",
       "Search by company name against BORME",
-      "CIF ignored in the match, kept on the original-data sheet",
+      "Original columns intact on export",
       "Co-built with Jairo García Antolín",
     ],
     mermaid: `flowchart LR
@@ -375,7 +380,7 @@ const PROJECTS = [
     tier: "compact",
     status: "Published on PyPI. Import-block conflicts only, not arbitrary merges.",
     role: "Sole author",
-    subtitle: "CLI developer tool and Git merge driver · PyPI",
+    subtitle: "CLI developer tool and Git merge driver, PyPI",
     stack: ["Python 3.9+", "ast", "Hatchling", "PyPI", "GitHub Actions"],
     href: "https://github.com/ikrame-ih/import-resolve-cli",
     demo: "https://pypi.org/project/import-resolve-cli/",
@@ -403,7 +408,7 @@ const PROJECTS = [
     tier: "compact",
     status: "Published on skills.sh. Source is public.",
     role: "Sole author",
-    subtitle: "Agent skill · meaning-first EN/ES",
+    subtitle: "Agent skill, meaning-first EN/ES",
     stack: ["Python", "en-GB", "en-US", "es-ES", "es-419"],
     href: "https://github.com/ikrame-ih/english-spanish-web-localization",
     demo: "https://www.skills.sh/ikrame-ih/english-spanish-web-localization/english-spanish-web-localization",
@@ -436,18 +441,18 @@ const PROJECTS = [
     tier: "compact",
     status: "Public checklist. Operator CLI is local.",
     role: "Sole author",
-    subtitle: "Expat relocation checklist · web + LangGraph",
+    subtitle: "Expat relocation checklist, web + LangGraph",
     stack: ["JavaScript", "LangGraph.js", "Groq", "Cheerio", "Cloudflare"],
     href: null,
     demo: "https://malaga-onboarding.pages.dev/",
     live: true,
     image: ASSETS.projects.malagaOnboarding,
     imageAlt:
-      "Device mockup of málaga.onboarding in light and dark mode — desktop, laptop, tablet, and phone",
+      "Device mockup of málaga.onboarding in light and dark mode - desktop, laptop, tablet, and phone",
     description:
       "Landing checklist for Málaga (padrón, NIE, Social Security). The public plan is a topological sort, so the user path does not call an LLM. A local LangGraph.js CLI checks fact sheets and can stop on HUMAN_REVIEW_REQUIRED.",
     signals: [
-      "User path is a graph sort — 0€ LLM inference",
+      "User path is a graph sort - 0€ LLM inference",
       "Operator CLI: LangGraph.js, typed GraphState, Groq",
       "Ambiguous claims go to HUMAN_REVIEW_REQUIRED",
     ],
@@ -473,7 +478,7 @@ const PROJECTS = [
     tier: "compact",
     status: "Public demo and source. Capstone graded 10/10.",
     role: "Sole author",
-    subtitle: "Personal game library manager · full-stack",
+    subtitle: "Personal game library manager, full-stack",
     stack: [
       "React",
       "Vite",
@@ -487,7 +492,7 @@ const PROJECTS = [
     href: "https://github.com/ikrame-ih/my-playthrough",
     demo: "https://my-playthrough.vercel.app/",
     image: ASSETS.projects.myPlaythrough,
-    imageAlt: "MyPlaythrough — personal game library and community UI",
+    imageAlt: "MyPlaythrough - personal game library and community UI",
     description:
       "DAW capstone (10/10): PERN app for backlog, community, and moderation. JWT, bcrypt, Steam/RAWG proxy, Docker Compose, Vitest on client and server.",
     architectureSummary:
@@ -507,7 +512,7 @@ const PROJECTS = [
     tier: "compact",
     status: "Public demo. Telemetry is simulated, not a live venue feed.",
     role: "Sole author",
-    subtitle: "Real-time venue ops dashboard · frontend",
+    subtitle: "Real-time venue ops dashboard, frontend",
     stack: [
       "Next.js",
       "React 19",
@@ -520,7 +525,7 @@ const PROJECTS = [
     href: "https://github.com/ikrame-ih/live-event-radar",
     demo: "https://live-event-radar.vercel.app",
     image: ASSETS.projects.liveEventRadar,
-    imageAlt: "Live Event Radar — command center and telemetry dashboard",
+    imageAlt: "Live Event Radar - command center and telemetry dashboard",
     description:
       "Venue ops views derived from one Zustand store: SVG command center and a Leaflet map. The event stream is mocked.",
     architectureSummary:
@@ -542,16 +547,16 @@ const PROJECTS = [
     tier: "compact",
     status: "Local Windows widget. No installer store listing, no cloud sync.",
     role: "Sole author",
-    subtitle: "Desktop productivity companion · Electron",
+    subtitle: "Desktop productivity companion, Electron",
     stack: ["Electron", "React 19", "TypeScript", "Vite", "Vitest"],
     href: "https://github.com/ikrame-ih/aiba-widget",
     demo: null,
     image: ASSETS.projects.aibaWidget,
-    imageAlt: "Aiba — desktop focus timer and planning widget",
+    imageAlt: "Aiba - desktop focus timer and planning widget",
     description:
       "Local Windows focus widget: plan the day, guard a block, unwind. Electron, React, IPC preload. No account.",
     architectureSummary:
-      "The React UI talks through an IPC preload bridge to the Electron main process. Main stores local JSON and runs the focus-guard overlay—no cloud dependency.",
+      "The React UI talks through an IPC preload bridge to the Electron main process. Main stores local JSON and runs the focus-guard overlay-no cloud dependency.",
     mermaid: `flowchart LR
   UI[React UI] --> Bridge[IPC preload]
   Bridge --> Main[Electron main]
@@ -572,10 +577,10 @@ const BENTO = {
       key: "gaming",
       label: "case file",
       title: "Gaming",
-      body: "Ace Attorney is still my #1 franchise, no matter what else I play. Beyond that my taste is wide and mood-driven — story-heavy games, visual novels, mysteries, long JRPGs and ARPGs, even shooters, plus a soft spot for Pokémon ever since I was a kid.",
+      body: "Ace Attorney is still my #1 franchise, no matter what else I play. Beyond that my taste is wide and mood-driven - story-heavy games, visual novels, mysteries, long JRPGs and ARPGs, even shooters, plus a soft spot for Pokémon ever since I was a kid.",
       span: "md:col-span-2 md:row-span-2",
       image: ASSETS.interests.gaming,
-      imageAlt: "Phoenix Wright: Ace Attorney — my favorite franchise",
+      imageAlt: "Phoenix Wright: Ace Attorney - my favorite franchise",
       imagePosition: "object-top",
     },
     {
@@ -585,47 +590,47 @@ const BENTO = {
       body: "I sing when I need to clear my head (though honestly I sing all the time). Voilà is usually on repeat, but I switch playlists with my mood.",
       span: "md:col-span-1 md:row-span-2",
       image: ASSETS.interests.music,
-      imageAlt: "Voilà — my favorite group",
+      imageAlt: "Voilà - my favorite group",
       imagePosition: "object-center",
     },
     {
       key: "aesthetics",
       label: "at the vanity",
       title: "Skincare",
-      body: "I like picking up new skincare, hair, and makeup tricks — usually one small thing at a time.",
+      body: "I like picking up new skincare, hair, and makeup tricks - usually one small thing at a time.",
       span: "md:col-span-2 md:row-span-1",
       image: ASSETS.interests.aesthetics,
-      imageAlt: "Skincare and makeup — personal routines",
+      imageAlt: "Skincare and makeup - personal routines",
       imagePosition: "object-center",
     },
     {
       key: "training",
       label: "weekly",
       title: "Training",
-      body: "Three or four gym sessions a week when I can fit them in. I always train with headphones on — I can't really focus without music.",
+      body: "Three or four gym sessions a week when I can fit them in. I always train with headphones on - I can't really focus without music.",
       span: "md:col-span-1 md:row-span-1",
       image: ASSETS.interests.training,
-      imageAlt: "Training — gym essentials",
+      imageAlt: "Training - gym essentials",
       imagePosition: "object-center",
     },
     {
       key: "reading",
       label: "on the shelf",
       title: "Reading",
-      body: "I pick one book and read it slowly — almost always fiction. Last finished: Touch of Death by Alice Wilde.",
+      body: "I pick one book and read it slowly - almost always fiction. Last finished: Touch of Death by Alice Wilde.",
       span: "md:col-span-1 md:row-span-1",
       image: ASSETS.interests.reading,
-      imageAlt: "Touch of Death by Alice Wilde — last book I read",
+      imageAlt: "Touch of Death by Alice Wilde - last book I read",
       imagePosition: "object-center",
     },
     {
       key: "series",
       label: "evening watch",
       title: "Series & anime",
-      body: "Anime, series, or films — I watch whatever I'm in the mood for, depending on how much time I have. Breaking Bad is the last series I finished.",
+      body: "Anime, series, or films - I watch whatever I'm in the mood for, depending on how much time I have. Breaking Bad is the last series I finished.",
       span: "md:col-span-2 md:row-span-1",
       image: ASSETS.interests.series,
-      imageAlt: "Anime and series — free time watching",
+      imageAlt: "Anime and series - free time watching",
       imagePosition: "object-center",
     },
     {
@@ -719,17 +724,17 @@ const BOW_BOARD = {
   title: "Thanks for reading.",
   titleAccent: "Pin a little bow before you go.",
   kicker:
-    "Click either page to leave your bow — or focus a page and use arrow keys, then Enter. One per person; you can move it anytime.",
+    "Click either page to leave your bow - or focus a page and use arrow keys, then Enter. One per person; you can move it anytime.",
   signedKicker:
-    "That's your bow on the page — click again, or use arrow keys and Enter, to move it.",
-  emptyState: "Be the first bow on the page — click or use the keyboard.",
+    "That's your bow on the page - click again, or use arrow keys and Enter, to move it.",
+  emptyState: "Be the first bow on the page - click or use the keyboard.",
   leftWatermark:
     "For everyone who scrolled past the projects and stayed for the details.",
   rightWatermark: "A small thank-you. Your bow here means you were here.",
   countLabel: "people left their bow",
   countLabelSingular: "person left their bow",
-  marginHint: "one bow per person · click or arrows + Enter",
-  marginHintSigned: "your bow · click or arrows to move",
+  marginHint: "one bow per person, click or arrows + Enter",
+  marginHintSigned: "your bow, click or arrows to move",
 };
 
 
@@ -749,7 +754,7 @@ const catalog = {
     cvTitleBefore: "Roles, skills, and ",
     cvTitleAccent: "study.",
     cvKicker:
-      "I spent years on reconciliations, expenses, and the people who use the tools. That is why I care about concurrent updates, retries, and what the system should do when something is uncertain.",
+      "I spent years on reconciliations, expenses, and the people who use the tools. That is why I care about concurrent updates, retries, and what the system should do when something is uncertain. Day to day I work under spec-driven development: specs live in Obsidian, Orca routes the agents, Cursor writes the code, and I keep the merge.",
     languagesTitle: "Languages",
     languagesKicker: "Spanish, English, and Darija. The ones I actually use.",
     experience: "Experience",
@@ -790,10 +795,10 @@ const catalog = {
         rows: [
           { id: "Mercadona SA", name: "COINCIDENCIA_EXACTA", result: "Found in BORME" },
           { id: "Garcia SL vs SA", name: "REVISION_SUGERIDA", result: "Legal form mismatch" },
-          { id: "CIF only", name: "File error", result: "No name column" },
+          { id: "No name", name: "File error", result: "No company-name column" },
         ],
         footnote:
-          "Match uses the local BORME cache. A CIF-only spreadsheet never reaches the engine.",
+          "Match uses the local BORME cache. Without a name column the file never reaches the engine.",
       },
     },
   },

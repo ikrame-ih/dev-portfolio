@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Designing idempotent POSTs for a ledger API — Ikrame Ibn Hayoun</title>
+  <title>Designing idempotent POSTs for a ledger API - Ikrame Ibn Hayoun</title>
   <meta name="description" content="How ReckonFlow uses Idempotency-Key, Redis SET NX EX, response replay, and fail-open behavior so retried payments cannot double-post." />
   <link rel="canonical" href="https://ikrame.dev/blog/idempotent-posts-ledger-api.html" />
   <style>
@@ -24,14 +24,14 @@
 <body>
   <main>
     <a class="back" href="/#linkedin">← From LinkedIn</a>
-    <p class="meta">didactic · 2026-08-04 · ReckonFlow</p>
+    <p class="meta">didactic, 2026-08-04, ReckonFlow</p>
     <h1>Designing idempotent POSTs for a ledger API</h1>
 
     <p>
       A client posts an expense, the connection times out, and the client retries.
       Without protection you get two ledger entries and a balance that no longer
       matches reality. ReckonFlow treats that as the default failure mode of
-      HTTP — not an edge case — and builds around it.
+      HTTP - not an edge case - and builds around it.
     </p>
 
     <h2>What the client sends</h2>
@@ -43,7 +43,7 @@
     </p>
     <p>
       The cache key is scoped by Redis prefix, method, path, and a hash of the
-      body. Same key with a different body is not a replay — it is a different
+      body. Same key with a different body is not a replay - it is a different
       request. That stops one key from accidentally replaying an unrelated
       endpoint's response.
     </p>
@@ -68,7 +68,7 @@
       If the stored value is not valid JSON, ReckonFlow deletes it and reclaims
       the key instead of serving garbage. Receipt uploads that return
       <code>202</code> with FastAPI <code>BackgroundTasks</code> keep those tasks
-      attached after the response is rebuilt — otherwise extraction would silently
+      attached after the response is rebuilt - otherwise extraction would silently
       disappear on the replay path.
     </p>
 
@@ -78,7 +78,7 @@
       request through. Availability wins over the retry guarantee for that
       moment. That is a deliberate trade-off for a public demo API (see
       <a href="https://ikrame-ih.github.io/reckon-flow/adr/003-redis-idempotency/">ADR 003</a>).
-      Redis is not a hard dependency for serving traffic — only for the
+      Redis is not a hard dependency for serving traffic - only for the
       idempotency guarantee. Prefer fixing Redis over flipping this to fail-closed
       unless you are ready to shed load.
     </p>
@@ -96,9 +96,9 @@
       <p>
         Source:
         <a href="https://github.com/ikrame-ih/reckon-flow">github.com/ikrame-ih/reckon-flow</a>
-        · Live API:
+       , Live API:
         <a href="https://reckon-flow.onrender.com/docs">reckon-flow.onrender.com/docs</a>
-        · <a href="https://ikrame.dev/">ikrame.dev</a>
+       , <a href="https://ikrame.dev/">ikrame.dev</a>
       </p>
     </footer>
   </main>

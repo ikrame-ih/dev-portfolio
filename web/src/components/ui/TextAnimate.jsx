@@ -41,7 +41,7 @@ function splitSegments(text, by) {
 }
 
 /**
- * Magic UI–style Text Animate, adapted for framer-motion + this site's easing.
+ * Magic UI-style Text Animate, adapted for framer-motion + this site's easing.
  * @see https://magicui.design/docs/components/text-animate
  */
 function TextAnimateBase({

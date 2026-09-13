@@ -1,6 +1,6 @@
 import { prefersReducedMotion } from "./motion";
 
-/** Matches fixed nav `h-16` — keep in sync with `scroll-padding-top`. */
+/** Matches fixed nav `h-16` - keep in sync with `scroll-padding-top`. */
 export const NAV_SCROLL_OFFSET = 64;
 
 export const scrollBehavior = () =>
@@ -21,7 +21,7 @@ export const scrollToElement = (id, block = "start", behavior) => {
     behavior: behavior ?? scrollBehavior(),
   };
   if (block === "start") {
-    // Scroll first — focusing before scrollTo is cancelled on some mobile WebKits.
+    // Scroll first - focusing before scrollTo is cancelled on some mobile WebKits.
     const top =
       el.getBoundingClientRect().top + window.scrollY - NAV_SCROLL_OFFSET;
     window.scrollTo({ top: Math.max(0, top), ...scrollOpts });
@@ -44,7 +44,7 @@ export const scrollToTop = (behavior) => {
   focusTarget(main);
 };
 
-/** In-page hash nav — smooth scroll + focus, then sync the URL. */
+/** In-page hash nav - smooth scroll + focus, then sync the URL. */
 export const navigateToHash = (
   id,
   { updateHistory = true, behavior } = {},
@@ -66,7 +66,7 @@ export const navigateToHash = (
   }
 };
 
-/** Click handler for <a href="#section"> — keeps reduced-motion + focus behavior. */
+/** Click handler for <a href="#section"> - keeps reduced-motion + focus behavior. */
 export const onHashLinkClick = (e) => {
   const href = e.currentTarget.getAttribute("href");
   if (!href?.startsWith("#")) return;

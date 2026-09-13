@@ -9,7 +9,7 @@ import { ReconcileWalkthrough, ValidataWalkthrough } from "./ProjectProof";
 
 const MermaidDiagram = lazy(() => import("./MermaidDiagram"));
 
-/** Soft spring — slow settle, no snappy pop. */
+/** Soft spring - slow settle, no snappy pop. */
 const PANEL_SPRING = {
   type: "spring",
   stiffness: 220,

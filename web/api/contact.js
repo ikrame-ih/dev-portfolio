@@ -73,9 +73,9 @@ export default async function handler(req, res) {
     from,
     to: [to],
     reply_to: safeEmail,
-    subject: `Portfolio contact — ${safeName.replace(/[\r\n]+/g, " ")}`,
-    text: `${safeMessage}\n\n— ${safeName} (${safeEmail})`,
-    html: `<p>${escapeHtml(safeMessage).replace(/\n/g, "<br>")}</p><p>— <strong>${escapeHtml(safeName)}</strong> (<a href="mailto:${encodeURIComponent(safeEmail)}">${escapeHtml(safeEmail)}</a>)</p>`,
+    subject: `Portfolio contact: ${safeName.replace(/[\r\n]+/g, " ")}`,
+    text: `${safeMessage}\n\n- ${safeName} (${safeEmail})`,
+    html: `<p>${escapeHtml(safeMessage).replace(/\n/g, "<br>")}</p><p>- <strong>${escapeHtml(safeName)}</strong> (<a href="mailto:${encodeURIComponent(safeEmail)}">${escapeHtml(safeEmail)}</a>)</p>`,
   };
 
   try {

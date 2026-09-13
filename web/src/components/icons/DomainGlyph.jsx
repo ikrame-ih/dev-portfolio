@@ -34,7 +34,7 @@ export const DomainGlyph = ({ id, className = "w-5 h-5 text-burgundy" }) => {
   if (id === "ai") {
     return (
       <svg {...common}>
-        {/* Node graph — reads as ML / distributed data at small sizes */}
+        {/* Node graph - reads as ML / distributed data at small sizes */}
         <circle cx="12" cy="5.2" r="1.9" />
         <circle cx="5.2" cy="16.5" r="1.9" />
         <circle cx="18.8" cy="16.5" r="1.9" />

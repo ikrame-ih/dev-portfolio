@@ -1,11 +1,11 @@
-/** Shared motion grammar — calm editorial easing across the site. */
+/** Shared motion grammar - calm editorial easing across the site. */
 /** Strong ease-out (Emil): starts fast so UI feels responsive, not sluggish. */
 export const MOTION_EASE = [0.23, 1, 0.32, 1];
 
 export const MOTION_DURATION = {
   fast: 0.16,
   normal: 0.28,
-  /** Hero/marketing focal moment — still under ~700ms. */
+  /** Hero/marketing focal moment - still under ~700ms. */
   reveal: 0.55,
 };
 
@@ -28,8 +28,8 @@ export const prefersReducedMotion = () =>
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /**
- * Hero cascade entrance — real fade-up so items appear in sequence.
- * Keep y small (6–8px) to avoid the old float/settle feel.
+ * Hero cascade entrance - real fade-up so items appear in sequence.
+ * Keep y small (6-8px) to avoid the old float/settle feel.
  */
 export const heroEnter = (
   reduce,
@@ -55,7 +55,7 @@ export const heroEnter = (
 };
 
 /**
- * Scroll-into-view entrance — soft fade + short rise (not the old float-only settle).
+ * Scroll-into-view entrance - soft fade + short rise (not the old float-only settle).
  */
 export const scrollEnter = (
   reduce,

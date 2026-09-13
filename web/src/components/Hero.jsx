@@ -44,7 +44,7 @@ const factItem = (reduce) =>
         },
       };
 
-/** Light parallax without useScroll — that hook measures layout and forces a reflow on load. */
+/** Light parallax without useScroll - that hook measures layout and forces a reflow on load. */
 const PortraitFrame = ({ reduce, parallaxOn, children }) => {
   const ref = useRef(null);
 
@@ -344,7 +344,7 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Marquee stays in the first screen — shrink-0 so the photo yields, not this strip. */}
+      {/* Marquee stays in the first screen - shrink-0 so the photo yields, not this strip. */}
       <div className="mt-auto w-full shrink-0 pt-2 md:pt-3">
         <div className="mx-auto max-w-[1240px] px-5 pb-3 md:px-12 md:pb-3">
           <div className="relative h-px bg-ink/20">

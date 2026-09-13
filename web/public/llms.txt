@@ -16,7 +16,7 @@ DAW (Jun 2026), capstone 10/10. Currently a vocational specialization in AI and 
 ## Selected projects
 
 - [ReckonFlow](https://reckon-flow.onrender.com/docs): corporate travel reconciliation API. PostgreSQL `FOR UPDATE` on confirm, Decimal money, Redis idempotency (fail-open, 24h TTL), closed-schema extraction (`extra=forbid`). Matching is SQL + RapidFuzz + hashed-token vectors + RRF, not a learned embedding model. Receipts are text or OCR text.
-- Validata: company-name lookup against BORME, in progress, paid product, no public repository. Co-built with [Jairo García Antolín](https://jagardev.com/). CIF is not the search key.
+- Validata: company-name lookup against BORME, in progress, paid product, no public repository. Co-built with [Jairo García Antolín](https://jagardev.com/). Paste or upload legal names; only the name column is searched.
 - [import-resolve-cli](https://pypi.org/project/import-resolve-cli/): PyPI CLI and Git merge driver for Python import-block conflicts only. Zero runtime dependencies.
 - [English-Spanish web localization](https://www.skills.sh/ikrame-ih/english-spanish-web-localization/english-spanish-web-localization): meaning-first localization among en-GB, en-US, es-ES, and es-419. Python `locale_guard` (stdlib) checks JSON catalogs offline. Source: https://github.com/ikrame-ih/english-spanish-web-localization
 - [Málaga Onboarding](https://malaga-onboarding.pages.dev/): public plan is a topological sort (no LLM on the user path). Local LangGraph.js operator CLI.

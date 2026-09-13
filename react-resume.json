@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Backend Python developer in Málaga. 2+ years of professional work (EY, ops roles, and a software internship). I build REST APIs with FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic, and pytest. Applied generative AI and NLP: prompt engineering (zero-shot, few-shot, Chain-of-Thought, ReAct), structured LLM extraction, embeddings, hybrid retrieval, and RAG-style grounding. LangGraph.js operator pipelines (typed GraphState, tool calling, Groq), reusable agent skills, context engineering, and cost-aware LLM routing. DAW graduate (Jun 2026), capstone 10/10. Currently specializing in AI and Big Data (PySpark, DataFrames). Open to remote or hybrid backend and GenAI roles.</p>"
+    "content": "<p>Backend Python engineer in Málaga. +3 years of professional experience and production projects (EY, ops roles, and a software internship). I build REST APIs with FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic, and pytest. Applied generative AI: prompt engineering, structured LLM extraction with closed schemas, embeddings, hybrid retrieval, and RAG-style grounding. Spec-driven development with Obsidian, Orca, and Cursor: specs in Markdown, agents execute the ticket, I merge. Currently a vocational specialization in AI and big data (PySpark, DataFrames; 100% online) and preparing official cloud certifications (GCP, AWS). DAW graduate (Jun 2026), capstone 10/10. Open to remote or hybrid backend and GenAI roles.</p>"
   },
   "sections": {
     "profiles": {
@@ -83,7 +83,7 @@
           "hidden": false,
           "company": "DATA CONTROL",
           "position": "Software Developer Intern",
-          "location": "Málaga, Spain · Remote",
+          "location": "Málaga, Spain | Remote",
           "period": "Mar 2026 - Jun 2026",
           "website": {
             "url": "",
@@ -98,14 +98,14 @@
           "hidden": false,
           "company": "EY Global Delivery Services",
           "position": "Executive Assistant",
-          "location": "Málaga, Spain · Hybrid",
+          "location": "Málaga, Spain | Hybrid",
           "period": "Jan 2025 - Mar 2026",
           "website": {
             "url": "",
             "label": "",
             "inlineLink": false
           },
-          "description": "<ul><li>Built a Power App (Power Fx) that ran the CNS Christmas raffle end to end: registration and number assignment in one place, instead of chasing it over email or Teams.</li><li>Coordinated strategic client visits in Málaga end to end: agendas, logistics, and the on-site experience — days that often shaped whether a deal moved forward.</li><li>Ran day-to-day ops — travel, Concur, Outlook, Teams, SharePoint, and the firm's internal tools — in a global professional-services setting.</li></ul>",
+          "description": "<ul><li>Built a Power App (Power Fx) that ran the CNS Christmas raffle end to end: registration and number assignment in one place, instead of chasing it over email or Teams.</li><li>Coordinated strategic client visits in Málaga end to end: agendas, logistics, and the on-site experience - days that often shaped whether a deal moved forward.</li><li>Ran day-to-day ops - travel, Concur, Outlook, Teams, SharePoint, and the firm's internal tools - in a global professional-services setting.</li></ul>",
           "roles": []
         },
         {
@@ -113,7 +113,7 @@
           "hidden": false,
           "company": "EC Azafatas",
           "position": "Brand Ambassador",
-          "location": "Málaga, Andalusia, Spain · On-site",
+          "location": "Málaga, Andalusia, Spain | On-site",
           "period": "Feb 2026",
           "website": {
             "url": "",
@@ -128,7 +128,7 @@
           "hidden": false,
           "company": "Conciencia Fundraising",
           "position": "Accounting & Administrative Assistant",
-          "location": "Málaga, Andalusia, Spain · Hybrid",
+          "location": "Málaga, Andalusia, Spain | Hybrid",
           "period": "Nov 2024 - Dec 2024",
           "website": {
             "url": "",
@@ -143,7 +143,7 @@
           "hidden": false,
           "company": "SYLVIS PROFESIONAL COSMETIC",
           "position": "Administrative Assistant",
-          "location": "Málaga, Andalusia, Spain · On-site",
+          "location": "Málaga, Andalusia, Spain | On-site",
           "period": "Mar 2024 - Oct 2024",
           "website": {
             "url": "",
@@ -234,6 +234,18 @@
           "description": "<p>Headless FastAPI API for corporate travel: approvals, immutable double-entry ledger, LLM receipt extraction, hybrid bank reconciliation. Live: reckon-flow.onrender.com/docs</p><ul><li>Generative AI: PydanticAI + Groq structured extraction (schema extra=forbid) as a guardrail against prompt injection; HTTP 202 background jobs; stub provider in CI; retries on rate limits. The model cannot approve or pay.</li><li>Hybrid retrieval: SQL prefilter, RapidFuzz, embeddings, Reciprocal Rank Fusion (RRF). Prometheus /metrics. Python, FastAPI, PostgreSQL, Redis, pytest, CI/CD.</li></ul>"
         },
         {
+          "id": "d4000001-0001-4000-8000-000000000007",
+          "hidden": false,
+          "name": "Validata",
+          "period": "2026 - Present",
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
+          "description": "<p>Private B2B SaaS with Jairo García Antolín. Batch lookup of Spanish companies by legal name against official BORME records. FastAPI, Celery, Redis, PostgreSQL, React.</p><ul><li>Company-name column inference, atomic Redis quotas, HMAC download tokens, Stripe test Checkout, waitlist, GitHub Actions CI.</li><li>Legal-form mismatch (S.L. vs S.A.) stays REVISION_SUGERIDA. Original file columns preserved on export.</li></ul>"
+        },
+        {
           "id": "d4000001-0001-4000-8000-000000000005",
           "hidden": false,
           "name": "Import Resolve Cli",
@@ -267,7 +279,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "<p>Guide for PTA expats relocating to Málaga. Production plan API is a deterministic topological sort — no LLM on the user path (0€ inference). Operator-only LangGraph.js CLI verifies JSON fact sheets locally.</p><ul><li>Four-node graph with typed GraphState: researcher (Groq claims) → source finder (DuckDuckGo site-limited search, fetch + Cheerio) → fact checker (verified / uncertain / potentially_inaccurate) → editor (draft from official evidence only).</li><li>Conditional routing: medium/high risk short-circuits to HUMAN_REVIEW_REQUIRED. No cross-run memory; each invoke is one sheet. Tool calling, prompt guardrails, Groq.</li></ul>"
+          "description": "<p>Guide for PTA expats relocating to Málaga. Production plan API is a deterministic topological sort - no LLM on the user path (0€ inference). Operator-only LangGraph.js CLI verifies JSON fact sheets locally.</p><ul><li>Four-node graph with typed GraphState: researcher (Groq claims) → source finder (DuckDuckGo site-limited search, fetch + Cheerio) → fact checker (verified / uncertain / potentially_inaccurate) → editor (draft from official evidence only).</li><li>Conditional routing: medium/high risk short-circuits to HUMAN_REVIEW_REQUIRED. No cross-run memory; each invoke is one sheet. Tool calling, prompt guardrails, Groq.</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000002",
@@ -322,6 +334,8 @@
             "REST APIs",
             "Pydantic",
             "JWT",
+            "Celery",
+            "Stripe",
             "pytest",
             "mypy",
             "PySpark",
@@ -355,6 +369,9 @@
             "LLM routing",
             "Context engineering",
             "Spec-driven development",
+            "Obsidian",
+            "Orca",
+            "Cursor",
             "Prometheus"
           ]
         },
@@ -379,7 +396,12 @@
             "Power Apps",
             "Power Fx",
             "Node.js",
-            "Vitest"
+            "Vitest",
+            "Cursor",
+            "Obsidian",
+            "Orca",
+            "GCP",
+            "AWS"
           ]
         }
       ]
