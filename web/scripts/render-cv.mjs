@@ -53,15 +53,21 @@ const compactHostPath = (url) => {
 };
 
 const projectLinksHtml = (item) => {
-  const links = (item.links || []).filter((link) => link?.url);
-  if (!links.length) return "";
-  return `<div class="proj-links">${links
+  const links =
+    Array.isArray(item.links) && item.links.length > 0
+      ? item.links
+      : item.website?.url
+        ? [{ url: item.website.url, label: item.website.label || "Link" }]
+        : [];
+  const usable = links.filter((link) => link?.url);
+  if (!usable.length) return "";
+  return `<span class="proj-links">${usable
     .map((link) => {
       const url = String(link.url);
       const label = link.label || compactHostPath(url);
       return `<a href="${escapeHtml(url)}">${escapeHtml(label)}</a>`;
     })
-    .join(" | ")}</div>`;
+    .join(" | ")}</span>`;
 };
 
 const buildHtml = (data, job) => {
@@ -77,10 +83,13 @@ const buildHtml = (data, job) => {
     .filter(Boolean)
     .join(" | ");
 
-  const itemBlock = (p) => `<article class="item">
-        <div class="item-head"><span class="item-title"><strong>${p.name}</strong>${projectLinksHtml(p)}</span><span class="meta">${p.period || p.date || ""}</span></div>
+  const itemBlock = (p) => {
+    const linksHtml = projectLinksHtml(p);
+    return `<article class="item">
+        <div class="item-head"><span class="item-title"><strong>${p.name}</strong>${linksHtml ? ` ${linksHtml}` : ""}</span><span class="meta">${p.period || p.date || ""}</span></div>
         ${stripEmpty(p.description)}
       </article>`;
+  };
 
   const skills = visible(sections.skills.items)
     .map(
@@ -135,16 +144,18 @@ const buildHtml = (data, job) => {
     .join("\n");
 
   const languages = visible(sections.languages.items)
-    .map((l) => `<li><strong>${l.language}</strong> - ${l.fluency}</li>`)
-    .join("\n");
+    .map((l) => `<strong>${l.language}</strong> - ${l.fluency}`)
+    .join(" | ");
 
   const profiles = visible(sections.profiles.items)
     .map((p) => {
       const href = p.website?.url || "";
       const label = p.website?.label || p.username || p.network;
-      return `<li>${p.network}: ${href ? `<a href="${href}">${label}</a>` : label}</li>`;
+      return href
+        ? `${p.network}: <a href="${href}">${label}</a>`
+        : `${p.network}: ${label}`;
     })
-    .join("\n");
+    .join(" | ");
 
   return `<!DOCTYPE html>
 <html lang="${job.htmlLang}">
@@ -187,10 +198,10 @@ const buildHtml = (data, job) => {
       ${certifications}
 
       <h2>${sections.languages.title}</h2>
-      <ul class="langs">${languages}</ul>
+      <p class="langs-line">${languages}</p>
 
       <h2>${sections.profiles.title}</h2>
-      <ul class="langs">${profiles}</ul>
+      <p class="langs-line">${profiles}</p>
     </article>
   </body>
 </html>

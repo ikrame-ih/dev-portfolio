@@ -663,6 +663,24 @@
             }
           ],
           "description": "<p>React, TypeScript, Vitest, Playwright. La telemetría es simulada.</p>"
+        },
+        {
+          "id": "h8000001-0001-4000-8000-000000000015",
+          "hidden": false,
+          "name": "Aiba",
+          "period": "jul. 2026",
+          "website": {
+            "url": "https://github.com/ikrame-ih/aiba-widget",
+            "label": "GitHub",
+            "inlineLink": true
+          },
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/aiba-widget"
+            }
+          ],
+          "description": "<p>Widget local de productividad para Windows con Electron, React 19, TypeScript y puente IPC preload. Sin cuenta ni nube.</p>"
         }
       ]
     }

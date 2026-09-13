@@ -663,6 +663,24 @@
             }
           ],
           "description": "<p>React, TypeScript, Vitest, Playwright. Telemetry is mocked.</p>"
+        },
+        {
+          "id": "h8000001-0001-4000-8000-000000000015",
+          "hidden": false,
+          "name": "Aiba",
+          "period": "Jul 2026",
+          "website": {
+            "url": "https://github.com/ikrame-ih/aiba-widget",
+            "label": "GitHub",
+            "inlineLink": true
+          },
+          "links": [
+            {
+              "label": "GitHub",
+              "url": "https://github.com/ikrame-ih/aiba-widget"
+            }
+          ],
+          "description": "<p>Local-first Windows productivity widget built with Electron, React 19, TypeScript and a secure IPC preload bridge. No cloud account.</p>"
         }
       ]
     }

@@ -132,10 +132,6 @@ h2 {
 }
 
 .item-title {
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.15em 0.7em;
   min-width: 0;
 }
 
@@ -165,14 +161,14 @@ h2 {
   margin: 0 0 1px;
 }
 
-.langs {
+.langs-line {
   margin: 0;
-  padding: 0;
-  list-style: none;
+  font-size: 9pt;
 }
 
-.langs li {
-  margin: 0 0 2px;
+.langs-line a {
+  color: var(--burgundy);
+  text-decoration: underline;
 }
 
 @media print {
