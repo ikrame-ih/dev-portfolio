@@ -16,49 +16,57 @@
     </div>
     <article class="page">
       <h1>Ikrame Ibn Hayoun</h1>
-      <p class="headline">Backend Python | FastAPI | IA Generativa | LLMs | Prompt Engineering | Remoto o híbrido</p>
+      <p class="headline">Backend Python | FastAPI | PostgreSQL | IA aplicada | Remoto o híbrido</p>
       <p class="contact">ikihga2223@gmail.com | +34 682 02 76 93 | Málaga, España | <a href="https://ikrame.dev">ikrame.dev</a></p>
 
       <h2>Resumen</h2>
-      <div class="summary"><p>Ingeniera backend Python en Málaga. +3 años de experiencia profesional y proyectos en producción (EY, operaciones y prácticas de software). Construyo APIs REST con FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic y pytest. En producto uso IA generativa: prompt engineering, extracción LLM con esquemas cerrados, embeddings, recuperación híbrida y grounding tipo RAG. En el día a día trabajo con un harness: specs en Obsidian, spec-driven development, Orca para enrutar agentes. El código lo escribo yo en Cursor con Grok 4.6, Composer, Codex (Astra, Sol, Terra, Luna, GPT-5) y Gemini Pro y Flash 3.8. El merge lo decido yo. En curso un máster de FP en inteligencia artificial y big data (PySpark, DataFrames; 100% online, compatible con jornada completa) y certificaciones cloud (GCP, AWS). Graduada DAW (jun. 2026), proyecto final 10/10. Abierta a backend e IA, remoto o híbrido.</p></div>
+      <div class="summary"><p>Ingeniera backend Python en Málaga. +3 años de experiencia profesional y proyectos en producción. Construyo APIs REST con FastAPI, PostgreSQL, Redis y SQLAlchemy para sistemas que tienen que mantenerse consistentes ante peticiones concurrentes y reintentos. La IA aplicada empieza en ReckonFlow: salida estructurada de LLM con esquema cerrado, validación determinista en código y sin autoridad del modelo para aprobar o pagar. Trabajo con especificaciones escritas, código asistido por IA y revisión humana del merge. En curso un máster de FP en inteligencia artificial y big data (100% online, compatible con jornada completa) y certificaciones cloud oficiales en preparación (GCP, AWS). DAW con matrícula de honor, nivel EQF 5. Abierta a backend e IA aplicada, remoto o híbrido.</p></div>
 
       <h2>Habilidades</h2>
-      <p class="skill"><strong>Backend Python.</strong> Python, FastAPI, PostgreSQL, SQL, Redis, SQLAlchemy, Alembic, APIs REST, Pydantic, JWT, Celery, Stripe, pytest, mypy, PySpark, DataFrames, Spark</p>
-<p class="skill"><strong>IA generativa.</strong> IA generativa, NLP, LLMs, Prompt engineering, RAG, Embeddings, Recuperación híbrida, PydanticAI, Groq, LangGraph, LangGraph.js, Tool calling, Structured outputs, Guardrails, LLM routing, Context engineering, Spec-driven development, Obsidian, Orca, Cursor, Grok, Composer, Codex, Astra, GPT-5, Gemini Pro, Gemini Flash, Prometheus</p>
-<p class="skill"><strong>Entrega.</strong> Git, CI/CD, GitHub Actions, Docker, Docker Compose, Vercel, React, TypeScript, DataFlex, Power Apps, Power Fx, Node.js, Vitest, Cursor, Obsidian, Orca, GCP, AWS</p>
+      <p class="skill"><strong>Backend Python.</strong> Python, FastAPI, APIs REST, PostgreSQL, bases de datos relacionales, SQL, Redis, SQLAlchemy, Alembic, Pydantic, JWT, Celery, procesamiento asíncrono, flujos distribuidos, Stripe, pytest, pruebas unitarias con pytest, mypy</p>
+<p class="skill"><strong>IA aplicada.</strong> salida estructurada de LLM, esquemas cerrados, RAG, recuperación híbrida, PydanticAI, Groq, prompt engineering, guardrails frente a prompt injection</p>
+<p class="skill"><strong>Entrega.</strong> Git, CI/CD, GitHub Actions, Docker, contenedores Docker, Docker Compose, despliegue en producción, Prometheus, observabilidad, React, TypeScript, Node.js, Express, Vitest, Playwright, DataFlex, Power Apps, Power Fx</p>
+<p class="skill"><strong>Formación en curso.</strong> PySpark, DataFrames, Spark, NumPy, Pandas, TensorFlow, PyTorch, Kafka</p>
 
       <h2>Proyectos</h2>
       <article class="item">
         <div class="item-head"><strong>ReckonFlow</strong><span class="meta">ago. 2026</span></div>
         <div class="sub"><a href="https://github.com/ikrame-ih/reckon-flow">GitHub</a></div>
-        <p>API FastAPI headless para viajes corporativos: aprobaciones, ledger de doble entrada, extracción LLM de recibos, conciliación bancaria. En vivo: reckon-flow.onrender.com/docs</p><ul><li>IA generativa: PydanticAI + Groq, extracción estructurada (schema extra=forbid) como guardrail frente a prompt injection; jobs HTTP 202; stub en CI; reintentos ante rate limit. El modelo no aprueba ni paga.</li><li>Recuperación híbrida: prefiltro SQL, RapidFuzz, embeddings, Reciprocal Rank Fusion (RRF). Prometheus /metrics. Python, FastAPI, PostgreSQL, Redis, pytest, CI/CD.</li></ul>
+        <p>API REST FastAPI headless para viajes corporativos. Base de datos relacional PostgreSQL, Redis, ledger inmutable de doble entrada, dinero en Decimal. Despliegue en producción y docs: reckon-flow.onrender.com/docs</p><ul><li>Idempotencia Redis y bloqueos de fila PostgreSQL (FOR UPDATE) para que un confirm reintentado no duplique el asiento. Procesamiento asíncrono con jobs HTTP 202.</li><li>Extracción de recibos con PydanticAI y Groq. Esquema cerrado extra=forbid como guardrail frente a prompt injection; la salida estructurada de LLM se valida en código antes de escribir en base de datos. El modelo no aprueba ni paga.</li><li>Recuperación híbrida (tipo RAG): prefiltro SQL, RapidFuzz, vectores de tokens hasheados, Reciprocal Rank Fusion. Pruebas unitarias con pytest, integración y entrega continuas (CI/CD), observabilidad con Prometheus.</li></ul>
       </article>
 <article class="item">
         <div class="item-head"><strong>Validata</strong><span class="meta">2026 - Actualidad</span></div>
         
-        <p>SaaS B2B privado con Jairo García Antolín. Búsqueda por lotes de empresas españolas por razón social contra registros oficiales del BORME. FastAPI, Celery, Redis, PostgreSQL, React.</p><ul><li>Inferencia de la columna de razón social, cuotas atómicas en Redis, descargas con token HMAC, Stripe Checkout de prueba, lista de espera, CI con GitHub Actions.</li><li>Si la forma societaria no cuadra (S.L. frente a S.A.) queda en REVISION_SUGERIDA. Las columnas originales se conservan en la exportación.</li></ul>
+        <p>SaaS B2B, co-desarrollado. Búsqueda por lotes de empresas españolas por razón social contra registros oficiales del BORME. FastAPI, flujos distribuidos con Celery, Redis, PostgreSQL, React. Las columnas originales se conservan en la exportación.</p><ul><li>Inferencia de la columna de razón social, cuotas atómicas en Redis, tokens HMAC de descarga, Stripe Checkout de prueba, persistencia de lista de espera, CI con GitHub Actions.</li><li>Si la forma societaria no cuadra (S.L. frente a S.A.) queda en REVISION_SUGERIDA.</li></ul>
+      </article>
+
+      <h2>Otros proyectos</h2>
+<article class="item">
+        <div class="item-head"><strong>import-resolve-cli</strong><span class="meta">ago. 2026</span></div>
+        <div class="sub"><a href="https://pypi.org/project/import-resolve-cli/">PyPI</a></div>
+        <p>Paquete publicado en PyPI. CLI y merge driver de Git para conflictos de imports Python. Parsing AST, cero dependencias de runtime. pytest, mypy, ruff y CI. Herramienta instalable, no una API de producto.</p>
       </article>
 <article class="item">
-        <div class="item-head"><strong>Import Resolve Cli</strong><span class="meta">ago. 2026</span></div>
-        <div class="sub"><a href="https://github.com/ikrame-ih/import-resolve-cli">GitHub</a></div>
-        <p>Publicado en PyPI (import-resolve-cli). Driver de merge de Git para conflictos en bloques de imports Python. Cero dependencias en runtime. CI: pytest, mypy, ruff.</p>
+        <div class="item-head"><strong>english-spanish-web-localization</strong><span class="meta">2026</span></div>
+        <div class="sub"><a href="https://www.skills.sh/ikrame-ih/english-spanish-web-localization/english-spanish-web-localization">skills.sh</a></div>
+        <p>Publicada en skills.sh con código público. Localización contextual entre en-GB, en-US, es-ES y es-419. locale_guard en Python estándar comprueba claves, placeholders, etiquetas y encoding de catálogos JSON. Skill de agente, no una API de producto.</p>
       </article>
 <article class="item">
         <div class="item-head"><strong>MyPlaythrough</strong><span class="meta">sep. 2025 - jun. 2026</span></div>
-        <div class="sub"><a href="https://github.com/ikrame-ih/my-playthrough">GitHub</a></div>
-        <p>Proyecto final DAW, 10/10. Biblioteca de juegos con React, Node.js/Express, PostgreSQL, JWT, Docker Compose. Vitest en cliente y servidor. Demo: my-playthrough.vercel.app</p>
+        <div class="sub"><a href="https://my-playthrough.vercel.app">Demo</a></div>
+        <p>Proyecto final DAW, 10/10. Full-stack complementario: React, Node.js/Express, PostgreSQL, Docker Compose, Vitest en cliente y servidor.</p>
       </article>
 <article class="item">
-        <div class="item-head"><strong>Málaga Onboarding</strong><span class="meta">2026 - Actualidad</span></div>
-        
-        <p>Guía para expats del PTA que se mudan a Málaga. El API de plan en producción es un topological sort determinista - sin LLM en el camino del usuario (0€ de inferencia). CLI LangGraph.js solo para el operador, en local, verifica fichas JSON.</p><ul><li>Grafo de cuatro nodos con GraphState tipado: researcher (claims con Groq) → source finder (búsqueda DuckDuckGo limitada por dominio, fetch + Cheerio) → fact checker (verified / uncertain / potentially_inaccurate) → editor (redacta solo con evidencia oficial).</li><li>Enrutado condicional: riesgo medium/high corta a HUMAN_REVIEW_REQUIRED. Sin memoria entre ejecuciones. Tool calling, guardrails de prompt, Groq.</li></ul>
+        <div class="item-head"><strong>Live Event Radar</strong><span class="meta">2026</span></div>
+        <div class="sub"><a href="https://live-event-radar.vercel.app">Demo</a></div>
+        <p>Dashboard full-stack complementario: React, TypeScript, Vitest, Playwright. La telemetría es simulada.</p>
       </article>
 
       <h2>Experiencia laboral</h2>
       <article class="item">
         <div class="item-head"><strong>DATA CONTROL</strong><span class="meta">Málaga | En remoto</span></div>
         <div class="sub"><span>Desarrolladora de software en prácticas</span><span>mar. 2026 - jun. 2026</span></div>
-        <ul><li>Desarrollé aplicaciones internas en entorno DataFlex y en Python: acceso a datos, lógica de negocio y personalización continua.</li><li>Creé una plataforma Moodle desde cero: entorno e instalación, estructura de cursos y contenidos, usuarios y roles, base de datos/SQL y theming CSS/UI de punta a punta.</li></ul>
+        <ul><li>Desarrollé aplicaciones internas en entorno DataFlex y en Python: acceso a datos, lógica de negocio y personalización continua.</li><li>Creé una plataforma Moodle desde cero: instalación, estructura de cursos, usuarios y roles, base de datos relacional SQL y theming CSS.</li></ul>
       </article>
 <article class="item">
         <div class="item-head"><strong>EY Global Delivery Services</strong><span class="meta">Málaga | Híbrido</span></div>
@@ -81,21 +89,27 @@
         <ul><li>Conciliación bancaria, contabilización de facturas (empresa e importaciones) y control de costes de vehículos e importación en Excel.</li></ul>
       </article>
 
-      <h2>Educación</h2>
+      <h2>Formación</h2>
       <article class="item">
         <div class="item-head"><strong>IES Zaidín Vergeles</strong><span class="meta">sep. 2026 - en curso</span></div>
-        <div class="sub"><span>Inteligencia Artificial y Big Data, Máster de FP, EQF 5</span><span>Granada, España</span></div>
-        <p>En curso. Trabajo con PySpark, DataFrames, cálculo distribuido y ML.</p>
+        <div class="sub"><span>Inteligencia artificial y big data, Máster de FP, En curso. Nivel EQF 5</span><span>Granada, España</span></div>
+        <p>100% online: PySpark, DataFrames, Spark, NumPy, Pandas, TensorFlow, PyTorch, Kafka, cálculo distribuido y ML.</p>
       </article>
 <article class="item">
         <div class="item-head"><strong>CESUR Este, Málaga</strong><span class="meta">sep. 2024 - jun. 2026</span></div>
-        <div class="sub"><span>Desarrollo de Aplicaciones Web, Ciclo Formativo de Grado Superior (DAW), Proyecto final: calificación máxima (10/10). Nivel EQF 5</span><span>Málaga, España</span></div>
+        <div class="sub"><span>Desarrollo de Aplicaciones Web, Ciclo Formativo de Grado Superior (DAW), Matrícula de honor. Nivel EQF 5</span><span>Málaga, España</span></div>
         
       </article>
 <article class="item">
         <div class="item-head"><strong>I.E.S. Politécnico Jesús Marín</strong><span class="meta">sep. 2022 - jun. 2024</span></div>
         <div class="sub"><span>Gestión Administrativa, Ciclo Formativo de Grado Medio, Matrícula de honor. Nivel EQF 4</span><span>Málaga, España</span></div>
         
+      </article>
+
+      <h2>Certificaciones</h2>
+<article class="item">
+        <div class="item-head"><strong>Certificaciones cloud oficiales (GCP, AWS)</strong><span class="meta">En preparación</span></div>
+        <p>En preparación. Aún no obtenidas. Sin despliegue en producción sobre esas plataformas cloud.</p>
       </article>
 
       <h2>Idiomas</h2>

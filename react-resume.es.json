@@ -14,7 +14,7 @@
   },
   "basics": {
     "name": "Ikrame Ibn Hayoun",
-    "headline": "Backend Python | FastAPI | IA Generativa | LLMs | Prompt Engineering | Remoto o híbrido",
+    "headline": "Backend Python | FastAPI | PostgreSQL | IA aplicada | Remoto o híbrido",
     "email": "ikihga2223@gmail.com",
     "phone": "+34 682 02 76 93",
     "location": "Málaga, España",
@@ -31,7 +31,7 @@
     "hidden": false,
     "keepTogether": false,
     "startOnNewPage": false,
-    "content": "<p>Ingeniera backend Python en Málaga. +3 años de experiencia profesional y proyectos en producción (EY, operaciones y prácticas de software). Construyo APIs REST con FastAPI, PostgreSQL, Redis, SQLAlchemy, Pydantic y pytest. En producto uso IA generativa: prompt engineering, extracción LLM con esquemas cerrados, embeddings, recuperación híbrida y grounding tipo RAG. En el día a día trabajo con un harness: specs en Obsidian, spec-driven development, Orca para enrutar agentes. El código lo escribo yo en Cursor con Grok 4.6, Composer, Codex (Astra, Sol, Terra, Luna, GPT-5) y Gemini Pro y Flash 3.8. El merge lo decido yo. En curso un máster de FP en inteligencia artificial y big data (PySpark, DataFrames; 100% online, compatible con jornada completa) y certificaciones cloud (GCP, AWS). Graduada DAW (jun. 2026), proyecto final 10/10. Abierta a backend e IA, remoto o híbrido.</p>"
+    "content": "<p>Ingeniera backend Python en Málaga. +3 años de experiencia profesional y proyectos en producción. Construyo APIs REST con FastAPI, PostgreSQL, Redis y SQLAlchemy para sistemas que tienen que mantenerse consistentes ante peticiones concurrentes y reintentos. La IA aplicada empieza en ReckonFlow: salida estructurada de LLM con esquema cerrado, validación determinista en código y sin autoridad del modelo para aprobar o pagar. Trabajo con especificaciones escritas, código asistido por IA y revisión humana del merge. En curso un máster de FP en inteligencia artificial y big data (100% online, compatible con jornada completa) y certificaciones cloud oficiales en preparación (GCP, AWS). DAW con matrícula de honor, nivel EQF 5. Abierta a backend e IA aplicada, remoto o híbrido.</p>"
   },
   "sections": {
     "profiles": {
@@ -90,7 +90,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "<ul><li>Desarrollé aplicaciones internas en entorno DataFlex y en Python: acceso a datos, lógica de negocio y personalización continua.</li><li>Creé una plataforma Moodle desde cero: entorno e instalación, estructura de cursos y contenidos, usuarios y roles, base de datos/SQL y theming CSS/UI de punta a punta.</li></ul>",
+          "description": "<ul><li>Desarrollé aplicaciones internas en entorno DataFlex y en Python: acceso a datos, lógica de negocio y personalización continua.</li><li>Creé una plataforma Moodle desde cero: instalación, estructura de cursos, usuarios y roles, base de datos relacional SQL y theming CSS.</li></ul>",
           "roles": []
         },
         {
@@ -156,7 +156,7 @@
       ]
     },
     "education": {
-      "title": "Educación",
+      "title": "Formación",
       "icon": "",
       "columns": 1,
       "hidden": false,
@@ -168,8 +168,8 @@
           "hidden": false,
           "school": "IES Zaidín Vergeles",
           "degree": "Máster de FP",
-          "area": "Inteligencia Artificial y Big Data",
-          "grade": "EQF 5",
+          "area": "Inteligencia artificial y big data",
+          "grade": "En curso. Nivel EQF 5",
           "location": "Granada, España",
           "period": "sep. 2026 - en curso",
           "website": {
@@ -177,7 +177,7 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "<p>En curso. Trabajo con PySpark, DataFrames, cálculo distribuido y ML.</p>"
+          "description": "<p>100% online: PySpark, DataFrames, Spark, NumPy, Pandas, TensorFlow, PyTorch, Kafka, cálculo distribuido y ML.</p>"
         },
         {
           "id": "c3000001-0001-4000-8000-000000000002",
@@ -185,7 +185,7 @@
           "school": "CESUR Este, Málaga",
           "degree": "Ciclo Formativo de Grado Superior (DAW)",
           "area": "Desarrollo de Aplicaciones Web",
-          "grade": "Proyecto final: calificación máxima (10/10). Nivel EQF 5",
+          "grade": "Matrícula de honor. Nivel EQF 5",
           "location": "Málaga, España",
           "period": "sep. 2024 - jun. 2026",
           "website": {
@@ -231,7 +231,7 @@
             "label": "GitHub",
             "inlineLink": true
           },
-          "description": "<p>API FastAPI headless para viajes corporativos: aprobaciones, ledger de doble entrada, extracción LLM de recibos, conciliación bancaria. En vivo: reckon-flow.onrender.com/docs</p><ul><li>IA generativa: PydanticAI + Groq, extracción estructurada (schema extra=forbid) como guardrail frente a prompt injection; jobs HTTP 202; stub en CI; reintentos ante rate limit. El modelo no aprueba ni paga.</li><li>Recuperación híbrida: prefiltro SQL, RapidFuzz, embeddings, Reciprocal Rank Fusion (RRF). Prometheus /metrics. Python, FastAPI, PostgreSQL, Redis, pytest, CI/CD.</li></ul>"
+          "description": "<p>API REST FastAPI headless para viajes corporativos. Base de datos relacional PostgreSQL, Redis, ledger inmutable de doble entrada, dinero en Decimal. Despliegue en producción y docs: reckon-flow.onrender.com/docs</p><ul><li>Idempotencia Redis y bloqueos de fila PostgreSQL (FOR UPDATE) para que un confirm reintentado no duplique el asiento. Procesamiento asíncrono con jobs HTTP 202.</li><li>Extracción de recibos con PydanticAI y Groq. Esquema cerrado extra=forbid como guardrail frente a prompt injection; la salida estructurada de LLM se valida en código antes de escribir en base de datos. El modelo no aprueba ni paga.</li><li>Recuperación híbrida (tipo RAG): prefiltro SQL, RapidFuzz, vectores de tokens hasheados, Reciprocal Rank Fusion. Pruebas unitarias con pytest, integración y entrega continuas (CI/CD), observabilidad con Prometheus.</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000007",
@@ -243,11 +243,11 @@
             "label": "",
             "inlineLink": false
           },
-          "description": "<p>SaaS B2B privado con Jairo García Antolín. Búsqueda por lotes de empresas españolas por razón social contra registros oficiales del BORME. FastAPI, Celery, Redis, PostgreSQL, React.</p><ul><li>Inferencia de la columna de razón social, cuotas atómicas en Redis, descargas con token HMAC, Stripe Checkout de prueba, lista de espera, CI con GitHub Actions.</li><li>Si la forma societaria no cuadra (S.L. frente a S.A.) queda en REVISION_SUGERIDA. Las columnas originales se conservan en la exportación.</li></ul>"
+          "description": "<p>SaaS B2B, co-desarrollado. Búsqueda por lotes de empresas españolas por razón social contra registros oficiales del BORME. FastAPI, flujos distribuidos con Celery, Redis, PostgreSQL, React. Las columnas originales se conservan en la exportación.</p><ul><li>Inferencia de la columna de razón social, cuotas atómicas en Redis, tokens HMAC de descarga, Stripe Checkout de prueba, persistencia de lista de espera, CI con GitHub Actions.</li><li>Si la forma societaria no cuadra (S.L. frente a S.A.) queda en REVISION_SUGERIDA.</li></ul>"
         },
         {
           "id": "d4000001-0001-4000-8000-000000000005",
-          "hidden": false,
+          "hidden": true,
           "name": "Import Resolve Cli",
           "period": "ago. 2026",
           "website": {
@@ -259,7 +259,7 @@
         },
         {
           "id": "d4000001-0001-4000-8000-000000000001",
-          "hidden": false,
+          "hidden": true,
           "name": "MyPlaythrough",
           "period": "sep. 2025 - jun. 2026",
           "website": {
@@ -271,7 +271,7 @@
         },
         {
           "id": "d4000001-0001-4000-8000-000000000006",
-          "hidden": false,
+          "hidden": true,
           "name": "Málaga Onboarding",
           "period": "2026 - Actualidad",
           "website": {
@@ -326,21 +326,22 @@
           "keywords": [
             "Python",
             "FastAPI",
+            "APIs REST",
             "PostgreSQL",
+            "bases de datos relacionales",
             "SQL",
             "Redis",
             "SQLAlchemy",
             "Alembic",
-            "APIs REST",
             "Pydantic",
             "JWT",
             "Celery",
+            "procesamiento asíncrono",
+            "flujos distribuidos",
             "Stripe",
             "pytest",
-            "mypy",
-            "PySpark",
-            "DataFrames",
-            "Spark"
+            "pruebas unitarias con pytest",
+            "mypy"
           ]
         },
         {
@@ -348,38 +349,18 @@
           "hidden": false,
           "icon": "",
           "iconColor": "",
-          "name": "IA generativa",
+          "name": "IA aplicada",
           "proficiency": "",
           "level": 0,
           "keywords": [
-            "IA generativa",
-            "NLP",
-            "LLMs",
-            "Prompt engineering",
+            "salida estructurada de LLM",
+            "esquemas cerrados",
             "RAG",
-            "Embeddings",
-            "Recuperación híbrida",
+            "recuperación híbrida",
             "PydanticAI",
             "Groq",
-            "LangGraph",
-            "LangGraph.js",
-            "Tool calling",
-            "Structured outputs",
-            "Guardrails",
-            "LLM routing",
-            "Context engineering",
-            "Spec-driven development",
-            "Obsidian",
-            "Orca",
-            "Cursor",
-            "Grok",
-            "Composer",
-            "Codex",
-            "Astra",
-            "GPT-5",
-            "Gemini Pro",
-            "Gemini Flash",
-            "Prometheus"
+            "prompt engineering",
+            "guardrails frente a prompt injection"
           ]
         },
         {
@@ -395,20 +376,39 @@
             "CI/CD",
             "GitHub Actions",
             "Docker",
+            "contenedores Docker",
             "Docker Compose",
-            "Vercel",
+            "despliegue en producción",
+            "Prometheus",
+            "observabilidad",
             "React",
             "TypeScript",
+            "Node.js",
+            "Express",
+            "Vitest",
+            "Playwright",
             "DataFlex",
             "Power Apps",
-            "Power Fx",
-            "Node.js",
-            "Vitest",
-            "Cursor",
-            "Obsidian",
-            "Orca",
-            "GCP",
-            "AWS"
+            "Power Fx"
+          ]
+        },
+        {
+          "id": "e5000001-0001-4000-8000-000000000006",
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "name": "Formación en curso",
+          "proficiency": "",
+          "level": 0,
+          "keywords": [
+            "PySpark",
+            "DataFrames",
+            "Spark",
+            "NumPy",
+            "Pandas",
+            "TensorFlow",
+            "PyTorch",
+            "Kafka"
           ]
         }
       ]
@@ -466,10 +466,24 @@
       "title": "Certificaciones",
       "icon": "",
       "columns": 1,
-      "hidden": true,
+      "hidden": false,
       "keepTogether": false,
       "startOnNewPage": false,
-      "items": []
+      "items": [
+        {
+          "id": "g7000001-0001-4000-8000-000000000001",
+          "hidden": false,
+          "name": "Certificaciones cloud oficiales (GCP, AWS)",
+          "issuer": "",
+          "date": "En preparación",
+          "website": {
+            "url": "",
+            "label": "",
+            "inlineLink": false
+          },
+          "description": "<p>En preparación. Aún no obtenidas. Sin despliegue en producción sobre esas plataformas cloud.</p>"
+        }
+      ]
     },
     "publications": {
       "title": "Publicaciones",
@@ -501,35 +515,62 @@
   },
   "customSections": [
     {
-      "id": "h8000001-0001-4000-8000-000000000001",
-      "title": "Prácticas de desarrollo",
+      "id": "h8000001-0001-4000-8000-000000000010",
+      "title": "Otros proyectos",
       "icon": "",
       "columns": 1,
-      "hidden": true,
+      "hidden": false,
       "keepTogether": false,
       "startOnNewPage": false,
-      "type": "skills",
+      "type": "custom",
       "items": [
         {
-          "id": "h8000001-0001-4000-8000-000000000002",
-          "hidden": true,
-          "icon": "",
-          "iconColor": "",
-          "name": "Cómo construyo",
-          "proficiency": "",
-          "level": 0,
-          "keywords": [
-            "UI basada en componentes",
-            "Gestión de estado compartido",
-            "HTML semántico",
-            "Patrones de UI accesible",
-            "Layouts responsive",
-            "Integración de APIs REST",
-            "Flujo de trabajo con Git",
-            "CI (GitHub Actions)",
-            "Tests unitarios y E2E",
-            "Documentación técnica"
-          ]
+          "id": "h8000001-0001-4000-8000-000000000011",
+          "hidden": false,
+          "name": "import-resolve-cli",
+          "period": "ago. 2026",
+          "website": {
+            "url": "https://pypi.org/project/import-resolve-cli/",
+            "label": "PyPI",
+            "inlineLink": true
+          },
+          "description": "<p>Paquete publicado en PyPI. CLI y merge driver de Git para conflictos de imports Python. Parsing AST, cero dependencias de runtime. pytest, mypy, ruff y CI. Herramienta instalable, no una API de producto.</p>"
+        },
+        {
+          "id": "h8000001-0001-4000-8000-000000000012",
+          "hidden": false,
+          "name": "english-spanish-web-localization",
+          "period": "2026",
+          "website": {
+            "url": "https://www.skills.sh/ikrame-ih/english-spanish-web-localization/english-spanish-web-localization",
+            "label": "skills.sh",
+            "inlineLink": true
+          },
+          "description": "<p>Publicada en skills.sh con código público. Localización contextual entre en-GB, en-US, es-ES y es-419. locale_guard en Python estándar comprueba claves, placeholders, etiquetas y encoding de catálogos JSON. Skill de agente, no una API de producto.</p>"
+        },
+        {
+          "id": "h8000001-0001-4000-8000-000000000013",
+          "hidden": false,
+          "name": "MyPlaythrough",
+          "period": "sep. 2025 - jun. 2026",
+          "website": {
+            "url": "https://my-playthrough.vercel.app",
+            "label": "Demo",
+            "inlineLink": true
+          },
+          "description": "<p>Proyecto final DAW, 10/10. Full-stack complementario: React, Node.js/Express, PostgreSQL, Docker Compose, Vitest en cliente y servidor.</p>"
+        },
+        {
+          "id": "h8000001-0001-4000-8000-000000000014",
+          "hidden": false,
+          "name": "Live Event Radar",
+          "period": "2026",
+          "website": {
+            "url": "https://live-event-radar.vercel.app",
+            "label": "Demo",
+            "inlineLink": true
+          },
+          "description": "<p>Dashboard full-stack complementario: React, TypeScript, Vitest, Playwright. La telemetría es simulada.</p>"
         }
       ]
     }
@@ -547,6 +588,7 @@
             "projects",
             "experience",
             "education",
+            "certifications",
             "languages",
             "profiles"
           ],
@@ -595,7 +637,7 @@
         "lineHeight": 1.3
       }
     },
-    "notes": "CV hiring: empleos visibles. Keywords IA generativa/NLP/RAG sin inventar vector DB. Reexportar PDF.",
+    "notes": "CV generalista único. Skills demostradas vs formación en curso vs certificaciones cloud en preparación. Regenerar PDF con npm run cv:pdf.",
     "styleRules": []
   }
 }

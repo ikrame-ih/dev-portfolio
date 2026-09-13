@@ -53,6 +53,17 @@ const buildHtml = (data, job) => {
     .filter(Boolean)
     .join(" | ");
 
+  const itemBlock = (p) => {
+    const link = p.website?.url
+      ? `<a href="${p.website.url}">${p.website.label || p.website.url}</a>`
+      : "";
+    return `<article class="item">
+        <div class="item-head"><strong>${p.name}</strong><span class="meta">${p.period || p.date || ""}</span></div>
+        ${link ? `<div class="sub">${link}</div>` : ""}
+        ${stripEmpty(p.description)}
+      </article>`;
+  };
+
   const skills = visible(sections.skills.items)
     .map(
       (s) =>
@@ -60,18 +71,29 @@ const buildHtml = (data, job) => {
     )
     .join("\n");
 
-  const projects = visible(sections.projects.items)
-    .map((p) => {
-      const link = p.website?.url
-        ? `<a href="${p.website.url}">${p.website.label || p.website.url}</a>`
-        : "";
-      return `<article class="item">
-        <div class="item-head"><strong>${p.name}</strong><span class="meta">${p.period || ""}</span></div>
-        ${link ? `<div class="sub">${link}</div>` : ""}
-        ${stripEmpty(p.description)}
-      </article>`;
+  const projects = visible(sections.projects.items).map(itemBlock).join("\n");
+
+  const otherProjects = (data.customSections || [])
+    .filter((section) => !section.hidden)
+    .map((section) => {
+      const body = visible(section.items).map(itemBlock).join("\n");
+      return `<h2>${section.title}</h2>\n${body}`;
     })
     .join("\n");
+
+  const certifications =
+    sections.certifications && !sections.certifications.hidden
+      ? `<h2>${sections.certifications.title}</h2>\n${visible(
+          sections.certifications.items,
+        )
+          .map(
+            (c) => `<article class="item">
+        <div class="item-head"><strong>${c.name}</strong><span class="meta">${c.date || ""}</span></div>
+        ${stripEmpty(c.description || "")}
+      </article>`,
+          )
+          .join("\n")}`
+      : "";
 
   const experience = visible(sections.experience.items)
     .map(
@@ -136,11 +158,15 @@ const buildHtml = (data, job) => {
       <h2>${sections.projects.title}</h2>
       ${projects}
 
+      ${otherProjects}
+
       <h2>${sections.experience.title}</h2>
       ${experience}
 
       <h2>${sections.education.title}</h2>
       ${education}
+
+      ${certifications}
 
       <h2>${sections.languages.title}</h2>
       <ul class="langs">${languages}</ul>
