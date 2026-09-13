@@ -462,9 +462,10 @@ h1 .soft {
   margin: 2mm 0 0;
   text-align: end;
   font-size: 5.8pt;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-mute);
+  white-space: nowrap;
 }
 
 .caption a {
@@ -797,13 +798,20 @@ aside {
   html,
   body {
     background: var(--bone) !important;
+    width: 210mm;
     height: 297mm;
     max-height: 297mm;
-    overflow: visible;
+    overflow: hidden;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
+  /*
+    Chromium print-to-PDF clips a padded overflow:hidden box against
+    the wrong edge. The Spanish letter is slightly taller (caption wrap,
+    longer body), so that clip can drop mast, portrait and footer while
+    leaving the text operators in the PDF.
+  */
   .page {
     width: 210mm;
     max-width: 210mm;
@@ -811,9 +819,36 @@ aside {
     min-height: 297mm;
     max-height: 297mm;
     margin: 0;
-    padding-top: 5mm;
-    overflow: hidden;
+    padding-top: 0;
+    overflow: visible;
     box-shadow: none;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .page::before,
+  .shot-grain {
+    display: none;
+  }
+
+  .shot img {
+    filter: none;
+  }
+
+  .mast,
+  .hero,
+  .foot {
+    flex-shrink: 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .mast {
+    padding-top: 6.5mm;
+  }
+
+  .split {
+    overflow: visible;
   }
 
   @page {
