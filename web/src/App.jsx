@@ -4,6 +4,7 @@ import { Toaster } from "sonner";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import { scrollToElement } from "@/lib/scroll";
+import { projectIdFromHash } from "@/lib/projectHash";
 import { useContent, useUi } from "@/i18n/LocaleContext";
 
 const CVSection = lazy(() => import("@/components/CVSection"));
@@ -29,12 +30,12 @@ function BelowFold({ onReady }) {
 
   return (
     <>
-      <CVSection />
       <ProjectsSection />
+      <CVSection />
       <LinkedInSection />
       <BentoSection />
-      <GuestbookCanvas />
       <ContactSection />
+      <GuestbookCanvas />
     </>
   );
 }
@@ -100,6 +101,15 @@ export default function App() {
         const url = `${window.location.pathname}${window.location.search}#${id}`;
         window.history.replaceState(null, "", url);
       }
+      const projectId = projectIdFromHash(id);
+      if (projectId) {
+        if (belowReady) {
+          window.dispatchEvent(
+            new CustomEvent("ik:open-project", { detail: { id: projectId } }),
+          );
+        }
+        return;
+      }
       if (id && id !== "main-content" && belowReady) scrollToElement(id);
     };
     if (window.location.hash) {
@@ -121,7 +131,9 @@ export default function App() {
       addressCountry: "ES",
     },
     jobTitle: ui.jobTitle,
-    description: PROFILE.heroSubtext,
+    description: Array.isArray(PROFILE.heroSubtext)
+      ? PROFILE.heroSubtext.join(" ")
+      : PROFILE.heroSubtext,
     knowsLanguage: ["en", "es", "ar"],
     knowsAbout: [
       "Python",

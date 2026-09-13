@@ -167,7 +167,7 @@
           "id": "c3000001-0001-4000-8000-000000000001",
           "hidden": false,
           "school": "IES Zaidín Vergeles",
-          "degree": "Postgraduate Specialization",
+          "degree": "Vocational specialization",
           "area": "Artificial Intelligence and Big Data",
           "grade": "EQF Level 5",
           "location": "Granada, Spain",
@@ -185,7 +185,7 @@
           "school": "CESUR Este, Málaga",
           "degree": "Higher Vocational Degree (DAW)",
           "area": "Web Application Development",
-          "grade": "Capstone: top honors (10/10). EQF Level 5 (UK HND Equivalent)",
+          "grade": "Capstone: 10/10. EQF Level 5",
           "location": "Málaga, Spain",
           "period": "Sep 2024 - Jun 2026",
           "website": {
@@ -225,7 +225,7 @@
           "id": "d4000001-0001-4000-8000-000000000003",
           "hidden": false,
           "name": "ReckonFlow",
-          "period": "Aug 2026 - Present",
+          "period": "Aug 2026",
           "website": {
             "url": "https://github.com/ikrame-ih/reckon-flow",
             "label": "GitHub",

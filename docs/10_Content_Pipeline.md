@@ -7,24 +7,19 @@ tags:
 
 # 10 — Content pipeline
 
-No CMS. Text in `portfolio.js`, image paths in `assets.js`, stack icons in `stackIcons.jsx`.
+No CMS. Text in `web/src/data/locales/{en,es}.js`, UI in `web/src/i18n/ui.js`, image paths in `assets.js`, stack icons in `stackIcons.jsx`.
 
-Components import what they need:
-
-```jsx
-import { PROFILE, PROJECTS } from "@/data/portfolio";
-import { ASSETS } from "@/data/assets";
-```
+Components import through `useContent()` / `useUi()`.
 
 ---
 
-Images: drop in `public/images/`, register in `assets.js`, use `ASSETS.whatever` in jsx. Source copies sometimes live in `references/` (gitignored).
+Images: drop in `public/images/`, register in `assets.js`, use `ASSETS.whatever` in jsx.
 
-If a card is broken, 404 in network tab — usually path typo.
+Project deep links: `#project-<id>` (see `web/src/lib/projectHash.js`).
 
----
+`App.jsx` injects JSON-LD from PROFILE.
 
-Saved visitor stuff in localStorage via `storage.js`:
+Edit a locale file → hot reload.
 
 - `ik_bows` — visual guest book (dev)
 - `ik_guestbook` — CLI messages

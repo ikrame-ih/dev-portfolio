@@ -28,7 +28,7 @@ Vars live in `index.css` as RGB triplets so Tailwind opacity works (`bg-bone/80`
 
 ## Fonts
 
-**Fraunces** for big headings. **JetBrains Mono** for everything else — body, nav, forms, CLI. The mix is intentional: book-ish titles, dev-ish UI.
+**Fraunces** for big headings. **JetBrains Mono** for body, nav, forms, CLI. Body target is about 16–18px with 1.5–1.65 line-height. Page shell about 1240px.
 
 Overlines are tiny mono uppercase with wide tracking. Section titles are light Fraunces.
 

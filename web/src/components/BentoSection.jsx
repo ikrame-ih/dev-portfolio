@@ -6,6 +6,7 @@ import { useContent } from "@/i18n/LocaleContext";
 export const BentoSection = () => {
   const reduce = useReducedMotion();
   const { BENTO } = useContent();
+  const items = BENTO.items;
 
   return (
     <section
@@ -14,7 +15,7 @@ export const BentoSection = () => {
       data-testid="bento-section"
       className="relative py-16 sm:py-20 md:py-32 bg-bone-200 outline-none"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="mx-auto max-w-[1240px] px-5 md:px-12">
         <Reveal className="mb-10 md:mb-16 max-w-3xl">
           <SectionOverline>{BENTO.overline}</SectionOverline>
           <h2 className="font-serif font-light text-3xl md:text-5xl tracking-tighter text-ink">
@@ -27,8 +28,8 @@ export const BentoSection = () => {
           </p>
         </Reveal>
 
-        <div className="bento-lanes grid grid-cols-1 md:grid-cols-3 md:grid-rows-5 gap-4 md:gap-6 md:auto-rows-[minmax(180px,1fr)]">
-          {BENTO.items.map((item, idx) => (
+        <div className="bento-lanes grid grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-5 md:auto-rows-[minmax(180px,1fr)] md:gap-6">
+          {items.map((item, idx) => (
             <motion.div
               key={item.key}
               initial={reduce ? false : { y: 14 }}

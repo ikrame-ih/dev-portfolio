@@ -44,129 +44,87 @@ const TrackBadge = ({ track, tracks }) => {
 
 const BrandMark = ({ name, index = 0, reduce }) => (
   <motion.li
-    className="stack-mark text-center min-w-0"
-    initial={reduce ? false : { y: 10 }}
+    className="stack-mark w-[5.25rem] shrink-0 text-center sm:w-[5.75rem]"
+    initial={reduce ? false : { y: 8 }}
     whileInView={reduce ? undefined : { y: 0 }}
     viewport={REVEAL_VIEWPORT}
-    transition={revealTransition(Math.min(index * 0.04, 0.35))}
+    transition={revealTransition(Math.min(index * 0.03, 0.28))}
   >
-    {/* Hover lift lives in CSS so it never inherits the slow reveal transition. */}
-    <span className="stack-mark-lift flex flex-col items-center gap-3">
+    <span className="stack-mark-lift flex flex-col items-center gap-2.5">
       <motion.span
         className="stack-mark-icon inline-flex"
         initial={reduce ? false : { scale: 0.88, rotate: -5 }}
         whileInView={
-          reduce
-            ? undefined
-            : { scale: [0.88, 1.1, 1], rotate: [-5, 3, 0] }
+          reduce ? undefined : { scale: [0.88, 1.08, 1], rotate: [-5, 3, 0] }
         }
         viewport={REVEAL_VIEWPORT}
         transition={{
-          duration: 0.55,
+          duration: 0.5,
           ease: MOTION_EASE,
-          delay: Math.min(index * 0.04, 0.35) + 0.05,
+          delay: Math.min(index * 0.03, 0.28) + 0.04,
         }}
       >
         <StackIcon
           name={name}
-          className="w-9 h-9 md:w-10 md:h-10 shrink-0 text-burgundy"
+          className="h-7 w-7 shrink-0 text-burgundy md:h-8 md:w-8"
         />
       </motion.span>
-      <span className="font-mono text-sm leading-snug tracking-[0.04em] text-ink">
+      <span className="font-mono text-xs leading-snug tracking-[0.03em] text-ink">
         {name}
       </span>
     </span>
   </motion.li>
 );
 
-const BrandGrid = ({ items, cols = "grid-cols-2 sm:grid-cols-3", testId, reduce }) => (
-  <ul className={`grid ${cols} gap-x-4 gap-y-7 md:gap-y-8`} data-testid={testId}>
+const BrandGrid = ({ items, testId, reduce }) => (
+  <ul
+    className="flex flex-wrap gap-x-5 gap-y-7 md:gap-x-7 md:gap-y-8"
+    data-testid={testId}
+  >
     {items.map((s, i) => (
       <BrandMark key={s} name={s} index={i} reduce={reduce} />
     ))}
   </ul>
 );
 
-const DomainPanel = ({ domain, children, testId, rule = "before" }) => {
+// Full-width catalog row. Height follows the icon cloud, never a stretched 2×2 cell.
+const SkillBand = ({ domain, children, testId }) => {
   const showIndex = /^\d+$/.test(String(domain.index ?? ""));
 
-  const Rule = (
-    <div
-      className={`relative ${rule === "before" ? "mt-5 mb-6" : "mt-6 md:mt-8"}`}
-      aria-hidden="true"
-    >
-      <span className="block h-px w-full bg-bone-400" />
-      <span className="absolute top-1/2 right-[3.25rem] hidden h-1 w-1 -translate-y-1/2 rotate-45 bg-burgundy md:block" />
-      <span className="absolute top-1/2 left-1/2 h-1 w-1 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-burgundy md:hidden" />
-    </div>
-  );
-
   return (
-    <div
-      data-testid={testId}
-      className={`relative h-full min-h-0 ${
-        rule === "after" ? "" : "md:min-h-[260px]"
-      }`}
-    >
-      {/* Desktop index — fixed box so 01–04 share one baseline across the row. */}
-      {showIndex && (
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute right-0 top-0 z-0 hidden h-[5.5rem] w-[7.5rem] items-start justify-end md:flex"
-        >
-          <span className="font-serif font-light text-[7rem] leading-none select-none text-[#4A4A4A]/[0.22]">
-            {domain.index}
-          </span>
-        </span>
-      )}
-
-      {/* Open catalog — top rule only, no filled card (unlike projects / bento). */}
-      <div className="relative z-10 border-t border-ink/25 pt-5 md:pt-6">
-        <div
-          className={`flex items-start gap-3 ${
-            rule === "after" ? "" : "md:min-h-[5.75rem]"
-          }`}
-        >
+    <div data-testid={testId} className="border-t border-ink/25 pt-6 md:pt-8">
+      <div className="grid grid-cols-1 items-start gap-7 md:grid-cols-[minmax(0,15.5rem)_minmax(0,1fr)] md:gap-x-10 lg:grid-cols-[minmax(0,17rem)_minmax(0,1fr)] lg:gap-x-14">
+        <div className="flex items-start gap-3 md:sticky md:top-24">
           <DomainGlyph
             id={domain.id}
             className="mt-1.5 h-6 w-6 shrink-0 text-burgundy"
           />
-          <div className="min-w-0 flex-1 pr-0 md:pr-[7.5rem]">
-            <div className="flex items-baseline gap-3">
-              <h3 className="font-serif text-2xl tracking-tight text-ink md:text-3xl">
-                {domain.title}
-              </h3>
-              {/* Mobile-only — desktop uses the large index above. */}
-              {showIndex && (
-                <span className="shrink-0 font-mono text-xs uppercase tracking-[0.28em] text-burgundy md:hidden">
-                  {domain.index}
-                </span>
-              )}
-            </div>
-            <p className="mt-1.5 max-w-sm font-mono text-xs leading-relaxed text-ink-mute">
+          <div className="min-w-0">
+            {showIndex && (
+              <p className="mb-2 font-mono text-xs uppercase tracking-[0.28em] text-burgundy">
+                {domain.index}
+              </p>
+            )}
+            <h3 className="font-serif text-2xl tracking-tight text-ink md:text-3xl">
+              {domain.title}
+            </h3>
+            <p className="mt-1.5 max-w-[16rem] font-mono text-xs leading-relaxed text-ink-mute">
               {domain.kicker}
             </p>
           </div>
         </div>
-
-        {rule === "before" ? Rule : null}
-        {children}
-        {rule === "after" ? Rule : null}
+        <div>{children}</div>
       </div>
     </div>
   );
 };
 
-const SkillGroup = ({ group, reduce, cols }) => (
+const SkillGroup = ({ group, reduce }) => (
   <div>
-    <p className="mb-5 font-mono text-xs uppercase tracking-[0.22em] text-ink-mute">
+    <p className="mb-6 font-mono text-xs uppercase tracking-[0.22em] text-ink-mute">
       {group.label}
     </p>
-    <BrandGrid
-      items={group.items}
-      reduce={reduce}
-      cols={cols}
-    />
+    <BrandGrid items={group.items} reduce={reduce} />
   </div>
 );
 
@@ -183,22 +141,61 @@ const layoutSkillGroups = (groups) => {
   return rows;
 };
 
+const LanguagePlates = ({ languages, title, kicker }) => (
+  <div data-testid="languages-list" className="border-t border-ink/25 pt-6 md:pt-8">
+    <div className="grid grid-cols-1 items-start gap-7 md:grid-cols-[minmax(0,15.5rem)_minmax(0,1fr)] md:gap-x-10 lg:grid-cols-[minmax(0,17rem)_minmax(0,1fr)] lg:gap-x-14">
+      <div className="flex items-start gap-3 md:sticky md:top-24">
+        <DomainGlyph
+          id="languages"
+          className="mt-1.5 h-6 w-6 shrink-0 text-burgundy"
+        />
+        <div className="min-w-0">
+          <h3 className="font-serif text-2xl tracking-tight text-ink md:text-3xl">
+            {title}
+          </h3>
+          <p className="mt-1.5 max-w-[16rem] font-mono text-xs leading-relaxed text-ink-mute">
+            {kicker}
+          </p>
+        </div>
+      </div>
+      <ul className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-x-8">
+        {languages.map((l) => (
+          <li
+            key={l.code}
+            className="relative overflow-hidden border-t border-ink/15 pt-5"
+          >
+            <p className="font-mono text-xs uppercase tracking-[0.28em] text-burgundy">
+              {l.code}
+            </p>
+            <p className="mt-3 font-serif text-2xl tracking-tight text-ink md:text-[1.75rem]">
+              {l.lang}
+            </p>
+            <p className="mt-4 font-mono text-xs uppercase tracking-[0.22em] text-ink">
+              {l.level}
+            </p>
+            {l.detail ? (
+              <p className="mt-1.5 font-mono text-xs leading-relaxed text-ink-mute">
+                {l.detail}
+              </p>
+            ) : null}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+);
+
 const SkillsBlock = () => {
   const reduce = useReducedMotion();
   const { STACK, LANGUAGES, section } = useContent();
 
   return (
-  <div className="mb-24 space-y-10 md:space-y-16">
-    {/* Four tech domains in a 2×2 grid */}
-    <div className="grid grid-cols-1 items-stretch gap-10 md:grid-cols-2 md:gap-x-14 md:gap-y-16">
+  <div className="mb-24 space-y-12 md:space-y-16">
+    <div className="space-y-12 md:space-y-16">
       {STACK.domains.map((domain, idx) => (
-        <Reveal
-          key={domain.id}
-          delay={0.04 + Math.floor(idx / 2) * 0.08}
-          className="h-full"
-        >
-          <DomainPanel domain={domain} testId={`stack-${domain.id}`}>
-            <div className="space-y-7">
+        <Reveal key={domain.id} delay={0.04 + idx * 0.04}>
+          <SkillBand domain={domain} testId={`stack-${domain.id}`}>
+            <div className="space-y-9 md:space-y-11">
               {layoutSkillGroups(domain.groups).map((row) => {
                 const paired = row.length === 2;
                 return (
@@ -206,7 +203,7 @@ const SkillsBlock = () => {
                     key={row.map((g) => g.label).join("|")}
                     className={
                       paired
-                        ? "grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-8"
+                        ? "grid grid-cols-1 gap-9 sm:grid-cols-2 sm:gap-x-8"
                         : undefined
                     }
                   >
@@ -215,49 +212,23 @@ const SkillsBlock = () => {
                         key={group.label}
                         group={group}
                         reduce={reduce}
-                        cols={
-                          paired
-                            ? "grid-cols-2"
-                            : "grid-cols-2 sm:grid-cols-3"
-                        }
                       />
                     ))}
                   </div>
                 );
               })}
             </div>
-          </DomainPanel>
+          </SkillBand>
         </Reveal>
       ))}
     </div>
 
-    {/* Languages last — title/kicker, then list, then closing rule */}
     <Reveal delay={0.22}>
-      <DomainPanel
-        domain={{
-          id: "languages",
-          title: section.languagesTitle,
-          kicker: section.languagesKicker,
-        }}
-        testId="languages-list"
-        rule="after"
-      >
-        <ul className="mt-5 grid grid-cols-1 gap-5 sm:mt-6 sm:grid-cols-3 sm:gap-8">
-          {LANGUAGES.map((l) => (
-            <li
-              key={l.code}
-              className="flex flex-wrap items-baseline justify-between gap-2 sm:flex-col sm:items-start sm:gap-2"
-            >
-              <span className="font-serif text-2xl tracking-tight text-ink md:text-[1.75rem]">
-                {l.lang}
-              </span>
-              <span className="font-mono text-xs uppercase tracking-[0.18em] text-ink-mute">
-                {l.detail ? `${l.level} · ${l.detail}` : l.level}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </DomainPanel>
+      <LanguagePlates
+        languages={LANGUAGES}
+        title={section.languagesTitle}
+        kicker={section.languagesKicker}
+      />
     </Reveal>
   </div>
   );
@@ -276,7 +247,7 @@ export const CVSection = () => {
       data-testid="cv-section"
       className="relative pt-16 md:pt-20 pb-24 md:pb-32 outline-none"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="mx-auto max-w-[1240px] px-5 md:px-12">
         <Reveal>
           <SectionHeader
             overline={section.cvOverline}

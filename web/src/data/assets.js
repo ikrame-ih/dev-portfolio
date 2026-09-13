@@ -20,6 +20,7 @@ export const ASSETS = {
     enEsLocalization: "/images/projects/en-es-localization.webp",
     malagaOnboarding: "/images/projects/malaga-onboarding.webp",
     reckonFlow: "/images/projects/reckon-flow.webp",
+    validata: "/images/projects/validata.webp",
     liveEventRadar: "/images/projects/live-event-radar.webp",
     myPlaythrough: "/images/projects/my-playthrough.webp",
     aibaWidget: "/images/projects/aiba-widget.webp",

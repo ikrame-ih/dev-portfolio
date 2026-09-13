@@ -13,16 +13,27 @@ initAnalytics();
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { hasError: false };
+    this.state = { hasError: false, detail: "" };
   }
   static getDerivedStateFromError() {
     return { hasError: true };
   }
+  componentDidCatch(error, info) {
+    const detail = `${error?.message || error}\n${info?.componentStack || ""}`;
+    console.error(error, info);
+    this.setState({ detail });
+  }
   render() {
     if (this.state.hasError) {
       return (
-        <div style={{ padding: "2rem", fontFamily: "monospace" }}>
+        <div
+          data-testid="app-error"
+          style={{ padding: "2rem", fontFamily: "monospace", whiteSpace: "pre-wrap" }}
+        >
           Something went wrong. Please refresh the page.
+          {this.state.detail && import.meta.env.DEV
+            ? `\n\n${this.state.detail}`
+            : ""}
         </div>
       );
     }

@@ -1,27 +1,30 @@
 # Ikrame Ibn Hayoun
 
-> Backend-focused software developer based in Málaga. Available for remote or hybrid roles.
+> Python backend developer in Málaga. FastAPI, PostgreSQL, applied AI. Remote or hybrid.
 
 - [Site](https://ikrame.dev/)
 - [Email](mailto:ikihga2223@gmail.com)
 - [GitHub](https://github.com/ikrame-ih)
 - [LinkedIn](https://www.linkedin.com/in/ikrame-ih/)
-- [Tip (optional)](https://buymeacoffee.com/ikrame.dev)
 - [CV (EN)](https://ikrame.dev/Ikrame_Ibn_Hayoun_CV.pdf)
 - [CV (ES)](https://ikrame.dev/Ikrame_Ibn_Hayoun_CV_ES.pdf)
 
 ## Summary
 
-Higher Vocational Degree in Web Application Development (DAW, Jun 2026). Capstone MyPlaythrough awarded top honors. Builds APIs and databases first — FastAPI, Node/Express, PostgreSQL, Redis — and ships React frontends when the product needs them.
+DAW (Jun 2026), capstone 10/10. Currently a vocational specialization in AI and big data (online, compatible with full-time work) and cloud certifications. Leads with ReckonFlow. Validata is B2B SaaS in progress, co-built with Jairo García Antolín.
 
 ## Selected projects
 
-- [ReckonFlow](https://reckon-flow.onrender.com/docs) — corporate travel reconciliation API (Python, FastAPI, PostgreSQL, Redis)
-- MyPlaythrough — personal game library manager, DAW capstone (React, Node, PostgreSQL)
-- Live Event Radar — real-time venue ops dashboard (Next.js, React, TypeScript)
-- Aiba — local-first Windows productivity companion (Electron)
+- [ReckonFlow](https://reckon-flow.onrender.com/docs): corporate travel reconciliation API. PostgreSQL `FOR UPDATE` on confirm, Decimal money, Redis idempotency (fail-open, 24h TTL), closed-schema extraction (`extra=forbid`). Matching is SQL + RapidFuzz + hashed-token vectors + RRF, not a learned embedding model. Receipts are text or OCR text.
+- Validata: company-name lookup against BORME, in progress, paid product, no public repository. Co-built with [Jairo García Antolín](https://jagardev.com/). CIF is not the search key.
+- [import-resolve-cli](https://pypi.org/project/import-resolve-cli/): PyPI CLI and Git merge driver for Python import-block conflicts only. Zero runtime dependencies.
+- [English-Spanish web localization](https://www.skills.sh/ikrame-ih/english-spanish-web-localization/english-spanish-web-localization): meaning-first localization among en-GB, en-US, es-ES, and es-419. Python `locale_guard` (stdlib) checks JSON catalogs offline. Source: https://github.com/ikrame-ih/english-spanish-web-localization
+- [Málaga Onboarding](https://malaga-onboarding.pages.dev/): public plan is a topological sort (no LLM on the user path). Local LangGraph.js operator CLI.
+- [MyPlaythrough](https://my-playthrough.vercel.app): DAW capstone, PERN.
+- [Live Event Radar](https://live-event-radar.vercel.app): venue ops UI. Telemetry is mocked.
+- Aiba: local Windows Electron widget. No cloud.
 
 ## Optional
 
 - [Portfolio source](https://github.com/ikrame-ih/dev-portfolio)
-- [ReckonFlow docs](https://ikrame-ih.github.io/reckon-flow/)
+- [ReckonFlow GitHub](https://github.com/ikrame-ih/reckon-flow)

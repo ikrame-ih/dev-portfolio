@@ -247,7 +247,7 @@ export const GuestbookCanvas = () => {
       data-testid="guestbook-section"
       className="relative py-16 sm:py-20 md:py-32 outline-none"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="mx-auto max-w-[1240px] px-5 md:px-12">
         <Reveal className="mb-10 md:mb-12 flex flex-col items-start gap-5 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-6">
@@ -362,7 +362,7 @@ export const GuestbookCanvas = () => {
                 tabIndex={unavailable ? -1 : 0}
                 aria-disabled={unavailable || undefined}
                 aria-describedby="guestbook-keyboard-help"
-                aria-label={`${ui.guestbook.leftPage}, ${leftBows.length} ${
+                aria-label={`${BOW_BOARD.leftWatermark}. ${ui.guestbook.leftPage}, ${leftBows.length} ${
                   leftBows.length === 1
                     ? ui.guestbook.signature
                     : ui.guestbook.signatures
@@ -383,7 +383,7 @@ export const GuestbookCanvas = () => {
                     className="absolute inset-0 flex items-center justify-center pointer-events-none px-10 md:px-14 py-10"
                     aria-hidden="true"
                   >
-                    <p className="font-serif italic text-sm md:text-base text-ink-mute text-center max-w-[16rem] leading-relaxed select-none">
+                    <p className="font-serif italic text-sm md:text-base text-ink-soft text-center max-w-[16rem] leading-relaxed select-none">
                       {BOW_BOARD.leftWatermark}
                     </p>
                   </div>
@@ -405,7 +405,7 @@ export const GuestbookCanvas = () => {
                 tabIndex={unavailable ? -1 : 0}
                 aria-disabled={unavailable || undefined}
                 aria-describedby="guestbook-keyboard-help"
-                aria-label={`${ui.guestbook.rightPage}, ${rightBows.length} ${
+                aria-label={`${BOW_BOARD.rightWatermark}. ${ui.guestbook.rightPage}, ${rightBows.length} ${
                   rightBows.length === 1
                     ? ui.guestbook.signature
                     : ui.guestbook.signatures
@@ -426,7 +426,7 @@ export const GuestbookCanvas = () => {
                     className="absolute inset-0 flex items-center justify-center pointer-events-none px-10 md:px-14 py-10"
                     aria-hidden="true"
                   >
-                    <p className="font-serif italic text-sm md:text-base text-ink-mute text-center max-w-[16rem] leading-relaxed select-none">
+                    <p className="font-serif italic text-sm md:text-base text-ink-soft text-center max-w-[16rem] leading-relaxed select-none">
                       {BOW_BOARD.rightWatermark}
                     </p>
                   </div>

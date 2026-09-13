@@ -8,7 +8,7 @@ const CLI_HISTORY_MAX = 40;
 
 /**
  * Useful recruiter commands — short to type.
- * Numbers 1–6 jump without typing the name.
+ * Numbers 1 to n jump without typing the name.
  */
 export const CLI_COMMANDS = [
   "help",
@@ -43,15 +43,15 @@ export const CLI_COMMANDS = [
 ];
 
 export const GO_TARGETS = [
-  { id: "cv", aliases: ["cv", "skills", "habilidades"] },
   { id: "projects", aliases: ["projects", "proj", "work", "proyectos"] },
+  { id: "cv", aliases: ["cv", "skills", "habilidades", "experiencia"] },
   {
     id: "linkedin",
-    aliases: ["linkedin", "signals", "blog", "vault"],
+    aliases: ["linkedin", "signals", "blog", "vault", "notas", "notes"],
   },
+  { id: "contact", aliases: ["contact", "hi", "contacto"] },
   { id: "bento", aliases: ["bento", "interests", "intereses"] },
   { id: "guestbook", aliases: ["guestbook", "guest", "lazos"] },
-  { id: "contact", aliases: ["contact", "hi", "contacto"] },
 ];
 
 /** @param {'sys'|'cmd'|'out'|'title'|'meta'|'ok'|'err'|'menu'|'blank'|'rule'} type */
@@ -279,7 +279,11 @@ export const aboutLines = (content = defaultContent) => {
   const { PROFILE } = content;
   return [
     L("title", `${PROFILE.name} — ${PROFILE.location}`),
-    ...(PROFILE.cliAbout ?? [PROFILE.heroSubtext]).map((t) => L("out", t)),
+    ...(PROFILE.cliAbout ??
+      (Array.isArray(PROFILE.heroSubtext)
+        ? PROFILE.heroSubtext
+        : [PROFILE.heroSubtext])
+    ).map((t) => L("out", t)),
   ];
 };
 
@@ -341,7 +345,7 @@ export const projectLines = (content = defaultContent, cli) => {
   const lines = [L("title", cli?.titleProjects ?? "projects")];
   PROJECTS.forEach((p, i) => {
     lines.push(L("out", `${i + 1}. ${p.name}`));
-    if (p.demo) lines.push(L("meta", `demo  ${p.demo}`));
+    if (p.demo) lines.push(L("meta", `${p.live ? "live" : "demo"}  ${p.demo}`));
     if (p.href) lines.push(L("meta", `repo  ${p.href}`));
     if (!p.demo && !p.href)
       lines.push(L("meta", cli?.inProgress ?? "in progress"));

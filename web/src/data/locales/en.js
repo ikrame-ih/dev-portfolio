@@ -12,19 +12,22 @@ const PROFILE = {
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
   buyMeACoffee: "https://buymeacoffee.com/ikrame.dev",
   siteUrl: "https://ikrame.dev",
-  overline: "PYTHON BACKEND · APPLIED AI · FASTAPI",
+  overline: "BACKEND & AI ENGINEER · PYTHON · FASTAPI",
   headlineParts: [
-    { text: "I build Python backends where AI extracts and " },
-    { text: "code decides.", accent: true },
+    { text: "The model extracts. " },
+    { text: "The code decides.", accent: true },
   ],
-  heroSubtext:
-    "I'm Ikrame, a backend developer in Málaga. I work in FastAPI and PostgreSQL on paths that have to stay correct when two people act at once, or a request is retried. Open to remote or hybrid roles.",
+  heroSubtext: [
+    "I'm Ikrame, a backend and applied AI software engineer in Málaga. I design APIs with Python, FastAPI, and PostgreSQL for systems that have to stay consistent under concurrent requests and retries.",
+    "I apply AI with clear limits: the model turns information into structured data; the code validates it, applies the business rules, and makes the critical decisions.",
+    "Open to remote or hybrid roles.",
+  ],
   heroFacts: [
     { eyebrow: "English", text: "C1 Advanced" },
     { eyebrow: "Now", text: "Vocational AI specialization" },
     { eyebrow: "On PyPI", text: "import-resolve-cli", accent: true },
   ],
-  tagline: "Python backend · FastAPI · applied AI · open to remote or hybrid",
+  tagline: "Backend & AI engineer · Python · FastAPI · open to remote or hybrid",
   cliAbout: [
     "Hi. I'm Ikrame. Backend developer in Málaga, with a soft spot for calm interfaces when I build the UI side.",
     "Most of my energy goes to FastAPI, PostgreSQL, and applied AI on production paths: structured extraction, matching, tests.",
@@ -330,40 +333,40 @@ const PROJECTS = [
       label: "Jairo García Antolín",
     },
     roleAfter:
-      ". I led quotas, DNI/NIE masking, signed downloads, VIES tri-state (unavailable stays null), Stripe test Checkout, waitlist, CI, and the React UX. Jairo originated BOE ingest, Celery workers, RapidFuzz matching, and the FastAPI/VIES scaffold.",
-    role: "Co-developed with Jairo García Antolín. I led quotas, DNI/NIE masking, signed downloads, VIES tri-state (unavailable stays null), Stripe test Checkout, waitlist, CI, and the React UX. Jairo originated BOE ingest, Celery workers, RapidFuzz matching, and the FastAPI/VIES scaffold.",
-    subtitle: "Batch CIF validation · B2B SaaS",
+      ". Some of the pieces I implemented: company-name column inference (a CIF-only spreadsheet is rejected), atomic Redis quotas, HMAC download tokens, Stripe test Checkout, a real waitlist, CI, and a name-only search path with CIF and VIES out of the executable flow. Jairo designed BORME ingest, Celery workers, RapidFuzz matching, and the FastAPI scaffold.",
+    role: "Co-developed with Jairo García Antolín. Some of the pieces I implemented: company-name column inference (a CIF-only spreadsheet is rejected), atomic Redis quotas, HMAC download tokens, Stripe test Checkout, a real waitlist, CI, and a name-only search path with CIF and VIES out of the executable flow. Jairo designed BORME ingest, Celery workers, RapidFuzz matching, and the FastAPI scaffold.",
+    subtitle: "Company-name search · BORME · B2B SaaS",
     stack: ["Python", "FastAPI", "Celery", "PostgreSQL", "Redis", "React", "TypeScript", "Stripe"],
     href: null,
     demo: null,
     proof: "validata",
-    image: null,
-    imageKind: "illustration",
-    imageCaption: "Synthetic walkthrough of verified behavior, not a live tenant.",
-    imageAlt: "Synthetic Validata rows: matched company, skipped VIES, discarded personal ID",
+    image: ASSETS.projects.validata,
+    imageKind: "photo",
+    imageCaption: "Desk mockup of the Validata upload screen. Not a live tenant.",
+    imageAlt:
+      "Monitor on a desk showing Validata: search and validate companies by business name, with a file upload drop zone",
     description:
-      "Upload a spreadsheet of Spanish company IDs. The pipeline returns structured validation and enrichment: local BOE/BORME name match, optional VIES, and GDPR masking for DNI/NIE.",
+      "Paste company names or upload Excel/CSV. Validata looks up each legal name in BORME and returns the filing status. CIF is not a search key: a file with only tax IDs is rejected; if name and CIF both exist, only the name is searched and the CIF stays on the original-data sheet.",
     problem:
-      "Ops teams need batch CIF checks without treating a timeout as 'not registered', and without shipping personal DNI/NIE into enrichment.",
+      "The product searches by company name, not tax ID. A file of identifiers must not be treated as company names.",
     decision:
-      "Quota before the worker, redact personal IDs in API responses, lock downloads behind signed tokens, and keep skipped/unavailable VIES as null.",
+      "Quota is reserved in Redis (atomic Lua) before the worker. The inferencer picks the company-name column and penalizes CIF/NIF/DNI. Downloads use HMAC tokens. S.L. vs S.A. stays REVISION_SUGERIDA.",
     evidence:
-      "Committed tests cover VIES null-vs-false, soft-launch quota/redaction/download auth, waitlist persistence, and Stripe test Checkout webhooks.",
+      "Tests cover column inference, CIF-only spreadsheets, atomic quota, signed downloads, and Stripe test webhooks.",
     signals: [
       "Paid product, no public repository",
-      "VIES tri-state: true / false / null",
-      "Guest quotas, DNI/NIE masking, signed downloads",
+      "Search by company name against BORME",
+      "CIF ignored in the match, kept on the original-data sheet",
       "Co-built with Jairo García Antolín",
     ],
     mermaid: `flowchart LR
-  File[Spreadsheet] --> API[FastAPI]
-  API --> Q[Quota]
-  API --> GDPR[DNI filter]
+  File[Sheet or text] --> API[FastAPI]
+  API --> Col[Company-name column]
+  API --> Q[Redis quota]
   API --> Celery[Celery]
-  Celery --> BOE[BOE name match]
-  Celery --> VIES[VIES optional]
+  Celery --> BORME[BORME match]
   classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
-  class API,Q,GDPR accent`,
+  class API,Col,Q accent`,
   },
   {
     id: "import-resolve-cli",
@@ -783,14 +786,14 @@ const catalog = {
       },
       validata: {
         kicker: "What each row does",
-        headers: ["CIF", "Company", "What happens"],
+        headers: ["Company name", "Status", "What happens"],
         rows: [
-          { id: "B12345678", name: "Acme Iberia SL", result: "Found in BOE" },
-          { id: "A87654321", name: "Norte Logística SA", result: "VIES not called" },
-          { id: "12345678Z", name: "DNI", result: "Dropped (GDPR)" },
+          { id: "Mercadona SA", name: "COINCIDENCIA_EXACTA", result: "Found in BORME" },
+          { id: "Garcia SL vs SA", name: "REVISION_SUGERIDA", result: "Legal form mismatch" },
+          { id: "CIF only", name: "File error", result: "No name column" },
         ],
         footnote:
-          "BOE match uses the local cache. Skipped VIES stays null.",
+          "Match uses the local BORME cache. A CIF-only spreadsheet never reaches the engine.",
       },
     },
   },

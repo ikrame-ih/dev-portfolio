@@ -20,9 +20,9 @@ Everything hangs off `App.jsx`. One `<main>`, sections in order, `cliOpen` state
 
 ## Scroll order (matches nav)
 
-Hero → CV → Projects → LinkedIn signals → Interests (bento) → Guest book → Contact.
+Hero → Projects → CV → LinkedIn signals → Interests (bento) → Contact → Guest book.
 
-Backgrounds flip bone / bone-200 between sections. ids for nav: `cv`, `projects`, `linkedin`, `bento`, `guestbook`, `contact`. Legacy `#blog` / `#vault` aliases redirect to `#linkedin`.
+Backgrounds flip bone / bone-200 between sections. ids for nav: `projects`, `cv`, `linkedin`, `bento`, `guestbook`, `contact`. `#project-<id>` opens a case study. Legacy `#blog` / `#vault` aliases redirect to `#linkedin`.
 
 ---
 
@@ -30,9 +30,9 @@ Backgrounds flip bone / bone-200 between sections. ids for nav: `cv`, `projects`
 
 **Layout:** `Nav.jsx`, `Footer.jsx`, `Bow.jsx`
 
-**Sections:** `Hero.jsx`, `CVSection.jsx`, `ProjectsSection.jsx`, `LinkedInSection.jsx`, `BentoSection.jsx`, `GuestbookCanvas.jsx`, `ContactSection.jsx`
+**Sections:** `Hero.jsx`, `ProjectsSection.jsx` (`ProjectProof.jsx` walkthroughs), `CVSection.jsx`, `LinkedInSection.jsx`, `BentoSection.jsx` (3 + more), `ContactSection.jsx`, `GuestbookCanvas.jsx`
 
-**Overlays:** `CLITerminal.jsx` (Terminal btn, Ctrl+`), `ArchitectureModal.jsx` + lazy `MermaidDiagram.jsx` (project cards), Sonner toasts in App for contact form
+**Overlays:** `CLITerminal.jsx` (T key, nav Terminal), `ArchitectureModal.jsx` + lazy `MermaidDiagram.jsx`, Sonner toasts in App for contact form
 
 **Shared:** `Reveal.jsx` for scroll fade-in
 

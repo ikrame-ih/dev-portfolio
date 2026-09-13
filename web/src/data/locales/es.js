@@ -3,7 +3,7 @@ import { ASSETS } from "../assets.js";
 const PROFILE = {
   name: "Ikrame Ibn Hayoun",
   location: "Málaga, ES",
-  workPreference: "Abierta a roles en remoto o híbridos",
+  workPreference: "Disponible para oportunidades remotas o híbridas",
   email: "ikihga2223@gmail.com",
   phone: "+34 682 02 76 93",
   github: "https://github.com/ikrame-ih",
@@ -11,20 +11,23 @@ const PROFILE = {
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
   buyMeACoffee: "https://buymeacoffee.com/ikrame.dev",
   siteUrl: "https://ikrame.dev",
-  overline: "BACKEND PYTHON · IA APLICADA · FASTAPI",
+  overline: "INGENIERA BACKEND E IA · PYTHON · FASTAPI",
   headlineParts: [
-    { text: "Backends en Python: el modelo extrae; " },
-    { text: "el código decide.", accent: true },
+    { text: "El modelo extrae. " },
+    { text: "El código decide.", accent: true },
   ],
-  heroSubtext:
-    "Soy Ikrame, desarrolladora backend en Málaga. Con FastAPI y PostgreSQL diseño APIs que tienen que seguir siendo consistentes con concurrencia y con reintentos. Abierta a remoto o híbrido.",
+  heroSubtext: [
+    "Soy Ikrame, ingeniera de software backend y de IA aplicada en Málaga. Diseño APIs con Python, FastAPI y PostgreSQL para sistemas que deben mantenerse consistentes ante peticiones concurrentes y reintentos.",
+    "Aplico IA con límites claros: el modelo convierte información en datos estructurados; el código valida, aplica las reglas de negocio y toma las decisiones críticas.",
+    "Disponible para oportunidades remotas o híbridas.",
+  ],
   heroFacts: [
     { eyebrow: "Inglés", text: "C1 Advanced" },
     { eyebrow: "Ahora", text: "Máster de FP en IA y big data" },
     { eyebrow: "En PyPI", text: "import-resolve-cli", accent: true },
   ],
   tagline:
-    "Backend Python · FastAPI · IA aplicada · abierta a remoto o híbrido",
+    "Ingeniera backend e IA · Python · FastAPI · disponible en remoto o híbrido",
   cliAbout: [
     "Hola, soy Ikrame. Desarrollo backend en Málaga. Si me toca la interfaz, priorizo que se lea con claridad.",
     "Casi todo el tiempo lo paso con FastAPI, PostgreSQL e IA aplicada: extracción estructurada, matching y tests.",
@@ -329,40 +332,40 @@ const PROJECTS = [
       label: "Jairo García Antolín",
     },
     roleAfter:
-      ". Yo implementé cuotas, el enmascarado de DNI/NIE, descargas con token firmado, el estado triple de VIES (si no hay consulta, queda null), Stripe Checkout de prueba, lista de espera, CI y la interfaz en React. Jairo diseñó la ingesta BOE, los workers Celery, RapidFuzz y la base de FastAPI/VIES.",
-    role: "Co-desarrollado con Jairo García Antolín. Yo implementé cuotas, el enmascarado de DNI/NIE, descargas con token firmado, el estado triple de VIES (si no hay consulta, queda null), Stripe Checkout de prueba, lista de espera, CI y la interfaz en React. Jairo diseñó la ingesta BOE, los workers Celery, RapidFuzz y la base de FastAPI/VIES.",
-    subtitle: "Validación de CIF por lotes · SaaS B2B",
+      ". Algunas de mis implementaciones más relevantes han sido: inferir la columna de razón social (un Excel solo con CIF se rechaza), cuotas atómicas en Redis, descargas con token HMAC, Stripe Checkout de prueba, lista de espera en base de datos, CI, y dejar la búsqueda solo por nombre, sin CIF ni VIES en el camino ejecutable. Jairo diseñó la ingesta BORME, los workers Celery, RapidFuzz y la base de FastAPI.",
+    role: "Co-desarrollado con Jairo García Antolín. Algunas de mis implementaciones más relevantes han sido: inferir la columna de razón social (un Excel solo con CIF se rechaza), cuotas atómicas en Redis, descargas con token HMAC, Stripe Checkout de prueba, lista de espera en base de datos, CI, y dejar la búsqueda solo por nombre, sin CIF ni VIES en el camino ejecutable. Jairo diseñó la ingesta BORME, los workers Celery, RapidFuzz y la base de FastAPI.",
+    subtitle: "Búsqueda por razón social · BORME · SaaS B2B",
     stack: ["Python", "FastAPI", "Celery", "PostgreSQL", "Redis", "React", "TypeScript", "Stripe"],
     href: null,
     demo: null,
     proof: "validata",
-    image: null,
-    imageKind: "illustration",
-    imageCaption: "Synthetic walkthrough of verified behavior, not a live tenant.",
-    imageAlt: "Synthetic Validata rows: matched company, skipped VIES, discarded personal ID",
+    image: ASSETS.projects.validata,
+    imageKind: "photo",
+    imageCaption: "Mockup de escritorio de la pantalla de subida de Validata. No es un tenant real.",
+    imageAlt:
+      "Monitor en un escritorio con Validata: busca y valida empresas por razón social, con zona para subir archivos",
     description:
-      "Subes una hoja con identificadores de empresas españolas. El pipeline devuelve validación y enriquecimiento: emparejado de nombre con BOE/BORME local, VIES opcional y enmascarado GDPR de DNI/NIE.",
+      "Pegas razones sociales o subes un Excel/CSV. Validata localiza cada denominación en el BORME y devuelve el estado registral. El CIF no entra en la búsqueda: si el archivo solo trae identificadores, se rechaza; si hay nombre y CIF, solo se usa el nombre y el CIF se queda en la hoja de datos originales.",
     problem:
-      "Hay que validar CIF por lotes sin tratar un timeout como «no registrado» y sin meter DNI o NIE personales en el enriquecimiento.",
+      "El producto busca por razón social, no por CIF. Un archivo solo de identificadores no puede pasar por el motor como si fueran empresas.",
     decision:
-      "La cuota se comprueba antes del worker. Los identificadores personales se enmascaran en la API. Las descargas van con token firmado. Si VIES no se consulta o falla, el valor queda null.",
+      "La cuota se reserva en Redis (Lua atómico) antes del worker. El inferenciador elige la columna de razón social y penaliza CIF/NIF/DNI. Las descargas van con token HMAC. S.L. frente a S.A. queda en REVISION_SUGERIDA.",
     evidence:
-      "Hay tests de VIES null frente a false, de cuota, enmascarado y descarga, de lista de espera y de webhooks de Stripe en test.",
+      "Tests de inferencia de columna, de un Excel solo-CIF, de cuota atómica, de descarga firmada y de webhooks Stripe en test.",
     signals: [
       "Producto de pago, sin repositorio público",
-      "VIES en tres estados: true / false / null",
-      "Cuotas, enmascarado de DNI/NIE, descargas firmadas",
+      "Búsqueda por razón social contra BORME",
+      "CIF ignorado en el match, conservado en datos originales",
       "Con Jairo García Antolín",
     ],
     mermaid: `flowchart LR
-  File[Hoja] --> API[FastAPI]
-  API --> Q[Cuota]
-  API --> GDPR[Filtro DNI]
+  File[Hoja o texto] --> API[FastAPI]
+  API --> Col[Columna razón social]
+  API --> Q[Cuota Redis]
   API --> Celery[Celery]
-  Celery --> BOE[Matching BOE]
-  Celery --> VIES[VIES opcional]
+  Celery --> BORME[Matching BORME]
   classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
-  class API,Q,GDPR accent`,
+  class API,Col,Q accent`,
   },
   {
     id: "import-resolve-cli",
@@ -781,14 +784,14 @@ const catalog = {
       },
       validata: {
         kicker: "Qué hace cada fila",
-        headers: ["CIF", "Empresa", "Qué pasa"],
+        headers: ["Razón social", "Estado", "Qué pasa"],
         rows: [
-          { id: "B12345678", name: "Acme Iberia SL", result: "Sale en el BOE" },
-          { id: "A87654321", name: "Norte Logística SA", result: "VIES no se consulta" },
-          { id: "12345678Z", name: "DNI", result: "Se descarta (GDPR)" },
+          { id: "Mercadona SA", name: "COINCIDENCIA_EXACTA", result: "Sale en el BORME" },
+          { id: "Garcia SL vs SA", name: "REVISION_SUGERIDA", result: "Forma societaria distinta" },
+          { id: "Solo CIF", name: "Error de archivo", result: "No hay columna de nombre" },
         ],
         footnote:
-          "El emparejado BOE usa la caché local. Si VIES no se consulta, queda null.",
+          "El match usa la caché BORME local. Un Excel solo con CIF ni siquiera entra al motor.",
       },
     },
   },

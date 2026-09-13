@@ -52,7 +52,7 @@ const PostCard = ({ post, index, reduce, readLabel, opensNewTab, lang }) => (
       </div>
     ) : null}
     <div className="flex min-h-0 flex-col p-6 md:p-8">
-      <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.22em] text-ink-mute">
+      <p className="mb-3 font-mono text-xs uppercase tracking-[0.22em] text-ink-soft">
         {formatDate(post.date, lang)}
       </p>
       <h3 className="text-balance font-serif text-xl font-light leading-snug tracking-tight text-ink transition-colors duration-500 group-hover:text-burgundy md:text-2xl">
@@ -87,7 +87,7 @@ const RecCard = ({ item, index }) => (
       {item.quote}
     </blockquote>
     {item.role ? (
-      <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-mute">
+      <p className="mt-5 font-mono text-xs uppercase tracking-[0.16em] text-ink-soft">
         {item.role}
       </p>
     ) : null}
@@ -101,7 +101,7 @@ const RecsBand = ({ feedback, opensNewTab }) => {
   return (
     <div className="mt-14 md:mt-16" data-testid="linkedin-profile-note">
       <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
-        <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-mute">
+        <p className="font-mono text-xs uppercase tracking-[0.22em] text-ink-soft">
           {feedback.label}
         </p>
         <a

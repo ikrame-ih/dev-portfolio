@@ -17,6 +17,11 @@ export function useFocusTrap(active, containerRef, onClose) {
     const previous = document.activeElement;
 
     const focusFirst = () => {
+      const preferred = el.querySelector("[data-initial-focus]");
+      if (preferred instanceof HTMLElement) {
+        preferred.focus();
+        return;
+      }
       const focusable = getFocusable(el);
       const field = focusable.find(
         (node) => node.tagName === "INPUT" || node.tagName === "TEXTAREA",

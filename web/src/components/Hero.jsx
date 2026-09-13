@@ -285,7 +285,7 @@ export const Hero = () => {
                     variants={factItem(reduce)}
                     className={`flex min-w-0 flex-col gap-1.5 sm:grid sm:grid-rows-subgrid sm:row-span-2 ${pad}`}
                   >
-                    <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-mute">
+                    <span className="font-mono text-xs uppercase tracking-[0.18em] text-ink-soft">
                       {fact.eyebrow}
                     </span>
                     <span

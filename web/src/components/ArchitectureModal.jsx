@@ -4,7 +4,8 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { MOTION_EASE } from "@/lib/motion";
 import { useFocusTrap } from "@/lib/useFocusTrap";
 import { useModalIsolation } from "@/lib/useModalIsolation";
-import { useUi } from "@/i18n/LocaleContext";
+import { useContent, useUi } from "@/i18n/LocaleContext";
+import { ReconcileWalkthrough, ValidataWalkthrough } from "./ProjectProof";
 
 const MermaidDiagram = lazy(() => import("./MermaidDiagram"));
 
@@ -27,7 +28,14 @@ export const ArchitectureModal = ({ project, onClose }) => {
   const panelRef = useRef(null);
   const reduce = useReducedMotion();
   const ui = useUi();
+  const { section } = useContent();
   const summaryId = project ? `arch-summary-${project.id}` : undefined;
+  const walkthrough =
+    project?.proof === "reconcile"
+      ? section.walkthrough?.reconcile
+      : project?.proof === "validata"
+        ? section.walkthrough?.validata
+        : null;
 
   useFocusTrap(!!project, panelRef, onClose);
   useModalIsolation(!!project);
@@ -78,7 +86,9 @@ export const ArchitectureModal = ({ project, onClose }) => {
               <div className="min-w-0">
                 <h2
                   id="arch-modal-title"
-                  className="font-serif font-light text-2xl text-ink flex flex-wrap items-baseline gap-x-2"
+                  tabIndex={-1}
+                  data-initial-focus=""
+                  className="font-serif font-light text-2xl text-ink flex flex-wrap items-baseline gap-x-2 outline-none"
                 >
                   <motion.span
                     layoutId={
@@ -107,6 +117,64 @@ export const ArchitectureModal = ({ project, onClose }) => {
             </div>
 
             <motion.div {...bodyMotion}>
+              {project.status && (
+                <p className="mb-3 font-mono text-xs leading-relaxed text-ink-mute">
+                  {project.status}
+                </p>
+              )}
+              {project.role && (
+                <p className="mb-4 text-[0.95rem] leading-relaxed text-ink">
+                  {project.roleLink ? (
+                    <>
+                      {project.roleBefore}
+                      <a
+                        href={project.roleLink.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="lnk"
+                      >
+                        {project.roleLink.label}
+                        <span className="sr-only">{ui.hero.opensNewTab}</span>
+                      </a>
+                      {project.roleAfter}
+                    </>
+                  ) : (
+                    project.role
+                  )}
+                </p>
+              )}
+              {project.problem && (
+                <p className="mb-3 text-[0.95rem] leading-relaxed text-ink">
+                  {project.problem}
+                </p>
+              )}
+              {project.decision && (
+                <p className="mb-3 text-[0.95rem] leading-relaxed text-ink">
+                  {project.decision}
+                </p>
+              )}
+              {project.evidence && (
+                <p className="mb-3 text-[0.95rem] leading-relaxed text-ink">
+                  {project.evidence}
+                </p>
+              )}
+              {project.limitations && (
+                <p className="mb-5 text-[0.95rem] leading-relaxed text-ink-soft">
+                  {project.limitations}
+                </p>
+              )}
+
+              {project.proof === "reconcile" && walkthrough ? (
+                <div className="mb-6">
+                  <ReconcileWalkthrough copy={walkthrough} />
+                </div>
+              ) : null}
+              {project.proof === "validata" && walkthrough ? (
+                <div className="mb-6">
+                  <ValidataWalkthrough copy={walkthrough} />
+                </div>
+              ) : null}
+
               {project.architectureSummary && (
                 <p
                   id={summaryId}
@@ -116,25 +184,27 @@ export const ArchitectureModal = ({ project, onClose }) => {
                 </p>
               )}
 
-              <figure className="border border-bone-400 p-4 md:p-6 bg-bone-100">
-                <Suspense
-                  fallback={
-                    <p className="font-mono text-xs text-ink-mute py-8 text-center">
-                      {ui.modal.loading}
-                    </p>
-                  }
-                >
-                  <MermaidDiagram
-                    chart={project.mermaid}
-                    id={project.id}
-                    label={`${ui.modal.architectureNamed.replace("{name}", project.name)}${project.architectureSummary ? `. ${project.architectureSummary}` : ""}`}
-                  />
-                </Suspense>
-                <figcaption className="sr-only">
-                  {ui.modal.flowchartAlt.replace("{name}", project.name)}{" "}
-                  {project.architectureSummary || project.description}
-                </figcaption>
-              </figure>
+              {project.mermaid ? (
+                <figure className="border border-bone-400 p-4 md:p-6 bg-bone-100">
+                  <Suspense
+                    fallback={
+                      <p className="font-mono text-xs text-ink-mute py-8 text-center">
+                        {ui.modal.loading}
+                      </p>
+                    }
+                  >
+                    <MermaidDiagram
+                      chart={project.mermaid}
+                      id={project.id}
+                      label={`${ui.modal.architectureNamed.replace("{name}", project.name)}${project.architectureSummary ? `. ${project.architectureSummary}` : ""}`}
+                    />
+                  </Suspense>
+                  <figcaption className="sr-only">
+                    {ui.modal.flowchartAlt.replace("{name}", project.name)}{" "}
+                    {project.architectureSummary || project.description}
+                  </figcaption>
+                </figure>
+              ) : null}
 
               <p className="mt-5 font-mono text-xs text-ink-soft leading-relaxed border-t border-bone-400 pt-4">
                 {project.description}
