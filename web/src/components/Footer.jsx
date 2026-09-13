@@ -35,17 +35,17 @@ export const Footer = ({ onOpenTerminal }) => {
   );
 
   return (
-    <footer data-testid="footer" className="relative footer-inverse py-10 md:py-12">
+    <footer data-testid="footer" className="relative footer-inverse py-16 md:py-24">
       <Reveal y={20}>
-        <div className="mx-auto grid max-w-[1240px] grid-cols-1 gap-10 px-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 md:px-12">
+        <div className="mx-auto grid max-w-[1240px] grid-cols-1 gap-14 px-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-12 xl:gap-x-20 md:px-16">
           <motion.div {...COL_ENTER(reduce, 0)}>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-6">
               <Bow size={22} color="#F5F1EB" />
               <span className="font-serif text-2xl tracking-tight">
                 {PROFILE.name}
               </span>
             </div>
-            <div className="max-w-xs space-y-3">
+            <div className="max-w-sm space-y-5">
               <p className="font-mono text-xs footer-muted leading-relaxed">
                 {ui.footer.designed}
               </p>
@@ -85,7 +85,7 @@ export const Footer = ({ onOpenTerminal }) => {
           </motion.div>
 
           <motion.div {...COL_ENTER(reduce, 0.06)}>
-            <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-4">
+            <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-6">
               {ui.footer.navigate}
             </p>
             <ul className="footer-nav font-mono text-sm">
@@ -107,19 +107,19 @@ export const Footer = ({ onOpenTerminal }) => {
           </motion.div>
 
           <motion.div {...COL_ENTER(reduce, 0.1)}>
-            <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-4">
+            <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-6">
               {ui.footer.contact}
             </p>
-            <ul className="space-y-2 font-mono text-sm">
+            <ul className="space-y-4 font-mono text-sm">
               <li>
-                <a href={`mailto:${PROFILE.email}`} className="footer-link">
+                <a href={`mailto:${PROFILE.email}`} className="footer-link whitespace-nowrap">
                   {PROFILE.email}
                 </a>
               </li>
               <li>
                 <a
                   href={`tel:${PROFILE.phone.replace(/\s/g, "")}`}
-                  className="footer-link"
+                  className="footer-link whitespace-nowrap"
                 >
                   {PROFILE.phone}
                 </a>
@@ -128,7 +128,7 @@ export const Footer = ({ onOpenTerminal }) => {
           </motion.div>
 
           <motion.div {...COL_ENTER(reduce, 0.14)}>
-            <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-3">
+            <p className="font-mono text-xs uppercase tracking-[0.28em] footer-muted mb-6">
               {ui.footer.terminal}
             </p>
             <p className="font-mono text-sm leading-relaxed footer-muted">
@@ -138,20 +138,20 @@ export const Footer = ({ onOpenTerminal }) => {
               type="button"
               data-testid="footer-terminal-open"
               onClick={onOpenTerminal}
-              className="btn-tactile mt-4 inline-flex items-center min-h-11 font-mono text-xs uppercase tracking-[0.18em] border border-[#F5F1EB]/40 px-4 py-2 hover:bg-[#F5F1EB] hover:text-[#1A1A1A] transition-colors"
+              className="btn-tactile mt-6 inline-flex items-center min-h-11 font-mono text-xs uppercase tracking-[0.18em] border border-[#F5F1EB]/40 px-4 py-2 hover:bg-[#F5F1EB] hover:text-[#1A1A1A] transition-colors"
               whileHover={reduce ? undefined : { y: -2, scale: 1.02 }}
               whileTap={reduce ? undefined : { scale: 0.98 }}
               transition={CTA_SPRING}
             >
               {ui.footer.openTerminal}
             </motion.button>
-            <p className="mt-3 font-mono text-xs footer-muted">
+            <p className="mt-5 font-mono text-xs footer-muted">
               {ui.footer.pressKey} <kbd className="footer-muted">T</kbd>
             </p>
           </motion.div>
         </div>
 
-        <div className="mx-auto mt-10 flex max-w-[1240px] flex-wrap items-center justify-between gap-3 border-t border-[#F5F1EB]/15 px-5 pt-5 md:px-12">
+        <div className="mx-auto mt-16 flex max-w-[1240px] flex-wrap items-center justify-between gap-4 border-t border-[#F5F1EB]/15 px-6 pt-8 md:mt-20 md:px-16 md:pt-10">
           <p className="font-mono text-xs footer-muted">
             © {year} {PROFILE.name}, Málaga, ES
           </p>

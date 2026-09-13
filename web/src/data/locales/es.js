@@ -752,7 +752,7 @@ const catalog = {
     cvTitleBefore: "Roles, habilidades y ",
     cvTitleAccent: "estudio.",
     cvKicker:
-      "Anteriormente trabajé en conciliaciones, gastos y en el día a día de quien usa esas herramientas. Por eso diseño APIs pensando en la concurrencia, los reintentos y los datos a medias. En el día a día trabajo con spec-driven development: las specs viven en Obsidian, Orca enruta a los agentes, Cursor escribe el código y el merge lo decido yo.",
+      "Anteriormente trabajé en conciliaciones, gastos y en el día a día de quien usa esas herramientas. Por eso diseño APIs pensando en la concurrencia, los reintentos y los datos a medias. Trabajo con un harness: specs en Obsidian, spec-driven development, Orca para enrutar agentes. El código lo escribo yo en Cursor, con ayuda de sus mejores modelos. El merge lo decido yo.",
     languagesTitle: "Idiomas",
     languagesKicker: "Español, inglés y darija; idiomas en los que me comunico habitualmente.",
     experience: "Experiencia",
