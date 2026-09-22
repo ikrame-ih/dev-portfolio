@@ -409,6 +409,9 @@
             "esquemas cerrados",
             "RAG",
             "recuperación híbrida",
+            "LangGraph",
+            "agentes de IA",
+            "AI agents",
             "PydanticAI",
             "Groq",
             "prompt engineering",
@@ -433,6 +436,7 @@
             "Prometheus",
             "observabilidad",
             "React",
+            "JavaScript",
             "TypeScript",
             "Node.js",
             "Express",
@@ -452,7 +456,8 @@
           "proficiency": "",
           "level": 0,
           "keywords": [
-            "SPFx",
+            "SharePoint Framework (SPFx)",
+            "SharePoint REST API",
             "Power Automate",
             "Microsoft Lists",
             "Microsoft 365 Migration Tool",
@@ -476,7 +481,10 @@
             "Pandas",
             "TensorFlow",
             "PyTorch",
-            "Kafka"
+            "Kafka",
+            "AWS",
+            "Google Cloud (GCP)",
+            "cloud computing"
           ]
         }
       ]
