@@ -445,6 +445,23 @@
           ]
         },
         {
+          "id": "e5000001-0001-4000-8000-000000000007",
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "name": "Microsoft 365",
+          "proficiency": "",
+          "level": 0,
+          "keywords": [
+            "SPFx",
+            "Power Automate",
+            "Microsoft Lists",
+            "Microsoft 365 Migration Tool",
+            "PnP PowerShell",
+            "Entra ID"
+          ]
+        },
+        {
           "id": "e5000001-0001-4000-8000-000000000006",
           "hidden": false,
           "icon": "",

@@ -43,6 +43,14 @@ export const DomainGlyph = ({ id, className = "w-5 h-5 text-burgundy" }) => {
       </svg>
     );
   }
+  if (id === "m365") {
+    return (
+      <svg {...common}>
+        <rect x="3.5" y="4" width="17" height="16" rx="1.5" />
+        <path d="M7 9h6.5M7 12.5h10M7 16h4" />
+      </svg>
+    );
+  }
   if (id === "tooling") {
     return (
       <svg {...common}>

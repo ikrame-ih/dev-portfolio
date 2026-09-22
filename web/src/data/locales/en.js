@@ -58,7 +58,7 @@ const LANGUAGES = [
   { lang: "Darija", level: "Native", detail: "Moroccan Arabic", code: "AR" },
 ];
 
-// Four skill domains - full-width catalog bands in CVSection.
+// Five skill domains - full-width catalog bands in CVSection.
 // Languages sit below as three type plates, not a list.
 const STACK = {
   domains: [
@@ -175,8 +175,41 @@ const STACK = {
             "Obsidian",
             "Orca",
             "Cursor",
-            "Power Fx",
           ],
+        },
+      ],
+    },
+    {
+      id: "m365",
+      index: "05",
+      title: "Microsoft 365",
+      kicker: "Web parts, lists, and flows.",
+      groups: [
+        {
+          label: "SPFx 1.23",
+          pairWithNext: true,
+          items: [
+            "SPFx",
+            "Yeoman",
+            "SPHttpClient",
+            "SharePoint REST",
+            "SCSS modules",
+            "Property pane",
+          ],
+        },
+        {
+          label: "Flows and lists",
+          items: [
+            "Power Automate",
+            "Power Apps",
+            "Power Fx",
+            "Microsoft Lists",
+            "Microsoft 365 Migration Tool",
+          ],
+        },
+        {
+          label: "Package and tenant",
+          items: ["Heft", "Webpack", "PnP PowerShell", "Entra ID", "App Catalog"],
         },
       ],
     },

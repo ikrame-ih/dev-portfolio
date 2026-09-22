@@ -428,7 +428,6 @@
             "CI/CD",
             "GitHub Actions",
             "Docker",
-            "contenedores Docker",
             "Docker Compose",
             "despliegue en producción",
             "Prometheus",
@@ -442,6 +441,23 @@
             "DataFlex",
             "Power Apps",
             "Power Fx"
+          ]
+        },
+        {
+          "id": "e5000001-0001-4000-8000-000000000007",
+          "hidden": false,
+          "icon": "",
+          "iconColor": "",
+          "name": "Microsoft 365",
+          "proficiency": "",
+          "level": 0,
+          "keywords": [
+            "SPFx",
+            "Power Automate",
+            "Microsoft Lists",
+            "Microsoft 365 Migration Tool",
+            "PnP PowerShell",
+            "Entra ID"
           ]
         },
         {

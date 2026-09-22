@@ -58,7 +58,7 @@ const LANGUAGES = [
   { lang: "Darija", level: "Nativo", detail: "árabe marroquí", code: "AR" },
 ];
 
-// Cuatro dominios en bandas a ancho completo; los idiomas van debajo en tres placas.
+// Cinco dominios en bandas a ancho completo; los idiomas van debajo en tres placas.
 const STACK = {
   domains: [
     {
@@ -174,8 +174,41 @@ const STACK = {
             "Obsidian",
             "Orca",
             "Cursor",
-            "Power Fx",
           ],
+        },
+      ],
+    },
+    {
+      id: "m365",
+      index: "05",
+      title: "Microsoft 365",
+      kicker: "Web parts, listas y flujos.",
+      groups: [
+        {
+          label: "SPFx 1.23",
+          pairWithNext: true,
+          items: [
+            "SPFx",
+            "Yeoman",
+            "SPHttpClient",
+            "SharePoint REST",
+            "SCSS modules",
+            "Property pane",
+          ],
+        },
+        {
+          label: "Flujos y listas",
+          items: [
+            "Power Automate",
+            "Power Apps",
+            "Power Fx",
+            "Microsoft Lists",
+            "Microsoft 365 Migration Tool",
+          ],
+        },
+        {
+          label: "Empaquetado y tenant",
+          items: ["Heft", "Webpack", "PnP PowerShell", "Entra ID", "App Catalog"],
         },
       ],
     },

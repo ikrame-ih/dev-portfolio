@@ -34,22 +34,37 @@ import {
   siKubernetes,
   siObsidian,
   siLanggraph,
+  siSass,
+  siWebpack,
 } from "simple-icons";
 import {
+  ArrowRightLeft,
+  Blocks,
   BookOpenCheck,
   Bot,
   Braces,
   Brain,
+  Cable,
   ChartScatter,
   Combine,
+  FileJson,
   FolderTree,
   GitMerge,
+  Hammer,
+  KeyRound,
   Layers,
+  LayoutGrid,
+  List,
+  PackageOpen,
   MessageSquareCode,
   Puzzle,
   ShieldCheck,
+  SlidersHorizontal,
   SquarePen,
+  Store,
+  Terminal,
   Waypoints,
+  Workflow,
 } from "lucide-react";
 
 const Svg = ({ children, className, viewBox = "0 0 24 24", style }) => (
@@ -252,6 +267,8 @@ const FROM_SIMPLE = {
   Kubernetes: siKubernetes,
   Obsidian: siObsidian,
   LangGraph: siLanggraph,
+  "SCSS modules": siSass,
+  Webpack: siWebpack,
 };
 
 // Stroke icons from Lucide (ISC) for concepts that have no brand mark.
@@ -270,6 +287,19 @@ const FROM_LUCIDE = {
   "Spec-driven development": BookOpenCheck,
   Cursor: SquarePen,
   Orca: Bot,
+  SPFx: Blocks,
+  Yeoman: PackageOpen,
+  SPHttpClient: Cable,
+  "SharePoint REST": FileJson,
+  "Property pane": SlidersHorizontal,
+  "Power Automate": Workflow,
+  "Power Apps": LayoutGrid,
+  "Microsoft Lists": List,
+  "Microsoft 365 Migration Tool": ArrowRightLeft,
+  Heft: Hammer,
+  "PnP PowerShell": Terminal,
+  "Entra ID": KeyRound,
+  "App Catalog": Store,
 };
 
 const LucideMark = ({ Icon, className }) => (
