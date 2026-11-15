@@ -2,7 +2,7 @@
 
 [![Live Site](https://img.shields.io/badge/Live_Site-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://ikrame.dev/)
 
-**Personal portfolio site** — English and Spanish, cream paper aesthetic, guest book, contact form, and a CLI easter egg in the corner.
+**Personal portfolio site.** English and Spanish, cream paper aesthetic, guest book, contact form, and a CLI easter egg in the corner.
 
 Portfolio project (v0.1.0): React SPA deployed on Vercel. Guest book syncs via Upstash; contact form uses Resend.
 
@@ -18,16 +18,16 @@ Portfolio project (v0.1.0): React SPA deployed on Vercel. Guest book syncs via U
 
 ## Highlights
 
-- **English and Spanish** — language toggle in the nav; same layout, local copy
-- **Hero** — role, positioning, and downloads for the CV and cover letter (EN/ES PDFs)
-- **Projects** — three lanes: Python backends (ReckonFlow, Validata), published tools (PyPI CLI and skills.sh localization skill), and other work
-- **Experience** — timeline, education, and languages on the page
-- **LinkedIn notes** — selected posts and recommendations
-- **Guest book** — shared bows via Upstash Redis on Vercel; localStorage fallback on localhost
-- **Contact** — Resend-powered form with rate limiting
-- **Analytics** — optional GoatCounter (privacy-friendly, no cookies); set `VITE_GOATCOUNTER_CODE`
-- **CLI terminal** — hidden command palette for navigation and easter eggs
-- **Design system** — cream paper palette, Framer Motion reveals, Mermaid diagrams
+- **English and Spanish:** language toggle in the nav; same layout, local copy
+- **Hero:** role, positioning, and downloads for the CV and cover letter (EN/ES PDFs)
+- **Projects:** main projects (ReckonFlow, Validata, MyPlaythrough, Málaga Onboarding, import-resolve-cli), published tools, and other work.
+- **Experience:** timeline, education, and languages on the page
+- **LinkedIn notes:** selected posts and recommendations
+- **Guest book:** shared bows via Upstash Redis on Vercel; localStorage fallback on localhost
+- **Contact:** Resend-powered form with rate limiting
+- **Analytics:** optional GoatCounter (privacy-friendly, no cookies); set `VITE_GOATCOUNTER_CODE`
+- **CLI terminal:** hidden command palette for navigation and easter eggs
+- **Design system:** cream paper palette, Framer Motion reveals, Mermaid diagrams
 
 ## Preview
 
@@ -49,7 +49,7 @@ Portfolio project (v0.1.0): React SPA deployed on Vercel. Guest book syncs via U
 git clone https://github.com/ikrame-ih/dev-portfolio.git
 cd dev-portfolio/web
 npm install
-cp .env.example .env   # optional — contact & guest book locally
+cp .env.example .env   # optional: contact and guest book locally
 npm run dev
 ```
 
@@ -70,7 +70,7 @@ Open [http://localhost:5173](http://localhost:5173). Guest book API routes only 
 
 ## Stack
 
-React 19 · Vite 6 · Tailwind CSS 3 · Framer Motion · Lucide · Mermaid · Upstash Redis · Resend
+React 19, Vite 6, Tailwind CSS 3, Framer Motion, Lucide, Mermaid, Upstash Redis, Resend
 
 ## Environment
 
@@ -90,7 +90,7 @@ Never commit `.env` files or API keys.
 ```
 web/
 ├── src/
-│   ├── components/     # UI sections (Hero, Projects, CV, LinkedIn, CLI…)
+│   ├── components/     # UI sections (Hero, Projects, CV, LinkedIn, CLI)
 │   ├── data/           # locales, assets, stack icons
 │   ├── i18n/           # language switch and UI strings
 │   └── lib/            # guest book API, theme, storage
@@ -104,7 +104,7 @@ docs/                   # Design notes (not deployed)
 
 ## Documentation
 
-Internal build notes live in [`docs/`](docs/) — design system, component map, workflow.
+Internal build notes live in [`docs/`](docs/): design system, component map, workflow.
 
 Print artefacts live under `web/public/cv/` and `web/public/cover-letter/` (HTML + CSS). The PDFs are generated with Playwright.
 
@@ -113,7 +113,7 @@ Print artefacts live under `web/public/cv/` and `web/public/cover-letter/` (HTML
 ```bash
 cd web
 npm run build && npm run preview -- --port 4173
-npx playwright@1.49.1 install chromium   # optional — script falls back to Edge/Chrome
+npx playwright@1.49.1 install chromium   # optional: script falls back to Edge/Chrome
 npm run capture:readme
 ```
 
@@ -127,8 +127,8 @@ npm run capture:readme
 
 ## License
 
-Private project — © Ikrame Ibn Hayoun. All rights reserved.
+Private project. © Ikrame Ibn Hayoun. All rights reserved.
 
 ## Author
 
-**Ikrame Ibn Hayoun** — [Portfolio](https://ikrame.dev/) · [GitHub](https://github.com/ikrame-ih) · [LinkedIn](https://www.linkedin.com/in/ikrame-ih/)
+**Ikrame Ibn Hayoun.** [Portfolio](https://ikrame.dev/), [GitHub](https://github.com/ikrame-ih), [LinkedIn](https://www.linkedin.com/in/ikrame-ih/)
