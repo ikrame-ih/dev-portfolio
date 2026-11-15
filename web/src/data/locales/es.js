@@ -54,7 +54,7 @@ const PROFILE = {
 
 const LANGUAGES = [
   { lang: "Español", level: "Nativo", code: "ES" },
-  { lang: "Inglés", level: "C2", detail: "Maestría", code: "EN" },
+  { lang: "Inglés", level: "C2", code: "EN" },
   { lang: "Darija", level: "Nativo", detail: "árabe marroquí", code: "AR" },
 ];
 
@@ -288,7 +288,7 @@ const EXPERIENCE = [
           name: "Sorteo de Navidad de Consulting, Power App",
           image: ASSETS.experience.eyHolidayRaffle,
           imageAlt:
-            "Power App de EY para el sorteo de cestas de Navidad del CNS: reservar número y guardar nombre, correo y asignación",
+            "Power App de EY para el sorteo de cestas de Navidad de Consulting: reservar número y guardar nombre, correo y asignación.",
         },
       },
       "Coordiné con negocio las visitas de clientes estratégicos en Málaga (agendas, logística y experiencia in situ) en un entorno global de servicios profesionales.",
@@ -608,7 +608,7 @@ const PROJECTS = [
     image: ASSETS.projects.liveEventRadar,
     imageAlt: "Live Event Radar - panel de control y telemetría",
     description:
-      "Un panel de recinto: un flujo de eventos alimenta el centro de mando y el mapa. Lo hice después de ver que la información del recinto llegaba tarde.",
+      "Vistas de operaciones de un recinto a partir de un store Zustand: centro de mando en SVG y un mapa Leaflet. El flujo de eventos es simulado.",
     architectureSummary:
       "Un flujo de eventos simulado escribe en un store de telemetría Zustand. Derivaciones puras alimentan dos vistas sincronizadas: el centro de mando (mapa SVG del recinto) y el panel de telemetría (mapa Leaflet).",
     mermaid: `flowchart LR

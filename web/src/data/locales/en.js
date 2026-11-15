@@ -54,7 +54,7 @@ const PROFILE = {
 
 const LANGUAGES = [
   { lang: "Spanish", level: "Native", code: "ES" },
-  { lang: "English", level: "C2", detail: "Proficient", code: "EN" },
+  { lang: "English", level: "C2", code: "EN" },
   { lang: "Darija", level: "Native", detail: "Moroccan Arabic", code: "AR" },
 ];
 
@@ -289,7 +289,7 @@ const EXPERIENCE = [
           name: "Consulting Christmas raffle, Power App",
           image: ASSETS.experience.eyHolidayRaffle,
           imageAlt:
-            "EY Power App for the CNS Christmas hamper raffle - claim a number and store name, email, and assignment",
+            "EY Power App for the Consulting Christmas hamper raffle: claim a number and store name, email, and assignment.",
         },
       },
       "Coordinated strategic client visits in Málaga with business stakeholders (agendas, logistics and the on-site experience) in a global professional services firm.",
@@ -610,7 +610,7 @@ const PROJECTS = [
     image: ASSETS.projects.liveEventRadar,
     imageAlt: "Live Event Radar - command center and telemetry dashboard",
     description:
-      "Venue ops views derived from one Zustand store: SVG command center and a Leaflet map. The event stream is mocked.",
+      "Venue ops views derived from one Zustand store: an SVG command center and a Leaflet map. The event stream is mocked.",
     architectureSummary:
       "A mock event stream writes into a Zustand telemetry store. Pure derivations from that store feed two synchronized views: the Command Center (SVG venue map) and the Telemetry dashboard (Leaflet map).",
     mermaid: `flowchart LR
@@ -637,9 +637,9 @@ const PROJECTS = [
     image: ASSETS.projects.aibaWidget,
     imageAlt: "Aiba - desktop focus timer and planning widget",
     description:
-      "Local Windows focus widget: plan the day, guard a block, unwind. Electron, React, IPC preload. No account.",
+      "Local Windows widget: plan the day, protect a focus block and wind down, with no account and no cloud.",
     architectureSummary:
-      "The React UI talks through an IPC preload bridge to the Electron main process. Main stores local JSON and runs the focus-guard overlay-no cloud dependency.",
+      "The React UI talks through an IPC preload bridge to the Electron main process. Main stores local JSON and runs the focus-guard overlay, with no cloud dependency.",
     mermaid: `flowchart LR
   UI[React UI] --> Bridge[IPC preload]
   Bridge --> Main[Electron main]
