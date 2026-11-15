@@ -16,41 +16,47 @@
     </div>
     <article class="page">
       <h1>Ikrame Ibn Hayoun</h1>
-      <p class="headline">Backend Python | FastAPI | PostgreSQL | Applied AI | Remote or Hybrid</p>
+      <p class="headline">Data, AI & Software Engineer | Málaga | Remote or hybrid</p>
       <p class="contact">ikihga2223@gmail.com | +34 682 02 76 93 | Málaga, Spain | <a href="https://ikrame.dev">ikrame.dev</a></p>
 
-      <h2>Summary</h2>
-      <div class="summary"><p>Backend Python engineer in Málaga. +3 years of professional experience and production projects. I build REST APIs with FastAPI, PostgreSQL, Redis, and SQLAlchemy for systems that have to stay consistent under concurrent requests and retries. Applied AI starts with ReckonFlow: structured LLM outputs through a closed schema, deterministic validation in code, and no authority for the model to approve or pay. I work from written specs, with AI-assisted coding and a human merge. Currently a vocational master's in AI and big data (100% online, compatible with full-time work) and preparing official cloud certifications (GCP, AWS). DAW with honors (Matrícula de Honor), EQF Level 5. Open to remote or hybrid backend and applied-AI roles.</p></div>
+      <h2>Profile</h2>
+      <div class="summary"><p>Bringing engineering rigor to data, AI and software projects: data quality from ingestion, models evaluated with real metrics, and software tested and deployed with CI/CD. +3 years of professional experience and production projects. Building with Python and SQL, REST APIs, ETL pipelines with Spark and Kafka, machine learning and generative AI with LLMs and agents, always backed by tests and evals.</p></div>
 
       <h2>Skills</h2>
-      <p class="skill"><strong>Backend Python.</strong> Python, FastAPI, REST APIs, PostgreSQL, relational databases, SQL, Redis, SQLAlchemy, Alembic, Pydantic, JWT, Celery, asynchronous processing, distributed workflows, Stripe, pytest, unit testing with pytest, mypy</p>
-<p class="skill"><strong>Applied AI.</strong> structured LLM outputs, closed schemas, RAG, hybrid retrieval, PydanticAI, Groq, prompt engineering, guardrails against prompt injection</p>
-<p class="skill"><strong>Delivery.</strong> Git, CI/CD, GitHub Actions, Docker, Docker containers, Docker Compose, production deployment, Prometheus, observability, React, TypeScript, Node.js, Express, Vitest, Playwright, DataFlex, Power Apps, Power Fx</p>
-<p class="skill"><strong>Microsoft 365.</strong> SPFx, Power Automate, Microsoft Lists, Microsoft 365 Migration Tool, PnP PowerShell, Entra ID</p>
-<p class="skill"><strong>Coursework in progress.</strong> PySpark, DataFrames, Spark, NumPy, Pandas, TensorFlow, PyTorch, Kafka</p>
+      <p class="skill"><strong>Data.</strong> ETL, data quality, data governance, pandas, NumPy, Apache Spark (PySpark, Spark Structured Streaming), Kafka, Hadoop (HDFS, YARN, MapReduce), Hive, HBase, MongoDB and NoSQL, data warehousing, Power BI, R</p>
+<p class="skill"><strong>Generative AI and ML.</strong> LLMs, RAG, embeddings, hybrid retrieval, AI agents (LangChain, LangGraph.js, tool calling), prompt engineering, structured outputs, guardrails, PydanticAI, Groq, Hugging Face Transformers, spaCy, scikit-learn, TensorFlow, Keras, PyTorch, responsible AI (EU AI Act, XAI), AI-assisted development (OpenAI API and GPT, Codex, Claude, Claude Code, GitHub Copilot, Gemini, Cursor, Grok; Llama, Qwen, DeepSeek and Kimi with Ollama; Orca)</p>
+<p class="skill"><strong>Backend.</strong> Python, SQL, REST APIs, FastAPI, PostgreSQL, MySQL, Redis, SQLAlchemy, Alembic, Pydantic, JWT, Celery, microservices, Node.js, Express, React, TypeScript</p>
+<p class="skill"><strong>Cloud and DevOps.</strong> Docker, Docker Compose, GitHub Actions, observability with Prometheus, AWS (Bedrock, Rekognition, Amazon EMR), Google Cloud (Vertex AI, Cloud Vision), Azure OpenAI, production deployment (Render, Neon, Upstash, Vercel)</p>
+<p class="skill"><strong>Engineering practices.</strong> automated testing (pytest, Vitest, Playwright), LLM evals, CI/CD, ADRs, type checking with mypy, Ruff, pip-audit, idempotency, spec-driven development (SDD), AI-assisted development with human code review</p>
+<p class="skill"><strong>Business tools.</strong> Power Apps, Power Fx, DataFlex, Excel, Odoo, Looker, Microsoft 365 (SPFx, Power Automate, Microsoft Lists, Microsoft 365 Migration Tool, PnP PowerShell, Entra ID)</p>
+<p class="skill"><strong>Competencies.</strong> business and client communication, end-to-end autonomy and ownership, technical documentation, teamwork</p>
 
       <h2>Projects</h2>
       <article class="item">
-        <div class="item-head"><span class="item-title"><strong>ReckonFlow</strong> <span class="proj-links"><a href="https://github.com/ikrame-ih/reckon-flow">GitHub</a> | <a href="https://reckon-flow.onrender.com/docs">Docs</a></span></span><span class="meta">Aug 2026</span></div>
-        <p>Headless FastAPI REST API for corporate travel. Relational PostgreSQL database, Redis, immutable double-entry ledger, Decimal money. Production deployment with interactive docs.</p><ul><li>Redis idempotency and PostgreSQL row locks (FOR UPDATE) so a retried confirm cannot double-post. Asynchronous processing via HTTP 202 background jobs.</li><li>Receipt extraction with PydanticAI and Groq. Closed schema extra=forbid as a guardrail against prompt injection; structured LLM outputs are validated in code before any database write. The model cannot approve or pay.</li><li>Hybrid retrieval (RAG-style): SQL prefilter, RapidFuzz, hashed-token vectors, Reciprocal Rank Fusion. Unit testing with pytest, CI/CD, Prometheus observability.</li></ul>
+        <div class="item-head"><span class="item-title"><strong>ReckonFlow</strong> <span class="proj-links"><a href="https://github.com/ikrame-ih/reckon-flow">GitHub</a> | <a href="https://reckon-flow.onrender.com/docs">Docs</a></span></span><span class="meta">Aug 2026 to present</span></div>
+        <p>Expense and bank reconciliation REST API for corporate travel. Python, FastAPI, PostgreSQL, Redis, PydanticAI, Groq, Prometheus, GitHub Actions. Production deployment with interactive docs.</p><ul><li>Redis idempotency keys and PostgreSQL row locks (FOR UPDATE) on an append-only double-entry ledger.</li><li>ETL ingestion of bank statement CSVs with data quality checks. Hybrid reconciliation with SQL, RapidFuzz, pgvector vector search (deterministic hashed-token vectors, ready for a real embedding model) and RRF, measured on 40 synthetic cases.</li><li>Background LLM receipt extraction (HTTP 202) with closed-schema structured outputs: the model fills in fields and cannot approve or pay.</li><li>132 pytest tests, an 80% coverage gate in CI/CD, extraction and matching evals, mypy, Ruff, pip-audit, Prometheus metrics and 7 ADRs.</li></ul>
       </article>
 <article class="item">
-        <div class="item-head"><span class="item-title"><strong>Validata</strong></span><span class="meta">2026 - Present</span></div>
-        <p>Co-developed B2B SaaS. Batch lookup of Spanish companies by razón social against official BORME records. FastAPI, Celery distributed workflows, Redis, PostgreSQL, React. Original file columns are preserved on export.</p><ul><li>Company-name column inference, atomic Redis quotas, HMAC download tokens, Stripe test Checkout, waitlist persistence, GitHub Actions CI.</li><li>Legal-form mismatch (S.L. vs S.A.) stays REVISION_SUGERIDA.</li></ul>
+        <div class="item-head"><span class="item-title"><strong>Validata</strong></span><span class="meta">2026 to present</span></div>
+        <p>B2B SaaS that verifies Spanish companies against the BORME (Official Gazette of the Commercial Registry). Python, FastAPI, Celery, Redis, PostgreSQL, React, Stripe, GitHub Actions. Co-developed with Jairo García Antolín. Private code.</p><ul><li>Batch lookup by company name: the system infers the name column, keeps the original columns on export and flags REVISION_SUGERIDA when the legal form does not match (S.L. vs S.A.).</li><li>Atomic Redis quotas, HMAC download tokens, Stripe Checkout in test mode and CI/CD with GitHub Actions.</li></ul>
+      </article>
+<article class="item">
+        <div class="item-head"><span class="item-title"><strong>MyPlaythrough</strong> <span class="proj-links"><a href="https://github.com/ikrame-ih/my-playthrough">GitHub</a> | <a href="https://my-playthrough.vercel.app">Demo</a></span></span><span class="meta">Sep 2025 to Jun 2026</span></div>
+        <p>Video game library manager with community features, DAW final project graded 10/10 (top mark). React 18, Vite, Node.js, Express 5, PostgreSQL, JWT, Vitest, Docker Compose.</p><ul><li>PERN application built end to end: Express REST API with JWT, bcrypt, validation, rate limiting and moderation, a relational PostgreSQL model and a React client, with 43 Vitest tests and deployment on Vercel, Render and Neon.</li></ul>
+      </article>
+<article class="item">
+        <div class="item-head"><span class="item-title"><strong>Málaga Onboarding</strong> <span class="proj-links"><a href="https://malaga-onboarding.pages.dev">Web</a></span></span><span class="meta">2026 to present</span></div>
+        <p>Relocation guide for expats joining the PTA (Andalusia Technology Park). JavaScript, Cloudflare Pages, Vercel. Local development tools: LangGraph.js, Groq. Private code.</p><ul><li>Deterministic, LLM-free production plan engine (topological sort, €0 inference).</li><li>Three local LangGraph.js and Groq agent workflows for content research and fact-checking, UX audits and user-needs analysis. The research and verification flow is a four-node graph. Medium and high-risk entries go to human review before publishing.</li><li>Live and in use. Shared with ESN Málaga, whose partners team described it as useful for international students.</li></ul>
+      </article>
+<article class="item">
+        <div class="item-head"><span class="item-title"><strong>import-resolve-cli</strong> <span class="proj-links"><a href="https://github.com/ikrame-ih/import-resolve-cli">GitHub</a> | <a href="https://pypi.org/project/import-resolve-cli/">PyPI</a></span></span><span class="meta">Aug 2026</span></div>
+        <p>CLI and Git merge driver that resolves Python import conflicts. Python, pytest, mypy, Ruff, GitHub Actions.</p><ul><li>Published on PyPI with zero runtime dependencies, atomic writes, syntax validation, 40 tests and a CI/CD release workflow.</li></ul>
       </article>
 
       <h2>Other projects</h2>
 <article class="item">
-        <div class="item-head"><span class="item-title"><strong>import-resolve-cli</strong> <span class="proj-links"><a href="https://github.com/ikrame-ih/import-resolve-cli">GitHub</a> | <a href="https://pypi.org/project/import-resolve-cli/">PyPI</a></span></span><span class="meta">Aug 2026</span></div>
-        <p>PyPI CLI and Git merge driver for Python import conflicts. AST, zero runtime deps, pytest/mypy/ruff CI. Not a product API.</p>
-      </article>
-<article class="item">
         <div class="item-head"><span class="item-title"><strong>english-spanish-web-localization</strong> <span class="proj-links"><a href="https://github.com/ikrame-ih/english-spanish-web-localization">GitHub</a> | <a href="https://www.skills.sh/ikrame-ih/english-spanish-web-localization/english-spanish-web-localization">skills.sh</a></span></span><span class="meta">2026</span></div>
         <p>skills.sh skill with public source. locale_guard checks JSON catalogs (en-GB, en-US, es-ES, es-419). Not a product API.</p>
-      </article>
-<article class="item">
-        <div class="item-head"><span class="item-title"><strong>MyPlaythrough</strong> <span class="proj-links"><a href="https://github.com/ikrame-ih/my-playthrough">GitHub</a> | <a href="https://my-playthrough.vercel.app">Demo</a></span></span><span class="meta">Sep 2025 - Jun 2026</span></div>
-        <p>DAW capstone, 10/10. React, Express, PostgreSQL, Docker Compose, Vitest.</p>
       </article>
 <article class="item">
         <div class="item-head"><span class="item-title"><strong>Live Event Radar</strong> <span class="proj-links"><a href="https://github.com/ikrame-ih/live-event-radar">GitHub</a> | <a href="https://live-event-radar.vercel.app">Demo</a></span></span><span class="meta">2026</span></div>
@@ -65,12 +71,12 @@
       <article class="item">
         <div class="item-head"><strong>DATA CONTROL</strong><span class="meta">Málaga, Spain | Remote</span></div>
         <div class="sub"><span>Software Developer Intern</span><span>Mar 2026 - Jun 2026</span></div>
-        <ul><li>Developed internal applications in a DataFlex environment and in Python: data access, business logic, and ongoing customization.</li><li>Built a Moodle learning platform from scratch: install, course structure, users and roles, a relational SQL database, and CSS/UI theming.</li></ul>
+        <ul><li>Managed the platform's MySQL database with SQL: queries to extract, filter and update user, course and enrolment data.</li><li>Installed and configured a Moodle platform from scratch: web server with PHP, database, scheduled-task cron, plugins, users and courses.</li><li>Developed internal applications in DataFlex and Python: business logic and ongoing customization.</li></ul>
       </article>
 <article class="item">
         <div class="item-head"><strong>EY Global Delivery Services</strong><span class="meta">Málaga, Spain | Hybrid</span></div>
         <div class="sub"><span>Executive Assistant</span><span>Jan 2025 - Mar 2026</span></div>
-        <ul><li>Built a Power App (Power Fx) that ran the CNS Christmas raffle end to end: registration and number assignment in one place, instead of chasing it over email or Teams.</li><li>Coordinated strategic client visits in Málaga end to end: agendas, logistics, and the on-site experience - days that often shaped whether a deal moved forward.</li><li>Ran day-to-day ops - travel, Concur, Outlook, Teams, SharePoint, and the firm's internal tools - in a global professional-services setting.</li></ul>
+        <ul><li>Built a Power App (Power Fx) that ran the Christmas raffle end to end for the 500+ person Consulting department: registration and number assignment in a single app instead of email and Teams.</li><li>Coordinated strategic client visits in Málaga with business stakeholders (agendas, logistics and the on-site experience) in a global professional services firm.</li><li>Managed and regularly tracked data for each visit (participants, expenses and logistics) for follow-up and cost control.</li></ul>
       </article>
 <article class="item">
         <div class="item-head"><strong>EC Azafatas</strong><span class="meta">Málaga, Andalusia, Spain | On-site</span></div>
@@ -80,39 +86,33 @@
 <article class="item">
         <div class="item-head"><strong>Conciencia Fundraising</strong><span class="meta">Málaga, Andalusia, Spain | Hybrid</span></div>
         <div class="sub"><span>Accounting & Administrative Assistant</span><span>Nov 2024 - Dec 2024</span></div>
-        <ul><li>Tracked donors and fundraisers in Drive, Outlook, Evergiving, Factorial, Odoo, and Looker; recorded travel and expense costs for internal cost control.</li></ul>
+        <ul><li>Recorded donors, fundraisers and travel costs in Odoo, Factorial and Looker for internal expense control.</li></ul>
       </article>
 <article class="item">
         <div class="item-head"><strong>SYLVIS PROFESIONAL COSMETIC</strong><span class="meta">Málaga, Andalusia, Spain | On-site</span></div>
         <div class="sub"><span>Administrative Assistant</span><span>Mar 2024 - Oct 2024</span></div>
-        <ul><li>Reconciled bank accounts, posted company and import invoices, and tracked vehicle and import costs in Excel.</li></ul>
+        <ul><li>Reconciled bank accounts, posted company and import invoices and tracked vehicle and import costs in Excel.</li></ul>
       </article>
 
       <h2>Education</h2>
       <article class="item">
-        <div class="item-head"><strong>IES Zaidín Vergeles</strong><span class="meta">Sep 2026 - Present</span></div>
-        <div class="sub"><span>Artificial intelligence and big data, Vocational master's (máster de FP), In progress. EQF Level 5</span><span>Granada, Spain</span></div>
-        <p>100% online: PySpark, DataFrames, Spark, NumPy, Pandas, TensorFlow, PyTorch, Kafka, distributed computing, and ML.</p>
+        <div class="item-head"><strong>IES Zaidín-Vergeles</strong><span class="meta">Sep 2026 to present</span></div>
+        <div class="sub"><span>Specialization Course in Artificial Intelligence and Big Data (vocational master's, Máster FP). EQF 5</span><span>Granada, online</span></div>
+        <p>Coursework: machine learning, deep learning, big data with Hadoop and Spark, NoSQL, natural language processing and responsible AI.</p>
       </article>
 <article class="item">
         <div class="item-head"><strong>CESUR Este, Málaga</strong><span class="meta">Sep 2024 - Jun 2026</span></div>
-        <div class="sub"><span>Web Application Development, Higher Vocational Degree (DAW), Matrícula de Honor. EQF Level 5</span><span>Málaga, Spain</span></div>
-        
+        <div class="sub"><span>Higher Vocational Degree in Web Application Development (CFGS, DAW). EQF 5</span><span>Málaga, Spain</span></div>
+        <p>Final project MyPlaythrough graded 10/10 (top mark).</p>
       </article>
 <article class="item">
         <div class="item-head"><strong>I.E.S. Politécnico Jesús Marín</strong><span class="meta">Sep 2022 - Jun 2024</span></div>
-        <div class="sub"><span>Business Administration and Management, Vocational Diploma, Graduated with Honors. EQF Level 4</span><span>Málaga, Spain</span></div>
+        <div class="sub"><span>Vocational Diploma in Administrative Management (CFGM), graduated with honours (Matrícula de Honor). EQF 4</span><span>Málaga, Spain</span></div>
         
       </article>
 
-      <h2>Certifications</h2>
-<article class="item">
-        <div class="item-head"><strong>Official cloud certifications (GCP, AWS)</strong><span class="meta">In preparation</span></div>
-        <p>In preparation. Not obtained. No production cloud-platform deployment claimed.</p>
-      </article>
-
       <h2>Languages</h2>
-      <p class="langs-line"><strong>Spanish</strong> - Native speaker | <strong>English</strong> - Professional working proficiency (C1) | <strong>Moroccan Arabic (Darija)</strong> - Native speaker</p>
+      <p class="langs-line"><strong>Spanish</strong> - Native | <strong>English</strong> - C2 | <strong>Moroccan Arabic (Darija)</strong> - Native</p>
 
       <h2>Profiles</h2>
       <p class="langs-line">GitHub: <a href="https://github.com/ikrame-ih">github.com/ikrame-ih</a> | LinkedIn: <a href="https://www.linkedin.com/in/ikrame-ih/">linkedin.com/in/ikrame-ih</a></p>
