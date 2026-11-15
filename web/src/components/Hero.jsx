@@ -6,7 +6,7 @@ import { ASSETS } from "@/data/assets";
 import { MOTION_EASE, CTA_SPRING } from "@/lib/motion";
 import { onHashLinkClick } from "@/lib/scroll";
 import StackMarquee from "./StackMarquee";
-import { useContent, useUi } from "@/i18n/LocaleContext";
+import { useContent, useLocale, useUi } from "@/i18n/LocaleContext";
 import CvDownloadMenu from "./CvDownloadMenu";
 
 // After the headline word cascade finishes (~1.3s), ease the rest in quickly.
@@ -18,6 +18,19 @@ const STEP_DELAY = {
 
 const HEADLINE_LINE_DELAY = [0.06, 0.38, 0.7];
 const HEADLINE_WORD_STAGGER = 0.07;
+
+// Desktop keeps the accent's last words on their own line so the title stays three lines.
+const DESKTOP_BREAK_BEFORE = {
+  en: "engineering rigor.",
+  es: "ingeniería.",
+};
+
+const desktopChunks = (text, lang) => {
+  const needle = DESKTOP_BREAK_BEFORE[lang];
+  const at = needle ? text.indexOf(needle) : -1;
+  if (at <= 0) return [text];
+  return [text.slice(0, at), text.slice(at)];
+};
 
 const factsContainer = (reduce) =>
   reduce
@@ -78,6 +91,7 @@ const PortraitFrame = ({ reduce, parallaxOn, children }) => {
 
 export const Hero = () => {
   const reduce = useReducedMotion();
+  const { lang } = useLocale();
   const { PROFILE } = useContent();
   const ui = useUi();
   const [parallaxOn, setParallaxOn] = useState(false);
@@ -186,30 +200,33 @@ export const Hero = () => {
 
             <h1
               data-testid="hero-headline"
-              className="font-serif font-light text-[clamp(2.25rem,6vw,4.5rem)] leading-[1.15] tracking-[-0.03em] text-ink text-pretty"
+              className="font-serif font-light text-[clamp(2.25rem,6vw,4.125rem)] leading-[1.15] tracking-[-0.03em] text-ink"
             >
-              {PROFILE.headlineParts.map((part, i) => (
-                <TextAnimate
-                  key={part.text}
-                  as="span"
-                  by="text"
-                  animation="fadeIn"
-                  delay={HEADLINE_LINE_DELAY[i] ?? 0}
-                  stagger={HEADLINE_WORD_STAGGER}
-                  duration={0.38}
-                  startOnView={false}
-                  play
-                  className={
-                    part.italic
-                      ? "font-serif italic font-light text-ink-soft pb-1"
-                      : part.accent
-                        ? "text-burgundy font-normal"
-                        : ""
-                  }
-                >
-                  {part.text}
-                </TextAnimate>
-              ))}
+              {PROFILE.headlineParts.flatMap((part, i) =>
+                desktopChunks(part.text, lang).map((chunk, j) => (
+                  <span key={`${i}-${j}`} className="md:block">
+                    <TextAnimate
+                      as="span"
+                      by="text"
+                      animation="fadeIn"
+                      delay={HEADLINE_LINE_DELAY[i + j] ?? 0}
+                      stagger={HEADLINE_WORD_STAGGER}
+                      duration={0.38}
+                      startOnView={false}
+                      play
+                      className={
+                        part.italic
+                          ? "font-serif italic font-light text-ink-soft pb-1"
+                          : part.accent
+                            ? "text-burgundy font-normal"
+                            : ""
+                      }
+                    >
+                      {chunk}
+                    </TextAnimate>
+                  </span>
+                )),
+              )}
             </h1>
 
             <div data-testid="hero-positioning" className="mt-8 max-w-[65ch] space-y-4">
