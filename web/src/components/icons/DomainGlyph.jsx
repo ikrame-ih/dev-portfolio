@@ -11,7 +11,16 @@ export const DomainGlyph = ({ id, className = "w-5 h-5 text-burgundy" }) => {
     focusable: false,
   };
 
-  if (id === "frontend") {
+  const glyphId =
+    {
+      data: "ai",
+      cloud: "tooling",
+      engineering: "tooling",
+      business: "m365",
+      competencies: "frontend",
+    }[id] || id;
+
+  if (glyphId === "frontend") {
     return (
       <svg {...common}>
         <rect x="3.5" y="5" width="17" height="14" rx="1.5" />
@@ -21,7 +30,7 @@ export const DomainGlyph = ({ id, className = "w-5 h-5 text-burgundy" }) => {
       </svg>
     );
   }
-  if (id === "backend") {
+  if (glyphId === "backend") {
     return (
       <svg {...common}>
         <rect x="4" y="4" width="16" height="6" rx="1" />
@@ -31,7 +40,7 @@ export const DomainGlyph = ({ id, className = "w-5 h-5 text-burgundy" }) => {
       </svg>
     );
   }
-  if (id === "ai") {
+  if (glyphId === "ai") {
     return (
       <svg {...common}>
         {/* Node graph - reads as ML / distributed data at small sizes */}
@@ -43,7 +52,7 @@ export const DomainGlyph = ({ id, className = "w-5 h-5 text-burgundy" }) => {
       </svg>
     );
   }
-  if (id === "m365") {
+  if (glyphId === "m365") {
     return (
       <svg {...common}>
         <rect x="3.5" y="4" width="17" height="16" rx="1.5" />
@@ -51,7 +60,7 @@ export const DomainGlyph = ({ id, className = "w-5 h-5 text-burgundy" }) => {
       </svg>
     );
   }
-  if (id === "tooling") {
+  if (glyphId === "tooling") {
     return (
       <svg {...common}>
         <circle cx="12" cy="12" r="3" />

@@ -12,204 +12,252 @@ const PROFILE = {
   linkedin: "https://www.linkedin.com/in/ikrame-ih/",
   buyMeACoffee: "https://buymeacoffee.com/ikrame.dev",
   siteUrl: "https://ikrame.dev",
-  overline: "BACKEND & AI ENGINEER, PYTHON, FASTAPI",
+  overline: "DATA, AI & SOFTWARE ENGINEER, MÁLAGA",
   headlineParts: [
-    { text: "The model extracts. " },
-    { text: "The code decides.", accent: true },
+    { text: "Data, AI and software, " },
+    { text: "built with engineering rigor.", accent: true },
   ],
   heroSubtext: [
-    "I'm Ikrame, a backend and applied AI software engineer in Málaga. I design APIs with Python, FastAPI, and PostgreSQL for systems that have to stay consistent under concurrent requests and retries.",
-    "I apply AI with clear limits: the model turns information into structured data; the code validates it, applies the business rules, and makes the critical decisions.",
+    "Ikrame Ibn Hayoun, Data, AI & Software Engineer in Málaga. Bringing engineering rigor to data, AI and software projects: data quality from ingestion, models evaluated with real metrics, and software tested and deployed with CI/CD.",
+    "Building with Python and SQL, REST APIs, ETL pipelines with Spark and Kafka, machine learning and generative AI with LLMs and agents, always backed by tests and evals. +3 years of professional experience and production projects.",
     "Open to remote or hybrid roles.",
   ],
   heroFacts: [
-    { eyebrow: "English", text: "C1 Advanced" },
-    { eyebrow: "Now", text: "Vocational AI specialization" },
+    { eyebrow: "English", text: "C2" },
+    { eyebrow: "Now", text: "Vocational master's in AI and Big Data" },
     { eyebrow: "On PyPI", text: "import-resolve-cli", accent: true },
   ],
-  tagline: "Backend & AI engineer, Python, FastAPI, open to remote or hybrid",
+  tagline: "Data, AI & Software Engineer, Python and SQL, open to remote or hybrid",
   cliAbout: [
-    "Hi. I'm Ikrame. Backend developer in Málaga, with a soft spot for calm interfaces when I build the UI side.",
-    "Most of my energy goes to FastAPI, PostgreSQL, and applied AI on production paths: structured extraction, matching, tests.",
+    "Hi, I'm Ikrame. I work on data, AI and software from Málaga. When I build the UI side, I keep it easy to read.",
+    "Most of my time goes to Python and SQL: ETL pipelines, data quality, FastAPI and PostgreSQL APIs, and LLMs with structured outputs, tests and evals.",
     "Away from the editor I'm usually deep in a story-heavy game, singing to reset my head, or fussing over little aesthetic details.",
-    "Finished DAW (Jun 2026). Starting a vocational specialization in AI and big data, online and compatible with full-time work. Preparing official cloud certifications. Looking for remote or hybrid backend and AI roles.",
+    "Finished DAW in June 2026. Now taking the vocational master's in AI and Big Data, online. Looking for data, AI or backend roles, remote or hybrid.",
     "I also built this portfolio end to end. The code is on GitHub.",
   ],
   cliTldr: [
-    "Python backend in Málaga. FastAPI, PostgreSQL, applied AI. Ships React when a product needs a UI.",
-    "ReckonFlow is the flagship, and it's shipped (ledger API, locked reconcile, structured extraction). Validata is B2B SaaS with Jairo García Antolín, in progress. Looking for remote or hybrid backend and AI roles.",
+    "Data, AI & Software Engineer in Málaga. Python, SQL, ETL with Spark and Kafka, machine learning and generative AI. React when a product needs a UI.",
+    "ReckonFlow is the main project: an expense and bank reconciliation API in production. Validata is a B2B SaaS with Jairo García Antolín, in development. Looking for data, AI or backend roles, remote or hybrid.",
   ],
   cliAvail:
     "Open to remote or hybrid. Based in Málaga (CET). Happy to chat anytime.",
   cliNow:
-    "Finished DAW (Jun 2026) and the DATA CONTROL internship. Starting an online vocational specialization in AI and big data, and preparing cloud certifications. ReckonFlow is done. Validata is in progress. Open to a backend or AI role.",
+    "Finished DAW (Jun 2026) and the DATA CONTROL internship. Taking the vocational master's in AI and Big Data. ReckonFlow is in production; Validata is in development. Open to data, AI or backend roles.",
   portraitLink: {
     label: "Say hi on LinkedIn →",
   },
   practiceAside: {
     title: "At a glance",
-    text: "DAW, Jun 2026. Final project MyPlaythrough got the maximum grade. Backend and applied AI on GitHub: FastAPI, PostgreSQL, LLM extraction, embeddings, tests, and CI. This portfolio too - built from scratch.",
+    text: "DAW, June 2026, final project MyPlaythrough graded 10/10. GitHub has ETL with data quality checks, FastAPI and PostgreSQL APIs, LLM extraction, evals, tests and CI/CD. This site is built from scratch too.",
   },
 };
 
 const LANGUAGES = [
   { lang: "Spanish", level: "Native", code: "ES" },
-  { lang: "English", level: "C1", detail: "Advanced", code: "EN" },
+  { lang: "English", level: "C2", detail: "Proficient", code: "EN" },
   { lang: "Darija", level: "Native", detail: "Moroccan Arabic", code: "AR" },
 ];
 
-// Five skill domains - full-width catalog bands in CVSection.
+// Seven skill domains, full-width catalog bands in CVSection.
 // Languages sit below as three type plates, not a list.
 const STACK = {
   domains: [
     {
-      id: "backend",
+      id: "data",
       index: "01",
-      title: "Backend & data",
-      kicker: "APIs, databases, and the messy bit between them.",
+      title: "Data",
+      kicker: "Ingestion, data quality and processing.",
       groups: [
         {
-          label: "APIs & runtime",
+          label: "Processing",
+          items: ["ETL", "data quality", "data governance", "pandas", "NumPy"],
+        },
+        {
+          label: "Big data",
           items: [
-            "Python",
-            "FastAPI",
-            "Node.js",
-            "Express",
-            "Java",
-            "REST APIs",
-            "JWT",
-            "Celery",
+            "Apache Spark (PySpark, Spark Structured Streaming)",
+            "Kafka",
+            "Hadoop (HDFS, YARN, MapReduce)",
+            "Hive",
+            "HBase",
           ],
         },
         {
-          label: "Data",
-          items: ["PostgreSQL", "SQL", "Redis", "Alembic"],
-        },
-      ],
-    },
-    {
-      id: "frontend",
-      index: "02",
-      title: "Frontend",
-      kicker: "Interfaces and motion when the product needs them.",
-      groups: [
-        {
-          label: "UI & frameworks",
-          pairWithNext: true,
-          items: [
-            "React",
-            "Next.js",
-            "TypeScript",
-            "Vite",
-            "Tailwind CSS",
-            "Framer Motion",
-          ],
-        },
-        {
-          label: "State & maps",
-          pairWithNext: true,
-          items: ["Zustand", "Leaflet"],
-        },
-        {
-          label: "Craft",
-          items: ["Semantic HTML", "Accessibility"],
+          label: "Storage and analysis",
+          items: ["MongoDB and NoSQL", "data warehousing", "Power BI", "R"],
         },
       ],
     },
     {
       id: "ai",
-      index: "03",
-      title: "AI",
-      kicker: "In APIs, and with agents: prompts, skills, routing, context.",
+      index: "02",
+      title: "Generative AI and ML",
+      kicker: "LLMs with structured outputs, evals and clear limits.",
       groups: [
         {
-          label: "In product",
+          label: "Generative AI",
           items: [
             "LLMs",
+            "RAG",
+            "embeddings",
+            "hybrid retrieval",
+            "AI agents (LangChain, LangGraph.js, tool calling)",
+            "prompt engineering",
+            "structured outputs",
+            "guardrails",
             "PydanticAI",
-            "Prompt engineering",
-            "Structured outputs",
-            "Hashed-token vectors",
-            "Hybrid retrieval",
-            "RRF",
-            "Guardrails",
+            "Groq",
           ],
         },
         {
-          label: "With agents",
+          label: "Machine learning",
           items: [
-            "LangGraph",
-            "Context engineering",
-            "LLM routing",
-            "Agent skills",
-            "Git worktrees",
-            "Spec-driven development",
-            "Obsidian",
-            "Orca",
-            "Cursor",
+            "Hugging Face Transformers",
+            "spaCy",
+            "scikit-learn",
+            "TensorFlow",
+            "Keras",
+            "PyTorch",
           ],
         },
         {
-          label: "In progress, AI and big data",
-          items: ["PySpark", "NumPy", "Pandas", "TensorFlow", "PyTorch", "Spark", "Kafka"],
+          label: "Responsible AI",
+          items: ["AI Act", "XAI"],
+        },
+        {
+          label: "AI-assisted development",
+          items: [
+            "OpenAI API and GPT",
+            "Codex",
+            "Claude",
+            "Claude Code",
+            "GitHub Copilot",
+            "Gemini",
+            "Cursor",
+            "Grok",
+            "Llama, Qwen, DeepSeek and Kimi with Ollama",
+            "Orca",
+          ],
         },
       ],
     },
     {
-      id: "tooling",
+      id: "backend",
+      index: "03",
+      title: "Backend",
+      kicker: "APIs, databases, and the messy bit between them.",
+      groups: [
+        {
+          label: "Languages and APIs",
+          items: [
+            "Python",
+            "SQL",
+            "REST APIs",
+            "FastAPI",
+            "Pydantic",
+            "JWT",
+            "Celery",
+            "microservices",
+            "Node.js",
+            "Express",
+          ],
+        },
+        {
+          label: "Databases",
+          items: ["PostgreSQL", "MySQL", "Redis", "SQLAlchemy", "Alembic"],
+        },
+        {
+          label: "Client",
+          items: ["React", "TypeScript"],
+        },
+      ],
+    },
+    {
+      id: "cloud",
       index: "04",
-      title: "Tooling & delivery",
+      title: "Cloud and DevOps",
+      kicker: "Containers, CI and deployment.",
+      groups: [
+        {
+          label: "Cloud and DevOps",
+          items: [
+            "Docker",
+            "Docker Compose",
+            "GitHub Actions",
+            "Prometheus",
+            "AWS (Bedrock, Rekognition, Amazon EMR)",
+            "Google Cloud (Vertex AI, Cloud Vision)",
+            "Azure OpenAI",
+            "Render",
+            "Neon",
+            "Upstash",
+            "Vercel",
+          ],
+        },
+      ],
+    },
+    {
+      id: "engineering",
+      index: "05",
+      title: "Engineering practices",
       kicker: "Tests, CI, and the rest of the delivery loop.",
       groups: [
         {
-          label: "Toolchain",
+          label: "Engineering practices",
           items: [
-            "Git",
-            "GitHub Actions",
             "pytest",
             "Vitest",
             "Playwright",
-            "Docker",
-            "Vercel",
-            "DataFlex",
-            "Obsidian",
-            "Orca",
-            "Cursor",
+            "LLM evals",
+            "CI/CD",
+            "ADR",
+            "mypy",
+            "Ruff",
+            "pip-audit",
+            "idempotency",
+            "spec-driven development (SDD)",
+            "AI-assisted development with human code review",
           ],
         },
       ],
     },
     {
-      id: "m365",
-      index: "05",
-      title: "Microsoft 365",
-      kicker: "Web parts, lists, and flows.",
+      id: "business",
+      index: "06",
+      title: "Business tools",
+      kicker: "Automation and data for business teams.",
       groups: [
         {
-          label: "SPFx 1.23",
-          pairWithNext: true,
+          label: "Business",
+          items: ["Power Apps", "Power Fx", "DataFlex", "Excel", "Odoo", "Looker"],
+        },
+        {
+          label: "Microsoft 365",
           items: [
             "SPFx",
-            "Yeoman",
-            "SPHttpClient",
-            "SharePoint REST",
-            "SCSS modules",
-            "Property pane",
-          ],
-        },
-        {
-          label: "Flows and lists",
-          items: [
             "Power Automate",
-            "Power Apps",
-            "Power Fx",
             "Microsoft Lists",
             "Microsoft 365 Migration Tool",
+            "PnP PowerShell",
+            "Entra ID",
           ],
         },
+      ],
+    },
+    {
+      id: "competencies",
+      index: "07",
+      title: "Competencies",
+      kicker: "How I work with a team.",
+      groups: [
         {
-          label: "Package and tenant",
-          items: ["Heft", "Webpack", "PnP PowerShell", "Entra ID", "App Catalog"],
+          label: "Competencies",
+          items: [
+            "business and client communication",
+            "end-to-end autonomy and ownership",
+            "technical documentation",
+            "teamwork",
+          ],
         },
       ],
     },
@@ -223,8 +271,9 @@ const EXPERIENCE = [
     period: "Mar 2026 - Jun 2026",
     track: "tech",
     bullets: [
-      "Developed internal applications in a DataFlex environment and in Python: data access, business logic, and ongoing customization.",
-      "Built a Moodle learning platform from scratch: environment and install, course and content structure, users and roles, SQL/database, and CSS/UI theming end to end.",
+      "Managed the platform's MySQL database with SQL: queries to extract, filter and update user, course and enrolment data.",
+      "Installed and configured a Moodle platform from scratch: web server with PHP, database, scheduled-task cron, plugins, users and courses.",
+      "Developed internal applications in DataFlex and Python: business logic and ongoing customization.",
     ],
   },
   {
@@ -234,17 +283,17 @@ const EXPERIENCE = [
     track: "hybrid",
     bullets: [
       {
-        text: "Built a Power App (Power Fx) that ran the CNS Christmas raffle end-to-end - registration and number assignment in one place, instead of chasing it over email or Teams.",
+        text: "Built a Power App (Power Fx) that ran the Christmas raffle end to end for the 500+ person Consulting department: registration and number assignment in a single app instead of email and Teams.",
         proof: {
           id: "ey-holiday-raffle",
-          name: "CNS Christmas raffle - Power App",
+          name: "Consulting Christmas raffle, Power App",
           image: ASSETS.experience.eyHolidayRaffle,
           imageAlt:
             "EY Power App for the CNS Christmas hamper raffle - claim a number and store name, email, and assignment",
         },
       },
-      "Coordinated strategic client visits in Málaga end to end: agendas, logistics, and the on-site experience - days that often shaped whether a deal moved forward.",
-      "Ran day-to-day ops - travel, Concur, Outlook, Teams, SharePoint, and the firm's internal tools - in a global professional-services setting.",
+      "Coordinated strategic client visits in Málaga with business stakeholders (agendas, logistics and the on-site experience) in a global professional services firm.",
+      "Managed and regularly tracked data for each visit (participants, expenses and logistics) for follow-up and cost control.",
     ],
   },
   {
@@ -262,7 +311,7 @@ const EXPERIENCE = [
     period: "Nov - Dec 2024",
     track: "biz",
     bullets: [
-      "Tracked donors and fundraisers in Drive, Outlook, Evergiving, Factorial, Odoo, and Looker; recorded travel and expense costs for internal cost control.",
+      "Recorded donors, fundraisers and travel costs in Odoo, Factorial and Looker for internal expense control.",
     ],
   },
   {
@@ -281,33 +330,34 @@ const EDUCATION = [
   {
     school: "IES Zaidín Vergeles",
     degree:
-      "Vocational specialization in artificial intelligence and big data",
+      "Specialization Course in Artificial Intelligence and Big Data (vocational master's, Máster FP)",
     tags: [
-      "Máster de FP",
+      "Máster FP",
       "EQF Level 5",
-      "100% online",
+      "online",
     ],
     period: "Sep 2026 to present",
   },
   {
     school: "CESUR Este, Málaga",
-    degree: "Higher vocational degree in web application development (DAW)",
+    degree: "Higher Vocational Degree in Web Application Development (CFGS, DAW)",
     tags: [
       "Ciclo formativo de grado superior",
       "EQF Level 5",
-      "Matrícula de Honor (10/10)",
+      "Final project graded 10/10 (top mark)",
     ],
     period: "Sep 2024 to Jun 2026",
   },
   {
     school: "I.E.S. Politécnico Jesús Marín",
-    degree: "Vocational diploma in business administration and management",
+    degree:
+      "Vocational Diploma in Administrative Management (CFGM), graduated with honours (Matrícula de Honor)",
     tags: [
       "Ciclo formativo de grado medio",
       "EQF Level 4",
       "Matrícula de Honor",
     ],
-    period: "2022 to 2024",
+    period: "Sep 2022 to Jun 2024",
   },
 ];
 
@@ -317,10 +367,10 @@ const PROJECTS = [
     name: "ReckonFlow",
     lane: "backend",
     tier: "flagship",
-    status: "Shipped. Public API and source. Scalar docs can take about 50s to wake on the free Render tier. Finance routes need an API key in production.",
+    status: "In production. Public API and source. The docs can take about 50 s to wake on Render's free tier. Finance routes need an API key.",
     role: "Sole author",
-    subtitle: "Corporate travel reconciliation API, backend",
-    stack: ["Python", "FastAPI", "PostgreSQL", "Redis", "PydanticAI", "RapidFuzz", "pytest"],
+    subtitle: "Expense and bank reconciliation REST API for corporate travel",
+    stack: ["Python", "FastAPI", "PostgreSQL", "Redis", "PydanticAI", "Groq", "Prometheus", "GitHub Actions"],
     href: "https://github.com/ikrame-ih/reckon-flow",
     demo: "https://reckon-flow.onrender.com/docs",
     demoKind: "docs",
@@ -330,20 +380,20 @@ const PROJECTS = [
     imageCaption: "Interactive API reference (Scalar). Not the concurrency proof.",
     imageAlt: "ReckonFlow API reference showing a matched bank line suggestion",
     description:
-      "FastAPI API for corporate travel reconciliation: it matches expense receipts to bank lines, posts an append-only ledger, and confirms with FOR UPDATE so the same payment cannot be settled twice.",
+      "Expense and bank reconciliation REST API. It ingests bank statement CSVs with data quality checks, matches each expense to its bank line and posts it to an append-only double-entry ledger. On confirm, PostgreSQL locks the row (FOR UPDATE) and Redis stores idempotency keys, so a retry never duplicates payments or entries.",
     problem:
       "The API reconciles corporate travel spend with the bank: it matches each receipt to a bank line and posts it to a ledger.",
     decision:
       "On confirm, Postgres locks the rows (FOR UPDATE) so the same payment cannot post twice. Amounts stay Decimal. The ledger is append-only. The model fills a closed receipt schema; the code decides whether to post it.",
     evidence:
-      "pytest coverage includes concurrent confirm conflict, ledger immutability on Postgres, idempotency replay with a 24h Redis TTL (fails open if Redis is down), and extra=forbid on extraction.",
+      "pytest coverage includes concurrent confirm conflict, ledger immutability on Postgres, idempotency replay with a 24h Redis TTL (fails open if Redis is down), and extra=forbid on extraction. 132 pytest tests, an 80% coverage gate in CI/CD, extraction and matching evals on every run, mypy, Ruff, pip-audit, Prometheus metrics and 7 ADRs.",
     limitations:
       "Idempotency is bounded by Redis availability and TTL. Matching uses SQL, RapidFuzz, and hashed-token vectors with RRF, not a learned embedding model. Receipts are text or OCR text, not built-in image OCR.",
     signals: [
-      "Row locks on reconcile confirm (Postgres FOR UPDATE)",
-      "Decimal money and append-only ledger triggers",
-      "Closed-schema extraction; the model does not approve payouts",
-      "Docs may cold-start; production finance routes are keyed",
+      "Append-only double-entry ledger",
+      "Redis idempotency and FOR UPDATE",
+      "The model fills a closed schema and cannot approve or pay",
+      "132 tests and evals on every CI run",
     ],
     architectureSummary:
       "Clients hit Redis idempotency middleware (SET NX EX, 24h, fail-open), then FastAPI services and PostgreSQL. Receipt uploads return 202 and extract in the background. Matching is SQL prefilter, RapidFuzz, hashed-token vectors, and RRF.",
@@ -363,8 +413,8 @@ const PROJECTS = [
     name: "Validata",
     lane: "backend",
     tier: "supporting",
-    badge: "In progress",
-    status: "In progress. Paid product, no public repository.",
+    badge: "In development",
+    status: "In development. Private code.",
     roleBefore: "Co-developed with ",
     roleLink: {
       href: "https://jagardev.com/",
@@ -373,8 +423,8 @@ const PROJECTS = [
     roleAfter:
       ". Some of the pieces I implemented: company-name column inference, atomic Redis quotas, HMAC download tokens, Stripe test Checkout, a real waitlist, CI, and a search path that only uses corporate names. Jairo designed BORME ingest, Celery workers, RapidFuzz matching, and the FastAPI scaffold.",
     role: "Co-developed with Jairo García Antolín. Some of the pieces I implemented: company-name column inference, atomic Redis quotas, HMAC download tokens, Stripe test Checkout, a real waitlist, CI, and a search path that only uses corporate names. Jairo designed BORME ingest, Celery workers, RapidFuzz matching, and the FastAPI scaffold.",
-    subtitle: "Company-name search, BORME, B2B SaaS",
-    stack: ["Python", "FastAPI", "Celery", "PostgreSQL", "Redis", "React", "TypeScript", "Stripe"],
+    subtitle: "B2B SaaS that verifies Spanish companies against the BORME (Official Gazette of the Commercial Registry)",
+    stack: ["Python", "FastAPI", "Celery", "Redis", "PostgreSQL", "React", "Stripe", "GitHub Actions"],
     href: null,
     demo: null,
     proof: "validata",
@@ -388,11 +438,11 @@ const PROJECTS = [
     problem:
       "The engine searches by company name. A file with no name column never reaches matching.",
     decision:
-      "Quota is reserved in Redis (atomic Lua) before the worker. The inferencer picks the company-name column. Downloads use HMAC tokens. S.L. vs S.A. stays REVISION_SUGERIDA.",
+      "Quota is reserved in Redis (atomic Lua) before the worker. The inferencer picks the company-name column. Downloads use HMAC tokens. If the legal form does not match (S.L. vs S.A.), the system flags REVISION_SUGERIDA.",
     evidence:
       "Tests cover column inference, atomic quota, signed downloads, and Stripe test webhooks.",
     signals: [
-      "Paid product, no public repository",
+      "In development. Private code.",
       "Search by company name against BORME",
       "Original columns intact on export",
       "Co-built with Jairo García Antolín",
@@ -407,14 +457,85 @@ const PROJECTS = [
   class API,Col,Q accent`,
   },
   {
+    id: "my-playthrough",
+    name: "MyPlaythrough",
+    badge: "DAW final project",
+    lane: "backend",
+    tier: "compact",
+    status: "Public demo and source. Capstone graded 10/10.",
+    role: "Sole author",
+    subtitle: "Video game library manager with community features, DAW final project (10/10)",
+    stack: [
+      "React 18",
+      "Vite",
+      "Node.js",
+      "Express 5",
+      "PostgreSQL",
+      "JWT",
+      "Vitest",
+      "Docker Compose",
+    ],
+    href: "https://github.com/ikrame-ih/my-playthrough",
+    demo: "https://my-playthrough.vercel.app/",
+    image: ASSETS.projects.myPlaythrough,
+    imageAlt: "MyPlaythrough - personal game library and community UI",
+    description:
+      "DAW final project graded 10/10. PERN application built end to end: Express REST API with JWT, bcrypt, validation, rate limiting and moderation, a relational PostgreSQL model and a React client, with 43 Vitest tests and deployment on Vercel, Render and Neon.",
+    architectureSummary:
+      "A React SPA talks to an Express REST API. The API handles JWT and bcrypt auth, persists data in PostgreSQL, and proxies Steam/RAWG cover requests.",
+    mermaid: `flowchart LR
+  SPA[React SPA] --> API[Express REST API]
+  API --> Auth[JWT + bcrypt]
+  API --> DB[(PostgreSQL)]
+  API --> Covers[Steam / RAWG proxy]
+  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
+  class API,Auth,DB accent`,
+  },
+  {
+    id: "malaga-onboarding",
+    name: "Málaga Onboarding",
+    lane: "backend",
+    tier: "compact",
+    status: "Live and in use. Private code. The AI agents run locally only.",
+    role: "Sole author",
+    subtitle: "Relocation guide for expats joining the PTA (Andalusia Technology Park)",
+    stack: ["JavaScript", "Cloudflare Pages", "Vercel"],
+    href: null,
+    demo: "https://malaga-onboarding.pages.dev/",
+    live: true,
+    image: ASSETS.projects.malagaOnboarding,
+    imageAlt:
+      "Device mockup of málaga.onboarding in light and dark mode - desktop, laptop, tablet, and phone",
+    description:
+      "Guide to settling in Málaga: padrón, NIE, Social Security. The plan comes from a deterministic engine with a topological sort and no LLM (€0 inference). Three local LangGraph.js + Groq agent workflows handle content research and fact-checking, UX audits and user-needs analysis. Shared with ESN Málaga (Erasmus Student Network), whose partners team described it as useful for international students.",
+    signals: [
+      "Deterministic plan, no LLM: €0 inference",
+      "Three local agent workflows with LangGraph.js and Groq",
+      "Medium and high-risk entries go to human review before publishing",
+    ],
+    architectureSummary:
+      "The public API orders steps with a topological sort. The local research and verification flow is a four-node LangGraph.js graph: researcher (Groq), source finder (DuckDuckGo + Cheerio), fact-checker and editor. Medium or high risk goes to human review.",
+    mermaid: `flowchart LR
+  UI[Checklist UI] --> Plan[Plan API]
+  Plan --> Sort[Topological sort]
+  Op[Operator CLI] --> LG[LangGraph.js]
+  LG --> R[Researcher Groq]
+  LG --> S[Sources + Cheerio]
+  LG --> F[Fact checker]
+  F --> H{risk?}
+  H -->|high| Human[HUMAN_REVIEW]
+  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
+  class Plan,LG,F accent`,
+  },
+  {
     id: "import-resolve-cli",
-    name: "Import Resolve CLI",
-    lane: "tools",
+    name: "import-resolve-cli",
+    lane: "backend",
     tier: "compact",
     status: "Published on PyPI. Import-block conflicts only, not arbitrary merges.",
     role: "Sole author",
-    subtitle: "CLI developer tool and Git merge driver, PyPI",
-    stack: ["Python 3.9+", "ast", "Hatchling", "PyPI", "GitHub Actions"],
+    subtitle: "CLI and Git merge driver that resolves Python import conflicts",
+    stack: ["Python", "pytest", "mypy", "Ruff", "GitHub Actions"],
     href: "https://github.com/ikrame-ih/import-resolve-cli",
     demo: "https://pypi.org/project/import-resolve-cli/",
     demoKind: "package",
@@ -422,7 +543,7 @@ const PROJECTS = [
     imageAlt:
       "VS Code with a Python import merge conflict and import-resolve dry-run resolving it in the terminal",
     description:
-      "Zero-dependency CLI and Git merge driver. It parses conflicted Python import blocks with ast, then dedupes and sorts them.",
+      "CLI and Git merge driver that resolves conflicts in Python import blocks. Published on PyPI with zero runtime dependencies, atomic writes, syntax validation, 40 tests and a CI/CD release workflow.",
     architectureSummary:
       "Parses Git conflict markers in .py files, extracts the conflicted import blocks, deduplicates and sorts them to PEP 8, and can run as an automated Git merge driver.",
     mermaid: `flowchart LR
@@ -466,77 +587,6 @@ const PROJECTS = [
   Copy --> Guard[locale_guard Python]
   classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
   class Guides,Guard accent`,
-  },
-  {
-    id: "malaga-onboarding",
-    name: "Málaga Onboarding",
-    lane: "apps",
-    tier: "compact",
-    status: "Public checklist. Operator CLI is local.",
-    role: "Sole author",
-    subtitle: "Expat relocation checklist, web + LangGraph",
-    stack: ["JavaScript", "LangGraph.js", "Groq", "Cheerio", "Cloudflare"],
-    href: null,
-    demo: "https://malaga-onboarding.pages.dev/",
-    live: true,
-    image: ASSETS.projects.malagaOnboarding,
-    imageAlt:
-      "Device mockup of málaga.onboarding in light and dark mode - desktop, laptop, tablet, and phone",
-    description:
-      "Landing checklist for Málaga (padrón, NIE, Social Security). The public plan is a topological sort, so the user path does not call an LLM. A local LangGraph.js CLI checks fact sheets and can stop on HUMAN_REVIEW_REQUIRED.",
-    signals: [
-      "User path is a graph sort - 0€ LLM inference",
-      "Operator CLI: LangGraph.js, typed GraphState, Groq",
-      "Ambiguous claims go to HUMAN_REVIEW_REQUIRED",
-    ],
-    architectureSummary:
-      "The public API orders steps with a topological sort. The operator CLI is a four-node LangGraph.js graph: researcher (Groq), source finder (DuckDuckGo + Cheerio), fact-checker, editor. Medium or high risk cuts to human review.",
-    mermaid: `flowchart LR
-  UI[Checklist UI] --> Plan[Plan API]
-  Plan --> Sort[Topological sort]
-  Op[Operator CLI] --> LG[LangGraph.js]
-  LG --> R[Researcher Groq]
-  LG --> S[Sources + Cheerio]
-  LG --> F[Fact checker]
-  F --> H{risk?}
-  H -->|high| Human[HUMAN_REVIEW]
-  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
-  class Plan,LG,F accent`,
-  },
-  {
-    id: "my-playthrough",
-    name: "MyPlaythrough",
-    badge: "DAW final project",
-    lane: "apps",
-    tier: "compact",
-    status: "Public demo and source. Capstone graded 10/10.",
-    role: "Sole author",
-    subtitle: "Personal game library manager, full-stack",
-    stack: [
-      "React",
-      "Vite",
-      "Node.js",
-      "Express",
-      "PostgreSQL",
-      "JWT",
-      "Docker",
-      "Vitest",
-    ],
-    href: "https://github.com/ikrame-ih/my-playthrough",
-    demo: "https://my-playthrough.vercel.app/",
-    image: ASSETS.projects.myPlaythrough,
-    imageAlt: "MyPlaythrough - personal game library and community UI",
-    description:
-      "DAW capstone (10/10): PERN app for backlog, community, and moderation. JWT, bcrypt, Steam/RAWG proxy, Docker Compose, Vitest on client and server.",
-    architectureSummary:
-      "A React SPA talks to an Express REST API. The API handles JWT and bcrypt auth, persists data in PostgreSQL, and proxies Steam/RAWG cover requests.",
-    mermaid: `flowchart LR
-  SPA[React SPA] --> API[Express REST API]
-  API --> Auth[JWT + bcrypt]
-  API --> DB[(PostgreSQL)]
-  API --> Covers[Steam / RAWG proxy]
-  classDef accent fill:#4A0E0E,stroke:#1A1A1A,color:#F5F1EB;
-  class API,Auth,DB accent`,
   },
   {
     id: "live-event-radar",
@@ -787,7 +837,7 @@ const catalog = {
     cvTitleBefore: "Roles, skills, and ",
     cvTitleAccent: "study.",
     cvKicker:
-      "I spent years on reconciliations, expenses, and the people who use the tools. That is why I care about concurrent updates, retries, and what the system should do when something is uncertain. I work in one harness: specs in Obsidian, spec-driven development, Orca to route agents. I write the code in Cursor with Grok 4.6, Composer, Codex (Astra, Sol, Terra, Luna, GPT-5), and Gemini Pro and Flash 3.8. The merge stays mine.",
+      "Administrative and accounting work meant reconciling bank accounts, recording expenses and tracking costs. That is why data quality, concurrency and retries come first when I design a system. Working with spec-driven development and AI-assisted coding, with every change reviewed by me before it is merged. Tools: OpenAI API and GPT, Codex, Claude, Claude Code, GitHub Copilot, Gemini, Cursor, Grok, LangChain, AWS Bedrock, Vertex AI and Azure OpenAI; Llama, Qwen, DeepSeek and Kimi with Ollama; Orca to orchestrate coding agents; specs in Obsidian.",
     languagesTitle: "Languages",
     languagesKicker: "Spanish, English, and Darija. The ones I actually use.",
     experience: "Experience",
@@ -796,8 +846,8 @@ const catalog = {
     projectsTitleBefore: "Work you can ",
     projectsTitleAccent: "inspect.",
     projectsKicker:
-      "Python projects, published tools, and other work as a hands-on builder.",
-    pythonLane: "Python backends",
+      "Data, AI and software projects with a demo, docs or code to review. Other work below.",
+    pythonLane: "Main projects",
     toolsLane: "Published tools",
     appsLane: "Other work",
     inProgress: "In progress",
