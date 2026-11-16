@@ -36,35 +36,86 @@ import {
   siLanggraph,
   siSass,
   siWebpack,
+  siApachehadoop,
+  siApachehive,
+  siApachehbase,
+  siMongodb,
+  siR,
+  siHuggingface,
+  siSpacy,
+  siScikitlearn,
+  siClaude,
+  siClaudecode,
+  siGithubcopilot,
+  siGooglegemini,
+  siOllama,
+  siPydantic,
+  siMysql,
+  siSqlalchemy,
+  siCelery,
+  siPrometheus,
+  siGooglecloud,
+  siRender,
+  siNeon,
+  siUpstash,
+  siPytest,
+  siRuff,
+  siOdoo,
+  siLooker,
 } from "simple-icons";
 import {
   ArrowRightLeft,
+  BadgeCheck,
   Blocks,
   BookOpenCheck,
   Bot,
+  Boxes,
   Braces,
   Brain,
   Cable,
+  ChartColumn,
   ChartScatter,
+  ClipboardCheck,
+  Cloud,
   Combine,
+  Cpu,
+  Database,
   FileJson,
+  FileSpreadsheet,
+  FileText,
+  Flag,
   FolderTree,
+  Gavel,
+  GitBranch,
+  GitCommitHorizontal,
   GitMerge,
   Hammer,
   KeyRound,
   Layers,
   LayoutGrid,
+  Library,
   List,
+  ListChecks,
+  MessagesSquare,
   PackageOpen,
   MessageSquareCode,
   Puzzle,
+  Repeat,
+  Scale,
+  ScanEye,
+  ScrollText,
+  ShieldAlert,
   ShieldCheck,
   SlidersHorizontal,
+  Sparkles,
   SquarePen,
   Store,
   Terminal,
+  UserRoundCheck,
+  Users,
   Waypoints,
   Workflow,
+  Zap,
 } from "lucide-react";
 
 const Svg = ({ children, className, viewBox = "0 0 24 24", style }) => (
@@ -252,11 +303,38 @@ const FROM_SIMPLE = {
   Vercel: siVercel,
   JWT: siJsonwebtokens,
   "Semantic HTML": siHtml5,
-  "HTML semántico": siHtml5,
   Electron: siElectron,
   Redis: siRedis,
   NumPy: siNumpy,
   Pandas: siPandas,
+  "Apache Spark": siApachespark,
+  Hadoop: siApachehadoop,
+  Hive: siApachehive,
+  HBase: siApachehbase,
+  "MongoDB and NoSQL": siMongodb,
+  R: siR,
+  "Hugging Face Transformers": siHuggingface,
+  spaCy: siSpacy,
+  "scikit-learn": siScikitlearn,
+  Claude: siClaude,
+  "Claude Code": siClaudecode,
+  "GitHub Copilot": siGithubcopilot,
+  Gemini: siGooglegemini,
+  "Llama, Qwen, DeepSeek and Kimi with Ollama": siOllama,
+  Pydantic: siPydantic,
+  MySQL: siMysql,
+  SQLAlchemy: siSqlalchemy,
+  Celery: siCelery,
+  "Docker Compose": siDocker,
+  Prometheus: siPrometheus,
+  "Google Cloud": siGooglecloud,
+  Render: siRender,
+  Neon: siNeon,
+  Upstash: siUpstash,
+  pytest: siPytest,
+  Ruff: siRuff,
+  Odoo: siOdoo,
+  Looker: siLooker,
   TensorFlow: siTensorflow,
   Keras: siKeras,
   PyTorch: siPytorch,
@@ -300,6 +378,36 @@ const FROM_LUCIDE = {
   "PnP PowerShell": Terminal,
   "Entra ID": KeyRound,
   "App Catalog": Store,
+  ETL: ArrowRightLeft,
+  "data quality": ClipboardCheck,
+  "data governance": Scale,
+  "data warehousing": Database,
+  "Power BI": ChartColumn,
+  RAG: Library,
+  "AI agents": Bot,
+  PydanticAI: Sparkles,
+  Groq: Zap,
+  "AI Act": Gavel,
+  XAI: ScanEye,
+  "OpenAI API and GPT": Sparkles,
+  Codex: Terminal,
+  Grok: Cpu,
+  Alembic: GitCommitHorizontal,
+  microservices: Boxes,
+  AWS: Cloud,
+  "Azure OpenAI": Cloud,
+  "LLM evals": ListChecks,
+  "CI/CD": GitBranch,
+  ADR: ScrollText,
+  mypy: BadgeCheck,
+  "pip-audit": ShieldAlert,
+  idempotency: Repeat,
+  "AI-assisted development with human code review": UserRoundCheck,
+  Excel: FileSpreadsheet,
+  "business and client communication": MessagesSquare,
+  "end-to-end autonomy and ownership": Flag,
+  "technical documentation": FileText,
+  teamwork: Users,
 };
 
 const LucideMark = ({ Icon, className }) => (
@@ -311,8 +419,64 @@ const LucideMark = ({ Icon, className }) => (
   />
 );
 
+// Spanish names point at the English key. Lookup folds case before this map.
 const ALIASES = {
   "Recuperación híbrida": "Hybrid retrieval",
+  "HTML semántico": "Semantic HTML",
+  "calidad de datos": "data quality",
+  "gobierno del dato": "data governance",
+  "MongoDB y NoSQL": "MongoDB and NoSQL",
+  "data warehouse": "data warehousing",
+  "agentes de IA": "AI agents",
+  "salidas estructuradas": "structured outputs",
+  "APIs REST": "REST APIs",
+  "microservicios": "microservices",
+  "evals de LLM": "LLM evals",
+  "idempotencia": "idempotency",
+  "desarrollo asistido por IA con revisión humana del código":
+    "AI-assisted development with human code review",
+  "comunicación con negocio y cliente": "business and client communication",
+  "autonomía y ownership de punta a punta":
+    "end-to-end autonomy and ownership",
+  "documentación técnica": "technical documentation",
+  "trabajo en equipo": "teamwork",
+  "OpenAI API y GPT": "OpenAI API and GPT",
+  "Llama, Qwen, DeepSeek y Kimi con Ollama":
+    "Llama, Qwen, DeepSeek and Kimi with Ollama",
+};
+
+const fold = (value) => String(value).trim().toLowerCase();
+
+const aliasToEnglish = new Map(
+  Object.entries(ALIASES).map(([from, to]) => [fold(from), fold(to)]),
+);
+
+const registry = new Map();
+const remember = (name, entry) => {
+  registry.set(fold(name), entry);
+};
+for (const [name, Icon] of Object.entries(CUSTOM)) {
+  remember(name, { type: "custom", Icon });
+}
+for (const [name, Icon] of Object.entries(FROM_LUCIDE)) {
+  remember(name, { type: "lucide", Icon });
+}
+for (const [name, brand] of Object.entries(FROM_SIMPLE)) {
+  remember(name, { type: "simple", brand });
+}
+
+const lookupEntry = (name) => {
+  const folded = fold(name);
+  const key = aliasToEnglish.get(folded) ?? folded;
+  return registry.get(key) ?? null;
+};
+
+const resolveEntry = (name) => {
+  const direct = lookupEntry(name);
+  if (direct) return direct;
+  const head = String(name).split("(")[0].trim();
+  if (head && head !== String(name).trim()) return lookupEntry(head);
+  return null;
 };
 
 const Fallback = (p) => (
@@ -335,12 +499,14 @@ export const StackIcon = ({
   name,
   className = "w-4 h-4 shrink-0 text-burgundy",
 }) => {
-  const key = ALIASES[name] ?? name;
-  const Custom = CUSTOM[key];
-  if (Custom) return <Custom className={className} />;
-  const Lucide = FROM_LUCIDE[key];
-  if (Lucide) return <LucideMark Icon={Lucide} className={className} />;
-  const brand = FROM_SIMPLE[key];
-  if (brand) return <BrandPath path={brand.path} className={className} />;
-  return <Fallback className={className} />;
+  const entry = resolveEntry(name);
+  if (!entry) return <Fallback className={className} />;
+  if (entry.type === "custom") {
+    const Icon = entry.Icon;
+    return <Icon className={className} />;
+  }
+  if (entry.type === "lucide") {
+    return <LucideMark Icon={entry.Icon} className={className} />;
+  }
+  return <BrandPath path={entry.brand.path} className={className} />;
 };

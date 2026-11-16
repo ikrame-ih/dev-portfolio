@@ -1338,7 +1338,7 @@
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 48s linear infinite;
+  animation: marquee var(--marquee-duration, 400s) linear infinite;
   will-change: transform;
 }
 

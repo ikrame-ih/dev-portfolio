@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import { Bow } from "./Bow";
 import { useContent } from "@/i18n/LocaleContext";
@@ -38,11 +38,14 @@ const Separator = ({ index }) => {
   );
 };
 
+const PX_PER_SECOND = 45;
+
 /** Quiet mono ticker - pauses on hover; static when reduced motion is preferred. */
 export const StackMarquee = ({ className = "" }) => {
   const reduce = useReducedMotion();
   const { STACK, marqueeRare } = useContent();
   const [animateReady, setAnimateReady] = useState(false);
+  const trackRef = useRef(null);
   const shouldAnimate = !reduce && animateReady;
 
   useEffect(() => {
@@ -68,6 +71,31 @@ export const StackMarquee = ({ className = "" }) => {
     return buildTickerItems(skillItems, marqueeRare ?? []);
   }, [STACK, marqueeRare]);
 
+  useLayoutEffect(() => {
+    const el = trackRef.current;
+    if (!el || reduce) return undefined;
+    let last = "";
+    const apply = () => {
+      const half = el.scrollWidth / 2;
+      if (!half) return;
+      const next = `${(half / PX_PER_SECOND).toFixed(3)}s`;
+      if (next === last) return;
+      last = next;
+      el.style.setProperty("--marquee-duration", next);
+    };
+    apply();
+    const observer = new ResizeObserver(apply);
+    observer.observe(el);
+    let cancelled = false;
+    document.fonts?.ready?.then(() => {
+      if (!cancelled) apply();
+    });
+    return () => {
+      cancelled = true;
+      observer.disconnect();
+    };
+  }, [reduce, tickerItems]);
+
   const loop = [...tickerItems, ...tickerItems];
 
   return (
@@ -77,6 +105,7 @@ export const StackMarquee = ({ className = "" }) => {
       aria-hidden="true"
     >
       <div
+        ref={trackRef}
         className={`flex w-max gap-0 py-3 font-mono text-xs uppercase tracking-[0.22em] ${
           shouldAnimate ? "marquee-track" : ""
         }`}
