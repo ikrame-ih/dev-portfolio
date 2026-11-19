@@ -245,7 +245,7 @@ export const GuestbookCanvas = () => {
       tabIndex={-1}
       aria-labelledby="guestbook-heading"
       data-testid="guestbook-section"
-      className="relative py-16 sm:py-20 md:py-32 outline-none"
+      className="fill-under-nav relative py-16 sm:py-20 md:py-32 outline-none"
     >
       <div className="mx-auto max-w-[1240px] px-5 md:px-12">
         <Reveal className="mb-10 md:mb-12 flex flex-col items-start gap-5 md:flex-row md:items-end md:justify-between">

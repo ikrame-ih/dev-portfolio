@@ -333,15 +333,17 @@ export const CVSection = () => {
                             onClick={() => setProofShot(proof)}
                             aria-label={ui.viewProof.replace("{name}", proof.name)}
                             data-testid={`experience-proof-${proof.id}`}
-                            className="group inline-flex max-w-[13.5rem] text-left outline-none focus-visible:ring-2 focus-visible:ring-burgundy/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
+                            className="group inline-flex w-[13.5rem] max-w-full text-left outline-none focus-visible:ring-2 focus-visible:ring-burgundy/40 focus-visible:ring-offset-2 focus-visible:ring-offset-bone"
                           >
-                            <span className="block overflow-hidden border border-ink/15 bg-bone-200">
+                            <span className="block w-full overflow-hidden border border-ink/15 bg-bone-200">
                               <img
                                 src={proof.image}
                                 alt=""
+                                width={216}
+                                height={135}
                                 loading="lazy"
                                 decoding="async"
-                                className="aspect-[16/10] w-full object-cover object-left opacity-60 grayscale transition-[filter,opacity] duration-500 group-hover:opacity-100 group-hover:grayscale-0 group-focus-visible:opacity-100 group-focus-visible:grayscale-0"
+                                className="aspect-[16/10] h-auto w-full object-cover object-left opacity-60 grayscale transition-[filter,opacity] duration-500 group-hover:opacity-100 group-hover:grayscale-0 group-focus-visible:opacity-100 group-focus-visible:grayscale-0"
                               />
                             </span>
                           </button>

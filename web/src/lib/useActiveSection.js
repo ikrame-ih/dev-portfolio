@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { NAV_SCROLL_OFFSET } from "./scroll";
+import { navScrollOffset } from "./scroll";
 
 const SECTION_IDS = ["projects", "cv", "linkedin", "bento", "contact", "guestbook"];
 
-/** How far below the nav the “active” line sits. */
-const ACTIVE_LINE = NAV_SCROLL_OFFSET + 48;
+/** How far below the nav the active line sits. */
+const activeLine = () => navScrollOffset() + 48;
 
 /** Ignore observer/scroll updates briefly after a nav click. */
 const LOCK_MS = 1200;
@@ -14,7 +14,7 @@ const LOCK_MS = 1200;
  * layout shifts make a long-lived offset cache drift (e.g. LinkedIn → Contact).
  */
 function sectionFromScroll() {
-  const marker = window.scrollY + ACTIVE_LINE;
+  const marker = window.scrollY + activeLine();
   let current = null;
   for (const id of SECTION_IDS) {
     const el = document.getElementById(id);
