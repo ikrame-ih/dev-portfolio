@@ -1,7 +1,48 @@
 import { prefersReducedMotion } from "./motion";
 
-/** Matches fixed nav `h-16` - keep in sync with `scroll-padding-top`. */
-export const NAV_SCROLL_OFFSET = 64;
+/** Pixels of `--nav-h` (nav content plus its border). Fallback matches that variable. */
+export const navScrollOffset = () => {
+  if (typeof document === "undefined") return 65;
+  const raw = getComputedStyle(document.documentElement)
+    .getPropertyValue("--nav-h")
+    .trim();
+  const value = Number.parseFloat(raw);
+  return Number.isFinite(value) ? value : 65;
+};
+
+let alignGeneration = 0;
+
+/** One instant nudge after the scroll stops, if the section is not under the nav. */
+const correctUnderNav = (el, behavior) => {
+  const generation = ++alignGeneration;
+  const align = () => {
+    if (generation !== alignGeneration) return;
+    if (!(el instanceof HTMLElement) || !el.isConnected) return;
+    const delta = el.getBoundingClientRect().top - navScrollOffset();
+    if (Math.abs(delta) <= 1) return;
+    window.scrollTo({
+      top: Math.max(0, window.scrollY + delta),
+      behavior: "auto",
+    });
+  };
+
+  if (behavior === "auto") {
+    window.requestAnimationFrame(() => window.requestAnimationFrame(align));
+    return;
+  }
+
+  let settled = false;
+  let timer = 0;
+  const finish = () => {
+    if (settled) return;
+    settled = true;
+    window.clearTimeout(timer);
+    window.removeEventListener("scrollend", finish);
+    window.requestAnimationFrame(align);
+  };
+  window.addEventListener("scrollend", finish);
+  timer = window.setTimeout(finish, 1600);
+};
 
 export const scrollBehavior = () =>
   prefersReducedMotion() ? "auto" : "smooth";
@@ -23,9 +64,10 @@ export const scrollToElement = (id, block = "start", behavior) => {
   if (block === "start") {
     // Scroll first - focusing before scrollTo is cancelled on some mobile WebKits.
     const top =
-      el.getBoundingClientRect().top + window.scrollY - NAV_SCROLL_OFFSET;
+      el.getBoundingClientRect().top + window.scrollY - navScrollOffset();
     window.scrollTo({ top: Math.max(0, top), ...scrollOpts });
     focusTarget(el);
+    correctUnderNav(el, scrollOpts.behavior);
     return;
   }
   el.scrollIntoView({

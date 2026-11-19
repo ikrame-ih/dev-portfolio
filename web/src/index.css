@@ -18,12 +18,19 @@
   --cream: 245 241 235;
   --cursor-bow: url("/images/cursor-bow.svg") 16 16, auto;
   --cursor-bow-light: url("/images/cursor-bow-light.svg") 16 16, auto;
+  /* Fixed nav: h-16 (64px) plus border-b (1px). scroll.js reads this. */
+  --nav-h: 65px;
 }
 
 @layer base {
   html {
-    /* Match fixed nav h-16 (4rem) - larger values leave a strip of the previous section. */
-    scroll-padding-top: 4rem;
+    scroll-padding-top: var(--nav-h);
+  }
+
+  /* Short sections fill the area under the fixed nav. 100vh first, then 100svh. */
+  .fill-under-nav {
+    min-height: calc(100vh - var(--nav-h));
+    min-height: calc(100svh - var(--nav-h));
   }
 
   html,
